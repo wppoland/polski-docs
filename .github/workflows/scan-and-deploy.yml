@@ -1,9 +1,6 @@
 name: Scan repos and deploy docs
 
 on:
-  push:
-    branches: [main]
-
   schedule:
     # Every Monday at 06:00 UTC
     - cron: '0 6 * * 1'
@@ -61,6 +58,35 @@ jobs:
           git add src/ scripts/data/scan-results.json
           git commit -m "chore: auto-update developer reference from source scan"
           git push
+
+      - name: Build Astro site
+        run: npm run build
+
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy dist --project-name=polski-docs
+
+  # Separate deploy-only job triggered on push (no scanner needed)
+  deploy:
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout docs repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
 
       - name: Build Astro site
         run: npm run build
