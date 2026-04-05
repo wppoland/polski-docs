@@ -1,0 +1,73 @@
+name: Scan repos and deploy docs
+
+on:
+  push:
+    branches: [main]
+
+  schedule:
+    # Every Monday at 06:00 UTC
+    - cron: '0 6 * * 1'
+
+  repository_dispatch:
+    types: [polski-updated]
+
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: scan-and-deploy
+  cancel-in-progress: false
+
+jobs:
+  scan-generate-deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout docs repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run repository scanner
+        run: node scripts/scan-repos.mjs
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Run documentation generator
+        run: node scripts/generate-docs.mjs
+
+      - name: Check for changes
+        id: changes
+        run: |
+          git diff --quiet -- src/ scripts/data/ && echo "changed=false" >> "$GITHUB_OUTPUT" || echo "changed=true" >> "$GITHUB_OUTPUT"
+
+      - name: Commit updated docs
+        if: steps.changes.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add src/ scripts/data/scan-results.json
+          git commit -m "chore: auto-update developer reference from source scan"
+          git push
+
+      - name: Build Astro site
+        run: npm run build
+
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy dist --project-name=polski-docs

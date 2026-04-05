@@ -1,0 +1,13 @@
+name = "polski-docs"
+compatibility_date = "2024-12-01"
+
+[site]
+bucket = "./dist"
+
+# Pages-specific settings are configured via the wrangler CLI
+# and the Cloudflare dashboard. The deploy command is:
+#   wrangler pages deploy dist --project-name=polski-docs
+#
+# Environment variables required (set as GitHub Actions secrets):
+#   CLOUDFLARE_ACCOUNT_ID - Your Cloudflare account ID
+#   CLOUDFLARE_API_TOKEN  - API token with Pages edit permissions

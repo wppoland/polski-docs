@@ -1,0 +1,51 @@
+/* Polski for WooCommerce - Emerald accent theme */
+
+:root {
+	--sl-color-accent-low: #064e3b;
+	--sl-color-accent: #10b981;
+	--sl-color-accent-high: #a7f3d0;
+	--sl-color-white: #ffffff;
+	--sl-color-gray-1: #e5e7eb;
+	--sl-color-gray-2: #c5c9d1;
+	--sl-color-gray-3: #8b8f98;
+	--sl-color-gray-4: #585c67;
+	--sl-color-gray-5: #3a3d44;
+	--sl-color-gray-6: #24272e;
+	--sl-color-black: #17191e;
+}
+
+:root[data-theme='light'] {
+	--sl-color-accent-low: #d1fae5;
+	--sl-color-accent: #059669;
+	--sl-color-accent-high: #064e3b;
+	--sl-color-white: #17191e;
+	--sl-color-gray-1: #24272e;
+	--sl-color-gray-2: #3a3d44;
+	--sl-color-gray-3: #585c67;
+	--sl-color-gray-4: #8b8f98;
+	--sl-color-gray-5: #c5c9d1;
+	--sl-color-gray-6: #e5e7eb;
+	--sl-color-black: #ffffff;
+}
+
+/* Disclaimer styling */
+.disclaimer {
+	margin-top: 3rem;
+	padding: 1rem;
+	border-top: 1px solid var(--sl-color-gray-5);
+	font-size: 0.8rem;
+	color: var(--sl-color-gray-3);
+	font-style: italic;
+}
+
+/* Polish flag accent on hero */
+.hero-flag {
+	display: inline-block;
+	width: 1.5em;
+	height: 1em;
+	vertical-align: middle;
+	background: linear-gradient(to bottom, #fff 50%, #dc143c 50%);
+	border: 1px solid #e5e7eb;
+	border-radius: 2px;
+	margin-right: 0.3em;
+}

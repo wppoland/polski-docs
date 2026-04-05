@@ -4,21 +4,172 @@ import starlight from '@astrojs/starlight';
 
 // https://astro.build/config
 export default defineConfig({
+	site: 'https://polski.wppoland.com',
 	integrations: [
 		starlight({
-			title: 'My Docs',
-			social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/withastro/starlight' }],
+			title: 'Polski for WooCommerce',
+			logo: {
+				src: './src/assets/icon.png',
+				replacesTitle: false,
+			},
+			favicon: '/favicon.png',
+			social: [
+				{ icon: 'github', label: 'GitHub', href: 'https://github.com/wppoland/polski' },
+			],
+			defaultLocale: 'pl',
+			locales: {
+				pl: { label: 'Polski', lang: 'pl' },
+				en: { label: 'English', lang: 'en' },
+				de: { label: 'Deutsch', lang: 'de' },
+				cs: { label: 'Čeština', lang: 'cs' },
+				sk: { label: 'Slovenčina', lang: 'sk' },
+				uk: { label: 'Українська', lang: 'uk' },
+			},
+			customCss: ['./src/styles/custom.css'],
+			editLink: {
+				baseUrl: 'https://github.com/wppoland/polski-docs/edit/main/',
+			},
+			lastUpdated: true,
 			sidebar: [
 				{
-					label: 'Guides',
+					label: 'Rozpoczęcie pracy',
+					translations: {
+						en: 'Getting started',
+						de: 'Erste Schritte',
+						cs: 'Začínáme',
+						sk: 'Začíname',
+						uk: 'Початок роботи',
+					},
 					items: [
-						// Each item here is one entry in the navigation menu.
-						{ label: 'Example Guide', slug: 'guides/example' },
+						{ slug: 'getting-started' },
+						{ slug: 'getting-started/installation' },
+						{ slug: 'getting-started/configuration' },
+						{ slug: 'getting-started/wizard' },
 					],
 				},
 				{
-					label: 'Reference',
-					autogenerate: { directory: 'reference' },
+					label: 'Zgodność prawna',
+					translations: {
+						en: 'Compliance',
+						de: 'Rechtskonformität',
+						cs: 'Právní soulad',
+						sk: 'Právny súlad',
+						uk: 'Відповідність',
+					},
+					items: [
+						{ slug: 'compliance/gpsr' },
+						{ slug: 'compliance/omnibus' },
+						{ slug: 'compliance/withdrawal' },
+						{ slug: 'compliance/gdpr' },
+						{ slug: 'compliance/dsa' },
+						{ slug: 'compliance/ksef' },
+						{ slug: 'compliance/greenwashing' },
+						{ slug: 'compliance/legal-pages' },
+					],
+				},
+				{
+					label: 'Ceny i informacje o produkcie',
+					translations: {
+						en: 'Prices and product info',
+						de: 'Preise und Produktinfos',
+						cs: 'Ceny a informace o produktu',
+						sk: 'Ceny a informácie o produkte',
+						uk: 'Ціни та інформація про товар',
+					},
+					items: [
+						{ slug: 'prices/unit-prices' },
+						{ slug: 'prices/vat-display' },
+						{ slug: 'prices/delivery-time' },
+						{ slug: 'prices/manufacturer' },
+					],
+				},
+				{
+					label: 'Kasa i zamówienia',
+					translations: {
+						en: 'Checkout',
+						de: 'Kasse und Bestellungen',
+						cs: 'Pokladna a objednávky',
+						sk: 'Pokladňa a objednávky',
+						uk: 'Каса та замовлення',
+					},
+					items: [
+						{ slug: 'checkout/checkout-button' },
+						{ slug: 'checkout/legal-checkboxes' },
+						{ slug: 'checkout/nip-lookup' },
+						{ slug: 'checkout/double-opt-in' },
+					],
+				},
+				{
+					label: 'Produkty spożywcze',
+					translations: {
+						en: 'Food products',
+						de: 'Lebensmittel',
+						cs: 'Potravinové produkty',
+						sk: 'Potravinové produkty',
+						uk: 'Харчові продукти',
+					},
+					items: [
+						{ slug: 'food/food-overview' },
+						{ slug: 'food/nutrients' },
+						{ slug: 'food/allergens' },
+						{ slug: 'food/nutri-score' },
+					],
+				},
+				{
+					label: 'Moduły sklepowe',
+					translations: {
+						en: 'Storefront',
+						de: 'Shop-Module',
+						cs: 'Moduly obchodu',
+						sk: 'Moduly obchodu',
+						uk: 'Модулі магазину',
+					},
+					items: [
+						{ slug: 'storefront/wishlist' },
+						{ slug: 'storefront/compare' },
+						{ slug: 'storefront/quick-view' },
+						{ slug: 'storefront/ajax-search' },
+						{ slug: 'storefront/ajax-filters' },
+						{ slug: 'storefront/product-slider' },
+						{ slug: 'storefront/badges' },
+						{ slug: 'storefront/other-modules' },
+					],
+				},
+				{
+					label: 'Dla deweloperów',
+					translations: {
+						en: 'Developer reference',
+						de: 'Entwicklerreferenz',
+						cs: 'Pro vývojáře',
+						sk: 'Pre vývojárov',
+						uk: 'Для розробників',
+					},
+					items: [
+						{ slug: 'developer/rest-api' },
+						{ slug: 'developer/hooks' },
+						{ slug: 'developer/shortcodes' },
+						{ slug: 'developer/templates' },
+						{ slug: 'developer/wp-cli' },
+						{ slug: 'developer/csv-import' },
+						{ slug: 'developer/blocks' },
+						{ slug: 'developer/schema-org' },
+					],
+				},
+				{
+					label: 'Narzędzia',
+					translations: {
+						en: 'Tools',
+						de: 'Werkzeuge',
+						cs: 'Nástroje',
+						sk: 'Nástroje',
+						uk: 'Інструменти',
+					},
+					items: [
+						{ slug: 'tools/compliance-dashboard' },
+						{ slug: 'tools/site-audit' },
+						{ slug: 'tools/security-incidents' },
+						{ slug: 'tools/verified-reviews' },
+					],
 				},
 			],
 		}),

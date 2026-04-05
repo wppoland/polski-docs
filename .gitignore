@@ -19,3 +19,9 @@ pnpm-debug.log*
 
 # macOS-specific files
 .DS_Store
+
+# Scanner cloned repositories
+scripts/.repos/
+
+# Scan results (regenerated on CI)
+scripts/data/scan-results.json
