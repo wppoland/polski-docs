@@ -3,7 +3,7 @@ title: Product quick view
 description: Quick view module in Polski for WooCommerce - lightbox, variants, gallery with up to 4 images.
 ---
 
-Quick view allows customers to see product details without leaving the category page or search results. The product opens in a lightbox window with the ability to add to cart.
+Quick view opens product details in a lightbox window - without leaving the category page or search results. The customer can add to cart right away.
 
 ## Enabling the module
 

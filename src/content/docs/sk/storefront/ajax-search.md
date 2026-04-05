@@ -3,7 +3,7 @@ title: AJAX vyhľadávanie
 description: Modul AJAX vyhľadávania v Polski for WooCommerce - vyhľadávanie podľa SKU, výrobcu, GTIN, REST endpoint, Gutenberg blok, Elementor widget a shortcód.
 ---
 
-AJAX vyhľadávanie nahrádza predvolené vyhľadávanie WooCommerce inteligentným vyhľadávačom s návrhmi v reálnom čase. Výsledky sa zobrazujú okamžite počas písania frázy - bez opätovného načítania stránky.
+AJAX vyhľadávanie nahrádza predvolené vyhľadávanie WooCommerce. Výsledky sa zobrazujú živé počas písania - bez opätovného načítania stránky.
 
 ## Zapnutie modulu
 

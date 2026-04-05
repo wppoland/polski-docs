@@ -3,7 +3,7 @@ title: Hooky (akce a filtry)
 description: Kompletni dokumentace hooku Polski for WooCommerce - 25 akci a filtru se signaturami, parametry a priklady kodu.
 ---
 
-Polski for WooCommerce zpristupnuje sadu hooku (akci a filtru) umoznujicich vyvojarum rozsirovat a upravovat chovani pluginu. Vsechny hooky pouzivaji namespace `polski/`.
+Hooky (akce a filtry) pro rozsireni a upravu chovani pluginu. Vsechny pouzivaji namespace `polski/`.
 
 ## Hooky odstoupeni od smlouvy (withdrawal)
 

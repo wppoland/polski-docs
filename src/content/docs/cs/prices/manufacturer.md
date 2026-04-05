@@ -3,11 +3,11 @@ title: Vyrobce a znacka
 description: Udaje vyrobce (GPSR), taxonomie znacky, cisla GTIN/EAN a shortcode pro zobrazeni informaci o vyrobci ve WooCommerce.
 ---
 
-Narizeni GPSR (General Product Safety Regulation) ucinne od 13. prosince 2024 uklada internetovym prodejcum povinnost uvadeni udaju vyrobce nebo odpovedne osoby na strance produktu. Plugin Polski for WooCommerce umoznuje pridani uplnych udaju vyrobce, znacky a identifikatoru produktu (GTIN/EAN) ke kazdemu produktu v obchode.
+Od 13. prosince 2024 narizeni GPSR vyzaduje udaje vyrobce na strance produktu. Plugin umoznuje pridat udaje vyrobce, znacku a cislo GTIN/EAN ke kazdemu produktu.
 
 ## Pozadavky GPSR
 
-Podle narizeni (EU) 2023/988 (GPSR) musi byt na strance produktu uvedeny:
+Na strance produktu musite uvest:
 
 - nazev vyrobce nebo dovozce
 - postovni adresa vyrobce

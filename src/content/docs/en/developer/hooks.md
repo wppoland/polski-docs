@@ -3,7 +3,7 @@ title: Hooks (actions and filters)
 description: Complete hooks documentation for Polski for WooCommerce - 25 actions and filters with signatures, parameters and code examples.
 ---
 
-Polski for WooCommerce provides a set of hooks (actions and filters) allowing developers to extend and modify plugin behavior. All hooks use the `polski/` namespace.
+Hooks (actions and filters) for extending and modifying plugin behavior. All use the `polski/` namespace.
 
 ## Withdrawal hooks
 

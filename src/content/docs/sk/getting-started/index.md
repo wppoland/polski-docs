@@ -15,9 +15,11 @@ hero:
       variant: minimal
 ---
 
+![Polski for WooCommerce - banner pluginu](../../../../assets/screenshots/banner-772x250.png)
+
 ## Čo je Polski for WooCommerce?
 
-**Polski for WooCommerce** je bezplatný open source plugin (GPLv2) vytvorený spoločnosťou [wppoland.com](https://wppoland.com), ktorý prispôsobuje obchod WooCommerce poľským právnym požiadavkám a štandardom e-commerce. Plugin spája viac ako 30 modulov zahŕňajúcich právne požiadavky, zobrazovanie cien, pokladňu, potravinárske produkty, obchodné moduly a nástroje pre vývojárov.
+**Polski for WooCommerce** je bezplatný open source plugin (GPLv2) od [wppoland.com](https://wppoland.com). Prispôsobuje obchod WooCommerce poľským predpisom a štandardom e-commerce. Obsahuje viac ako 30 modulov: právne požiadavky, ceny, pokladňa, potraviny, obchodné funkcie a nástroje pre vývojárov.
 
 Aktuálna verzia: **1.3.2**
 
@@ -40,24 +42,26 @@ Pre najlepší výkon odporúčame PHP 8.2+ a WooCommerce 9.x. Plugin je pravide
 
 ## Prehľad modulov
 
-Plugin je postavený modulárne - aktivujete len tie funkcie, ktoré potrebujete. Nižšie nájdete popis všetkých dostupných skupín modulov.
+Plugin funguje modulárne - zapínate len to, čo potrebujete. Nižšie nájdete popis všetkých skupín modulov.
+
+![Dashboard modulov Polski for WooCommerce](../../../../assets/screenshots/screenshot-1-modules-dashboard.png)
 
 ### Právne požiadavky
 
-Moduly pomáhajúce implementovať požiadavky poľského a európskeho práva:
+Moduly na splnenie požiadaviek poľského a európskeho práva:
 
 - **GPSR (nariadenie o bezpečnosti produktov)** - údaje výrobcu, dovozcu a zodpovednej osoby na kartách produktov
-- **Omnibus** - zobrazenie najnižšej ceny za 30 dní pred zľavou, v súlade so smernicou Omnibus
-- **Právo na odstúpenie** - formuláre a postupy vrátenia, generovanie dokumentov o odstúpení
-- **GDPR** - správa súhlasov, anonymizácia údajov, register spracovania
-- **DSA (Akt o digitálnych službách)** - kontaktný bod, nahlasovanie obsahu, transparentnosť
-- **KSeF** - príprava na integráciu s Národným systémom e-faktúr
-- **Greenwashing** - overovanie a kontrola environmentálnych vyhlásení
-- **Právne stránky** - generovanie obchodných podmienok, zásad ochrany osobných údajov a zásad vrátenia
+- **Omnibus** - najnižšia cena za 30 dní pred zľavou
+- **Právo na odstúpenie** - formuláre vrátenia a dokumenty odstúpenia
+- **GDPR** - súhlasy, anonymizácia údajov, register spracovania
+- **DSA (Akt o digitálnych službách)** - kontaktný bod, nahlasovanie obsahu
+- **KSeF** - príprava na Národný systém e-faktúr
+- **Greenwashing** - kontrola environmentálnych vyhlásení
+- **Právne stránky** - obchodné podmienky, zásady ochrany osobných údajov a zásady vrátenia
 
 ### Ceny a informácie o produkte
 
-Moduly súvisiace so zobrazovaním cien a údajov o produktoch:
+Moduly na zobrazovanie cien a údajov o produktoch:
 
 - **Jednotkové ceny** - automatický prepočet a zobrazenie cien za mernú jednotku (PLN/kg, PLN/l)
 - **Zobrazenie DPH** - informácia o sadzbe DPH a cene bez/s DPH
@@ -66,7 +70,7 @@ Moduly súvisiace so zobrazovaním cien a údajov o produktoch:
 
 ### Pokladňa a objednávky
 
-Moduly upravujúce stránku pokladne a proces objednávania:
+Moduly na stránku pokladne a proces objednávky:
 
 - **Tlačidlo objednávky** - zmena textu tlačidla na "Objednávam s povinnosťou platby" (právna požiadavka)
 - **Právne checkboxy** - konfigurovateľné súhlasy s obchodnými podmienkami, zásadami ochrany osobných údajov, newsletterom
@@ -84,7 +88,7 @@ Moduly upravujúce stránku pokladne a proces objednávania:
 
 ### Obchodné moduly
 
-Funkcie zlepšujúce nákupný zážitok:
+Funkcie uľahčujúce nakupovanie zákazníkom:
 
 - **Zoznam prianí** - ukladanie produktov na neskôr
 - **Porovnávač** - porovnávanie produktov vedľa seba
@@ -97,7 +101,7 @@ Funkcie zlepšujúce nákupný zážitok:
 
 ### Nástroje
 
-Moduly uľahčujúce správu obchodu:
+Moduly na správu obchodu:
 
 - **Dashboard súladu** - prehľad stavu právnych požiadaviek obchodu na jednom mieste
 - **Audit stránky** - automatická verifikácia konfigurácie obchodu
@@ -121,7 +125,7 @@ Nástroje a API pre programátorov:
 
 ## Rýchly štart
 
-Tri kroky k funkčnému obchodu spĺňajúcemu požiadavky e-commerce:
+Tri kroky k obchodu v súlade s predpismi:
 
 1. **[Nainštalujte plugin](/sk/getting-started/installation/)** - z panelu WordPress alebo ručne zo súboru ZIP
 2. **[Nakonfigurujte základy](/sk/getting-started/configuration/)** - aktivujte potrebné moduly v paneli nastavení
@@ -140,14 +144,14 @@ Ak narazíte na problém, nahláste ho na [GitHub Issues](https://github.com/wpp
 - **Právne nástroje** - aktualizované pri zmenách predpisov
 - **Open source** - zdrojový kód na GitHube, licencia GPLv2
 - **Bez predplatného** - všetky funkcie dostupné bezplatne
-- **Výkon** - minimálne zdroje načítané len pre aktívne moduly
+- **Výkon** - zdroje načítané len pre aktívne moduly
 - **Aktívna komunita** - podpora na GitHub Discussions
 
 ---
 
 ## Kompatibilita
 
-Plugin je testovaný s najpopulárnejšími témami a pluginmi WordPress:
+Plugin je testovaný s populárnymi témami a pluginmi WordPress:
 
 - Témy: Storefront, Astra, GeneratePress, Kadence, Flavor, flavor theme
 - Page buildery: Gutenberg (bloky), Elementor, Beaver Builder

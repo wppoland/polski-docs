@@ -3,11 +3,11 @@ title: DSA - Akt o digitálnych službách
 description: Nástroje DSA (Digital Services Act) v Polski for WooCommerce - formulár hlásení, administračný panel, sledovanie stavov a e-mailové oznámenia.
 ---
 
-Akt o digitálnych službách (Digital Services Act, nariadenie EU 2022/2065) ukladá internetovým platformám povinnosť umožniť používateľom nahlasovať nezákonný obsah. Polski for WooCommerce poskytuje kompletný súbor nástrojov DSA - formulár na nahlásenie, administračný panel na správu hlásení, sledovanie stavov a automatické e-mailové oznámenia.
+Akt o digitálnych službách (Digital Services Act, EU 2022/2065) vyžaduje, aby internetové platformy umožňovali nahlasovanie nezákonného obsahu. Plugin pridáva formulár na nahlásenie, panel na správu hlásení, sledovanie stavov a automatické e-mailové oznámenia.
 
 ## Požiadavky DSA pre internetové obchody
 
-Od 17. februára 2024 musia internetové obchody umožňujúce publikovanie obsahu používateľmi (recenzie, komentáre, fotografie):
+Od 17. februára 2024 obchody s obsahom používateľov (recenzie, komentáre, fotografie) musia:
 
 1. Sprístupniť mechanizmus nahlasovania nezákonného obsahu
 2. Potvrdiť prijatie hlásenia
@@ -15,7 +15,7 @@ Od 17. februára 2024 musia internetové obchody umožňujúce publikovanie obsa
 4. Informovať nahlasujúceho o rozhodnutí
 5. Umožniť odvolanie sa proti rozhodnutiu
 
-Povinnosť sa týka obchodov, ktoré umožňujú používateľom publikovať obsah - predovšetkým recenzie produktov.
+Týka sa obchodov, v ktorých používatelia môžu publikovať obsah - predovšetkým recenzie produktov.
 
 ## Formulár na nahlásenie
 
@@ -40,9 +40,11 @@ Vložte formulár na nahlásenie DSA na ľubovoľnú stránku pomocou shortcódu
 | `product_id` | ID produktu, ktorého sa hlásenie týka | Žiadna (používateľ vyberá) |
 | `category` | Predvolená kategória hlásenia | Žiadna |
 
+![Formulár DSA na stránke obchodu](../../../../assets/screenshots/screenshot-6-dsa-report-form.png)
+
 ### Polia formulára
 
-Formulár obsahuje nasledujúce polia:
+Formulár obsahuje polia:
 
 - **Kategória hlásenia** - výber zo zoznamu (nezákonný obsah, porušenie autorských práv, falošná recenzia, nenávistné prejavy, osobné údaje, iné)
 - **URL alebo identifikátor obsahu** - odkaz na nahlasovaný obsah alebo ID recenzie
@@ -59,11 +61,11 @@ Vytvorte stránku "Nahlásenie obsahu" a pridajte shortcód:
 [polski_dsa_report]
 ```
 
-Potom pridajte odkaz na túto stránku do pätičky obchodu, aby bola ľahko prístupná pre používateľov.
+Pridajte odkaz na túto stránku do pätičky obchodu, aby bola ľahko dostupná.
 
 ## Administračný panel
 
-Hlásenia DSA sa spravujú v paneli WordPress pod **WooCommerce > Hlásenia DSA**.
+Hlásenia DSA spravujete v **WooCommerce > Hlásenia DSA**.
 
 ### Zoznam hlásení
 
@@ -78,7 +80,7 @@ Zoznam zobrazuje všetky hlásenia so stĺpcami:
 
 ### Podrobnosti hlásenia
 
-Po kliknutí na hlásenie administrátor vidí:
+Po kliknutí na hlásenie vidíte:
 
 - Úplné údaje formulára
 - Náhľad nahlasovaného obsahu (ak je to recenzia - priamy odkaz)
@@ -98,7 +100,7 @@ Po kliknutí na hlásenie administrátor vidí:
 
 ## E-mailové oznámenia
 
-Systém zasiela automatické e-mailové oznámenia v nasledujúcich situáciách:
+Plugin posiela automatické e-maily v týchto situáciách:
 
 | Udalosť | Príjemca | Obsah |
 |-----------|----------|-------|
@@ -107,7 +109,7 @@ Systém zasiela automatické e-mailové oznámenia v nasledujúcich situáciách
 | Zmena stavu | Nahlasujúci | Informácia o zmene stavu s odôvodnením |
 | Preskúmanie | Nahlasujúci | Rozhodnutie s odôvodnením a informáciou o práve na odvolanie |
 
-Šablóny e-mailov je možné prispôsobiť v **WooCommerce > Nastavenia > E-maily**.
+Šablóny e-mailov prispôsobíte v **WooCommerce > Nastavenia > E-maily**.
 
 ## Hook
 
@@ -160,7 +162,7 @@ add_action('polski/dsa/report_created', function (int $report_id, array $report_
 
 ## Reporting
 
-DSA vyžaduje vedenie registra hlásení. Plugin umožňuje export všetkých hlásení do CSV (**WooCommerce > Hlásenia DSA > Exportovať**). Export obsahuje:
+DSA vyžaduje vedenie registra hlásení. Exportujte všetky hlásenia do CSV cez **WooCommerce > Hlásenia DSA > Exportovať**. Export obsahuje:
 
 - ID hlásenia
 - Dátum a čas podania
@@ -184,13 +186,13 @@ Nastavenia modulu DSA nájdete v **WooCommerce > Nastavenia > Polski > DSA**.
 ## Riešenie problémov
 
 **Formulár sa nezobrazuje na stránke**
-Uistite sa, že shortcód `[polski_dsa_report]` je správne vložený na stránke a modul DSA je zapnutý v nastaveniach.
+Skontrolujte, či shortcód `[polski_dsa_report]` je na stránke a modul DSA je zapnutý v nastaveniach.
 
 **E-mailové oznámenia nedochádzajú**
-Skontrolujte konfiguráciu SMTP WordPress. Štandardná funkcia `wp_mail()` nemusí fungovať na všetkých serveroch. Zvážte inštaláciu SMTP pluginu (napr. WP Mail SMTP).
+Skontrolujte konfiguráciu SMTP. Štandardná funkcia `wp_mail()` nefunguje na všetkých serveroch. Nainštalujte SMTP plugin (napr. WP Mail SMTP).
 
 **Hlásenia sa nezobrazujú v paneli**
-Skontrolujte oprávnenia používateľa. Správa hlásení DSA vyžaduje rolu `shop_manager` alebo `administrator`.
+Skontrolujte oprávnenia. Na správu hlásení DSA potrebujete rolu `shop_manager` alebo `administrator`.
 
 ## Ďalšie kroky
 

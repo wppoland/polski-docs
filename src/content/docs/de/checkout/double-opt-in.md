@@ -3,7 +3,7 @@ title: E-Mail-Adressverifizierung
 description: Double-Opt-in bei der Registrierung - Aktivierungslink, Login-Sperre und Nachrichtenkonfiguration in WooCommerce.
 ---
 
-Die E-Mail-Adressverifizierung (Double-Opt-in) ist ein Mechanismus zur Bestaetigung, dass die bei der Registrierung angegebene E-Mail-Adresse tatsaechlich der Person gehoert, die das Konto erstellt. Das Plugin Polski for WooCommerce fuegt den E-Mail-Verifizierungsprozess zu WooCommerce hinzu, indem es einen Aktivierungslink sendet und das Login bis zur Bestaetigung sperrt.
+Double-Opt-in bestaetigt, dass die angegebene E-Mail-Adresse der Person gehoert, die das Konto erstellt. Polski for WooCommerce sendet einen Aktivierungslink und sperrt das Login bis zum Klick auf diesen Link.
 
 ## Warum Double-Opt-in verwenden
 

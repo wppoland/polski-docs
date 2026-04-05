@@ -3,7 +3,7 @@ title: Tlacitko objednavky se zavazkem platby
 description: Konfigurace tlacitka "Zamawiam z obowiązkiem zapłaty" vyzadovaneho polskym spotrebitelskym pravem ve WooCommerce.
 ---
 
-Polsky zakon o pravech spotrebitele (cl. 17 odst. 3) vyzaduje, aby tlacitko finalizujici objednavku v internetovem obchode bylo jednoznacne oznaceno slovy "objednavka se zavazkem platby" nebo rovnocennym formulovanim. Plugin Polski for WooCommerce automaticky meni vychozi text tlacitka WooCommerce na text v souladu s polskym pravem.
+Polske pravo vyzaduje, aby tlacitko objednavky obsahovalo text "objednavka se zavazkem platby" nebo podobny. Plugin automaticky meni vychozi text tlacitka WooCommerce.
 
 ## Pravni pozadavky
 

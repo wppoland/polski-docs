@@ -3,11 +3,11 @@ title: Integrácia s KSeF
 description: Dokumentácia integrácie Polski PRO for WooCommerce s Krajovým systémom e-faktúr - odosielanie faktúr, sledovanie stavov, konfigurácia API a spracovanie chýb.
 ---
 
-Modul KSeF v Polski PRO for WooCommerce umožňuje odosielanie elektronických faktúr do Krajového systému e-faktúr (KSeF) prevádzkovaného Ministerstvom financií. Faktúry sú odosielané asynchrónne s automatickým opakovaním v prípade chýb.
+Modul KSeF odosiela elektronické faktúry do Krajového systému e-faktúr (Ministerstvo financií). Faktúry sa odosielajú na pozadí, s automatickým opakovaním pri chybách.
 
 ## Čo je KSeF
 
-Krajový systém e-faktúr (KSeF) je platforma Ministerstva financií na vystavovanie, uchovávanie a prijímanie štruktúrovaných faktúr vo formáte XML. Plugin poskytuje nástroje na integráciu WooCommerce s KSeF - generuje faktúry v požadovanom formáte XML a odosiela ich do systému.
+KSeF je platforma Ministerstva financií na štrukturované faktúry vo formáte XML. Plugin generuje faktúry v požadovanom formáte a odosiela ich do systému.
 
 ## Konfigurácia
 

@@ -5,7 +5,7 @@ description: Step-by-step installation guide for the Polski for WooCommerce plug
 
 ## Prerequisites
 
-Before starting installation, check that your server meets the requirements. The **Polski for WooCommerce** plugin version 1.3.2 requires:
+Check that your server meets the requirements. **Polski for WooCommerce** 1.3.2 requires:
 
 | Component | Minimum version | Recommended version |
 |-----------|-----------------|---------------------|
@@ -17,14 +17,14 @@ Before starting installation, check that your server meets the requirements. The
 
 ### Checking PHP version
 
-If you do not know which PHP version your server runs, check it in the WordPress dashboard:
+Not sure which PHP version you have? Check in the WordPress dashboard:
 
 1. Go to **Tools > Site Health**
 2. Click the **Info** tab
 3. Expand the **Server** section
 4. Find the **PHP version** field
 
-Alternatively, in many hosting panels (cPanel, DirectAdmin) PHP version information is available in domain settings.
+You can also find the PHP version in your hosting panel (cPanel, DirectAdmin) under domain settings.
 
 ### Checking WooCommerce version
 
@@ -33,7 +33,7 @@ Alternatively, in many hosting panels (cPanel, DirectAdmin) PHP version informat
 3. The version is displayed below the plugin name
 
 :::caution[PHP 8.0 and older]
-The plugin will not work on PHP 7.x or PHP 8.0. If your hosting does not support PHP 8.1+, contact your hosting provider about upgrading. Most hosting providers allow changing the PHP version in the admin panel.
+The plugin does not work on PHP 7.x or PHP 8.0. If your hosting does not have PHP 8.1+, change the PHP version in the hosting panel or contact your provider.
 :::
 
 ---
@@ -72,7 +72,7 @@ After activation, a notification will appear with a link to the configuration wi
 
 ## Method 2: Manual installation from a ZIP file
 
-Use this method if you want to install a specific version of the plugin or do not have access to the WordPress.org repository from the server.
+Use this method when you want to install a specific version or the server cannot connect to WordPress.org.
 
 ### Step 1 - download the ZIP package
 
@@ -96,7 +96,7 @@ After uploading and unpacking the files, click **Activate Plugin**.
 
 ## Method 3: Installation via FTP/SFTP
 
-This method is useful when the WordPress panel does not allow file uploads (e.g. due to size limits).
+Use this method when the WordPress panel does not allow file uploads (e.g. due to size limits).
 
 ### Step 1 - extract the archive
 
@@ -160,13 +160,13 @@ After activating the plugin, check that everything works correctly:
 
 ### Verification using a shortcode
 
-To quickly verify that the plugin is active, you can use the diagnostic shortcode on any page:
+To verify that the plugin is active, insert this shortcode on any page:
 
 ```
 [polski_version]
 ```
 
-The shortcode will display the current plugin version (e.g. "1.3.2"), confirming correct installation.
+The shortcode displays the plugin version (e.g. "1.3.2") - this means the installation works.
 
 ---
 
@@ -227,22 +227,22 @@ chmod 644 wp-content/plugins/polski-for-woocommerce/*.php
 
 ## Updating the plugin
 
-The plugin updates automatically through the WordPress update mechanism. When a new version is available:
+The plugin updates through the standard WordPress mechanism. When a new version is available:
 
 1. You will see a notification in **Plugins > Installed Plugins**
 2. Click **Update Now** or use bulk update
 3. After updating, check that the store works correctly
 
 :::tip[Backup]
-Before each update, create a backup of the database and files. Most hosting providers offer automatic backups, but a manual backup ensures you can revert changes.
+Before updating, create a backup of your database and files. Hosting often does this automatically, but a manual backup gives you certainty.
 :::
 
 ---
 
 ## Next steps
 
-After successful installation, proceed to [plugin configuration](/en/getting-started/configuration/) to enable the modules you need and adjust settings for your store.
+After installation, proceed to [plugin configuration](/en/getting-started/configuration/) to enable modules and adjust settings.
 
-If you encountered a problem not listed here, report it on [GitHub Issues](https://github.com/wppoland/polski/issues) or ask the community on [GitHub Discussions](https://github.com/wppoland/polski/discussions).
+Have a problem not listed here? Report it on [GitHub Issues](https://github.com/wppoland/polski/issues) or ask on [GitHub Discussions](https://github.com/wppoland/polski/discussions).
 
 <div class="disclaimer">This page is for informational purposes only and does not constitute legal advice. Consult a lawyer before implementation. Polski for WooCommerce is open source software (GPLv2) provided without warranty.</div>

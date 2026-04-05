@@ -3,7 +3,7 @@ title: Pakete, Add-ons und "Haeufig zusammen gekauft"
 description: Module fuer Produktpakete, Produkt-Add-ons und Empfehlungen "Haeufig zusammen gekauft" in Polski PRO for WooCommerce.
 ---
 
-Polski PRO for WooCommerce bietet drei sich ergaenzende Verkaufsmodule: Produktpakete (Bundles), Produkt-Add-ons und Empfehlungen "Haeufig zusammen gekauft" (Frequently Bought Together). Jedes Modul arbeitet unabhaengig und kann einzeln aktiviert werden.
+Drei Verkaufsmodule: Pakete (Bundles), Produkt-Add-ons und "Haeufig zusammen gekauft" (FBT). Jedes arbeitet unabhaengig.
 
 :::note[Wymagania]
 Polski PRO wymaga: Polski (free) v1.3.0+, WordPress 6.4+, WooCommerce 8.0+, PHP 8.1+

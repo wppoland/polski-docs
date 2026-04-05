@@ -3,7 +3,7 @@ title: Verifizierte Bewertungen
 description: System verifizierter Bewertungen in Polski for WooCommerce - Kaufbadge, E-Mail-Abgleich und Rezensionsglaubwuerdigkeit.
 ---
 
-Das Modul verifizierter Bewertungen staerkt die Glaubwuerdigkeit der Rezensionen im WooCommerce-Shop. Bewertungen von Kunden, die das Produkt tatsaechlich gekauft haben, werden mit einem Badge versehen, das den Kauf bestaetigt. Dieses System unterstuetzt die Konformitaet mit der Omnibus-Richtlinie und den Vorschriften ueber unlautere Geschaeftspraktiken.
+Das Modul versieht Bewertungen von Kunden, die das Produkt gekauft haben, mit dem Badge **Verifizierter Kauf**. Erhoet die Glaubwuerdigkeit der Rezensionen und unterstuetzt die Konformitaet mit der Omnibus-Richtlinie.
 
 ## Modul aktivieren
 

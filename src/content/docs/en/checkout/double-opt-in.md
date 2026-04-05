@@ -3,17 +3,17 @@ title: Email address verification
 description: Double opt-in at registration - activation link, login blocking and message configuration in WooCommerce.
 ---
 
-Email address verification (double opt-in) is a mechanism for confirming that the email address provided during registration actually belongs to the person creating the account. The Polski for WooCommerce plugin adds an email verification process to WooCommerce, sending an activation link and blocking login until confirmation.
+Double opt-in confirms that the provided email actually belongs to the person creating the account. Polski for WooCommerce sends an activation link and blocks login until the link is clicked.
 
 ## Why use double opt-in
 
-Double opt-in is not required by Polish law, but is recommended for the following reasons:
+Polish law does not require double opt-in, but it is worth enabling because of:
 
-- **GDPR** - identity verification of the person whose data is processed
-- **Bot protection** - prevents creation of fake accounts
-- **Customer base quality** - guarantees that email addresses are correct
-- **Email deliverability** - reduces the risk of bounces and spam flags
-- **Compliance with the Act on Providing Services by Electronic Means** - confirmation of intent to use the service
+- **GDPR** - you confirm the email owner's identity
+- **Bot protection** - blocks fake accounts
+- **Database quality** - you are sure emails are real
+- **Deliverability** - fewer bounced messages and spam flags
+- **Electronic services act** - confirmation of intent to use the service
 
 ## Configuration
 
@@ -41,8 +41,8 @@ Go to **WooCommerce > Settings > Polski > Checkout** and configure the "Email Ve
 
 ### Step by step
 
-1. Customer registers an account in WooCommerce (through the "My Account" page or when placing an order)
-2. The plugin generates a unique activation token and saves it in the database
+1. Customer registers an account (via "My Account" or when placing an order)
+2. The plugin generates an activation token and saves it in the database
 3. An email with an activation link is sent to the provided address
 4. The account has "unverified" status - login is blocked
 5. Customer clicks the activation link in the email
@@ -64,13 +64,13 @@ If the option is enabled:
 
 ## Login blocking
 
-Unverified users cannot log in. When attempting to log in, they see a message:
+Unverified users cannot log in. They see a message:
 
 > "Your account has not been verified yet. Check your email inbox and click the activation link. [Resend link]"
 
 ### Blocking message configuration
 
-The message can be customized in plugin settings. Available variables:
+Change the message in plugin settings. Available variables:
 
 | Variable | Description |
 |----------|-------------|
@@ -178,7 +178,7 @@ if ($is_verified !== 'yes') {
 
 ### Resend limiting
 
-The plugin limits activation link resends to 5 per hour per email address. The limit can be changed in settings.
+The plugin allows resending the activation link up to 5 times per hour per email. Change the limit in settings.
 
 ### Token protection
 

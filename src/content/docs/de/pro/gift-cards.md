@@ -3,7 +3,7 @@ title: Geschenkkarten
 description: Dokumentation der Geschenkkarten von Polski PRO for WooCommerce - Verkauf, Code-Generierung, Einloesung im Warenkorb, Saldoverfolgung und Mein-Konto-Bereich.
 ---
 
-Das Geschenkkartenmodul in Polski PRO for WooCommerce ermoeglicht den Verkauf von Geschenkkarten als WooCommerce-Produkte. Kunden koennen eine Karte kaufen, einen einzigartigen Code erhalten und diesen als Zahlungsmittel bei zukuenftigen Bestellungen verwenden.
+Das Modul ermoeglicht den Verkauf von Geschenkkarten als WooCommerce-Produkte. Der Kunde kauft eine Karte, erhaelt einen Code und bezahlt damit bei weiteren Bestellungen.
 
 ## So funktioniert es
 

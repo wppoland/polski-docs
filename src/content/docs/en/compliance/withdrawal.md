@@ -3,28 +3,30 @@ title: Right of withdrawal from the contract
 description: Handling the right of withdrawal in Polski for WooCommerce - return form, product exclusions, automatic emails and developer hooks.
 ---
 
-EU Directive 2023/2673 introduces new obligations regarding the right of withdrawal from the contract, which become mandatory from June 19, 2026. Polski for WooCommerce implements a complete withdrawal process - from the customer form, through email confirmations, to product exclusions and developer hooks.
+EU Directive 2023/2673 introduces new obligations regarding the right of withdrawal (from June 19, 2026). The plugin handles the entire process - customer form, email confirmations, product exclusions and developer hooks.
 
 ## Legal requirements
 
-A consumer has the right to withdraw from a distance contract within 14 days without giving a reason. The seller is obliged to:
+A consumer can withdraw from a distance contract within 14 days without giving a reason. As a seller you must:
 
 1. Inform the consumer about the right of withdrawal before concluding the contract
 2. Provide a withdrawal form
 3. Confirm receipt of the withdrawal statement
 4. Refund the payment within 14 days of receiving the statement
 
-Directive 2023/2673 extends these obligations to include a digital process for submitting statements and automatic confirmations.
+Directive 2023/2673 adds the requirement of a digital process for submitting statements and automatic confirmations.
 
 ## Customer process
 
 ### Step 1 - button in My Account
 
-After module activation, a "Withdraw from contract" button appears on the **My Account > Orders** page next to orders eligible for return. The button is visible only during the withdrawal period (default 14 days from delivery).
+After enabling the module, a "Withdraw from contract" button appears in **My Account > Orders** next to orders eligible for return. The button is visible for 14 days from delivery.
+
+![Withdrawal buttons in the My Account panel](../../../../assets/screenshots/screenshot-5-withdrawal-request.png)
 
 ### Step 2 - withdrawal form
 
-After clicking the button, the customer is taken to a form containing:
+After clicking the button, the customer sees a form with fields:
 
 - Order number (automatically filled)
 - Order date
@@ -41,11 +43,11 @@ After submitting the form, the system automatically:
 2. Sends the store administrator a notification about the new submission
 3. Changes the submission status to "Pending"
 
-The administrator can then process the submission in the WooCommerce panel and mark it as completed.
+Then process the submission in the WooCommerce panel and mark it as completed.
 
 ## Product exclusions
 
-The right of withdrawal does not apply to certain product categories. You can mark a product as excluded in the **Polski - Withdrawal** tab in the product editor.
+Some products are not subject to the right of withdrawal. Mark them as excluded in the **Polski - Withdrawal** tab in the product editor.
 
 Typical exclusions according to Article 38 of the Consumer Rights Act:
 
@@ -56,7 +58,7 @@ Typical exclusions according to Article 38 of the Consumer Rights Act:
 - Digital content delivered online (after service commencement)
 - Press (newspapers, periodicals, magazines)
 
-For an excluded product, the "Withdraw from contract" button does not display in the customer panel.
+For excluded products, the "Withdraw from contract" button does not appear in the customer panel.
 
 ## Shortcode
 
@@ -76,7 +78,7 @@ Displays the form for the logged-in customer. The customer must select an order 
 [polski_withdrawal_form order_id="789"]
 ```
 
-Displays the form pre-filled with data from the order with the given ID. The system verifies that the logged-in user is the owner of that order.
+Displays the form filled with data from the given order ID. The plugin checks that the logged-in user is the order owner.
 
 ### Embedding example on a page
 
@@ -86,7 +88,7 @@ Create a dedicated "Contract Withdrawal Form" page and place the shortcode:
 [polski_withdrawal_form]
 ```
 
-Then in the plugin settings (**WooCommerce > Settings > Polski > Withdrawal**) point to this page as the default form page.
+In settings (**WooCommerce > Settings > Polski > Withdrawal**) point to this page as the default form page.
 
 ## Hooks
 
@@ -212,7 +214,7 @@ add_filter('polski/withdrawal/form_fields', function (array $fields): array {
 
 ## Submission administration
 
-Withdrawal submissions are available in the WooCommerce panel under **WooCommerce > Withdrawals**. Each submission contains:
+Find submissions in **WooCommerce > Withdrawals**. Each submission contains:
 
 - Order number and link to the order
 - Form submission date
@@ -221,7 +223,7 @@ Withdrawal submissions are available in the WooCommerce panel under **WooCommerc
 - List of products covered by the withdrawal
 - Reason (if provided)
 
-The administrator can change the submission status, add an internal note or process the refund directly from the panel.
+You can change the status, add a note or process the refund directly from the panel.
 
 ## Troubleshooting
 

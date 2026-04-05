@@ -3,7 +3,7 @@ title: Poptavky (RFQ)
 description: Modul poptavek Polski PRO for WooCommerce - zamena tlacitka kosiku za poptavkovy formular, logovani souhlasu, administracni panel a e-mailova oznameni.
 ---
 
-Modul poptavek (Request for Quote) nahrazuje standardni tlacitko "Pridat do kosiku" tlacitkem "Zeptejte se na cenu", coz zakaznikum umoznuje posilat poptavky namisto primych nakupu. Toto reseni je obzvlaste uzitecne v B2B obchodech, u produktu vyzadujicich individualni oceneni nebo u velkych velkoobchodnich objednavek.
+Modul poptavek (RFQ) meni tlacitko "Pridat do kosiku" na "Zeptejte se na cenu". Zakaznici posilaji poptavky misto primych nakupu. Uzitecne v B2B obchodech a u produktu s individualni cenou.
 
 :::note[Pozadavky]
 Polski PRO vyzaduje: Polski (free) v1.3.0+, WordPress 6.4+, WooCommerce 8.0+, PHP 8.1+

@@ -3,7 +3,7 @@ title: Security incidents register
 description: Security incidents register (CRA) in Polski for WooCommerce - event recording, CSV export and compliance with the Cyber Resilience Act.
 ---
 
-The security incidents register allows documenting and managing security events in a WooCommerce store. The feature supports compliance with the Cyber Resilience Act (CRA) - an EU regulation requiring sellers to maintain an incident register for products with digital elements.
+The incidents register lets you document security events in the store. It supports compliance with the Cyber Resilience Act (CRA) - an EU regulation requiring an incident register for products with digital elements.
 
 ## What is CRA
 

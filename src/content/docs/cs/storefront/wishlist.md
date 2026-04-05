@@ -3,7 +3,9 @@ title: Wishlist
 description: Modul wishlistu v Polski for WooCommerce - obsluha hostu a prihlasenych uzivatelu, zakaznicky ucet, AJAX a shortcode.
 ---
 
-Wishlist umoznuje zakaznikum ukladat produkty k pozdejsimu nakupu. Modul Polski for WooCommerce nabizi uplnou implementaci wishlistu - jak pro prihlasene uzivatele, tak pro hosty navstevujici obchod.
+Wishlist umoznuje zakaznikum ukladat produkty na pozdeji. Funguje pro prihlasene uzivatele i hosty.
+
+![Wishlist, porovnavac a rychly nahled na strance obchodu](../../../../assets/screenshots/screenshot-8-wishlist-compare-quick-view.png)
 
 ## Aktivace modulu
 

@@ -3,7 +3,7 @@ title: Angebotsanfragen (RFQ)
 description: Modul fuer Angebotsanfragen in Polski PRO for WooCommerce - Ersetzung der Warenkorb-Schaltflaeche durch ein Angebotsformular, Einwilligungsprotokollierung, Administrationsbereich und E-Mail-Benachrichtigungen.
 ---
 
-Das Modul fuer Angebotsanfragen (Request for Quote) ersetzt die Standard-Schaltflaeche "In den Warenkorb" durch die Schaltflaeche "Preis anfragen" und ermoeglicht Kunden, Angebotsanfragen statt direkter Kaeufe zu stellen. Diese Loesung ist besonders nuetzlich in B2B-Shops, bei Produkten mit individueller Preisgestaltung oder bei grossen Grosshandelsbestellungen.
+Das RFQ-Modul ersetzt "In den Warenkorb" durch "Preis anfragen". Kunden stellen Angebotsanfragen statt direkt zu kaufen. Nuetzlich in B2B-Shops und bei Produkten mit individueller Preisgestaltung.
 
 :::note[Wymagania]
 Polski PRO wymaga: Polski (free) v1.3.0+, WordPress 6.4+, WooCommerce 8.0+, PHP 8.1+

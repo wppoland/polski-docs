@@ -3,7 +3,7 @@ title: Slider produktu
 description: Modul slideru produktu v Polski for WooCommerce - scroll-snap, souvisejici produkty, akcni a doporucene produkty, Gutenberg blok a shortcode.
 ---
 
-Slider produktu zobrazuje karusel produktu s plynulym scrollovanim zalozenym na CSS scroll-snap. Modul nevyzaduje externi JavaScriptove knihovny (Slick, Swiper) - vyuziva vyhradne nativni mechanismy prohlizece.
+Slider produktu zobrazuje karusel produktu s plynulym scrollovanim na bazi CSS scroll-snap. Nevyzaduje externi JS knihovny (Slick, Swiper) - vyuziva nativni mechanismy prohlizece.
 
 ## Aktivace modulu
 

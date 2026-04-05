@@ -5,15 +5,17 @@ description: Erste Schritte nach der Installation des Plugins Polski for WooComm
 
 ## Hauptpanel des Plugins
 
-Gehen Sie nach der Installation und Aktivierung des Plugins zu **WooCommerce > Polski** im Menue des Administrationspanels. Sie sehen das Hauptpanel (Dashboard), das in mehrere Bereiche unterteilt ist:
+Nach der Aktivierung gehen Sie zu **WooCommerce > Polski**. Sie sehen das Hauptpanel mit den Bereichen:
 
 - **Konformitaetsstatus** - schnelle Uebersicht, welche rechtlichen Anforderungen erfuellt sind
 - **Aktive Module** - Liste der aktivierten Module mit Links zu ihren Einstellungen
 - **Erforderliche Massnahmen** - Benachrichtigungen ueber fehlende Konfigurationen
 - **Schnelllinks** - Verweise auf die wichtigsten Einstellungen
 
+![Modul-Dashboard von Polski for WooCommerce](../../../../assets/screenshots/screenshot-1-modules-dashboard.png)
+
 :::tip[Konfigurationsassistent]
-Wenn Sie gerade erst anfangen, empfehlen wir die Nutzung des [Konfigurationsassistenten](/de/getting-started/wizard/), der Sie Schritt fuer Schritt durch die wichtigsten Einstellungen fuehrt. Der Assistent kann jederzeit vom Dashboard aus erneut gestartet werden.
+Nutzen Sie den [Konfigurationsassistenten](/de/getting-started/wizard/) fuer den Einstieg. Er fuehrt Sie Schritt fuer Schritt durch die wichtigsten Einstellungen. Sie koennen ihn jederzeit erneut starten.
 :::
 
 ---

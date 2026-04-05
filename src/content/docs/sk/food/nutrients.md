@@ -3,7 +3,7 @@ title: Výživové hodnoty
 description: Tabuľka výživových hodnôt vo formáte JSON per 100 g alebo 100 ml so shortcódom na zobrazenie na stránke produktu WooCommerce.
 ---
 
-Nariadenie (EÚ) č. 1169/2011 vyžaduje, aby na obale (a v internetovom obchode) potravinárskeho produktu bola tabuľka výživových hodnôt. Plugin Polski for WooCommerce umožňuje zadanie úplnej tabuľky výživových hodnôt pre každý produkt a jej zobrazenie v prehľadnom formáte v súlade s reguláciami.
+Potravinársky obchod musí zobrazovať tabuľku výživových hodnôt (nariadenie EÚ č. 1169/2011). Plugin Polski for WooCommerce umožňuje pridať tabuľku ku každému produktu vo formáte v súlade s predpismi.
 
 ## Povinné výživové zložky
 

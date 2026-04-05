@@ -3,7 +3,7 @@ title: Register der Sicherheitsvorfaelle
 description: Register der Sicherheitsvorfaelle (CRA) in Polski for WooCommerce - Ereignisregistrierung, CSV-Export und Konformitaet mit dem Cyber Resilience Act.
 ---
 
-Das Register der Sicherheitsvorfaelle ermoeglicht die Dokumentation und Verwaltung von Sicherheitsereignissen im WooCommerce-Shop. Die Funktion unterstuetzt die Konformitaet mit dem Cyber Resilience Act (CRA) - einer EU-Verordnung, die von Verkaeufen die Fuehrung eines Vorfallregisters fuer Produkte mit digitalen Elementen verlangt.
+Das Register ermoeglicht die Dokumentation von Sicherheitsereignissen im Shop. Unterstuetzt die Konformitaet mit dem Cyber Resilience Act (CRA) - EU-Verordnung, die ein Vorfallregister fuer Produkte mit digitalen Elementen verlangt.
 
 ## Was ist CRA
 

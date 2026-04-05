@@ -3,7 +3,7 @@ title: GPSR - bezpecnost produktu
 description: Konfigurace poli GPSR (General Product Safety Regulation) v Polski for WooCommerce - vyrobce, dovozce, odpovedna osoba v EU, identifikatory, varovani a pokyny.
 ---
 
-Narizeni GPSR (General Product Safety Regulation, EU 2023/988) je ucinne od 13. prosince 2024. Uklada prodejcum povinnost uvadeni podrobnych informaci o bezpecnosti produktu prodavanych na uzemi Evropske unie. Polski for WooCommerce dodava kompletni sadu produktovych poli, sloupec stavu a nastroje importu/exportu CSV, ktere umoznuji splnit tyto pozadavky bez dalsich pluginu.
+Narizeni GPSR (General Product Safety Regulation, EU 2023/988) plati od 13. prosince 2024. Vyzaduje uvadeni informaci o bezpecnosti produktu prodavanych v EU. Polski for WooCommerce pridava produktova pole, sloupec stavu a import/export CSV - vse, co potrebujete, bez dalsich pluginu.
 
 ## Pozadavky GPSR
 
@@ -20,11 +20,13 @@ Kazdy nepotravinovy produkt prodavany v EU musi obsahovat:
 
 ## Konfigurace poli GPSR
 
-Pole GPSR naleznete v editaci produktu WooCommerce, v zalozce **Polski - GPSR**. Kazde pole je volitelne, ale narizeni vyzaduje vyplneni vsech poli vztahujicich se k danemu produktu.
+Pole GPSR najdete v editaci produktu, v zalozce **Polski - GPSR**. Kazde pole je volitelne, ale vyplnte vsechna, ktera se tykaji daneho produktu.
+
+![Pole GPSR v editoru produktu WooCommerce](../../../../assets/screenshots/screenshot-2-gpsr-product-editor.png)
 
 ### Vyrobce
 
-Vyplnte uplne udaje vyrobce:
+Vyplnte uplne udaje o vyrobci:
 
 - Nazev firmy
 - Adresa (ulice, PSC, mesto, zeme)
@@ -34,11 +36,11 @@ Vyplnte uplne udaje vyrobce:
 
 ### Dovozce
 
-Pole vyzadovane, pokud ma vyrobce sidlo mimo Evropskou unii. Uvedte stejne kategorie udaju jako v pripade vyrobce.
+Vyzadovane, pokud ma vyrobce sidlo mimo EU. Uvedte stejne udaje jako u vyrobce.
 
 ### Odpovedna osoba v EU
 
-Od 13. prosince 2024 musi kazdy nepotravinovy produkt prodavany v EU subjektem mimo EU mit urcenu odpovednou osobu se sidlem v Unii. Uvedte:
+Kazdy nepotravinovy produkt od subjektu mimo EU musi mit odpovednou osobu se sidlem v Unii. Uvedte:
 
 - Nazev firmy nebo jmeno a prijmeni
 - Adresa v EU
@@ -71,19 +73,19 @@ Pole na pokyny tykajici se:
 
 ## Sloupec stavu GPSR
 
-Na seznamu produktu v administracnim panelu (**Produkty > Vsechny produkty**) plugin pridava sloupec **GPSR**, ktery zobrazuje stav vyplneni poli:
+Na seznamu produktu (**Produkty > Vsechny produkty**) plugin pridava sloupec **GPSR** se stavem vyplneni:
 
 - Zelena ikona - vsechna vyzadovana pole vyplnena
 - Oranzova ikona - castecne vyplneno
 - Cervena ikona - chybi udaje GPSR
 
-Sloupec umoznuje rychlou identifikaci produktu vyzadujicich doplneni udaju.
+Sloupec umoznuje rychle najit produkty, ktere vyzaduji doplneni udaju.
 
 ## Import a export CSV
 
 ### Export
 
-Behem exportu produktu WooCommerce (**Produkty > Exportovat**) plugin automaticky pridava sloupce GPSR do souboru CSV:
+Pri exportu produktu (**Produkty > Exportovat**) plugin pridava sloupce GPSR do souboru CSV:
 
 - `gpsr_manufacturer_name`
 - `gpsr_manufacturer_address`
@@ -105,9 +107,9 @@ Behem exportu produktu WooCommerce (**Produkty > Exportovat**) plugin automatick
 
 ### Import
 
-Pripravte soubor CSV s prislusnymi zahlavi sloupcu (identickymi jako pri exportu). Import probiha standardni cestou WooCommerce: **Produkty > Importovat**.
+Pripravte soubor CSV se stejnymi zahlavi jako pri exportu. Importujte pres **Produkty > Importovat**.
 
-Tip: nejprve exportujte nekolik produktu, abyste ziskali sablonu CSV se spravnymi zahlavi.
+Tip: nejprve exportujte nekolik produktu - ziskate sablonu CSV se spravnymi zahlavi.
 
 ## Shortcode
 
@@ -144,7 +146,7 @@ Shortcode generuje formatovanou tabulku se sekcemi:
 
 ## Hromadne doplnovani dat
 
-Pokud mnoho produktu pochazi od stejneho vyrobce, nejucinnejsi zpusob je:
+Pokud ma mnoho produktu stejneho vyrobce, nejrychlejsi metoda je:
 
 1. Exportujte produkty do CSV
 2. Vyplnte sloupce vyrobce pro vsechny radky (kopirovat-vlozit v tabulkovem kalkulatoru)

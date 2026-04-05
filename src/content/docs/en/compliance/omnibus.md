@@ -3,13 +3,15 @@ title: Omnibus Directive - price tracking
 description: Omnibus Directive implementation in Polski for WooCommerce - automatic lowest price tracking over 30 days, display configuration and shortcode.
 ---
 
-The Omnibus Directive (EU 2019/2161), implemented in Poland from January 1, 2023, obliges sellers to inform consumers about the lowest price of a product from the last 30 days before a discount. Polski for WooCommerce automatically tracks price history and displays the required information with every promotion.
+The Omnibus Directive (EU 2019/2161) has been in effect in Poland since January 1, 2023. With every price reduction you must show the lowest price from the last 30 days. The plugin automatically tracks price history and displays this information with promotions.
 
 ## How price tracking works
 
-The plugin records every price change of a WooCommerce product (including variable products) and stores the history in the database. When a product is marked as "on sale", the system automatically calculates the lowest price from the last 30 days and displays it to customers.
+The plugin records every product price change (including variations) in the database. When a product is "on sale", the plugin calculates the lowest price from 30 days and shows it to customers.
 
-Tracking starts from the moment the module is activated. If a product does not have price history yet, the plugin displays an appropriate placeholder message.
+Tracking starts after enabling the module. If a product has no price history yet, a placeholder message displays.
+
+![Product page with Omnibus lowest price displayed](../../../../assets/screenshots/screenshot-4-omnibus-lowest-price.png)
 
 ## Configuration
 
@@ -22,7 +24,7 @@ Go to **WooCommerce > Settings > Polski > Omnibus** and configure the available 
 | `days` | Number of days back for calculating the lowest price | `30` |
 | `prune_after_days` | After how many days to delete old history entries | `90` |
 
-The `prune_after_days` setting allows you to control the size of the price history table in the database. A value of `90` means that data older than 90 days is automatically deleted by WP-Cron.
+`prune_after_days` controls the size of the database table. A value of `90` means data older than 90 days is automatically deleted.
 
 ### Taxes
 
@@ -30,7 +32,7 @@ The `prune_after_days` setting allows you to control the size of the price histo
 |--------|-------------|---------------|
 | `include_tax` | Whether the displayed Omnibus price should include VAT | `true` |
 
-This option should match the price display settings in WooCommerce. If prices in the store are displayed gross, set to `true`.
+Set according to your WooCommerce price settings. If store prices are gross, leave `true`.
 
 ### Display locations
 
@@ -42,7 +44,7 @@ This option should match the price display settings in WooCommerce. If prices in
 | `show_on_related` | Related products | `false` |
 | `show_on_cart` | Cart | `false` |
 
-Recommendation: enable display at least on the product page (`show_on_single`). Displaying on the product list (`show_on_loop`) may take up a lot of space, but is required by some interpretations of the regulations.
+Enable at least on the product page (`show_on_single`). On the product list (`show_on_loop`) it takes more space, but some interpretations of the regulations require it.
 
 ### Regular price
 
@@ -100,7 +102,7 @@ Available values:
 - `per_variation` - separate tracking for each variant (recommended)
 - `parent_only` - tracking only the parent product price
 
-The `per_variation` setting provides more accurate data, since each variant can have a different price and discount history.
+`per_variation` gives more accurate data, because each variant can have a different price and discount history.
 
 ## Shortcode
 
@@ -135,7 +137,7 @@ echo do_shortcode('[polski_omnibus_price product_id="' . $product_id . '"]');
 
 ## Automatic history cleanup
 
-The plugin registers a WP-Cron task that daily removes price history entries older than the `prune_after_days` value. This prevents the database table from growing without limits.
+WP-Cron removes price history entries older than `prune_after_days` daily. The database table does not grow without limits.
 
 To manually force cleanup, you can use WP-CLI:
 
@@ -145,22 +147,22 @@ wp cron event run polski_omnibus_prune
 
 ## Compliance with UOKiK guidelines
 
-The Office of Competition and Consumer Protection (UOKiK) indicates that:
+UOKiK guidelines:
 
 1. The lowest price information must be displayed **with every discount announcement**
 2. The reference period is **30 days before applying the discount**
 3. For products sold for less than 30 days - provide the lowest price since the date of introduction to sale
 4. For perishable products - the period may be shortened
 
-The plugin follows these guidelines by default. The `price_count_from` option set to `sale_start` ensures counting from the sale start date, as recommended by UOKiK.
+The plugin follows these guidelines by default. The `price_count_from` option set to `sale_start` counts from the sale start date, as recommended by UOKiK.
 
 ## Troubleshooting
 
 **Omnibus price does not display**
-Check that the product is marked as "on sale" in WooCommerce (a sale price must be set). If the `display_on_sale_only` option is enabled, the message will only appear during an active promotion.
+Check that the product has a sale price set in WooCommerce. With `display_on_sale_only` enabled, the message appears only during an active promotion.
 
 **A no-history message displays**
-Price tracking starts from module activation. Wait for the first price change or manually save the product to initialize a history entry.
+Price tracking starts after enabling the module. Wait for a price change or save the product again to add the first history entry.
 
 **Omnibus price is the same as the sale price**
 This is correct behavior if the product has not had a lower price in the last 30 days.

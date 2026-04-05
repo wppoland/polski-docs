@@ -3,7 +3,7 @@ title: REST API
 description: REST-API-Dokumentation des Plugins Polski for WooCommerce - Namespace polski/v1/, Endpunkte fuer Einstellungen, Checkboxen, Rechtsseiten, Suche und Assistent.
 ---
 
-Polski for WooCommerce stellt eine REST API im Namespace `polski/v1/` bereit. Die API ermoeglicht die programmatische Verwaltung von Einstellungen, rechtlichen Checkboxen, Rechtsseiten und der Produktsuche.
+REST API im Namespace `polski/v1/`. Verwalten Sie Einstellungen, rechtliche Checkboxen, Rechtsseiten und Produktsuche programmatisch.
 
 ## Authentifizierung
 

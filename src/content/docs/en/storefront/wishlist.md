@@ -3,7 +3,9 @@ title: Wishlist
 description: Wishlist module in Polski for WooCommerce - guest and logged-in user support, customer account, AJAX and shortcode.
 ---
 
-The wishlist allows customers to save products for later purchase. The Polski for WooCommerce module offers a full wishlist implementation - for both logged-in users and guest visitors.
+The wishlist lets customers save products for later. It works for both logged-in customers and guests.
+
+![Wishlist, compare and quick view on the store page](../../../../assets/screenshots/screenshot-8-wishlist-compare-quick-view.png)
 
 ## Enabling the module
 

@@ -3,7 +3,7 @@ title: Hersteller und Marke
 description: Herstellerdaten (GPSR), Markentaxonomie, GTIN/EAN-Nummern sowie Shortcode zur Anzeige von Herstellerinformationen in WooCommerce.
 ---
 
-Die GPSR-Verordnung (General Product Safety Regulation), gueltig seit dem 13. Dezember 2024, verpflichtet Online-Verkaeufer, Herstellerdaten oder Daten der verantwortlichen Person auf der Produktseite anzugeben. Das Plugin Polski for WooCommerce ermoeglicht das Hinzufuegen vollstaendiger Herstellerdaten, Marke und Produktidentifikatoren (GTIN/EAN) zu jedem Produkt im Shop.
+Seit dem 13. Dezember 2024 verlangt die GPSR-Verordnung die Angabe von Herstellerdaten auf der Produktseite. Polski for WooCommerce ermoeglicht das Hinzufuegen von Herstellerdaten, Marke und GTIN/EAN-Nummer zu jedem Produkt.
 
 ## GPSR-Anforderungen
 

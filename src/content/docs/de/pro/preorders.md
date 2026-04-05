@@ -3,7 +3,7 @@ title: Vorbestellungen (Pre-Orders)
 description: Modul fuer Vorbestellungen in Polski PRO for WooCommerce - Produkte als Pre-Order kennzeichnen, Erscheinungsdatum, benutzerdefinierter Schaltflaechentext und Warenkorb-Validierung.
 ---
 
-Das Vorbestellungsmodul ermoeglicht es, Produkte als vorbestellbar zu kennzeichnen, das Erscheinungsdatum anzuzeigen, den Text der Kaufschaltflaeche zu aendern und das Mischen von Pre-Order-Produkten mit Standardprodukten im Warenkorb zu kontrollieren. Es ist nuetzlich in Shops fuer Elektronik, Buecher, Spiele und jedes Sortiment, bei dem Produkte vor dem offiziellen Verfuegbarkeitsdatum angeboten werden.
+Das Modul ermoeglicht die Kennzeichnung von Produkten als Pre-Order, die Anzeige des Erscheinungsdatums und die Aenderung des Button-Texts. Nuetzlich in Shops fuer Elektronik, Buecher, Spiele und andere Produkte vor der Premiere.
 
 :::note[Wymagania]
 Polski PRO wymaga: Polski (free) v1.3.0+, WordPress 6.4+, WooCommerce 8.0+, PHP 8.1+

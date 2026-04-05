@@ -3,7 +3,7 @@ title: GPSR - Produktsicherheit
 description: Konfiguration der GPSR-Felder (General Product Safety Regulation) in Polski for WooCommerce - Hersteller, Importeur, verantwortliche Person in der EU, Identifikatoren, Warnhinweise und Anleitungen.
 ---
 
-Die GPSR-Verordnung (General Product Safety Regulation, EU 2023/988) gilt seit dem 13. Dezember 2024. Sie verpflichtet Verkaeufer, detaillierte Informationen zur Sicherheit von Produkten, die in der Europaeischen Union verkauft werden, anzugeben. Polski for WooCommerce liefert ein vollstaendiges Set an Produktfeldern, eine Statusspalte sowie CSV-Import/Export-Werkzeuge, die es ermoeglichen, diese Anforderungen ohne zusaetzliche Plugins zu erfuellen.
+Die GPSR-Verordnung (General Product Safety Regulation, EU 2023/988) gilt seit dem 13. Dezember 2024. Sie verlangt Angaben zur Sicherheit von in der EU verkauften Produkten. Polski for WooCommerce fuegt Produktfelder, eine Statusspalte und CSV-Import/Export hinzu - alles ohne zusaetzliche Plugins.
 
 ## GPSR-Anforderungen
 
@@ -20,7 +20,9 @@ Jedes nicht-lebensmittelbezogene Produkt, das in der EU verkauft wird, muss enth
 
 ## Konfiguration der GPSR-Felder
 
-Die GPSR-Felder finden Sie bei der WooCommerce-Produktbearbeitung im Tab **Polski - GPSR**. Jedes Feld ist optional, aber die Verordnung verlangt das Ausfuellen aller auf das jeweilige Produkt zutreffenden Felder.
+Die GPSR-Felder finden Sie in der Produktbearbeitung im Tab **Polski - GPSR**. Jedes Feld ist optional, aber fuellen Sie alle aus, die fuer das Produkt zutreffen.
+
+![GPSR-Felder im WooCommerce-Produkteditor](../../../../assets/screenshots/screenshot-2-gpsr-product-editor.png)
 
 ### Hersteller
 
@@ -38,7 +40,7 @@ Pflichtfeld, wenn der Hersteller seinen Sitz ausserhalb der EU hat. Geben Sie di
 
 ### Verantwortliche Person in der EU
 
-Seit dem 13. Dezember 2024 muss jedes nicht-lebensmittelbezogene Produkt, das in der EU von einem Unternehmen ausserhalb der EU verkauft wird, eine benannte verantwortliche Person mit Sitz in der Union haben. Geben Sie an:
+Jedes Non-Food-Produkt von einem Unternehmen ausserhalb der EU muss eine verantwortliche Person in der Union haben. Geben Sie an:
 
 - Firmenname oder Vor- und Nachname
 - Adresse in der EU

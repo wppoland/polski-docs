@@ -3,11 +3,11 @@ title: Legal checkboxes
 description: Configuration, validation and customization of mandatory legal checkboxes on the WooCommerce checkout page.
 ---
 
-Polish law requires the consumer to accept the store terms and conditions and privacy policy before placing an order. The Polski for WooCommerce plugin provides a flexible system for managing legal checkboxes - from configuring content and labels to validation and error messages.
+Before placing an order, the customer must accept the terms and conditions and privacy policy. Polski for WooCommerce adds legal checkboxes with configurable content, validation and error messages.
 
 ## Legal requirements
 
-According to the Consumer Rights Act and the Act on Providing Services by Electronic Means, an online store must obtain explicit consent from the consumer for:
+The store must obtain explicit consent from the customer for:
 
 - store terms and conditions (sales contract terms)
 - privacy policy (personal data processing)
@@ -85,7 +85,7 @@ The plugin saves consent information:
 - with the date and time of consent
 - with the terms/privacy policy version (if version tracking is enabled)
 
-This information is visible in the admin panel order view and can be exported on request (GDPR).
+This information is visible in the order view and can be exported on request (GDPR).
 
 ### Viewing consents in an order
 
@@ -184,7 +184,7 @@ add_filter('polski/checkout/legal_checkboxes', function (array $checkboxes): arr
 
 ## Block Checkout compatibility
 
-The plugin supports legal checkboxes in both classic checkout and Block Checkout. For Block Checkout, checkboxes are rendered using the `woocommerce/checkout-terms-block` block.
+The plugin supports checkboxes in both classic checkout and Block Checkout. For Block Checkout, checkboxes use the `woocommerce/checkout-terms-block` block.
 
 ## Common issues
 

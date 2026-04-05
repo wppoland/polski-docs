@@ -3,7 +3,7 @@ title: Prepis sablon
 description: Prepisovani sablon Polski for WooCommerce v motivu - seznam souboru, struktura adresaru a priklady.
 ---
 
-Polski for WooCommerce vyuziva system sablon inspirovany WooCommerce. Muzete prepsat libovolnou sablonu pluginu kopiovanim do adresare `yourtheme/polski/` ve vasem motivu.
+System sablon inspirovany WooCommerce. Prepsete libovolnou sablonu kopiovanim do `yourtheme/polski/` v motivu.
 
 ## Jak prepsat sablonu
 

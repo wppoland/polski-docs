@@ -3,7 +3,7 @@ title: Schema.org structured data
 description: Automatic JSON-LD structured data in Polski for WooCommerce - Product, Offer, AggregateRating and other Schema.org types.
 ---
 
-Polski for WooCommerce automatically generates JSON-LD structured data compliant with the Schema.org standard. This data helps search engines (Google, Bing) better understand the product page content and display rich snippets in search results.
+Automatic JSON-LD structured data (Schema.org) on product pages. Helps search engines display rich snippets in results.
 
 ## Automatic generation
 

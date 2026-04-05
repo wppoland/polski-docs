@@ -3,7 +3,7 @@ title: Viackrokový checkout
 description: Dokumentácia viackrokového checkoutu Polski PRO for WooCommerce - rozdelenie procesu objednávky na kroky, konfigurácia, React Checkout Blocks a klasický fallback.
 ---
 
-Modul viackrokového checkoutu v Polski PRO for WooCommerce rozdeľuje proces skladania objednávky na štyri prehľadné kroky. Zákazník vidí ukazovateľ priebehu a prechádza postupne cez adresový formulár, výber dopravy, platbu a zhrnutie objednávky.
+Modul rozdeľuje pokladňu na štyri kroky: adresa, doručenie, platba a zhrnutie. Zákazník vidí ukazovateľ priebehu a prechádza postupne každým krokom.
 
 ## Kroky checkoutu
 

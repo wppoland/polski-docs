@@ -3,7 +3,7 @@ title: Dodacia lehota
 description: Konfigurácia dodacej lehoty per produkt a variant, predvolená záložná hodnota a taxonómia polski_delivery_time vo WooCommerce.
 ---
 
-Smernica Omnibus a poľský zákon o právach spotrebiteľa vyžadujú, aby internetový obchod informoval o predpokladanom čase dodania produktu pred zadaním objednávky. Plugin Polski for WooCommerce poskytuje flexibilný systém správy dodacej lehoty - od globálnych predvolených nastavení po individuálne hodnoty pre každý produkt a variant.
+Poľské právo vyžaduje, aby obchod informoval o čase dostavy pred zadaním objednávky. Plugin Polski for WooCommerce umožňuje nastaviť dodaciu lehotu globálne, per produkt a per variant.
 
 ## Právne požiadavky
 

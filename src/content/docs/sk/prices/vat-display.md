@@ -3,7 +3,7 @@ title: Zobrazovanie DPH
 description: Konfigurácia zobrazovania cien brutto a netto, sadzby DPH a oslobodenia podľa čl. 113 zákona o DPH vo WooCommerce.
 ---
 
-Poľské právo ukladá internetovým predajcom povinnosť jednoznačne informovať o tom, či prezentovaná cena obsahuje daň DPH. Plugin Polski for WooCommerce umožňuje flexibilnú správu spôsobu zobrazovania informácie o DPH - od jednoduchého označenia "brutto/netto" po úplnú informáciu o sadzbe dane a základe oslobodenia.
+Poľské právo vyžaduje, aby obchod jasne informoval, či cena obsahuje DPH. Plugin Polski for WooCommerce umožňuje zobrazovať informáciu o DPH - od jednoduchého označenia "brutto/netto" po sadzbu dane a základ oslobodenia.
 
 ## Právne požiadavky
 

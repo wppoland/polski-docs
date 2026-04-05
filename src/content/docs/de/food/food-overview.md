@@ -3,7 +3,7 @@ title: Lebensmittelmodul
 description: Ueberblick ueber das Lebensmittelmodul - Naehrwerte, Allergene, Zutaten, Nutri-Score, Alkohol und Herkunftsland in WooCommerce.
 ---
 
-Der Online-Verkauf von Lebensmitteln in Polen unterliegt detaillierten Vorschriften zur Verbraucherinformation. Die Verordnung (EU) Nr. 1169/2011 (LMIV) und polnische Ausfuehrungsvorschriften verlangen die Angabe vollstaendiger Informationen zu Zusammensetzung, Naehrwerten, Allergenen und Herkunft des Produkts. Das Plugin Polski for WooCommerce bietet ein umfassendes Modul zur Verwaltung dieser Daten.
+Der Online-Verkauf von Lebensmitteln erfordert Angaben zu Zusammensetzung, Naehrwerten, Allergenen und Herkunft (Verordnung EU Nr. 1169/2011). Polski for WooCommerce bietet ein vollstaendiges Modul zur Verwaltung dieser Daten.
 
 ## Rechtliche Anforderungen
 

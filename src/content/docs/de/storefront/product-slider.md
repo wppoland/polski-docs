@@ -63,6 +63,25 @@ Der Slider nutzt CSS `scroll-snap-type: x mandatory` statt traditioneller Karuss
 [polski_product_slider type="ids" ids="12,34,56,78,90"]
 ```
 
+## Gutenberg-Block
+
+Der Block **Polski - Produktslider** ist im Gutenberg-Editor verfuegbar. Die Vorschau ist direkt im Editor sichtbar.
+
+Blockoptionen:
+
+| Option              | Beschreibung                                     | Standard     |
+| ------------------- | ---------------------------------------- | ------------- |
+| Typ                 | Produktquelle (related/sale/featured/usw.) | latest    |
+| Limit               | Maximale Produktanzahl              | 8             |
+| Spalten             | Sichtbare Produkte (Desktop)    | 4             |
+| Spalten Tablet      | Sichtbare Produkte auf dem Tablet            | 2             |
+| Spalten Mobile      | Sichtbare Produkte auf dem Telefon           | 1             |
+| Pfeile            | Navigationspfeile anzeigen                 | Ja           |
+| Punkte              | Paginierungspunkte anzeigen                   | Nein           |
+| Automatisches Scrollen | Automatisches Scrollen                 | Nein           |
+| Abstand (Gap)       | Abstand zwischen Produkten                 | 16px          |
+| Ueberschrift            | Titel ueber dem Slider                       | (leer)       |
+
 ## Shortcode `[polski_product_slider]`
 
 ### Parameter
@@ -105,6 +124,17 @@ Automatisch scrollender Bestseller-Slider:
 [polski_product_slider type="bestsellers" limit="10" autoplay="yes" autoplay_speed="4000"]
 ```
 
+## Automatisches Scrollen
+
+Bei `autoplay="yes"` scrollt der Slider automatisch. Das Scrollen stoppt beim Ueberfahren mit der Maus oder bei Beruehrung auf dem Mobilgeraet. Nach Verlassen des Sliders wird es fortgesetzt.
+
+```php
+// Standard-Autoplay-Zeit global aendern
+add_filter('polski/product_slider/autoplay_speed', function (): int {
+    return 3000; // 3 Sekunden
+});
+```
+
 ## Integration mit Modulen
 
 Produktkarten im Slider enthalten Elemente aus anderen Modulen:
@@ -114,6 +144,10 @@ Produktkarten im Slider enthalten Elemente aus anderen Modulen:
 - **Produktvergleich** - Vergleichsbutton
 - **Schnellansicht** - Augen-Symbol
 - **Omnibus-Preis** - niedrigster Preis der letzten 30 Tage
+
+## Lazy Loading der Bilder
+
+Bilder werden lazy geladen - Bilder ausserhalb des sichtbaren Bereichs werden erst beim Scrollen geladen. Es wird natives `loading="lazy"` und `Intersection Observer` fuer aeltere Browser verwendet.
 
 ## CSS-Styling
 

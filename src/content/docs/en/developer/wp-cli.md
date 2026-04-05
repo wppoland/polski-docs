@@ -3,7 +3,7 @@ title: WP-CLI commands
 description: WP-CLI commands available in Polski for WooCommerce - data migration and configuration correctness test.
 ---
 
-Polski for WooCommerce provides WP-CLI commands for managing the plugin from the command line. Commands allow automating data migrations and verifying configuration correctness.
+WP-CLI commands for managing the plugin from the command line. Automate data migrations and verify configuration.
 
 ## Requirements
 

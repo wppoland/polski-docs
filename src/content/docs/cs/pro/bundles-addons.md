@@ -3,7 +3,7 @@ title: Balicky, doplnky a "casto kupovano spolecne"
 description: Moduly produktovych balicku, doplnku k produktu a doporuceni "casto kupovano spolecne" v Polski PRO for WooCommerce.
 ---
 
-Polski PRO for WooCommerce nabizi tri vzajemne se doplnujici prodejni moduly: produktove balicky (bundles), doplnky k produktu (add-ons) a doporuceni "casto kupovano spolecne" (frequently bought together). Kazdy modul funguje nezavisle a lze ho zapnout samostatne.
+Tri prodejni moduly: produktove balicky (bundles), doplnky k produktu (add-ons) a "casto kupovano spolecne" (FBT). Kazdy funguje nezavisle.
 
 :::note[Pozadavky]
 Polski PRO vyzaduje: Polski (free) v1.3.0+, WordPress 6.4+, WooCommerce 8.0+, PHP 8.1+

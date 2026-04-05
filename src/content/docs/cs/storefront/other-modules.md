@@ -3,7 +3,7 @@ title: Dalsi moduly obchodu
 description: Doplnkove moduly v Polski for WooCommerce - spravce zalozek, zvyraznene video, zoom galerie, seznam cekajicich, nekonecne scrollovani, popup.
 ---
 
-Polski for WooCommerce nabizi radu doplnkovych modulu zlepsujicich fungovani obchodu. Kazdy modul lze aktivovat nezavisle v **WooCommerce > Polski > Moduly obchodu**.
+Doplnkove moduly obchodu. Kazdy aktivujete nezavisle v **WooCommerce > Polski > Moduly obchodu**.
 
 ## Spravce zalozek (tab manager)
 

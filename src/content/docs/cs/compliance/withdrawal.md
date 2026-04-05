@@ -3,28 +3,30 @@ title: Pravo na odstoupeni od smlouvy
 description: Obsluha prava na odstoupeni od smlouvy v Polski for WooCommerce - formular vraceni, produktove vylouceni, automaticke e-maily a vyvojarske hooky.
 ---
 
-Smernice EU 2023/2673 zavadi nove povinnosti tykajici se prava na odstoupeni od smlouvy, ktere se stavaji povinnymi od 19. cervna 2026. Polski for WooCommerce implementuje kompletni proces obsluhy odstoupeni - od formulare zakaznika, pres e-mailova potvrzeni, po produktove vylouceni a hooky pro vyvojare.
+Smernice EU 2023/2673 zavadi nove povinnosti tykajici se prava na odstoupeni od smlouvy (od 19. cervna 2026). Plugin obsluhuje cely proces - formular zakaznika, potvrzeni e-mailem, produktove vylouceni a hooky pro vyvojare.
 
 ## Pravni pozadavky
 
-Spotrebitel ma pravo odstoupit od smlouvy uzavrene na dalku do 14 dnu bez udani duvodu. Prodejce je povinen:
+Spotrebitel muze odstoupit od smlouvy uzavrene na dalku do 14 dnu bez udani duvodu. Jako prodejce musite:
 
 1. Informovat spotrebitele o pravu na odstoupeni pred uzavrenim smlouvy
 2. Zpristupnit formular odstoupeni
 3. Potvrdit prijeti prohlaseni o odstoupeni
 4. Vratit platbu do 14 dnu od prijeti prohlaseni
 
-Smernice 2023/2673 rozsiruje tyto povinnosti o digitalni proces podavani prohlaseni a automaticka potvrzeni.
+Smernice 2023/2673 pridava pozadavek na digitalni proces podavani prohlaseni a automaticka potvrzeni.
 
 ## Proces zakaznika
 
 ### Krok 1 - tlacitko v Muj ucet
 
-Po aktivaci modulu se na strance **Muj ucet > Objednavky** objevi tlacitko "Odstoupit od smlouvy" u objednavek kvalifikujicich se pro vraceni. Tlacitko je viditelne pouze v obdobi pro odstoupeni (vychozi 14 dnu od doruceni).
+Po aktivaci modulu se v **Muj ucet > Objednavky** objevi tlacitko "Odstoupit od smlouvy" u objednavek kvalifikujicich se pro vraceni. Tlacitko je viditelne 14 dnu od doruceni.
+
+![Tlacitka odstoupeni od smlouvy v panelu Muj ucet](../../../../assets/screenshots/screenshot-5-withdrawal-request.png)
 
 ### Krok 2 - formular odstoupeni
 
-Po kliknuti na tlacitko zakaznik prechazi k formulari, ktery obsahuje:
+Po kliknuti zakaznik vidi formular s poli:
 
 - Cislo objednavky (vyplneno automaticky)
 - Datum objednavky
@@ -41,11 +43,11 @@ Po odeslani formulare system automaticky:
 2. Odesle administratorovi obchodu oznameni o novem hlaseni
 3. Zmeni stav hlaseni na "Cekajici"
 
-Administrator nasledne muze zpracovat hlaseni v panelu WooCommerce a oznacit jej jako ukoncene.
+Nasledne zpracujte hlaseni v panelu WooCommerce a oznacte jako ukoncene.
 
 ## Produktove vylouceni
 
-Pravo na odstoupeni se nevztahuje na nektere kategorie produktu. Muzete oznacit produkt jako vylouceny v zalozce **Polski - Odstoupeni** v editaci produktu.
+Nektere produkty nepodlehaji pravu na odstoupeni. Oznacte je jako vyloucene v zalozce **Polski - Odstoupeni** v editaci produktu.
 
 Typicke vylouceni podle cl. 38 zakona o pravech spotrebitele:
 
@@ -56,7 +58,7 @@ Typicke vylouceni podle cl. 38 zakona o pravech spotrebitele:
 - Digitalni obsah dodany online (po zahajeni poskytovaání)
 - Tisk (deniky, periodika, casopisy)
 
-Pro vylouceny produkt se tlacitko "Odstoupit od smlouvy" nezobrazuje v panelu zakaznika.
+U vylouceneho produktu se tlacitko "Odstoupit od smlouvy" nezobrazuje v panelu zakaznika.
 
 ## Shortcode
 
@@ -76,17 +78,17 @@ Zobrazi formular pro prihlaseneho zakaznika. Zakaznik musi vybrat objednavku ze 
 [polski_withdrawal_form order_id="789"]
 ```
 
-Zobrazi formular predvyplneny udaji objednavky se zadanym ID. System overuje, zda prihlaseny uzivatel je vlastnikem dane objednavky.
+Zobrazi formular predvyplneny udaji objednavky se zadanym ID. Plugin overi, ze prihlaseny uzivatel je vlastnikem objednavky.
 
 ### Priklad vlozeni na stranku
 
-Vytvorte vyhrazenou stranku "Formular odstoupeni od smlouvy" a umistete na ni shortcode:
+Vytvorte stranku "Formular odstoupeni od smlouvy" a pridejte shortcode:
 
 ```
 [polski_withdrawal_form]
 ```
 
-Nasledne v nastaveni pluginu (**WooCommerce > Nastaveni > Polski > Odstoupeni**) ukazte tuto stranku jako vychozi stranku formulare.
+V nastaveni (**WooCommerce > Nastaveni > Polski > Odstoupeni**) ukazte tuto stranku jako vychozi stranku formulare.
 
 ## Hooky
 
@@ -212,7 +214,7 @@ add_filter('polski/withdrawal/form_fields', function (array $fields): array {
 
 ## Administrativa hlaseni
 
-Hlaseni o odstoupeni jsou dostupna v panelu WooCommerce v **WooCommerce > Odstoupeni**. Kazde hlaseni obsahuje:
+Hlaseni najdete v **WooCommerce > Odstoupeni**. Kazde hlaseni obsahuje:
 
 - Cislo objednavky a odkaz na objednavku
 - Datum odeslani formulare
@@ -221,7 +223,7 @@ Hlaseni o odstoupeni jsou dostupna v panelu WooCommerce v **WooCommerce > Odstou
 - Seznam produktu zahrnutych v odstoupeni
 - Duvod (pokud byl udan)
 
-Administrator muze zmenit stav hlaseni, pridat interni poznamku nebo zpracovat vraceni primo z panelu.
+Muzete zmenit stav hlaseni, pridat poznamku nebo zpracovat vraceni primo z panelu.
 
 ## Reseni problemu
 

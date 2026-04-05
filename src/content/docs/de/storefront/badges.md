@@ -11,7 +11,7 @@ Gehen Sie zu **WooCommerce > Polski > Shop-Module** und aktivieren Sie die Optio
 
 ## Automatische Labels
 
-Automatische Labels werden basierend auf Produktdaten generiert. Sie erfordern keine manuelle Konfiguration - nach der Aktivierung funktionieren sie sofort auf allen Produkten.
+Werden automatisch auf Basis der Produktdaten generiert. Nach der Aktivierung funktionieren sie sofort auf allen Produkten.
 
 ### Sale
 
@@ -32,6 +32,8 @@ add_filter('polski/badges/sale_format', function (): string {
     return 'percentage'; // 'percentage', 'amount', 'text', 'both'
 });
 ```
+
+Bei variablen Produkten wird der Prozentsatz anhand der Variante mit dem groessten Rabatt berechnet.
 
 ### Neu
 
@@ -71,6 +73,8 @@ add_filter('polski/badges/bestseller_limit', function (): int {
 });
 ```
 
+Die Bestsellerliste wird in der Transient API gecacht (Standard 24 Stunden).
+
 ## Manuelle Labels (pro Produkt)
 
 Neben automatischen Labels koennen Sie eigene Badges zu einzelnen Produkten hinzufuegen. Im Produkteditor im Panel **Produktdaten** finden Sie den Tab **Labels**.
@@ -83,7 +87,7 @@ Optionen fuer manuelle Labels:
 - **Position** - Oben links, Oben rechts, Unten links, Unten rechts
 - **Prioritaet** - Anzeigereihenfolge bei mehreren Labels
 
-Maximale Anzahl von Labels pro Produkt: **4** (automatisch + manuell zusammen).
+Maximale Anzahl von Labels pro Produkt: **4** (automatisch + manuell zusammen). Das Limit schuetzt das Miniaturbild vor Ueberladung.
 
 ```php
 // Label-Limit pro Produkt aendern
@@ -91,6 +95,19 @@ add_filter('polski/badges/max_per_product', function (): int {
     return 3;
 });
 ```
+
+## Label-Positionierung
+
+Automatische Labels haben Standardpositionen:
+
+| Label     | Standardposition |
+| ------------ | ---------------- |
+| Sale    | Oben links        |
+| Neu       | Oben rechts       |
+| Niedriger Bestand   | Unten links         |
+| Bestseller   | Oben rechts       |
+
+Positionen aendern Sie in den Moduleinstellungen. Zwei Labels an derselben Position werden vertikal gestapelt.
 
 ## Labelformen
 
@@ -100,6 +117,33 @@ Verfuegbare Formen:
 - **Rechteck mit abgerundeten Ecken** - border-radius
 - **Kreis** - fuer kurze Texte (z.B. "-25%")
 - **Band** - dekorative Form mit Schraege
+
+Konfiguration in den Einstellungen: **WooCommerce > Polski > Shop-Module > Labels > Form**.
+
+## Label-Sichtbarkeit
+
+Labels werden angezeigt auf:
+
+- Kategorie- und Archivseiten (Produktkarten)
+- Einzelproduktseite (Hauptbild)
+- Produktslider (Slider-Modul)
+- Schnellansicht (Quick-View-Modul)
+- Suchergebnissen
+
+Sie koennen Labels fuer bestimmte Orte deaktivieren:
+
+```php
+// Labels auf der Einzelproduktseite deaktivieren
+add_filter('polski/badges/show_on_single', '__return_false');
+```
+
+## Labels fuer variable Produkte
+
+Fuer variable Produkte:
+
+- **Sale** - zeigt den groessten Rabattprozentsatz aller Varianten
+- **Niedriger Bestand** - wird angezeigt, wenn mindestens eine Variante niedrigen Bestand hat
+- **Neu** - basiert auf dem Datum der Produkterstellung (nicht der Variante)
 
 ## CSS-Styling
 
@@ -130,6 +174,10 @@ Styling-Beispiel:
     padding: 4px 8px;
 }
 ```
+
+## Leistung
+
+Labels werden in Produkt-Meta (`_polski_badges_cache`) gecacht und bei Produktspeicherung aktualisiert. Bestseller werden einmal alle 24 Stunden neu berechnet (Transient API).
 
 ## Fehlerbehebung
 

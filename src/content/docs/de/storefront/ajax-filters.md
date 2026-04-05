@@ -7,7 +7,9 @@ AJAX-Filter ermoeglichen es Kunden, die Produktliste ohne Seitenneuladung einzug
 
 ## Modul aktivieren
 
-Gehen Sie zu **WooCommerce > Polski > Shop-Module** und aktivieren Sie die Option **AJAX-Filter**. Das Modul stellt Filter als Gutenberg-Block, Shortcode und Widget bereit.
+Gehen Sie zu **WooCommerce > Polski > Shop-Module** und aktivieren Sie die Option **AJAX-Filter**. Filter stehen als Gutenberg-Block, Shortcode und Widget bereit.
+
+![AJAX-Filter, Wunschliste und Produktvergleich auf der Shop-Seite](../../../../assets/screenshots/screenshot-8-wishlist-compare-quick-view.png)
 
 ## Verfuegbare Filtertypen
 
@@ -120,6 +122,35 @@ Blockoptionen:
 
 ```html
 [polski_ajax_filters filters="category,price,pa_color,stock" style="accordion" show_count="yes"]
+```
+
+### Nur nach Attributen filtern
+
+```html
+[polski_ajax_filters filters="pa_color,pa_size,pa_material" style="compact"]
+```
+
+### Platzierung in der Theme-Sidebar
+
+In `sidebar.php` oder in Widgets:
+
+```php
+echo do_shortcode('[polski_ajax_filters filters="category,price,stock,sale"]');
+```
+
+## Integration mit Paginierung
+
+Filter arbeiten mit der WooCommerce-Paginierung zusammen. Nach einer Filteraenderung wird Seite 1 angezeigt. Das Blaettern zwischen Seiten setzt die Filter nicht zurueck.
+
+## Aktive Filter
+
+Ueber der Produktliste erscheinen aktive Filter als Tags (Chips). Klicken Sie auf X, um einen Filter zu entfernen. Der Button **Alle zuruecksetzen** setzt alle Filter auf einmal zurueck.
+
+```php
+// Position der aktiven Filterleiste aendern
+add_filter('polski/ajax_filters/active_position', function (): string {
+    return 'above_products'; // oder 'below_filters', 'both'
+});
 ```
 
 ## Leistung

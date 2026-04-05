@@ -3,7 +3,7 @@ title: WP-CLI-Befehle
 description: WP-CLI-Befehle in Polski for WooCommerce - Datenmigration und Konfigurationstest.
 ---
 
-Polski for WooCommerce stellt WP-CLI-Befehle zur Plugin-Verwaltung ueber die Kommandozeile bereit. Die Befehle ermoeglichen die Automatisierung von Datenmigrationen und die Ueberpruefung der Konfigurationskorrektheit.
+WP-CLI-Befehle zur Plugin-Verwaltung ueber die Kommandozeile. Automatisieren Sie Datenmigrationen und pruefen Sie die Konfiguration.
 
 ## Anforderungen
 

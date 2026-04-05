@@ -3,7 +3,7 @@ title: KSeF-Integration
 description: Dokumentation der Integration von Polski PRO for WooCommerce mit dem Nationalen e-Rechnungssystem (KSeF) - Rechnungsversand, Statusverfolgung, API-Konfiguration und Fehlerbehandlung.
 ---
 
-Das KSeF-Modul in Polski PRO for WooCommerce ermoeglicht den Versand elektronischer Rechnungen an das Nationale e-Rechnungssystem (Krajowy System e-Faktur), das vom Finanzministerium betrieben wird. Rechnungen werden asynchron mit automatischer Wiederholung bei Fehlern uebermittelt.
+Das KSeF-Modul sendet elektronische Rechnungen an das Nationale e-Rechnungssystem (Finanzministerium). Rechnungen werden im Hintergrund gesendet, mit automatischer Wiederholung bei Fehlern.
 
 ## Was ist KSeF
 

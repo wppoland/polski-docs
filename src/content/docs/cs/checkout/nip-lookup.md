@@ -3,7 +3,7 @@ title: NIP na pokladne
 description: Validace cisla NIP s kontrolnim souctem, overeni v API GUS REGON a automaticke stahovani udaju firmy na strance pokladny WooCommerce.
 ---
 
-Firemni zakaznici skladajici objednavky v internetovych obchodech potrebuji moznost zadat cislo NIP pro ziskani faktury s DPH. Plugin Polski for WooCommerce pridava pole NIP na stranku pokladny s uplnou validaci - od kontrolniho souctu po overeni v databazi GUS REGON s automatickym doplnenim udaju firmy.
+Firemni zakaznici potrebuji pole NIP na pokladne pro ziskani faktury s DPH. Plugin pridava pole NIP s validaci kontrolniho souctu a overenim v bazi GUS REGON. Udaje firmy se doplni automaticky.
 
 ## Funkce
 

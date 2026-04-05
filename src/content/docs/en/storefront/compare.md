@@ -3,7 +3,9 @@ title: Product compare
 description: Product comparison module in Polski for WooCommerce - feature table, product limit, auto-replace and shortcode.
 ---
 
-The product compare feature allows customers to place several products side by side in a feature table. This makes purchase decisions easier, especially in stores with a wide range of products.
+The compare feature lets customers place several products side by side in a feature table. It makes choosing easier, especially in stores with a large selection.
+
+![Product compare, wishlist and filters on the store page](../../../../assets/screenshots/screenshot-8-wishlist-compare-quick-view.png)
 
 ## Enabling the module
 

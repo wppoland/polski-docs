@@ -3,7 +3,7 @@ title: Affiliate program
 description: Dokumentace affiliate programu Polski PRO for WooCommerce - doporucujici odkazy, sledovani provizi, registrace afiliatu a panel Muj ucet.
 ---
 
-Modul affiliate programu v Polski PRO for WooCommerce umoznuje provozovani programu doporuceni primo v obchode WooCommerce. Afiliati sdileji jedinecne doporucujici odkazy a plugin sleduje konverze a pripocitava provize za objednavky zlozene doporucenymi zakazniky.
+Modul affiliate programu umoznuje provozovat program doporuceni primo v obchode. Afiliati sdileji jedinecne odkazy a plugin sleduje konverze a pripocitava provize za objednavky od doporucenych zakazniku.
 
 ## Jak to funguje
 

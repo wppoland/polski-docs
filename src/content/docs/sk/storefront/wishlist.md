@@ -3,7 +3,7 @@ title: Zoznam prianí (wishlist)
 description: Modul zoznamu prianí v Polski for WooCommerce - podpora hostí a prihlásených používateľov, zákaznícky účet, AJAX a shortcód.
 ---
 
-Zoznam prianí umožňuje zákazníkom ukladať produkty na neskorší nákup. Modul Polski for WooCommerce ponúka plnú implementáciu wishlistu - pre prihlásených používateľov aj hostí navštevujúcich obchod.
+Zoznam prianí umožňuje zákazníkom ukladať produkty na neskôr. Funguje pre prihlásených zákazníkov aj hostí.
 
 ## Zapnutie modulu
 

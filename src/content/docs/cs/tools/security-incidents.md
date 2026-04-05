@@ -3,7 +3,7 @@ title: Registr bezpecnostnich incidentu
 description: Registr bezpecnostnich incidentu (CRA) v Polski for WooCommerce - zaznamenavani udalosti, CSV export a soulad s Cyber Resilience Act.
 ---
 
-Registr bezpecnostnich incidentu umoznuje dokumentovat a spravovat bezpecnostni udalosti v obchode WooCommerce. Funkce podporuje soulad s Cyber Resilience Act (CRA) - unijnim narizenim vyzadujicim od prodejcu vedeni registru incidentu tykajicich se produktu s digitalnimi elementy.
+Registr incidentu umoznuje dokumentovat bezpecnostni udalosti v obchode. Podporuje soulad s Cyber Resilience Act (CRA) - unijnim narizenim vyzadujicim registr incidentu pro produkty s digitalnimi elementy.
 
 ## Co je CRA
 

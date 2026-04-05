@@ -3,7 +3,7 @@ title: Gutenberg bloky
 description: Gutenberg bloky v Polski for WooCommerce - AJAX vyhledavac, AJAX filtry a slider produktu s nahledem v editoru.
 ---
 
-Polski for WooCommerce zpristupnuje tri Gutenberg bloky pro vkladani modulu obchodu v blokovem editoru. Kazdy blok nabizi nahled v editoru (server-side render) a uplnou konfiguraci v bocnim panelu.
+Tri Gutenberg bloky pro vkladani modulu obchodu. Kazdy blok ma nahled v editoru (server-side render) a konfiguraci v bocnim panelu.
 
 ## Pozadavky
 

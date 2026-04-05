@@ -3,7 +3,7 @@ title: Allergens
 description: Allergen declaration using the polski_allergen taxonomy, automatic highlighting in ingredients and display shortcode in WooCommerce.
 ---
 
-Regulation (EU) No 1169/2011 (Annex II) specifies 14 substances causing allergies or intolerances that must be clearly marked on food product labels. For online sales, allergen information must be available before purchase. The Polski for WooCommerce plugin provides an allergen declaration system based on WordPress taxonomy.
+EU regulations require labeling 14 allergens on food product labels. In an online store, allergen information must be visible before purchase. Polski for WooCommerce handles allergens through a WordPress taxonomy.
 
 ## 14 main allergens
 

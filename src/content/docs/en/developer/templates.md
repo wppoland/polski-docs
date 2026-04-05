@@ -3,7 +3,7 @@ title: Template overrides
 description: Overriding Polski for WooCommerce templates in your theme - file list, directory structure and examples.
 ---
 
-Polski for WooCommerce uses a template system modeled after WooCommerce. You can override any plugin template by copying it to the `yourtheme/polski/` directory in your theme.
+Template system modeled after WooCommerce. Override any template by copying it to `yourtheme/polski/` in your theme.
 
 ## How to override a template
 

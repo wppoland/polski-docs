@@ -3,7 +3,7 @@ title: DSGVO - Datenschutz
 description: Konfiguration der DSGVO-Einwilligungen in Polski for WooCommerce - 7 Checkboxen, Einwilligungsprotokollierung, Shortcode-API und Konformitaet mit der Datenschutz-Grundverordnung.
 ---
 
-Die Datenschutz-Grundverordnung (DSGVO/GDPR) verlangt von Onlineshops, eine ausdrueckliche Einwilligung zur Verarbeitung personenbezogener Daten einzuholen. Polski for WooCommerce liefert 7 konfigurierbare Checkboxen auf der Bestellseite, ein System zur Protokollierung von Einwilligungen sowie Werkzeuge zur Verwaltung der Kundeneinwilligungen.
+Die DSGVO (GDPR) verlangt von Shops eine ausdrueckliche Einwilligung zur Datenverarbeitung. Das Plugin fuegt 7 konfigurierbare Checkboxen auf der Bestellseite, Einwilligungsprotokollierung und Verwaltungswerkzeuge hinzu.
 
 ## Erforderliche Einwilligungen im polnischen E-Commerce
 

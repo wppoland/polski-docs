@@ -3,13 +3,13 @@ title: Legal pages
 description: Automatic legal page generation in Polski for WooCommerce - terms and conditions, privacy policy, return policy, complaints, email attachments and ODR information.
 ---
 
-Every online store in Poland must provide customers with a set of legal documents. Polski for WooCommerce automatically generates four key legal pages adapted to Polish law, allows attaching them to transactional emails and displays the required ODR platform information.
+Every online store in Poland must have legal documents. The plugin generates four legal pages, attaches them to emails and displays the ODR platform information.
 
 ## Generated legal pages
 
 ### 1. Store terms and conditions
 
-The generated terms and conditions contain elements required by the Consumer Rights Act:
+The terms and conditions contain elements required by the Consumer Rights Act:
 
 - Seller identification data (name, address, NIP, REGON, KRS)
 - Order placement procedure
@@ -22,7 +22,7 @@ The generated terms and conditions contain elements required by the Consumer Rig
 
 ### 2. Privacy policy
 
-The generated GDPR-compliant privacy policy contains:
+GDPR-compliant privacy policy contains:
 
 - Personal data controller information
 - Purposes and legal bases for data processing
@@ -35,7 +35,7 @@ The generated GDPR-compliant privacy policy contains:
 
 ### 3. Return policy
 
-The generated return policy covers:
+The return policy covers:
 
 - Contract withdrawal period (14 days)
 - Withdrawal form template
@@ -47,7 +47,7 @@ The generated return policy covers:
 
 ### 4. Complaint policy
 
-The generated complaint policy contains:
+The complaint policy contains:
 
 - Legal basis (warranty, guarantee)
 - Ways to file a complaint
@@ -62,7 +62,7 @@ Go to **WooCommerce > Settings > Polski > Legal Pages** to generate or update pa
 
 ### Seller data
 
-Before generating pages, fill in company data:
+First fill in company data:
 
 | Field | Description | Example |
 |-------|-------------|---------|
@@ -84,11 +84,11 @@ Before generating pages, fill in company data:
 4. Review the content of each page
 5. Publish pages after verification
 
-Pages are created as drafts because consulting their content with a lawyer is recommended before publishing.
+Pages are created as drafts - review them and consult with a lawyer before publishing.
 
 ### Updating pages
 
-When you change company data, click "Update legal pages". The system will update generated sections while preserving your manual modifications in marked blocks.
+After changing company data, click "Update legal pages". The plugin updates generated sections while preserving your manual changes.
 
 Generated page structure:
 
@@ -100,11 +100,11 @@ Automatically generated content - do not edit this block
 Your additional content - safely edit below
 ```
 
-During updates, the system overwrites only content between the `POLSKI-AUTO-START` and `POLSKI-AUTO-END` markers. Content added outside these markers is preserved.
+During updates, the plugin overwrites only content between `POLSKI-AUTO-START` and `POLSKI-AUTO-END`. Content outside these markers is preserved.
 
 ## Email attachments
 
-The plugin allows attaching legal pages as PDF attachments to WooCommerce transactional emails.
+The plugin attaches legal pages as PDF to WooCommerce transactional emails.
 
 ### Configuration
 
@@ -119,7 +119,7 @@ In **WooCommerce > Settings > Polski > Legal Pages > Email Attachments** configu
 
 ### Attachment format
 
-Documents are automatically converted to PDF format with a header containing the store logo and generation date. File size is optimized to avoid overloading the mail server.
+Documents are converted to PDF with store logo and date. File size is optimized.
 
 | Option | Description | Default value |
 |--------|-------------|---------------|
@@ -130,7 +130,7 @@ Documents are automatically converted to PDF format with a header containing the
 
 ## ODR information
 
-EU Regulation 524/2013 requires online sellers to include a link to the ODR (Online Dispute Resolution) platform - a platform for out-of-court dispute resolution.
+EU Regulation 524/2013 requires online stores to link to the ODR (Online Dispute Resolution) platform for out-of-court dispute resolution.
 
 ### Automatic display
 
@@ -157,33 +157,33 @@ Standard content displayed by the plugin:
 
 ## Document versioning
 
-The plugin automatically records legal page versions:
+The plugin records legal page versions:
 
 - Each content change creates a new version
 - The last update date is displayed on the page
-- GDPR consent logs contain a hash of the document version that was in effect at the time of consent
+- GDPR consent logs contain a hash of the document version at the time of consent
 - Version history is available in the WordPress page **Revisions**
 
 ## Multilingual support
 
-Generated pages are in Polish by default. If you use WPML or Polylang, the plugin generates separate pages for each active language. Translations are provided for:
+Pages are generated in Polish. With WPML or Polylang, the plugin creates separate pages for each language. Ready translations:
 
 - Polish (default)
 - English
 - German
 
-For other languages, a Polish version is generated with the option for manual translation.
+For other languages, a Polish version is created for manual translation.
 
 ## Troubleshooting
 
 **Pages do not generate**
-Check that all required seller data fields are filled in. The company name, address, NIP and email fields are mandatory.
+Check that you filled in all required fields: company name, address, NIP and email.
 
 **PDF attachments are not added to emails**
-Check that the PDF generation library is installed on the server. The plugin requires the PHP `mbstring` and `dom` extensions. Check PHP logs for errors.
+Check that the server has PHP extensions `mbstring` and `dom`. Check PHP logs for errors.
 
 **ODR information does not display in the footer**
-Check that the theme supports WooCommerce footer hooks (`wp_footer` or `woocommerce_after_footer`). Some themes require manually adding a widget.
+Check that the theme supports footer hooks (`wp_footer` or `woocommerce_after_footer`). Some themes require adding a widget manually.
 
 **Update overwrote my changes**
 Edit content only outside the `POLSKI-AUTO-START` / `POLSKI-AUTO-END` markers. Content between these markers is overwritten with each update.

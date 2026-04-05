@@ -3,22 +3,22 @@ title: Jednotkova cena
 description: Zobrazovani ceny za kilogram, litr, metr nebo kus ve WooCommerce v souladu s polskym spotrebitelskym pravem.
 ---
 
-Smernice 98/6/ES a polsky zakon o informovani o cenach zbozi a sluzeb vyzaduji, aby internetovy obchod uvadel jednotkovou cenu produktu - tedy cenu za kilogram, litr, bezny metr nebo kus. Plugin Polski for WooCommerce automatizuje tuto povinnost pridanim informace o jednotkove cene na strance produktu, v listinzich a v kosiku.
+Polske pravo vyzaduje, aby obchod zobrazoval jednotkovou cenu produktu - napr. cenu za kilogram, litr nebo metr. Plugin pridava tuto informaci automaticky na strance produktu, v listingu a v kosiku.
 
 ## Kdy je jednotkova cena vyzadovana
 
-Povinnost uvadeni jednotkove ceny se tyka produktu prodavanych na vahu, objem nebo delku. V praxi to zahrnuje:
+Jednotkovou cenu uvadite pro produkty prodavane na vahu, objem nebo delku. Tyka se to:
 
 - potraviny (cena za kg nebo litr)
 - kosmetiku a cistici prostredky (cena za 100 ml nebo litr)
 - stavebni materialy (cena za bezny metr nebo ctverecni metr)
 - sypke produkty (cena za kg)
 
-Jednotkova cena musi byt viditelna na kazdem miste, kde je prezentovana cena produktu - na strance produktu, ve vysledcich vyhledavani, v cenových srovnavacich a v kosiku.
+Jednotkova cena musi byt viditelna vsude, kde se zobrazuje cena produktu.
 
 ## Konfigurace
 
-Prejdete do **WooCommerce > Nastaveni > Polski > Ceny** a aktivujte modul jednotkove ceny. Po aktivaci se v editoru produktu objevi nova sekce v zalozce "Obecne".
+Prejdete do **WooCommerce > Nastaveni > Polski > Ceny** a aktivujte modul jednotkove ceny. V editoru produktu se objevi nova sekce v zalozce "Obecne".
 
 ### Pole v editoru produktu
 
@@ -40,7 +40,7 @@ Plugin podporuje nasledujici merne jednotky:
 - **Delka:** mm, cm, m
 - **Kusy:** szt (kus)
 
-Prepocet mezi jednotkami probiha automaticky. Pokud ma produkt hmotnost v gramech a referencni jednotka je kilogram, plugin sam prepocita hodnotu.
+Prepocet mezi jednotkami probiha automaticky. Pokud ma produkt hmotnost v gramech a referencni jednotka je kilogram, plugin prepocita sam.
 
 ## Varianty produktu
 
@@ -49,7 +49,7 @@ Pro variantni produkty (variable products) lze jednotkovou cenu nastavit na dvou
 1. **Na urovni hlavniho produktu** - hodnota dedena vsemi variantami
 2. **Na urovni varianty** - prepise nastaveni hlavniho produktu
 
-V pripade variant o ruzne hmotnosti (napr. baleni 250 g a 500 g) nastavte jednotkovou cenu zvlast pro kazdou variantu. Plugin automaticky aktualizuje zobrazovanou cenu pri zmene varianty zakaznikem (AJAX).
+Pro varianty o ruzne hmotnosti (napr. 250 g a 500 g) nastavte jednotkovou cenu zvlast pro kazdou variantu. Plugin aktualizuje zobrazenou cenu pri zmene varianty (AJAX).
 
 ## Shortcode
 

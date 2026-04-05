@@ -3,7 +3,7 @@ title: Weitere Shop-Module
 description: Zusaetzliche Module in Polski for WooCommerce - Tab-Manager, hervorgehobenes Video, Galerie-Zoom, Warteliste, unendliches Scrollen, Popup.
 ---
 
-Polski for WooCommerce bietet eine Reihe zusaetzlicher Module zur Verbesserung des Shop-Betriebs. Jedes Modul kann unabhaengig unter **WooCommerce > Polski > Shop-Module** aktiviert werden.
+Zusaetzliche Shop-Module. Jedes aktivieren Sie unabhaengig unter **WooCommerce > Polski > Shop-Module**.
 
 ## Tab-Manager
 
@@ -11,13 +11,22 @@ Der Tab-Manager ermoeglicht die Kontrolle ueber die auf der Produktseite angezei
 
 ### Moeglichkeiten
 
-- **Reihenfolge aendern** - Tabs per Drag & Drop in die gewuenschte Reihenfolge bringen
-- **Tabs ausblenden** - gewaehlten Tab ausblenden, ohne Inhalte zu loeschen
-- **Umbenennen** - Tabs eigene Namen geben (z.B. "Details" statt "Beschreibung")
-- **Tabs hinzufuegen** - benutzerdefinierte Tabs mit eigenem Inhalt erstellen
-- **Globale Tabs** - Tabs sichtbar auf allen Produkten
-- **Tabs pro Produkt** - Tabs nur auf gewaehltem Produkt sichtbar
-- **Tabs pro Kategorie** - Tabs sichtbar auf Produkten einer bestimmten Kategorie
+- **Reihenfolge aendern** - Drag & Drop
+- **Tabs ausblenden** - ohne Inhalte zu loeschen
+- **Umbenennen** - z.B. "Details" statt "Beschreibung"
+- **Tabs hinzufuegen** - eigene Tabs mit beliebigem Inhalt
+- **Globale Tabs** - sichtbar auf allen Produkten
+- **Tabs pro Produkt** - nur auf dem gewaehlten Produkt
+- **Tabs pro Kategorie** - nur auf Produkten einer bestimmten Kategorie
+
+### Benutzerdefinierten Tab hinzufuegen
+
+Klicken Sie in den Tab-Manager-Einstellungen auf **Tab hinzufuegen** und fuellen Sie aus:
+
+- **Name** - Tab-Titel
+- **Inhalt** - unterstuetzt WYSIWYG-Editor, Shortcodes und HTML
+- **Prioritaet** - Tab-Position (niedriger = weiter links)
+- **Sichtbarkeit** - global, gewaehlte Kategorie oder gewaehltes Produkt
 
 Programmatisch:
 
@@ -36,7 +45,7 @@ add_filter('woocommerce_product_tabs', function (array $tabs): array {
 
 ## Hervorgehobenes Video
 
-Das Modul ermoeglicht das Ersetzen oder Ergaenzen des Hauptproduktfotos durch ein Video.
+Ersetzen oder ergaenzen Sie das Hauptproduktfoto durch ein Video.
 
 ### Unterstuetzte Quellen
 
@@ -44,6 +53,21 @@ Das Modul ermoeglicht das Ersetzen oder Ergaenzen des Hauptproduktfotos durch ei
 - **Vimeo** - Video-URL einfuegen
 - **Eigenes Video** - MP4-Datei in die Medienbibliothek hochladen
 - **Externe URL** - Link zu MP4/WebM-Datei
+
+### Konfiguration
+
+Im Produkteditor erscheint im Abschnitt **Produktbild** ein zusaetzliches Feld **Produktvideo**. Fuegen Sie die Video-URL ein oder waehlen Sie aus der Medienbibliothek.
+
+Anzeigeoptionen:
+
+| Option            | Beschreibung                                  | Standard |
+| ---------------- | ------------------------------------- | --------- |
+| Position          | Erstes in der Galerie / Letztes         | Erstes  |
+| Autoplay         | Automatische Wiedergabe              | Nein       |
+| Stummschaltung       | Standardmaessig stummgeschaltet                   | Ja       |
+| Schleife            | Wiedergabe in Schleife                   | Nein       |
+| Seitenverhaeltnis        | 16:9 / 4:3 / 1:1                     | 16:9      |
+| Play-Symbol       | Play-Symbol auf der Miniatur              | Ja       |
 
 ### Lazy Loading
 
@@ -71,6 +95,8 @@ add_filter('polski/gallery_zoom/scale', function (): float {
 });
 ```
 
+Bilder sollten mindestens 1200x1200 px gross sein. Bei niedrigerer Aufloesung wird das vergroesserte Bild unscharf.
+
 ## Warteliste (Waitlist)
 
 Das Modul ermoeglicht es Kunden, sich fuer eine E-Mail-Benachrichtigung ueber die Verfuegbarkeit eines voruebergehend nicht verfuegbaren Produkts anzumelden.
@@ -82,15 +108,31 @@ Das Modul ermoeglicht es Kunden, sich fuer eine E-Mail-Benachrichtigung ueber di
 3. Kunde gibt E-Mail-Adresse ein und klickt **Benachrichtigen**
 4. Wenn das Produkt wieder auf Lager ist, sendet das System automatisch eine Benachrichtigung
 
+### Listenverwaltung
+
+Im Admin-Panel (**WooCommerce > Polski > Warteliste**) sehen Sie:
+
+- Produktliste mit Anzahl der Wartenden
+- E-Mail-Adressen der eingetragenen Kunden
+- Benachrichtigungsstatus (gesendet / ausstehend)
+- Button zum manuellen Senden der Benachrichtigung
+
 ### DSGVO-Einwilligung
 
-Das Anmeldeformular enthaelt eine Checkbox zur Einwilligung in die Verarbeitung personenbezogener Daten gemaess DSGVO.
+Das Formular enthaelt eine DSGVO-Einwilligungs-Checkbox. Den Text aendern Sie in den Moduleinstellungen.
 
 ```php
 add_filter('polski/waitlist/consent_text', function (): string {
     return 'Ich stimme dem Erhalt einer einmaligen Benachrichtigung ueber die Produktverfuegbarkeit zu.';
 });
 ```
+
+### Automatische Bereinigung
+
+E-Mail-Adressen werden von der Liste entfernt nach:
+- Senden der Benachrichtigung
+- 90 Tagen seit der Eintragung (konfigurierbarer Zeitraum)
+- Manueller Entfernung durch den Administrator
 
 ## Unendliches Scrollen (Infinite Scroll)
 
@@ -100,6 +142,16 @@ Das Modul ersetzt die traditionelle Paginierung durch automatisches Laden weiter
 
 - **Automatisch** - naechste Seite laedt automatisch, wenn der Nutzer das Listenende erreicht
 - **Button** - zeigt einen Button **Mehr laden** statt automatischem Laden
+
+### Konfiguration
+
+| Option              | Beschreibung                              | Standard     |
+| ------------------- | --------------------------------- | ------------- |
+| Modus                | Automatisch oder Button         | Automatisch  |
+| Abstand           | Abstand vom Listenende (px)      | 300           |
+| Button-Text     | Text auf dem Button                | Mehr laden|
+| Spinner             | Typ der Ladeanimation            | Dots          |
+| Seitenlimit         | Maximale Seitenanzahl           | 10            |
 
 ### SEO
 
@@ -139,6 +191,16 @@ Das Modul zeigt ein konfigurierbares Popup (Modalfenster) auf der Shop-Seite an.
 - **Einmal alle X Tage** - Popup erscheint nicht erneut fuer X Tage (Cookie)
 - **Nur neue Besucher** - Popup nur fuer neue Besucher sichtbar
 - **Ausgewaehlte Seiten** - Popup nur auf angegebenen Seiten sichtbar
+
+### Konfiguration im Panel
+
+Gehen Sie zu **WooCommerce > Polski > Shop-Module > Popup** und konfigurieren Sie:
+
+- Popup-Inhalt (WYSIWYG-Editor mit Shortcode-Unterstuetzung)
+- Ausloeser und Anzeigebedingungen
+- Stil (Farben, Groesse, Animation)
+- Position (Mitte, Unten, Seite)
+- Schliessen-Button
 
 ### Rechtliche Anforderungen
 

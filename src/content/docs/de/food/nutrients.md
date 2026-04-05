@@ -3,7 +3,7 @@ title: Naehrwerte
 description: Naehrwerttabelle im JSON-Format pro 100 g oder 100 ml mit Shortcode zur Anzeige auf der WooCommerce-Produktseite.
 ---
 
-Die Verordnung (EU) Nr. 1169/2011 verlangt, dass auf der Verpackung (und im Onlineshop) eines Lebensmittels eine Naehrwerttabelle vorhanden ist. Das Plugin Polski for WooCommerce ermoeglicht die Eingabe einer vollstaendigen Naehrwerttabelle fuer jedes Produkt und deren Anzeige in einem uebersichtlichen, verordnungskonformen Format.
+Lebensmittelshops muessen eine Naehrwerttabelle anzeigen (Verordnung EU Nr. 1169/2011). Polski for WooCommerce ermoeglicht die Eingabe einer Tabelle pro Produkt im verordnungskonformen Format.
 
 ## Obligatorische Naehrstoffe
 

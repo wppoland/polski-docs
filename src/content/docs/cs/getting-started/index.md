@@ -15,9 +15,11 @@ hero:
       variant: minimal
 ---
 
+![Polski for WooCommerce - banner pluginu](../../../../assets/screenshots/banner-772x250.png)
+
 ## Co je Polski for WooCommerce?
 
-**Polski for WooCommerce** je bezplatny open source plugin (GPLv2) vytvoreny spolecnosti [wppoland.com](https://wppoland.com), ktery prizpusobuje obchod WooCommerce polskym pravnim pozadavkum a standardum e-commerce. Plugin kombinuje vice nez 30 modulu zahrnujicich pravni pozadavky, zobrazovani cen, pokladnu, potravinarstvi, moduly obchodu a nastroje pro vyvojare.
+**Polski for WooCommerce** je bezplatny open source plugin (GPLv2) od [wppoland.com](https://wppoland.com). Prizpusobuje obchod WooCommerce polskym predpisum a standardum e-commerce. Obsahuje vice nez 30 modulu: pravni pozadavky, ceny, pokladna, potraviny, funkce obchodu a nastroje pro vyvojare.
 
 Aktualni verze: **1.3.2**
 
@@ -40,38 +42,40 @@ Pro nejlepsi vykon doporucujeme PHP 8.2+ a WooCommerce 9.x. Plugin je pravidelne
 
 ## Prehled modulu
 
-Plugin je postaven modularne - aktivujete pouze ty funkce, ktere potrebujete. Nize naleznete popis vsech dostupnych skupin modulu.
+Plugin funguje modularne - aktivujete pouze to, co potrebujete. Nize najdete popis vsech skupin modulu.
+
+![Dashboard modulu Polski for WooCommerce](../../../../assets/screenshots/screenshot-1-modules-dashboard.png)
 
 ### Pravni pozadavky
 
-Moduly pomahajici implementovat pozadavky polskeho a unijniho prava:
+Moduly pro splneni pozadavku polskeho a unijniho prava:
 
-- **GPSR (narizeni o bezpecnosti vyrobku)** - udaje vyrobce, dovozce a odpovedne osoby na strankach vyrobku
-- **Omnibus** - zobrazovani nejnizsi ceny za 30 dni pred slevou podle smernice Omnibus
-- **Pravo na odstoupeni** - formulare a postupy pro vraceni zbozi, generovani dokumentu o odstoupeni
-- **GDPR** - sprava souhlasu, anonymizace dat, registr zpracovani
-- **DSA (akt o digitalnich sluzbach)** - kontaktni misto, hlaseni obsahu, transparentnost
-- **KSeF** - priprava na integraci s Krajovym systemem e-faktur
-- **Greenwashing** - overovani a kontrola environmentalnich prohlaseni
-- **Pravni stranky** - generovani obchodnich podminek, zasad ochrany osobnich udaju a zasad vraceni zbozi
+- **GPSR (bezpecnost produktu)** - udaje vyrobce, dovozce a odpovedne osoby na strankach produktu
+- **Omnibus** - nejnizsi cena za 30 dni pred slevou
+- **Pravo na odstoupeni** - formulare a dokumenty pro odstoupeni
+- **GDPR** - souhlasy, anonymizace dat, registr zpracovani
+- **DSA (akt o digitalnich sluzbach)** - kontaktni misto, hlaseni obsahu
+- **KSeF** - priprava na Krajovy system e-faktur
+- **Greenwashing** - kontrola environmentalnich prohlaseni
+- **Pravni stranky** - obchodni podminky, zasady ochrany udaju a vraceni zbozi
 
 ### Ceny a informace o produktu
 
-Moduly souvisejici se zobrazovanim cen a udaju o produktech:
+Moduly pro zobrazovani cen a udaju o produktech:
 
-- **Jednotkove ceny** - automaticky prepocet a zobrazovani cen za mernou jednotku (PLN/kg, PLN/l)
+- **Jednotkove ceny** - automaticky prepocet a zobrazovani cen za jednotku miry (PLN/kg, PLN/l)
 - **Zobrazovani DPH** - informace o sazbe DPH a cene bez/s DPH
 - **Doba dodani** - odhadovana doba vyrizeni objednavky na strance produktu
 - **Udaje o vyrobci** - pole vyrobce, znacka, katalogove cislo
 
 ### Pokladna a objednavky
 
-Moduly upravujici stranku pokladny a proces objednavek:
+Moduly pro stranku pokladny a proces objednavek:
 
 - **Tlacitko objednavky** - zmena textu tlacitka na "Objednavka se zavazkem platby" (zakonny pozadavek)
-- **Pravni checkboxy** - konfigurovatelne souhlasy s obchodnimi podminkami, zasadami ochrany osobnich udaju, newsletterem
-- **Vyhledavani DIC** - automaticke doplneni firemních udaju na zaklade cisla NIP (API GUS)
-- **Dvojite potvrzeni** - overeni e-mailove adresy pomoci double opt-in
+- **Pravni checkboxy** - konfigurovatelne souhlasy s obchodnimi podminkami, ochranou udaju, newsletterem
+- **Vyhledavani NIP** - automaticke doplneni firemnich udaju podle cisla NIP (API GUS)
+- **Dvojite potvrzeni** - overeni e-mailove adresy (double opt-in)
 
 ### Potraviny
 
@@ -84,7 +88,7 @@ Specializovane moduly pro obchody s potravinami:
 
 ### Moduly obchodu
 
-Funkce zlepsujici nakupni zazitek:
+Funkce usnadnujici nakupovani zakaznikum:
 
 - **Wishlist** - ukladani produktu na pozdeji
 - **Porovnavac** - porovnavani produktu vedle sebe
@@ -97,7 +101,7 @@ Funkce zlepsujici nakupni zazitek:
 
 ### Nastroje
 
-Moduly usnadnujici spravu obchodu:
+Moduly pro spravu obchodu:
 
 - **Dashboard souladu** - prehled stavu pravnich pozadavku obchodu na jednom miste
 - **Audit webu** - automaticka kontrola konfigurace obchodu
@@ -121,7 +125,7 @@ Nastroje a API pro programatory:
 
 ## Rychly start
 
-Tri kroky k funkcnimu obchodu splnujicimu pozadavky e-commerce:
+Tri kroky k obchodu v souladu s predpisy:
 
 1. **[Nainstalujte plugin](/cs/getting-started/installation/)** - z panelu WordPress nebo rucne ze souboru ZIP
 2. **[Nakonfigurujte zaklady](/cs/getting-started/configuration/)** - aktivujte potrebne moduly v panelu nastaveni
@@ -137,17 +141,17 @@ Pokud narazite na problem, nahlaste jej na [GitHub Issues](https://github.com/wp
 
 - **Vse v jednom** - misto 10 pluginu jedna souvisla platforma
 - **Modularni stavba** - aktivujete pouze to, co potrebujete
-- **Pravni nastroje** - aktualizovano pri zmenach predpisu
+- **Pravni pozadavky** - aktualizovano spolu se zmenami predpisu
 - **Open source** - zdrojovy kod na GitHubu, licence GPLv2
 - **Bez predplatneho** - vsechny funkce dostupne zdarma
-- **Vykon** - minimalni zdroje nacitane pouze pro aktivni moduly
+- **Vykon** - zdroje nacitane pouze pro aktivni moduly
 - **Aktivni komunita** - podpora na GitHub Discussions
 
 ---
 
 ## Kompatibilita
 
-Plugin je testovan s nejpopularnejsimi motivy a pluginy WordPress:
+Plugin je testovan s popularnymi motivy a pluginy WordPress:
 
 - Motivy: Storefront, Astra, GeneratePress, Kadence, Flavor, flavor theme
 - Page buildery: Gutenberg (bloky), Elementor, Beaver Builder

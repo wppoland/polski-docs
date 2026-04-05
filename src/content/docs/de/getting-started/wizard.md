@@ -5,9 +5,9 @@ description: Anleitung zum Konfigurationsassistenten des Plugins Polski for WooC
 
 ## Was ist der Konfigurationsassistent?
 
-Der Konfigurationsassistent ist ein Werkzeug, das Sie in wenigen einfachen Schritten durch die wichtigsten Plugin-Einstellungen fuehrt. Statt jedes Modul manuell zu konfigurieren, stellt der Assistent Fragen und setzt die entsprechenden Optionen automatisch.
+Der Assistent fuehrt Sie in wenigen Schritten durch die wichtigsten Einstellungen. Statt jedes Modul manuell zu konfigurieren, beantworten Sie Fragen - der Assistent stellt alles ein.
 
-Der Assistent ist nach der ersten Plugin-Aktivierung verfuegbar. Sie koennen ihn jederzeit erneut starten - gehen Sie zu **WooCommerce > Polski > Einstellungen** und klicken Sie auf **Assistenten erneut starten**.
+Der Assistent erscheint nach der ersten Aktivierung. Zum erneuten Starten gehen Sie zu **WooCommerce > Polski > Einstellungen** und klicken Sie auf **Assistenten erneut starten**.
 
 :::note[Der Assistent ueberschreibt keine vorhandenen Daten]
 Wenn Sie den Assistenten erneut starten, sind die Felder mit zuvor gespeicherten Daten gefuellt. Der Assistent loescht oder ueberschreibt keine Daten, die Sie nicht aendern.
@@ -17,7 +17,7 @@ Wenn Sie den Assistenten erneut starten, sind die Felder mit zuvor gespeicherten
 
 ## Schritt 1: Firmendaten
 
-Der erste Schritt besteht darin, die Grunddaten Ihres Unternehmens zu ergaenzen. Diese Daten werden an vielen Stellen verwendet - auf Rechtsseiten, in der Fusszeile, in GPSR-Daten und auf Rechnungen.
+Geben Sie Ihre Firmendaten ein. Das Plugin nutzt sie auf Rechtsseiten, in der Fusszeile, in GPSR-Daten und auf Rechnungen.
 
 ### Pflichtfelder
 
@@ -84,7 +84,7 @@ Klicken Sie auf **Weiter**, um zum naechsten Schritt zu gelangen.
 
 ## Schritt 2: Rechtsseiten
 
-In diesem Schritt hilft Ihnen der Assistent, die gesetzlich vorgeschriebenen Seiten zu erstellen. Jeder polnische Onlineshop sollte mindestens folgende Seiten haben:
+Der Assistent hilft beim Erstellen der Rechtsseiten. Jeder polnische Onlineshop braucht mindestens:
 
 - **AGB** - Regeln fuer die Nutzung des Shops und den Vertragsabschluss
 - **Datenschutzerklaerung** - Informationen zur Verarbeitung personenbezogener Daten (DSGVO)
@@ -169,7 +169,7 @@ Klicken Sie auf **Weiter**, um zur Checkbox-Konfiguration zu gelangen.
 
 ## Schritt 3: Checkboxen auf der Kassenseite
 
-In diesem Schritt konfigurieren Sie die Pflicht-Checkboxen, die auf der Kassenseite (Checkout) angezeigt werden. Das polnische Recht erfordert, dass der Kunde den AGB vor der Bestellung zustimmt.
+Konfigurieren Sie die Checkboxen auf der Kassenseite (Checkout). Das polnische Recht verlangt, dass der Kunde die AGB vor der Bestellung akzeptiert.
 
 ### Standard-Checkboxen
 

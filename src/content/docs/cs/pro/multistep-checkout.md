@@ -3,7 +3,7 @@ title: Vicekrokova pokladna
 description: Dokumentace vicekrokove pokladny Polski PRO for WooCommerce - rozdeleni procesu objednavky na kroky, konfigurace, React Checkout Blocks a klasicky fallback.
 ---
 
-Modul vicekrokove pokladny v Polski PRO for WooCommerce rozdeluje proces vytvareni objednavky do ctyr prehlednych kroku. Zakaznik vidi ukazatel prubehu a postupne prochazi adresnim formularem, vyberem doruceni, platbou a shrnutim objednavky.
+Modul deli pokladnu na ctyri kroky: adresa, doruceni, platba a shrnuti. Zakaznik vidi ukazatel prubehu a prochazi postupne kazdym krokem.
 
 ## Kroky pokladny
 

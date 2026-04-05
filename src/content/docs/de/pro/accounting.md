@@ -3,7 +3,7 @@ title: Buchhaltungsintegrationen
 description: Integrationen mit den Buchhaltungssystemen wFirma, Fakturownia und iFirma in Polski PRO for WooCommerce - Rechnungssynchronisation, Retry-Logik und Konfiguration pro Anbieter.
 ---
 
-Das Modul fuer Buchhaltungsintegrationen verbindet WooCommerce mit beliebten polnischen Rechnungssystemen: wFirma, Fakturownia und iFirma. Rechnungen werden automatisch nach Bestellaufgabe gesendet, mit einem Wiederholungsmechanismus (Retry) und exponentiellem Backoff bei API-Fehlern.
+Das Modul verbindet WooCommerce mit polnischen Fakturierungssystemen: wFirma, Fakturownia und iFirma. Rechnungen werden automatisch gesendet, mit Retry bei API-Fehlern.
 
 :::note[Wymagania]
 Polski PRO wymaga: Polski (free) v1.3.0+, WordPress 6.4+, WooCommerce 8.0+, PHP 8.1+. Dodatkowo wymagane jest aktywne konto w wybranym systemie księgowym z dostępem API.

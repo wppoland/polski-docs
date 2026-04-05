@@ -3,7 +3,7 @@ title: Systém faktúr
 description: Dokumentácia systému faktúr Polski PRO for WooCommerce - faktúra s DPH, opravná faktúra, účtenka, dodací list, generovanie PDF, číslovanie a REST API.
 ---
 
-Modul faktúr v Polski PRO for WooCommerce umožňuje generovanie predajných dokumentov priamo z prostredia WooCommerce. Podporuje štyri typy dokumentov, automatické číslovanie, generovanie PDF a kompletný životný cyklus faktúry.
+Modul faktúr generuje predajné dokumenty priamo vo WooCommerce. Podporuje štyri typy dokumentov, automatické číslovanie a PDF.
 
 ## Typy dokumentov
 

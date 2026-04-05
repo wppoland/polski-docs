@@ -3,13 +3,13 @@ title: Pravni stranky
 description: Automaticke generovani pravnich stranek v Polski for WooCommerce - obchodni podminky, zasady ochrany osobnich udaju, zasady vraceni, reklamace, prilohy e-mailu a informace ODR.
 ---
 
-Kazdy internetovy obchod v Polsku musi zpristupnit zakaznikum sadu pravnich dokumentu. Polski for WooCommerce automaticky generuje ctyri klicove pravni stranky prizpusobene polskemu pravu, umoznuje jejich prikladani k transakcnim e-mailum a zobrazuje vyzadovanou informaci o platforme ODR.
+Kazdy internetovy obchod v Polsku musi mit pravni dokumenty. Plugin generuje ctyri pravni stranky, prikladá je k e-mailum a zobrazuje informaci o platforme ODR.
 
 ## Generovane pravni stranky
 
 ### 1. Obchodni podminky
 
-Generovane obchodni podminky obsahuji elementy vyzadovane zakonem o pravech spotrebitele:
+Obchodni podminky obsahuji elementy vyzadovane zakonem o pravech spotrebitele:
 
 - Identifikacni udaje prodejce (nazev, adresa, NIP, REGON, KRS)
 - Postup skladani objednavek
@@ -22,7 +22,7 @@ Generovane obchodni podminky obsahuji elementy vyzadovane zakonem o pravech spot
 
 ### 2. Zasady ochrany osobnich udaju
 
-Generovane zasady ochrany osobnich udaju v souladu s GDPR obsahuji:
+Zasady ochrany osobnich udaju v souladu s GDPR obsahuji:
 
 - Udaje spravce osobnich udaju
 - Ucely a pravni zaklady zpracovani dat
@@ -35,7 +35,7 @@ Generovane zasady ochrany osobnich udaju v souladu s GDPR obsahuji:
 
 ### 3. Zasady vraceni
 
-Generovane zasady vraceni zahrnuji:
+Zasady vraceni zahrnuji:
 
 - Lhuta pro odstoupeni od smlouvy (14 dnu)
 - Vzor formulare odstoupeni
@@ -47,7 +47,7 @@ Generovane zasady vraceni zahrnuji:
 
 ### 4. Reklamacni rad
 
-Generovany reklamacni rad obsahuje:
+Reklamacni rad obsahuje:
 
 - Pravni zaklad (odpovědnost za vady, zaruka)
 - Zpusoby podani reklamace
@@ -62,7 +62,7 @@ Prejdete do **WooCommerce > Nastaveni > Polski > Pravni stranky** pro generovani
 
 ### Udaje prodejce
 
-Pred generovanim stranek vyplnte udaje firmy:
+Nejprve vyplnte udaje firmy:
 
 | Pole | Popis | Priklad |
 |------|------|---------|
@@ -84,11 +84,11 @@ Pred generovanim stranek vyplnte udaje firmy:
 4. Projdete obsah kazde stranky
 5. Publikujte stranky po overeni
 
-Stranky jsou vytvareny jako koncepty, protoze pred publikaci je doporuceno konzultovat jejich obsah s pravnikem.
+Stranky jsou vytvareny jako koncepty - projdete je a konzultujte s pravnikem pred publikaci.
 
 ### Aktualizace stranek
 
-Kdyz zmenite udaje firmy, kliknete "Aktualizovat pravni stranky". System aktualizuje generovane sekce se zachovanim vasich rucnich uprav v oznacenych blocich.
+Po zmene udaju firmy kliknete "Aktualizovat pravni stranky". Plugin aktualizuje generovane sekce a zachova vase rucni zmeny.
 
 Struktura generovane stranky:
 
@@ -104,7 +104,7 @@ Pri aktualizaci system prepisuje pouze obsah mezi znackami `POLSKI-AUTO-START` a
 
 ## Prilohy e-mailu
 
-Plugin umoznuje prikladani pravnich stranek jako prilohy PDF k transakcnim e-mailum WooCommerce.
+Plugin priklada pravni stranky jako PDF k transakcnim e-mailum WooCommerce.
 
 ### Konfigurace
 
@@ -119,7 +119,7 @@ V **WooCommerce > Nastaveni > Polski > Pravni stranky > Prilohy e-mailu** nakonf
 
 ### Format priloh
 
-Dokumenty jsou automaticky konvertovany do formatu PDF s hlavickou obsahujici logo obchodu a datum generovani. Velikost souboru je optimalizovana pro zatez postovniho serveru.
+Dokumenty se konvertuji do PDF s logem obchodu a datem. Velikost souboru je optimalizovana.
 
 | Moznost | Popis | Vychozi hodnota |
 |-------|------|------------------|
@@ -130,7 +130,7 @@ Dokumenty jsou automaticky konvertovany do formatu PDF s hlavickou obsahujici lo
 
 ## Informace ODR
 
-Narizeni EU 524/2013 vyzaduje od internetovych prodejcu umisteni odkazu na platformu ODR (Online Dispute Resolution) - platformu mimosoudniho reseni sporu.
+Narizeni EU 524/2013 vyzaduje od internetovych obchodu odkaz na platformu ODR (Online Dispute Resolution) pro mimosoudni reseni sporu.
 
 ### Automaticke zobrazeni
 
@@ -157,7 +157,7 @@ Standardni obsah zobrazovany pluginem:
 
 ## Verzovani dokumentu
 
-Plugin automaticky zaznamenava verze pravnich stranek:
+Plugin zaznamenava verze pravnich stranek:
 
 - Kazda zmena obsahu vytvori novou verzi
 - Datum posledni aktualizace je zobrazeno na strance
@@ -166,13 +166,13 @@ Plugin automaticky zaznamenava verze pravnich stranek:
 
 ## Vicejazycnost
 
-Generovane stranky jsou ve vychozim stavu v polstine. Pokud pouzivate WPML nebo Polylang, plugin generuje samostatne stranky pro kazdy aktivni jazyk. Preklady jsou dodavany pro:
+Stranky se generuji v polstine. Pri WPML nebo Polylang plugin vytvari samostatne stranky pro kazdy jazyk. Pripravene preklady:
 
 - Polstinu (vychozi)
 - Anglictinu
 - Nemcinu
 
-Pro ostatni jazyky je generovana polska verze s moznosti rucniho prekladu.
+Pro ostatni jazyky se vytvori polska verze k rucnimu prekladu.
 
 ## Reseni problemu
 

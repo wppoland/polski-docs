@@ -3,7 +3,7 @@ title: Food products module
 description: Food module overview - nutritional values, allergens, ingredients, Nutri-Score, alcohol and country of origin in WooCommerce.
 ---
 
-Selling food products online in Poland is subject to detailed regulations on consumer information. Regulation (EU) No 1169/2011 (FIC) and Polish implementing provisions require providing full information about composition, nutritional values, allergens and product origin. The Polski for WooCommerce plugin provides a complete module for managing this data.
+Selling food online requires providing information about composition, nutritional values, allergens and product origin (EU Regulation 1169/2011). Polski for WooCommerce provides a complete module for managing this data.
 
 ## Legal requirements
 

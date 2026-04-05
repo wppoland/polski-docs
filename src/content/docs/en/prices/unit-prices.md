@@ -3,7 +3,7 @@ title: Unit price
 description: Displaying price per kilogram, liter, meter or piece in WooCommerce in accordance with Polish consumer law.
 ---
 
-Directive 98/6/EC and the Polish Act on Informing about Prices of Goods and Services require online stores to present the unit price of a product - i.e. the price per kilogram, liter, running meter or piece. The Polski for WooCommerce plugin automates this obligation by adding unit price information on the product page, in listings and in the cart.
+Polish law requires online stores to show the unit price of a product - e.g. price per kilogram, liter or meter. Polski for WooCommerce adds this information automatically on the product page, in listings and in the cart.
 
 ## When is a unit price required
 

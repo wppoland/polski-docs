@@ -3,7 +3,7 @@ title: PRO REST API
 description: Dokumentace REST API Polski PRO for WooCommerce - endpointy faktur, nastaveni, generovani pravnich dokumentu a integrace s KSeF.
 ---
 
-Polski PRO for WooCommerce poskytuje REST API v namespace `polski-pro/v1` pro spravu faktur, nastaveni a pravnich dokumentu. API je dostupne pro autentizovane uzivatele s opravnenim `manage_woocommerce`.
+REST API v namespace `polski-pro/v1` pro spravu faktur, nastaveni a pravnich dokumentu. Vyzaduje autentizaci a opravneni `manage_woocommerce`.
 
 :::note[Pozadavky]
 Polski PRO vyzaduje: Polski (free) v1.3.0+, WordPress 6.4+, WooCommerce 8.0+, PHP 8.1+

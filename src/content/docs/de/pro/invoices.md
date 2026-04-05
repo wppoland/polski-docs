@@ -3,7 +3,7 @@ title: Rechnungssystem
 description: Dokumentation des Rechnungssystems von Polski PRO for WooCommerce - MwSt.-Rechnung, Korrekturrechnung, Quittung, Lieferschein, PDF-Generierung, Nummerierung und REST API.
 ---
 
-Das Rechnungsmodul in Polski PRO for WooCommerce ermoeglicht die Erstellung von Verkaufsdokumenten direkt aus WooCommerce heraus. Es unterstuetzt vier Dokumenttypen, automatische Nummerierung, PDF-Generierung und den vollstaendigen Lebenszyklus einer Rechnung.
+Das Rechnungsmodul generiert Verkaufsdokumente direkt in WooCommerce. Unterstuetzt vier Dokumenttypen, automatische Nummerierung und PDF.
 
 ## Dokumenttypen
 

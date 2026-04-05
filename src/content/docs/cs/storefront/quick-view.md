@@ -3,7 +3,7 @@ title: Rychly nahled produktu
 description: Modul rychleho nahledu produktu v Polski for WooCommerce - lightbox, varianty, galerie do 4 obrazku.
 ---
 
-Rychly nahled (quick view) umoznuje zakaznikum videt podrobnosti produktu bez opusteni stranky kategorie nebo vysledku vyhledavani. Produkt se otevira v okne lightbox s moznosti pridani do kosiku.
+Rychly nahled otvira podrobnosti produktu v okne lightbox - bez opusteni stranky kategorie ci vysledku vyhledavani. Zakaznik muze rovnou pridat produkt do kosiku.
 
 ## Aktivace modulu
 

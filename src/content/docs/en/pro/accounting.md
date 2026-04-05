@@ -3,7 +3,7 @@ title: Accounting integrations
 description: Integrations with wFirma, Fakturownia and iFirma accounting systems in Polski PRO for WooCommerce - invoice synchronization, retry logic and per-provider configuration.
 ---
 
-The accounting integrations module connects WooCommerce with popular Polish invoicing systems: wFirma, Fakturownia and iFirma. Invoices are sent automatically after an order is placed, with a retry mechanism and exponential backoff in case of API errors.
+The module connects WooCommerce with Polish invoicing systems: wFirma, Fakturownia and iFirma. Invoices are sent automatically, with retry on API errors.
 
 :::note[Requirements]
 Polski PRO requires: Polski (free) v1.3.0+, WordPress 6.4+, WooCommerce 8.0+, PHP 8.1+. Additionally, an active account in the selected accounting system with API access is required.

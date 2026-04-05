@@ -3,7 +3,7 @@ title: Právne checkboxy
 description: Konfigurácia, validácia a personalizácia povinných právnych checkboxov na stránke pokladne WooCommerce.
 ---
 
-Poľské právo vyžaduje, aby spotrebiteľ pred zadaním objednávky akceptoval obchodné podmienky obchodu a zásady ochrany osobných údajov. Plugin Polski for WooCommerce poskytuje flexibilný systém správy právnych checkboxov - od konfigurácie obsahu a štítkov po validáciu a chybové hlásenia.
+Pred zadaním objednávky musí zákazník akceptovať obchodné podmienky a zásady ochrany osobných údajov. Plugin Polski for WooCommerce pridáva právne checkboxy s konfiguráciou obsahu, validáciou a chybovými hláseniami.
 
 ## Právne požiadavky
 

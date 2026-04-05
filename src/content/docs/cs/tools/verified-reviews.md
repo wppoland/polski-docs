@@ -3,7 +3,7 @@ title: Overene recenze
 description: System overenych recenzi v Polski for WooCommerce - odznak nakupu, parovani e-mailu a duveryhodnost recenzi.
 ---
 
-Modul overenych recenzi posiluje duveryhodnost recenzi v obchode WooCommerce. Recenze zakazniku, kteri skutecne nakoupili produkt, jsou oznaceny odznakem potvrzujicim nakup. Tento system podporuje soulad se smernici Omnibus a predpisy o nekalych obchodnich praktikach.
+Modul oznacuje recenze zakazniku, kteri nakoupili produkt, odznakem **Overeny nakup**. Zvysuje duveryhodnost recenzi a podporuje soulad se smernici Omnibus.
 
 ## Aktivace modulu
 

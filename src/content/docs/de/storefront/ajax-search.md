@@ -7,7 +7,9 @@ Die AJAX-Suche ersetzt die Standard-WooCommerce-Suche durch eine intelligente Su
 
 ## Modul aktivieren
 
-Gehen Sie zu **WooCommerce > Polski > Shop-Module** und aktivieren Sie die Option **AJAX-Suche**. Das Modul ersetzt automatisch das Standard-WooCommerce-Such-Widget.
+Gehen Sie zu **WooCommerce > Polski > Shop-Module** und aktivieren Sie **AJAX-Suche**. Das Modul ersetzt automatisch das Standard-Such-Widget.
+
+![AJAX-Suche mit Vorschlaegen und Filtern auf der Shop-Seite](../../../../assets/screenshots/screenshot-7-storefront-search-filters.png)
 
 ## Durchsuchte Felder
 
@@ -19,7 +21,7 @@ Kunden koennen die SKU-Nummer eines Produkts oder einen Teil davon eingeben. Die
 
 ### Hersteller
 
-Wenn das Modul **Hersteller** aktiv ist, beruecksichtigt die Suche den Herstellernamen in den Ergebnissen.
+Wenn das Modul **Hersteller** aktiv ist, beruecksichtigt die Suche den Herstellernamen. Die Eingabe von "Samsung" zeigt alle Produkte dieser Marke.
 
 ### GTIN (EAN/UPC)
 
@@ -32,6 +34,8 @@ Suche nach GTIN/EAN/UPC-Barcodes. Kunden koennen den vollstaendigen Barcode oder
 - Kategorien
 - Tags
 - Attribute (Farbe, Groesse usw.)
+
+Konfiguration der durchsuchten Felder: **WooCommerce > Polski > Shop-Module > AJAX-Suche > Suchfelder**.
 
 ## Suchergebnisse
 
@@ -103,7 +107,29 @@ curl "https://ihrshop.pl/wp-json/polski/v1/search?q=tshirt&limit=5"
 
 ## Gutenberg-Block
 
-Das Modul stellt den Block **Polski - AJAX-Suche** im Gutenberg-Editor bereit. Der Block kann in jedem Beitrag, jeder Seite oder jedem Widget platziert werden.
+Der Block **Polski - AJAX-Suche** ist im Gutenberg-Editor verfuegbar. Platzieren Sie ihn in jedem Beitrag, jeder Seite oder jedem Widget.
+
+Blockoptionen:
+
+- **Platzhalter** - Platzhaltertext im Suchfeld
+- **Breite** - Feldbreite (auto, voll, benutzerdefiniert in px)
+- **Symbol** - Lupensymbol anzeigen/verbergen
+- **Kategoriefilter** - Dropdown zur Kategoriefilterung neben dem Suchfeld
+- **Stil** - abgerundete Ecken, Rahmen, Schatten
+
+Klicken Sie im Editor auf **+** und suchen Sie nach **Polski** oder **AJAX-Suche**.
+
+## Elementor-Widget
+
+Das Widget **Polski AJAX Search** ist in der Kategorie **Polski for WooCommerce** im Elementor-Panel verfuegbar.
+
+Zusaetzlich zu den Gutenberg-Block-Optionen bietet das Widget:
+
+- Typografie-Kontrolle (Schriftfamilie, Groesse, Staerke)
+- Farben (Hintergrund, Text, Rahmen, Hover)
+- Raender und Abstande
+- Animation fuer das Erscheinen der Ergebnisse
+- Responsivitaet (Einstellungen pro Breakpoint)
 
 ## Shortcode `[polski_ajax_search]`
 
@@ -121,6 +147,15 @@ Das Modul stellt den Block **Polski - AJAX-Suche** im Gutenberg-Editor bereit. D
 
 ```html
 [polski_ajax_search placeholder="Was suchen Sie?" show_cat="yes" limit="10"]
+```
+
+### Einfuegung im Theme-Header
+
+```php
+// In functions.php des Themes
+add_action('wp_body_open', function (): void {
+    echo do_shortcode('[polski_ajax_search placeholder="Suchen..." width="400px"]');
+});
 ```
 
 ## Debouncing und Leistung

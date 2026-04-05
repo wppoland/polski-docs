@@ -3,13 +3,15 @@ title: Smernica Omnibus - sledovanie cien
 description: Implementácia smernice Omnibus v Polski for WooCommerce - automatické sledovanie najnižšej ceny za 30 dní, konfigurácia zobrazovania a shortcód.
 ---
 
-Smernica Omnibus (EU 2019/2161), implementovaná v Poľsku od 1. januára 2023, zaväzuje predajcov informovať spotrebiteľov o najnižšej cene produktu za posledných 30 dní pred zľavou. Polski for WooCommerce automaticky sleduje históriu cien a zobrazuje požadovanú informáciu pri každej akcii.
+Smernica Omnibus (EU 2019/2161) platí v Poľsku od 1. januára 2023. Pri každej zľave musíte zobraziť najnižšiu cenu za posledných 30 dní. Plugin automaticky sleduje históriu cien a zobrazuje túto informáciu pri akciách.
 
 ## Ako funguje sledovanie cien
 
-Plugin zaznamenáva každú zmenu ceny produktu WooCommerce (vrátane variantných produktov) a ukladá históriu do databázy. Keď je produkt označený ako "v akcii", systém automaticky vypočíta najnižšiu cenu za posledných 30 dní a zobrazí ju zákazníkom.
+Plugin zapisuje každú zmenu ceny produktu (vrátane variantov) do databázy. Keď je produkt "v akcii", plugin vypočíta najnižšiu cenu za 30 dní a zobrazí ju zákazníkom.
 
-Sledovanie sa začína od momentu aktivácie modulu. Ak produkt ešte nemá históriu cien, plugin zobrazí príslušné náhradné hlásenie.
+Sledovanie sa začína po zapnutí modulu. Ak produkt ešte nemá históriu cien, zobrazí sa náhradné hlásenie.
+
+![Stránka produktu so zobrazenou najnižšou cenou Omnibus](../../../../assets/screenshots/screenshot-4-omnibus-lowest-price.png)
 
 ## Konfigurácia
 
@@ -22,7 +24,7 @@ Prejdite do **WooCommerce > Nastavenia > Polski > Omnibus** a nakonfigurujte dos
 | `days` | Počet dní dozadu na výpočet najnižšej ceny | `30` |
 | `prune_after_days` | Po koľkých dňoch odstrániť staré záznamy z histórie | `90` |
 
-Nastavenie `prune_after_days` umožňuje kontrolovať veľkosť tabuľky histórie cien v databáze. Hodnota `90` znamená, že údaje staršie ako 90 dní sú automaticky odstraňované cez WP-Cron.
+`prune_after_days` kontroluje veľkosť tabuľky v databáze. Hodnota `90` znamená, že údaje staršie ako 90 dní sa automaticky odstraňujú.
 
 ### Dane
 
@@ -30,7 +32,7 @@ Nastavenie `prune_after_days` umožňuje kontrolovať veľkosť tabuľky histór
 |-------|------|------------------|
 | `include_tax` | Či zobrazená cena Omnibus má obsahovať DPH | `true` |
 
-Táto možnosť by mala byť v súlade s nastaveniami zobrazovania cien vo WooCommerce. Ak sú ceny v obchode zobrazované s DPH, nastavte na `true`.
+Nastavte podľa nastavení cien vo WooCommerce. Ak sú ceny v obchode s DPH, nechajte `true`.
 
 ### Miesta zobrazovania
 
@@ -42,7 +44,7 @@ Táto možnosť by mala byť v súlade s nastaveniami zobrazovania cien vo WooCo
 | `show_on_related` | Súvisiace produkty | `false` |
 | `show_on_cart` | Košík | `false` |
 
-Odporúčanie: zapnite zobrazovanie aspoň na stránke produktu (`show_on_single`). Zobrazovanie na zozname produktov (`show_on_loop`) môže zaberať veľa miesta, ale je vyžadované niektorými interpretáciami predpisov.
+Zapnite minimálne na stránke produktu (`show_on_single`). Na zozname produktov (`show_on_loop`) zaberá viac miesta, ale niektoré interpretácie predpisov to vyžadujú.
 
 ### Bežná cena
 
@@ -100,7 +102,7 @@ Dostupné hodnoty:
 - `per_variation` - samostatné sledovanie každého variantu (odporúčané)
 - `parent_only` - sledovanie len ceny nadradeného produktu
 
-Nastavenie `per_variation` zabezpečuje presnejšie údaje, pretože každý variant môže mať inú cenu a históriu zliav.
+`per_variation` dáva presnejšie údaje, lebo každý variant môže mať inú cenu a históriu zliav.
 
 ## Shortcód
 
@@ -135,9 +137,9 @@ echo do_shortcode('[polski_omnibus_price product_id="' . $product_id . '"]');
 
 ## Automatické čistenie histórie
 
-Plugin registruje úlohu WP-Cron, ktorá denne odstraňuje záznamy histórie cien staršie ako hodnota `prune_after_days`. Vďaka tomu tabuľka v databáze nerastie bez obmedzení.
+WP-Cron denne odstraňuje záznamy histórie cien staršie ako `prune_after_days`. Tabuľka v databáze nerastie bez obmedzení.
 
-Na ručné vynútenie čistenia môžete použiť WP-CLI:
+Na ručné vynútenie čistenia použite WP-CLI:
 
 ```bash
 wp cron event run polski_omnibus_prune
@@ -145,22 +147,22 @@ wp cron event run polski_omnibus_prune
 
 ## Súlad s predpismi UOKiK
 
-Úrad na ochranu hospodárskej súťaže a spotrebiteľov uvádza, že:
+Usmernenia UOKiK:
 
 1. Informácia o najnižšej cene musí byť zobrazená **pri každom oznámení o zľave**
 2. Referenčné obdobie je **30 dní pred uplatnením zľavy**
 3. Pre produkty predávané kratšie ako 30 dní - uveďte najnižšiu cenu od dňa zavedenia do predaja
 4. Pre produkty podliehajúce rýchlemu kazeniu - možné skrátenie obdobia
 
-Plugin štandardne dodržiava tieto usmernenia. Možnosť `price_count_from` nastavená na `sale_start` zabezpečuje počítanie od dátumu začiatku akcie, v súlade s odporúčaniami UOKiK.
+Plugin štandardne dodržiava tieto usmernenia. Možnosť `price_count_from` na `sale_start` počíta od dátumu začiatku akcie, podľa odporúčaní UOKiK.
 
 ## Riešenie problémov
 
 **Cena Omnibus sa nezobrazuje**
-Skontrolujte, či je produkt označený ako "v akcii" vo WooCommerce (akciová cena musí byť nastavená). Ak je možnosť `display_on_sale_only` zapnutá, hlásenie sa zobrazí len pri aktívnej akcii.
+Skontrolujte, či produkt má nastavenú akciovú cenu vo WooCommerce. Pri zapnutej možnosti `display_on_sale_only` sa hlásenie zobrazí len pri aktívnej akcii.
 
 **Zobrazuje sa hlásenie o chýbajúcej histórii**
-Sledovanie cien sa začína od aktivácie modulu. Počkajte na prvú zmenu ceny alebo ručne uložte produkt, aby sa inicializoval záznam v histórii.
+Sledovanie cien sa začína po zapnutí modulu. Počkajte na zmenu ceny alebo uložte produkt znova, aby sa pridal prvý záznam do histórie.
 
 **Cena Omnibus je rovnaká ako akciová cena**
 Toto je správne správanie, ak produkt nemal nižšiu cenu za posledných 30 dní.

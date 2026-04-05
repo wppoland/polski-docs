@@ -3,7 +3,7 @@ title: Ostatné obchodné moduly
 description: Ďalšie moduly v Polski for WooCommerce - manažér záložiek, zvýraznené video, zoom galérie, zoznam čakajúcich, nekonečné posúvanie, popup.
 ---
 
-Polski for WooCommerce ponúka rad ďalších modulov zlepšujúcich fungovanie obchodu. Každý modul je možné zapnúť nezávisle v **WooCommerce > Polski > Obchodné moduly**.
+Ďalšie obchodné moduly. Každý zapnete nezávisle v **WooCommerce > Polski > Obchodné moduly**.
 
 ## Manažér záložiek (tab manager)
 

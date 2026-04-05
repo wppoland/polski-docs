@@ -3,7 +3,7 @@ title: Delivery time
 description: Delivery time configuration per product and variant, default fallback value and the polski_delivery_time taxonomy in WooCommerce.
 ---
 
-The Omnibus Directive and the Polish Consumer Rights Act require online stores to inform about the expected delivery time of a product before placing an order. The Polski for WooCommerce plugin provides a flexible delivery time management system - from global default settings to individual values for each product and variant.
+Polish law requires the store to inform about delivery time before placing an order. Polski for WooCommerce lets you set delivery time globally, per product and per variant.
 
 ## Legal requirements
 

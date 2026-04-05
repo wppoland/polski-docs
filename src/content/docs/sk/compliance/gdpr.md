@@ -3,11 +3,11 @@ title: GDPR - ochrana osobných údajov
 description: Konfigurácia súhlasov GDPR v Polski for WooCommerce - 7 checkboxov, logovanie súhlasov, API shortcód a súlad s nariadením o ochrane osobných údajov.
 ---
 
-Nariadenie o ochrane osobných údajov (GDPR) vyžaduje od internetových obchodov získanie výslovného súhlasu na spracovanie osobných údajov. Polski for WooCommerce poskytuje 7 konfigurovateľných checkboxov na stránke objednávky, systém logovania súhlasov a nástroje na správu súhlasov zákazníkov.
+GDPR vyžaduje od obchodov získanie výslovného súhlasu na spracovanie osobných údajov. Plugin pridáva 7 konfigurovateľných checkboxov na stránke objednávky, logovanie súhlasov a nástroje na správu súhlasov.
 
 ## Požadované súhlasy v poľskom e-commerce
 
-V súlade s GDPR, zákonom o právach spotrebiteľa a zákonom o poskytovaní služieb elektronickou cestou by internetový obchod mal zbierať súhlasy na:
+Internetový obchod by mal zbierať súhlasy na:
 
 1. Akceptáciu obchodných podmienok
 2. Oboznámenie sa so zásadami ochrany osobných údajov
@@ -19,7 +19,7 @@ V súlade s GDPR, zákonom o právach spotrebiteľa a zákonom o poskytovaní sl
 
 ## Konfigurácia checkboxov
 
-Prejdite do **WooCommerce > Nastavenia > Polski > GDPR** na konfiguráciu jednotlivých súhlasov.
+Prejdite do **WooCommerce > Nastavenia > Polski > GDPR** a nakonfigurujte súhlasy.
 
 ### 1. Obchodné podmienky
 
@@ -93,7 +93,7 @@ Súhlas na marketingovú komunikáciu.
 
 ## Logovanie súhlasov
 
-Každý udelený súhlas je zaznamenaný v databáze s nasledujúcimi informáciami:
+Každý súhlas sa zapisuje do databázy s údajmi:
 
 | Pole | Popis |
 |------|------|
@@ -116,7 +116,7 @@ Logy súhlasov sú dostupné v:
 
 ### Anonymizácia IP
 
-Štandardne plugin anonymizuje posledný oktet adresy IPv4 (napr. `192.168.1.xxx`) a poslednú skupinu IPv6. Tým je zachovaný súlad s GDPR pri súčasnom zachovaní minimálnej užitočnosti logov.
+Plugin anonymizuje posledný oktet adresy IPv4 (napr. `192.168.1.xxx`) a poslednú skupinu IPv6. To zabezpečuje súlad s GDPR a zachováva základnú užitočnosť logov.
 
 ## Shortcód API
 
@@ -126,7 +126,7 @@ Logy súhlasov sú dostupné v:
 [polski_consent_status]
 ```
 
-Zobrazí prihlásenému zákazníkovi zoznam udelených súhlasov s možnosťou ich odvolania (tam kde je to právne prípustné - napr. marketingový súhlas).
+Zobrazí prihlásenému zákazníkovi zoznam súhlasov s možnosťou ich odvolania (napr. marketingový súhlas).
 
 ### Formulár odvolania marketingového súhlasu
 
@@ -134,7 +134,7 @@ Zobrazí prihlásenému zákazníkovi zoznam udelených súhlasov s možnosťou 
 [polski_consent_withdraw type="marketing"]
 ```
 
-Zobrazí formulár umožňujúci zákazníkovi odvolať marketingový súhlas. Po odvolaní systém automaticky aktualizuje stav súhlasu v databáze.
+Formulár na odvolanie marketingového súhlasu. Po odvolaní plugin automaticky aktualizuje stav súhlasu v databáze.
 
 ### Parametre shortcódu
 
@@ -144,11 +144,11 @@ Zobrazí formulár umožňujúci zákazníkovi odvolať marketingový súhlas. P
 
 ## Integrácia s WooCommerce Blocks
 
-Checkboxy súhlasov sú automaticky pridávané do blokového formulára objednávky (WooCommerce Blocks Checkout). Nie je vyžadovaná žiadna ďalšia konfigurácia.
+Checkboxy súhlasov fungujú aj s blokovým formulárom objednávky (WooCommerce Blocks Checkout). Nie je potrebné nič konfigurovať.
 
 ## Právo byť zabudnutý
 
-Plugin sa integruje s nástrojom WordPress na odstraňovanie osobných údajov (**Nástroje > Odstrániť osobné údaje**). Po schválení žiadosti o odstránenie údajov systém automaticky:
+Plugin spolupracuje s nástrojom WordPress **Nástroje > Odstrániť osobné údaje**. Po schválení žiadosti o odstránenie plugin automaticky:
 
 1. Anonymizuje údaje v logoch súhlasov
 2. Odstráni osobné údaje z formulárov odstúpenia
@@ -156,7 +156,7 @@ Plugin sa integruje s nástrojom WordPress na odstraňovanie osobných údajov (
 
 ## Právo na prenositeľnosť údajov
 
-Plugin sa integruje s nástrojom exportu údajov WordPress (**Nástroje > Exportovať osobné údaje**). Export obsahuje:
+Plugin spolupracuje s **Nástroje > Exportovať osobné údaje**. Export obsahuje:
 
 - Históriu udelených súhlasov
 - Údaje z formulárov (anonymizované)
@@ -165,13 +165,13 @@ Plugin sa integruje s nástrojom exportu údajov WordPress (**Nástroje > Export
 ## Riešenie problémov
 
 **Checkboxy sa nezobrazujú na stránke objednávky**
-Skontrolujte, či modul GDPR je zapnutý v **WooCommerce > Nastavenia > Polski > Moduly**. Ak používate blokový formulár objednávky, uistite sa, že WooCommerce je aktualizovaný na verziu 8.0+.
+Skontrolujte, či modul GDPR je zapnutý v **WooCommerce > Nastavenia > Polski > Moduly**. Pri blokovom formulári objednávky potrebujete WooCommerce 8.0+.
 
 **Zákazník hlási nemožnosť zadať objednávku**
-Skontrolujte, či povinné checkboxy nie sú zduplikované iným pluginom (napr. Germanized, WPML). Vypnite ďalšie pluginy pridávajúce súhlasy a používajte výlučne modul Polski for WooCommerce.
+Skontrolujte, či iný plugin (napr. Germanized, WPML) nepridáva rovnaké checkboxy. Vypnite súhlasy z iných pluginov a používajte len modul Polski for WooCommerce.
 
 **Logy súhlasov neukladajú IP adresu**
-Skontrolujte, či server správne odovzdáva IP adresu. Za reverse proxy (napr. Cloudflare) môže byť potrebné nastaviť hlavičku `X-Forwarded-For` vo WordPress.
+Skontrolujte, či server odovzdáva IP adresu. Za reverse proxy (napr. Cloudflare) nakonfigurujte hlavičku `X-Forwarded-For` vo WordPress.
 
 ## Ďalšie kroky
 

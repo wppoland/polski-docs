@@ -3,7 +3,7 @@ title: Predpredaj (pre-orders)
 description: Modul predpredaja Polski PRO for WooCommerce - označenie produktov ako pre-order, dátum premiéry, vlastný text tlačidla a validácia košíka.
 ---
 
-Modul predpredaja umožňuje označovať produkty ako dostupné v predpredaji, zobrazovať dátum premiéry, meniť text tlačidla nákupu a kontrolovať miešanie produktov pre-order so štandardnými v košíku. Je užitočný v obchodoch s elektronikou, knihami, hrami a akýmkoľvek sortimentom, kde sú produkty ponúkané pred oficiálnym dátumom dostupnosti.
+Modul predpredaja umožňuje označovať produkty ako pre-order, zobrazovať dátum premiéry a meniť text tlačidla. Užitočný v obchodoch s elektronikou, knihami, hrami a inými produktmi ponúkanými pred premiérou.
 
 :::note[Požiadavky]
 Polski PRO vyžaduje: Polski (free) v1.3.0+, WordPress 6.4+, WooCommerce 8.0+, PHP 8.1+

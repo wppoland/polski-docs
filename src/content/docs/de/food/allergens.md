@@ -3,7 +3,7 @@ title: Allergene
 description: Allergendeklaration mittels Taxonomie polski_allergen, automatische Hervorhebung in den Zutaten und Anzeige-Shortcode in WooCommerce.
 ---
 
-Die Verordnung (EU) Nr. 1169/2011 (Anhang II) definiert 14 allergieausloesende oder unvertraeglichkeitsverursachende Stoffe, die auf dem Etikett eines Lebensmittels deutlich gekennzeichnet sein muessen. Beim Online-Verkauf muessen die Allergeninformationen vor dem Kauf verfuegbar sein. Das Plugin Polski for WooCommerce bietet ein auf der WordPress-Taxonomie basierendes Allergendeklarationssystem.
+EU-Vorschriften verlangen die Kennzeichnung von 14 Allergenen auf Lebensmitteletiketten. Im Onlineshop muss die Allergeninformation vor dem Kauf sichtbar sein. Polski for WooCommerce verwaltet Allergene ueber eine WordPress-Taxonomie.
 
 ## 14 Hauptallergene
 

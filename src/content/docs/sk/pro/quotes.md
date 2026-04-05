@@ -3,7 +3,7 @@ title: Cenové dopyty (RFQ)
 description: Modul cenových dopytov Polski PRO for WooCommerce - nahradenie tlačidla košíka dopytovým formulárom, logovanie súhlasov, administračný panel a e-mailové notifikácie.
 ---
 
-Modul cenových dopytov (Request for Quote) nahrádza štandardné tlačidlo "Pridať do košíka" tlačidlom "Opýtať sa na cenu", čo umožňuje zákazníkom odosielať cenové dopyty namiesto priamych nákupov. Je to riešenie obzvlášť užitočné v B2B obchodoch, pri produktoch vyžadujúcich individuálnu cenovú ponuku alebo pri veľkých veľkoobchodných objednávkach.
+Modul cenových dopytov (RFQ) nahrádza tlačidlo "Pridať do košíka" tlačidlom "Opýtať sa na cenu". Zákazníci skladajú dopyty namiesto priamych nákupov. Užitočné v B2B obchodoch a pri produktoch s individuálnou cenou.
 
 :::note[Požiadavky]
 Polski PRO vyžaduje: Polski (free) v1.3.0+, WordPress 6.4+, WooCommerce 8.0+, PHP 8.1+

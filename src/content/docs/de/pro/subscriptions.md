@@ -3,7 +3,7 @@ title: Abonnements
 description: Dokumentation des Abonnementmoduls von Polski PRO for WooCommerce - wiederkehrende Produkte, Verlaengerungen, E-Mail-Erinnerungen, Cron und Mein-Konto-Bereich.
 ---
 
-Das Abonnementmodul in Polski PRO for WooCommerce fuegt Unterstuetzung fuer Produkte mit wiederkehrender Zahlung hinzu. Kunden koennen Abonnements mit automatischer oder manueller Verlaengerung erwerben, und der Administrator verwaltet den Lebenszyklus des Abonnements direkt aus WooCommerce heraus.
+Das Modul fuegt Produkte mit wiederkehrender Zahlung hinzu. Kunden kaufen Abonnements mit manueller Verlaengerung, der Administrator verwaltet sie in WooCommerce.
 
 ## So funktioniert es
 

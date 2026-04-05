@@ -3,7 +3,7 @@ title: Bundles, add-ons and "frequently bought together"
 description: Product bundle, product add-on and "frequently bought together" recommendation modules in Polski PRO for WooCommerce.
 ---
 
-Polski PRO for WooCommerce offers three complementary sales modules: product bundles, product add-ons and "frequently bought together" recommendations. Each module works independently and can be enabled separately.
+Three sales modules: bundles, product add-ons and "frequently bought together" (FBT). Each works independently.
 
 :::note[Requirements]
 Polski PRO requires: Polski (free) v1.3.0+, WordPress 6.4+, WooCommerce 8.0+, PHP 8.1+

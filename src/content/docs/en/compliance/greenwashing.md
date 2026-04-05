@@ -3,11 +3,11 @@ title: Greenwashing protection
 description: Anti-greenwashing product fields in Polski for WooCommerce - environmental claim basis, certificate and expiry date in accordance with Directive 2024/825.
 ---
 
-EU Directive 2024/825 (Empowering Consumers Directive) prohibits unjustified environmental claims in electronic commerce. From September 27, 2026, sellers cannot use general ecological claims (e.g. "eco", "green", "environmentally friendly") without specific justification and certification. Polski for WooCommerce provides product fields for documenting and displaying the basis of environmental claims.
+EU Directive 2024/825 prohibits unjustified environmental claims. From September 27, 2026, you cannot use general ecological claims (e.g. "eco", "green") without specific justification and certification. The plugin adds product fields for documenting environmental claims.
 
 ## What is greenwashing
 
-Greenwashing is the practice of misleading consumers about the environmental properties of a product or company activities. Examples of prohibited practices:
+Greenwashing means misleading customers about the environmental properties of a product. Examples of prohibited practices:
 
 - Using general claims ("eco", "bio", "green") without certification
 - Climate neutrality claims based solely on emission offsets
@@ -17,11 +17,11 @@ Greenwashing is the practice of misleading consumers about the environmental pro
 
 ## Product fields
 
-In the WooCommerce product editor, in the **Polski - Environment** tab, three fields are available for documenting environmental claims.
+In the product editor, **Polski - Environment** tab, you will find three fields for documenting environmental claims.
 
 ### Claim basis
 
-Text field for describing the scientific or technical basis of the environmental claim.
+Field for the scientific or technical basis of the environmental claim.
 
 **What to enter:**
 
@@ -41,7 +41,7 @@ Production process confirmed by internal audit dated 2025-03-01.
 
 ### Certificate
 
-Field for information about the official certificate confirming the environmental claim.
+Field for certificate information confirming the environmental claim.
 
 **Accepted certificates:**
 
@@ -69,7 +69,7 @@ Verification: https://environment.ec.europa.eu/ecolabel_en
 
 ### Expiry date
 
-Date field specifying until when the certificate or environmental claim remains valid.
+Date until when the certificate or claim is valid.
 
 After the expiry date:
 
@@ -77,18 +77,18 @@ After the expiry date:
 - The administrator receives an email notification about the expired certificate
 - The product is marked on the product list with a warning icon
 
-This safeguard protects against situations where an expired certificate is still displayed to customers.
+This protects against an expired certificate being visible to customers.
 
 ## Display on the product page
 
-When environmental fields are filled, the plugin displays an "Environmental information" section on the product page. The section contains:
+After filling the fields, the plugin displays an "Environmental information" section on the product page with:
 
 - Environmental claim content
 - Certificate name and number
 - Certificate expiry date
 - Certificate icon (if recognized - e.g. EU Ecolabel)
 
-The section is displayed in the "Additional information" tab on the product page or as a separate tab (configurable in settings).
+The section appears in the "Additional information" tab or as a separate tab (configurable in settings).
 
 ## Configuration
 
@@ -105,7 +105,7 @@ Module settings: **WooCommerce > Settings > Polski > Environment**.
 
 ### CSV export
 
-Environmental data is included in the WooCommerce product export. Additional columns:
+Environmental data is in the WooCommerce product export. Additional columns:
 
 - `env_claim_basis` - claim basis
 - `env_certificate` - certificate
@@ -113,11 +113,11 @@ Environmental data is included in the WooCommerce product export. Additional col
 
 ### CSV import
 
-Prepare a CSV file with the appropriate headers and import through the standard WooCommerce path.
+Prepare a CSV file with the appropriate headers and import via the standard WooCommerce path.
 
 ### Product filtering
 
-On the product list in the admin panel you can filter products by environmental claim status:
+On the product list you can filter by claim status:
 
 - All products with a claim
 - Products with an expired certificate
@@ -135,13 +135,13 @@ On the product list in the admin panel you can filter products by environmental 
 ## Troubleshooting
 
 **Environmental fields do not display in the product editor**
-Enable the module in **WooCommerce > Settings > Polski > Modules** and make sure the "Enable module" option is checked in environmental settings.
+Enable the module in **WooCommerce > Settings > Polski > Modules** and check that the "Enable module" option is checked in environmental settings.
 
 **Claim disappeared from the product page**
-Check the certificate expiry date. If the certificate has expired, the claim is automatically hidden. Renew the certificate and update the expiry date.
+Check the certificate expiry date. After expiry the claim is automatically hidden. Renew the certificate and update the date.
 
 **Not receiving notifications about expiring certificates**
-Check that WP-Cron is working correctly. Notifications are sent by a scheduled cron task. On servers with WP-Cron disabled, configure a system cron.
+Check that WP-Cron is working. Notifications are sent via a cron task. On servers with WP-Cron disabled, configure a system cron.
 
 ## Next steps
 

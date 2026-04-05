@@ -3,7 +3,7 @@ title: Partnerprogramm
 description: Dokumentation des Partnerprogramms von Polski PRO for WooCommerce - Empfehlungslinks, Provisionsverfolgung, Partnerregistrierung und Mein-Konto-Bereich.
 ---
 
-Das Partnerprogramm-Modul in Polski PRO for WooCommerce ermoeglicht die Durchfuehrung eines Empfehlungsprogramms direkt im WooCommerce-Shop. Partner teilen einzigartige Empfehlungslinks, und das Plugin verfolgt Konversionen und berechnet Provisionen fuer Bestellungen, die von geworbenen Kunden aufgegeben werden.
+Das Partnerprogramm-Modul ermoeglicht ein Empfehlungsprogramm im Shop. Partner teilen Empfehlungslinks, das Plugin verfolgt Konversionen und berechnet Provisionen.
 
 ## So funktioniert es
 

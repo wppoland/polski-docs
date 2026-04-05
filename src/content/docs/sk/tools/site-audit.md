@@ -3,7 +3,7 @@ title: Audit obchodu
 description: Nástroj auditu obchodu v Polski for WooCommerce - overenie právnych stránok, dark patterns, DPA, DSA, KSeF, greenwashing a bezpečnosti.
 ---
 
-Audit obchodu je nástroj automaticky skenujúci obchod WooCommerce z hľadiska požiadaviek poľského a európskeho e-commerce práva. Na rozdiel od panelu súladu (checklist) audit vykonáva hĺbkovú analýzu obsahu stránok, používateľského rozhrania a technickej konfigurácie.
+Audit automaticky skenuje obchod z hľadiska poľského a európskeho e-commerce práva. Na rozdiel od panelu súladu audit analyzuje obsah stránok, rozhranie a technickú konfiguráciu.
 
 ## Spustenie auditu
 

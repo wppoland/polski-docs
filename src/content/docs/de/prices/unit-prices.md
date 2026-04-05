@@ -3,7 +3,7 @@ title: Grundpreis
 description: Anzeige des Preises pro Kilogramm, Liter, Meter oder Stueck in WooCommerce gemaess polnischem Verbraucherrecht.
 ---
 
-Die Richtlinie 98/6/EG und das polnische Gesetz ueber die Preisinformation fuer Waren und Dienstleistungen verlangen, dass ein Onlineshop den Grundpreis eines Produkts anzeigt - also den Preis pro Kilogramm, Liter, Laufmeter oder Stueck. Das Plugin Polski for WooCommerce automatisiert diese Pflicht, indem es die Grundpreisinformation auf der Produktseite, in Listings und im Warenkorb hinzufuegt.
+Polnisches Recht verlangt die Anzeige des Grundpreises - z.B. Preis pro Kilogramm, Liter oder Meter. Polski for WooCommerce fuegt diese Information automatisch auf der Produktseite, in Listings und im Warenkorb hinzu.
 
 ## Wann ist der Grundpreis erforderlich
 

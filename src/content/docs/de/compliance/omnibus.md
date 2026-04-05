@@ -3,13 +3,15 @@ title: Omnibus-Richtlinie - Preisverfolgung
 description: Implementierung der Omnibus-Richtlinie in Polski for WooCommerce - automatische Verfolgung des niedrigsten Preises der letzten 30 Tage, Anzeigekonfiguration und Shortcode.
 ---
 
-Die Omnibus-Richtlinie (EU 2019/2161), in Polen seit dem 1. Januar 2023 umgesetzt, verpflichtet Verkaeufer, Verbraucher ueber den niedrigsten Preis des Produkts innerhalb der letzten 30 Tage vor einer Preissenkung zu informieren. Polski for WooCommerce verfolgt automatisch die Preishistorie und zeigt die erforderliche Information bei jeder Aktion an.
+Die Omnibus-Richtlinie (EU 2019/2161) gilt in Polen seit dem 1. Januar 2023. Bei jeder Preissenkung muss der niedrigste Preis der letzten 30 Tage angezeigt werden. Das Plugin verfolgt automatisch die Preishistorie und zeigt die Information bei Aktionen an.
 
 ## Wie die Preisverfolgung funktioniert
 
 Das Plugin registriert jede Preisaenderung eines WooCommerce-Produkts (einschliesslich variabler Produkte) und speichert die Historie in der Datenbank. Wenn ein Produkt als "im Angebot" markiert ist, berechnet das System automatisch den niedrigsten Preis der letzten 30 Tage und zeigt ihn den Kunden an.
 
-Die Verfolgung beginnt ab dem Moment der Modulaktivierung. Wenn ein Produkt noch keine Preishistorie hat, zeigt das Plugin eine entsprechende Ersatzmeldung an.
+Die Verfolgung beginnt nach Modulaktivierung. Ohne Preishistorie zeigt das Plugin eine Ersatzmeldung an.
+
+![Produktseite mit angezeigtem niedrigstem Omnibus-Preis](../../../../assets/screenshots/screenshot-4-omnibus-lowest-price.png)
 
 ## Konfiguration
 

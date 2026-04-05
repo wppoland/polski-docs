@@ -3,7 +3,7 @@ title: Predplatne
 description: Dokumentace modulu predplatneho Polski PRO for WooCommerce - cyklicke produkty, obnovy, e-mailove pripominky, cron a panel Muj ucet.
 ---
 
-Modul predplatneho v Polski PRO for WooCommerce pridava podporu produktu s opakovanou platbou. Zakaznici mohou nakupovat predplatne s automatickou nebo rucni obnovou a administrator spravuje zivotni cyklus predplatneho z prostredi WooCommerce.
+Modul predplatneho pridava podporu produktu s opakovanou platbou. Zakaznici nakupuji predplatne s automatickou nebo rucni obnovou. Administrator spravuje zivotni cyklus predplatneho ve WooCommerce.
 
 ## Jak to funguje
 

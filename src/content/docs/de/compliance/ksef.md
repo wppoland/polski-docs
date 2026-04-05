@@ -3,7 +3,7 @@ title: KSeF - Nationales E-Rechnungssystem
 description: KSeF-Bereitschaft in Polski for WooCommerce - automatische Erkennung von Bestellungen mit Steuernummer, Statusspalte, Entwickler-Hooks und Integration mit Fakturierungssystemen.
 ---
 
-Das Nationale E-Rechnungssystem (KSeF) ist eine Plattform des Finanzministeriums zur Ausstellung und zum Empfang strukturierter Rechnungen. Polski for WooCommerce bereitet den WooCommerce-Shop auf die KSeF-Integration vor, indem es Bestellungen mit Rechnungspflicht automatisch erkennt, eine Statusspalte im Administrationspanel bereitstellt und Hooks zur Integration mit externen Fakturierungssystemen anbietet.
+KSeF ist die Plattform des Finanzministeriums fuer strukturierte Rechnungen. Das Plugin bereitet den Shop auf die KSeF-Integration vor - erkennt Bestellungen mit Rechnungspflicht, fuegt eine Statusspalte hinzu und bietet Hooks fuer externe Fakturierungssysteme.
 
 ## Rechtlicher Status von KSeF
 

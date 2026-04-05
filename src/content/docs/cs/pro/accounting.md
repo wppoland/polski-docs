@@ -3,7 +3,7 @@ title: Ucetni integrace
 description: Integrace s ucetnimi systemy wFirma, Fakturownia a iFirma v Polski PRO for WooCommerce - synchronizace faktur, retry logika a konfigurace pro jednotlive poskytovatele.
 ---
 
-Modul ucetnich integraci propojuje WooCommerce s popularnich polskymi fakturacnimi systemy: wFirma, Fakturownia a iFirma. Faktury jsou odesilany automaticky po zlozeni objednavky, s mechanismem opakovanych pokusu (retry) a exponencialnim zpozdemim (exponential backoff) v pripade chyb API.
+Modul propojuje WooCommerce s polskymi fakturacnimi systemy: wFirma, Fakturownia a iFirma. Faktury se odesilaji automaticky s opakovanim pri chybach API.
 
 :::note[Pozadavky]
 Polski PRO vyzaduje: Polski (free) v1.3.0+, WordPress 6.4+, WooCommerce 8.0+, PHP 8.1+. Navic je vyzadovan aktivni ucet ve zvolenem ucetnim systemu s pristupem k API.

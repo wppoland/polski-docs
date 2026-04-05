@@ -3,7 +3,7 @@ title: Integrace InPost (Paczkomaty)
 description: Modul integrace InPost ShipX API v Polski PRO for WooCommerce - Paczkomaty, generovani stitku, mapa odbernich mist a sledovani zasilek.
 ---
 
-Modul InPost integruje WooCommerce s API ShipX InPost, umoznuje generovani prepravnich stitku, vyber odberniho mista zakaznikem na mape, vyhledavani Paczkomatou a sledovani zasilek primo z administracniho panelu.
+Modul InPost integruje WooCommerce s API ShipX. Generujte stitky, umoznete zakaznikum vybrat Paczkomat na mape a sledujte zasilky z panelu admina.
 
 :::note[Pozadavky]
 Polski PRO vyzaduje: Polski (free) v1.3.0+, WordPress 6.4+, WooCommerce 8.0+, PHP 8.1+. Navic je vyzadovan aktivni token API InPost ShipX (ziskavany z panelu managera InPost).

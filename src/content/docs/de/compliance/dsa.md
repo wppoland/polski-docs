@@ -3,7 +3,7 @@ title: DSA - Gesetz ueber digitale Dienste
 description: DSA-Werkzeuge (Digital Services Act) in Polski for WooCommerce - Meldeformular, Administrationspanel, Statusverfolgung und E-Mail-Benachrichtigungen.
 ---
 
-Das Gesetz ueber digitale Dienste (Digital Services Act, Verordnung EU 2022/2065) verpflichtet Online-Plattformen, Nutzern die Meldung illegaler Inhalte zu ermoeglichen. Polski for WooCommerce liefert ein vollstaendiges DSA-Werkzeugset - Meldeformular, Administrationspanel zur Verwaltung von Meldungen, Statusverfolgung und automatische E-Mail-Benachrichtigungen.
+Der Digital Services Act (EU 2022/2065) verlangt, dass Plattformen die Meldung illegaler Inhalte ermoeglichen. Das Plugin fuegt ein Meldeformular, ein Verwaltungspanel, Statusverfolgung und automatische E-Mail-Benachrichtigungen hinzu.
 
 ## DSA-Anforderungen fuer Onlineshops
 
@@ -39,6 +39,8 @@ Betten Sie das DSA-Meldeformular auf einer beliebigen Seite mit dem Shortcode ei
 |----------|------|------------------|
 | `product_id` | ID des Produkts, auf das sich die Meldung bezieht | Keiner (Nutzer waehlt) |
 | `category` | Vorausgewaehlte Meldekategorie | Keiner |
+
+![DSA-Meldeformular auf der Shop-Seite](../../../../assets/screenshots/screenshot-6-dsa-report-form.png)
 
 ### Formularfelder
 

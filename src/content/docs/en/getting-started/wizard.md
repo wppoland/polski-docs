@@ -5,19 +5,19 @@ description: Guide to the Polski for WooCommerce configuration wizard. Company d
 
 ## What is the configuration wizard?
 
-The configuration wizard is a tool that guides you through the most important plugin settings in a few simple steps. Instead of manually configuring each module, the wizard asks questions and automatically sets the appropriate options.
+The wizard guides you through the most important plugin settings in a few steps. Instead of manually configuring each module, you answer questions - the wizard sets everything for you.
 
-The wizard is available after the first plugin activation. You can also restart it at any time - go to **WooCommerce > Polski > Settings** and click the **Restart wizard** button.
+The wizard appears after the first plugin activation. To restart it, go to **WooCommerce > Polski > Settings** and click **Restart wizard**.
 
 :::note[The wizard does not overwrite existing data]
-If you restart the wizard, fields will be pre-filled with previously saved data. The wizard will not delete or overwrite data that you do not change.
+If you restart the wizard, fields will be pre-filled with previously saved data. The wizard will not delete or overwrite data you do not change.
 :::
 
 ---
 
 ## Step 1: Company data
 
-The first step is filling in your basic company data. This data is used in many places - on legal pages, in the footer, in GPSR data and on invoices.
+Enter your company data. The plugin uses it on legal pages, in the footer, in GPSR data and on invoices.
 
 ### Required fields
 
@@ -41,7 +41,7 @@ The first step is filling in your basic company data. This data is used in many 
 
 ### NIP validation
 
-The wizard automatically verifies the correctness of the NIP number:
+The wizard automatically checks the NIP validity:
 
 - Checks the checksum (weighted algorithm)
 - Optionally retrieves data from the GUS API (CEIDG/KRS) for comparison
@@ -84,7 +84,7 @@ Click **Next** to proceed to the next step.
 
 ## Step 2: Legal pages
 
-In this step, the wizard will help you create the legally required pages. Every Polish online store should have at least:
+The wizard helps you create required legal pages. Every Polish store should have at least:
 
 - **Store terms and conditions** - rules for using the store and concluding contracts
 - **Privacy policy** - information about personal data processing (GDPR)
@@ -123,7 +123,7 @@ Generated pages contain sections required by Polish law. Example terms and condi
 ```
 
 :::caution[Templates require customization]
-Generated pages are a starting point, not a ready legal document. Review the content and customize it to your store's specifics. In case of doubt, consult the content with a lawyer specializing in e-commerce.
+Generated pages are a starting point, not a ready legal document. Review the content and customize it for your store. When in doubt, consult an e-commerce lawyer.
 :::
 
 ### Shortcodes on legal pages
@@ -141,7 +141,7 @@ Generated pages use shortcodes that automatically insert company data:
 [polski_withdrawal_period]   - withdrawal period (default 14 days)
 ```
 
-Thanks to shortcodes, when you change company data in plugin settings, legal pages will update automatically.
+When you change company data in settings, legal pages update automatically.
 
 Example usage in terms and conditions content:
 
@@ -169,7 +169,7 @@ Click **Next** to proceed to checkbox configuration.
 
 ## Step 3: Checkboxes on the checkout page
 
-In this step you will configure mandatory checkboxes displayed on the checkout page. Polish law requires the customer to consent to the terms and conditions before placing an order.
+Configure checkboxes on the checkout page. Polish law requires the customer to accept terms and conditions before placing an order.
 
 ### Default checkboxes
 
@@ -248,7 +248,7 @@ Click **Next** to proceed to the summary.
 
 ## Step 4: Module activation
 
-Based on your answers, the wizard will propose a list of modules to activate:
+The wizard proposes modules to enable based on your answers:
 
 ### Recommended modules (automatically selected)
 
@@ -275,7 +275,7 @@ Select the modules you want to enable and click **Next**.
 
 ## Step 5: Summary and apply
 
-The final step displays a summary of all settings:
+The final step shows a summary of settings:
 
 ```
 Company data:
@@ -353,7 +353,7 @@ The wizard can be restarted at any time:
 3. Fields will be pre-filled with previously saved data
 4. Change what you need and click **Apply configuration**
 
-The wizard will not delete legal pages or reset modules you have already configured manually.
+The wizard will not delete legal pages or reset manually configured modules.
 
 ---
 
@@ -377,6 +377,6 @@ The wizard will not delete legal pages or reset modules you have already configu
 - Check the browser console (F12) for JavaScript errors
 - Temporarily deactivate other plugins that may cause conflicts
 
-If the problem persists, report it on [GitHub Issues](https://github.com/wppoland/polski/issues) with a description of the problem and a screenshot. The community will be happy to help on [GitHub Discussions](https://github.com/wppoland/polski/discussions).
+Problem not resolved? Report it on [GitHub Issues](https://github.com/wppoland/polski/issues) with a description and screenshot. You can also ask on [GitHub Discussions](https://github.com/wppoland/polski/discussions).
 
 <div class="disclaimer">This page is for informational purposes only and does not constitute legal advice. Consult a lawyer before implementation. Polski for WooCommerce is open source software (GPLv2) provided without warranty.</div>

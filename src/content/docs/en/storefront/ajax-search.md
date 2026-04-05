@@ -3,7 +3,7 @@ title: AJAX search
 description: AJAX search module in Polski for WooCommerce - search by SKU, manufacturer, GTIN, REST endpoint, Gutenberg block, Elementor widget and shortcode.
 ---
 
-The AJAX search replaces the default WooCommerce search with an intelligent search bar with real-time suggestions. Results appear instantly while typing - without page reload.
+AJAX search replaces the default WooCommerce search. Results appear live while typing - without page reload.
 
 ## Enabling the module
 

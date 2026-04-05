@@ -3,21 +3,19 @@ title: Bestellbutton mit Zahlungspflicht
 description: Konfiguration des Buttons "Zahlungspflichtig bestellen" gemaess polnischem Verbraucherrecht in WooCommerce.
 ---
 
-Das polnische Verbraucherrechtegesetz (Art. 17 Abs. 3) verlangt, dass der Button zum Abschluss der Bestellung in einem Onlineshop eindeutig mit den Worten "Bestellung mit Zahlungspflicht" oder einer gleichbedeutenden Formulierung beschriftet ist. Das Plugin Polski for WooCommerce aendert automatisch den Standard-Buttontext von WooCommerce in einen dem polnischen Recht entsprechenden Text.
+Polnisches Recht verlangt, dass der Bestellbutton den Text "Bestellung mit Zahlungspflicht" oder eine gleichbedeutende Formulierung enthaelt. Polski for WooCommerce aendert den Standard-Buttontext automatisch.
 
 ## Rechtliche Anforderungen
 
-Gemaess Art. 17 Abs. 3 des Verbraucherrechtegesetzes, das die Richtlinie 2011/83/EU umsetzt:
-
-> "Der Unternehmer stellt sicher, dass der Verbraucher bei der Bestellung ausdruecklich bestaetigt, dass er weiss, dass die Bestellung eine Zahlungspflicht nach sich zieht."
-
-Der Button muss eine Formulierung enthalten, die eindeutig auf die Zahlungspflicht hinweist. Akzeptierte Varianten:
+Der Button muss klar auf die Zahlungspflicht hinweisen. Akzeptierte Varianten:
 
 - "Zamawiam z obowiazkiem zaplaty" (Zahlungspflichtig bestellen)
 - "Zamawiam i place" (Bestellen und bezahlen)
 - "Kupuje i place" (Kaufen und bezahlen)
 
-Die Verwendung von Texten wie "Bestellung aufgeben", "Bestellen" oder "Bestaetigen" ist rechtswidrig und kann zu Strafen fuehren.
+Texte wie "Bestellung aufgeben", "Bestellen" oder "Bestaetigen" erfuellen die Anforderungen nicht und koennen zu Strafen fuehren.
+
+![Kassenseite mit rechtlichen Checkboxen und Bestellbutton](../../../../assets/screenshots/screenshot-3-checkout-checkboxes.png)
 
 ## Konfiguration
 

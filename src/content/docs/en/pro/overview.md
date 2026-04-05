@@ -3,7 +3,7 @@ title: Polski PRO - overview
 description: Overview of the Polski PRO for WooCommerce plugin - premium modules, system requirements, installation and license activation.
 ---
 
-Polski PRO for WooCommerce is a premium extension for the free Polski for WooCommerce plugin. It adds advanced modules for Polish online stores - from invoicing and KSeF integration, through multi-step checkout, to gift cards, subscriptions and an affiliate program.
+Polski PRO for WooCommerce is a paid extension of the free Polski for WooCommerce plugin. It adds premium modules: invoicing, KSeF, multi-step checkout, gift cards, subscriptions and an affiliate program.
 
 ## What the PRO version adds
 

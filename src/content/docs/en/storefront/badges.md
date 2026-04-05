@@ -3,7 +3,7 @@ title: Product badges
 description: Badges module in Polski for WooCommerce - automatic badges (sale, new, low stock, bestseller) and manual labels per product.
 ---
 
-Badges are colored labels displayed on product images. They help customers quickly identify products on sale, new arrivals, bestsellers and products with low stock.
+Badges are colored labels on product images. They help customers quickly spot sales, new arrivals, bestsellers and low-stock products.
 
 ## Enabling the module
 

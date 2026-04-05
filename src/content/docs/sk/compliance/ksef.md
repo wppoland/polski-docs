@@ -3,11 +3,11 @@ title: KSeF - Národný systém e-faktúr
 description: Pripravenosť na KSeF v Polski for WooCommerce - automatická detekcia objednávok s NIP, stĺpec stavu, vývojárske hooky a integrácia so systémami fakturácie.
 ---
 
-Národný systém e-faktúr (KSeF) je platforma Ministerstva financií na vystavovanie a prijímanie štrukturovaných faktúr. Polski for WooCommerce pripravuje obchod WooCommerce na integráciu s KSeF prostredníctvom automatickej detekcie objednávok vyžadujúcich faktúru s DPH, stĺpca stavu v administračnom paneli a hookov umožňujúcich integráciu s externými systémami fakturácie.
+KSeF je platforma Ministerstva financií na štrukturované faktúry. Plugin pripravuje obchod na integráciu s KSeF - detekuje objednávky vyžadujúce faktúru s DPH, pridáva stĺpec stavu a hooky na pripojenie k systémom fakturácie.
 
 ## Právny stav KSeF
 
-KSeF je v súčasnosti vo fáze implementácie. Plugin Polski for WooCommerce nevystavuje faktúry priamo v KSeF, ale poskytuje infraštruktúru uľahčujúcu integráciu so systémami, ktoré to robia (napr. Fakturownia, iFirma, wFirma, InFakt).
+KSeF je vo fáze implementácie. Plugin nevystavuje faktúry v KSeF, ale uľahčuje integráciu so systémami, ktoré to robia (napr. Fakturownia, iFirma, wFirma, InFakt).
 
 Hlavné funkcie modulu KSeF:
 

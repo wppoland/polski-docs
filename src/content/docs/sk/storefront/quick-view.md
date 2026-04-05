@@ -3,7 +3,7 @@ title: Rýchly náhľad produktu
 description: Modul rýchleho náhľadu produktu v Polski for WooCommerce - lightbox, varianty, galéria do 4 obrázkov.
 ---
 
-Rýchly náhľad (quick view) umožňuje zákazníkom zobraziť podrobnosti produktu bez opustenia stránky kategórie alebo výsledkov vyhľadávania. Produkt sa otvára v okne lightbox s možnosťou pridania do košíka.
+Rýchly náhľad otvára podrobnosti produktu v okne lightbox - bez opustenia stránky kategórie alebo výsledkov vyhľadávania. Zákazník môže okamžite pridať produkt do košíka.
 
 ## Zapnutie modulu
 

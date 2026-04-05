@@ -3,7 +3,7 @@ title: System faktur
 description: Dokumentace systemu faktur Polski PRO for WooCommerce - faktura DPH, opravna faktura, uctenka, dodaci list, generovani PDF, cislovani a REST API.
 ---
 
-Modul faktur v Polski PRO for WooCommerce umoznuje generovani prodejnich dokumentu primo z WooCommerce. Podporuje ctyri typy dokumentu, automaticke cislovani, generovani PDF a kompletni zivotni cyklus faktury.
+Modul faktur generuje prodejni dokumenty primo ve WooCommerce. Podporuje ctyri typy dokumentu, automaticke cislovani a PDF.
 
 ## Typy dokumentu
 

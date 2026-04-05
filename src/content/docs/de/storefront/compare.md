@@ -3,7 +3,9 @@ title: Produktvergleich
 description: Produktvergleichsmodul in Polski for WooCommerce - Eigenschaftstabelle, Produktlimit, automatischer Austausch und Shortcode.
 ---
 
-Der Produktvergleich ermoeglicht es Kunden, mehrere Produkte nebeneinander in einer Eigenschaftstabelle zu vergleichen. Dies erleichtert die Kaufentscheidung, besonders in Shops mit breitem Sortiment.
+Der Produktvergleich ermoeglicht es Kunden, mehrere Produkte nebeneinander in einer Eigenschaftstabelle zu vergleichen. Erleichtert die Auswahl, besonders in Shops mit grossem Sortiment.
+
+![Produktvergleich, Wunschliste und Filter auf der Shop-Seite](../../../../assets/screenshots/screenshot-8-wishlist-compare-quick-view.png)
 
 ## Modul aktivieren
 
@@ -23,7 +25,7 @@ Nach dem Hinzufuegen von Produkten zum Vergleich sieht der Kunde eine Tabelle mi
 - Lieferzeit (falls gesetzt)
 - Button **In den Warenkorb**
 
-Zeilen, in denen alle Werte identisch sind, koennen automatisch ausgeblendet werden - aktivieren Sie die Option **Identische Eigenschaften ausblenden** in den Moduleinstellungen.
+Zeilen mit identischen Werten koennen automatisch ausgeblendet werden - aktivieren Sie **Identische Eigenschaften ausblenden** in den Einstellungen. Der Kunde sieht dann nur die Unterschiede zwischen den Produkten.
 
 ## Maximale Produktanzahl
 
@@ -35,13 +37,32 @@ add_filter('polski/compare/max_items', function (): int {
 });
 ```
 
+Nach Erreichen des Limits wird der Button **Zum Vergleich hinzufuegen** inaktiv. Der Kunde muss zuerst ein Produkt entfernen.
+
 ## Automatischer Austausch
 
-Wenn die Option **Automatischer Austausch** aktiv ist, ersetzt das Hinzufuegen eines Produkts ueber dem Limit automatisch das aelteste Produkt im Vergleich. Der Kunde erhaelt eine Toast-Benachrichtigung ueber den Austausch.
+Wenn **Automatischer Austausch** aktiv ist, ersetzt ein neues Produkt ueber dem Limit das aelteste. Der Kunde erhaelt eine Toast-Benachrichtigung.
+
+Aktivierung in den Einstellungen: **WooCommerce > Polski > Shop-Module > Produktvergleich > Automatischer Austausch**.
+
+Oder programmatisch:
 
 ```php
 add_filter('polski/compare/auto_replace', '__return_true');
 ```
+
+## AJAX-Funktionsweise
+
+Der Vergleich arbeitet ohne Seitenneuladung. Verfuegbare AJAX-Aktionen:
+
+| Aktion                        | Beschreibung                           |
+| ---------------------------- | ------------------------------ |
+| `polski_compare_add`         | Produkt hinzufuegen               |
+| `polski_compare_remove`      | Produkt entfernen             |
+| `polski_compare_get`         | Produktliste abrufen       |
+| `polski_compare_clear`       | Vergleich leeren       |
+
+Daten werden in der WooCommerce-Session (`WC()->session`) gespeichert. Funktioniert fuer Gaeste und angemeldete Kunden.
 
 ## Shortcode `[polski_compare]`
 
@@ -59,6 +80,16 @@ add_filter('polski/compare/auto_replace', '__return_true');
 [polski_compare columns="image,name,price,rating,stock" hide_similar="yes"]
 ```
 
+### Verwendung auf einer dedizierten Seite
+
+Erstellen Sie eine Seite z.B. **Produktvergleich** und fuegen Sie den Shortcode ein:
+
+```html
+[polski_compare]
+```
+
+In den Moduleinstellungen geben Sie diese Seite als **Vergleichsseite** an. Der Button **Vergleich ansehen** leitet dorthin weiter.
+
 ## Vergleichsbutton
 
 Der Button wird auf der Produktkarte (Kategorieseite) und auf der Einzelproduktseite angezeigt. Die Position steuern Sie per Filter:
@@ -74,6 +105,16 @@ Verfuegbare Positionen: `before_add_to_cart`, `after_add_to_cart`, `after_summar
 ## Vergleichsleiste (Floating Bar)
 
 Nach dem Hinzufuegen des ersten Produkts zum Vergleich erscheint am unteren Bildschirmrand eine Leiste mit Miniaturen der gewaehlten Produkte und dem Button **Vergleichen**. Die Leiste ist responsiv - auf mobilen Geraeten zeigt sie die Anzahl der gewaehlten Produkte statt Miniaturen.
+
+## Vergleich innerhalb einer Kategorie
+
+Standardmaessig koennen Produkte aus verschiedenen Kategorien verglichen werden. Um den Vergleich auf dieselbe Kategorie einzuschraenken:
+
+```php
+add_filter('polski/compare/same_category_only', '__return_true');
+```
+
+Der Kunde sieht eine Meldung, wenn er ein Produkt aus einer anderen Kategorie hinzufuegen moechte.
 
 ## CSS-Styling
 

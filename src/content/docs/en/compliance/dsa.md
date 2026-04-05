@@ -3,11 +3,11 @@ title: DSA - Digital Services Act
 description: DSA (Digital Services Act) tools in Polski for WooCommerce - report form, admin panel, status tracking and email notifications.
 ---
 
-The Digital Services Act (DSA, Regulation EU 2022/2065) obliges online platforms to allow users to report illegal content. Polski for WooCommerce provides a complete set of DSA tools - a report form, admin panel for managing reports, status tracking and automatic email notifications.
+The Digital Services Act (DSA, EU 2022/2065) requires online platforms to allow reporting of illegal content. The plugin adds a report form, admin panel for managing reports, status tracking and automatic email notifications.
 
 ## DSA requirements for online stores
 
-From February 17, 2024, online stores that allow user-generated content (reviews, comments, photos) must:
+From February 17, 2024, stores with user-generated content (reviews, comments, photos) must:
 
 1. Provide a mechanism for reporting illegal content
 2. Confirm receipt of the report
@@ -15,7 +15,7 @@ From February 17, 2024, online stores that allow user-generated content (reviews
 4. Inform the reporter of the decision
 5. Allow an appeal against the decision
 
-The obligation applies to stores that allow users to publish content - primarily product reviews.
+This applies to stores where users can publish content - primarily product reviews.
 
 ## Report form
 
@@ -40,6 +40,8 @@ Embed the DSA report form on any page using the shortcode:
 | `product_id` | ID of the product the report concerns | None (user selects) |
 | `category` | Pre-selected report category | None |
 
+![DSA report form on the store page](../../../../assets/screenshots/screenshot-6-dsa-report-form.png)
+
 ### Form fields
 
 The form contains the following fields:
@@ -59,11 +61,11 @@ Create a "Report Content" page and add the shortcode:
 [polski_dsa_report]
 ```
 
-Then add a link to this page in the store footer so it is easily accessible to users.
+Add a link to this page in the store footer so it is easily accessible.
 
 ## Admin panel
 
-DSA reports are managed in the WordPress panel under **WooCommerce > DSA Reports**.
+Manage DSA reports in **WooCommerce > DSA Reports**.
 
 ### Report list
 
@@ -78,7 +80,7 @@ The list displays all reports with columns:
 
 ### Report details
 
-After clicking a report, the administrator sees:
+After clicking a report you see:
 
 - Full form data
 - Preview of the reported content (if it is a review - direct link)
@@ -98,7 +100,7 @@ After clicking a report, the administrator sees:
 
 ## Email notifications
 
-The system sends automatic email notifications in the following situations:
+The plugin sends automatic emails in these situations:
 
 | Event | Recipient | Content |
 |-------|-----------|---------|
@@ -160,7 +162,7 @@ add_action('polski/dsa/report_created', function (int $report_id, array $report_
 
 ## Reporting
 
-DSA requires maintaining a report register. The plugin allows exporting all reports to CSV (**WooCommerce > DSA Reports > Export**). The export includes:
+DSA requires maintaining a report register. Export all reports to CSV via **WooCommerce > DSA Reports > Export**. The export includes:
 
 - Report ID
 - Submission date and time
@@ -171,7 +173,7 @@ DSA requires maintaining a report register. The plugin allows exporting all repo
 
 ## Configuration
 
-DSA module settings can be found in **WooCommerce > Settings > Polski > DSA**.
+DSA module settings are in **WooCommerce > Settings > Polski > DSA**.
 
 | Option | Description | Default value |
 |--------|-------------|---------------|
@@ -184,10 +186,10 @@ DSA module settings can be found in **WooCommerce > Settings > Polski > DSA**.
 ## Troubleshooting
 
 **The form does not display on the page**
-Make sure the shortcode `[polski_dsa_report]` is correctly embedded on the page and the DSA module is enabled in settings.
+Check that the shortcode `[polski_dsa_report]` is on the page and the DSA module is enabled in settings.
 
 **Email notifications do not arrive**
-Check the WordPress SMTP configuration. The default `wp_mail()` function may not work on all servers. Consider installing an SMTP plugin (e.g. WP Mail SMTP).
+Check your SMTP configuration. The default `wp_mail()` function does not work on all servers. Install an SMTP plugin (e.g. WP Mail SMTP).
 
 **Reports do not appear in the panel**
 Check user permissions. Managing DSA reports requires the `shop_manager` or `administrator` role.

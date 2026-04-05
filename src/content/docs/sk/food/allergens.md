@@ -3,7 +3,7 @@ title: Alergény
 description: Deklarácia alergénov pomocou taxonómie polski_allergen, automatické zvýrazňovanie v zložkách a shortcód zobrazovania vo WooCommerce.
 ---
 
-Nariadenie (EÚ) č. 1169/2011 (príloha II) určuje 14 látok spôsobujúcich alergie alebo reakcie neznášanlivosti, ktoré musia byť zreteľne označené na etikete potravinárskeho produktu. Pri internetovom predaji musí byť informácia o alergénoch dostupná pred nákupom. Plugin Polski for WooCommerce poskytuje systém deklarácie alergénov založený na taxonómii WordPress.
+Predpisy EÚ vyžadujú označovanie 14 alergénov na etikete potravinárskeho produktu. V internetovom obchode musí byť informácia o alergénoch viditeľná pred nákupom. Plugin Polski for WooCommerce obsluhuje alergény cez taxonómiu WordPress.
 
 ## 14 hlavných alergénov
 

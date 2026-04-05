@@ -3,7 +3,7 @@ title: Modul potravinárskych produktov
 description: Prehľad modulu potravín - výživové hodnoty, alergény, zloženie, Nutri-Score, alkohol a krajina pôvodu vo WooCommerce.
 ---
 
-Predaj potravinárskych produktov cez internet v Poľsku podlieha podrobným reguláciám týkajúcim sa informovania spotrebiteľov. Nariadenie (EÚ) č. 1169/2011 (FIC) a poľské vykonávacie predpisy vyžadujú uvádzanie úplných informácií o zložení, výživových hodnotách, alergénoch a pôvode produktu. Plugin Polski for WooCommerce poskytuje kompletný modul na správu týchto údajov.
+Predaj potravín online vyžaduje uvádzanie informácií o zložení, výživových hodnotách, alergénoch a pôvode produktu (nariadenie EÚ č. 1169/2011). Plugin Polski for WooCommerce poskytuje kompletný modul na správu týchto údajov.
 
 ## Právne požiadavky
 

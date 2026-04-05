@@ -5,7 +5,7 @@ description: Schritt-fuer-Schritt-Anleitung zur Installation des Plugins Polski 
 
 ## Voraussetzungen
 
-Pruefen Sie vor der Installation, ob Ihr Server die Anforderungen erfuellt. Das Plugin **Polski for WooCommerce** in Version 1.3.2 erfordert:
+Pruefen Sie, ob Ihr Server die Anforderungen erfuellt. **Polski for WooCommerce** 1.3.2 erfordert:
 
 | Komponente | Mindestversion | Empfohlene Version |
 |-----------|-----------------|-----------------|

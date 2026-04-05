@@ -3,7 +3,7 @@ title: Štrukturované údaje Schema.org
 description: Automatické štrukturované údaje JSON-LD v Polski for WooCommerce - Product, Offer, AggregateRating a ďalšie typy Schema.org.
 ---
 
-Polski for WooCommerce automaticky generuje štrukturované údaje JSON-LD v súlade so štandardom Schema.org. Tieto údaje pomáhajú vyhľadávačom (Google, Bing) lepšie porozumieť obsahu stránky produktu a zobrazovať rich snippety vo výsledkoch vyhľadávania.
+Automatické štrukturované údaje JSON-LD (Schema.org) na stránkach produktov. Pomáhajú vyhľadávačom zobrazovať rich snippety vo výsledkoch.
 
 ## Automatické generovanie
 

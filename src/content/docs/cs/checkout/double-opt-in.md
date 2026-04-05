@@ -3,7 +3,7 @@ title: Overeni e-mailove adresy
 description: Double opt-in pri registraci - aktivacni odkaz, blokada prihlaseni a konfigurace zprav ve WooCommerce.
 ---
 
-Overeni e-mailove adresy (double opt-in) je mechanismus potvrzovani, ze e-mailova adresa zadana behem registrace skutecne patri osobe zakladajici ucet. Plugin Polski for WooCommerce pridava proces overeni e-mailu do WooCommerce, odeslani aktivacniho odkazu a blokaci prihlaseni do okamziku potvrzeni.
+Double opt-in potvrzuje, ze zadany e-mail skutecne patri osobe zakladajici ucet. Plugin odesle aktivacni odkaz a blokuje prihlaseni do kliknuti na tento odkaz.
 
 ## Proc pouzivat double opt-in
 

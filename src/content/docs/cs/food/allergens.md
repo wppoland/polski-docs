@@ -3,7 +3,7 @@ title: Alergeny
 description: Deklarace alergenu pomoci taxonomie polski_allergen, automaticke zvyraznovani ve slozkach a shortcode zobrazeni ve WooCommerce.
 ---
 
-Narizeni (EU) c. 1169/2011 (priloha II) urcuje 14 latek zpusobujicich alergie nebo reakce nesnasemlivosti, ktere musi byt zretelne oznaceny na etikete potravinoveho produktu. V pripade internetoveho prodeje musi byt informace o alergenech dostupna pred nakupem. Plugin Polski for WooCommerce zajistuje system deklarace alergenu zalozeny na taxonomii WordPress.
+Predpisy EU vyzaduji oznacovani 14 alergenu na etikete potravinoveho produktu. V internetovem obchode musi byt informace o alergenech viditelna pred nakupem. Plugin obsluhuje alergeny pres taxonomii WordPress.
 
 ## 14 hlavnich alergenu
 

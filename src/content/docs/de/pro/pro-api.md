@@ -3,7 +3,7 @@ title: PRO REST API
 description: Dokumentation der REST API von Polski PRO for WooCommerce - Endpunkte fuer Rechnungen, Einstellungen, Generierung von Rechtsdokumenten und KSeF-Integration.
 ---
 
-Polski PRO for WooCommerce stellt eine REST API im Namespace `polski-pro/v1` zur Verwaltung von Rechnungen, Einstellungen und Rechtsdokumenten bereit. Die API ist fuer authentifizierte Benutzer mit der Berechtigung `manage_woocommerce` verfuegbar.
+REST API im Namespace `polski-pro/v1` zur Verwaltung von Rechnungen, Einstellungen und Rechtsdokumenten. Erfordert Authentifizierung und die Berechtigung `manage_woocommerce`.
 
 :::note[Wymagania]
 Polski PRO wymaga: Polski (free) v1.3.0+, WordPress 6.4+, WooCommerce 8.0+, PHP 8.1+

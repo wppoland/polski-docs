@@ -3,7 +3,7 @@ title: Modul potravinovych produktu
 description: Prehled modulu potravin - vyzivove hodnoty, alergeny, slozeni, Nutri-Score, alkohol a zeme puvodu ve WooCommerce.
 ---
 
-Prodej potravin pres internet v Polsku podleha podrobnym regulacim tykajicim se informovani spotrebitelu. Narizeni (EU) c. 1169/2011 (FIC) a polske provadeci predpisy vyzaduji uvadeni uplnych informaci o slozeni, vyzivovych hodnotach, alergenech a puvodu produktu. Plugin Polski for WooCommerce zajistuje kompletni modul pro spravu techto dat.
+Prodej potravin online vyzaduje uvadeni informaci o slozeni, vyzivovych hodnotach, alergenech a puvodu produktu (narizeni EU c. 1169/2011). Plugin dava kompletni modul pro spravu techto dat.
 
 ## Pravni pozadavky
 

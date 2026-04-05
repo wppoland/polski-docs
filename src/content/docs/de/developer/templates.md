@@ -3,7 +3,7 @@ title: Template-Ueberschreibung
 description: Ueberschreiben von Templates in Polski for WooCommerce im Theme - Dateiliste, Verzeichnisstruktur und Beispiele.
 ---
 
-Polski for WooCommerce nutzt ein an WooCommerce angelehntes Template-System. Sie koennen jedes Plugin-Template ueberschreiben, indem Sie es in das Verzeichnis `yourtheme/polski/` in Ihrem Theme kopieren.
+Template-System nach WooCommerce-Vorbild. Ueberschreiben Sie jedes Template durch Kopieren nach `yourtheme/polski/` in Ihrem Theme.
 
 ## Wie ein Template ueberschrieben wird
 

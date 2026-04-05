@@ -3,7 +3,7 @@ title: Shortcodes
 description: Complete list of 23 Polski for WooCommerce shortcodes with parameters, usage examples and PHP code.
 ---
 
-Polski for WooCommerce provides 23 shortcodes for displaying legal data, product information and storefront modules anywhere in the store.
+23 shortcodes for displaying legal data, product information and storefront modules anywhere.
 
 ## Legal requirements shortcodes
 

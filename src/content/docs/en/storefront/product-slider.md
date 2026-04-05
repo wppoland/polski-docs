@@ -3,7 +3,7 @@ title: Product slider
 description: Product slider module in Polski for WooCommerce - scroll-snap, related products, sale, featured, Gutenberg block and shortcode.
 ---
 
-The product slider displays a product carousel with smooth scrolling based on CSS scroll-snap. The module does not require external JavaScript libraries (Slick, Swiper) - it uses native browser mechanisms only.
+The slider displays a product carousel with smooth scrolling based on CSS scroll-snap. It does not require external JS libraries (Slick, Swiper) - it uses native browser mechanisms.
 
 ## Enabling the module
 

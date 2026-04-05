@@ -3,7 +3,7 @@ title: Einwilligungsverwaltung
 description: Dokumentation der erweiterten Einwilligungsverwaltung in Polski PRO for WooCommerce - Versionierung, Audit-Trail, DSGVO-Export, Integration mit Mein Konto.
 ---
 
-Das Modul zur Einwilligungsverwaltung in Polski PRO for WooCommerce erweitert die grundlegenden rechtlichen Checkboxen um Versionierung der Einwilligungstexte, vollstaendigen Audit-Trail, Datenexport und Integration mit den DSGVO-Mechanismen in WordPress. Es bietet Werkzeuge zur Verfolgung der Einwilligungshistorie der Kunden und zur Reaktion auf Aenderungen der AGB-Texte.
+Das Modul fuegt Einwilligungsversionierung, Audit-Trail, Datenexport und DSGVO-Integration hinzu. Verfolgt die Einwilligungshistorie der Kunden und reagiert auf Aenderungen der Regulierungstexte.
 
 ## Versionierung von Einwilligungen
 

@@ -3,7 +3,7 @@ title: Pravni checkboxy
 description: Konfigurace, validace a personalizace povinnych pravnich checkboxu na strance pokladny WooCommerce.
 ---
 
-Polske pravo vyzaduje, aby spotrebitel pred slozenim objednavky akceptoval obchodni podminky a zasady ochrany osobnich udaju. Plugin Polski for WooCommerce zajistuje flexibilni system spravy pravnich checkboxu - od konfigurace obsahu a stitku po validaci a chybove zpravy.
+Pred slozenim objednavky musi zakaznik akceptovat obchodni podminky a zasady ochrany osobnich udaju. Plugin pridava pravni checkboxy s konfiguraci obsahu, validaci a chybovymi zpravami.
 
 ## Pravni pozadavky
 

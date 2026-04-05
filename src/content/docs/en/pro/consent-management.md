@@ -3,7 +3,7 @@ title: Consent management
 description: Documentation of advanced consent management in Polski PRO for WooCommerce - versioning, audit trail, GDPR export, My Account integration.
 ---
 
-The consent management module in Polski PRO for WooCommerce extends the basic legal checkboxes with consent content versioning, a full audit trail, data export and integration with GDPR mechanisms in WordPress. It provides tools for tracking customer consent history and responding to changes in terms and conditions content.
+The consent management module adds consent versioning, audit trail, data export and GDPR integration. It tracks customer consent history and responds to changes in terms and conditions content.
 
 ## Consent versioning
 

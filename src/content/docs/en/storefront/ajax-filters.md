@@ -3,7 +3,7 @@ title: AJAX filters
 description: AJAX filters module in Polski for WooCommerce - filtering by categories, brands, price, stock status, sale, attributes, GET fallback, Gutenberg block and shortcode.
 ---
 
-AJAX filters allow customers to narrow down the product list without page reload. Filtering happens instantly - products update in real time after selecting criteria.
+AJAX filters let customers narrow the product list without page reload. Products update live after selecting filters.
 
 ## Enabling the module
 

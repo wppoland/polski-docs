@@ -3,7 +3,7 @@ title: WP-CLI prikazy
 description: WP-CLI prikazy dostupne v Polski for WooCommerce - migrace dat a test spravnosti konfigurace.
 ---
 
-Polski for WooCommerce zpristupnuje WP-CLI prikazy pro spravu pluginu z prikazoveho radku. Prikazy umoznuji automatizovat migrace dat a overovat spravnost konfigurace.
+WP-CLI prikazy pro spravu pluginu z prikazoveho radku. Automatizujte migrace dat a overujte spravnost konfigurace.
 
 ## Pozadavky
 

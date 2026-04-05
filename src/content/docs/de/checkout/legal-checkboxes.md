@@ -3,11 +3,11 @@ title: Rechtliche Checkboxen
 description: Konfiguration, Validierung und Personalisierung der obligatorischen rechtlichen Checkboxen auf der WooCommerce-Kassenseite.
 ---
 
-Das polnische Recht verlangt, dass der Verbraucher vor der Bestellung die AGB und die Datenschutzerklaerung akzeptiert. Das Plugin Polski for WooCommerce bietet ein flexibles System zur Verwaltung rechtlicher Checkboxen - von der Konfiguration der Inhalte und Labels bis zur Validierung und Fehlermeldungen.
+Vor der Bestellung muss der Kunde die AGB und die Datenschutzerklaerung akzeptieren. Polski for WooCommerce fuegt rechtliche Checkboxen mit konfigurierbarem Inhalt, Validierung und Fehlermeldungen hinzu.
 
 ## Rechtliche Anforderungen
 
-Gemaess dem Verbraucherrechtegesetz und dem Telemediengesetz muss ein Onlineshop vom Verbraucher eine ausdrueckliche Einwilligung einholen zu:
+Der Shop muss eine ausdrueckliche Einwilligung des Kunden einholen zu:
 
 - AGB (Kaufvertragsbedingungen)
 - Datenschutzerklaerung (Verarbeitung personenbezogener Daten)

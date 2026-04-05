@@ -5,9 +5,9 @@ description: Pruvodce konfiguraci pluginu Polski for WooCommerce. Udaje firmy, p
 
 ## Co je pruvodce konfiguraci?
 
-Pruvodce konfiguraci je nastroj, ktery vas provede nejdulezitejsimi nastavenimi pluginu v nekolika jednoduchych krocich. Misto rucni konfigurace kazdeho modulu pruvodce klada otazky a automaticky nastavi prislusne moznosti.
+Pruvodce vas provede nejdulezitejsimi nastavenimi pluginu v nekolika krocich. Misto rucni konfigurace kazdeho modulu odpovidate na otazky - pruvodce nastavi vse za vas.
 
-Pruvodce je dostupny po prvni aktivaci pluginu. Muzete jej take spustit znovu kdykoli - prejdete do **WooCommerce > Polski > Nastaveni** a kliknete na tlacitko **Spustit pruvodce znovu**.
+Pruvodce se objevi po prvni aktivaci pluginu. Pro opetovne spusteni prejdete do **WooCommerce > Polski > Nastaveni** a kliknete **Spustit pruvodce znovu**.
 
 :::note[Pruvodce neprepisuje existujici data]
 Pokud spoustite pruvodce znovu, pole budou vyplnena drive ulozenymi daty. Pruvodce neodstrani ani neprepise data, ktera nezmenite.
@@ -17,7 +17,7 @@ Pokud spoustite pruvodce znovu, pole budou vyplnena drive ulozenymi daty. Pruvod
 
 ## Krok 1: Udaje firmy
 
-Prvnim krokem je doplneni zakladnich udaju vasi firmy. Tyto udaje jsou vyuzivany na mnoha mistech - na pravnich strankach, v paticce, v datech GPSR a na fakturach.
+Zadejte udaje sve firmy. Plugin je pouziva na pravnich strankach, v paticce, v datech GPSR a na fakturach.
 
 ### Povinna pole
 
@@ -84,7 +84,7 @@ Kliknete **Dalsi** pro prechod k dalsimu kroku.
 
 ## Krok 2: Pravni stranky
 
-V tomto kroku vam pruvodce pomuze vytvorit zakonem vyzadovane stranky. Kazdy polsky internetovy obchod by mel mit alespon:
+Pruvodce vam pomuze vytvorit pozadovane pravni stranky. Kazdy polsky obchod by mel mit minimalne:
 
 - **Obchodni podminky** - pravidla vyuzivani obchodu a uzavirani smluv
 - **Zasady ochrany osobnich udaju** - informace o zpracovani osobnich udaju (GDPR)
@@ -128,7 +128,7 @@ Vygenerovane stranky jsou vychozim bodem, nikoli hotovym pravnim dokumentem. Pro
 
 ### Shortcody na pravnich strankach
 
-Na generovanych strankach jsou vyuzivany shortcody, ktere automaticky vkladaji udaje firmy:
+Pravni stranky pouzivaji shortcody, ktere automaticky vkladaji udaje firmy:
 
 ```
 [polski_company_name]        - nazev firmy
@@ -141,7 +141,7 @@ Na generovanych strankach jsou vyuzivany shortcody, ktere automaticky vkladaji u
 [polski_withdrawal_period]   - lhuta pro odstoupeni (vychozi 14 dni)
 ```
 
-Diky shortcodum se pri zmene udaju firmy v nastaveni pluginu pravni stranky automaticky aktualizuji.
+Kdyz zmenite udaje firmy v nastaveni, pravni stranky se aktualizuji automaticky.
 
 Priklad pouziti v textu obchodnich podminek:
 
@@ -169,7 +169,7 @@ Kliknete **Dalsi** pro prechod ke konfiguraci checkboxu.
 
 ## Krok 3: Checkboxy na strance pokladny
 
-V tomto kroku nakonfigurujete povinne checkboxy zobrazovane na strance pokladny (checkout). Polske pravo vyzaduje, aby zakaznik souhlasil s obchodnimi podminkami pred slozenim objednavky.
+Nakonfigurujte checkboxy na strance pokladny (checkout). Polske pravo vyzaduje, aby zakaznik souhlasil s obchodnimi podminkami pred slozenim objednavky.
 
 ### Vychozi checkboxy
 
@@ -248,7 +248,7 @@ Kliknete **Dalsi** pro prechod k souhrnu.
 
 ## Krok 4: Aktivace modulu
 
-Na zaklade vasich odpovedi pruvodce navrhne seznam modulu k aktivaci:
+Pruvodce navrhne moduly k aktivaci na zaklade vasich odpovedi:
 
 ### Doporucene moduly (automaticky zaznacene)
 
@@ -377,6 +377,6 @@ Pruvodce neodstrani pravni stranky ani neresetuje moduly, ktere jste jiz rucne n
 - Zkontrolujte konzoli prohlizece (F12) na chyby JavaScriptu
 - Docasne deaktivujte jine pluginy, ktere mohou zpusobovat konflikt
 
-Pokud problem pretrva, nahlaste jej na [GitHub Issues](https://github.com/wppoland/polski/issues) s popisem problemu a snimkem obrazovky. Komunita rada pomuze na [GitHub Discussions](https://github.com/wppoland/polski/discussions).
+Problem nezmizi? Nahlaste jej na [GitHub Issues](https://github.com/wppoland/polski/issues) s popisem a snimkem obrazovky. Muzete se take zeptat na [GitHub Discussions](https://github.com/wppoland/polski/discussions).
 
 <div class="disclaimer">Tato stránka slouží pouze k informačním účelům a nepředstavuje právní poradenství. Před implementací se poraďte s právníkem. Polski for WooCommerce je open source software (GPLv2) poskytovaný bez záruky.</div>

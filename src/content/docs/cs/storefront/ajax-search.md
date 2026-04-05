@@ -3,7 +3,7 @@ title: AJAX vyhledavac
 description: Modul AJAX vyhledavace v Polski for WooCommerce - vyhledavani podle SKU, vyrobce, GTIN, REST endpoint, Gutenberg blok, Elementor widget a shortcode.
 ---
 
-AJAX vyhledavac nahrazuje vychozi vyhledavani WooCommerce inteligentnim vyhledavacem s naseptavanim v realnem case. Vysledky se zobrazuji okamzite behem psani fraze - bez znovunacteni stranky.
+AJAX vyhledavac nahrazuje vychozi vyhledavani WooCommerce vyhledavacem s naseptavanim v realnem case. Vysledky se zobrazuji okamzite behem psani - bez znovunacteni stranky.
 
 ## Aktivace modulu
 

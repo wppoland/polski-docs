@@ -3,7 +3,7 @@ title: VAT display
 description: Configuration of gross and net price display, VAT rate and Article 113 VAT Act exemption in WooCommerce.
 ---
 
-Polish law obliges online sellers to clearly inform whether the displayed price includes VAT. The Polski for WooCommerce plugin enables flexible management of VAT information display - from a simple "gross/net" label to full information about the tax rate and exemption basis.
+Polish law requires the store to clearly state whether the price includes VAT. Polski for WooCommerce lets you display VAT information - from a simple "gross/net" label to the tax rate and exemption basis.
 
 ## Legal requirements
 

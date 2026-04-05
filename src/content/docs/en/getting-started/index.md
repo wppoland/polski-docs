@@ -15,9 +15,11 @@ hero:
       variant: minimal
 ---
 
+![Polski for WooCommerce - plugin banner](../../../../assets/screenshots/banner-772x250.png)
+
 ## What is Polski for WooCommerce?
 
-**Polski for WooCommerce** is a free open source plugin (GPLv2) created by [wppoland.com](https://wppoland.com) that adapts a WooCommerce store to Polish legal requirements and e-commerce standards. The plugin combines over 30 modules covering legal requirements, price display, checkout, food products, storefront modules and developer tools.
+**Polski for WooCommerce** is a free open source plugin (GPLv2) from [wppoland.com](https://wppoland.com). It adapts your WooCommerce store to Polish legal requirements and e-commerce standards. It includes over 30 modules: legal compliance, prices, checkout, food, storefront features and developer tools.
 
 Current version: **1.3.2**
 
@@ -40,24 +42,26 @@ For the best performance we recommend PHP 8.2+ and WooCommerce 9.x. The plugin i
 
 ## Module overview
 
-The plugin is built modularly - you enable only the features you need. Below you will find a description of all available module groups.
+The plugin is modular - you enable only what you need. Below you will find all module groups.
+
+![Polski for WooCommerce modules dashboard](../../../../assets/screenshots/screenshot-1-modules-dashboard.png)
 
 ### Legal requirements
 
-Modules helping implement Polish and EU e-commerce requirements:
+Modules for Polish and EU legal compliance:
 
 - **GPSR (General Product Safety Regulation)** - manufacturer, importer and responsible person data on product pages
-- **Omnibus** - displaying the lowest price from 30 days before a discount, in accordance with the Omnibus Directive
-- **Right of withdrawal** - return forms and procedures, withdrawal document generation
+- **Omnibus** - lowest price from 30 days before a discount
+- **Right of withdrawal** - return forms and withdrawal documents
 - **GDPR** - consent management, data anonymization, processing register
-- **DSA (Digital Services Act)** - contact point, content reporting, transparency
-- **KSeF** - preparation for integration with the Polish National e-Invoice System
-- **Greenwashing** - verification and control of environmental claims
-- **Legal pages** - generation of terms and conditions, privacy policy and return policy
+- **DSA (Digital Services Act)** - contact point, content reporting
+- **KSeF** - preparation for the Polish National e-Invoice System
+- **Greenwashing** - control of environmental claims
+- **Legal pages** - terms and conditions, privacy policy and return policy
 
 ### Prices and product information
 
-Modules related to price display and product data:
+Modules for price display and product data:
 
 - **Unit prices** - automatic calculation and display of unit prices (PLN/kg, PLN/l)
 - **VAT display** - information about VAT rate and net/gross price
@@ -66,12 +70,12 @@ Modules related to price display and product data:
 
 ### Checkout and orders
 
-Modules modifying the checkout page and order process:
+Modules for the checkout page and order process:
 
 - **Order button** - changing the button text to "Order with obligation to pay" (legal requirement)
 - **Legal checkboxes** - configurable consents for terms and conditions, privacy policy, newsletter
-- **NIP lookup** - automatic company data completion based on tax identification number (GUS API)
-- **Double opt-in** - email address verification through double opt-in
+- **NIP lookup** - auto-fill company data by tax ID number (GUS API)
+- **Double opt-in** - email address verification (double opt-in)
 
 ### Food products
 
@@ -84,7 +88,7 @@ Specialized modules for food stores:
 
 ### Storefront modules
 
-Features improving the shopping experience:
+Features that make shopping easier for customers:
 
 - **Wishlist** - saving products for later
 - **Compare** - comparing products side by side
@@ -97,9 +101,9 @@ Features improving the shopping experience:
 
 ### Tools
 
-Modules for easier store management:
+Modules for store management:
 
-- **Compliance dashboard** - overview of store legal requirements status in one place
+- **Compliance dashboard** - overview of store legal compliance status in one place
 - **Site audit** - automatic store configuration verification
 - **Security incidents** - GDPR incident register and management
 - **Verified reviews** - verified customer review system
@@ -121,7 +125,7 @@ Tools and API for programmers:
 
 ## Quick start
 
-Three steps to a working online store meeting Polish e-commerce requirements:
+Three steps to a compliant store:
 
 1. **[Install the plugin](/en/getting-started/installation/)** - from the WordPress dashboard or manually from a ZIP file
 2. **[Configure the basics](/en/getting-started/configuration/)** - enable the modules you need in the settings panel
@@ -133,21 +137,21 @@ If you encounter a problem, report it on [GitHub Issues](https://github.com/wppo
 
 ---
 
-## Why choose this plugin?
+## Why use it?
 
 - **All in one** - instead of 10 plugins, one cohesive platform
 - **Modular design** - enable only what you need
-- **Legal tools** - updated with regulatory changes
+- **Legal compliance** - updated with regulatory changes
 - **Open source** - source code on GitHub, GPLv2 license
 - **No subscription** - all features available for free
-- **Performance** - minimal resources loaded only for active modules
+- **Performance** - resources loaded only for active modules
 - **Active community** - support on GitHub Discussions
 
 ---
 
 ## Compatibility
 
-The plugin is tested with the most popular WordPress themes and plugins:
+The plugin is tested with popular WordPress themes and plugins:
 
 - Themes: Storefront, Astra, GeneratePress, Kadence, Flavor, flavor theme
 - Page builders: Gutenberg (blocks), Elementor, Beaver Builder

@@ -3,7 +3,7 @@ title: Výrobca a značka
 description: Údaje výrobcu (GPSR), taxonómia značky, čísla GTIN/EAN a shortcód na zobrazenie informácií o výrobcovi vo WooCommerce.
 ---
 
-Nariadenie GPSR (General Product Safety Regulation) platné od 13. decembra 2024 ukladá internetovým predajcom povinnosť uvádzať údaje výrobcu alebo zodpovednej osoby na stránke produktu. Plugin Polski for WooCommerce umožňuje pridanie úplných údajov výrobcu, značky a identifikátorov produktu (GTIN/EAN) ku každému produktu v obchode.
+Od 13. decembra 2024 nariadenie GPSR vyžaduje uvádzanie údajov výrobcu na stránke produktu. Plugin Polski for WooCommerce umožňuje pridať údaje výrobcu, značku a číslo GTIN/EAN ku každému produktu.
 
 ## Požiadavky GPSR
 

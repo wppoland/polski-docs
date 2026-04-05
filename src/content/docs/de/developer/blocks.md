@@ -3,7 +3,7 @@ title: Gutenberg-Bloecke
 description: Gutenberg-Bloecke in Polski for WooCommerce - AJAX-Suche, AJAX-Filter und Produktslider mit Vorschau im Editor.
 ---
 
-Polski for WooCommerce stellt drei Gutenberg-Bloecke zum Einfuegen von Shop-Modulen im Block-Editor bereit. Jeder Block bietet eine Vorschau im Editor (Server-Side Render) und vollstaendige Konfiguration im Seitenpanel.
+Drei Gutenberg-Bloecke fuer Shop-Module. Jeder Block hat eine Vorschau im Editor (Server-Side Render) und Konfiguration im Seitenpanel.
 
 ## Anforderungen
 

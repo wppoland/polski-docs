@@ -3,7 +3,7 @@ title: KSeF integration
 description: Documentation of the Polski PRO for WooCommerce integration with the National e-Invoice System (KSeF) - invoice submission, status tracking, API configuration and error handling.
 ---
 
-The KSeF module in Polski PRO for WooCommerce enables sending electronic invoices to the National e-Invoice System (Krajowy System e-Faktur) operated by the Ministry of Finance. Invoices are submitted asynchronously with automatic retries in case of errors.
+The KSeF module sends electronic invoices to the National e-Invoice System (Ministry of Finance). Invoices are sent in the background, with automatic retries on errors.
 
 ## What is KSeF
 

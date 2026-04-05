@@ -3,7 +3,7 @@ title: Predprodej (pre-orders)
 description: Modul predprodeje Polski PRO for WooCommerce - oznaceni produktu jako pre-order, datum premiery, vlastni text tlacitka a validace kosiku.
 ---
 
-Modul predprodeje umoznuje oznacovat produkty jako dostupne v predprodeji, zobrazovat datum premiery, menit text tlacitka nakupu a ridit michani produktu pre-order se standardnimi v kosiku. Je uzitecny v obchodech s elektronikou, knihami, hrami a jakymkoli sortimentem, kde jsou produkty nabizeny pred oficialnim datem dostupnosti.
+Modul predprodeje umoznuje oznacovat produkty jako pre-order, zobrazovat datum premiery a menit text tlacitka. Uzitecny v obchodech s elektronikou, knihami, hrami a dalsimi produkty nabizenymi pred premierou.
 
 :::note[Pozadavky]
 Polski PRO vyzaduje: Polski (free) v1.3.0+, WordPress 6.4+, WooCommerce 8.0+, PHP 8.1+

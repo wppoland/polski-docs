@@ -3,7 +3,7 @@ title: Integrace s KSeF
 description: Dokumentace integrace Polski PRO for WooCommerce s Krajovym systemem e-Faktur - odesilani faktur, sledovani statusu, konfigurace API a zpracovani chyb.
 ---
 
-Modul KSeF v Polski PRO for WooCommerce umoznuje odesilani elektronickych faktur do Krajoweho systemu e-Faktur provozovaneho Ministerstvem financi. Faktury jsou odesilany asynchronne s automatickym opakovanim v pripade chyb.
+Modul KSeF odesila elektronicke faktury do Krajoweho systemu e-Faktur (Ministerstvo financi). Faktury se odesilaji na pozadi s automatickym opakovanim pri chybach.
 
 ## Co je KSeF
 

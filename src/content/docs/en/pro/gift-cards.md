@@ -3,7 +3,7 @@ title: Gift cards
 description: Documentation of gift cards in Polski PRO for WooCommerce - selling, code generation, cart redemption, balance tracking and My Account panel.
 ---
 
-The gift cards module in Polski PRO for WooCommerce enables selling gift cards as WooCommerce products. Customers can purchase a card, receive a unique code and use it as a payment method for subsequent orders.
+The gift cards module lets you sell cards as WooCommerce products. The customer buys a card, receives a code and pays with it on future orders.
 
 ## How it works
 

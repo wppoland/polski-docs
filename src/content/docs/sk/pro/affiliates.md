@@ -3,7 +3,7 @@ title: Affiliate program
 description: Dokumentácia affiliate programu Polski PRO for WooCommerce - odkazové odkazy, sledovanie provízií, registrácia afiliantov a panel Môj účet.
 ---
 
-Modul affiliate programu v Polski PRO for WooCommerce umožňuje prevádzkovanie programu odporúčaní priamo v obchode WooCommerce. Afilianti zdieľajú unikátne odkazové odkazy a plugin sleduje konverzie a pripisuje provízie za objednávky uskutočnené odporučenými zákazníkmi.
+Modul affiliate programu umožňuje prevádzkovať program odporúčaní v obchode. Afilianti zdieľajú odkazové odkazy a plugin sleduje konverzie a pripisuje provízie.
 
 ## Ako to funguje
 

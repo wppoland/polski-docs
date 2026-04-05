@@ -3,7 +3,7 @@ title: MwSt.-Anzeige
 description: Konfiguration der Brutto- und Nettopreisanzeige, MwSt.-Satz und Steuerbefreiung nach Art. 113 des polnischen MwSt.-Gesetzes in WooCommerce.
 ---
 
-Das polnische Recht verpflichtet Online-Verkaeufer, eindeutig darueber zu informieren, ob der angezeigte Preis die Mehrwertsteuer enthaelt. Das Plugin Polski for WooCommerce ermoeglicht eine flexible Verwaltung der MwSt.-Informationsanzeige - von der einfachen Kennzeichnung "brutto/netto" bis hin zur vollstaendigen Information ueber Steuersatz und Befreiungsgrundlage.
+Polnisches Recht verlangt, dass der Shop klar informiert, ob der Preis MwSt. enthaelt. Polski for WooCommerce zeigt die MwSt.-Information an - von einfacher "brutto/netto"-Kennzeichnung bis zu Steuersatz und Befreiungsgrundlage.
 
 ## Rechtliche Anforderungen
 

@@ -3,7 +3,7 @@ title: Nutri-Score
 description: Zobrazenie odznaku Nutri-Score A-E s CSS triedami per úroveň na stránke produktu WooCommerce.
 ---
 
-Nutri-Score je systém označovania potravín vyvinutý organizáciou Santé publique France, ktorý hodnotí výživovú kvalitu produktu na päťstupňovej škále od A (najlepšia) po E (najhoršia). Hoci v Poľsku je používanie Nutri-Score dobrovoľné, čoraz viac výrobcov sa rozhoduje umiestňovať ho na obaloch. Plugin Polski for WooCommerce umožňuje zobrazovanie odznaku Nutri-Score na stránke produktu.
+Nutri-Score hodnotí výživovú kvalitu produktu v škále od A (najlepšia) po E (najhoršia). V Poľsku je dobrovoľný, ale čoraz populárnejší. Plugin Polski for WooCommerce zobrazuje odznak Nutri-Score na stránke produktu.
 
 ## Čo je Nutri-Score
 

@@ -3,7 +3,7 @@ title: Katalogovy rezim B2B
 description: Modul katalogoveho rezimu Polski PRO for WooCommerce - skryvani cen, blokace nakupu, presmerovani na poptavky a integrace s modulem RFQ.
 ---
 
-Katalogovy rezim premenuje obchod WooCommerce na katalog produktu bez moznosti nakupu. Ceny mohou byt skryty, tlacitka "Pridat do kosiku" nahrazena zpravami nebo presmerovana na formular poptavky. Modul je urcen predevsim pro B2B obchody, kde jsou ceny vyjednavany individualne, a pro obchody, ktere chteji prezentovat nabidku bez umozneni primych nakupu.
+Katalogovy rezim meni obchod na katalog bez moznosti nakupu. Skryjte ceny, zamente tlacitka na zpravy nebo presmerujte na poptavky. Urceno pro B2B obchody s individualnymi cenami.
 
 :::note[Pozadavky]
 Polski PRO vyzaduje: Polski (free) v1.3.0+, WordPress 6.4+, WooCommerce 8.0+, PHP 8.1+

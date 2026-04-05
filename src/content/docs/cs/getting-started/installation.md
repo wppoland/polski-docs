@@ -5,7 +5,7 @@ description: Navod na instalaci pluginu Polski for WooCommerce krok za krokem - 
 
 ## Predpoklady
 
-Pred zahajenim instalace zkontrolujte, zda vas server splnuje pozadavky. Plugin **Polski for WooCommerce** ve verzi 1.3.2 vyzaduje:
+Zkontrolujte, zda vas server splnuje pozadavky. Plugin **Polski for WooCommerce** 1.3.2 vyzaduje:
 
 | Komponenta | Minimalni verze | Doporucena verze |
 |-----------|-----------------|-----------------|
@@ -17,14 +17,14 @@ Pred zahajenim instalace zkontrolujte, zda vas server splnuje pozadavky. Plugin 
 
 ### Kontrola verze PHP
 
-Pokud nevite, jakou verzi PHP ma vas server, zkontrolujte to v panelu WordPress:
+Nevite, jakou mate verzi PHP? Zkontrolujte v panelu WordPress:
 
 1. Prejdete do **Nastroje > Zdravi webu**
 2. Kliknete na zalozku **Informace**
 3. Rozbalte sekci **Server**
 4. Najdete pole **Verze PHP**
 
-Alternativne v mnoha hostingovych panelech (cPanel, DirectAdmin) je informace o verzi PHP dostupna v nastaveni domeny.
+Verzi PHP najdete take v panelu hostingu (cPanel, DirectAdmin) v nastaveni domeny.
 
 ### Kontrola verze WooCommerce
 
@@ -33,14 +33,14 @@ Alternativne v mnoha hostingovych panelech (cPanel, DirectAdmin) je informace o 
 3. Verze je zobrazena pod nazvem pluginu
 
 :::caution[PHP 8.0 a starsi]
-Plugin nebude fungovat na PHP 7.x ani PHP 8.0. Pokud vas hosting nepodporuje PHP 8.1+, kontaktujte poskytovatele hostingu ohledne aktualizace. Vetsina hostingu umoznuje zmenit verzi PHP v administracnim panelu.
+Plugin nefunguje na PHP 7.x ani PHP 8.0. Pokud vas hosting nema PHP 8.1+, zmente verzi PHP v panelu hostingu nebo kontaktujte poskytovatele.
 :::
 
 ---
 
 ## Metoda 1: Instalace z panelu WordPress (doporucena)
 
-Toto je nejjednodussi a doporucena metoda instalace.
+Nejjednodussi a doporucena metoda instalace.
 
 ### Krok 1 - otevrete panel pluginu
 
@@ -72,7 +72,7 @@ Po aktivaci se objevi oznameni s odkazem na pruvodce konfiguraci. Kliknete na **
 
 ## Metoda 2: Rucni instalace ze souboru ZIP
 
-Pouzijte tuto metodu, pokud chcete nainstalovat konkretni verzi pluginu nebo nemate pristup k repozitari WordPress.org ze serveru.
+Pouzijte tuto metodu, pokud chcete nainstalovat konkretni verzi nebo server se nepripojuje k WordPress.org.
 
 ### Krok 1 - stahne balicek ZIP
 
@@ -96,7 +96,7 @@ Po nahrani a rozbaleni souboru kliknete **Aktivovat plugin**.
 
 ## Metoda 3: Instalace pres FTP/SFTP
 
-Tato metoda je uzitecna, kdyz panel WordPress neumoznuje nahravani souboru (napr. kvuli limitu velikosti).
+Pouzijte tuto metodu, pokud panel WordPress neumoznuje nahravat soubory (napr. kvuli limitu velikosti).
 
 ### Krok 1 - rozbalte archiv
 
@@ -130,7 +130,7 @@ Prejdete do **Pluginy > Nainstalovane pluginy** v panelu WordPress a kliknete **
 
 ## Instalace pres WP-CLI
 
-Pokud mate pristup k terminalu serveru, muzete nainstalovat plugin jednim prikazem:
+Pokud mate pristup k terminalu serveru, nainstalujte plugin jednim prikazem:
 
 ```bash
 wp plugin install polski-for-woocommerce --activate
@@ -160,13 +160,13 @@ Po aktivaci pluginu zkontrolujte, zda vse funguje spravne:
 
 ### Kontrola pomoci shortcode
 
-Pro rychle overeni, ze je plugin aktivni, muzete pouzit diagnosticky shortcode na libovolne strance:
+Pro overeni, ze je plugin aktivni, vlozte shortcode na libovolnou stranku:
 
 ```
 [polski_version]
 ```
 
-Shortcode zobrazi aktualni verzi pluginu (napr. "1.3.2"), coz potvrzuje spravnou instalaci.
+Shortcode zobrazi verzi pluginu (napr. "1.3.2") - to znamena, ze instalace funguje.
 
 ---
 
@@ -227,22 +227,22 @@ chmod 644 wp-content/plugins/polski-for-woocommerce/*.php
 
 ## Aktualizace pluginu
 
-Plugin se aktualizuje automaticky prostrednictvim mechanismu aktualizaci WordPress. Kdyz je k dispozici nova verze:
+Plugin se aktualizuje standardnim mechanismem WordPress. Kdyz se objevi nova verze:
 
 1. Uvidite oznameni v **Pluginy > Nainstalovane pluginy**
 2. Kliknete **Aktualizovat** nebo pouzijte hromadnou aktualizaci
 3. Po aktualizaci zkontrolujte, zda obchod funguje spravne
 
 :::tip[Zaloha]
-Pred kazdou aktualizaci provedte zalohu databaze a souboru. Vetsina hostingu nabizi automaticke zalohy, ale rucni zaloha dava jistotu, ze muzete zmeny vratit.
+Pred aktualizaci zalohe databazi a soubory. Hosting casto zalohuje automaticky, ale rucni zaloha dava jistotu.
 :::
 
 ---
 
 ## Dalsi kroky
 
-Po uspesne instalaci prejdete ke [konfiguraci pluginu](/cs/getting-started/configuration/) pro aktivaci potrebnych modulu a prizpusobeni nastaveni vasemu obchodu.
+Po instalaci prejdete ke [konfiguraci pluginu](/cs/getting-started/configuration/) pro aktivaci modulu a prizpusobeni nastaveni.
 
-Pokud jste narazili na problem, ktery neni na tomto seznamu, nahlaste jej na [GitHub Issues](https://github.com/wppoland/polski/issues) nebo se zeptejte komunity na [GitHub Discussions](https://github.com/wppoland/polski/discussions).
+Mate problem, ktery zde neni? Nahlaste jej na [GitHub Issues](https://github.com/wppoland/polski/issues) nebo se zeptejte na [GitHub Discussions](https://github.com/wppoland/polski/discussions).
 
 <div class="disclaimer">Tato stránka slouží pouze k informačním účelům a nepředstavuje právní poradenství. Před implementací se poraďte s právníkem. Polski for WooCommerce je open source software (GPLv2) poskytovaný bez záruky.</div>

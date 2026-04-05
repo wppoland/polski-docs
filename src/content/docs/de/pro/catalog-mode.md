@@ -3,7 +3,7 @@ title: B2B-Katalogmodus
 description: Modul fuer den Katalogmodus in Polski PRO for WooCommerce - Preise verbergen, Kaeufe sperren, Weiterleitung zu Angebotsanfragen und Integration mit dem RFQ-Modul.
 ---
 
-Der Katalogmodus verwandelt den WooCommerce-Shop in einen Produktkatalog ohne Kaufmoeglichkeit. Preise koennen verborgen, die Schaltflaeche "In den Warenkorb" durch Meldungen ersetzt oder zum Angebotsanfrageformular weitergeleitet werden. Das Modul ist hauptsaechlich fuer B2B-Shops bestimmt, in denen Preise individuell verhandelt werden, sowie fuer Shops, die ihr Angebot ohne direkte Kaufmoeglichkeit praesentieren moechten.
+Der Katalogmodus verwandelt den Shop in einen Katalog ohne Kaufmoeglichkeit. Verbergen Sie Preise, ersetzen Sie Buttons durch Meldungen oder leiten Sie zu Angebotsanfragen weiter. Fuer B2B-Shops mit individuellen Preisen.
 
 :::note[Wymagania]
 Polski PRO wymaga: Polski (free) v1.3.0+, WordPress 6.4+, WooCommerce 8.0+, PHP 8.1+

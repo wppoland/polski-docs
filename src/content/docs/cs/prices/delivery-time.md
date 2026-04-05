@@ -3,11 +3,11 @@ title: Doba dodani
 description: Konfigurace doby dodani na produkt a variantu, vychozi nahradni hodnota a taxonomie polski_delivery_time ve WooCommerce.
 ---
 
-Smernice Omnibus a polsky zakon o pravech spotrebitele vyzaduji, aby internetovy obchod informoval o predpokladane dobe dodani produktu pred slozenim objednavky. Plugin Polski for WooCommerce zajistuje flexibilni system spravy doby dodani - od globalnich vychozich nastaveni po individualni hodnoty pro kazdy produkt a variantu.
+Polske pravo vyzaduje, aby obchod informoval o dobe dodani pred slozenim objednavky. Plugin umoznuje nastavit dobu dodani globalne, na produkt i na variantu.
 
 ## Pravni pozadavky
 
-Prodejce musi informovat spotrebitele o terminu doruceni zbozi nejpozdeji v okamziku vyjadreni vule spotrebitele byt vazan smlouvou (tedy pred kliknutim na tlacitko objednavky). Tato informace musi byt:
+Udejte dobu dodani, nez zakaznik klikne na tlacitko objednavky. Informace musi byt:
 
 - jasna a srozumitelna
 - udana v pracovnich nebo kalendarních dnech

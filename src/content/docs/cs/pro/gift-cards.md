@@ -3,7 +3,7 @@ title: Darkove karty
 description: Dokumentace darkovych karet Polski PRO for WooCommerce - prodej, generovani kodu, uplatneni v kosiku, sledovani zustatku a panel Muj ucet.
 ---
 
-Modul darkovych karet v Polski PRO for WooCommerce umoznuje prodej darkovych karet jako produktu WooCommerce. Zakaznici mohou zakoupit kartu, obdrzet jedinecny kod a vyuzit ho jako formu platby u dalsich objednavek.
+Modul darkovych karet umoznuje prodej darkovych karet jako produktu WooCommerce. Zakaznik kupi kartu, obdrzi jedinecny kod a pouzije ho jako platbu u dalsich objednavek.
 
 ## Jak to funguje
 

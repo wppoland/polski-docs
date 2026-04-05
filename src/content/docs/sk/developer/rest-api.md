@@ -3,7 +3,7 @@ title: REST API
 description: Dokumentácia REST API pluginu Polski for WooCommerce - namespace polski/v1/, endpointy nastavení, checkboxov, právnych stránok, vyhľadávania a sprievodcu.
 ---
 
-Polski for WooCommerce sprístupňuje REST API v namespace `polski/v1/`. API umožňuje programovo spravovať nastavenia, právne checkboxy, právne stránky a vyhľadávanie produktov.
+REST API v namespace `polski/v1/`. Spravujte nastavenia, právne checkboxy, právne stránky a vyhľadávanie produktov.
 
 ## Autentifikácia
 

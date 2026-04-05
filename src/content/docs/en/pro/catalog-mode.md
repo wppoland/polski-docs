@@ -3,7 +3,7 @@ title: B2B catalog mode
 description: Polski PRO for WooCommerce catalog mode module - hiding prices, blocking purchases, redirecting to quote requests and RFQ module integration.
 ---
 
-Catalog mode transforms the WooCommerce store into a product catalog without the ability to purchase. Prices can be hidden, "Add to cart" buttons replaced with messages or redirected to a quote request form. The module is primarily intended for B2B stores where prices are negotiated individually, and for stores that want to showcase their offerings without enabling direct purchases.
+Catalog mode turns the store into a catalog without the ability to purchase. Hide prices, replace buttons with messages or redirect to a quote request. Designed for B2B stores with individual pricing.
 
 :::note[Requirements]
 Polski PRO requires: Polski (free) v1.3.0+, WordPress 6.4+, WooCommerce 8.0+, PHP 8.1+

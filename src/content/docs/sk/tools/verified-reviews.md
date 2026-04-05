@@ -3,7 +3,7 @@ title: Overené recenzie
 description: Systém overených recenzií v Polski for WooCommerce - odznak nákupu, párovanie e-mailov a dôveryhodnosť recenzií.
 ---
 
-Modul overených recenzií posilňuje dôveryhodnosť recenzií v obchode WooCommerce. Recenzie zákazníkov, ktorí skutočne kúpili produkt, sú označené odznakom potvrdzujúcim nákup. Tento systém podporuje súlad so smernicou Omnibus a predpismi o nekalých obchodných praktikách.
+Modul označuje recenzie zákazníkov, ktorí kúpili produkt, odznakom **Overený nákup**. Zvyšuje dôveryhodnosť recenzií a podporuje súlad so smernicou Omnibus.
 
 ## Zapnutie modulu
 

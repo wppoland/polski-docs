@@ -5,22 +5,24 @@ description: Prvni kroky po instalaci pluginu Polski for WooCommerce. Aktivace m
 
 ## Hlavni panel pluginu
 
-Po instalaci a aktivaci pluginu prejdete do **WooCommerce > Polski** v menu administracniho panelu. Uvidite hlavni panel (dashboard) rozdeleny do nekolika sekci:
+Po aktivaci pluginu prejdete do **WooCommerce > Polski**. Uvidite hlavni panel se sekcemi:
 
 - **Stav souladu** - rychly prehled, ktere pravni pozadavky jsou splneny
 - **Aktivni moduly** - seznam aktivovanych modulu s odkazy na jejich nastaveni
 - **Vyzadovane akce** - oznameni o chybejicich konfiguracich
 - **Rychle odkazy** - odkazy na nejdulezitejsi nastaveni
 
+![Dashboard modulu Polski for WooCommerce](../../../../assets/screenshots/screenshot-1-modules-dashboard.png)
+
 :::tip[Pruvodce konfiguraci]
-Pokud teprve zacinat, doporucujeme vyuzit [pruvodce konfiguraci](/cs/getting-started/wizard/), ktery vas provede nejdulezitejsimi nastavenimi krok za krokem. Pruvodce lze spustit znovu kdykoli z dashboardu.
+Pokud teprve zacinat, pouzijte [pruvodce konfiguraci](/cs/getting-started/wizard/). Provede vas nejdulezitejsimi nastavenimi krok za krokem. Muzete jej spustit znovu kdykoli.
 :::
 
 ---
 
 ## Aktivace a deaktivace modulu
 
-Plugin funguje modularne - ve vychozim stavu po instalaci neni zadny modul aktivni. Diky tomu plugin neovlivnuje vykon obchodu, dokud neaktivujete konkretni funkce.
+Plugin funguje modularne - po instalaci jsou vsechny moduly vypnute. Aktivujete pouze ty, ktere potrebujete.
 
 ### Jak aktivovat modul
 
@@ -31,11 +33,11 @@ Plugin funguje modularne - ve vychozim stavu po instalaci neni zadny modul aktiv
 
 ### Jak deaktivovat modul
 
-Postup je stejny - kliknete na prepinac u aktivniho modulu pro jeho deaktivaci. Deaktivace modulu neodstrani ulozena data, takze jej muzete znovu aktivovat bez ztraty konfigurace.
+Kliknete na prepinac u aktivniho modulu. Deaktivace neodstrani data - muzete modul znovu aktivovat bez ztraty nastaveni.
 
 ### Doporucene moduly pro start
 
-Pro typicky polsky internetovy obchod doporucujeme aktivovat nasledujici moduly jako minimum:
+Pro typicky polsky obchod aktivujte minimalne tyto moduly:
 
 | Modul | Proc je dulezity |
 |-------|-------------------|
@@ -51,7 +53,7 @@ Pro typicky polsky internetovy obchod doporucujeme aktivovat nasledujici moduly 
 
 ## Dashboard souladu
 
-Dashboard souladu je centralni misto, kde zkontrolujete pravni stav vaseho obchodu. Prejdete do **WooCommerce > Polski > Soulad** pro zobrazeni:
+Zde zkontrolujete, zda vas obchod splnuje pravni pozadavky. Prejdete do **WooCommerce > Polski > Soulad**.
 
 ### Ukazatele stavu
 
@@ -90,7 +92,7 @@ Prejdete do **WooCommerce > Polski > Pravni soulad** pro konfiguraci:
 3. Zvolte format zobrazovani nejnizsi ceny
 4. Ulozte zmeny
 
-Plugin automaticky zacne zaznamenavat historii cen od okamziku aktivace modulu.
+Plugin zacne zaznamenavat historii cen od okamziku aktivace modulu.
 
 **GPSR (bezpecnost produktu)**
 
@@ -166,7 +168,7 @@ Pozice: Pred tlacitkem objednavky
 
 ### Potraviny
 
-Tyto moduly jsou urceny pro obchody prodavajici potraviny. Prejdete do **WooCommerce > Polski > Potraviny**.
+Moduly pro obchody s potravinami. Prejdete do **WooCommerce > Polski > Potraviny**.
 
 1. Aktivujte potrebne moduly (vyzivove hodnoty, alergeny, Nutri-Score)
 2. Na strance editace produktu se objevi nove zalozky pro doplneni dat
@@ -208,7 +210,7 @@ Tyto udaje jsou vyuzivany ruznymi moduly (pravni stranky, GPSR, DSA).
 
 ### Kompatibilita
 
-Pokud pouzivate nestandardni motiv nebo pluginy zpusobujici konflikty:
+Pokud motiv nebo jiny plugin zpusobuje konflikt:
 
 1. Prejdete do **WooCommerce > Polski > Nastaveni > Kompatibilita**
 2. Aktivujte rezim kompatibility pro problematicke moduly
@@ -218,7 +220,7 @@ Pokud pouzivate nestandardni motiv nebo pluginy zpusobujici konflikty:
 
 ## Overeni konfigurace
 
-Po nakonfigurovani modulu stoji za to zkontrolovat, zda vse funguje:
+Po konfiguraci zkontrolujte, zda vse funguje:
 
 1. **Dashboard souladu** - prejdete do **WooCommerce > Polski > Soulad** a zkontrolujte, zda jsou vsechny ukazatele zelene
 2. **Stranka produktu** - otevrte libovolny produkt v obchode a zkontrolujte, zda se zobrazuji nove elementy (cena Omnibus, doba dodani, udaje GPSR)

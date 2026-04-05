@@ -3,7 +3,7 @@ title: REST API
 description: REST API documentation for Polski for WooCommerce - polski/v1/ namespace, settings endpoints, checkboxes, legal pages, search and wizard.
 ---
 
-Polski for WooCommerce provides a REST API in the `polski/v1/` namespace. The API allows programmatic management of settings, legal checkboxes, legal pages and product search.
+REST API in the `polski/v1/` namespace. Manage settings, legal checkboxes, legal pages and product search.
 
 ## Authentication
 

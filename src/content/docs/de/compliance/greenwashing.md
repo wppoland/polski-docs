@@ -3,7 +3,7 @@ title: Schutz vor Greenwashing
 description: Anti-Greenwashing-Produktfelder in Polski for WooCommerce - Grundlage der Umwelterklaerung, Zertifikat und Ablaufdatum gemaess Richtlinie 2024/825.
 ---
 
-Die EU-Richtlinie 2024/825 (Empowering Consumers Directive) verbietet unbegruendete Umweltaussagen im elektronischen Handel. Ab dem 27. September 2026 duerfen Verkaeufer keine allgemeinen oekologischen Behauptungen (z.B. "oeko", "gruen", "umweltfreundlich") ohne konkrete Begruendung und Zertifizierung verwenden. Polski for WooCommerce liefert Produktfelder, die die Dokumentation und Anzeige der Grundlagen von Umweltaussagen ermoeglichen.
+Die EU-Richtlinie 2024/825 verbietet unbegruendete Umweltaussagen. Ab dem 27. September 2026 duerfen allgemeine oekologische Behauptungen (z.B. "oeko", "gruen") nicht ohne Begruendung und Zertifikat verwendet werden. Das Plugin fuegt Produktfelder zur Dokumentation von Umweltaussagen hinzu.
 
 ## Was ist Greenwashing
 

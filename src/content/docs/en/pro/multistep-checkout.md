@@ -3,7 +3,7 @@ title: Multi-step checkout
 description: Documentation of the Polski PRO for WooCommerce multi-step checkout - splitting the order process into steps, configuration, React Checkout Blocks and classic fallback.
 ---
 
-The multi-step checkout module in Polski PRO for WooCommerce divides the order process into four clear steps. The customer sees a progress bar and proceeds sequentially through the address form, shipping selection, payment and order summary.
+The module splits checkout into four steps: address, shipping, payment and summary. The customer sees a progress bar and goes through each step.
 
 ## Checkout steps
 

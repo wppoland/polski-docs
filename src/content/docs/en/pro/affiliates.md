@@ -3,7 +3,7 @@ title: Affiliate program
 description: Documentation of the Polski PRO for WooCommerce affiliate program - referral links, commission tracking, affiliate registration and My Account panel.
 ---
 
-The affiliate program module in Polski PRO for WooCommerce enables running a referral program directly in the WooCommerce store. Affiliates share unique referral links, and the plugin tracks conversions and calculates commissions for orders placed by referred customers.
+The affiliate program module lets you run a referral program in the store. Affiliates share referral links, and the plugin tracks conversions and calculates commissions.
 
 ## How it works
 

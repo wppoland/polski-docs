@@ -5,22 +5,24 @@ description: Prvé kroky po inštalácii pluginu Polski for WooCommerce. Aktivá
 
 ## Hlavný panel pluginu
 
-Po inštalácii a aktivácii pluginu prejdite do **WooCommerce > Polski** v menu administračného panelu. Uvidíte hlavný panel (dashboard) rozdelený na niekoľko sekcií:
+Po aktivácii pluginu prejdite do **WooCommerce > Polski**. Uvidíte hlavný panel so sekciami:
 
 - **Stav súladu** - rýchly prehľad, ktoré právne požiadavky sú splnené
 - **Aktívne moduly** - zoznam zapnutých modulov s odkazmi na ich nastavenia
 - **Vyžadované akcie** - oznámenia o chýbajúcich konfiguráciách
 - **Rýchle odkazy** - odkazy na najdôležitejšie nastavenia
 
+![Dashboard modulov Polski for WooCommerce](../../../../assets/screenshots/screenshot-1-modules-dashboard.png)
+
 :::tip[Sprievodca konfiguráciou]
-Ak práve začínate, odporúčame využiť [sprievodcu konfiguráciou](/sk/getting-started/wizard/), ktorý vás prevedie najdôležitejšími nastaveniami krok za krokom. Sprievodcu je možné spustiť znova kedykoľvek z dashboardu.
+Ak práve začínate, použite [sprievodcu konfiguráciou](/sk/getting-started/wizard/). Prevedie vás najdôležitejšími nastaveniami krok za krokom. Môžete ho spustiť znova kedykoľvek.
 :::
 
 ---
 
 ## Zapínanie a vypínanie modulov
 
-Plugin funguje modulárne - štandardne po inštalácii nie je žiadny modul aktívny. Vďaka tomu plugin neovplyvňuje výkon obchodu, kým nezapnete konkrétne funkcie.
+Plugin funguje modulárne - po inštalácii sú všetky moduly vypnuté. Zapínate len tie, ktoré potrebujete.
 
 ### Ako zapnúť modul
 
@@ -31,11 +33,11 @@ Plugin funguje modulárne - štandardne po inštalácii nie je žiadny modul akt
 
 ### Ako vypnúť modul
 
-Postup je rovnaký - kliknite na prepínač pri aktívnom module pre jeho vypnutie. Vypnutie modulu neodstraňuje uložené údaje, takže ho môžete znova zapnúť bez straty konfigurácie.
+Kliknite na prepínač pri aktívnom module pre jeho vypnutie. Vypnutie neodstraňuje údaje - môžete modul znova zapnúť bez straty nastavení.
 
 ### Odporúčané moduly na začiatok
 
-Pre typický poľský internetový obchod odporúčame aktivovať nasledujúce moduly ako minimum:
+Pre typický poľský obchod zapnite minimálne tieto moduly:
 
 | Modul | Prečo je dôležitý |
 |-------|-------------------|
@@ -51,19 +53,19 @@ Pre typický poľský internetový obchod odporúčame aktivovať nasledujúce m
 
 ## Dashboard súladu
 
-Dashboard súladu je centrálne miesto, kde skontrolujete právny stav vášho obchodu. Prejdite do **WooCommerce > Polski > Súlad**, aby ste videli:
+Tu skontrolujete, či váš obchod spĺňa právne požiadavky. Prejdite do **WooCommerce > Polski > Súlad**.
 
 ### Ukazovatele stavu
 
 Každá právna požiadavka má jeden z troch stavov:
 
-- **V súlade** (zelený) - požiadavka je splnená, konfigurácia je kompletná
-- **Vyžaduje pozornosť** (žltý) - modul je zapnutý, ale chýba časť konfigurácie
-- **Nesúladný** (červený) - modul je vypnutý alebo konfigurácia je nekompletná
+- **V súlade** (zelený) - požiadavka splnená, konfigurácia kompletná
+- **Vyžaduje pozornosť** (žltý) - modul zapnutý, ale chýba časť nastavení
+- **Nesúladný** (červený) - modul vypnutý alebo konfigurácia nekompletná
 
 ### Kontrolný zoznam
 
-Dashboard zobrazuje kontrolný zoznam s konkrétnymi krokmi na vykonanie:
+Dashboard zobrazuje kontrolný zoznam s krokmi na vykonanie:
 
 ```
 [x] Tlačidlo objednávky - text v súlade s právom
@@ -73,7 +75,7 @@ Dashboard zobrazuje kontrolný zoznam s konkrétnymi krokmi na vykonanie:
 [ ] GPSR - chýbajú údaje výrobcu na 12 produktoch
 ```
 
-Kliknutím na ľubovoľnú položku zoznamu prejdete priamo k príslušným nastaveniam.
+Kliknite na ľubovoľnú položku zoznamu a prejdete priamo k príslušným nastaveniam.
 
 ---
 
@@ -90,7 +92,7 @@ Prejdite do **WooCommerce > Polski > Právny súlad** na konfiguráciu:
 3. Vyberte formát zobrazovania najnižšej ceny
 4. Uložte zmeny
 
-Plugin automaticky začne zaznamenávať históriu cien od momentu aktivácie modulu.
+Plugin začne zaznamenávať históriu cien od momentu zapnutia modulu.
 
 **GPSR (bezpečnosť produktov)**
 
@@ -166,7 +168,7 @@ Pozícia: Pred tlačidlom objednávky
 
 ### Potravinárske produkty
 
-Tieto moduly sú určené pre obchody predávajúce potraviny. Prejdite do **WooCommerce > Polski > Potraviny**.
+Moduly pre obchody s potravinami. Prejdite do **WooCommerce > Polski > Potraviny**.
 
 1. Zapnite potrebné moduly (výživové hodnoty, alergény, Nutri-Score)
 2. Na stránke úpravy produktu sa zobrazia nové záložky na doplnenie údajov
@@ -198,7 +200,7 @@ Doplňte základné údaje vašej firmy:
 - Kontaktná e-mailová adresa
 - Telefónne číslo
 
-Tieto údaje sa využívajú rôznymi modulmi (právne stránky, GPSR, DSA).
+Tieto údaje využívajú rôzne moduly (právne stránky, GPSR, DSA).
 
 ### Výkon
 
@@ -208,7 +210,7 @@ Tieto údaje sa využívajú rôznymi modulmi (právne stránky, GPSR, DSA).
 
 ### Kompatibilita
 
-Ak používate neštandardnú tému alebo pluginy, ktoré spôsobujú konflikty:
+Ak téma alebo iný plugin spôsobuje konflikt:
 
 1. Prejdite do **WooCommerce > Polski > Nastavenia > Kompatibilita**
 2. Zapnite režim kompatibility pre problematické moduly
@@ -218,7 +220,7 @@ Ak používate neštandardnú tému alebo pluginy, ktoré spôsobujú konflikty:
 
 ## Overenie konfigurácie
 
-Po nakonfigurovaní modulov sa oplatí skontrolovať, či všetko funguje:
+Po konfigurácii skontrolujte, či všetko funguje:
 
 1. **Dashboard súladu** - prejdite do **WooCommerce > Polski > Súlad** a skontrolujte, či všetky ukazovatele sú zelené
 2. **Stránka produktu** - otvorte ľubovoľný produkt v obchode a skontrolujte, či sa zobrazujú nové prvky (cena Omnibus, dodacia lehota, údaje GPSR)

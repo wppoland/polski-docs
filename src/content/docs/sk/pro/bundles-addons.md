@@ -3,7 +3,7 @@ title: Balíky, doplnky a "často kupované spolu"
 description: Moduly produktových balíkov, doplnkov k produktu a odporúčaní "často kupované spolu" v Polski PRO for WooCommerce.
 ---
 
-Polski PRO for WooCommerce ponúka tri vzájomne sa dopĺňajúce predajné moduly: produktové balíky (bundles), doplnky k produktu (add-ons) a odporúčania "často kupované spolu" (frequently bought together). Každý modul funguje nezávisle a je možné ho zapnúť samostatne.
+Tri predajné moduly: produktové balíky (bundles), doplnky k produktu (add-ons) a "často kupované spolu" (FBT). Každý funguje nezávisle.
 
 :::note[Požiadavky]
 Polski PRO vyžaduje: Polski (free) v1.3.0+, WordPress 6.4+, WooCommerce 8.0+, PHP 8.1+

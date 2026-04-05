@@ -3,7 +3,7 @@ title: Jednotková cena
 description: Zobrazenie ceny za kilogram, liter, meter alebo kus vo WooCommerce v súlade s poľským spotrebiteľským právom.
 ---
 
-Smernica 98/6/ES a poľský zákon o informovaní o cenách tovarov a služieb vyžadujú, aby internetový obchod prezentoval jednotkovú cenu produktu - teda cenu za kilogram, liter, bežný meter alebo kus. Plugin Polski for WooCommerce automatizuje túto povinnosť pridaním informácie o jednotkovej cene na stránke produktu, v zoznamoch a v košíku.
+Poľské právo vyžaduje, aby obchod zobrazoval jednotkovú cenu produktu - napr. cenu za kilogram, liter alebo meter. Plugin Polski for WooCommerce pridáva túto informáciu automaticky na stránke produktu, v zoznamoch a v košíku.
 
 ## Kedy je jednotková cena vyžadovaná
 

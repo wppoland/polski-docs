@@ -3,7 +3,7 @@ title: Správa súhlasov
 description: Dokumentácia pokročilej správy súhlasov v Polski PRO for WooCommerce - verziovanie, audit trail, GDPR export, integrácia s panelom Môj účet.
 ---
 
-Modul správy súhlasov v Polski PRO for WooCommerce rozširuje základné právne checkboxy o verziovanie obsahu súhlasov, kompletný audit trail, export dát a integráciu s mechanizmami GDPR vo WordPress. Poskytuje nástroje na sledovanie histórie súhlasov zákazníkov a reagovanie na zmeny obsahu obchodných podmienok.
+Modul správy súhlasov pridáva verziovanie súhlasov, audit trail, export údajov a integráciu s GDPR. Sleduje históriu súhlasov zákazníkov a reaguje na zmeny obsahu obchodných podmienok.
 
 ## Verziovanie súhlasov
 

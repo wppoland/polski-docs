@@ -3,7 +3,7 @@ title: Verified reviews
 description: Verified review system in Polski for WooCommerce - purchase badge, email matching and review credibility.
 ---
 
-The verified reviews module strengthens review credibility in a WooCommerce store. Reviews from customers who actually purchased the product are marked with a badge confirming the purchase. This system supports compliance with the Omnibus Directive and unfair commercial practices regulations.
+The module marks reviews from customers who purchased the product with a **Verified purchase** badge. It increases review credibility and supports Omnibus Directive compliance.
 
 ## Enabling the module
 

@@ -3,11 +3,11 @@ title: NIP at checkout
 description: NIP number validation with checksum, verification in the GUS REGON API and automatic company data retrieval on the WooCommerce checkout page.
 ---
 
-Business customers placing orders in online stores need the ability to provide a NIP number to receive a VAT invoice. The Polski for WooCommerce plugin adds a NIP field to the checkout page with full validation - from checksum verification to GUS REGON database lookup with automatic company data completion.
+Business customers need a NIP field at checkout to receive a VAT invoice. Polski for WooCommerce adds a NIP field with checksum validation and GUS REGON verification. Company data fills in automatically.
 
 ## Features
 
-The NIP module offers three levels of verification:
+The NIP module verifies the number at three levels:
 
 1. **Format validation** - checking that the number consists of 10 digits
 2. **Checksum validation** - NIP check digit verification algorithm
@@ -53,7 +53,7 @@ Remainder = 214 mod 11
 If remainder == last NIP digit -> NIP is valid
 ```
 
-The plugin performs this validation both client-side (JavaScript) and server-side (PHP). Server-side validation is always active - it cannot be bypassed by disabling JavaScript.
+The plugin validates both client-side (JavaScript) and server-side (PHP). Server-side validation is always active.
 
 ### Input format handling
 
@@ -94,7 +94,7 @@ The GUS REGON API requires an access key. The plugin supports two environments:
 
 ### Test mode
 
-In test mode, the plugin uses the public GUS test key. The test database contains fictitious data - it does not serve for verifying real NIP numbers. Use it only during development and testing.
+In test mode, the plugin uses the public GUS test key. The test database contains fictitious data. Use it only during development and testing.
 
 ## Automatic company data retrieval
 

@@ -3,7 +3,7 @@ title: Darčekové karty
 description: Dokumentácia darčekových kariet Polski PRO for WooCommerce - predaj, generovanie kódov, uplatnenie v košíku, sledovanie zostatku a panel Môj účet.
 ---
 
-Modul darčekových kariet v Polski PRO for WooCommerce umožňuje predaj darčekových kariet ako produktov WooCommerce. Zákazníci môžu kúpiť kartu, dostať unikátny kód a použiť ho ako formu platby pri ďalších objednávkach.
+Modul darčekových kariet umožňuje predávať karty ako produkty WooCommerce. Zákazník kúpi kartu, dostane kód a platí ním pri ďalších objednávkach.
 
 ## Ako to funguje
 

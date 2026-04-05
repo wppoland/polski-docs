@@ -3,11 +3,11 @@ title: KSeF - Krajovy system e-faktur
 description: Pripravenost na KSeF v Polski for WooCommerce - automaticka detekce objednavek s NIP, sloupec stavu, vyvojarske hooky a integrace s fakturacnimi systemy.
 ---
 
-Krajovy system e-faktur (KSeF) je platforma Ministerstva financi pro vystavovani a prijem strukturovanych faktur. Polski for WooCommerce pripravuje obchod WooCommerce na integraci s KSeF prostrednictvim automaticke detekce objednavek vyzadujicich fakturu s DPH, sloupce stavu v administracnim panelu a hooku umoznujicich integraci s externimi fakturacnimi systemy.
+KSeF je platforma Ministerstva financi pro strukturovane faktury. Plugin pripravuje obchod na integraci s KSeF - detekuje objednavky vyzadujici fakturu s DPH, pridava sloupec stavu a hooky pro spojeni s fakturacnimi systemy.
 
 ## Pravni stav KSeF
 
-KSeF je v soucasnosti ve fazi zavadeni. Plugin Polski for WooCommerce nevystavuje faktury primo v KSeF, ale dodava infrastrukturu usnadnujici integraci se systemy, ktere to delaji (napr. Fakturownia, iFirma, wFirma, InFakt).
+KSeF je ve fazi zavadeni. Plugin nevystavuje faktury v KSeF, ale usnadnuje integraci se systemy, ktere to delaji (napr. Fakturownia, iFirma, wFirma, InFakt).
 
 Hlavni funkce modulu KSeF:
 
@@ -18,7 +18,7 @@ Hlavni funkce modulu KSeF:
 
 ## Detekce objednavek s NIP
 
-Kdyz zakaznik uvede cislo NIP behem skladani objednavky (pole NIP je soucasti modulu Checkout pluginu), system automaticky:
+Kdyz zakaznik uvede NIP pri skladani objednavky (pole NIP je soucasti modulu Checkout), plugin automaticky:
 
 1. Validuje format NIP (10 cislic, kontrola kontrolniho souctu)
 2. Oznaci objednavku jako vyzadujici fakturu s DPH
@@ -34,7 +34,7 @@ Plugin kontroluje spravnost NIP na dvou urovnich:
 
 ## Sloupec stavu KSeF
 
-Na seznamu objednavek (**WooCommerce > Objednavky**) plugin pridava sloupec **KSeF** s ikonami stavu:
+Na seznamu objednavek (**WooCommerce > Objednavky**) se zobrazuje sloupec **KSeF** s ikonami stavu:
 
 | Ikona | Stav | Popis |
 |-------|--------|------|
@@ -43,17 +43,17 @@ Na seznamu objednavek (**WooCommerce > Objednavky**) plugin pridava sloupec **KS
 | Zelena | Vystavena | Faktura byla vystavena (stav nastaven pres hook) |
 | Cervena | Chyba | Vyskytl se problem s vystavenim faktury |
 
-Stav lze filtrovat - pouzijte filtr na seznamu objednavek pro zobrazeni napr. pouze objednavek cekajicich na fakturu.
+Objednavky muzete filtrovat podle stavu KSeF, napr. zobrazit pouze cekajici na fakturu.
 
 ### Hromadne akce
 
-Na seznamu objednavek je dostupna hromadna akce "Oznacit jako vystaveno v KSeF", umoznujici aktualizovat stav vice objednavek soucasne.
+Na seznamu objednavek muzete hromadne oznacit vice objednavek jako "vystaveno v KSeF".
 
 ## Hooky
 
 ### polski/ksef/invoice_ready
 
-Vyvolan, kdyz objednavka s NIP je zaplacena a je pripravena k vystaveni faktury. Toto je hlavni hook pro integraci s externimi fakturacnimi systemy.
+Vyvolan, kdyz objednavka s NIP je zaplacena a pripravena k vystaveni faktury. Hlavni hook pro integraci s fakturacnimi systemy.
 
 ```php
 /**

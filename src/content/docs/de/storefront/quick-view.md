@@ -72,6 +72,17 @@ add_filter('polski/quick_view/gallery_limit', function (): int {
 | Lieferzeit         | Ob die geschaetzte Lieferzeit angezeigt wird            | Ja         |
 | Animation             | Oeffnungsanimationstyp (fade/slide/zoom)         | fade        |
 
+## Laden von Inhalten per AJAX
+
+Der Inhalt wird per AJAX nach Klick auf den Button geladen. Waehrend des Ladens wird ein Spinner angezeigt. Produktdaten werden im Browser gecacht - erneutes Oeffnen desselben Produkts sendet keine neue Anfrage.
+
+```php
+// Lightbox-Template aendern
+add_filter('polski/quick_view/template', function (string $template): string {
+    return get_stylesheet_directory() . '/polski/quick-view-custom.php';
+});
+```
+
 ## Integration mit anderen Modulen
 
 Die Schnellansicht integriert sich mit anderen Modulen von Polski for WooCommerce:
@@ -99,6 +110,10 @@ Der Lightbox unterstuetzt vollstaendige Tastaturnavigation:
 - `.polski-quick-view-content` - Produktinhalt
 - `.polski-quick-view-close` - Schliessen-Button
 - `.polski-quick-view-trigger` - Oeffnungsbutton auf der Produktkarte
+
+## Leistung
+
+Skript und Styles werden lazy geladen - nur wenn auf der Seite ein Produkt mit Schnellansicht-Button vorhanden ist. Das JavaScript wiegt ca. 8 KB (gzip) und blockiert das Rendering nicht.
 
 ## Fehlerbehebung
 

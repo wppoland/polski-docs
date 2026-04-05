@@ -3,7 +3,7 @@ title: Sprava souhlasu
 description: Dokumentace pokrocile spravy souhlasu v Polski PRO for WooCommerce - verzovani, audit trail, export GDPR, integrace s Muj ucet.
 ---
 
-Modul spravy souhlasu v Polski PRO for WooCommerce rozsiruje zakladni pravni checkboxy o verzovani obsahu souhlasu, uplny audit trail, export dat a integraci s mechanismy GDPR ve WordPressu. Poskytuje nastroje pro sledovani historie souhlasu zakazniku a reagovani na zmeny obsahu podminek.
+Modul spravy souhlasu pridava verzovani souhlasu, audit trail, export dat a integraci s GDPR. Sleduje historii souhlasu zakazniku a reaguje na zmeny obsahu podminek.
 
 ## Verzovani souhlasu
 

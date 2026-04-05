@@ -3,11 +3,11 @@ title: KSeF - National e-Invoice System
 description: KSeF readiness in Polski for WooCommerce - automatic detection of orders with NIP, status column, developer hooks and integration with invoicing systems.
 ---
 
-The National e-Invoice System (KSeF) is a Polish Ministry of Finance platform for issuing and receiving structured invoices. Polski for WooCommerce prepares a WooCommerce store for KSeF integration through automatic detection of orders requiring a VAT invoice, a status column in the admin panel and hooks enabling integration with external invoicing systems.
+KSeF is a Polish Ministry of Finance platform for structured invoices. The plugin prepares your store for KSeF integration - it detects orders requiring a VAT invoice, adds a status column and hooks for integration with invoicing systems.
 
 ## KSeF legal status
 
-KSeF is currently in the implementation phase. The Polski for WooCommerce plugin does not issue invoices directly in KSeF, but provides infrastructure facilitating integration with systems that do (e.g. Fakturownia, iFirma, wFirma, InFakt).
+KSeF is in the implementation phase. The plugin does not issue invoices in KSeF, but makes integration easier with systems that do (e.g. Fakturownia, iFirma, wFirma, InFakt).
 
 Main KSeF module features:
 
@@ -18,7 +18,7 @@ Main KSeF module features:
 
 ## Detecting orders with NIP
 
-When a customer provides a NIP number during order placement (the NIP field is part of the plugin's Checkout module), the system automatically:
+When a customer provides a NIP during order placement (the NIP field is part of the Checkout module), the plugin automatically:
 
 1. Validates the NIP format (10 digits, checksum verification)
 2. Marks the order as requiring a VAT invoice
@@ -34,7 +34,7 @@ The plugin checks NIP correctness at two levels:
 
 ## KSeF status column
 
-On the orders list (**WooCommerce > Orders**) the plugin adds a **KSeF** column with status icons:
+On the orders list (**WooCommerce > Orders**) a **KSeF** column appears with status icons:
 
 | Icon | Status | Description |
 |------|--------|-------------|
@@ -43,17 +43,17 @@ On the orders list (**WooCommerce > Orders**) the plugin adds a **KSeF** column 
 | Green | Issued | Invoice has been issued (status set by hook) |
 | Red | Error | A problem occurred with issuing the invoice |
 
-The status can be filtered - use the filter on the orders list to display e.g. only orders waiting for an invoice.
+You can filter orders by KSeF status, e.g. display only those pending an invoice.
 
 ### Bulk actions
 
-A bulk action "Mark as issued in KSeF" is available on the orders list, allowing you to update the status of many orders at once.
+On the orders list you can bulk-mark multiple orders as "issued in KSeF".
 
 ## Hooks
 
 ### polski/ksef/invoice_ready
 
-Triggered when an order with NIP has been paid and is ready for invoice issuance. This is the main hook for integration with external invoicing systems.
+Triggered when an order with NIP is paid and ready for invoice issuance. The main hook for integration with invoicing systems.
 
 ```php
 /**
@@ -154,7 +154,7 @@ add_action('my_invoicing/invoice_created', function (int $order_id, string $ksef
 
 ## Order meta data
 
-The KSeF module saves the following meta data in the order:
+The KSeF module saves the following meta data in orders:
 
 | Meta key | Description |
 |----------|-------------|
@@ -182,10 +182,10 @@ KSeF module settings: **WooCommerce > Settings > Polski > KSeF**.
 Click "Screen Options" and check the KSeF column. Make sure the module is enabled in settings.
 
 **NIP is not saved in the order**
-Check that the NIP field is enabled in the Checkout module (**WooCommerce > Settings > Polski > Checkout**). The NIP field must be active for the customer to fill it in.
+Check that the NIP field is enabled in **WooCommerce > Settings > Polski > Checkout**. The field must be active for customers to fill it in.
 
 **The invoice_ready hook is not triggered**
-Check the "Hook trigger status" setting. By default, the hook is triggered when the order status changes to "Processing". If you use custom statuses, change this option.
+Check the "Hook trigger status" setting. By default the hook fires at "Processing" status. For custom statuses, change this option.
 
 ## Next steps
 

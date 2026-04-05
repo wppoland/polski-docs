@@ -3,11 +3,11 @@ title: Ochrana pred greenwashingom
 description: Produktové polia anti-greenwashing v Polski for WooCommerce - základ environmentálneho vyhlásenia, certifikát a dátum platnosti podľa smernice 2024/825.
 ---
 
-Smernica EÚ 2024/825 (Empowering Consumers Directive) zakazuje neodôvodnené environmentálne vyhlásenia v elektronickom obchode. Od 27. septembra 2026 predajcovia nemôžu používať všeobecné ekologické tvrdenia (napr. "eko", "zelený", "šetrný k životnému prostrediu") bez konkrétneho odôvodnenia a certifikácie. Polski for WooCommerce poskytuje produktové polia umožňujúce dokumentovať a zobrazovať základy environmentálnych vyhlásení.
+Smernica EÚ 2024/825 zakazuje neodôvodnené environmentálne vyhlásenia. Od 27. septembra 2026 nemôžete používať všeobecné ekologické tvrdenia (napr. "eko", "zelený") bez konkrétneho odôvodnenia a certifikátu. Plugin pridáva produktové polia na dokumentovanie environmentálnych vyhlásení.
 
 ## Čo je greenwashing
 
-Greenwashing je praktika spočívajúca v zavádzaní spotrebiteľov ohľadom environmentálnych vlastností produktu alebo činnosti firmy. Príklady zakázaných praktík:
+Greenwashing je zavádzanie zákazníkov o ekologických vlastnostiach produktu. Príklady zakázaných praktík:
 
 - Používanie všeobecných vyhlásení ("eko", "bio", "zelený") bez certifikácie
 - Tvrdenia o klimatickej neutralite založené výlučne na kompenzácii emisií
@@ -17,7 +17,7 @@ Greenwashing je praktika spočívajúca v zavádzaní spotrebiteľov ohľadom en
 
 ## Produktové polia
 
-V úprave produktu WooCommerce, v záložke **Polski - Životné prostredie**, sú dostupné tri polia umožňujúce dokumentovať environmentálne vyhlásenia.
+V úprave produktu, v záložke **Polski - Životné prostredie**, nájdete tri polia na dokumentovanie environmentálnych vyhlásení.
 
 ### Základ vyhlásenia
 
@@ -77,11 +77,11 @@ Po uplynutí dátumu platnosti:
 - Administrátor dostane e-mailové oznámenie o vypršanom certifikáte
 - Produkt je označený v zozname produktov výstražnou ikonou
 
-Toto zabezpečenie chráni pred situáciou, keď vypršaný certifikát je stále zobrazovaný zákazníkom.
+To chráni pred zobrazovaním vypršaného certifikátu zákazníkom.
 
 ## Zobrazenie na stránke produktu
 
-Keď sú environmentálne polia vyplnené, plugin zobrazuje sekciu "Environmentálna informácia" na stránke produktu. Sekcia obsahuje:
+Keď sú environmentálne polia vyplnené, plugin zobrazí sekciu "Environmentálna informácia" na stránke produktu. Sekcia obsahuje:
 
 - Obsah environmentálneho vyhlásenia
 - Názov a číslo certifikátu
@@ -105,7 +105,7 @@ Nastavenia modulu: **WooCommerce > Nastavenia > Polski > Životné prostredie**.
 
 ### Export CSV
 
-Environmentálne údaje sú zahrnuté v exporte produktov WooCommerce. Ďalšie stĺpce:
+Environmentálne údaje sú zahrnuté v exporte produktov. Ďalšie stĺpce:
 
 - `env_claim_basis` - základ vyhlásenia
 - `env_certificate` - certifikát
@@ -113,11 +113,11 @@ Environmentálne údaje sú zahrnuté v exporte produktov WooCommerce. Ďalšie 
 
 ### Import CSV
 
-Pripravte súbor CSV s príslušnými hlavičkami a importujte štandardnou cestou WooCommerce.
+Pripravte súbor CSV s príslušnými hlavičkami a importujte cez WooCommerce.
 
 ### Filtrovanie produktov
 
-V zozname produktov v administračnom paneli môžete filtrovať produkty podľa stavu environmentálneho vyhlásenia:
+V zozname produktov môžete filtrovať podľa stavu environmentálneho vyhlásenia:
 
 - Všetky produkty s vyhlásením
 - Produkty s vypršaným certifikátom
@@ -135,13 +135,13 @@ V zozname produktov v administračnom paneli môžete filtrovať produkty podľa
 ## Riešenie problémov
 
 **Environmentálne polia sa nezobrazujú v úprave produktu**
-Zapnite modul v **WooCommerce > Nastavenia > Polski > Moduly** a uistite sa, že možnosť "Zapnúť modul" je zaškrtnutá v environmentálnych nastaveniach.
+Zapnite modul v **WooCommerce > Nastavenia > Polski > Moduly** a zaškrtnite "Zapnúť modul" v environmentálnych nastaveniach.
 
 **Vyhlásenie zmizlo zo stránky produktu**
 Skontrolujte dátum platnosti certifikátu. Ak certifikát vypršal, vyhlásenie je automaticky skryté. Obnovte certifikát a aktualizujte dátum platnosti.
 
 **Nedostávam oznámenia o vypršiavajúcich certifikátoch**
-Skontrolujte, či WP-Cron funguje správne. Oznámenia sú zasielané naplánovanou úlohou cron. Na serveroch s vypnutým WP-Cron nakonfigurujte systémový cron.
+Skontrolujte, či WP-Cron funguje správne. Oznámenia posiela naplánovaná úloha cron. Na serveroch s vypnutým WP-Cron nakonfigurujte systémový cron.
 
 ## Ďalšie kroky
 

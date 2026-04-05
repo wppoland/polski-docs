@@ -3,11 +3,11 @@ title: Zobrazovani DPH
 description: Konfigurace zobrazovani cen s DPH a bez DPH, sazby DPH a osvobozeni podle cl. 113 zakona o DPH ve WooCommerce.
 ---
 
-Polske pravo uklada internetovym prodejcum povinnost jednoznacne informovat o tom, zda prezentovana cena obsahuje dan z pridane hodnoty. Plugin Polski for WooCommerce umoznuje flexibilni spravu zpusobu zobrazovani informaci o DPH - od jednoducheho oznaceni "s DPH/bez DPH" po uplnou informaci o sazbe dane a duvodu osvobozeni.
+Polske pravo vyzaduje, aby obchod jasne informoval, zda cena obsahuje DPH. Plugin umoznuje zobrazovat informaci o DPH - od jednoducheho oznaceni "s DPH/bez DPH" po sazbu dane a zaklad osvobozeni.
 
 ## Pravni pozadavky
 
-Podle zakona o informovani o cenach zbozi a sluzeb a zakona o DPH musi internetovy obchod:
+Internetovy obchod musi:
 
 - zretelne informovat, zda cena obsahuje DPH
 - uvadel sazbu DPH, pokud prodava jak individualnm zakaznikum, tak firmam

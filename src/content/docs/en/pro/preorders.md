@@ -3,7 +3,7 @@ title: Pre-orders
 description: Polski PRO for WooCommerce pre-order module - marking products as pre-order, release date, custom button text and cart validation.
 ---
 
-The pre-order module allows marking products as available for pre-order, displaying the release date, changing the purchase button text and controlling the mixing of pre-order products with standard ones in the cart. It is useful for stores selling electronics, books, games and any inventory where products are offered before the official availability date.
+The pre-order module lets you mark products as pre-order, display the release date and change the button text. Useful for stores with electronics, books, games and other products offered before release.
 
 :::note[Requirements]
 Polski PRO requires: Polski (free) v1.3.0+, WordPress 6.4+, WooCommerce 8.0+, PHP 8.1+

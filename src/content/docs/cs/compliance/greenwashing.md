@@ -3,11 +3,11 @@ title: Ochrana pred greenwashingem
 description: Produktova pole anti-greenwashing v Polski for WooCommerce - zaklad environmentalniho prohlaseni, certifikat a datum platnosti podle Smernice 2024/825.
 ---
 
-Smernice EU 2024/825 (Empowering Consumers Directive) zakazuje neopodstatnena environmentalni prohlaseni v elektronickem obchode. Od 27. zari 2026 prodejci nesmi pouzivat obecna ekologicka tvrzeni (napr. "eko", "zeleny", "setrny k zivotnimu prostredi") bez konkretniho zduvodneni a certifikace. Polski for WooCommerce dodava produktova pole umoznujici dokumentovat a zobrazovat zaklady environmentalnich prohlaseni.
+Smernice EU 2024/825 zakazuje neopodstatnena environmentalni prohlaseni. Od 27. zari 2026 nesmite pouzivat obecna ekologicka tvrzeni (napr. "eko", "zeleny") bez konkretniho zduvodneni a certifikace. Plugin pridava produktova pole pro dokumentovani environmentalnich prohlaseni.
 
 ## Co je greenwashing
 
-Greenwashing je praktika spocivajici v uvadeni spotrebitelu v omyl ohledne environmentalnich vlastnosti produktu nebo cinnosti firmy. Priklady zakazanych praktik:
+Greenwashing je uvadeni zakazniku v omyl ohledne ekologickych vlastnosti produktu. Priklady zakazanych praktik:
 
 - Pouzivani obecnych prohlaseni ("eko", "bio", "zeleny") bez certifikace
 - Tvrzeni o klimaticke neutralite zalozena vyhradne na kompenzaci emisi
@@ -17,11 +17,11 @@ Greenwashing je praktika spocivajici v uvadeni spotrebitelu v omyl ohledne envir
 
 ## Produktova pole
 
-V editaci produktu WooCommerce, v zalozce **Polski - Zivotni prostredi**, jsou dostupna tri pole umoznujici zdokumentovat environmentalni prohlaseni.
+V editaci produktu, zalozka **Polski - Zivotni prostredi**, najdete tri pole pro dokumentovani environmentalnich prohlaseni.
 
 ### Zaklad prohlaseni
 
-Textove pole na popis vedeckeho nebo technickeho zakladu environmentalniho prohlaseni.
+Pole na popis vedeckeho nebo technickeho zakladu environmentalniho prohlaseni.
 
 **Co vyplnit:**
 
@@ -41,7 +41,7 @@ Proces produkcji potwierdzony audytem wewnętrznym z dnia 2025-03-01.
 
 ### Certifikat
 
-Pole na informace o oficialnim certifikatu potvrzujicim environmentalni prohlaseni.
+Pole na informace o certifikatu potvrzujicim environmentalni prohlaseni.
 
 **Akceptovane certifikaty:**
 
@@ -69,7 +69,7 @@ Weryfikacja: https://environment.ec.europa.eu/ecolabel_en
 
 ### Datum platnosti
 
-Pole data urcujici, do kdy certifikat nebo environmentalni prohlaseni zustava v platnosti.
+Datum, do kdy je certifikat nebo prohlaseni platne.
 
 Po uplyuti data platnosti:
 
@@ -77,18 +77,18 @@ Po uplyuti data platnosti:
 - Administrator obdrzi e-mailove oznameni o vyprselm certifikatu
 - Produkt je na seznamu produktu oznacen varovnou ikonou
 
-Toto zabezpeceni chrani pred situaci, kdy vyprsely certifikat je stale zobrazovan zakaznikum.
+To chrani pred situaci, kdy vyprsely certifikat je stale viditelny pro zakazniky.
 
 ## Zobrazeni na strance produktu
 
-Kdyz jsou environmentalni pole vyplnena, plugin zobrazi sekci "Environmentalni informace" na strance produktu. Sekce obsahuje:
+Po vyplneni poli plugin zobrazi sekci "Environmentalni informace" na strance produktu s udaji:
 
 - Obsah environmentalniho prohlaseni
 - Nazev a cislo certifikatu
 - Datum platnosti certifikatu
 - Ikonu certifikatu (pokud je rozpoznan - napr. EU Ecolabel)
 
-Sekce je zobrazena v zalozce "Doplnkove informace" na strance produktu nebo jako samostatna zalozka (konfigurovatelne v nastaveni).
+Sekce se zobrazuje v zalozce "Doplnkove informace" nebo jako samostatna zalozka (nastavitelne v konfiguraci).
 
 ## Konfigurace
 
@@ -105,7 +105,7 @@ Nastaveni modulu: **WooCommerce > Nastaveni > Polski > Zivotni prostredi**.
 
 ### CSV export
 
-Environmentalni data jsou zahrnuta v exportu produktu WooCommerce. Doplnkove sloupce:
+Environmentalni data jsou v exportu produktu WooCommerce. Doplnkove sloupce:
 
 - `env_claim_basis` - zaklad prohlaseni
 - `env_certificate` - certifikat
@@ -117,7 +117,7 @@ Pripravte soubor CSV s prislusnymi zahlavi a importujte standardni cestou WooCom
 
 ### Filtrovani produktu
 
-Na seznamu produktu v administracnim panelu muzete filtrovat produkty podle stavu environmentalniho prohlaseni:
+Na seznamu produktu muzete filtrovat podle stavu prohlaseni:
 
 - Vsechny produkty s prohlasenim
 - Produkty s vyprselym certifikatem

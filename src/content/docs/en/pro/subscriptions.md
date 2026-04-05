@@ -3,7 +3,7 @@ title: Subscriptions
 description: Documentation of the Polski PRO for WooCommerce subscriptions module - recurring products, renewals, email reminders, cron and My Account panel.
 ---
 
-The subscriptions module in Polski PRO for WooCommerce adds support for products with recurring payments. Customers can purchase subscriptions with automatic or manual renewal, and the administrator manages the subscription lifecycle from within WooCommerce.
+The subscriptions module adds products with recurring payments. Customers buy subscriptions with manual renewal, and the administrator manages them in WooCommerce.
 
 ## How it works
 

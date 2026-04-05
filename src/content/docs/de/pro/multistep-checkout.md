@@ -3,7 +3,7 @@ title: Mehrstufiger Checkout
 description: Dokumentation des mehrstufigen Checkouts von Polski PRO for WooCommerce - Aufteilung des Bestellvorgangs in Schritte, Konfiguration, React Checkout Blocks und klassischer Fallback.
 ---
 
-Das Modul fuer den mehrstufigen Checkout in Polski PRO for WooCommerce teilt den Bestellvorgang in vier uebersichtliche Schritte auf. Der Kunde sieht einen Fortschrittsbalken und durchlaeuft nacheinander das Adressformular, die Versandauswahl, die Zahlung und die Bestelluebersicht.
+Das Modul teilt die Kasse in vier Schritte: Adresse, Versand, Zahlung und Zusammenfassung. Der Kunde sieht einen Fortschrittsbalken und durchlaeuft jeden Schritt nacheinander.
 
 ## Checkout-Schritte
 

@@ -3,7 +3,7 @@ title: Блоки Gutenberg
 description: Блоки Gutenberg у Polski for WooCommerce - AJAX-пошук, AJAX-фiльтри та слайдер продуктiв з попереднiм переглядом у редакторi.
 ---
 
-Polski for WooCommerce надає три блоки Gutenberg для вставки модулiв магазину в блоковому редакторi. Кожний блок пропонує попереднiй перегляд у редакторi (server-side render) та повну конфiгурацiю в бiчнiй панелi.
+Три блоки Gutenberg для вставки модулiв магазину. Кожен блок має попереднiй перегляд у редакторi (server-side render) та конфiгурацiю в бiчнiй панелi.
 
 ## Вимоги
 

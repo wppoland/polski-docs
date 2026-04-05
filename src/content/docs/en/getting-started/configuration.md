@@ -5,22 +5,24 @@ description: First steps after installing the Polski for WooCommerce plugin. Ena
 
 ## Plugin main dashboard
 
-After installing and activating the plugin, go to **WooCommerce > Polski** in the admin panel menu. You will see the main dashboard divided into several sections:
+After activating the plugin, go to **WooCommerce > Polski**. You will see the main dashboard with sections:
 
 - **Compliance status** - quick overview of which legal requirements are met
 - **Active modules** - list of enabled modules with links to their settings
 - **Required actions** - notifications about missing configurations
 - **Quick links** - shortcuts to the most important settings
 
+![Polski for WooCommerce modules dashboard](../../../../assets/screenshots/screenshot-1-modules-dashboard.png)
+
 :::tip[Configuration wizard]
-If you are just getting started, we recommend using the [configuration wizard](/en/getting-started/wizard/), which guides you through the most important settings step by step. The wizard can be restarted at any time from the dashboard.
+If you are just getting started, use the [configuration wizard](/en/getting-started/wizard/). It guides you through the most important settings step by step. You can restart it at any time.
 :::
 
 ---
 
 ## Enabling and disabling modules
 
-The plugin works modularly - by default no module is active after installation. This ensures the plugin does not affect store performance until you enable specific features.
+The plugin is modular - after installation all modules are disabled. You enable only the ones you need.
 
 ### How to enable a module
 
@@ -31,11 +33,11 @@ The plugin works modularly - by default no module is active after installation. 
 
 ### How to disable a module
 
-The procedure is identical - click the toggle on an active module to disable it. Disabling a module does not delete saved data, so you can re-enable it without losing configuration.
+Click the toggle on an active module to disable it. Disabling does not delete data - you can re-enable the module without losing settings.
 
 ### Recommended modules for getting started
 
-For a typical Polish online store, we recommend enabling the following modules as a minimum:
+For a typical Polish store, enable at least these modules:
 
 | Module | Why it is important |
 |--------|-------------------|
@@ -51,7 +53,7 @@ For a typical Polish online store, we recommend enabling the following modules a
 
 ## Compliance dashboard
 
-The compliance dashboard is the central place where you check the legal status of your store. Go to **WooCommerce > Polski > Compliance** to see:
+Check whether your store meets legal requirements here. Go to **WooCommerce > Polski > Compliance**.
 
 ### Status indicators
 
@@ -63,7 +65,7 @@ Each legal requirement has one of three statuses:
 
 ### Checklist
 
-The dashboard displays a checklist with specific steps to complete:
+The dashboard shows a checklist with steps to complete:
 
 ```
 [x] Order button - text compliant with law
@@ -90,7 +92,7 @@ Go to **WooCommerce > Polski > Legal Compliance** to configure:
 3. Choose the display format for the lowest price
 4. Save changes
 
-The plugin will automatically start recording price history from the moment the module is activated.
+The plugin starts recording price history from the moment the module is enabled.
 
 **GPSR (product safety)**
 
@@ -166,7 +168,7 @@ Position: Before order button
 
 ### Food products
 
-These modules are designed for stores selling food products. Go to **WooCommerce > Polski > Food**.
+Modules for food stores. Go to **WooCommerce > Polski > Food**.
 
 1. Enable the modules you need (nutritional values, allergens, Nutri-Score)
 2. New tabs will appear on the product edit page for filling in data
@@ -185,7 +187,7 @@ Go to **WooCommerce > Polski > Storefront** to enable additional features:
 
 ## Global settings
 
-In the **WooCommerce > Polski > Settings** tab you will find global options:
+In the **WooCommerce > Polski > Settings** tab you will find global options.
 
 ### Company data
 
@@ -208,7 +210,7 @@ This data is used by various modules (legal pages, GPSR, DSA).
 
 ### Compatibility
 
-If you use a custom theme or plugins that cause conflicts:
+If your theme or another plugin causes a conflict:
 
 1. Go to **WooCommerce > Polski > Settings > Compatibility**
 2. Enable compatibility mode for problematic modules
@@ -218,7 +220,7 @@ If you use a custom theme or plugins that cause conflicts:
 
 ## Verifying configuration
 
-After configuring modules, it is worth checking that everything works:
+After configuration, check that everything works:
 
 1. **Compliance dashboard** - go to **WooCommerce > Polski > Compliance** and check that all indicators are green
 2. **Product page** - open any product in the store and check that new elements appear (Omnibus price, delivery time, GPSR data)

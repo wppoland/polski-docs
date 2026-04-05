@@ -3,7 +3,7 @@ title: Shop-Audit
 description: Shop-Audit-Werkzeug in Polski for WooCommerce - Pruefung von Rechtsseiten, Dark Patterns, DPA, DSA, KSeF, Greenwashing und Sicherheit.
 ---
 
-Das Shop-Audit ist ein Werkzeug, das den WooCommerce-Shop automatisch auf Anforderungen des polnischen und EU-E-Commerce-Rechts ueberprueft. Im Unterschied zum Compliance-Panel (Checkliste) fuehrt das Audit eine tiefgehende Analyse von Seiteninhalten, Benutzeroberflaeche und technischer Konfiguration durch.
+Das Audit scannt den Shop automatisch auf polnisches und EU-E-Commerce-Recht. Im Unterschied zum Compliance-Panel analysiert das Audit Seiteninhalte, Oberflaeche und technische Konfiguration.
 
 ## Audit starten
 

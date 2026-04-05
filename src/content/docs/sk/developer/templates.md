@@ -3,7 +3,7 @@ title: Prepísanie šablón
 description: Prepísanie šablón Polski for WooCommerce v téme - zoznam súborov, štruktúra adresárov a príklady.
 ---
 
-Polski for WooCommerce využíva systém šablón inšpirovaný WooCommerce. Môžete prepísať ľubovoľnú šablónu pluginu skopírovaním do adresára `yourtheme/polski/` vo vašej téme.
+Systém šablón inšpirovaný WooCommerce. Prepíšte ľubovoľnú šablónu skopírovaním do `yourtheme/polski/` vo vašej téme.
 
 ## Ako prepísať šablónu
 

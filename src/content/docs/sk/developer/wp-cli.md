@@ -3,7 +3,7 @@ title: WP-CLI príkazy
 description: WP-CLI príkazy dostupné v Polski for WooCommerce - migrácia údajov a test správnosti konfigurácie.
 ---
 
-Polski for WooCommerce sprístupňuje WP-CLI príkazy na správu pluginu z príkazového riadku. Príkazy umožňujú automatizovať migrácie údajov a overovať správnosť konfigurácie.
+WP-CLI príkazy na správu pluginu z príkazového riadku. Automatizujte migrácie údajov a overujte konfiguráciu.
 
 ## Požiadavky
 

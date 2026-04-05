@@ -3,7 +3,7 @@ title: Právne stránky
 description: Automatické generovanie právnych stránok v Polski for WooCommerce - obchodné podmienky, zásady ochrany osobných údajov, zásady vrátenia, reklamácie, prílohy k e-mailom a informácia ODR.
 ---
 
-Každý internetový obchod v Poľsku musí sprístupniť zákazníkom súbor právnych dokumentov. Polski for WooCommerce automaticky generuje štyri kľúčové právne stránky prispôsobené poľskému právu, umožňuje ich prikladanie k transakčným e-mailom a zobrazuje požadovanú informáciu o platforme ODR.
+Každý internetový obchod v Poľsku musí mať právne dokumenty. Plugin generuje štyri právne stránky, prikladá ich k e-mailom a zobrazuje informáciu o platforme ODR.
 
 ## Generované právne stránky
 

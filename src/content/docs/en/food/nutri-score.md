@@ -3,7 +3,7 @@ title: Nutri-Score
 description: Displaying the Nutri-Score A-E badge with CSS classes per level on the WooCommerce product page.
 ---
 
-Nutri-Score is a food labeling system developed by Sante publique France that evaluates the nutritional quality of a product on a five-level scale from A (best) to E (worst). Although using Nutri-Score in Poland is voluntary, an increasing number of producers are choosing to place it on packaging. The Polski for WooCommerce plugin enables displaying the Nutri-Score badge on the product page.
+Nutri-Score rates nutritional quality of a product on a scale from A (best) to E (worst). In Poland it is voluntary, but increasingly popular. Polski for WooCommerce displays the Nutri-Score badge on the product page.
 
 ## What is Nutri-Score
 

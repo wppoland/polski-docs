@@ -3,21 +3,19 @@ title: Order button with obligation to pay
 description: Configuration of the "Order with obligation to pay" button required by Polish consumer law in WooCommerce.
 ---
 
-The Polish Consumer Rights Act (Article 17 paragraph 3) requires that the button finalizing an order in an online store be clearly labeled with the words "order with obligation to pay" or an equivalent phrase. The Polski for WooCommerce plugin automatically changes the default WooCommerce button text to one compliant with Polish law.
+Polish law requires the order button to contain the text "order with obligation to pay" or similar. Polski for WooCommerce automatically changes the default WooCommerce button text.
 
 ## Legal requirements
 
-According to Article 17 paragraph 3 of the Consumer Rights Act, which implements Directive 2011/83/EU:
-
-> "The entrepreneur shall ensure that the consumer, at the moment of placing the order, explicitly acknowledges that the order entails an obligation to pay."
-
-The button must contain a phrase clearly indicating the obligation to pay. Accepted variants:
+The button must clearly indicate the obligation to pay. Accepted variants:
 
 - "Zamawiam z obowiazkiem zaplaty" (Order with obligation to pay)
 - "Zamawiam i place" (I order and pay)
 - "Kupuje i place" (I buy and pay)
 
-Using text such as "Place order", "Order" or "Confirm" is non-compliant with the law and may result in penalties.
+Texts like "Place order", "Order" or "Confirm" do not meet the requirements and risk penalties.
+
+![Checkout page with legal checkboxes and order button](../../../../assets/screenshots/screenshot-3-checkout-checkboxes.png)
 
 ## Configuration
 
@@ -33,14 +31,14 @@ Go to **WooCommerce > Settings > Polski > Checkout** and configure the "Order Bu
 
 ### Texts per payment method
 
-Some payment gateways (e.g. PayPal, Przelewy24) set their own button texts. The plugin allows you to choose whether to:
+Some payment gateways (e.g. PayPal, Przelewy24) set their own button texts. The plugin lets you choose:
 
 1. **Override all** - always display the set text (recommended)
 2. **Keep gateway texts** - allow gateways to set their own texts (make sure they meet legal requirements)
 
 ## Technical implementation
 
-The plugin modifies the button text using a WooCommerce filter:
+The plugin changes the button text with a WooCommerce filter:
 
 ```php
 add_filter('woocommerce_order_button_text', function (): string {
@@ -50,14 +48,14 @@ add_filter('woocommerce_order_button_text', function (): string {
 
 ### Block Checkout compatibility
 
-The plugin supports both the classic checkout (shortcode) and the new Block Checkout (Gutenberg). For Block Checkout, modification is done through:
+The plugin works with classic checkout (shortcode) and Block Checkout (Gutenberg). Block Checkout uses:
 
 - `woocommerce_order_button_text` filter (classic)
 - Store API endpoint (Block Checkout)
 
 ### Compatibility with popular plugins
 
-The plugin is compatible with popular payment gateways on the Polish market:
+The plugin works with popular payment gateways in Poland:
 
 - Przelewy24
 - PayU
@@ -70,7 +68,7 @@ The plugin is compatible with popular payment gateways on the Polish market:
 
 ### Changing text in settings
 
-The simplest way - change the text in **WooCommerce > Settings > Polski > Checkout**. Remember that the new text must still contain information about the obligation to pay.
+Change the text in **WooCommerce > Settings > Polski > Checkout**. The new text must still indicate the obligation to pay.
 
 ### Changing text programmatically
 
@@ -102,7 +100,7 @@ add_filter('woocommerce_order_button_text', function (string $text): string {
 
 ## Button styling
 
-The button retains default WooCommerce CSS classes. You can customize its appearance:
+The button uses default WooCommerce CSS classes. Customize its appearance:
 
 ```css
 #place_order {
@@ -149,14 +147,14 @@ Check that:
 
 ### Text is truncated on mobile devices
 
-The long text "Zamawiam z obowiazkiem zaplaty" may not fit on narrow screens. Consider:
+The text "Zamawiam z obowiazkiem zaplaty" may not fit on small screens. Solutions:
 
 - using a shorter variant: "Kupuje i place"
 - adjusting CSS: `white-space: normal` on the button
 
 ### Block Checkout does not change the text
 
-Make sure you are using the latest plugin version. Older versions may not support Block Checkout. Also check that WooCommerce Blocks is updated.
+Check that you have the latest plugin version. Older versions may not support Block Checkout. Also update WooCommerce Blocks.
 
 ## Related resources
 

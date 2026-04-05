@@ -3,11 +3,11 @@ title: GDPR - personal data protection
 description: GDPR consent configuration in Polski for WooCommerce - 7 checkboxes, consent logging, shortcode API and compliance with the General Data Protection Regulation.
 ---
 
-The General Data Protection Regulation (GDPR) requires online stores to obtain explicit consent for personal data processing. Polski for WooCommerce provides 7 configurable checkboxes on the order page, a consent logging system and tools for managing customer consents.
+GDPR requires stores to obtain explicit consent for personal data processing. The plugin adds 7 configurable checkboxes on the order page, consent logging and consent management tools.
 
 ## Required consents in Polish e-commerce
 
-According to the GDPR, the Consumer Rights Act and the Act on Providing Services by Electronic Means, an online store should collect consents for:
+An online store should collect consents for:
 
 1. Acceptance of store terms and conditions
 2. Acknowledgment of the privacy policy
@@ -19,7 +19,7 @@ According to the GDPR, the Consumer Rights Act and the Act on Providing Services
 
 ## Checkbox configuration
 
-Go to **WooCommerce > Settings > Polski > GDPR** to configure individual consents.
+Go to **WooCommerce > Settings > Polski > GDPR** and configure consents.
 
 ### 1. Store terms and conditions
 
@@ -93,7 +93,7 @@ Consent to marketing communication.
 
 ## Consent logging
 
-Every consent given is recorded in the database with the following information:
+Every consent is saved in the database with data:
 
 | Field | Description |
 |-------|-------------|
@@ -116,7 +116,7 @@ Consent logs are available in:
 
 ### IP anonymization
 
-By default, the plugin anonymizes the last octet of IPv4 addresses (e.g. `192.168.1.xxx`) and the last group of IPv6. This maintains GDPR compliance while preserving minimal log usability.
+The plugin anonymizes the last octet of IPv4 addresses (e.g. `192.168.1.xxx`) and the last group of IPv6. This ensures GDPR compliance while preserving basic log usability.
 
 ## Shortcode API
 
@@ -126,7 +126,7 @@ By default, the plugin anonymizes the last octet of IPv4 addresses (e.g. `192.16
 [polski_consent_status]
 ```
 
-Displays a list of given consents to the logged-in customer with the ability to withdraw them (where legally permissible - e.g. marketing consent).
+Shows the logged-in customer a list of consents with the ability to withdraw them (e.g. marketing consent).
 
 ### Marketing consent withdrawal form
 
@@ -134,7 +134,7 @@ Displays a list of given consents to the logged-in customer with the ability to 
 [polski_consent_withdraw type="marketing"]
 ```
 
-Displays a form allowing the customer to withdraw marketing consent. After withdrawal, the system automatically updates the consent status in the database.
+Form for withdrawing marketing consent. After withdrawal, the plugin automatically updates the consent status in the database.
 
 ### Shortcode parameters
 
@@ -144,11 +144,11 @@ Displays a form allowing the customer to withdraw marketing consent. After withd
 
 ## Integration with WooCommerce Blocks
 
-Consent checkboxes are automatically added to the block checkout form (WooCommerce Blocks Checkout). No additional configuration is required.
+Consent checkboxes also work with the block checkout form (WooCommerce Blocks Checkout). No configuration needed.
 
 ## Right to be forgotten
 
-The plugin integrates with the WordPress personal data deletion tool (**Tools > Erase Personal Data**). After approving a deletion request, the system automatically:
+The plugin works with the WordPress tool **Tools > Erase Personal Data**. After approving a deletion request, the plugin automatically:
 
 1. Anonymizes data in consent logs
 2. Deletes personal data from withdrawal forms
@@ -156,7 +156,7 @@ The plugin integrates with the WordPress personal data deletion tool (**Tools > 
 
 ## Right to data portability
 
-The plugin integrates with the WordPress data export tool (**Tools > Export Personal Data**). The export includes:
+The plugin works with **Tools > Export Personal Data**. The export includes:
 
 - Consent history
 - Form data (anonymized)
@@ -165,13 +165,13 @@ The plugin integrates with the WordPress data export tool (**Tools > Export Pers
 ## Troubleshooting
 
 **Checkboxes do not display on the order page**
-Check that the GDPR module is enabled in **WooCommerce > Settings > Polski > Modules**. If you use the block checkout form, make sure WooCommerce is updated to version 8.0+.
+Check that the GDPR module is enabled in **WooCommerce > Settings > Polski > Modules**. With the block checkout form you need WooCommerce 8.0+.
 
 **Customer reports inability to place an order**
-Check that required checkboxes are not duplicated by another plugin (e.g. Germanized, WPML). Disable other plugins adding consents and use only the Polski for WooCommerce module.
+Check that another plugin (e.g. Germanized, WPML) is not adding the same checkboxes. Disable consents from other plugins and use only the Polski for WooCommerce module.
 
 **Consent logs do not record the IP address**
-Check that the server correctly passes the IP address. Behind a reverse proxy (e.g. Cloudflare) it may be necessary to configure the `X-Forwarded-For` header in WordPress.
+Check that the server passes the IP address. Behind a reverse proxy (e.g. Cloudflare) configure the `X-Forwarded-For` header in WordPress.
 
 ## Next steps
 

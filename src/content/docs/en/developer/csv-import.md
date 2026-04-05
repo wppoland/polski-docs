@@ -3,7 +3,7 @@ title: CSV import and export
 description: CSV data import and export in Polski for WooCommerce - GPSR fields, greenwashing and product data.
 ---
 
-Polski for WooCommerce extends the built-in WooCommerce CSV importer/exporter with additional columns for legal data, GPSR, environmental claims and other fields specific to Polish and EU law.
+Extension of the WooCommerce CSV importer/exporter with columns for legal data, GPSR, environmental claims and other fields required by Polish and EU law.
 
 ## Supported CSV fields
 

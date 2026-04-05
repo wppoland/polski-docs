@@ -3,7 +3,7 @@ title: Other storefront modules
 description: Additional modules in Polski for WooCommerce - tab manager, featured video, gallery zoom, waitlist, infinite scroll, popup.
 ---
 
-Polski for WooCommerce offers a range of additional modules that enhance store functionality. Each module can be enabled independently in **WooCommerce > Polski > Storefront Modules**.
+Additional storefront modules. Enable each one independently in **WooCommerce > Polski > Storefront Modules**.
 
 ## Tab manager
 

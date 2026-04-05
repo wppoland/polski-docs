@@ -3,7 +3,7 @@ title: Vyzivove hodnoty
 description: Tabulka vyzivovych hodnot ve formatu JSON na 100 g nebo 100 ml se shortcodem pro zobrazeni na strance produktu WooCommerce.
 ---
 
-Narizeni (EU) c. 1169/2011 vyzaduje, aby na obalu (a v internetovem obchode) potravinoveho produktu byla tabulka vyzivovych hodnot. Plugin Polski for WooCommerce umoznuje zadani uplne tabulky vyzivovych hodnot pro kazdy produkt a jeji zobrazeni v prehlednem formatu v souladu s regulacemi.
+Obchod s potravinami musi zobrazovat tabulku vyzivovych hodnot (narizeni EU c. 1169/2011). Plugin umoznuje pridat tabulku ke kazdemu produktu ve formatu v souladu s predpisy.
 
 ## Povinne zivy
 

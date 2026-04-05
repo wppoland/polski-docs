@@ -3,7 +3,7 @@ title: Gutenberg blocks
 description: Gutenberg blocks in Polski for WooCommerce - AJAX search, AJAX filters and product slider with editor preview.
 ---
 
-Polski for WooCommerce provides three Gutenberg blocks for inserting storefront modules in the block editor. Each block offers an editor preview (server-side render) and full configuration in the sidebar panel.
+Three Gutenberg blocks for inserting storefront modules. Each block has an editor preview (server-side render) and configuration in the sidebar panel.
 
 ## Requirements
 

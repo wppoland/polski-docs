@@ -3,7 +3,7 @@ title: Request for quote (RFQ)
 description: Polski PRO for WooCommerce request for quote module - replacing the cart button with a quote form, consent logging, admin panel and email notifications.
 ---
 
-The request for quote (RFQ) module replaces the standard "Add to cart" button with an "Ask for price" button, allowing customers to submit quote requests instead of direct purchases. This solution is particularly useful for B2B stores, products requiring individual pricing or large wholesale orders.
+The RFQ module replaces "Add to cart" with "Ask for price". Customers submit quote requests instead of buying directly. Useful for B2B stores and products with individual pricing.
 
 :::note[Requirements]
 Polski PRO requires: Polski (free) v1.3.0+, WordPress 6.4+, WooCommerce 8.0+, PHP 8.1+

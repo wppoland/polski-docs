@@ -3,7 +3,7 @@ title: Widerrufsrecht
 description: Handhabung des Widerrufsrechts in Polski for WooCommerce - Rueckgabeformular, Produktausnahmen, automatische E-Mails und Entwickler-Hooks.
 ---
 
-Die EU-Richtlinie 2023/2673 fuehrt neue Pflichten zum Widerrufsrecht ein, die ab dem 19. Juni 2026 obligatorisch werden. Polski for WooCommerce implementiert den vollstaendigen Widerrufsprozess - vom Kundenformular ueber E-Mail-Bestaetigungen bis hin zu Produktausnahmen und Hooks fuer Entwickler.
+Die EU-Richtlinie 2023/2673 fuehrt neue Pflichten zum Widerrufsrecht ein (ab 19. Juni 2026). Das Plugin deckt den gesamten Prozess ab - Kundenformular, E-Mail-Bestaetigungen, Produktausnahmen und Hooks fuer Entwickler.
 
 ## Rechtliche Anforderungen
 

@@ -3,7 +3,7 @@ title: Shortcody
 description: Kompletni seznam 23 shortcodu Polski for WooCommerce s parametry, priklady pouziti a PHP kodem.
 ---
 
-Polski for WooCommerce zpristupnuje 23 shortcodu pro zobrazovani pravnich dat, informaci o produktu a modulu obchodu na libovolnem miste obchodu.
+23 shortcodu pro zobrazovani pravnich dat, informaci o produktu a modulu obchodu na libovolnem miste.
 
 ## Shortcody pravnich pozadavku
 

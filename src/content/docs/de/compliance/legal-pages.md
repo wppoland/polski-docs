@@ -3,7 +3,7 @@ title: Rechtsseiten
 description: Automatische Generierung von Rechtsseiten in Polski for WooCommerce - AGB, Datenschutzerklaerung, Widerrufsbelehrung, Reklamationen, E-Mail-Anhaenge und ODR-Information.
 ---
 
-Jeder Onlineshop in Polen muss den Kunden einen Satz von Rechtsdokumenten zur Verfuegung stellen. Polski for WooCommerce generiert automatisch vier wichtige Rechtsseiten, angepasst an das polnische Recht, ermoeglicht deren Anhaengen an Transaktions-E-Mails und zeigt die erforderliche Information zur ODR-Plattform an.
+Jeder Onlineshop in Polen braucht Rechtsdokumente. Das Plugin generiert vier Rechtsseiten, haengt sie an E-Mails an und zeigt die ODR-Information an.
 
 ## Generierte Rechtsseiten
 

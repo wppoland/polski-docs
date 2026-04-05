@@ -3,7 +3,7 @@ title: Nutritional values
 description: Nutrition facts table in JSON format per 100 g or 100 ml with a shortcode for display on the WooCommerce product page.
 ---
 
-Regulation (EU) No 1169/2011 requires that the packaging (and the online store) of a food product includes a nutrition facts table. The Polski for WooCommerce plugin enables entering a full nutrition facts table for each product and displaying it in a clear format compliant with regulations.
+A food store must display a nutrition facts table (EU Regulation 1169/2011). Polski for WooCommerce lets you add a table to each product in a format compliant with regulations.
 
 ## Mandatory nutrients
 

@@ -3,7 +3,7 @@ title: Import a export CSV
 description: Import a export dat CSV v Polski for WooCommerce - pole GPSR, greenwashing a data produktu.
 ---
 
-Polski for WooCommerce rozsiruje vestaveny importer/exporter CSV WooCommerce o doplnkove sloupce pro pravni data, GPSR, environmentalni prohlaseni a dalsi pole specificka pro polske a unijni pravo.
+Rozsireni importeru/exporteru CSV WooCommerce o sloupce pravnich dat, GPSR, environmentalnich prohlaseni a dalsich poli vyzeadovanych polskym a unijnim pravem.
 
 ## Podporovana pole CSV
 

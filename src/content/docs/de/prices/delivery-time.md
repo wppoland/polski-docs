@@ -3,7 +3,7 @@ title: Lieferzeit
 description: Konfiguration der Lieferzeit pro Produkt und Variante, Standard-Fallback-Wert sowie Taxonomie polski_delivery_time in WooCommerce.
 ---
 
-Die Omnibus-Richtlinie und das polnische Verbraucherrechtegesetz verlangen, dass ein Onlineshop ueber die voraussichtliche Lieferzeit des Produkts vor Bestellaufgabe informiert. Das Plugin Polski for WooCommerce bietet ein flexibles System zur Verwaltung der Lieferzeit - von globalen Standardeinstellungen bis hin zu individuellen Werten fuer jedes Produkt und jede Variante.
+Polnisches Recht verlangt, dass der Shop vor der Bestellung ueber die Lieferzeit informiert. Polski for WooCommerce ermoeglicht die Einstellung der Lieferzeit global, pro Produkt und pro Variante.
 
 ## Rechtliche Anforderungen
 

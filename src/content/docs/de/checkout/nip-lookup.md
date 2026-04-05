@@ -3,7 +3,7 @@ title: Steuernummer (NIP) an der Kasse
 description: Validierung der Steuernummer mit Pruefsumme, Verifizierung in der GUS-REGON-API und automatischer Abruf von Firmendaten auf der WooCommerce-Kassenseite.
 ---
 
-Firmenkunden, die Bestellungen in Onlineshops aufgeben, benoetigen die Moeglichkeit, eine Steuernummer (NIP) anzugeben, um eine MwSt.-Rechnung zu erhalten. Das Plugin Polski for WooCommerce fuegt ein NIP-Feld auf der Kassenseite mit vollstaendiger Validierung hinzu - von der Pruefsumme bis zur Verifizierung in der GUS-REGON-Datenbank mit automatischer Ergaenzung der Firmendaten.
+Firmenkunden brauchen ein NIP-Feld an der Kasse, um eine MwSt.-Rechnung zu erhalten. Polski for WooCommerce fuegt ein NIP-Feld mit Pruefsummenvalidierung und GUS-REGON-Verifizierung hinzu. Die Firmendaten werden automatisch ergaenzt.
 
 ## Funktionen
 

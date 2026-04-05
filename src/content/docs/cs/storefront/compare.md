@@ -3,7 +3,7 @@ title: Porovnavac produktu
 description: Modul porovnavani produktu v Polski for WooCommerce - tabulka vlastnosti, limit produktu, automaticka zamena a shortcode.
 ---
 
-Porovnavac produktu umoznuje zakaznikum postavit nekolik produktu vedle sebe ve forme tabulky vlastnosti. Usnadnuje to nakupni rozhodnuti, zejmena v obchodech se sirokym sortimentem.
+Porovnavac produktu umoznuje zakaznikum postavit produkty vedle sebe v tabulce vlastnosti. Usnadnuje nakupni rozhodnuti.
 
 ## Aktivace modulu
 

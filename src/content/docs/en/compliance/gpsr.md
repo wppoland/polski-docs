@@ -3,7 +3,7 @@ title: GPSR - product safety
 description: Configuration of GPSR (General Product Safety Regulation) fields in Polski for WooCommerce - manufacturer, importer, EU responsible person, identifiers, warnings and instructions.
 ---
 
-The GPSR (General Product Safety Regulation, EU 2023/988) has been in effect since December 13, 2024. It obliges sellers to provide detailed product safety information for products sold within the European Union. Polski for WooCommerce provides a complete set of product fields, a status column and CSV import/export tools that allow you to meet these requirements without additional plugins.
+The GPSR (General Product Safety Regulation, EU 2023/988) has been in effect since December 13, 2024. It requires providing product safety information for products sold in the EU. Polski for WooCommerce adds product fields, a status column and CSV import/export - everything you need, without additional plugins.
 
 ## GPSR requirements
 
@@ -20,7 +20,9 @@ Every non-food product sold in the EU must include:
 
 ## Configuring GPSR fields
 
-GPSR fields can be found in the WooCommerce product editor, in the **Polski - GPSR** tab. Each field is optional, but the regulation requires filling in all fields applicable to the given product.
+GPSR fields are in the product editor, in the **Polski - GPSR** tab. Each field is optional, but fill in all that apply to the given product.
+
+![GPSR fields in WooCommerce product editor](../../../../assets/screenshots/screenshot-2-gpsr-product-editor.png)
 
 ### Manufacturer
 
@@ -34,11 +36,11 @@ Fill in the full manufacturer data:
 
 ### Importer
 
-Field required when the manufacturer is based outside the European Union. Provide the same data categories as for the manufacturer.
+Required when the manufacturer is based outside the EU. Provide the same data as for the manufacturer.
 
 ### EU responsible person
 
-From December 13, 2024, every non-food product sold in the EU by an entity outside the EU must have a designated responsible person based in the Union. Provide:
+Every non-food product from an entity outside the EU must have a responsible person based in the Union. Provide:
 
 - Company name or full name
 - Address in the EU
@@ -71,19 +73,19 @@ Field for instructions about:
 
 ## GPSR status column
 
-On the product list in the admin panel (**Products > All Products**) the plugin adds a **GPSR** column that displays field completion status:
+On the product list (**Products > All Products**) the plugin adds a **GPSR** column with completion status:
 
 - Green icon - all required fields filled
 - Orange icon - partially filled
 - Red icon - no GPSR data
 
-The column allows quick identification of products requiring data completion before regulations take effect.
+The column lets you quickly find products that need data completion.
 
 ## CSV import and export
 
 ### Export
 
-When exporting WooCommerce products (**Products > Export**) the plugin automatically adds GPSR columns to the CSV file:
+When exporting products (**Products > Export**) the plugin adds GPSR columns to the CSV file:
 
 - `gpsr_manufacturer_name`
 - `gpsr_manufacturer_address`
@@ -105,9 +107,9 @@ When exporting WooCommerce products (**Products > Export**) the plugin automatic
 
 ### Import
 
-Prepare a CSV file with the appropriate column headers (identical to the export format). Import follows the standard WooCommerce path: **Products > Import**.
+Prepare a CSV file with the same headers as the export format. Import via **Products > Import**.
 
-Tip: export a few products first to get a CSV template with the correct headers.
+Tip: export a few products first - you will get a CSV template with correct headers.
 
 ## Shortcode
 
@@ -144,7 +146,7 @@ The shortcode generates a formatted table with sections:
 
 ## Bulk data completion
 
-If many products come from the same manufacturer, the most efficient method is:
+If many products have the same manufacturer, the fastest method is:
 
 1. Export products to CSV
 2. Fill in manufacturer columns for all rows (copy-paste in a spreadsheet)

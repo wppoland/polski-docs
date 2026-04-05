@@ -3,7 +3,7 @@ title: B2B katalógový režim
 description: Modul katalógového režimu Polski PRO for WooCommerce - skrytie cien, blokácia nákupov, presmerovanie na cenové dopyty a integrácia s modulom RFQ.
 ---
 
-Katalógový režim premení obchod WooCommerce na katalóg produktov bez možnosti nákupu. Ceny môžu byť skryté, tlačidlá "Pridať do košíka" nahradené správami alebo presmerované na formulár cenového dopytu. Modul je určený hlavne pre B2B obchody, kde sa ceny vyjednávajú individuálne, a pre obchody, ktoré chcú prezentovať ponuku bez umožnenia priamych nákupov.
+Katalógový režim premení obchod na katalóg bez možnosti nákupu. Skryte ceny, nahraďte tlačidlá správami alebo presmerujte na cenový dopyt. Určené pre B2B obchody s individuálnymi cenami.
 
 :::note[Požiadavky]
 Polski PRO vyžaduje: Polski (free) v1.3.0+, WordPress 6.4+, WooCommerce 8.0+, PHP 8.1+

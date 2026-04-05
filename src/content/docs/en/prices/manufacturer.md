@@ -3,7 +3,7 @@ title: Manufacturer and brand
 description: Manufacturer data (GPSR), brand taxonomy, GTIN/EAN numbers and shortcode for displaying manufacturer information in WooCommerce.
 ---
 
-The GPSR (General Product Safety Regulation) effective from December 13, 2024 obliges online sellers to provide manufacturer or responsible person data on the product page. The Polski for WooCommerce plugin allows adding full manufacturer data, brand and product identifiers (GTIN/EAN) to each product in the store.
+From December 13, 2024, the GPSR regulation requires manufacturer data on the product page. Polski for WooCommerce lets you add manufacturer data, brand and GTIN/EAN number to each product.
 
 ## GPSR requirements
 

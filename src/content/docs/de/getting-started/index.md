@@ -15,9 +15,11 @@ hero:
       variant: minimal
 ---
 
+![Polski for WooCommerce - Plugin-Banner](../../../../assets/screenshots/banner-772x250.png)
+
 ## Was ist Polski for WooCommerce?
 
-**Polski for WooCommerce** ist ein kostenloses Open-Source-Plugin (GPLv2), erstellt von [wppoland.com](https://wppoland.com), das einen WooCommerce-Shop an polnische Rechtsanforderungen und E-Commerce-Standards anpasst. Das Plugin vereint ueber 30 Module fuer rechtliche Anforderungen, Preisanzeige, Kasse, Lebensmittel, Shop-Module und Entwicklerwerkzeuge.
+**Polski for WooCommerce** ist ein kostenloses Open-Source-Plugin (GPLv2) von [wppoland.com](https://wppoland.com). Es passt einen WooCommerce-Shop an polnische Vorschriften und E-Commerce-Standards an. Enthaelt ueber 30 Module: rechtliche Anforderungen, Preise, Kasse, Lebensmittel, Shop-Funktionen und Entwicklerwerkzeuge.
 
 Aktuelle Version: **1.3.2**
 
@@ -40,20 +42,22 @@ Fuer die beste Leistung empfehlen wir PHP 8.2+ und WooCommerce 9.x. Das Plugin w
 
 ## Moduluebersicht
 
-Das Plugin ist modular aufgebaut - Sie aktivieren nur die Funktionen, die Sie benoetigen. Nachfolgend finden Sie eine Beschreibung aller verfuegbaren Modulgruppen.
+Das Plugin arbeitet modular - Sie aktivieren nur, was Sie brauchen.
+
+![Modul-Dashboard von Polski for WooCommerce](../../../../assets/screenshots/screenshot-1-modules-dashboard.png)
 
 ### Rechtliche Anforderungen
 
-Module zur Umsetzung polnischer und EU-rechtlicher Anforderungen:
+Module zur Einhaltung polnischer und EU-Vorschriften:
 
-- **GPSR (Verordnung ueber die allgemeine Produktsicherheit)** - Hersteller-, Importeur- und verantwortliche-Person-Daten auf Produktseiten
-- **Omnibus** - Anzeige des niedrigsten Preises der letzten 30 Tage vor der Reduzierung gemaess der Omnibus-Richtlinie
-- **Widerrufsrecht** - Formulare und Rueckgabeverfahren, Erstellung von Widerrufsdokumenten
-- **DSGVO** - Einwilligungsverwaltung, Datenanonymisierung, Verarbeitungsregister
-- **DSA (Gesetz ueber digitale Dienste)** - Kontaktstelle, Inhaltsmeldungen, Transparenz
-- **KSeF** - Vorbereitung fuer die Integration mit dem Nationalen E-Rechnungssystem
-- **Greenwashing** - Ueberpruefung und Kontrolle von Umweltaussagen
-- **Rechtsseiten** - Erstellung von AGB, Datenschutzerklaerung und Widerrufsbelehrung
+- **GPSR (Produktsicherheit)** - Hersteller-, Importeur- und verantwortliche-Person-Daten auf Produktseiten
+- **Omnibus** - niedrigster Preis der letzten 30 Tage vor der Senkung
+- **Widerrufsrecht** - Rueckgabeformulare und Widerrufsdokumente
+- **DSGVO** - Einwilligungen, Datenanonymisierung, Verarbeitungsregister
+- **DSA (Gesetz ueber digitale Dienste)** - Kontaktstelle, Inhaltsmeldungen
+- **KSeF** - Vorbereitung fuer das Nationale E-Rechnungssystem
+- **Greenwashing** - Kontrolle von Umweltaussagen
+- **Rechtsseiten** - AGB, Datenschutzerklaerung und Widerrufsbelehrung
 
 ### Preise und Produktinformationen
 

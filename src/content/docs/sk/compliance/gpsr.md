@@ -3,7 +3,7 @@ title: GPSR - bezpečnosť produktov
 description: Konfigurácia polí GPSR (General Product Safety Regulation) v Polski for WooCommerce - výrobca, dovozca, zodpovedná osoba v EÚ, identifikátory, varovania a pokyny.
 ---
 
-Nariadenie GPSR (General Product Safety Regulation, EU 2023/988) platí od 13. decembra 2024. Ukladá predajcom povinnosť uvádzať podrobné informácie o bezpečnosti produktov predávaných na území Európskej únie. Polski for WooCommerce poskytuje kompletný súbor produktových polí, stĺpec stavu a nástroje importu/exportu CSV, ktoré umožňujú splniť tieto požiadavky bez ďalších pluginov.
+Nariadenie GPSR (General Product Safety Regulation, EU 2023/988) platí od 13. decembra 2024. Vyžaduje uvádzanie informácií o bezpečnosti produktov predávaných v EÚ. Polski for WooCommerce pridáva produktové polia, stĺpec stavu a import/export CSV - všetko, čo potrebujete, bez ďalších pluginov.
 
 ## Požiadavky GPSR
 
@@ -20,7 +20,9 @@ Každý nepotravinársky produkt predávaný v EÚ musí obsahovať:
 
 ## Konfigurácia polí GPSR
 
-Polia GPSR nájdete v úprave produktu WooCommerce, v záložke **Polski - GPSR**. Každé pole je voliteľné, ale nariadenie vyžaduje vyplnenie všetkých platných pre daný produkt.
+Polia GPSR nájdete v úprave produktu, v záložke **Polski - GPSR**. Každé pole je voliteľné, ale vyplňte všetky, ktoré sa vzťahujú na daný produkt.
+
+![Polia GPSR v editore produktu WooCommerce](../../../../assets/screenshots/screenshot-2-gpsr-product-editor.png)
 
 ### Výrobca
 
@@ -34,11 +36,11 @@ Vyplňte úplné údaje výrobcu:
 
 ### Dovozca
 
-Pole vyžadované, keď má výrobca sídlo mimo Európskej únie. Uveďte rovnaké kategórie údajov ako v prípade výrobcu.
+Vyžadované, keď má výrobca sídlo mimo EÚ. Uveďte rovnaké údaje ako pre výrobcu.
 
 ### Zodpovedná osoba v EÚ
 
-Od 13. decembra 2024 musí mať každý nepotravinársky produkt predávaný v EÚ subjektom mimo EÚ určenú zodpovednú osobu so sídlom v Únii. Uveďte:
+Každý nepotravinársky produkt od subjektu mimo EÚ musí mať zodpovednú osobu so sídlom v Únii. Uveďte:
 
 - Názov firmy alebo meno a priezvisko
 - Adresa v EÚ
@@ -71,19 +73,19 @@ Pole na pokyny týkajúce sa:
 
 ## Stĺpec stavu GPSR
 
-V zozname produktov v administračnom paneli (**Produkty > Všetky produkty**) plugin pridáva stĺpec **GPSR**, ktorý zobrazuje stav vyplnenia polí:
+V zozname produktov (**Produkty > Všetky produkty**) plugin pridáva stĺpec **GPSR** so stavom vyplnenia:
 
 - Zelená ikona - všetky povinné polia vyplnené
 - Oranžová ikona - čiastočne vyplnené
 - Červená ikona - chýbajú údaje GPSR
 
-Stĺpec umožňuje rýchlu identifikáciu produktov vyžadujúcich doplnenie údajov pred nadobudnutím účinnosti nariadenia.
+Stĺpec umožňuje rýchlo nájsť produkty, ktoré vyžadujú doplnenie údajov.
 
 ## Import a export CSV
 
 ### Export
 
-Počas exportu produktov WooCommerce (**Produkty > Exportovať**) plugin automaticky pridáva stĺpce GPSR do súboru CSV:
+Pri exporte produktov (**Produkty > Exportovať**) plugin pridáva stĺpce GPSR do súboru CSV:
 
 - `gpsr_manufacturer_name`
 - `gpsr_manufacturer_address`
@@ -105,9 +107,9 @@ Počas exportu produktov WooCommerce (**Produkty > Exportovať**) plugin automat
 
 ### Import
 
-Pripravte súbor CSV s príslušnými hlavičkami stĺpcov (identickými ako pri exporte). Import prebieha štandardnou cestou WooCommerce: **Produkty > Importovať**.
+Pripravte súbor CSV s rovnakými hlavičkami ako pri exporte. Importujte cez **Produkty > Importovať**.
 
-Tip: najprv exportujte niekoľko produktov, aby ste získali šablónu CSV so správnymi hlavičkami.
+Tip: najprv exportujte niekoľko produktov - dostanete šablónu CSV so správnymi hlavičkami.
 
 ## Shortcód
 
@@ -144,7 +146,7 @@ Shortcód generuje formátovanú tabuľku so sekciami:
 
 ## Hromadné doplňovanie údajov
 
-Ak veľa produktov pochádza od rovnakého výrobcu, najefektívnejší spôsob je:
+Ak veľa produktov má rovnakého výrobcu, najrýchlejší spôsob je:
 
 1. Exportujte produkty do CSV
 2. Vyplňte stĺpce výrobcu pre všetky riadky (kopírovať-vložiť v tabuľkovom procesore)

@@ -3,11 +3,11 @@ title: DSA - Akt o digitalnich sluzbach
 description: Nastroje DSA (Digital Services Act) v Polski for WooCommerce - formular hlaseni, administracni panel, sledovani stavu a e-mailova oznameni.
 ---
 
-Akt o digitalnich sluzbach (Digital Services Act, Narizeni EU 2022/2065) uklada internetovym platformam povinnost umoznit uzivatelum hlasit nelegalni obsah. Polski for WooCommerce dodava kompletni sadu nastroju DSA - formular hlaseni, administracni panel pro spravu hlaseni, sledovani stavu a automaticka e-mailova oznameni.
+Akt o digitalnich sluzbach (Digital Services Act, EU 2022/2065) vyzaduje, aby platformy umoznovaly hlasit nelegalni obsah. Plugin pridava formular hlaseni, panel pro spravu hlaseni, sledovani stavu a automaticka e-mailova oznameni.
 
 ## Pozadavky DSA pro internetove obchody
 
-Od 17. unora 2024 musi internetove obchody umoznujici publikovani obsahu uzivateli (recenze, komentare, fotografie):
+Od 17. unora 2024 obchody s obsahem uzivatelu (recenze, komentare, fotografie) musi:
 
 1. Zpristupnit mechanismus hlaseni nelegalniho obsahu
 2. Potvrdit prijeti hlaseni
@@ -15,7 +15,9 @@ Od 17. unora 2024 musi internetove obchody umoznujici publikovani obsahu uzivate
 4. Informovat oznamovatele o rozhodnuti
 5. Umoznit odvolani proti rozhodnuti
 
-Povinnost se tyka obchodu, ktere umoznuji uzivatelum publikovat obsah - predevsim recenze produktu.
+Tyka se obchodu, kde uzivatele mohou publikovat obsah - predevsim recenze produktu.
+
+![Formular hlaseni DSA na strance obchodu](../../../../assets/screenshots/screenshot-6-dsa-report-form.png)
 
 ## Formular hlaseni
 
@@ -59,11 +61,11 @@ Vytvorte stranku "Nahlasit obsah" a pridejte shortcode:
 [polski_dsa_report]
 ```
 
-Nasledne pridejte odkaz na tuto stranku do paticky obchodu, aby byla snadno dostupna uzivatelum.
+Pridejte odkaz na tuto stranku do paticky obchodu, aby byla snadno dostupna.
 
 ## Administracni panel
 
-Hlaseni DSA jsou spravovana v panelu WordPress v **WooCommerce > Hlaseni DSA**.
+Hlaseni DSA spravujete v **WooCommerce > Hlaseni DSA**.
 
 ### Seznam hlaseni
 
@@ -78,7 +80,7 @@ Seznam zobrazuje vsechna hlaseni se sloupci:
 
 ### Podrobnosti hlaseni
 
-Po kliknuti na hlaseni administrator vidi:
+Po kliknuti na hlaseni uvidite:
 
 - Uplne udaje formulare
 - Nahled hlaseneho obsahu (pokud je to recenze - primy odkaz)
@@ -98,7 +100,7 @@ Po kliknuti na hlaseni administrator vidi:
 
 ## E-mailova oznameni
 
-System odesila automaticka e-mailova oznameni v nasledujicich situacich:
+Plugin odesila automaticke e-maily v techto situacich:
 
 | Udalost | Prijemce | Obsah |
 |-----------|----------|-------|
@@ -160,7 +162,7 @@ add_action('polski/dsa/report_created', function (int $report_id, array $report_
 
 ## Reportovani
 
-DSA vyzaduje vedeni registru hlaseni. Plugin umoznuje export vsech hlaseni do CSV (**WooCommerce > Hlaseni DSA > Exportovat**). Export obsahuje:
+DSA vyzaduje vedeni registru hlaseni. Exportujte vsechna hlaseni do CSV pres **WooCommerce > Hlaseni DSA > Exportovat**. Export obsahuje:
 
 - ID hlaseni
 - Datum a cas podani
@@ -171,7 +173,7 @@ DSA vyzaduje vedeni registru hlaseni. Plugin umoznuje export vsech hlaseni do CS
 
 ## Konfigurace
 
-Nastaveni modulu DSA naleznete v **WooCommerce > Nastaveni > Polski > DSA**.
+Nastaveni modulu DSA najdete v **WooCommerce > Nastaveni > Polski > DSA**.
 
 | Moznost | Popis | Vychozi hodnota |
 |-------|------|------------------|
@@ -184,13 +186,13 @@ Nastaveni modulu DSA naleznete v **WooCommerce > Nastaveni > Polski > DSA**.
 ## Reseni problemu
 
 **Formular se nezobrazuje na strance**
-Ujistete se, ze shortcode `[polski_dsa_report]` je spravne vlozen na strance a modul DSA je aktivovan v nastaveních.
+Zkontrolujte, zda shortcode `[polski_dsa_report]` je na strance a modul DSA je aktivovan v nastaveni.
 
 **E-mailova oznameni nedochazi**
-Zkontrolujte konfiguraci SMTP WordPress. Vychozi funkce `wp_mail()` nemusi fungovat na vsech serverech. Zvazite instalaci SMTP pluginu (napr. WP Mail SMTP).
+Zkontrolujte konfiguraci SMTP. Vychozi funkce `wp_mail()` nefunguje na vsech serverech. Nainstalujte SMTP plugin (napr. WP Mail SMTP).
 
 **Hlaseni se nezobrazuji v panelu**
-Zkontrolujte opravneni uzivatele. Sprava hlaseni DSA vyzaduje roli `shop_manager` nebo `administrator`.
+Zkontrolujte opravneni. Pro spravu hlaseni DSA potrebujete roli `shop_manager` nebo `administrator`.
 
 ## Dalsi kroky
 

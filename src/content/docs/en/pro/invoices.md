@@ -3,7 +3,7 @@ title: Invoice system
 description: Documentation of the Polski PRO for WooCommerce invoice system - VAT invoice, correction, receipt, packing slip, PDF generation, numbering and REST API.
 ---
 
-The invoice module in Polski PRO for WooCommerce enables generating sales documents directly from WooCommerce. It supports four document types, automatic numbering, PDF generation and the full invoice lifecycle.
+The invoice module generates sales documents directly in WooCommerce. It supports four document types, automatic numbering and PDF.
 
 ## Document types
 
