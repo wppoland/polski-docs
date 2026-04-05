@@ -11,7 +11,7 @@ Wtyczka rejestruje każdą zmianę ceny produktu WooCommerce (w tym produktów w
 
 Śledzenie rozpoczyna się od momentu aktywacji modułu. Jeśli produkt nie ma jeszcze historii cen, wtyczka wyświetla odpowiedni komunikat zastępczy.
 
-![Strona produktu z wyświetloną najniższą ceną Omnibus](../../../../assets/screenshots/screenshot-4-omnibus-lowest-price.png)
+![Strona produktu z wyświetloną najniższą ceną Omnibus](../../../assets/screenshots/screenshot-4-omnibus-lowest-price.png)
 
 ## Konfiguracja
 

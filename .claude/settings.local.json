@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(rm -f /Users/mariuszszatkowskipromax/local/polski-docs/src/content/docs/index.mdx /Users/mariuszszatkowskipromax/local/polski-docs/src/content/docs/guides/example.md /Users/mariuszszatkowskipromax/local/polski-docs/src/content/docs/reference/example.md)",
+      "Bash(rmdir /Users/mariuszszatkowskipromax/local/polski-docs/src/content/docs/guides /Users/mariuszszatkowskipromax/local/polski-docs/src/content/docs/reference)",
+      "Bash(file /Users/mariuszszatkowskipromax/local/polski-docs/src/assets/*)",
+      "Bash(gh api:*)",
+      "Bash(gh repo:*)",
+      "Bash(CLOUDFLARE_ACCOUNT_ID=3e15c851f9c8c0ba9a856581c0c02e22 npx wrangler:*)",
+      "Bash(gh secret:*)",
+      "Bash(cp:*)"
+    ]
+  }
+}

@@ -15,7 +15,7 @@ Zgodnie z ustawą o prawach konsumenta oraz ustawą o świadczeniu usług drogą
 
 Zgody muszą być wyrażone aktywnie (checkbox nie może być domyślnie zaznaczony) i osobno dla każdego celu.
 
-![Checkboxy prawne na stronie kasy WooCommerce](../../../../assets/screenshots/screenshot-3-checkout-checkboxes.png)
+![Checkboxy prawne na stronie kasy WooCommerce](../../../assets/screenshots/screenshot-3-checkout-checkboxes.png)
 
 ## Konfiguracja
 

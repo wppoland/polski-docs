@@ -5,7 +5,7 @@ description: Moduł porównywania produktów w Polski for WooCommerce - tabela c
 
 Porównywarka produktów pozwala klientom zestawić kilka produktów obok siebie w formie tabeli cech. Ułatwia to podjęcie decyzji zakupowej, szczególnie w sklepach z szerokim asortymentem.
 
-![Porównywarka produktów, lista życzeń i filtry na stronie sklepu](../../../../assets/screenshots/screenshot-8-wishlist-compare-quick-view.png)
+![Porównywarka produktów, lista życzeń i filtry na stronie sklepu](../../../assets/screenshots/screenshot-8-wishlist-compare-quick-view.png)
 
 ## Włączenie modułu
 

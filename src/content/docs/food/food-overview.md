@@ -32,19 +32,19 @@ Moduł żywności składa się z kilku podmodułów, które można włączać ni
 
 Tabela wartości odżywczych per 100 g lub 100 ml produktu. Obejmuje energię (kJ/kcal), tłuszcze, węglowodany, białko, sól i inne składniki odżywcze.
 
-Szczegóły: [Wartości odżywcze](/pl/food/nutrients/)
+Szczegóły: [Wartości odżywcze](food/nutrients/)
 
 ### Alergeny
 
 System deklaracji alergenów oparty na taksonomii WordPress. 14 głównych alergenów zgodnie z załącznikiem II rozporządzenia FIC.
 
-Szczegóły: [Alergeny](/pl/food/allergens/)
+Szczegóły: [Alergeny](food/allergens/)
 
 ### Nutri-Score
 
 Wyświetlanie oznaczenia Nutri-Score (A-E) z odpowiednimi kolorami i klasami CSS.
 
-Szczegóły: [Nutri-Score](/pl/food/nutri-score/)
+Szczegóły: [Nutri-Score](food/nutri-score/)
 
 ### Składniki (wykaz)
 
@@ -196,9 +196,9 @@ Sprawdź format danych - wartości muszą być liczbami (z kropką jako separato
 
 ## Powiązane zasoby
 
-- [Wartości odżywcze](/pl/food/nutrients/)
-- [Alergeny](/pl/food/allergens/)
-- [Nutri-Score](/pl/food/nutri-score/)
+- [Wartości odżywcze](food/nutrients/)
+- [Alergeny](food/allergens/)
+- [Nutri-Score](food/nutri-score/)
 - [Zgłoś problem](https://github.com/wppoland/polski/issues)
 
 <div class="disclaimer">Ta strona ma wyłącznie charakter informacyjny i nie stanowi porady prawnej. Przed wdrożeniem skonsultuj się z prawnikiem. Polski for WooCommerce jest oprogramowaniem open source (GPLv2) dostarczanym bez gwarancji.</div>

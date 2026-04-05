@@ -9,7 +9,7 @@ Wyszukiwarka AJAX zastępuje domyślne wyszukiwanie WooCommerce inteligentną wy
 
 Przejdź do **WooCommerce > Polski > Moduły sklepowe** i aktywuj opcję **Wyszukiwarka AJAX**. Moduł automatycznie zastąpi domyślny widget wyszukiwania WooCommerce.
 
-![Wyszukiwarka AJAX z podpowiedziami i filtrami na stronie sklepu](../../../../assets/screenshots/screenshot-7-storefront-search-filters.png)
+![Wyszukiwarka AJAX z podpowiedziami i filtrami na stronie sklepu](../../../assets/screenshots/screenshot-7-storefront-search-filters.png)
 
 ## Wyszukiwane pola
 

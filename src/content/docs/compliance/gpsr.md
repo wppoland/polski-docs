@@ -22,7 +22,7 @@ Każdy produkt niespożywczy sprzedawany w UE musi zawierać:
 
 Pola GPSR znajdziesz w edycji produktu WooCommerce, w zakładce **Polski - GPSR**. Każde pole jest opcjonalne, ale rozporządzenie wymaga wypełnienia wszystkich mających zastosowanie do danego produktu.
 
-![Pola GPSR w edytorze produktu WooCommerce](../../../../assets/screenshots/screenshot-2-gpsr-product-editor.png)
+![Pola GPSR w edytorze produktu WooCommerce](../../../assets/screenshots/screenshot-2-gpsr-product-editor.png)
 
 ### Producent
 

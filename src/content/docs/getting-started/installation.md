@@ -241,7 +241,7 @@ Przed każdą aktualizacją wykonaj kopię zapasową bazy danych i plików. Wię
 
 ## Następne kroki
 
-Po pomyślnej instalacji przejdź do [konfiguracji wtyczki](/pl/getting-started/configuration/), aby włączyć potrzebne moduły i dostosować ustawienia do swojego sklepu.
+Po pomyślnej instalacji przejdź do [konfiguracji wtyczki](getting-started/configuration/), aby włączyć potrzebne moduły i dostosować ustawienia do swojego sklepu.
 
 Jeśli napotkałeś problem, którego nie ma na tej liście, zgłoś go na [GitHub Issues](https://github.com/wppoland/polski/issues) lub zapytaj społeczność na [GitHub Discussions](https://github.com/wppoland/polski/discussions).
 

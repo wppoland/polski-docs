@@ -22,7 +22,7 @@ Dyrektywa 2023/2673 rozszerza te obowiązki o cyfrowy proces składania oświadc
 
 Po aktywacji modułu na stronie **Moje konto > Zamówienia** pojawia się przycisk "Odstąp od umowy" przy zamówieniach kwalifikujących się do zwrotu. Przycisk jest widoczny tylko w okresie odstąpienia (domyślnie 14 dni od dostawy).
 
-![Przyciski odstąpienia od umowy w panelu Moje konto](../../../../assets/screenshots/screenshot-5-withdrawal-request.png)
+![Przyciski odstąpienia od umowy w panelu Moje konto](../../../assets/screenshots/screenshot-5-withdrawal-request.png)
 
 ### Krok 2 - formularz odstąpienia
 

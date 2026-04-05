@@ -40,7 +40,7 @@ Osadź formularz zgłoszeniowy DSA na dowolnej stronie za pomocą shortcode:
 | `product_id` | ID produktu, którego dotyczy zgłoszenie | Brak (użytkownik wybiera) |
 | `category` | Wstępnie wybrana kategoria zgłoszenia | Brak |
 
-![Formularz zgłoszeniowy DSA na stronie sklepu](../../../../assets/screenshots/screenshot-6-dsa-report-form.png)
+![Formularz zgłoszeniowy DSA na stronie sklepu](../../../assets/screenshots/screenshot-6-dsa-report-form.png)
 
 ### Pola formularza
 

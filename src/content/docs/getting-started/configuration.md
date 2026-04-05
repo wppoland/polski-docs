@@ -12,10 +12,10 @@ Po instalacji i aktywacji wtyczki przejdź do **WooCommerce > Polski** w menu pa
 - **Wymagane działania** - powiadomienia o brakujących konfiguracjach
 - **Szybkie linki** - odnośniki do najważniejszych ustawień
 
-![Dashboard modułów Polski for WooCommerce](../../../../assets/screenshots/screenshot-1-modules-dashboard.png)
+![Dashboard modułów Polski for WooCommerce](../../../assets/screenshots/screenshot-1-modules-dashboard.png)
 
 :::tip[Kreator konfiguracji]
-Jeśli dopiero zaczynasz, zalecamy skorzystanie z [kreatora konfiguracji](/pl/getting-started/wizard/), który przeprowadzi Cię przez najważniejsze ustawienia krok po kroku. Kreator można uruchomić ponownie w dowolnym momencie z poziomu dashboardu.
+Jeśli dopiero zaczynasz, zalecamy skorzystanie z [kreatora konfiguracji](getting-started/wizard/), który przeprowadzi Cię przez najważniejsze ustawienia krok po kroku. Kreator można uruchomić ponownie w dowolnym momencie z poziomu dashboardu.
 :::
 
 ---
@@ -233,9 +233,9 @@ Możesz też uruchomić automatyczny audyt: **WooCommerce > Polski > Narzędzia 
 
 ## Następne kroki
 
-- [Kreator konfiguracji](/pl/getting-started/wizard/) - automatyczna konfiguracja najważniejszych ustawień
-- [Dashboard zgodności](/pl/tools/compliance-dashboard/) - monitorowanie stanu zgodności prawnej
-- [Audyt strony](/pl/tools/site-audit/) - automatyczna weryfikacja konfiguracji
+- [Kreator konfiguracji](getting-started/wizard/) - automatyczna konfiguracja najważniejszych ustawień
+- [Dashboard zgodności](tools/compliance-dashboard/) - monitorowanie stanu zgodności prawnej
+- [Audyt strony](tools/site-audit/) - automatyczna weryfikacja konfiguracji
 
 Masz pytanie? Napisz na [GitHub Discussions](https://github.com/wppoland/polski/discussions). Znalazłeś błąd? Zgłoś go na [GitHub Issues](https://github.com/wppoland/polski/issues).
 

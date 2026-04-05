@@ -293,8 +293,8 @@ Jeśli lista 14 alergenów nie została utworzona automatycznie, przejdź do **W
 
 ## Powiązane zasoby
 
-- [Moduł produktów spożywczych](/pl/food/food-overview/)
-- [Wartości odżywcze](/pl/food/nutrients/)
+- [Moduł produktów spożywczych](food/food-overview/)
+- [Wartości odżywcze](food/nutrients/)
 - [Zgłoś problem](https://github.com/wppoland/polski/issues)
 
 <div class="disclaimer">Ta strona ma wyłącznie charakter informacyjny i nie stanowi porady prawnej. Przed wdrożeniem skonsultuj się z prawnikiem. Polski for WooCommerce jest oprogramowaniem open source (GPLv2) dostarczanym bez gwarancji.</div>

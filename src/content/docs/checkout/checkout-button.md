@@ -19,7 +19,7 @@ Przycisk musi zawierać sformułowanie jednoznacznie wskazujące na obowiązek z
 
 Użycie tekstu typu "Złóż zamówienie", "Zamów" czy "Potwierdź" jest niezgodne z prawem i może skutkować karami.
 
-![Strona kasy z checkboxami prawnymi i przyciskiem zamówienia](../../../../assets/screenshots/screenshot-3-checkout-checkboxes.png)
+![Strona kasy z checkboxami prawnymi i przyciskiem zamówienia](../../../assets/screenshots/screenshot-3-checkout-checkboxes.png)
 
 ## Konfiguracja
 

@@ -5,7 +5,7 @@ description: Moduł listy życzeń w Polski for WooCommerce - obsługa gości i 
 
 Lista życzeń pozwala klientom zapisywać produkty do późniejszego zakupu. Moduł Polski for WooCommerce oferuje pełną implementację wishlisty - zarówno dla zalogowanych użytkowników, jak i gości odwiedzających sklep.
 
-![Lista życzeń, porównywarka i szybki podgląd na stronie sklepu](../../../../assets/screenshots/screenshot-8-wishlist-compare-quick-view.png)
+![Lista życzeń, porównywarka i szybki podgląd na stronie sklepu](../../../assets/screenshots/screenshot-8-wishlist-compare-quick-view.png)
 
 ## Włączenie modułu
 

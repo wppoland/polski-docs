@@ -16,9 +16,9 @@ export default defineConfig({
 			social: [
 				{ icon: 'github', label: 'GitHub', href: 'https://github.com/wppoland/polski' },
 			],
-			defaultLocale: 'pl',
+			defaultLocale: 'root',
 			locales: {
-				pl: { label: 'Polski', lang: 'pl' },
+				root: { label: 'Polski', lang: 'pl' },
 				en: { label: 'English', lang: 'en' },
 				de: { label: 'Deutsch', lang: 'de' },
 				cs: { label: 'Čeština', lang: 'cs' },

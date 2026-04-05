@@ -15,7 +15,7 @@ hero:
       variant: minimal
 ---
 
-![Polski for WooCommerce - baner wtyczki](../../../../assets/screenshots/banner-772x250.png)
+![Polski for WooCommerce - baner wtyczki](../../assets/screenshots/banner-772x250.png)
 
 ## Czym jest Polski for WooCommerce?
 
@@ -44,7 +44,7 @@ Dla najlepszej wydajności zalecamy PHP 8.2+ oraz WooCommerce 9.x. Wtyczka jest 
 
 Wtyczka jest zbudowana modułowo - włączasz tylko te funkcje, których potrzebujesz. Poniżej znajdziesz opis wszystkich dostępnych grup modułów.
 
-![Dashboard modułów Polski for WooCommerce](../../../../assets/screenshots/screenshot-1-modules-dashboard.png)
+![Dashboard modułów Polski for WooCommerce](../../assets/screenshots/screenshot-1-modules-dashboard.png)
 
 ### Zgodność prawna
 
@@ -127,9 +127,9 @@ Narzędzia i API dla programistów:
 
 Trzy kroki do działającego, zgodnego z prawem sklepu:
 
-1. **[Zainstaluj wtyczkę](/pl/getting-started/installation/)** - z poziomu panelu WordPress lub ręcznie z pliku ZIP
-2. **[Skonfiguruj podstawy](/pl/getting-started/configuration/)** - włącz potrzebne moduły w panelu ustawień
-3. **[Przejdź przez kreator](/pl/getting-started/wizard/)** - uzupełnij dane firmy, wygeneruj strony prawne, skonfiguruj checkboxy
+1. **[Zainstaluj wtyczkę](getting-started/installation/)** - z poziomu panelu WordPress lub ręcznie z pliku ZIP
+2. **[Skonfiguruj podstawy](getting-started/configuration/)** - włącz potrzebne moduły w panelu ustawień
+3. **[Przejdź przez kreator](getting-started/wizard/)** - uzupełnij dane firmy, wygeneruj strony prawne, skonfiguruj checkboxy
 
 :::note[Potrzebujesz pomocy?]
 Jeśli napotkasz problem, zgłoś go na [GitHub Issues](https://github.com/wppoland/polski/issues). Masz pytanie lub sugestię? Napisz na [GitHub Discussions](https://github.com/wppoland/polski/discussions).

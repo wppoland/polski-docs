@@ -9,7 +9,7 @@ Filtry AJAX pozwalają klientom zawężać listę produktów bez przeładowania 
 
 Przejdź do **WooCommerce > Polski > Moduły sklepowe** i aktywuj opcję **Filtry AJAX**. Moduł udostępni filtry jako blok Gutenberg, shortcode oraz widget.
 
-![Filtry AJAX, lista życzeń i porównywarka na stronie sklepu](../../../../assets/screenshots/screenshot-8-wishlist-compare-quick-view.png)
+![Filtry AJAX, lista życzeń i porównywarka na stronie sklepu](../../../assets/screenshots/screenshot-8-wishlist-compare-quick-view.png)
 
 ## Dostępne typy filtrów
 
