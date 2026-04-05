@@ -75,8 +75,20 @@ function logError(message) {
  */
 function syncRepo(repo) {
   try {
+    // Use GH_TOKEN for private repo access in CI
+    const ghToken = process.env.GH_TOKEN || process.env.GITHUB_TOKEN || '';
+    const cloneUrl = ghToken
+      ? repo.url.replace('https://github.com/', `https://x-access-token:${ghToken}@github.com/`)
+      : repo.url;
+
     if (existsSync(join(repo.path, '.git'))) {
       log(`Pulling latest changes for ${repo.name}...`);
+      if (ghToken) {
+        execSync(`git remote set-url origin ${cloneUrl}`, {
+          cwd: repo.path,
+          stdio: 'pipe',
+        });
+      }
       execSync('git fetch --all && git reset --hard origin/HEAD', {
         cwd: repo.path,
         stdio: 'pipe',
@@ -85,7 +97,7 @@ function syncRepo(repo) {
     } else {
       log(`Cloning ${repo.name} from ${repo.url}...`);
       mkdirSync(repo.path, { recursive: true });
-      execSync(`git clone --depth 1 ${repo.url} ${repo.path}`, {
+      execSync(`git clone --depth 1 ${cloneUrl} ${repo.path}`, {
         stdio: 'pipe',
         timeout: 120_000,
       });

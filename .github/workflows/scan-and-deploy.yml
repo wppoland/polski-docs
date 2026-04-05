@@ -43,7 +43,7 @@ jobs:
       - name: Run repository scanner
         run: node scripts/scan-repos.mjs
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.REPO_ACCESS_TOKEN }}
 
       - name: Run documentation generator
         run: node scripts/generate-docs.mjs
