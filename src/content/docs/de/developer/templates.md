@@ -36,7 +36,7 @@ Bei einem Child Theme platzieren Sie Templates im Child-Theme-Verzeichnis. Das P
 
 ## Template-Liste
 
-### Rechtskonformitaet
+### Rechtliche Anforderungen
 
 | Template-Datei | Beschreibung |
 | ---------------------------------------- | --------------------------------------- |

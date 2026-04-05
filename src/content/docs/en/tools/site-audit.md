@@ -3,7 +3,7 @@ title: Store audit
 description: Store audit tool in Polski for WooCommerce - verification of legal pages, dark patterns, DPA, DSA, KSeF, greenwashing and security.
 ---
 
-The store audit is a tool that automatically scans a WooCommerce store for compliance with Polish and EU e-commerce law. Unlike the compliance dashboard (checklist), the audit performs a deep analysis of page content, user interface and technical configuration.
+The store audit is a tool that automatically scans a WooCommerce store for Polish and EU e-commerce requirements. Unlike the compliance dashboard (checklist), the audit performs a deep analysis of page content, user interface and technical configuration.
 
 ## Running an audit
 

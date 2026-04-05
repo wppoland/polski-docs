@@ -204,7 +204,7 @@ Go to **WooCommerce > Polski > Storefront Modules > Popup** and configure:
 - Position (center, bottom, side)
 - Close button
 
-### Legal compliance
+### Legal requirements
 
 Popups should not hinder store usage (dark patterns). The module enforces:
 - Visible close button (X)

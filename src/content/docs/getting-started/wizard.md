@@ -98,7 +98,7 @@ Kreator oferuje dwa podejścia:
 
 1. Zaznacz strony, które chcesz wygenerować
 2. Kreator utworzy strony WordPress z wypełnioną treścią na podstawie danych firmy
-3. Treść bazuje na szablonach zgodnych z polskim prawem
+3. Treść bazuje na szablonach opartych na polskich przepisach
 
 **Opcja B - przypisz istniejące strony**
 

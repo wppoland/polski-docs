@@ -3,7 +3,7 @@ title: Przycisk zamówienia z obowiązkiem zapłaty
 description: Konfiguracja przycisku "Zamawiam z obowiązkiem zapłaty" wymaganego przez polskie prawo konsumenckie w WooCommerce.
 ---
 
-Polska ustawa o prawach konsumenta (art. 17 ust. 3) wymaga, aby przycisk finalizujący zamówienie w sklepie internetowym był jednoznacznie oznaczony słowami "zamówienie z obowiązkiem zapłaty" lub równoznacznym sformułowaniem. Plugin Polski for WooCommerce automatycznie zmienia domyślny tekst przycisku WooCommerce na zgodny z polskim prawem.
+Polska ustawa o prawach konsumenta (art. 17 ust. 3) wymaga, aby przycisk finalizujący zamówienie w sklepie internetowym był jednoznacznie oznaczony słowami "zamówienie z obowiązkiem zapłaty" lub równoznacznym sformułowaniem. Plugin Polski for WooCommerce automatycznie zmienia domyślny tekst przycisku WooCommerce na wymagany przez polskie przepisy.
 
 ## Wymagania prawne
 

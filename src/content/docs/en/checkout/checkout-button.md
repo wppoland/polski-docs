@@ -36,7 +36,7 @@ Go to **WooCommerce > Settings > Polski > Checkout** and configure the "Order Bu
 Some payment gateways (e.g. PayPal, Przelewy24) set their own button texts. The plugin allows you to choose whether to:
 
 1. **Override all** - always display the set text (recommended)
-2. **Keep gateway texts** - allow gateways to set their own texts (make sure they are legally compliant)
+2. **Keep gateway texts** - allow gateways to set their own texts (make sure they meet legal requirements)
 
 ## Technical implementation
 

@@ -1,9 +1,9 @@
 ---
 title: Compliance-Panel
-description: Panel zur Kontrolle der Rechtskonformitaet in Polski for WooCommerce - Checkliste mit farbigem Status fuer jede Anforderung.
+description: Panel zur Kontrolle rechtlicher Anforderungen in Polski for WooCommerce - Checkliste mit farbigem Status fuer jede Anforderung.
 ---
 
-Das Compliance-Panel (Compliance Dashboard) ist der zentrale Ort zur Ueberwachung des Rechtskonformitaetsstatus des WooCommerce-Shops. Das Dashboard zeigt eine Checkliste mit Status fuer jede rechtliche Anforderung - von den AGB bis GPSR und DSA.
+Das Compliance-Panel (Compliance Dashboard) ist der zentrale Ort zur Ueberwachung des Status rechtlicher Anforderungen des WooCommerce-Shops. Das Dashboard zeigt eine Checkliste mit Status fuer jede rechtliche Anforderung - von den AGB bis GPSR und DSA.
 
 ## Zugang zum Panel
 

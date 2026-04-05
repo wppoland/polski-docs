@@ -43,8 +43,8 @@ curl -u admin:XXXX-XXXX-XXXX-XXXX \
     },
     {
       "id": "compliance",
-      "label": "Zgodność prawna",
-      "description": "Ustawienia zgodności z prawem UE i polskim"
+      "label": "Wymogi prawne",
+      "description": "Ustawienia wymogów prawa UE i polskiego"
     },
     {
       "id": "storefront",

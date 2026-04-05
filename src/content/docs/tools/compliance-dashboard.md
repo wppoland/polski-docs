@@ -1,9 +1,9 @@
 ---
 title: Panel zgodności (compliance dashboard)
-description: Panel kontroli zgodności prawnej w Polski for WooCommerce - lista kontrolna z kolorowym statusem dla każdego wymagania.
+description: Panel kontroli wymogów prawnych w Polski for WooCommerce - lista kontrolna z kolorowym statusem dla każdego wymagania.
 ---
 
-Panel zgodności (compliance dashboard) to centralne miejsce do monitorowania stanu zgodności prawnej sklepu WooCommerce. Dashboard wyświetla listę kontrolną ze statusami dla każdego wymagania prawnego - od regulaminu po GPSR i DSA.
+Panel zgodności (compliance dashboard) to centralne miejsce do monitorowania stanu wymogów prawnych sklepu WooCommerce. Dashboard wyświetla listę kontrolną ze statusami dla każdego wymagania prawnego - od regulaminu po GPSR i DSA.
 
 ## Dostęp do panelu
 

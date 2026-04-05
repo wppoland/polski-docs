@@ -36,7 +36,7 @@ Jeśli korzystasz z motywu potomnego, szablony umieszczaj w katalogu motywu poto
 
 ## Lista szablonów
 
-### Zgodność prawna
+### Wymogi prawne
 
 | Plik szablonu                            | Opis                                    |
 | ---------------------------------------- | --------------------------------------- |

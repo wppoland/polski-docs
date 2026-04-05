@@ -111,7 +111,7 @@ Modul zobrazuje konfigurovatelny popup (modalni okno) na strance obchodu.
 | Kliknuti | Po kliknuti na element s CSS tridou |
 | Pocet navstev | Po N-te navsteve stranky |
 
-### Soulad s pravem
+### Pravni pozadavky
 
 Popup by nemel ztezovat pouzivani obchodu (dark patterns). Modul vynucuje:
 - Viditelne tlacitko zavreni (X)

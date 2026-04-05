@@ -36,7 +36,7 @@ Gehen Sie zu **WooCommerce > Einstellungen > Polski > Kasse** und konfigurieren 
 Einige Zahlungsanbieter (z.B. PayPal, Przelewy24) setzen eigene Button-Texte. Das Plugin ermoeglicht die Wahl, ob:
 
 1. **Alle ueberschreiben** - zeigt immer den eingestellten Text an (empfohlen)
-2. **Anbieter-Texte beibehalten** - erlaubt Anbietern, eigene Texte zu setzen (stellen Sie sicher, dass diese rechtskonform sind)
+2. **Anbieter-Texte beibehalten** - erlaubt Anbietern, eigene Texte zu setzen (stellen Sie sicher, dass diese den rechtlichen Anforderungen entsprechen)
 
 ## Technische Implementierung
 

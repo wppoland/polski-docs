@@ -204,7 +204,7 @@ Prejdite do **WooCommerce > Polski > Obchodné moduly > Popup** a nakonfigurujte
 - Pozícia (centrum, spodok, bok)
 - Tlačidlo zatvorenia
 
-### Súlad s právom
+### Právne požiadavky
 
 Popup by nemal sťažovať používanie obchodu (dark patterns). Modul vynucuje:
 - Viditeľné tlačidlo zatvorenia (X)

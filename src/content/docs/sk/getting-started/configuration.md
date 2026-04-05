@@ -79,7 +79,7 @@ Kliknutím na ľubovoľnú položku zoznamu prejdete priamo k príslušným nast
 
 ## Konfigurácia jednotlivých skupín modulov
 
-### Právny súlad
+### Právne požiadavky
 
 Prejdite do **WooCommerce > Polski > Právny súlad** na konfiguráciu:
 
@@ -232,7 +232,7 @@ Môžete tiež spustiť automatický audit: **WooCommerce > Polski > Nástroje >
 ## Ďalšie kroky
 
 - [Sprievodca konfiguráciou](/sk/getting-started/wizard/) - automatická konfigurácia najdôležitejších nastavení
-- [Dashboard súladu](/sk/tools/compliance-dashboard/) - monitorovanie stavu právneho súladu
+- [Dashboard súladu](/sk/tools/compliance-dashboard/) - monitorovanie stavu právnych požiadaviek
 - [Audit stránky](/sk/tools/site-audit/) - automatická verifikácia konfigurácie
 
 Máte otázku? Napíšte na [GitHub Discussions](https://github.com/wppoland/polski/discussions). Našli ste chybu? Nahláste ju na [GitHub Issues](https://github.com/wppoland/polski/issues).

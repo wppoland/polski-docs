@@ -36,7 +36,7 @@ Pokud pouzivate potomkovy motiv, sablony umistujte do adresare potomkoveho motiv
 
 ## Seznam sablon
 
-### Pravni soulad
+### Pravni pozadavky
 
 | Soubor sablony | Popis |
 | ---------------------------------------- | --------------------------------------- |

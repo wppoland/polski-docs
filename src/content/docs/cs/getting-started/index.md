@@ -3,7 +3,7 @@ title: Polski for WooCommerce
 description: Komplexni plugin pro WordPress k prizpusobeni obchodu WooCommerce polskym pravnim predpisum a pozadavkum trhu. Soulad s Omnibus, GPSR, DSA, GDPR a dalsimi regulacemi.
 template: splash
 hero:
-  tagline: Kompletni reseni pro provozovani legalniho internetoveho obchodu v Polsku. Soulad s pravem, lokalni funkce, polske standardy e-commerce - vse v jednom pluginu.
+  tagline: Kompletni reseni podporujici provozovani internetoveho obchodu v Polsku. Pravni nastroje, lokalni funkce, polske standardy e-commerce - vse v jednom pluginu.
   actions:
     - text: Zacnete s konfiguraci
       link: /cs/getting-started/installation/
@@ -17,7 +17,7 @@ hero:
 
 ## Co je Polski for WooCommerce?
 
-**Polski for WooCommerce** je bezplatny open source plugin (GPLv2) vytvoreny spolecnosti [wppoland.com](https://wppoland.com), ktery prizpusobuje obchod WooCommerce polskym pravnim pozadavkum a standardum e-commerce. Plugin kombinuje vice nez 30 modulu zahrnujicich pravni soulad, zobrazovani cen, pokladnu, potravinarstvi, moduly obchodu a nastroje pro vyvojare.
+**Polski for WooCommerce** je bezplatny open source plugin (GPLv2) vytvoreny spolecnosti [wppoland.com](https://wppoland.com), ktery prizpusobuje obchod WooCommerce polskym pravnim pozadavkum a standardum e-commerce. Plugin kombinuje vice nez 30 modulu zahrnujicich pravni pozadavky, zobrazovani cen, pokladnu, potravinarstvi, moduly obchodu a nastroje pro vyvojare.
 
 Aktualni verze: **1.3.2**
 
@@ -42,9 +42,9 @@ Pro nejlepsi vykon doporucujeme PHP 8.2+ a WooCommerce 9.x. Plugin je pravidelne
 
 Plugin je postaven modularne - aktivujete pouze ty funkce, ktere potrebujete. Nize naleznete popis vsech dostupnych skupin modulu.
 
-### Pravni soulad
+### Pravni pozadavky
 
-Moduly zajistujici soulad obchodu s polskym a unijnim pravem:
+Moduly pomahajici implementovat pozadavky polskeho a unijniho prava:
 
 - **GPSR (narizeni o bezpecnosti vyrobku)** - udaje vyrobce, dovozce a odpovedne osoby na strankach vyrobku
 - **Omnibus** - zobrazovani nejnizsi ceny za 30 dni pred slevou podle smernice Omnibus
@@ -99,7 +99,7 @@ Funkce zlepsujici nakupni zazitek:
 
 Moduly usnadnujici spravu obchodu:
 
-- **Dashboard souladu** - prehled stavu pravniho souladu obchodu na jednom miste
+- **Dashboard souladu** - prehled stavu pravnich pozadavku obchodu na jednom miste
 - **Audit webu** - automaticka kontrola konfigurace obchodu
 - **Bezpecnostni incidenty** - registr a sprava incidentu GDPR
 - **Overene recenze** - system overenych zakaznickych recenzi
@@ -121,7 +121,7 @@ Nastroje a API pro programatory:
 
 ## Rychly start
 
-Tri kroky k funkcnimu, pravne shodnemu obchodu:
+Tri kroky k funkcnimu obchodu splnujicimu pozadavky e-commerce:
 
 1. **[Nainstalujte plugin](/cs/getting-started/installation/)** - z panelu WordPress nebo rucne ze souboru ZIP
 2. **[Nakonfigurujte zaklady](/cs/getting-started/configuration/)** - aktivujte potrebne moduly v panelu nastaveni
@@ -137,7 +137,7 @@ Pokud narazite na problem, nahlaste jej na [GitHub Issues](https://github.com/wp
 
 - **Vse v jednom** - misto 10 pluginu jedna souvisla platforma
 - **Modularni stavba** - aktivujete pouze to, co potrebujete
-- **Soulad s pravem** - aktualizace v souladu s aktualni legislativou
+- **Pravni nastroje** - aktualizovano pri zmenach predpisu
 - **Open source** - zdrojovy kod na GitHubu, licence GPLv2
 - **Bez predplatneho** - vsechny funkce dostupne zdarma
 - **Vykon** - minimalni zdroje nacitane pouze pro aktivni moduly

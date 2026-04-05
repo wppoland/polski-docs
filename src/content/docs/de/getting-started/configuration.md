@@ -79,7 +79,7 @@ Klicken Sie auf ein beliebiges Listenelement, um direkt zu den entsprechenden Ei
 
 ## Konfiguration einzelner Modulgruppen
 
-### Rechtskonformitaet
+### Rechtliche Anforderungen
 
 Gehen Sie zu **WooCommerce > Polski > Rechtskonformitaet**, um zu konfigurieren:
 
@@ -232,7 +232,7 @@ Sie koennen auch ein automatisches Audit starten: **WooCommerce > Polski > Werkz
 ## Naechste Schritte
 
 - [Konfigurationsassistent](/de/getting-started/wizard/) - automatische Konfiguration der wichtigsten Einstellungen
-- [Compliance-Dashboard](/de/tools/compliance-dashboard/) - Ueberwachung des Rechtskonformitaetsstatus
+- [Compliance-Dashboard](/de/tools/compliance-dashboard/) - Ueberwachung des Status rechtlicher Anforderungen
 - [Shop-Audit](/de/tools/site-audit/) - automatische Konfigurationspruefung
 
 Haben Sie eine Frage? Schreiben Sie auf [GitHub Discussions](https://github.com/wppoland/polski/discussions). Haben Sie einen Fehler gefunden? Melden Sie ihn auf [GitHub Issues](https://github.com/wppoland/polski/issues).

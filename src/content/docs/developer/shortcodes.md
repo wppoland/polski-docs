@@ -5,7 +5,7 @@ description: Kompletna lista 23 shortcodów Polski for WooCommerce z parametrami
 
 Polski for WooCommerce udostępnia 23 shortcody do wyświetlania danych prawnych, informacji o produkcie oraz modułów sklepowych w dowolnym miejscu sklepu.
 
-## Shortcody zgodności prawnej
+## Shortcody wymogów prawnych
 
 ### `[polski_gpsr]`
 

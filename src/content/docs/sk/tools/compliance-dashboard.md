@@ -1,9 +1,9 @@
 ---
 title: Panel súladu (compliance dashboard)
-description: Panel kontroly právneho súladu v Polski for WooCommerce - kontrolný zoznam s farebným stavom pre každú požiadavku.
+description: Panel kontroly právnych požiadaviek v Polski for WooCommerce - kontrolný zoznam s farebným stavom pre každú požiadavku.
 ---
 
-Panel súladu (compliance dashboard) je centrálne miesto na monitorovanie stavu právneho súladu obchodu WooCommerce. Dashboard zobrazuje kontrolný zoznam so stavmi pre každú právnu požiadavku - od obchodných podmienok po GPSR a DSA.
+Panel súladu (compliance dashboard) je centrálne miesto na monitorovanie stavu právnych požiadaviek obchodu WooCommerce. Dashboard zobrazuje kontrolný zoznam so stavmi pre každú právnu požiadavku - od obchodných podmienok po GPSR a DSA.
 
 ## Prístup k panelu
 

@@ -5,7 +5,7 @@ description: Kompletni seznam 23 shortcodu Polski for WooCommerce s parametry, p
 
 Polski for WooCommerce zpristupnuje 23 shortcodu pro zobrazovani pravnich dat, informaci o produktu a modulu obchodu na libovolnem miste obchodu.
 
-## Shortcody pravniho souladu
+## Shortcody pravnich pozadavku
 
 ### `[polski_gpsr]`
 

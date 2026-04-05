@@ -79,7 +79,7 @@ Click any checklist item to go directly to the relevant settings.
 
 ## Configuring individual module groups
 
-### Legal compliance
+### Legal requirements
 
 Go to **WooCommerce > Polski > Legal Compliance** to configure:
 
@@ -232,7 +232,7 @@ You can also run an automatic audit: **WooCommerce > Polski > Tools > Site Audit
 ## Next steps
 
 - [Configuration wizard](/en/getting-started/wizard/) - automatic configuration of the most important settings
-- [Compliance dashboard](/en/tools/compliance-dashboard/) - monitoring legal compliance status
+- [Compliance dashboard](/en/tools/compliance-dashboard/) - monitoring legal requirements status
 - [Site audit](/en/tools/site-audit/) - automatic configuration verification
 
 Have a question? Write on [GitHub Discussions](https://github.com/wppoland/polski/discussions). Found a bug? Report it on [GitHub Issues](https://github.com/wppoland/polski/issues).

@@ -36,7 +36,7 @@ Ak používate potomkovú tému, šablóny umiestňujte do adresára potomkovej 
 
 ## Zoznam šablón
 
-### Právny súlad
+### Právne požiadavky
 
 | Súbor šablóny                            | Popis                                    |
 | ---------------------------------------- | --------------------------------------- |

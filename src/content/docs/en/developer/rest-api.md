@@ -43,8 +43,8 @@ curl -u admin:XXXX-XXXX-XXXX-XXXX \
     },
     {
       "id": "compliance",
-      "label": "Legal compliance",
-      "description": "EU and Polish law compliance settings"
+      "label": "Legal requirements",
+      "description": "EU and Polish law requirements settings"
     },
     {
       "id": "storefront",

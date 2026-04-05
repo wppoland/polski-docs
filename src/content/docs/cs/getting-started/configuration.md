@@ -79,7 +79,7 @@ Kliknutim na libovolnou polozku seznamu prejdete primo na prislusna nastaveni.
 
 ## Konfigurace jednotlivych skupin modulu
 
-### Pravni soulad
+### Pravni pozadavky
 
 Prejdete do **WooCommerce > Polski > Pravni soulad** pro konfiguraci:
 
@@ -232,7 +232,7 @@ Muzete take spustit automaticky audit: **WooCommerce > Polski > Nastroje > Audit
 ## Dalsi kroky
 
 - [Pruvodce konfiguraci](/cs/getting-started/wizard/) - automaticka konfigurace nejdulezitejsich nastaveni
-- [Dashboard souladu](/cs/tools/compliance-dashboard/) - monitorovani stavu pravniho souladu
+- [Dashboard souladu](/cs/tools/compliance-dashboard/) - monitorovani stavu pravnich pozadavku
 - [Audit webu](/cs/tools/site-audit/) - automaticka kontrola konfigurace
 
 Mate otazku? Napiste na [GitHub Discussions](https://github.com/wppoland/polski/discussions). Nasli jste chybu? Nahlaste ji na [GitHub Issues](https://github.com/wppoland/polski/issues).

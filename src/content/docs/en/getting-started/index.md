@@ -3,7 +3,7 @@ title: Polski for WooCommerce
 description: A comprehensive WordPress plugin to adapt your WooCommerce store to Polish legal requirements and market standards. Compliance with Omnibus, GPSR, DSA, GDPR and other regulations.
 template: splash
 hero:
-  tagline: A complete solution for running a legally compliant online store in Poland. Legal compliance, local features, Polish e-commerce standards - all in one plugin.
+  tagline: A complete solution supporting online store operation in Poland. Legal tools, local features, Polish e-commerce standards - all in one plugin.
   actions:
     - text: Start configuration
       link: /en/getting-started/installation/
@@ -17,7 +17,7 @@ hero:
 
 ## What is Polski for WooCommerce?
 
-**Polski for WooCommerce** is a free open source plugin (GPLv2) created by [wppoland.com](https://wppoland.com) that adapts a WooCommerce store to Polish legal requirements and e-commerce standards. The plugin combines over 30 modules covering legal compliance, price display, checkout, food products, storefront modules and developer tools.
+**Polski for WooCommerce** is a free open source plugin (GPLv2) created by [wppoland.com](https://wppoland.com) that adapts a WooCommerce store to Polish legal requirements and e-commerce standards. The plugin combines over 30 modules covering legal requirements, price display, checkout, food products, storefront modules and developer tools.
 
 Current version: **1.3.2**
 
@@ -42,9 +42,9 @@ For the best performance we recommend PHP 8.2+ and WooCommerce 9.x. The plugin i
 
 The plugin is built modularly - you enable only the features you need. Below you will find a description of all available module groups.
 
-### Legal compliance
+### Legal requirements
 
-Modules ensuring store compliance with Polish and EU law:
+Modules helping implement Polish and EU e-commerce requirements:
 
 - **GPSR (General Product Safety Regulation)** - manufacturer, importer and responsible person data on product pages
 - **Omnibus** - displaying the lowest price from 30 days before a discount, in accordance with the Omnibus Directive
@@ -99,7 +99,7 @@ Features improving the shopping experience:
 
 Modules for easier store management:
 
-- **Compliance dashboard** - overview of store legal compliance status in one place
+- **Compliance dashboard** - overview of store legal requirements status in one place
 - **Site audit** - automatic store configuration verification
 - **Security incidents** - GDPR incident register and management
 - **Verified reviews** - verified customer review system
@@ -121,7 +121,7 @@ Tools and API for programmers:
 
 ## Quick start
 
-Three steps to a working, legally compliant store:
+Three steps to a working online store meeting Polish e-commerce requirements:
 
 1. **[Install the plugin](/en/getting-started/installation/)** - from the WordPress dashboard or manually from a ZIP file
 2. **[Configure the basics](/en/getting-started/configuration/)** - enable the modules you need in the settings panel
@@ -137,7 +137,7 @@ If you encounter a problem, report it on [GitHub Issues](https://github.com/wppo
 
 - **All in one** - instead of 10 plugins, one cohesive platform
 - **Modular design** - enable only what you need
-- **Legal compliance** - updates aligned with current regulations
+- **Legal tools** - updated with regulatory changes
 - **Open source** - source code on GitHub, GPLv2 license
 - **No subscription** - all features available for free
 - **Performance** - minimal resources loaded only for active modules

@@ -36,7 +36,7 @@ If you use a child theme, place templates in the child theme directory. The plug
 
 ## Template list
 
-### Legal compliance
+### Legal requirements
 
 | Template file                            | Description                             |
 | ---------------------------------------- | --------------------------------------- |

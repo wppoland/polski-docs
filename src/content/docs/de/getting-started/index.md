@@ -3,7 +3,7 @@ title: Polski for WooCommerce
 description: Umfassendes WordPress-Plugin zur Anpassung eines WooCommerce-Shops an polnische Rechtsvorschriften und Marktanforderungen. Konformitaet mit Omnibus, GPSR, DSA, DSGVO und weiteren Regulierungen.
 template: splash
 hero:
-  tagline: Die komplette Loesung fuer den Betrieb eines rechtlich konformen Onlineshops in Polen. Rechtskonformitaet, lokale Funktionen, polnische E-Commerce-Standards - alles in einem Plugin.
+  tagline: Die komplette Loesung zur Unterstuetzung des Betriebs eines Onlineshops in Polen. Rechtliche Werkzeuge, lokale Funktionen, polnische E-Commerce-Standards - alles in einem Plugin.
   actions:
     - text: Konfiguration starten
       link: /de/getting-started/installation/
@@ -17,7 +17,7 @@ hero:
 
 ## Was ist Polski for WooCommerce?
 
-**Polski for WooCommerce** ist ein kostenloses Open-Source-Plugin (GPLv2), erstellt von [wppoland.com](https://wppoland.com), das einen WooCommerce-Shop an polnische Rechtsanforderungen und E-Commerce-Standards anpasst. Das Plugin vereint ueber 30 Module fuer Rechtskonformitaet, Preisanzeige, Kasse, Lebensmittel, Shop-Module und Entwicklerwerkzeuge.
+**Polski for WooCommerce** ist ein kostenloses Open-Source-Plugin (GPLv2), erstellt von [wppoland.com](https://wppoland.com), das einen WooCommerce-Shop an polnische Rechtsanforderungen und E-Commerce-Standards anpasst. Das Plugin vereint ueber 30 Module fuer rechtliche Anforderungen, Preisanzeige, Kasse, Lebensmittel, Shop-Module und Entwicklerwerkzeuge.
 
 Aktuelle Version: **1.3.2**
 
@@ -42,9 +42,9 @@ Fuer die beste Leistung empfehlen wir PHP 8.2+ und WooCommerce 9.x. Das Plugin w
 
 Das Plugin ist modular aufgebaut - Sie aktivieren nur die Funktionen, die Sie benoetigen. Nachfolgend finden Sie eine Beschreibung aller verfuegbaren Modulgruppen.
 
-### Rechtskonformitaet
+### Rechtliche Anforderungen
 
-Module zur Sicherstellung der Konformitaet des Shops mit polnischem und EU-Recht:
+Module zur Umsetzung polnischer und EU-rechtlicher Anforderungen:
 
 - **GPSR (Verordnung ueber die allgemeine Produktsicherheit)** - Hersteller-, Importeur- und verantwortliche-Person-Daten auf Produktseiten
 - **Omnibus** - Anzeige des niedrigsten Preises der letzten 30 Tage vor der Reduzierung gemaess der Omnibus-Richtlinie
@@ -99,7 +99,7 @@ Funktionen zur Verbesserung des Einkaufserlebnisses:
 
 Module zur Erleichterung der Shop-Verwaltung:
 
-- **Compliance-Dashboard** - Uebersicht des Rechtskonformitaetsstatus an einem Ort
+- **Compliance-Dashboard** - Uebersicht des Status rechtlicher Anforderungen an einem Ort
 - **Shop-Audit** - automatische Ueberpruefung der Shop-Konfiguration
 - **Sicherheitsvorfaelle** - Register und Verwaltung von DSGVO-Vorfaellen
 - **Verifizierte Bewertungen** - System verifizierter Kundenbewertungen
@@ -121,7 +121,7 @@ Werkzeuge und APIs fuer Programmierer:
 
 ## Schnellstart
 
-Drei Schritte zum funktionierenden, rechtskonformen Shop:
+Drei Schritte zum funktionierenden Shop, der E-Commerce-Anforderungen erfuellt:
 
 1. **[Plugin installieren](/de/getting-started/installation/)** - ueber das WordPress-Dashboard oder manuell per ZIP-Datei
 2. **[Grundlagen konfigurieren](/de/getting-started/configuration/)** - benoetigte Module im Einstellungspanel aktivieren
@@ -137,7 +137,7 @@ Wenn Sie ein Problem haben, melden Sie es auf [GitHub Issues](https://github.com
 
 - **Alles in einem** - statt 10 Plugins eine einheitliche Plattform
 - **Modularer Aufbau** - Sie aktivieren nur das, was Sie brauchen
-- **Rechtskonformitaet** - Updates gemaess aktueller Gesetzgebung
+- **Rechtliche Werkzeuge** - aktualisiert bei Aenderungen der Vorschriften
 - **Open Source** - Quellcode auf GitHub, GPLv2-Lizenz
 - **Kein Abonnement** - alle Funktionen kostenlos verfuegbar
 - **Leistung** - minimale Ressourcen werden nur fuer aktive Module geladen

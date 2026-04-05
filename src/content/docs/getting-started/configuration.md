@@ -81,7 +81,7 @@ Kliknij dowolny element listy, aby przejść bezpośrednio do odpowiednich ustaw
 
 ## Konfiguracja poszczególnych grup modułów
 
-### Zgodność prawna
+### Wymogi prawne
 
 Przejdź do **WooCommerce > Polski > Zgodność prawna**, aby skonfigurować:
 
@@ -234,7 +234,7 @@ Możesz też uruchomić automatyczny audyt: **WooCommerce > Polski > Narzędzia 
 ## Następne kroki
 
 - [Kreator konfiguracji](getting-started/wizard/) - automatyczna konfiguracja najważniejszych ustawień
-- [Dashboard zgodności](tools/compliance-dashboard/) - monitorowanie stanu zgodności prawnej
+- [Dashboard zgodności](tools/compliance-dashboard/) - monitorowanie stanu wymogów prawnych
 - [Audyt strony](tools/site-audit/) - automatyczna weryfikacja konfiguracji
 
 Masz pytanie? Napisz na [GitHub Discussions](https://github.com/wppoland/polski/discussions). Znalazłeś błąd? Zgłoś go na [GitHub Issues](https://github.com/wppoland/polski/issues).

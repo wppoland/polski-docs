@@ -3,7 +3,7 @@ title: Polski for WooCommerce
 description: Komplexny WordPress plugin na prispôsobenie obchodu WooCommerce poľským právnym predpisom a trhovým požiadavkám. Súlad s Omnibus, GPSR, DSA, GDPR a ďalšími reguláciami.
 template: splash
 hero:
-  tagline: Kompletné riešenie na prevádzkovanie legálneho internetového obchodu v Poľsku. Súlad s právom, lokálne funkcie, poľské štandardy e-commerce - všetko v jednom plugine.
+  tagline: Kompletné riešenie podporujúce prevádzkovanie internetového obchodu v Poľsku. Právne nástroje, lokálne funkcie, poľské štandardy e-commerce - všetko v jednom plugine.
   actions:
     - text: Začnite s konfiguráciou
       link: /sk/getting-started/installation/
@@ -17,7 +17,7 @@ hero:
 
 ## Čo je Polski for WooCommerce?
 
-**Polski for WooCommerce** je bezplatný open source plugin (GPLv2) vytvorený spoločnosťou [wppoland.com](https://wppoland.com), ktorý prispôsobuje obchod WooCommerce poľským právnym požiadavkám a štandardom e-commerce. Plugin spája viac ako 30 modulov zahŕňajúcich právny súlad, zobrazovanie cien, pokladňu, potravinárske produkty, obchodné moduly a nástroje pre vývojárov.
+**Polski for WooCommerce** je bezplatný open source plugin (GPLv2) vytvorený spoločnosťou [wppoland.com](https://wppoland.com), ktorý prispôsobuje obchod WooCommerce poľským právnym požiadavkám a štandardom e-commerce. Plugin spája viac ako 30 modulov zahŕňajúcich právne požiadavky, zobrazovanie cien, pokladňu, potravinárske produkty, obchodné moduly a nástroje pre vývojárov.
 
 Aktuálna verzia: **1.3.2**
 
@@ -42,9 +42,9 @@ Pre najlepší výkon odporúčame PHP 8.2+ a WooCommerce 9.x. Plugin je pravide
 
 Plugin je postavený modulárne - aktivujete len tie funkcie, ktoré potrebujete. Nižšie nájdete popis všetkých dostupných skupín modulov.
 
-### Právny súlad
+### Právne požiadavky
 
-Moduly zabezpečujúce súlad obchodu s poľským a európskym právom:
+Moduly pomáhajúce implementovať požiadavky poľského a európskeho práva:
 
 - **GPSR (nariadenie o bezpečnosti produktov)** - údaje výrobcu, dovozcu a zodpovednej osoby na kartách produktov
 - **Omnibus** - zobrazenie najnižšej ceny za 30 dní pred zľavou, v súlade so smernicou Omnibus
@@ -99,7 +99,7 @@ Funkcie zlepšujúce nákupný zážitok:
 
 Moduly uľahčujúce správu obchodu:
 
-- **Dashboard súladu** - prehľad stavu právneho súladu obchodu na jednom mieste
+- **Dashboard súladu** - prehľad stavu právnych požiadaviek obchodu na jednom mieste
 - **Audit stránky** - automatická verifikácia konfigurácie obchodu
 - **Bezpečnostné incidenty** - register a správa GDPR incidentov
 - **Overené recenzie** - systém overených zákazníckych recenzií
@@ -121,7 +121,7 @@ Nástroje a API pre programátorov:
 
 ## Rýchly štart
 
-Tri kroky k funkčnému obchodu v súlade s právom:
+Tri kroky k funkčnému obchodu spĺňajúcemu požiadavky e-commerce:
 
 1. **[Nainštalujte plugin](/sk/getting-started/installation/)** - z panelu WordPress alebo ručne zo súboru ZIP
 2. **[Nakonfigurujte základy](/sk/getting-started/configuration/)** - aktivujte potrebné moduly v paneli nastavení
@@ -137,7 +137,7 @@ Ak narazíte na problém, nahláste ho na [GitHub Issues](https://github.com/wpp
 
 - **Všetko v jednom** - namiesto 10 pluginov jedna ucelená platforma
 - **Modulárna stavba** - aktivujete len to, čo potrebujete
-- **Súlad s právom** - aktualizácie v súlade s aktuálnymi predpismi
+- **Právne nástroje** - aktualizované pri zmenách predpisov
 - **Open source** - zdrojový kód na GitHube, licencia GPLv2
 - **Bez predplatného** - všetky funkcie dostupné bezplatne
 - **Výkon** - minimálne zdroje načítané len pre aktívne moduly

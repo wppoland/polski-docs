@@ -3,7 +3,7 @@ title: Audyt sklepu
 description: Narzędzie audytu sklepu w Polski for WooCommerce - weryfikacja stron prawnych, dark patterns, DPA, DSA, KSeF, greenwashing i bezpieczeństwa.
 ---
 
-Audyt sklepu to narzędzie automatycznie skanujące sklep WooCommerce pod kątem zgodności z polskim i unijnym prawem e-commerce. W odróżnieniu od panelu zgodności (checklist), audyt wykonuje głęboką analizę treści stron, interfejsu użytkownika oraz konfiguracji technicznej.
+Audyt sklepu to narzędzie automatycznie skanujące sklep WooCommerce pod kątem wymogów polskiego i unijnego prawa e-commerce. W odróżnieniu od panelu zgodności (checklist), audyt wykonuje głęboką analizę treści stron, interfejsu użytkownika oraz konfiguracji technicznej.
 
 ## Uruchomienie audytu
 

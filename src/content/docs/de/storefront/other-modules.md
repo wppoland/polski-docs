@@ -140,7 +140,7 @@ Das Modul zeigt ein konfigurierbares Popup (Modalfenster) auf der Shop-Seite an.
 - **Nur neue Besucher** - Popup nur fuer neue Besucher sichtbar
 - **Ausgewaehlte Seiten** - Popup nur auf angegebenen Seiten sichtbar
 
-### Rechtskonformitaet
+### Rechtliche Anforderungen
 
 Das Popup sollte die Shop-Nutzung nicht behindern (Dark Patterns). Das Modul erzwingt:
 - Sichtbarer Schliessen-Button (X)

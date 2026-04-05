@@ -5,7 +5,7 @@ description: Vollstaendige Liste der 23 Shortcodes von Polski for WooCommerce mi
 
 Polski for WooCommerce stellt 23 Shortcodes zur Anzeige rechtlicher Daten, Produktinformationen und Shop-Module an beliebiger Stelle im Shop bereit.
 
-## Shortcodes fuer Rechtskonformitaet
+## Shortcodes fuer rechtliche Anforderungen
 
 ### `[polski_gpsr]`
 

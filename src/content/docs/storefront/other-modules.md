@@ -204,7 +204,7 @@ Przejdź do **WooCommerce > Polski > Moduły sklepowe > Popup** i skonfiguruj:
 - Pozycja (centrum, dół, bok)
 - Przycisk zamknięcia
 
-### Zgodność z prawem
+### Wymogi prawne
 
 Popup nie powinien utrudniać korzystania ze sklepu (dark patterns). Moduł wymusza:
 - Widoczny przycisk zamknięcia (X)

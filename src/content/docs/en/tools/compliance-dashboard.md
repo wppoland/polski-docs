@@ -1,9 +1,9 @@
 ---
 title: Compliance dashboard
-description: Legal compliance control panel in Polski for WooCommerce - checklist with color-coded status for each requirement.
+description: Legal requirements control panel in Polski for WooCommerce - checklist with color-coded status for each requirement.
 ---
 
-The compliance dashboard is the central place for monitoring the legal compliance status of a WooCommerce store. The dashboard displays a checklist with statuses for each legal requirement - from terms and conditions to GPSR and DSA.
+The compliance dashboard is the central place for monitoring legal requirements status of a WooCommerce store. The dashboard displays a checklist with statuses for each legal requirement - from terms and conditions to GPSR and DSA.
 
 ## Accessing the dashboard
 

@@ -3,7 +3,7 @@ title: Polski for WooCommerce
 description: Kompleksowa wtyczka WordPress do dostosowania sklepu WooCommerce do polskich przepisów prawnych i wymagań rynkowych. Zgodność z Omnibus, GPSR, DSA, RODO i innymi regulacjami.
 template: splash
 hero:
-  tagline: Kompletne rozwiązanie do prowadzenia legalnego sklepu internetowego w Polsce. Zgodność z prawem, lokalne funkcje, polskie standardy e-commerce - wszystko w jednej wtyczce.
+  tagline: Kompletne rozwiązanie wspierające prowadzenie sklepu internetowego w Polsce. Wymogi prawne, lokalne funkcje, polskie standardy e-commerce - wszystko w jednej wtyczce.
   actions:
     - text: Zacznij konfigurację
       link: /pl/getting-started/installation/
@@ -19,7 +19,7 @@ hero:
 
 ## Czym jest Polski for WooCommerce?
 
-**Polski for WooCommerce** to darmowa wtyczka open source (GPLv2) stworzona przez [wppoland.com](https://wppoland.com), która dostosowuje sklep WooCommerce do polskich wymogów prawnych oraz standardów e-commerce. Wtyczka łączy w sobie ponad 30 modułów obejmujących zgodność prawną, wyświetlanie cen, kasę, produkty spożywcze, moduły sklepowe i narzędzia dla deweloperów.
+**Polski for WooCommerce** to darmowa wtyczka open source (GPLv2) stworzona przez [wppoland.com](https://wppoland.com), która dostosowuje sklep WooCommerce do polskich wymogów prawnych oraz standardów e-commerce. Wtyczka łączy w sobie ponad 30 modułów obejmujących wymogi prawne, wyświetlanie cen, kasę, produkty spożywcze, moduły sklepowe i narzędzia dla deweloperów.
 
 Aktualna wersja: **1.3.2**
 
@@ -46,9 +46,9 @@ Wtyczka jest zbudowana modułowo - włączasz tylko te funkcje, których potrzeb
 
 ![Dashboard modułów Polski for WooCommerce](../../assets/screenshots/screenshot-1-modules-dashboard.png)
 
-### Zgodność prawna
+### Wymogi prawne
 
-Moduły zapewniające zgodność sklepu z polskim i unijnym prawem:
+Moduły pomagające wdrożyć wymogi polskiego i unijnego prawa:
 
 - **GPSR (rozporządzenie o bezpieczeństwie produktów)** - dane producenta, importera i osoby odpowiedzialnej na kartach produktów
 - **Omnibus** - wyświetlanie najniższej ceny z 30 dni przed obniżką, zgodnie z dyrektywą Omnibus
@@ -103,7 +103,7 @@ Funkcje poprawiające doświadczenie zakupowe:
 
 Moduły ułatwiające zarządzanie sklepem:
 
-- **Dashboard zgodności** - przegląd stanu zgodności prawnej sklepu w jednym miejscu
+- **Dashboard zgodności** - przegląd stanu wymogów prawnych sklepu w jednym miejscu
 - **Audyt strony** - automatyczna weryfikacja konfiguracji sklepu
 - **Incydenty bezpieczeństwa** - rejestr i zarządzanie incydentami RODO
 - **Zweryfikowane opinie** - system weryfikowanych opinii klientów
@@ -125,7 +125,7 @@ Narzędzia i API dla programistów:
 
 ## Szybki start
 
-Trzy kroki do działającego, zgodnego z prawem sklepu:
+Trzy kroki do działającego sklepu spełniającego wymogi e-commerce:
 
 1. **[Zainstaluj wtyczkę](getting-started/installation/)** - z poziomu panelu WordPress lub ręcznie z pliku ZIP
 2. **[Skonfiguruj podstawy](getting-started/configuration/)** - włącz potrzebne moduły w panelu ustawień
@@ -141,7 +141,7 @@ Jeśli napotkasz problem, zgłoś go na [GitHub Issues](https://github.com/wppol
 
 - **Wszystko w jednym** - zamiast 10 wtyczek, jedna spójna platforma
 - **Modułowa budowa** - włączasz tylko to, czego potrzebujesz
-- **Zgodność z prawem** - aktualizacje zgodne z bieżącymi przepisami
+- **Wymogi prawne** - narzędzia aktualizowane wraz ze zmianami przepisów
 - **Open source** - kod źródłowy na GitHubie, licencja GPLv2
 - **Bez subskrypcji** - wszystkie funkcje dostępne bezpłatnie
 - **Wydajność** - minimalne zasoby ładowane tylko dla aktywnych modułów
