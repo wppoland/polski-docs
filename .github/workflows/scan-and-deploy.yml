@@ -1,6 +1,9 @@
 name: Scan repos and deploy docs
 
 on:
+  push:
+    branches: [main]
+
   schedule:
     # Every Monday at 06:00 UTC
     - cron: '0 6 * * 1'
