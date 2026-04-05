@@ -9,7 +9,9 @@
       "Bash(CLOUDFLARE_ACCOUNT_ID=3e15c851f9c8c0ba9a856581c0c02e22 npx wrangler:*)",
       "Bash(gh secret:*)",
       "Bash(cp:*)",
-      "Bash(gh auth:*)"
+      "Bash(gh auth:*)",
+      "Bash(gh run:*)",
+      "Bash(python3 -m json.tool)"
     ]
   }
 }
