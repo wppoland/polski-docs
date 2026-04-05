@@ -49,6 +49,13 @@ nav.sidebar .top-level > li:nth-child(3) > details > summary {
 	padding-left: 0.5rem;
 }
 
+/* Code blocks - wrap long lines */
+pre {
+	white-space: pre-wrap;
+	word-wrap: break-word;
+	overflow-wrap: break-word;
+}
+
 /* Polish flag accent on hero */
 .hero-flag {
 	display: inline-block;
