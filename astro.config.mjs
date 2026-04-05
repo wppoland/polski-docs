@@ -202,7 +202,7 @@ export default defineConfig({
 							],
 						},
 						{
-							label: 'Kasa i zgody',
+							label: 'Koszyk i zgody',
 							translations: {
 								en: 'Checkout and consent',
 								de: 'Kasse und Einwilligungen',

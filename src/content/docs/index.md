@@ -31,7 +31,7 @@ Polski for WooCommerce to modułowa platforma stworzona przez [wppoland.com](htt
 | Cena | Bezpłatnie | [wppoland.com/polski-pro](https://wppoland.com/polski-pro) |
 | Wymogi prawne | GPSR, Omnibus, RODO, DSA, KSeF i inne | Wszystko z FREE |
 | Ceny i produkty | Cena jednostkowa, VAT, czas dostawy | Wszystko z FREE |
-| Kasa | Przycisk zamówienia, checkboxy, NIP | + wieloetapowa kasa |
+| Kasa | Przycisk zamówienia, checkboxy, NIP | + wieloetapowy koszyk |
 | Moduły sklepowe | Wishlist, porównywarka, filtry, slider | Wszystko z FREE |
 | Faktury | - | Faktura VAT, korygująca, paragon, WZ |
 | KSeF | Przygotowanie | + pełna integracja z API |
@@ -123,7 +123,7 @@ Wersja PRO to osobna wtyczka instalowana obok darmowej wersji. Wszystkie moduły
 
 ### Kasa i zgody
 
-- **[Wieloetapowa kasa](/pro/multistep-checkout/)** - Address -> Shipping -> Payment -> Review
+- **[Wieloetapowy koszyk](/pro/multistep-checkout/)** - Address -> Shipping -> Payment -> Review
 - **[Zarządzanie zgodami](/pro/consent-management/)** - wersjonowanie, audit trail, GDPR export
 
 ### Sprzedaż i marketing

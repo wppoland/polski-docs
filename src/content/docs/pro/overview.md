@@ -13,7 +13,7 @@ Darmowa wersja Polski for WooCommerce obsługuje podstawowe wymagania polskich s
 |-------|------|
 | [Faktury](/pro/invoices/) | System faktur VAT, korygujących, paragonów i dokumentów WZ z generowaniem PDF |
 | [Integracja KSeF](/pro/ksef/) | Wysyłka faktur elektronicznych do Krajowego Systemu e-Faktur |
-| [Wieloetapowa kasa](/pro/multistep-checkout/) | Podział procesu zamówienia na kroki: adres, dostawa, płatność, podsumowanie |
+| [Wieloetapowy koszyk](/pro/multistep-checkout/) | Podział procesu zamówienia na kroki: adres, dostawa, płatność, podsumowanie |
 | [Zarządzanie zgodami](/pro/consent-management/) | Wersjonowanie zgód, audit trail, eksport CSV/JSON, integracja RODO |
 | [Karty podarunkowe](/pro/gift-cards/) | Sprzedaż kart podarunkowych, generowanie kodów, realizacja w koszyku |
 | [Subskrypcje](/pro/subscriptions/) | Produkty z płatnością cykliczną, odnowienia, przypomnienia e-mail |

@@ -1,13 +1,13 @@
 ---
-title: Wieloetapowa kasa
-description: Dokumentacja wieloetapowej kasy Polski PRO for WooCommerce - podział procesu zamówienia na kroki, konfiguracja, React Checkout Blocks i fallback klasyczny.
+title: Wieloetapowy koszyk
+description: Dokumentacja wieloetapowego koszyka Polski PRO for WooCommerce - podział procesu zamówienia na kroki, konfiguracja, React Checkout Blocks i fallback klasyczny.
 ---
 
-Moduł wieloetapowej kasy w Polski PRO for WooCommerce dzieli proces składania zamówienia na cztery przejrzyste kroki. Klient widzi pasek postępu i przechodzi kolejno przez formularz adresowy, wybór dostawy, płatność i podsumowanie zamówienia.
+Moduł wieloetapowego koszyka w Polski PRO for WooCommerce dzieli proces składania zamówienia na cztery przejrzyste kroki. Klient widzi pasek postępu i przechodzi kolejno przez formularz adresowy, wybór dostawy, płatność i podsumowanie zamówienia.
 
 ## Kroki kasy
 
-Wieloetapowa kasa składa się z czterech kroków:
+Wieloetapowy koszyk składa się z czterech kroków:
 
 | Krok | Nazwa domyślna | Zawartość |
 |------|----------------|-----------|
@@ -24,7 +24,7 @@ Przejdź do **WooCommerce > Ustawienia > Polski > Moduły PRO > Kasa**.
 
 ### Włączanie modułu
 
-Wieloetapowa kasa jest kontrolowana opcją:
+Wieloetapowy koszyk jest kontrolowana opcją:
 
 ```
 polski_pro_checkout[multistep_enabled]
@@ -83,7 +83,7 @@ Plugin automatycznie wykrywa, czy kasa używa Checkout Blocks czy shortcode klas
 
 ### Klasa CSS body
 
-Gdy wieloetapowa kasa jest aktywna, do elementu `<body>` dodawana jest klasa:
+Gdy wieloetapowy koszyk jest aktywna, do elementu `<body>` dodawana jest klasa:
 
 ```
 polski-multistep-checkout
@@ -143,7 +143,7 @@ Pola dodane przez inne wtyczki (np. przez hook `woocommerce_checkout_fields`) s�
 
 ## Dostępność (a11y)
 
-Wieloetapowa kasa obsługuje:
+Wieloetapowy koszyk obsługuje:
 
 - nawigację klawiaturą (Tab, Enter, Escape)
 - atrybuty ARIA (`aria-current`, `aria-label`, `role="tablist"`)
