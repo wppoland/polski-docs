@@ -38,6 +38,17 @@
 	font-style: italic;
 }
 
+/* FREE / PRO sidebar section styling */
+nav.sidebar .top-level > li:nth-child(2) > details > summary {
+	border-left: 3px solid #10b981;
+	padding-left: 0.5rem;
+}
+
+nav.sidebar .top-level > li:nth-child(3) > details > summary {
+	border-left: 3px solid #f59e0b;
+	padding-left: 0.5rem;
+}
+
 /* Polish flag accent on hero */
 .hero-flag {
 	display: inline-block;
