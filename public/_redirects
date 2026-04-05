@@ -1,0 +1,2 @@
+# Redirect old /pl/ paths to root (Polish is now root locale)
+/pl/* /:splat 301
