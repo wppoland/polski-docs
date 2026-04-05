@@ -3,19 +3,19 @@ title: Etykiety produktów
 description: Moduł etykiet w Polski for WooCommerce - automatyczne odznaki (wyprzedaż, nowość, niski stan, bestseller) oraz ręczne etykiety per produkt.
 ---
 
-Etykiety (badges) to kolorowe odznaki wyświetlane na zdjęciach produktów. Pomagają klientom szybko zidentyfikować produkty w promocji, nowości, bestsellery oraz produkty o niskim stanie magazynowym.
+Etykiety (badges) to kolorowe odznaki na zdjęciach produktów. Pomagają klientom szybko rozpoznać promocje, nowości, bestsellery i produkty z niskim stanem.
 
 ## Włączenie modułu
 
-Przejdź do **WooCommerce > Polski > Moduły sklepowe** i aktywuj opcję **Etykiety produktów**. Moduł zastąpi domyślną odznakę WooCommerce "Wyprzedaż!" własnymi, konfigurowalnymi etykietami.
+Przejdź do **WooCommerce > Polski > Moduły sklepowe** i włącz **Etykiety produktów**. Moduł zastąpi domyślną odznakę "Wyprzedaż!" konfigurowalnymi etykietami.
 
 ## Etykiety automatyczne
 
-Etykiety automatyczne generowane są na podstawie danych produktu. Nie wymagają ręcznej konfiguracji - po włączeniu działają natychmiast na wszystkich produktach.
+Generują się automatycznie na podstawie danych produktu. Po włączeniu działają od razu na wszystkich produktach.
 
 ### Wyprzedaż (sale)
 
-Wyświetlana gdy produkt ma ustawioną cenę promocyjną. Domyślnie pokazuje procent zniżki (np. **-25%**) zamiast standardowego tekstu "Wyprzedaż!".
+Pojawia się gdy produkt ma cenę promocyjną. Domyślnie pokazuje procent zniżki (np. **-25%**) zamiast tekstu "Wyprzedaż!".
 
 Konfiguracja formatu:
 
@@ -33,11 +33,11 @@ add_filter('polski/badges/sale_format', function (): string {
 });
 ```
 
-Dla produktów zmiennych procent obliczany jest na podstawie wariantu z największą zniżką.
+Dla produktów zmiennych procent liczy się od wariantu z największą zniżką.
 
 ### Nowość (new)
 
-Wyświetlana na produktach dodanych w ciągu ostatnich X dni. Domyślnie **14 dni**.
+Pojawia się na produktach dodanych w ciągu ostatnich X dni. Domyślnie **14 dni**.
 
 ```php
 // Zmiana okresu nowości
@@ -48,7 +48,7 @@ add_filter('polski/badges/new_days', function (): int {
 
 ### Niski stan magazynowy (low stock)
 
-Wyświetlana gdy ilość produktu w magazynie spadnie poniżej ustalonego progu. Domyślny próg to wartość ustawiona w WooCommerce (**WooCommerce > Ustawienia > Produkty > Magazyn > Próg niskiego stanu**).
+Pojawia się gdy stan magazynowy spadnie poniżej progu. Próg ustawiasz w **WooCommerce > Ustawienia > Produkty > Magazyn > Próg niskiego stanu**.
 
 Treść etykiety: **Ostatnie X sztuk!** (gdzie X to aktualna ilość).
 
@@ -64,7 +64,7 @@ add_filter('polski/badges/low_stock_text', function (string $text, int $stock): 
 
 ### Bestseller
 
-Wyświetlana na produktach z największą liczbą sprzedaży. Domyślnie top **10 produktów** w sklepie.
+Pojawia się na najlepiej sprzedających się produktach. Domyślnie top **10 produktów**.
 
 ```php
 // Zmiana limitu bestsellerów
@@ -73,11 +73,11 @@ add_filter('polski/badges/bestseller_limit', function (): int {
 });
 ```
 
-Obliczanie bestsellerów cachowane jest w transient API (domyślnie 24 godziny).
+Lista bestsellerów cachuje się w transient API (domyślnie 24 godziny).
 
 ## Etykiety ręczne (per produkt)
 
-Oprócz automatycznych etykiet możesz dodawać własne odznaki do pojedynczych produktów. W edytorze produktu w panelu **Dane produktu** znajdziesz zakładkę **Etykiety**.
+Możesz też dodawać własne odznaki do pojedynczych produktów. W edytorze produktu otwórz **Dane produktu > Etykiety**.
 
 Opcje etykiety ręcznej:
 
@@ -87,7 +87,7 @@ Opcje etykiety ręcznej:
 - **Pozycja** - lewy góra, prawy góra, lewy dół, prawy dół
 - **Priorytet** - kolejność wyświetlania gdy produkt ma wiele etykiet
 
-Maksymalna liczba etykiet na jednym produkcie to **4** (automatyczne + ręczne łącznie). Limit ten zapobiega zaśmieceniu miniaturki.
+Maksymalnie **4** etykiety na produkcie (automatyczne + ręczne łącznie). Limit chroni miniaturkę przed zaśmieceniem.
 
 ```php
 // Zmiana limitu etykiet na produkcie
@@ -107,7 +107,7 @@ Etykiety automatyczne mają domyślne pozycje:
 | Niski stan   | Lewy dół         |
 | Bestseller   | Prawy góra       |
 
-Pozycje konfigurujesz w ustawieniach modułu. Jeśli dwie etykiety mają tę samą pozycję, układane są pionowo jedna pod drugą.
+Zmień pozycje w ustawieniach modułu. Dwie etykiety w tej samej pozycji układają się pionowo.
 
 ## Kształty etykiet
 
@@ -177,15 +177,15 @@ Przykład stylowania:
 
 ## Wydajność
 
-Etykiety automatyczne cachowane są w meta produktu (`_polski_badges_cache`) i aktualizowane przy każdym zapisie produktu. Obliczanie bestsellerów wykonywane jest raz na 24 godziny przez transient API.
+Etykiety cachują się w meta produktu (`_polski_badges_cache`) i aktualizują się przy zapisie produktu. Bestsellery przeliczają się raz na 24 godziny (transient API).
 
 ## Rozwiązywanie problemów
 
-**Etykieta wyprzedaży nie wyświetla procentu** - sprawdź, czy cena regularna produktu jest ustawiona. Bez ceny regularnej procent nie może być obliczony.
+**Etykieta wyprzedaży nie wyświetla procentu** - sprawdź, czy produkt ma ustawioną cenę regularną. Bez niej nie da się obliczyć procentu.
 
-**Ręczna etykieta nie pojawia się** - sprawdź limit etykiet na produkcie. Jeśli produkt ma już 4 etykiety automatyczne, ręczna nie zostanie wyświetlona.
+**Ręczna etykieta nie pojawia się** - sprawdź limit etykiet. Jeśli produkt ma już 4 etykiety, ręczna się nie wyświetli.
 
-**Etykiety zasłaniają przycisk szybkiego podglądu** - zmień pozycję etykiet lub przycisku quick view w ustawieniach modułów.
+**Etykiety zasłaniają przycisk szybkiego podglądu** - zmień pozycję etykiet lub przycisku quick view w ustawieniach.
 
 Zgłaszanie problemów: [github.com/wppoland/polski/issues](https://github.com/wppoland/polski/issues)
 

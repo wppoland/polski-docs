@@ -3,11 +3,11 @@ title: Wartości odżywcze
 description: Tabela wartości odżywczych w formacie JSON per 100 g lub 100 ml z shortcodem do wyświetlania na stronie produktu WooCommerce.
 ---
 
-Rozporządzenie (UE) nr 1169/2011 wymaga, aby na opakowaniu (i w sklepie internetowym) produktu spożywczego znajdowała się tabela wartości odżywczych. Plugin Polski for WooCommerce umożliwia wprowadzenie pełnej tabeli wartości odżywczych dla każdego produktu i wyświetlenie jej w przejrzystym formacie zgodnym z regulacjami.
+Sklep spożywczy musi wyświetlać tabelę wartości odżywczych (rozporządzenie UE nr 1169/2011). Wtyczka Polski for WooCommerce pozwala dodać tabelę do każdego produktu w formacie zgodnym z przepisami.
 
 ## Obowiązkowe składniki odżywcze
 
-Zgodnie z art. 30 rozporządzenia FIC, tabela wartości odżywczych musi zawierać co najmniej:
+Tabela wartości odżywczych musi zawierać co najmniej:
 
 | Składnik | Jednostka | Klucz JSON |
 |----------|-----------|------------|
@@ -21,7 +21,7 @@ Zgodnie z art. 30 rozporządzenia FIC, tabela wartości odżywczych musi zawiera
 
 ## Opcjonalne składniki odżywcze
 
-Dodatkowo można podać (art. 30 ust. 2 FIC):
+Dodatkowo możesz podać:
 
 | Składnik | Jednostka | Klucz JSON |
 |----------|-----------|------------|
@@ -75,15 +75,15 @@ Przejdź do **WooCommerce > Ustawienia > Polski > Żywność** i aktywuj podmodu
 
 ## Wprowadzanie danych w edytorze produktu
 
-W zakładce "Żywność" w edytorze produktu znajduje się formularz wartości odżywczych. Wypełnij pola wartościami liczbowymi per 100 g lub 100 ml.
+W zakładce "Żywność" edytora produktu wypełnij formularz wartości odżywczych. Wpisuj wartości liczbowe per 100 g lub 100 ml.
 
 ### Jednostka referencyjna per produkt
 
-Każdy produkt może mieć indywidualną jednostkę referencyjną. Napoje powinny mieć ustawione "per 100 ml", produkty stałe - "per 100 g". Jeśli nie ustawisz, zostanie użyta wartość domyślna z ustawień.
+Każdy produkt może mieć własną jednostkę. Napoje ustaw na "per 100 ml", produkty stałe na "per 100 g". Bez ustawienia wtyczka użyje wartości domyślnej.
 
 ### Porcja
 
-Opcjonalnie możesz podać również wielkość porcji i wartości odżywcze per porcję:
+Opcjonalnie podaj wielkość porcji i wartości per porcję:
 
 | Pole | Opis |
 |------|------|
@@ -92,7 +92,7 @@ Opcjonalnie możesz podać również wielkość porcji i wartości odżywcze per
 
 ## Format JSON
 
-Wartości odżywcze są przechowywane w bazie danych jako JSON w meta polu `_polski_nutrients`. Format:
+Wartości odżywcze są zapisane w bazie jako JSON w meta polu `_polski_nutrients`. Format:
 
 ```json
 {
@@ -217,7 +217,7 @@ Shortcode generuje tabelę zgodną ze standardem EU:
 
 ## Referencyjna wartość spożycia (RWS)
 
-Plugin oblicza % RWS automatycznie na podstawie wartości referencyjnych z załącznika XIII rozporządzenia FIC:
+Wtyczka oblicza % RWS automatycznie na podstawie tych wartości referencyjnych:
 
 | Składnik | Referencyjna wartość |
 |----------|---------------------|
@@ -277,7 +277,7 @@ add_filter('polski/nutrients/values', function (array $nutrients, int $product_i
 
 ## Import CSV
 
-Kolumna `polski_nutrients` w CSV powinna zawierać wartości w formacie JSON:
+Kolumna `polski_nutrients` w CSV zawiera wartości jako JSON:
 
 ```csv
 "Musli owocowe","{""energy_kj"":1590,""energy_kcal"":380,""fat"":8.2,""saturated_fat"":1.5,""carbohydrates"":64.0,""sugars"":22.0,""fibre"":7.5,""protein"":9.8,""salt"":0.05,""ref_unit"":""100g""}"
@@ -323,7 +323,7 @@ Cudzysłowy wewnątrz JSON muszą być podwojone (`""`) w pliku CSV.
 
 ### Wartości wyświetlają się z kropką zamiast przecinka
 
-Plugin automatycznie formatuje liczby zgodnie z polskimi ustawieniami (przecinek dziesiętny). Jeśli widzisz kropkę, sprawdź, czy locale WordPress jest ustawiony na `pl_PL`.
+Wtyczka automatycznie formatuje liczby z polskim przecinkiem. Jeśli widzisz kropkę, sprawdź, czy locale WordPress jest ustawiony na `pl_PL`.
 
 ### % RWS nie wyświetla się
 

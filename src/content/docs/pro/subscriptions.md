@@ -3,7 +3,7 @@ title: Subskrypcje
 description: Dokumentacja modułu subskrypcji Polski PRO for WooCommerce - produkty cykliczne, odnowienia, przypomnienia e-mail, cron i panel Moje konto.
 ---
 
-Moduł subskrypcji w Polski PRO for WooCommerce dodaje obsługę produktów z płatnością cykliczną. Klienci mogą kupować subskrypcje z automatycznym lub ręcznym odnawianiem, a administrator zarządza cyklem życia subskrypcji z poziomu WooCommerce.
+Moduł subskrypcji dodaje produkty z płatnością cykliczną. Klienci kupują subskrypcje z ręcznym odnawianiem, a administrator zarządza nimi w WooCommerce.
 
 ## Jak to działa
 
@@ -54,13 +54,13 @@ polski_subscriptions
 
 ### Cena początkowa vs cena odnowienia
 
-Plugin obsługuje scenariusze, w których cena za pierwszy okres różni się od ceny za kolejne okresy. Typowe zastosowania:
+Cena za pierwszy okres może być inna niż za kolejne. Zastosowania:
 
 - okres próbny za darmo lub po obniżonej cenie
 - promocyjna cena na start
 - opłata aktywacyjna + niższa cena cykliczna
 
-Cena początkowa jest stosowana tylko do pierwszego zamówienia. Kolejne zamówienia odnowienia używają standardowej ceny subskrypcji.
+Cena początkowa dotyczy tylko pierwszego zamówienia. Kolejne odnowienia mają standardową cenę.
 
 ## Cykl życia subskrypcji
 
@@ -82,7 +82,7 @@ Pending → Active → On Hold → Active → ...
 
 ### Ręczne odnowienie
 
-W bieżącej wersji plugin obsługuje ręczne odnowienia. Oznacza to, że:
+Plugin obsługuje ręczne odnowienia:
 
 1. Plugin tworzy zamówienie odnowienia ze statusem "Oczekujące na płatność"
 2. Klient otrzymuje e-mail z linkiem do opłacenia zamówienia
@@ -91,18 +91,18 @@ W bieżącej wersji plugin obsługuje ręczne odnowienia. Oznacza to, że:
 
 ### Proces odnowienia
 
-Plugin sprawdza subskrypcje do odnowienia codziennie za pomocą crona WP:
+Plugin sprawdza subskrypcje do odnowienia codziennie przez WP-Cron:
 
 ```
 polski_daily_maintenance
 ```
 
-Zadanie cron uruchamia się raz dziennie i wykonuje:
+Codzienne zadanie cron:
 
-- sprawdzenie subskrypcji, których data odnowienia przypada na dziś lub wcześniej
-- utworzenie zamówień odnowienia dla subskrypcji wymagających odnowienia
-- zawieszenie subskrypcji, które przekroczyły okres karencji
-- wygaszenie subskrypcji, które osiągnęły limit odnowień
+- sprawdza subskrypcje do odnowienia
+- tworzy zamówienia odnowienia
+- zawiesza subskrypcje po okresie karencji
+- wygasza subskrypcje po osiągnięciu limitu odnowień
 
 ### Przypomnienia e-mail
 
@@ -119,7 +119,7 @@ Szablony e-maili można dostosować w **WooCommerce > Ustawienia > E-maile**.
 
 ## Panel Moje konto
 
-Moduł dodaje endpoint `/polski-subscriptions` do panelu Moje konto klienta. Endpoint jest dostępny pod adresem:
+Moduł dodaje sekcję w Moje konto pod adresem:
 
 ```
 /moje-konto/polski-subscriptions/
@@ -148,7 +148,7 @@ Po kliknięciu w subskrypcję klient widzi:
 
 ### Anulowanie subskrypcji
 
-Klient może anulować aktywną subskrypcję z poziomu panelu Moje konto. Anulowanie:
+Klient może anulować aktywną subskrypcję w Moje konto. Anulowanie:
 
 - zmienia status subskrypcji na "Cancelled"
 - subskrypcja pozostaje aktywna do końca bieżącego opłaconego okresu

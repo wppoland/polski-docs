@@ -5,7 +5,7 @@ description: Instrukcja instalacji wtyczki Polski for WooCommerce krok po kroku 
 
 ## Wymagania wstępne
 
-Przed rozpoczęciem instalacji sprawdź, czy Twój serwer spełnia wymagania. Wtyczka **Polski for WooCommerce** w wersji 1.3.2 wymaga:
+Sprawdź, czy Twój serwer spełnia wymagania. Wtyczka **Polski for WooCommerce** 1.3.2 wymaga:
 
 | Komponent | Minimalna wersja | Zalecana wersja |
 |-----------|-----------------|-----------------|
@@ -17,14 +17,14 @@ Przed rozpoczęciem instalacji sprawdź, czy Twój serwer spełnia wymagania. Wt
 
 ### Sprawdzenie wersji PHP
 
-Jeśli nie wiesz, jaką wersję PHP ma Twój serwer, sprawdź to w panelu WordPress:
+Nie wiesz, jaką masz wersję PHP? Sprawdź w panelu WordPress:
 
 1. Przejdź do **Narzędzia > Zdrowie witryny**
 2. Kliknij zakładkę **Informacje**
 3. Rozwiń sekcję **Serwer**
 4. Znajdź pole **Wersja PHP**
 
-Alternatywnie, w wielu panelach hostingowych (cPanel, DirectAdmin) informacja o wersji PHP jest dostępna w ustawieniach domeny.
+Wersję PHP znajdziesz też w panelu hostingu (cPanel, DirectAdmin) w ustawieniach domeny.
 
 ### Sprawdzenie wersji WooCommerce
 
@@ -33,7 +33,7 @@ Alternatywnie, w wielu panelach hostingowych (cPanel, DirectAdmin) informacja o 
 3. Wersja jest wyświetlana pod nazwą wtyczki
 
 :::caution[PHP 8.0 i starsze]
-Wtyczka nie będzie działać na PHP 7.x ani PHP 8.0. Jeśli Twój hosting nie obsługuje PHP 8.1+, skontaktuj się z dostawcą hostingu w sprawie aktualizacji. Większość hostingów pozwala zmienić wersję PHP w panelu administracyjnym.
+Wtyczka nie działa na PHP 7.x ani PHP 8.0. Jeśli Twój hosting nie ma PHP 8.1+, zmień wersję PHP w panelu hostingu lub skontaktuj się z dostawcą.
 :::
 
 ---
@@ -72,7 +72,7 @@ Po aktywacji pojawi się powiadomienie z linkiem do kreatora konfiguracji. Klikn
 
 ## Metoda 2: Instalacja ręczna z pliku ZIP
 
-Użyj tej metody, jeśli chcesz zainstalować konkretną wersję wtyczki lub nie masz dostępu do repozytorium WordPress.org z poziomu serwera.
+Użyj tej metody, gdy chcesz zainstalować konkretną wersję lub serwer nie łączy się z WordPress.org.
 
 ### Krok 1 - pobierz paczkę ZIP
 
@@ -96,7 +96,7 @@ Po przesłaniu i rozpakowaniu plików kliknij **Aktywuj wtyczkę**.
 
 ## Metoda 3: Instalacja przez FTP/SFTP
 
-Ta metoda jest przydatna, gdy panel WordPress nie pozwala na przesyłanie plików (np. ze względu na limity rozmiaru).
+Użyj tej metody, gdy panel WordPress nie pozwala przesyłać plików (np. przez limit rozmiaru).
 
 ### Krok 1 - rozpakuj archiwum
 
@@ -160,13 +160,13 @@ Po aktywacji wtyczki sprawdź, czy wszystko działa poprawnie:
 
 ### Sprawdzenie za pomocą shortcode
 
-Aby szybko zweryfikować, że wtyczka jest aktywna, możesz użyć shortcode diagnostycznego na dowolnej stronie:
+Aby sprawdzić, czy wtyczka jest aktywna, wstaw shortcode na dowolnej stronie:
 
 ```
 [polski_version]
 ```
 
-Shortcode wyświetli aktualną wersję wtyczki (np. "1.3.2"), co potwierdza poprawną instalację.
+Shortcode pokaże wersję wtyczki (np. "1.3.2") - to znaczy, że instalacja działa.
 
 ---
 
@@ -227,22 +227,22 @@ chmod 644 wp-content/plugins/polski-for-woocommerce/*.php
 
 ## Aktualizacja wtyczki
 
-Wtyczka aktualizuje się automatycznie przez mechanizm aktualizacji WordPress. Gdy dostępna jest nowa wersja:
+Wtyczka aktualizuje się przez standardowy mechanizm WordPress. Gdy pojawi się nowa wersja:
 
 1. Zobaczysz powiadomienie w **Wtyczki > Zainstalowane wtyczki**
 2. Kliknij **Zaktualizuj teraz** lub użyj masowej aktualizacji
 3. Po aktualizacji sprawdź, czy sklep działa poprawnie
 
 :::tip[Kopia zapasowa]
-Przed każdą aktualizacją wykonaj kopię zapasową bazy danych i plików. Większość hostingów oferuje automatyczne kopie zapasowe, ale ręczna kopia daje pewność, że możesz cofnąć zmiany.
+Przed aktualizacją zrób kopię zapasową bazy danych i plików. Hosting często robi to automatycznie, ale ręczna kopia daje pewność.
 :::
 
 ---
 
 ## Następne kroki
 
-Po pomyślnej instalacji przejdź do [konfiguracji wtyczki](getting-started/configuration/), aby włączyć potrzebne moduły i dostosować ustawienia do swojego sklepu.
+Po instalacji przejdź do [konfiguracji wtyczki](getting-started/configuration/), aby włączyć moduły i dostosować ustawienia.
 
-Jeśli napotkałeś problem, którego nie ma na tej liście, zgłoś go na [GitHub Issues](https://github.com/wppoland/polski/issues) lub zapytaj społeczność na [GitHub Discussions](https://github.com/wppoland/polski/discussions).
+Masz problem, którego tu nie ma? Zgłoś go na [GitHub Issues](https://github.com/wppoland/polski/issues) lub zapytaj na [GitHub Discussions](https://github.com/wppoland/polski/discussions).
 
 <div class="disclaimer">Ta strona ma wyłącznie charakter informacyjny i nie stanowi porady prawnej. Przed wdrożeniem skonsultuj się z prawnikiem. Polski for WooCommerce jest oprogramowaniem open source (GPLv2) dostarczanym bez gwarancji.</div>

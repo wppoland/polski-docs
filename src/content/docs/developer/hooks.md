@@ -3,7 +3,7 @@ title: Hooki (akcje i filtry)
 description: Kompletna dokumentacja hooków Polski for WooCommerce - 25 akcji i filtrów z sygnaturami, parametrami i przykładami kodu.
 ---
 
-Polski for WooCommerce udostępnia zestaw hooków (akcji i filtrów) pozwalających deweloperom rozszerzać i modyfikować zachowanie wtyczki. Wszystkie hooki używają namespace `polski/`.
+Hooki (akcje i filtry) do rozszerzania i modyfikacji zachowania wtyczki. Wszystkie używają namespace `polski/`.
 
 ## Hooki odstąpienia od umowy (withdrawal)
 

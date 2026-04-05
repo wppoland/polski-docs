@@ -3,11 +3,11 @@ title: Integracja z KSeF
 description: Dokumentacja integracji Polski PRO for WooCommerce z Krajowym Systemem e-Faktur - wysyłka faktur, śledzenie statusów, konfiguracja API i obsługa błędów.
 ---
 
-Moduł KSeF w Polski PRO for WooCommerce umożliwia wysyłkę faktur elektronicznych do Krajowego Systemu e-Faktur prowadzonego przez Ministerstwo Finansów. Faktury są przesyłane asynchronicznie z automatycznym ponawianiem w przypadku błędów.
+Moduł KSeF wysyła faktury elektroniczne do Krajowego Systemu e-Faktur (Ministerstwo Finansów). Faktury wysyłane są w tle, z automatycznym ponawianiem przy błędach.
 
 ## Czym jest KSeF
 
-Krajowy System e-Faktur (KSeF) to platforma Ministerstwa Finansów do wystawiania, przechowywania i odbierania faktur ustrukturyzowanych w formacie XML. Plugin zapewnia narzędzia do integracji WooCommerce z KSeF - generuje faktury w wymaganym formacie XML i przesyła je do systemu.
+KSeF to platforma Ministerstwa Finansów do obsługi faktur w formacie XML. Plugin generuje faktury w wymaganym formacie i przesyła je do KSeF.
 
 ## Konfiguracja
 
@@ -24,14 +24,14 @@ Przejdź do **WooCommerce > Ustawienia > Polski > Moduły PRO > KSeF**.
 
 ### Środowisko testowe
 
-KSeF udostępnia środowisko testowe (sandbox) do weryfikacji integracji. Środowisko testowe:
+KSeF ma środowisko testowe (sandbox) do sprawdzenia integracji. Sandbox:
 
 - nie wymaga prawdziwego klucza autoryzacyjnego
 - przyjmuje faktury w identycznym formacie jak środowisko produkcyjne
 - nie przesyła danych do Urzędu Skarbowego
 - jest zalecane do pierwszych testów integracji
 
-Po pozytywnej weryfikacji w środowisku testowym przełącz na środowisko produkcyjne i wprowadź właściwy klucz API.
+Po udanych testach przełącz na środowisko produkcyjne i wpisz właściwy klucz API.
 
 ### Uzyskanie tokena API
 
@@ -44,19 +44,19 @@ Po pozytywnej weryfikacji w środowisku testowym przełącz na środowisko produ
 
 ### Automatyczna wysyłka
 
-Po włączeniu opcji **Automatyczna wysyłka do KSeF** plugin wysyła fakturę do KSeF automatycznie po zmianie jej statusu na "Wystawiona" (Issued). Wysyłka odbywa się asynchronicznie przez Action Scheduler.
+Włącz **Automatyczna wysyłka do KSeF**, aby plugin wysyłał fakturę do KSeF po zmianie statusu na "Wystawiona". Wysyłka działa w tle przez Action Scheduler.
 
 ### Ręczna wysyłka
 
-W panelu zamówienia w meta boxie "Faktury" dostępny jest przycisk **Wyślij do KSeF**. Kliknięcie dodaje zadanie wysyłki do kolejki Action Scheduler.
+W meta boxie "Faktury" kliknij **Wyślij do KSeF**. Zadanie trafia do kolejki Action Scheduler.
 
 ### Przetwarzanie asynchroniczne
 
-Plugin wykorzystuje Action Scheduler (wbudowany w WooCommerce) do asynchronicznej wysyłki faktur. Oznacza to, że:
+Plugin używa Action Scheduler (wbudowanego w WooCommerce) do wysyłki w tle:
 
 - wysyłka nie blokuje obsługi zamówienia
-- faktury są wysyłane w kolejce, jedna po drugiej
-- w przypadku dużej liczby faktur system przetwarza je stopniowo
+- faktury wysyłane są kolejno
+- duże ilości faktur przetwarzane są stopniowo
 
 ## Generowanie XML
 
@@ -69,7 +69,7 @@ Plugin generuje fakturę w formacie XML zgodnym ze schematem KSeF (FA(2)). Dokum
 - podsumowanie z rozbiciem na stawki VAT
 - informacje o płatności
 
-XML jest walidowany przed wysyłką. Jeśli walidacja wykryje błędy, faktura nie zostanie wysłana, a w logu pojawi się szczegółowy komunikat.
+XML jest walidowany przed wysyłką. Przy błędach walidacji faktura nie zostanie wysłana, a w logu pojawi się komunikat.
 
 ## Śledzenie statusu
 
@@ -83,15 +83,15 @@ Po wysłaniu faktury do KSeF plugin śledzi jej status:
 | Rejected | Faktura odrzucona - sprawdź komunikat błędu |
 | Error | Błąd komunikacji z API KSeF |
 
-Po zaakceptowaniu faktury plugin zapisuje numer referencyjny KSeF w metadanych faktury. Numer ten jest widoczny w panelu zamówienia i na wydruku PDF.
+Po zaakceptowaniu plugin zapisuje numer KSeF. Jest widoczny w panelu zamówienia i na PDF.
 
 ### Polling statusu
 
-Plugin automatycznie sprawdza status wysłanych faktur. Po przesłaniu faktury do KSeF plugin odpytuje API o status co kilka minut (przez Action Scheduler), aż do otrzymania odpowiedzi "Accepted" lub "Rejected".
+Plugin automatycznie sprawdza status wysłanych faktur co kilka minut (przez Action Scheduler), aż otrzyma odpowiedź "Accepted" lub "Rejected".
 
 ## Obsługa błędów i ponawianie
 
-W przypadku błędu komunikacji z API KSeF plugin stosuje mechanizm exponential backoff:
+Przy błędach API plugin ponawia próby z rosnącym opóźnieniem (exponential backoff):
 
 | Próba | Opóźnienie |
 |-------|-----------|
@@ -99,7 +99,7 @@ W przypadku błędu komunikacji z API KSeF plugin stosuje mechanizm exponential 
 | 2. ponowienie | 25 minut |
 | 3. ponowienie | 125 minut |
 
-Po trzech nieudanych próbach faktura otrzymuje status "Error" i wymaga ręcznej interwencji. Administrator otrzymuje powiadomienie e-mail o nieudanej wysyłce.
+Po trzech nieudanych próbach faktura dostaje status "Error". Administrator otrzymuje e-mail o nieudanej wysyłce.
 
 Typowe przyczyny błędów:
 
@@ -175,7 +175,7 @@ add_action('polski_pro_ksef_check_status', function (int $invoice_id, string $st
 
 ### Logi
 
-Plugin loguje wszystkie operacje KSeF w logu WooCommerce. Przejdź do **WooCommerce > Status > Logi** i wybierz źródło `polski-pro-ksef`.
+Wszystkie operacje KSeF są w logu WooCommerce. Przejdź do **WooCommerce > Status > Logi** i wybierz `polski-pro-ksef`.
 
 Logowane zdarzenia:
 
@@ -187,7 +187,7 @@ Logowane zdarzenia:
 
 ### Testowanie połączenia
 
-W ustawieniach modułu KSeF dostępny jest przycisk **Testuj połączenie**. Wysyła on testowe żądanie do API KSeF i weryfikuje:
+Kliknij **Testuj połączenie** w ustawieniach KSeF. Test sprawdza:
 
 - poprawność tokena
 - łączność z serwerem KSeF

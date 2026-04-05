@@ -3,11 +3,11 @@ title: REST API
 description: Dokumentacja REST API wtyczki Polski for WooCommerce - namespace polski/v1/, endpointy ustawień, checkboxów, stron prawnych, wyszukiwania i kreatora.
 ---
 
-Polski for WooCommerce udostępnia REST API w namespace `polski/v1/`. API pozwala programowo zarządzać ustawieniami, checkboxami prawymi, stronami prawnymi oraz wyszukiwaniem produktów.
+REST API w namespace `polski/v1/`. Zarządzaj ustawieniami, checkboxami prawnymi, stronami prawnymi i wyszukiwaniem produktów.
 
 ## Uwierzytelnianie
 
-API wymaga uwierzytelnienia dla endpointów modyfikujących dane (POST, PUT, DELETE). Endpoint wyszukiwania (`/search`) jest dostępny publicznie.
+Endpointy modyfikujące dane (POST, PUT, DELETE) wymagają uwierzytelnienia. Endpoint `/search` jest publiczny.
 
 Obsługiwane metody uwierzytelniania:
 - **Application Passwords** (WordPress 5.6+) - zalecane
@@ -396,7 +396,7 @@ curl -X POST \
 
 ## Filtrowanie odpowiedzi
 
-Każdy endpoint obsługuje filtr WordPress pozwalający modyfikować odpowiedź:
+Każdy endpoint ma filtr do modyfikacji odpowiedzi:
 
 ```php
 add_filter('polski/rest/settings_response', function (array $response, WP_REST_Request $request): array {
@@ -407,7 +407,7 @@ add_filter('polski/rest/settings_response', function (array $response, WP_REST_R
 
 ## Rate limiting
 
-API nie implementuje własnego rate limitingu. Zalecane jest użycie wtyczki lub konfiguracji serwera (np. Cloudflare, Nginx rate limiting) dla endpointów publicznych.
+Brak wbudowanego rate limitingu. Użyj Cloudflare, Nginx lub wtyczki do limitowania publicznych endpointów.
 
 Zgłaszanie problemów: [github.com/wppoland/polski/issues](https://github.com/wppoland/polski/issues)
 

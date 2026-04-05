@@ -3,11 +3,11 @@ title: DSA - Akt o usługach cyfrowych
 description: Narzędzia DSA (Digital Services Act) w Polski for WooCommerce - formularz zgłoszeń, panel administracyjny, śledzenie statusów i powiadomienia e-mail.
 ---
 
-Akt o Usługach Cyfrowych (Digital Services Act, Rozporządzenie EU 2022/2065) nakłada na platformy internetowe obowiązek umożliwienia użytkownikom zgłaszania nielegalnych treści. Polski for WooCommerce dostarcza kompletny zestaw narzędzi DSA - formularz zgłoszeniowy, panel administracyjny do zarządzania zgłoszeniami, śledzenie statusów i automatyczne powiadomienia e-mail.
+Akt o Usługach Cyfrowych (Digital Services Act, EU 2022/2065) wymaga, aby platformy internetowe pozwalały zgłaszać nielegalne treści. Wtyczka dodaje formularz zgłoszeniowy, panel do zarządzania zgłoszeniami, śledzenie statusów i automatyczne powiadomienia e-mail.
 
 ## Wymagania DSA dla sklepów internetowych
 
-Od 17 lutego 2024 roku sklepy internetowe umożliwiające publikowanie treści przez użytkowników (recenzje, komentarze, zdjęcia) muszą:
+Od 17 lutego 2024 sklepy z treściami użytkowników (recenzje, komentarze, zdjęcia) muszą:
 
 1. Udostępnić mechanizm zgłaszania nielegalnych treści
 2. Potwierdzić otrzymanie zgłoszenia
@@ -15,7 +15,7 @@ Od 17 lutego 2024 roku sklepy internetowe umożliwiające publikowanie treści p
 4. Poinformować zgłaszającego o decyzji
 5. Umożliwić odwołanie od decyzji
 
-Obowiązek dotyczy sklepów, które pozwalają użytkownikom na publikację treści - przede wszystkim recenzji produktów.
+Dotyczy sklepów, w których użytkownicy mogą publikować treści - przede wszystkim recenzje produktów.
 
 ## Formularz zgłoszeniowy
 
@@ -61,11 +61,11 @@ Stwórz stronę "Zgłoś treść" i dodaj shortcode:
 [polski_dsa_report]
 ```
 
-Następnie dodaj link do tej strony w stopce sklepu, aby była łatwo dostępna dla użytkowników.
+Dodaj link do tej strony w stopce sklepu, żeby była łatwo dostępna.
 
 ## Panel administracyjny
 
-Zgłoszenia DSA są zarządzane w panelu WordPress pod **WooCommerce > Zgłoszenia DSA**.
+Zgłoszenia DSA zarządzasz w **WooCommerce > Zgłoszenia DSA**.
 
 ### Lista zgłoszeń
 
@@ -80,7 +80,7 @@ Lista wyświetla wszystkie zgłoszenia z kolumnami:
 
 ### Szczegóły zgłoszenia
 
-Po kliknięciu zgłoszenia administrator widzi:
+Po kliknięciu zgłoszenia zobaczysz:
 
 - Pełne dane formularza
 - Podgląd zgłaszanej treści (jeśli to recenzja - bezpośredni link)
@@ -100,7 +100,7 @@ Po kliknięciu zgłoszenia administrator widzi:
 
 ## Powiadomienia e-mail
 
-System wysyła automatyczne powiadomienia e-mail w następujących sytuacjach:
+Wtyczka wysyła automatyczne e-maile w tych sytuacjach:
 
 | Zdarzenie | Odbiorca | Treść |
 |-----------|----------|-------|
@@ -162,7 +162,7 @@ add_action('polski/dsa/report_created', function (int $report_id, array $report_
 
 ## Raportowanie
 
-DSA wymaga prowadzenia rejestru zgłoszeń. Wtyczka umożliwia eksport wszystkich zgłoszeń do CSV (**WooCommerce > Zgłoszenia DSA > Eksportuj**). Eksport zawiera:
+DSA wymaga prowadzenia rejestru zgłoszeń. Eksportuj wszystkie zgłoszenia do CSV przez **WooCommerce > Zgłoszenia DSA > Eksportuj**. Eksport zawiera:
 
 - ID zgłoszenia
 - Data i czas złożenia
@@ -186,13 +186,13 @@ Ustawienia modułu DSA znajdziesz w **WooCommerce > Ustawienia > Polski > DSA**.
 ## Rozwiązywanie problemów
 
 **Formularz nie wyświetla się na stronie**
-Upewnij się, że shortcode `[polski_dsa_report]` jest prawidłowo osadzony na stronie i moduł DSA jest włączony w ustawieniach.
+Sprawdź, czy shortcode `[polski_dsa_report]` jest na stronie i moduł DSA jest włączony w ustawieniach.
 
 **Powiadomienia e-mail nie docierają**
-Sprawdź konfigurację SMTP WordPress. Domyślna funkcja `wp_mail()` może nie działać na wszystkich serwerach. Rozważ instalację wtyczki SMTP (np. WP Mail SMTP).
+Sprawdź konfigurację SMTP. Domyślna funkcja `wp_mail()` nie działa na wszystkich serwerach. Zainstaluj wtyczkę SMTP (np. WP Mail SMTP).
 
 **Zgłoszenia nie pojawiają się w panelu**
-Sprawdź uprawnienia użytkownika. Zarządzanie zgłoszeniami DSA wymaga roli `shop_manager` lub `administrator`.
+Sprawdź uprawnienia. Do zarządzania zgłoszeniami DSA potrzebujesz roli `shop_manager` lub `administrator`.
 
 ## Dalsze kroki
 

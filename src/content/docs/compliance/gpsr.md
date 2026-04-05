@@ -3,7 +3,7 @@ title: GPSR - bezpieczeństwo produktów
 description: Konfiguracja pól GPSR (General Product Safety Regulation) w Polski for WooCommerce - producent, importer, osoba odpowiedzialna w UE, identyfikatory, ostrzeżenia i instrukcje.
 ---
 
-Rozporządzenie GPSR (General Product Safety Regulation, EU 2023/988) obowiązuje od 13 grudnia 2024 roku. Nakłada na sprzedawców obowiązek podawania szczegółowych informacji o bezpieczeństwie produktów sprzedawanych na terenie Unii Europejskiej. Polski for WooCommerce dostarcza kompletny zestaw pól produktowych, kolumnę statusu oraz narzędzia importu/eksportu CSV, które pozwalają spełnić te wymagania bez dodatkowych wtyczek.
+Rozporządzenie GPSR (General Product Safety Regulation, EU 2023/988) obowiązuje od 13 grudnia 2024 roku. Wymaga podawania informacji o bezpieczeństwie produktów sprzedawanych w UE. Polski for WooCommerce dodaje pola produktowe, kolumnę statusu i import/eksport CSV - wszystko, czego potrzebujesz, bez dodatkowych wtyczek.
 
 ## Wymagania GPSR
 
@@ -20,7 +20,7 @@ Każdy produkt niespożywczy sprzedawany w UE musi zawierać:
 
 ## Konfiguracja pól GPSR
 
-Pola GPSR znajdziesz w edycji produktu WooCommerce, w zakładce **Polski - GPSR**. Każde pole jest opcjonalne, ale rozporządzenie wymaga wypełnienia wszystkich mających zastosowanie do danego produktu.
+Pola GPSR znajdziesz w edycji produktu, w zakładce **Polski - GPSR**. Każde pole jest opcjonalne, ale wypełnij wszystkie, które dotyczą danego produktu.
 
 ![Pola GPSR w edytorze produktu WooCommerce](../../../assets/screenshots/screenshot-2-gpsr-product-editor.png)
 
@@ -36,11 +36,11 @@ Wypełnij pełne dane producenta:
 
 ### Importer
 
-Pole wymagane, gdy producent ma siedzibę poza Unią Europejską. Podaj te same kategorie danych co w przypadku producenta.
+Wymagane, gdy producent ma siedzibę poza UE. Podaj te same dane co dla producenta.
 
 ### Osoba odpowiedzialna w UE
 
-Od 13 grudnia 2024 roku każdy produkt niespożywczy sprzedawany w UE przez podmiot spoza UE musi mieć wyznaczoną osobę odpowiedzialną z siedzibą w Unii. Podaj:
+Każdy produkt niespożywczy od podmiotu spoza UE musi mieć osobę odpowiedzialną z siedzibą w Unii. Podaj:
 
 - Nazwa firmy lub imię i nazwisko
 - Adres w UE
@@ -73,19 +73,19 @@ Pole na instrukcje dotyczące:
 
 ## Kolumna statusu GPSR
 
-Na liście produktów w panelu administracyjnym (**Produkty > Wszystkie produkty**) wtyczka dodaje kolumnę **GPSR**, która wyświetla status wypełnienia pól:
+Na liście produktów (**Produkty > Wszystkie produkty**) wtyczka dodaje kolumnę **GPSR** ze statusem wypełnienia:
 
 - Zielona ikona - wszystkie wymagane pola wypełnione
 - Pomarańczowa ikona - częściowo wypełnione
 - Czerwona ikona - brak danych GPSR
 
-Kolumna umożliwia szybką identyfikację produktów wymagających uzupełnienia danych przed wejściem regulacji w życie.
+Kolumna pozwala szybko znaleźć produkty, które wymagają uzupełnienia danych.
 
 ## Import i eksport CSV
 
 ### Eksport
 
-Podczas eksportu produktów WooCommerce (**Produkty > Eksportuj**) wtyczka automatycznie dodaje kolumny GPSR do pliku CSV:
+Przy eksporcie produktów (**Produkty > Eksportuj**) wtyczka dodaje kolumny GPSR do pliku CSV:
 
 - `gpsr_manufacturer_name`
 - `gpsr_manufacturer_address`
@@ -107,9 +107,9 @@ Podczas eksportu produktów WooCommerce (**Produkty > Eksportuj**) wtyczka autom
 
 ### Import
 
-Przygotuj plik CSV z odpowiednimi nagłówkami kolumn (identycznymi jak przy eksporcie). Import odbywa się standardową ścieżką WooCommerce: **Produkty > Importuj**.
+Przygotuj plik CSV z takimi samymi nagłówkami jak przy eksporcie. Importuj przez **Produkty > Importuj**.
 
-Wskazówka: wyeksportuj najpierw kilka produktów, aby uzyskać szablon CSV z prawidłowymi nagłówkami.
+Wskazówka: najpierw wyeksportuj kilka produktów - dostaniesz szablon CSV z prawidłowymi nagłówkami.
 
 ## Shortcode
 
@@ -146,7 +146,7 @@ Shortcode generuje sformatowaną tabelę z sekcjami:
 
 ## Masowe uzupełnianie danych
 
-Jeśli wiele produktów pochodzi od tego samego producenta, najefektywniejszym sposobem jest:
+Jeśli wiele produktów ma tego samego producenta, najszybsza metoda to:
 
 1. Wyeksportuj produkty do CSV
 2. Wypełnij kolumny producenta dla wszystkich wierszy (kopiuj-wklej w arkuszu kalkulacyjnym)

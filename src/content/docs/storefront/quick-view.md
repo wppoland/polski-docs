@@ -3,15 +3,15 @@ title: Szybki podgląd produktu
 description: Moduł szybkiego podglądu produktu w Polski for WooCommerce - lightbox, warianty, galeria do 4 zdjęć.
 ---
 
-Szybki podgląd (quick view) pozwala klientom zobaczyć szczegóły produktu bez opuszczania strony kategorii lub wyników wyszukiwania. Produkt otwiera się w oknie lightbox z możliwością dodania do koszyka.
+Szybki podgląd otwiera szczegóły produktu w oknie lightbox - bez opuszczania strony kategorii czy wyników wyszukiwania. Klient może od razu dodać produkt do koszyka.
 
 ## Włączenie modułu
 
-Przejdź do **WooCommerce > Polski > Moduły sklepowe** i aktywuj opcję **Szybki podgląd**. Na kartach produktów pojawi się ikona oka lub przycisk **Szybki podgląd**.
+Przejdź do **WooCommerce > Polski > Moduły sklepowe** i włącz **Szybki podgląd**. Na kartach produktów pojawi się ikona oka lub przycisk **Szybki podgląd**.
 
 ## Lightbox
 
-Szybki podgląd otwiera się w modalnym oknie (lightbox) z przyciemnionym tłem. Okno jest responsywne - na desktopie zajmuje ok. 70% szerokości ekranu, na urządzeniach mobilnych rozciąga się na pełną szerokość.
+Okno otwiera się z przyciemnionym tłem. Na desktopie zajmuje ok. 70% szerokości ekranu, na mobile - pełną szerokość.
 
 Zawartość lightboxa:
 
@@ -32,18 +32,18 @@ Lightbox zamyka się przez:
 
 ## Obsługa wariantów
 
-Dla produktów zmiennych (variable products) szybki podgląd wyświetla dropdowny z atrybutami, tak samo jak na stronie produktu. Po wybraniu wariantu:
+Dla produktów zmiennych szybki podgląd wyświetla dropdowny z atrybutami. Po wybraniu wariantu:
 
 - Cena aktualizuje się na cenę wariantu
 - Zdjęcie zmienia się na zdjęcie przypisane do wariantu
 - Status dostępności aktualizuje się
-- Przycisk **Dodaj do koszyka** staje się aktywny dopiero po wybraniu wszystkich wymaganych atrybutów
+- Przycisk **Dodaj do koszyka** aktywuje się po wybraniu wszystkich atrybutów
 
-Dane wariantów ładowane są jednorazowo razem z lightboxem - zmiana wariantu nie generuje dodatkowych zapytań do serwera.
+Dane wariantów ładują się razem z lightboxem - zmiana wariantu nie wymaga kolejnych zapytań do serwera.
 
 ## Galeria zdjęć (do 4 obrazów)
 
-Lightbox wyświetla do **4 zdjęć** produktu - zdjęcie główne oraz do 3 zdjęć z galerii. Limit ten zapewnia szybkie ładowanie i czytelny interfejs w oknie podglądu.
+Lightbox pokazuje do **4 zdjęć** - zdjęcie główne i do 3 z galerii. Dzięki temu okno ładuje się szybko.
 
 Nawigacja po galerii:
 
@@ -76,7 +76,7 @@ Opcje dostępne w ustawieniach modułu:
 
 ## Ładowanie treści przez AJAX
 
-Zawartość lightboxa ładowana jest przez AJAX po kliknięciu przycisku. Na czas ładowania wyświetlany jest spinner. Dane produktu cachowane są po stronie klienta - ponowne otwarcie tego samego produktu nie generuje kolejnego żądania.
+Treść ładuje się przez AJAX po kliknięciu przycisku. Podczas ładowania widać spinner. Dane produktu cachują się w przeglądarce - ponowne otwarcie tego samego produktu nie wysyła nowego żądania.
 
 ```php
 // Zmiana szablonu lightboxa
@@ -87,7 +87,7 @@ add_filter('polski/quick_view/template', function (string $template): string {
 
 ## Integracja z innymi modułami
 
-Szybki podgląd integruje się z innymi modułami Polski for WooCommerce:
+Szybki podgląd współpracuje z innymi modułami:
 
 - **Lista życzeń** - przycisk serca widoczny w lightboxie
 - **Porównywarka** - przycisk porównania widoczny w lightboxie
@@ -96,7 +96,7 @@ Szybki podgląd integruje się z innymi modułami Polski for WooCommerce:
 
 ## Dostępność (accessibility)
 
-Lightbox obsługuje pełną nawigację klawiaturową:
+Lightbox obsługuje nawigację klawiaturową:
 
 - **Tab** - przechodzenie między interaktywnymi elementami
 - **Escape** - zamknięcie okna
@@ -117,15 +117,15 @@ Klasy CSS modułu:
 
 ## Wydajność
 
-Skrypt i style lightboxa ładowane są leniwie - tylko wtedy, gdy na stronie jest co najmniej jeden produkt z przyciskiem szybkiego podglądu. Kod JavaScript waży ok. 8 KB (gzip) i nie blokuje renderowania strony.
+Skrypt i style ładują się leniwie - tylko gdy na stronie jest produkt z przyciskiem szybkiego podglądu. JavaScript waży ok. 8 KB (gzip) i nie blokuje renderowania.
 
 ## Rozwiązywanie problemów
 
-**Lightbox nie otwiera się** - sprawdź konsolę przeglądarki. Najczęstsza przyczyna to konflikt z inną wtyczką lightbox (np. WooCommerce Lightbox, FancyBox). Wyłącz domyślny lightbox WooCommerce.
+**Lightbox nie otwiera się** - sprawdź konsolę przeglądarki. Częsta przyczyna to konflikt z inną wtyczką lightbox (np. FancyBox). Wyłącz domyślny lightbox WooCommerce.
 
-**Warianty nie ładują się** - upewnij się, że produkt zmienny ma poprawnie skonfigurowane warianty z cenami. Puste warianty są pomijane.
+**Warianty nie ładują się** - sprawdź, czy produkt zmienny ma skonfigurowane warianty z cenami. Puste warianty są pomijane.
 
-**Galeria pokazuje tylko 1 zdjęcie** - dodaj zdjęcia do galerii produktu w edytorze WooCommerce (sekcja **Galeria produktu**, nie tylko **Zdjęcie produktu**).
+**Galeria pokazuje tylko 1 zdjęcie** - dodaj zdjęcia w sekcji **Galeria produktu** w edytorze WooCommerce (nie tylko **Zdjęcie produktu**).
 
 Zgłaszanie problemów: [github.com/wppoland/polski/issues](https://github.com/wppoland/polski/issues)
 

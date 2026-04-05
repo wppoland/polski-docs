@@ -3,7 +3,7 @@ title: Przedsprzedaż (pre-orders)
 description: Moduł przedsprzedaży Polski PRO for WooCommerce - oznaczanie produktów jako pre-order, data premiery, niestandardowy tekst przycisku i walidacja koszyka.
 ---
 
-Moduł przedsprzedaży pozwala oznaczać produkty jako dostępne w przedsprzedaży, wyświetlać datę premiery, zmieniać tekst przycisku zakupu oraz kontrolować mieszanie produktów pre-order ze standardowymi w koszyku. Jest przydatny w sklepach z elektroniką, książkami, grami i każdym asortymentem, gdzie produkty są oferowane przed oficjalną datą dostępności.
+Moduł przedsprzedaży pozwala oznaczać produkty jako pre-order, wyświetlać datę premiery i zmieniać tekst przycisku. Przydatny w sklepach z elektroniką, książkami, grami i innymi produktami oferowanymi przed premierą.
 
 :::note[Wymagania]
 Polski PRO wymaga: Polski (free) v1.3.0+, WordPress 6.4+, WooCommerce 8.0+, PHP 8.1+
@@ -25,7 +25,7 @@ Przejdź do **WooCommerce > Ustawienia > Polski PRO > Przedsprzedaż**.
 
 ### Meta pola
 
-Ustawienia przedsprzedaży znajdują się w edycji produktu, w zakładce **Ogólne** w panelu danych produktu.
+Ustawienia znajdziesz w edycji produktu, zakładka **Ogólne**.
 
 | Meta pole | Klucz | Typ | Opis |
 |-----------|-------|-----|------|
@@ -53,7 +53,7 @@ update_post_meta($product_id, '_polski_preorder_release_date', '2026-06-15');
 
 ### Przycisk zakupu
 
-Gdy produkt jest oznaczony jako pre-order, tekst przycisku "Dodaj do koszyka" zmienia się na skonfigurowany tekst przedsprzedaży. Dotyczy to:
+Przycisk "Dodaj do koszyka" zmienia się na tekst przedsprzedaży. Dotyczy:
 
 - Strony pojedynczego produktu
 - Stron archiwum, kategorii i tagów
@@ -62,7 +62,7 @@ Gdy produkt jest oznaczony jako pre-order, tekst przycisku "Dodaj do koszyka" zm
 
 ### Tekst dostępności
 
-Zamiast standardowego stanu magazynowego ("W magazynie", "Brak w magazynie") wyświetlany jest tekst dostępności z datą premiery. Placeholder `{date}` jest zamieniany na sformatowaną datę.
+Zamiast stanu magazynowego wyświetla się tekst z datą premiery. Placeholder `{date}` jest zamieniany na datę.
 
 **Przykład wyświetlania:**
 
@@ -70,7 +70,7 @@ Zamiast standardowego stanu magazynowego ("W magazynie", "Brak w magazynie") wy�
 
 ### Automatyczna dezaktywacja
 
-Po przekroczeniu daty premiery produkt automatycznie wraca do trybu standardowego. Dezaktywacja odbywa się przez zadanie WP-Cron uruchamiane codziennie o 00:01.
+Po dacie premiery produkt automatycznie wraca do trybu standardowego. WP-Cron sprawdza to codziennie o 00:01.
 
 ```php
 /**
@@ -103,12 +103,12 @@ add_action('polski_pro/preorder/deactivated', function (int $product_id, string 
 
 ### Blokada mieszania produktów
 
-Gdy opcja "Blokuj mieszanie koszyka" jest włączona, klient nie może dodać do koszyka jednocześnie:
+Gdy "Blokuj mieszanie koszyka" jest włączone, klient nie może dodać jednocześnie:
 
 - Produktów w przedsprzedaży i standardowych produktów
 - Produktów pre-order z różnymi datami premiery (opcjonalnie)
 
-Przy próbie dodania produktu innego typu wyświetlany jest komunikat blokady i produkt nie zostaje dodany.
+Przy próbie mieszania wyświetla się komunikat blokady.
 
 ### Hook walidacji
 
@@ -185,12 +185,12 @@ apply_filters('polski_pro/preorder/availability_text', string $text, string $rel
 
 ## Kompatybilność z wariantami
 
-Moduł przedsprzedaży działa z produktami wariantowymi. Każdy wariant może mieć niezależne ustawienia pre-order:
+Moduł działa z produktami wariantowymi. Każdy wariant ma niezależne ustawienia pre-order:
 
 - Wariant A - standardowy (dostępny od razu)
 - Wariant B - pre-order (premiera za 2 tygodnie)
 
-Mieszanie wariantów pre-order i standardowych w ramach jednego produktu jest dozwolone - walidacja koszyka dotyczy tylko mieszania różnych produktów.
+Mieszanie wariantów pre-order i standardowych w jednym produkcie jest dozwolone. Blokada dotyczy tylko mieszania różnych produktów.
 
 ## Rozwiązywanie problemów
 

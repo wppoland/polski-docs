@@ -3,11 +3,11 @@ title: Nutri-Score
 description: Wyświetlanie odznaki Nutri-Score A-E z klasami CSS per poziom na stronie produktu WooCommerce.
 ---
 
-Nutri-Score to system znakowania żywności opracowany przez Santé publique France, który ocenia jakość odżywczą produktu w pięciostopniowej skali od A (najlepsza) do E (najgorsza). Choć w Polsce stosowanie Nutri-Score jest dobrowolne, coraz więcej producentów decyduje się na jego umieszczanie na opakowaniach. Plugin Polski for WooCommerce umożliwia wyświetlanie odznaki Nutri-Score na stronie produktu.
+Nutri-Score ocenia jakość odżywczą produktu w skali od A (najlepsza) do E (najgorsza). W Polsce jest dobrowolny, ale coraz popularniejszy. Wtyczka Polski for WooCommerce wyświetla odznakę Nutri-Score na stronie produktu.
 
 ## Czym jest Nutri-Score
 
-System Nutri-Score klasyfikuje produkty spożywcze na podstawie algorytmu uwzględniającego:
+Nutri-Score klasyfikuje produkty na podstawie:
 
 **Składniki negatywne (punkty ujemne):**
 - wartość energetyczna
@@ -20,7 +20,7 @@ System Nutri-Score klasyfikuje produkty spożywcze na podstawie algorytmu uwzgl�
 - błonnik
 - białko
 
-Na podstawie bilansu punktów produkt otrzymuje ocenę:
+Na podstawie bilansu punktów produkt dostaje ocenę:
 
 | Poziom | Kolor | Zakres punktów (żywność stała) | Opis |
 |--------|-------|-------------------------------|------|
@@ -56,11 +56,11 @@ W edytorze produktu, w zakładce "Żywność", wybierz poziom Nutri-Score z list
 - D - Niska jakość odżywcza
 - E - Najniższa jakość odżywcza
 
-Plugin nie oblicza Nutri-Score automatycznie - musisz znać ocenę swojego produktu. Do obliczenia możesz użyć oficjalnego kalkulatora lub danych od producenta.
+Wtyczka nie oblicza Nutri-Score automatycznie. Użyj oficjalnego kalkulatora lub danych od producenta.
 
 ## Wygenerowany HTML
 
-Odznaka Nutri-Score jest renderowana jako zestaw elementów HTML z dedykowanymi klasami CSS:
+Odznaka Nutri-Score to zestaw elementów HTML z klasami CSS:
 
 ```html
 <div class="polski-nutri-score polski-nutri-score--active-c">
@@ -77,7 +77,7 @@ Odznaka Nutri-Score jest renderowana jako zestaw elementów HTML z dedykowanymi 
 
 ## Klasy CSS per poziom
 
-Plugin generuje klasy CSS dla każdego poziomu, co pozwala na pełną kontrolę nad stylowaniem:
+Wtyczka generuje klasy CSS dla każdego poziomu, co daje pełną kontrolę nad stylowaniem:
 
 ### Klasy na kontenerze
 
@@ -107,7 +107,7 @@ Plugin generuje klasy CSS dla każdego poziomu, co pozwala na pełną kontrolę 
 
 ## Domyślne style CSS
 
-Plugin zawiera wbudowane style CSS dla odznaki Nutri-Score:
+Wtyczka zawiera wbudowane style CSS:
 
 ```css
 .polski-nutri-score {
@@ -191,7 +191,7 @@ Plugin zawiera wbudowane style CSS dla odznaki Nutri-Score:
 
 ### Nadpisywanie stylów
 
-Aby dostosować wygląd odznaki w swoim motywie, nadpisz klasy CSS w pliku `style.css` motywu:
+Nadpisz klasy CSS w pliku `style.css` motywu:
 
 ```css
 /* Przykład: kwadratowe odznaki z zaokrąglonymi rogami */
@@ -272,7 +272,7 @@ Przykład:
 
 ## Schema.org
 
-Plugin dodaje Nutri-Score do danych strukturalnych produktu:
+Wtyczka dodaje Nutri-Score do danych strukturalnych produktu:
 
 ```json
 {
@@ -289,7 +289,7 @@ Plugin dodaje Nutri-Score do danych strukturalnych produktu:
 
 ## Dostępność (a11y)
 
-Odznaka Nutri-Score zawiera atrybuty ARIA dla czytników ekranu:
+Odznaka zawiera atrybuty ARIA dla czytników ekranu:
 
 ```html
 <div class="polski-nutri-score" role="img" aria-label="Nutri-Score: C - średnia jakość odżywcza">
@@ -307,7 +307,7 @@ Każda nieaktywna odznaka ma `aria-hidden="true"`, a aktywna zawiera `aria-curre
 
 ### Kolory odznaki są inne niż oczekiwane
 
-Motyw może nadpisywać kolory tła. Użyj bardziej specyficznych selektorów CSS lub dodaj `!important`:
+Motyw może nadpisywać kolory. Użyj bardziej szczegółowych selektorów CSS lub dodaj `!important`:
 
 ```css
 .polski-nutri-score__badge--a {

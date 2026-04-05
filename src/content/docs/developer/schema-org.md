@@ -3,17 +3,17 @@ title: Dane strukturalne Schema.org
 description: Automatyczne dane strukturalne JSON-LD w Polski for WooCommerce - Product, Offer, AggregateRating i inne typy Schema.org.
 ---
 
-Polski for WooCommerce automatycznie generuje dane strukturalne JSON-LD zgodne ze standardem Schema.org. Dane te pomagają wyszukiwarkom (Google, Bing) lepiej zrozumieć treść strony produktu i wyświetlać rich snippets w wynikach wyszukiwania.
+Automatyczne dane strukturalne JSON-LD (Schema.org) na stronach produktów. Pomagają wyszukiwarkom wyświetlać rich snippets w wynikach.
 
 ## Automatyczne generowanie
 
-Dane strukturalne generowane są automatycznie na stronach produktów. Nie trzeba instalować dodatkowych wtyczek SEO do obsługi danych strukturalnych produktów - Polski for WooCommerce obsługuje to samodzielnie.
+Dane generują się automatycznie na stronach produktów. Nie potrzebujesz dodatkowej wtyczki SEO.
 
-Jeśli używasz wtyczki SEO (Yoast, Rank Math, SEOPress), Polski for WooCommerce integruje się z nią i uzupełnia dane zamiast je duplikować.
+Jeśli używasz Yoast, Rank Math lub SEOPress, plugin uzupełnia ich dane zamiast duplikować.
 
 ## Typ Product
 
-Na każdej stronie produktu generowany jest obiekt `Product` zawierający:
+Na stronie produktu generowany jest obiekt `Product`:
 
 ```json
 {
@@ -72,7 +72,7 @@ Na każdej stronie produktu generowany jest obiekt `Product` zawierający:
 
 ## Typ Offer
 
-Każdy produkt zawiera zagnieżdżony obiekt `Offer` z informacjami o cenie i dostępności:
+Zagnieżdżony obiekt `Offer` z ceną i dostępnością:
 
 ```json
 {
@@ -141,7 +141,7 @@ Każdy produkt zawiera zagnieżdżony obiekt `Offer` z informacjami o cenie i do
 
 ## Typ Offer dla produktów zmiennych
 
-Produkty zmienne generują `AggregateOffer` z zakresem cenowym:
+Produkty zmienne generują `AggregateOffer`:
 
 ```json
 {
@@ -164,7 +164,7 @@ Produkty zmienne generują `AggregateOffer` z zakresem cenowym:
 
 ## Typ AggregateRating
 
-Jeśli produkt ma opinie, generowany jest obiekt `AggregateRating`:
+Przy produktach z opiniami generowany jest `AggregateRating`:
 
 ```json
 {
@@ -177,7 +177,7 @@ Jeśli produkt ma opinie, generowany jest obiekt `AggregateRating`:
 }
 ```
 
-Dane zbierane są z systemu opinii WooCommerce. Jeśli moduł **Zweryfikowane opinie** jest aktywny, uwzględniane są tylko opinie z potwierdzonego zakupu.
+Dane z systemu opinii WooCommerce. Z aktywnym modułem **Zweryfikowane opinie** uwzględniane są tylko opinie z potwierdzonego zakupu.
 
 ## Typ Review
 
@@ -202,7 +202,7 @@ Poszczególne opinie generowane są jako obiekty `Review`:
 
 ## Produkty spożywcze - NutritionInformation
 
-Dla produktów z modułu spożywczego generowany jest obiekt `NutritionInformation`:
+Produkty spożywcze generują obiekt `NutritionInformation`:
 
 ```json
 {
@@ -262,16 +262,16 @@ add_filter('polski/schema/enabled', function (bool $enabled, int $product_id): b
 
 ## Walidacja danych strukturalnych
 
-Przetestuj dane strukturalne swojego sklepu za pomocą:
+Przetestuj dane strukturalne:
 
 - [Google Rich Results Test](https://search.google.com/test/rich-results) - oficjalne narzędzie Google
 - [Schema.org Validator](https://validator.schema.org/) - walidator Schema.org
 
-W trybie debug WordPressa (`WP_DEBUG = true`) wtyczka loguje ostrzeżenia o brakujących wymaganych polach Schema.org do `debug.log`.
+Z `WP_DEBUG = true` wtyczka loguje brakujące pola Schema.org do `debug.log`.
 
 ## Integracja z wtyczkami SEO
 
-Polski for WooCommerce wykrywa popularne wtyczki SEO i dostosowuje swoje zachowanie:
+Plugin wykrywa wtyczki SEO i dostosowuje zachowanie:
 
 | Wtyczka    | Zachowanie                                          |
 | ---------- | --------------------------------------------------- |
@@ -280,7 +280,7 @@ Polski for WooCommerce wykrywa popularne wtyczki SEO i dostosowuje swoje zachowa
 | SEOPress   | Uzupełnia schemat SEOPress o pola Polski            |
 | Brak       | Generuje pełny schemat samodzielnie                 |
 
-W przypadku konfliktu (duplikacja danych strukturalnych) użyj filtra:
+Przy duplikacji danych użyj filtra:
 
 ```php
 add_filter('polski/schema/standalone', '__return_false'); // Wyłącz samodzielne generowanie

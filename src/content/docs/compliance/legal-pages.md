@@ -3,13 +3,13 @@ title: Strony prawne
 description: Automatyczne generowanie stron prawnych w Polski for WooCommerce - regulamin, polityka prywatności, polityka zwrotów, reklamacje, załączniki do e-maili i informacja ODR.
 ---
 
-Każdy sklep internetowy w Polsce musi udostępniać klientom zestaw dokumentów prawnych. Polski for WooCommerce automatycznie generuje cztery kluczowe strony prawne dostosowane do polskiego prawa, umożliwia ich dołączanie do e-maili transakcyjnych i wyświetla wymaganą informację o platformie ODR.
+Każdy sklep internetowy w Polsce musi mieć dokumenty prawne. Wtyczka generuje cztery strony prawne, dołącza je do e-maili i wyświetla informację o platformie ODR.
 
 ## Generowane strony prawne
 
 ### 1. Regulamin sklepu
 
-Generowany regulamin zawiera wymagane przez ustawę o prawach konsumenta elementy:
+Regulamin zawiera elementy wymagane przez ustawę o prawach konsumenta:
 
 - Dane identyfikacyjne sprzedawcy (nazwa, adres, NIP, REGON, KRS)
 - Procedura składania zamówienia
@@ -22,7 +22,7 @@ Generowany regulamin zawiera wymagane przez ustawę o prawach konsumenta element
 
 ### 2. Polityka prywatności
 
-Generowana polityka prywatności zgodna z RODO zawiera:
+Polityka prywatności zgodna z RODO zawiera:
 
 - Dane administratora danych osobowych
 - Cele i podstawy prawne przetwarzania danych
@@ -35,7 +35,7 @@ Generowana polityka prywatności zgodna z RODO zawiera:
 
 ### 3. Polityka zwrotów
 
-Generowana polityka zwrotów obejmuje:
+Polityka zwrotów obejmuje:
 
 - Termin na odstąpienie od umowy (14 dni)
 - Wzór formularza odstąpienia
@@ -47,7 +47,7 @@ Generowana polityka zwrotów obejmuje:
 
 ### 4. Polityka reklamacji
 
-Generowana polityka reklamacji zawiera:
+Polityka reklamacji zawiera:
 
 - Podstawa prawna (rękojmia, gwarancja)
 - Sposoby złożenia reklamacji
@@ -62,7 +62,7 @@ Przejdź do **WooCommerce > Ustawienia > Polski > Strony prawne** aby wygenerowa
 
 ### Dane sprzedawcy
 
-Przed generowaniem stron wypełnij dane firmy:
+Najpierw wypełnij dane firmy:
 
 | Pole | Opis | Przykład |
 |------|------|---------|
@@ -84,11 +84,11 @@ Przed generowaniem stron wypełnij dane firmy:
 4. Przejrzyj treść każdej strony
 5. Opublikuj strony po weryfikacji
 
-Strony są tworzone jako szkice, ponieważ przed publikacją zalecane jest skonsultowanie ich treści z prawnikiem.
+Strony są tworzone jako szkice - przejrzyj je i skonsultuj z prawnikiem przed publikacją.
 
 ### Aktualizacja stron
 
-Gdy zmienisz dane firmy, kliknij "Aktualizuj strony prawne". System zaktualizuje wygenerowane sekcje, zachowując Twoje ręczne modyfikacje w oznaczonych blokach.
+Po zmianie danych firmy kliknij "Aktualizuj strony prawne". Wtyczka zaktualizuje wygenerowane sekcje, zachowując Twoje ręczne zmiany.
 
 Struktura generowanej strony:
 
@@ -100,11 +100,11 @@ Automatycznie wygenerowana treść - nie edytuj tego bloku
 Twoja dodatkowa treść - bezpiecznie edytuj poniżej
 ```
 
-Przy aktualizacji system nadpisuje tylko treść między znacznikami `POLSKI-AUTO-START` i `POLSKI-AUTO-END`. Treść dodana poza tymi znacznikami jest zachowywana.
+Przy aktualizacji wtyczka nadpisuje tylko treść między `POLSKI-AUTO-START` i `POLSKI-AUTO-END`. Treść poza tymi znacznikami jest zachowywana.
 
 ## Załączniki do e-maili
 
-Wtyczka umożliwia dołączanie stron prawnych jako załączników PDF do e-maili transakcyjnych WooCommerce.
+Wtyczka dołącza strony prawne jako PDF do e-maili transakcyjnych WooCommerce.
 
 ### Konfiguracja
 
@@ -119,7 +119,7 @@ W **WooCommerce > Ustawienia > Polski > Strony prawne > Załączniki e-mail** sk
 
 ### Format załączników
 
-Dokumenty są automatycznie konwertowane do formatu PDF z nagłówkiem zawierającym logo sklepu i datę wygenerowania. Rozmiar pliku jest optymalizowany, aby nie obciążać serwera pocztowego.
+Dokumenty są konwertowane do PDF z logo sklepu i datą. Rozmiar pliku jest zoptymalizowany.
 
 | Opcja | Opis | Domyślna wartość |
 |-------|------|------------------|
@@ -130,7 +130,7 @@ Dokumenty są automatycznie konwertowane do formatu PDF z nagłówkiem zawieraj�
 
 ## Informacja ODR
 
-Rozporządzenie UE 524/2013 wymaga od sprzedawców internetowych zamieszczenia linku do platformy ODR (Online Dispute Resolution) - platformy pozasądowego rozwiązywania sporów.
+Rozporządzenie UE 524/2013 wymaga od sklepów internetowych linku do platformy ODR (Online Dispute Resolution) do pozasądowego rozwiązywania sporów.
 
 ### Automatyczne wyświetlanie
 
@@ -157,33 +157,33 @@ Standardowa treść wyświetlana przez wtyczkę:
 
 ## Wersjonowanie dokumentów
 
-Wtyczka automatycznie rejestruje wersje stron prawnych:
+Wtyczka rejestruje wersje stron prawnych:
 
 - Każda zmiana treści tworzy nową wersję
 - Data ostatniej aktualizacji jest wyświetlana na stronie
-- Logi zgód RODO zawierają hash wersji dokumentu, która obowiązywała w momencie udzielenia zgody
+- Logi zgód RODO zawierają hash wersji dokumentu z momentu udzielenia zgody
 - Historia wersji dostępna jest w **Rewizjach** strony WordPress
 
 ## Wielojęzyczność
 
-Generowane strony są domyślnie w języku polskim. Jeśli używasz WPML lub Polylang, wtyczka generuje osobne strony dla każdego aktywnego języka. Tłumaczenia są dostarczane dla:
+Strony generowane są po polsku. Przy WPML lub Polylang wtyczka tworzy osobne strony dla każdego języka. Gotowe tłumaczenia:
 
 - Polski (domyślny)
 - Angielski
 - Niemiecki
 
-Dla pozostałych języków generowana jest wersja polska z możliwością ręcznego tłumaczenia.
+Dla innych języków tworzona jest wersja polska do ręcznego przetłumaczenia.
 
 ## Rozwiązywanie problemów
 
 **Strony nie generują się**
-Sprawdź, czy wszystkie wymagane pola danych sprzedawcy są wypełnione. Pola nazwa firmy, adres, NIP i e-mail są obowiązkowe.
+Sprawdź, czy wypełniłeś wszystkie wymagane pola: nazwa firmy, adres, NIP i e-mail.
 
 **Załączniki PDF nie są dołączane do e-maili**
-Sprawdź, czy na serwerze jest zainstalowana biblioteka do generowania PDF. Wtyczka wymaga rozszerzenia PHP `mbstring` i `dom`. Sprawdź logi PHP pod kątem błędów.
+Sprawdź, czy serwer ma rozszerzenia PHP `mbstring` i `dom`. Sprawdź logi PHP pod kątem błędów.
 
 **Informacja ODR nie wyświetla się w stopce**
-Sprawdź, czy motyw obsługuje hooki stopki WooCommerce (`wp_footer` lub `woocommerce_after_footer`). Niektóre motywy wymagają ręcznego dodania widgetu.
+Sprawdź, czy motyw obsługuje hooki stopki (`wp_footer` lub `woocommerce_after_footer`). Niektóre motywy wymagają dodania widgetu ręcznie.
 
 **Aktualizacja nadpisała moje zmiany**
 Edytuj treść tylko poza znacznikami `POLSKI-AUTO-START` / `POLSKI-AUTO-END`. Treść między tymi znacznikami jest nadpisywana przy każdej aktualizacji.

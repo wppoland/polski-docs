@@ -3,20 +3,20 @@ title: Rejestr incydentów bezpieczeństwa
 description: Rejestr incydentów bezpieczeństwa (CRA) w Polski for WooCommerce - rejestrowanie zdarzeń, eksport CSV i zgodność z Cyber Resilience Act.
 ---
 
-Rejestr incydentów bezpieczeństwa pozwala dokumentować i zarządzać zdarzeniami bezpieczeństwa w sklepie WooCommerce. Funkcja wspiera zgodność z Cyber Resilience Act (CRA) - unijnym rozporządzeniem wymagającym od sprzedawców prowadzenia rejestru incydentów dotyczących produktów z elementami cyfrowymi.
+Rejestr incydentów pozwala dokumentować zdarzenia bezpieczeństwa w sklepie. Wspiera zgodność z Cyber Resilience Act (CRA) - unijnym rozporządzeniem wymagającym rejestru incydentów dla produktów z elementami cyfrowymi.
 
 ## Czym jest CRA
 
-Cyber Resilience Act (CRA) to rozporządzenie Unii Europejskiej ustanawiające wymagania bezpieczeństwa cybernetycznego dla produktów z elementami cyfrowymi. Sprzedawcy są zobowiązani do:
+CRA to rozporządzenie UE dotyczące bezpieczeństwa cybernetycznego produktów z elementami cyfrowymi. Sprzedawcy muszą:
 
-- Prowadzenia rejestru incydentów bezpieczeństwa
-- Raportowania incydentów do organów nadzoru w ciągu 24 godzin
-- Informowania klientów o wykrytych lukach bezpieczeństwa
-- Dokumentowania działań naprawczych
+- Prowadzić rejestr incydentów bezpieczeństwa
+- Raportować incydenty do organów nadzoru w ciągu 24 godzin
+- Informować klientów o wykrytych lukach
+- Dokumentować działania naprawcze
 
 ## Dostęp do rejestru
 
-Przejdź do **WooCommerce > Polski > Narzędzia > Incydenty bezpieczeństwa**. Rejestr dostępny jest dla użytkowników z uprawnieniem `manage_woocommerce`.
+Przejdź do **WooCommerce > Polski > Narzędzia > Incydenty bezpieczeństwa**. Wymaga uprawnienia `manage_woocommerce`.
 
 ## Rejestrowanie incydentu
 
@@ -68,7 +68,7 @@ Kliknij **Dodaj incydent** i wypełnij formularz:
 
 ## Lista incydentów
 
-Rejestr wyświetla tabelę wszystkich incydentów z kolumnami:
+Tabela wszystkich incydentów z kolumnami:
 
 - **ID** - numer incydentu
 - **Data** - data wykrycia
@@ -81,7 +81,7 @@ Rejestr wyświetla tabelę wszystkich incydentów z kolumnami:
 
 ### Filtrowanie i sortowanie
 
-Lista pozwala filtrować incydenty po:
+Filtruj incydenty po:
 - Kategorii
 - Priorytecie
 - Statusie
@@ -96,7 +96,7 @@ Pole wyszukiwania przeszukuje tytuł i opis incydentów.
 
 ## Linia czasu incydentu (timeline)
 
-Każdy incydent ma linię czasu dokumentującą chronologię działań:
+Każdy incydent ma linię czasu z chronologią działań:
 
 ```
 2025-06-15 08:30 - Incydent wykryty przez system monitoringu
@@ -110,11 +110,11 @@ Każdy incydent ma linię czasu dokumentującą chronologię działań:
 2025-06-15 15:00 - Status zmieniony na "Rozwiązany"
 ```
 
-Wpisy w linii czasu dodawane są automatycznie (zmiana statusu, przypisanie) oraz ręcznie (notatki, działania).
+Wpisy dodają się automatycznie (zmiana statusu, przypisanie) lub ręcznie (notatki, działania).
 
 ## Eksport CSV
 
-Kliknij **Eksportuj CSV** nad tabelą incydentów. Eksport zawiera:
+Kliknij **Eksportuj CSV** nad tabelą. Eksport zawiera:
 
 ### Kolumny eksportu
 
@@ -158,7 +158,7 @@ add_filter('polski/security_incidents/export_data', function (array $data): arra
 
 ## Powiadomienia
 
-System wysyła automatyczne powiadomienia:
+Automatyczne powiadomienia:
 
 | Zdarzenie                          | Odbiorcy                | Kanał  |
 | ---------------------------------- | ----------------------- | ------ |
@@ -171,14 +171,14 @@ Konfiguracja powiadomień: **WooCommerce > Polski > Narzędzia > Incydenty > Pow
 
 ## Automatyczne wykrywanie
 
-Moduł może automatycznie rejestrować niektóre zdarzenia:
+Moduł automatycznie rejestruje niektóre zdarzenia:
 
 - **Nieudane logowania** - seria nieudanych prób logowania (brute force)
 - **Zmiana plików rdzenia** - modyfikacja plików WordPress core
 - **Nowy użytkownik admin** - utworzenie konta z rolą administratora
 - **Zmiana uprawnień** - podwyższenie uprawnień istniejącego konta
 
-Automatycznie wykryte zdarzenia rejestrowane są z kategorią i priorytetem, ale wymagają ręcznej weryfikacji (status "Nowy").
+Wykryte zdarzenia mają przypisaną kategorię i priorytet, ale wymagają ręcznej weryfikacji (status "Nowy").
 
 ```php
 // Wyłączenie automatycznego wykrywania
@@ -200,11 +200,11 @@ do_action('polski/security_incidents/create', [
 
 ## Rozwiązywanie problemów
 
-**Powiadomienia nie docierają** - sprawdź konfigurację e-mail WordPressa. Zalecane jest użycie wtyczki SMTP (np. WP Mail SMTP) zamiast domyślnej funkcji `wp_mail()`.
+**Powiadomienia nie docierają** - sprawdź konfigurację e-mail WordPressa. Użyj wtyczki SMTP (np. WP Mail SMTP) zamiast domyślnego `wp_mail()`.
 
-**Eksport CSV zwraca pusty plik** - sprawdź filtrowanie. Jeśli filtry są ustawione zbyt restrykcyjnie, wynik może być pusty.
+**Eksport CSV zwraca pusty plik** - sprawdź filtry. Zbyt restrykcyjne filtrowanie daje pusty wynik.
 
-**Automatyczne wykrywanie generuje za dużo alertów** - dostosuj progi w ustawieniach modułu. Domyślny próg dla nieudanych logowań to 5 w ciągu 15 minut - może być za niski dla sklepów z dużą liczbą użytkowników.
+**Za dużo alertów** - dostosuj progi w ustawieniach. Domyślny próg nieudanych logowań (5 na 15 minut) może być za niski dla dużych sklepów.
 
 Zgłaszanie problemów: [github.com/wppoland/polski/issues](https://github.com/wppoland/polski/issues)
 

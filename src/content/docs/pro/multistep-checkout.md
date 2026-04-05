@@ -3,7 +3,7 @@ title: Wieloetapowy koszyk
 description: Dokumentacja wieloetapowego koszyka Polski PRO for WooCommerce - podział procesu zamówienia na kroki, konfiguracja, React Checkout Blocks i fallback klasyczny.
 ---
 
-Moduł wieloetapowego koszyka w Polski PRO for WooCommerce dzieli proces składania zamówienia na cztery przejrzyste kroki. Klient widzi pasek postępu i przechodzi kolejno przez formularz adresowy, wybór dostawy, płatność i podsumowanie zamówienia.
+Moduł dzieli kasę na cztery kroki: adres, dostawa, płatność i podsumowanie. Klient widzi pasek postępu i przechodzi kolejno przez każdy krok.
 
 ## Kroki kasy
 
@@ -16,7 +16,7 @@ Wieloetapowy koszyk składa się z czterech kroków:
 | 3 | Płatność | Wybór metody płatności i dane płatnicze |
 | 4 | Podsumowanie | Przegląd zamówienia, checkboxy prawne, przycisk "Kupuję i płacę" |
 
-Klient może cofać się do poprzednich kroków bez utraty wprowadzonych danych. Przejście do następnego kroku wymaga poprawnego wypełnienia bieżącego formularza.
+Klient może cofać się bez utraty danych. Przejście dalej wymaga poprawnego wypełnienia bieżącego formularza.
 
 ## Konfiguracja
 
@@ -24,7 +24,7 @@ Przejdź do **WooCommerce > Ustawienia > Polski > Moduły PRO > Kasa**.
 
 ### Włączanie modułu
 
-Wieloetapowy koszyk jest kontrolowana opcją:
+Wieloetapowy koszyk kontroluje opcja:
 
 ```
 polski_pro_checkout[multistep_enabled]
@@ -47,26 +47,24 @@ Nazwy kroków są wyświetlane w pasku postępu nad formularzem kasy.
 
 ### Walidacja między krokami
 
-Plugin waliduje dane po każdym kroku przed pozwoleniem na przejście do następnego:
+Plugin sprawdza dane po każdym kroku przed przejściem dalej:
 
 - **Krok 1 (Adres)** - wymagane pola: imię, nazwisko, adres, miasto, kod pocztowy, telefon, e-mail
 - **Krok 2 (Dostawa)** - wymagany wybór metody dostawy
 - **Krok 3 (Płatność)** - wymagany wybór metody płatności
 - **Krok 4 (Podsumowanie)** - wymagane zaznaczenie obowiązkowych checkboxów prawnych
 
-Komunikaty walidacji pojawiają się inline pod odpowiednim polem.
+Komunikaty o błędach pojawiają się pod polami.
 
 ## Implementacja techniczna
 
 ### WooCommerce Checkout Blocks (React)
 
-Dla sklepów korzystających z WooCommerce Checkout Blocks (edytor blokowy) moduł wykorzystuje React do renderowania kroków. Komponenty integrują się z WooCommerce Store API i zachowują pełną zgodność z rozszerzeniami Checkout Blocks.
-
-Renderowanie odbywa się po stronie klienta. Plugin rejestruje się jako rozszerzenie Checkout Blocks i modyfikuje układ formularza bez ingerencji w logikę WooCommerce.
+Dla sklepów z WooCommerce Checkout Blocks moduł używa React. Integruje się z WooCommerce Store API i nie ingeruje w logikę WooCommerce.
 
 ### Fallback klasyczny (shortcode)
 
-Dla sklepów używających klasycznej kasy (shortcode `[woocommerce_checkout]`) moduł zapewnia fallback JavaScript. Skrypt dzieli istniejący formularz na sekcje i dodaje nawigację między nimi.
+Dla klasycznej kasy (shortcode `[woocommerce_checkout]`) moduł używa fallbacku JavaScript - dzieli formularz na sekcje i dodaje nawigację.
 
 Fallback klasyczny:
 
@@ -77,19 +75,19 @@ Fallback klasyczny:
 
 ### Wykrywanie trybu
 
-Plugin automatycznie wykrywa, czy kasa używa Checkout Blocks czy shortcode klasycznego, i ładuje odpowiednią implementację. Nie wymaga ręcznej konfiguracji trybu.
+Plugin sam wykrywa typ kasy (Blocks lub shortcode) i ładuje odpowiednią wersję. Nie trzeba nic ustawiać ręcznie.
 
 ## Stylizacja
 
 ### Klasa CSS body
 
-Gdy wieloetapowy koszyk jest aktywna, do elementu `<body>` dodawana jest klasa:
+Gdy wieloetapowy koszyk jest aktywny, `<body>` dostaje klasę:
 
 ```
 polski-multistep-checkout
 ```
 
-Umożliwia to celowanie stylów CSS wyłącznie na strony z wieloetapową kasą:
+Dzięki temu CSS targetuje tylko strony z wieloetapową kasą:
 
 ```css
 body.polski-multistep-checkout .woocommerce-checkout {
@@ -114,7 +112,7 @@ Każdy krok otrzymuje własną klasę CSS:
 
 ### Pasek postępu
 
-Pasek postępu jest renderowany jako element `<ol>` z klasą `.polski-checkout-progress`. Każdy element listy odpowiada jednemu krokowi:
+Pasek postępu to element `<ol>` z klasą `.polski-checkout-progress`:
 
 ```css
 .polski-checkout-progress { /* kontener paska */ }
@@ -127,15 +125,15 @@ Pasek postępu jest renderowany jako element `<ol>` z klasą `.polski-checkout-p
 
 ### Checkboxy prawne
 
-Checkboxy prawne z darmowej wersji Polski for WooCommerce są automatycznie przenoszone do kroku 4 (Podsumowanie). Klient musi je zaznaczyć przed złożeniem zamówienia.
+Checkboxy prawne z darmowej wersji trafiają do kroku 4 (Podsumowanie). Klient zaznacza je przed złożeniem zamówienia.
 
 ### Pole NIP
 
-Pole NIP jest wyświetlane w kroku 1 (Adres), zgodnie z konfiguracją wyświetlania warunkowego z modułu NIP.
+Pole NIP wyświetla się w kroku 1 (Adres), zgodnie z ustawieniami modułu NIP.
 
 ### Pola niestandardowe
 
-Pola dodane przez inne wtyczki (np. przez hook `woocommerce_checkout_fields`) są automatycznie przypisywane do odpowiedniego kroku na podstawie ich sekcji:
+Pola dodane przez inne wtyczki (np. hook `woocommerce_checkout_fields`) trafiają do kroków na podstawie sekcji:
 
 - `billing_*` - krok 1
 - `shipping_*` - krok 2
@@ -152,7 +150,7 @@ Wieloetapowy koszyk obsługuje:
 
 ## Wydajność
 
-Moduł ładuje skrypty i style tylko na stronie kasy. Na pozostałych stronach sklepu nie dodaje żadnych zasobów. Skrypty są ładowane z atrybutem `defer`, aby nie blokować renderowania strony.
+Skrypty i style ładują się tylko na stronie kasy. Na innych stronach moduł nie dodaje zasobów. Skrypty mają atrybut `defer` i nie blokują renderowania.
 
 ## Najczęstsze problemy
 

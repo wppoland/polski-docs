@@ -3,17 +3,17 @@ title: Weryfikacja adresu e-mail
 description: Double opt-in przy rejestracji - link aktywacyjny, blokada logowania i konfiguracja wiadomości w WooCommerce.
 ---
 
-Weryfikacja adresu e-mail (double opt-in) to mechanizm potwierdzania, że podany podczas rejestracji adres e-mail rzeczywiście należy do osoby zakładającej konto. Plugin Polski for WooCommerce dodaje proces weryfikacji e-mail do WooCommerce, wysyłając link aktywacyjny i blokując logowanie do momentu potwierdzenia.
+Double opt-in potwierdza, ze podany e-mail naprawdę należy do osoby zakładającej konto. Wtyczka Polski for WooCommerce wysyła link aktywacyjny i blokuje logowanie do momentu kliknięcia w ten link.
 
 ## Dlaczego warto używać double opt-in
 
-Double opt-in nie jest wymagany przez polskie prawo, ale jest rekomendowany ze względu na:
+Polskie prawo nie wymaga double opt-in, ale warto go włączyć ze względu na:
 
-- **RODO** - weryfikacja tożsamości osoby, której dane przetwarzamy
-- **Ochronę przed botami** - zapobiega tworzeniu fałszywych kont
-- **Jakość bazy klientów** - gwarantuje, że adresy e-mail są prawidłowe
-- **Dostarczalność e-maili** - zmniejsza ryzyko odbić (bounces) i oznaczeń jako spam
-- **Zgodność z ustawą o świadczeniu usług drogą elektroniczną** - potwierdzenie chęci korzystania z usługi
+- **RODO** - potwierdzasz tożsamość właściciela e-maila
+- **Ochrona przed botami** - blokuje fałszywe konta
+- **Jakość bazy** - masz pewność, że e-maile są prawdziwe
+- **Dostarczalność** - mniej odbitych wiadomości i oznaczeń jako spam
+- **Ustawa o usługach elektronicznych** - potwierdzenie chęci korzystania z usługi
 
 ## Konfiguracja
 
@@ -41,13 +41,13 @@ Przejdź do **WooCommerce > Ustawienia > Polski > Kasa** i skonfiguruj sekcję "
 
 ### Krok po kroku
 
-1. Klient rejestruje konto w WooCommerce (przez stronę "Moje konto" lub przy składaniu zamówienia)
-2. Plugin generuje unikalny token aktywacyjny i zapisuje go w bazie
-3. E-mail z linkiem aktywacyjnym jest wysyłany na podany adres
-4. Konto ma status "niezweryfikowane" - logowanie jest zablokowane
-5. Klient klika link aktywacyjny w e-mailu
-6. Plugin weryfikuje token, aktywuje konto i loguje użytkownika
-7. Klient jest przekierowany na stronę "Moje konto" lub skonfigurowany URL
+1. Klient rejestruje konto (przez "Moje konto" lub przy zamówieniu)
+2. Wtyczka generuje token aktywacyjny i zapisuje go w bazie
+3. E-mail z linkiem aktywacyjnym trafia na podany adres
+4. Konto ma status "niezweryfikowane" - logowanie zablokowane
+5. Klient klika link w e-mailu
+6. Wtyczka sprawdza token, aktywuje konto i loguje klienta
+7. Klient trafia na stronę "Moje konto" lub wybrany URL
 
 ### Rejestracja przy składaniu zamówienia
 
@@ -64,13 +64,13 @@ Jeśli opcja jest włączona:
 
 ## Blokada logowania
 
-Niezweryfikowani użytkownicy nie mogą się zalogować. Przy próbie logowania widzą komunikat:
+Niezweryfikowani użytkownicy nie mogą się zalogować. Widzą komunikat:
 
 > "Twoje konto nie zostało jeszcze zweryfikowane. Sprawdź swoją skrzynkę e-mail i kliknij link aktywacyjny. [Wyślij ponownie link]"
 
 ### Konfiguracja komunikatu blokady
 
-Komunikat można dostosować w ustawieniach pluginu. Dostępne zmienne:
+Komunikat zmienisz w ustawieniach wtyczki. Dostępne zmienne:
 
 | Zmienna | Opis |
 |---------|------|
@@ -89,7 +89,7 @@ Nie otrzymałeś wiadomości? {resend_link}
 
 ### Szablon e-maila aktywacyjnego
 
-Plugin dodaje nowy typ e-maila w **WooCommerce > Ustawienia > E-maile > Weryfikacja adresu e-mail**.
+Wtyczka dodaje nowy typ e-maila w **WooCommerce > Ustawienia > E-maile > Weryfikacja adresu e-mail**.
 
 Dostępne ustawienia:
 
@@ -178,14 +178,14 @@ if ($is_verified !== 'yes') {
 
 ### Limitowanie ponownych wysyłek
 
-Plugin ogranicza liczbę ponownych wysyłek linku aktywacyjnego do 5 na godzinę na adres e-mail. Limit można zmienić w ustawieniach.
+Wtyczka pozwala wysłać link aktywacyjny ponownie maksymalnie 5 razy na godzinę na jeden e-mail. Limit zmienisz w ustawieniach.
 
 ### Ochrona tokenów
 
-- Tokeny są generowane za pomocą `wp_generate_password(32, false)` - kryptograficznie bezpieczne
-- Każdy token może być użyty tylko raz
-- Tokeny wygasają po skonfigurowanym czasie
-- Wygasłe tokeny są automatycznie usuwane przez WP-Cron
+- Tokeny są generowane przez `wp_generate_password(32, false)` - bezpieczne kryptograficznie
+- Każdy token działa tylko raz
+- Tokeny wygasają po ustawionym czasie
+- WP-Cron automatycznie usuwa wygasłe tokeny
 
 ## Najczęstsze problemy
 

@@ -5,9 +5,9 @@ description: Przewodnik po kreatorze konfiguracji wtyczki Polski for WooCommerce
 
 ## Czym jest kreator konfiguracji?
 
-Kreator konfiguracji to narzędzie, które przeprowadzi Cię przez najważniejsze ustawienia wtyczki w kilku prostych krokach. Zamiast ręcznie konfigurować każdy moduł, kreator zadaje pytania i automatycznie ustawia odpowiednie opcje.
+Kreator przeprowadzi Cię przez najważniejsze ustawienia wtyczki w kilku krokach. Zamiast ręcznie konfigurować każdy moduł, odpowiadasz na pytania - kreator ustawi wszystko za Ciebie.
 
-Kreator jest dostępny po pierwszej aktywacji wtyczki. Możesz go też uruchomić ponownie w dowolnym momencie - przejdź do **WooCommerce > Polski > Ustawienia** i kliknij przycisk **Uruchom kreator ponownie**.
+Kreator pojawia się po pierwszej aktywacji wtyczki. Aby uruchomić go ponownie, przejdź do **WooCommerce > Polski > Ustawienia** i kliknij **Uruchom kreator ponownie**.
 
 :::note[Kreator nie nadpisuje istniejących danych]
 Jeśli uruchamiasz kreator ponownie, pola będą wypełnione wcześniej zapisanymi danymi. Kreator nie usunie ani nie nadpisze danych, których nie zmienisz.
@@ -17,7 +17,7 @@ Jeśli uruchamiasz kreator ponownie, pola będą wypełnione wcześniej zapisany
 
 ## Krok 1: Dane firmy
 
-Pierwszym krokiem jest uzupełnienie podstawowych danych Twojej firmy. Dane te są wykorzystywane w wielu miejscach - na stronach prawnych, w stopce, w danych GPSR i w fakturach.
+Wpisz dane swojej firmy. Wtyczka używa ich na stronach prawnych, w stopce, w danych GPSR i na fakturach.
 
 ### Wymagane pola
 
@@ -41,7 +41,7 @@ Pierwszym krokiem jest uzupełnienie podstawowych danych Twojej firmy. Dane te s
 
 ### Walidacja NIP
 
-Kreator automatycznie weryfikuje poprawność numeru NIP:
+Kreator automatycznie sprawdza poprawność NIP:
 
 - Sprawdza sumę kontrolną (algorytm wagowy)
 - Opcjonalnie pobiera dane z API GUS (CEIDG/KRS) do porównania
@@ -84,7 +84,7 @@ Kliknij **Dalej**, aby przejść do kolejnego kroku.
 
 ## Krok 2: Strony prawne
 
-W tym kroku kreator pomoże Ci utworzyć wymagane prawnie strony. Każdy polski sklep internetowy powinien posiadać co najmniej:
+Kreator pomoże Ci utworzyć wymagane strony prawne. Każdy polski sklep powinien mieć co najmniej:
 
 - **Regulamin sklepu** - zasady korzystania ze sklepu i zawierania umów
 - **Polityka prywatności** - informacje o przetwarzaniu danych osobowych (RODO)
@@ -123,12 +123,12 @@ Generowane strony zawierają sekcje wymagane przez polskie prawo. Przykładowa s
 ```
 
 :::caution[Szablony wymagają personalizacji]
-Wygenerowane strony to punkt wyjścia, nie gotowy dokument prawny. Przejrzyj treść i dostosuj ją do specyfiki swojego sklepu. W przypadku wątpliwości skonsultuj treść z prawnikiem specjalizującym się w e-commerce.
+Wygenerowane strony to punkt wyjścia, nie gotowy dokument prawny. Przejrzyj treść i dostosuj do swojego sklepu. W razie wątpliwości skonsultuj się z prawnikiem od e-commerce.
 :::
 
 ### Shortcody na stronach prawnych
 
-Na wygenerowanych stronach wykorzystywane są shortcody, które automatycznie wstawiają dane firmy:
+Strony prawne używają shortcodów, które automatycznie wstawiają dane firmy:
 
 ```
 [polski_company_name]        - nazwa firmy
@@ -141,7 +141,7 @@ Na wygenerowanych stronach wykorzystywane są shortcody, które automatycznie ws
 [polski_withdrawal_period]   - okres na odstąpienie (domyślnie 14 dni)
 ```
 
-Dzięki shortcodom, gdy zmienisz dane firmy w ustawieniach wtyczki, strony prawne zaktualizują się automatycznie.
+Gdy zmienisz dane firmy w ustawieniach, strony prawne zaktualizują się automatycznie.
 
 Przykład użycia w treści regulaminu:
 
@@ -169,7 +169,7 @@ Kliknij **Dalej**, aby przejść do konfiguracji checkboxów.
 
 ## Krok 3: Checkboxy na stronie kasy
 
-W tym kroku skonfigurujesz obowiązkowe checkboxy wyświetlane na stronie kasy (checkout). Polskie prawo wymaga, aby klient wyraził zgodę na regulamin przed złożeniem zamówienia.
+Skonfiguruj checkboxy na stronie kasy (checkout). Polskie prawo wymaga, aby klient zaakceptował regulamin przed złożeniem zamówienia.
 
 ### Domyślne checkboxy
 
@@ -248,7 +248,7 @@ Kliknij **Dalej**, aby przejść do podsumowania.
 
 ## Krok 4: Aktywacja modułów
 
-Na podstawie Twoich odpowiedzi kreator zaproponuje listę modułów do aktywacji:
+Kreator zaproponuje moduły do włączenia na podstawie Twoich odpowiedzi:
 
 ### Moduły zalecane (automatycznie zaznaczone)
 
@@ -275,7 +275,7 @@ Zaznacz moduły, które chcesz włączyć, i kliknij **Dalej**.
 
 ## Krok 5: Podsumowanie i zastosowanie
 
-Ostatni krok wyświetla podsumowanie wszystkich ustawień:
+Ostatni krok pokazuje podsumowanie ustawień:
 
 ```
 Dane firmy:
@@ -353,7 +353,7 @@ Kreator można uruchomić ponownie w dowolnym momencie:
 3. Pola będą wypełnione wcześniej zapisanymi danymi
 4. Zmień to, co potrzebujesz, i kliknij **Zastosuj konfigurację**
 
-Kreator nie usunie stron prawnych ani nie zresetuje modułów, które już skonfigurowałeś ręcznie.
+Kreator nie usunie stron prawnych ani nie zresetuje modułów skonfigurowanych ręcznie.
 
 ---
 
@@ -377,6 +377,6 @@ Kreator nie usunie stron prawnych ani nie zresetuje modułów, które już skonf
 - Sprawdź konsolę przeglądarki (F12) pod kątem błędów JavaScript
 - Dezaktywuj tymczasowo inne wtyczki, które mogą powodować konflikt
 
-Jeśli problem nie ustępuje, zgłoś go na [GitHub Issues](https://github.com/wppoland/polski/issues) z opisem problemu i zrzutem ekranu. Społeczność chętnie pomoże na [GitHub Discussions](https://github.com/wppoland/polski/discussions).
+Problem nie znika? Zgłoś go na [GitHub Issues](https://github.com/wppoland/polski/issues) z opisem i zrzutem ekranu. Możesz też zapytać na [GitHub Discussions](https://github.com/wppoland/polski/discussions).
 
 <div class="disclaimer">Ta strona ma wyłącznie charakter informacyjny i nie stanowi porady prawnej. Przed wdrożeniem skonsultuj się z prawnikiem. Polski for WooCommerce jest oprogramowaniem open source (GPLv2) dostarczanym bez gwarancji.</div>

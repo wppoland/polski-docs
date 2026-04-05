@@ -3,22 +3,22 @@ title: Cena jednostkowa
 description: Wyświetlanie ceny za kilogram, litr, metr lub sztukę w WooCommerce zgodnie z polskim prawem konsumenckim.
 ---
 
-Dyrektywa 98/6/WE oraz polska ustawa o informowaniu o cenach towarów i usług wymagają, aby sklep internetowy prezentował cenę jednostkową produktu - czyli cenę za kilogram, litr, metr bieżący lub sztukę. Plugin Polski for WooCommerce automatyzuje ten obowiązek, dodając informację o cenie jednostkowej na stronie produktu, w listingach oraz w koszyku.
+Polskie prawo wymaga, by sklep internetowy pokazywał cenę jednostkową produktu - np. cenę za kilogram, litr lub metr. Wtyczka Polski for WooCommerce dodaje tę informację automatycznie na stronie produktu, w listingu i w koszyku.
 
 ## Kiedy cena jednostkowa jest wymagana
 
-Obowiązek podawania ceny jednostkowej dotyczy produktów sprzedawanych na wagę, objętość lub długość. W praktyce obejmuje to:
+Cenę jednostkową podajesz dla produktów sprzedawanych na wagę, objętość lub długość. Dotyczy to m.in.:
 
 - produkty spożywcze (cena za kg lub litr)
 - kosmetyki i środki czystości (cena za 100 ml lub litr)
 - materiały budowlane (cena za metr bieżący lub metr kwadratowy)
 - produkty sypkie (cena za kg)
 
-Cena jednostkowa musi być widoczna w każdym miejscu, gdzie prezentowana jest cena produktu - na stronie produktu, w wynikach wyszukiwania, w porównywarkach cenowych oraz w koszyku.
+Cena jednostkowa musi być widoczna wszędzie, gdzie pokazujesz cenę produktu - na stronie produktu, w wynikach wyszukiwania, w porównywarkach i w koszyku.
 
 ## Konfiguracja
 
-Przejdź do **WooCommerce > Ustawienia > Polski > Ceny** i włącz moduł ceny jednostkowej. Po aktywacji w edytorze produktu pojawi się nowa sekcja w zakładce "Ogólne".
+Przejdź do **WooCommerce > Ustawienia > Polski > Ceny** i włącz moduł ceny jednostkowej. Po włączeniu w edytorze produktu pojawi się nowa sekcja w zakładce "Ogólne".
 
 ### Pola w edytorze produktu
 
@@ -33,23 +33,23 @@ Dla produktu o wadze 500 g i cenie 12,99 zł plugin automatycznie obliczy cenę 
 
 ### Obsługiwane jednostki
 
-Plugin obsługuje następujące jednostki miary:
+Wtyczka obsługuje te jednostki miary:
 
 - **Waga:** g, kg, mg
 - **Objętość:** ml, l, cl
 - **Długość:** mm, cm, m
 - **Sztuki:** szt (piece)
 
-Przeliczanie między jednostkami odbywa się automatycznie. Jeśli produkt ma wagę w gramach, a jednostka referencyjna to kilogram, plugin sam przeliczy wartość.
+Wtyczka przelicza jednostki automatycznie. Jeśli produkt ma wagę w gramach, a jednostka referencyjna to kilogram - wartość zostanie przeliczona.
 
 ## Warianty produktów
 
-Dla produktów zmiennych (variable products) cenę jednostkową można ustawić na dwóch poziomach:
+Dla produktów zmiennych cenę jednostkową ustawiasz na dwóch poziomach:
 
 1. **Na poziomie produktu głównego** - wartość dziedziczona przez wszystkie warianty
 2. **Na poziomie wariantu** - nadpisuje ustawienia produktu głównego
 
-W przypadku wariantów o różnej wadze (np. opakowanie 250 g i 500 g) ustaw cenę jednostkową osobno dla każdego wariantu. Plugin automatycznie zaktualizuje wyświetlaną cenę przy zmianie wariantu przez klienta (AJAX).
+Jeśli warianty mają różną wagę (np. 250 g i 500 g), ustaw cenę jednostkową osobno dla każdego wariantu. Wtyczka automatycznie zaktualizuje cenę, gdy klient zmieni wariant (AJAX).
 
 ## Shortcode
 
@@ -86,7 +86,7 @@ echo do_shortcode('[polski_unit_price product_id="' . $product->get_id() . '"]')
 
 ## Hook: polski/price/unit_price_html
 
-Ten filtr pozwala zmodyfikować HTML ceny jednostkowej przed wyświetleniem.
+Filtr pozwala zmienić HTML ceny jednostkowej przed wyświetleniem.
 
 ### Sygnatura
 
@@ -135,7 +135,7 @@ add_filter('polski/price/unit_price_html', function (string $html, float $unit_p
 
 ## Import CSV
 
-Cenę jednostkową można importować za pomocą standardowego importera WooCommerce. Dodaj następujące kolumny do pliku CSV:
+Cenę jednostkową importujesz przez standardowy importer WooCommerce. Dodaj te kolumny do pliku CSV:
 
 | Kolumna CSV | Opis |
 |-------------|------|
@@ -162,7 +162,7 @@ Sprawdź, czy:
 
 ### Nieprawidłowe przeliczenie
 
-Upewnij się, że jednostka bazowa i referencyjna należą do tej samej kategorii (np. obie wagowe lub obie objętościowe). Plugin nie przelicza między kategoriami - nie można przeliczyć gramów na litry.
+Sprawdź, czy jednostka bazowa i referencyjna są z tej samej kategorii (np. obie wagowe lub obie objętościowe). Wtyczka nie przelicza gramów na litry.
 
 ## Powiązane zasoby
 

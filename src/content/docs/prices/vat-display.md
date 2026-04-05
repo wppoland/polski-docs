@@ -3,17 +3,17 @@ title: Wyświetlanie VAT
 description: Konfiguracja wyświetlania cen brutto i netto, stawki VAT oraz zwolnienia z art. 113 ustawy o VAT w WooCommerce.
 ---
 
-Polskie prawo nakłada na sprzedawców internetowych obowiązek jednoznacznego informowania o tym, czy prezentowana cena zawiera podatek VAT. Plugin Polski for WooCommerce umożliwia elastyczne zarządzanie sposobem wyświetlania informacji o VAT - od prostego oznaczenia "brutto/netto" po pełną informację o stawce podatku i podstawie zwolnienia.
+Polskie prawo wymaga, by sklep jasno informował, czy cena zawiera VAT. Wtyczka Polski for WooCommerce pozwala wyświetlać informację o VAT - od prostego oznaczenia "brutto/netto" po stawkę podatku i podstawę zwolnienia.
 
 ## Wymagania prawne
 
-Zgodnie z ustawą o informowaniu o cenach towarów i usług oraz ustawą o VAT, sklep internetowy musi:
+Sklep internetowy musi:
 
 - wyraźnie informować, czy cena zawiera podatek VAT
 - podawać stawkę VAT, jeśli sprzedaje zarówno klientom indywidualnym, jak i firmom
 - w przypadku zwolnienia z VAT - wskazać podstawę prawną zwolnienia
 
-Sprzedawcy korzystający ze zwolnienia podmiotowego (art. 113 ustawy o VAT) muszą poinformować klienta, że cena nie zawiera VAT ze względu na zwolnienie.
+Jeśli korzystasz ze zwolnienia z VAT (art. 113), poinformuj klienta, ze cena nie zawiera VAT.
 
 ## Konfiguracja
 
@@ -36,7 +36,7 @@ Przejdź do **WooCommerce > Ustawienia > Polski > Ceny** i skonfiguruj sekcję "
 
 ## Zwolnienie z VAT (art. 113)
 
-Sprzedawcy zwolnieni z VAT na podstawie art. 113 ust. 1 lub ust. 9 ustawy o podatku od towarów i usług mogą skonfigurować odpowiedni komunikat.
+Jeśli jesteś zwolniony z VAT na podstawie art. 113 ust. 1 lub ust. 9, skonfiguruj odpowiedni komunikat.
 
 ### Konfiguracja zwolnienia
 
@@ -97,11 +97,11 @@ echo do_shortcode('[polski_tax_notice product_id="' . $product->get_id() . '"]')
 
 ## Konfiguracja dla sklepów B2B i B2C
 
-Sklepy obsługujące zarówno klientów indywidualnych (B2C), jak i firmowych (B2B) mogą skonfigurować różne widoki cen w zależności od roli użytkownika.
+Jeśli obsługujesz klientów indywidualnych (B2C) i firmowych (B2B), skonfiguruj osobne widoki cen dla każdej roli.
 
 ### Ceny netto dla firm
 
-Plugin współpracuje z systemem ról WooCommerce. Aby wyświetlać ceny netto dla klientów firmowych:
+Wtyczka korzysta z systemu ról WooCommerce. Aby pokazywać ceny netto firmom:
 
 1. Utwórz dedykowaną rolę (np. "klient_firmowy") lub użyj istniejącej
 2. W ustawieniach pluginu przypisz wyświetlanie netto do wybranej roli
@@ -109,7 +109,7 @@ Plugin współpracuje z systemem ról WooCommerce. Aby wyświetlać ceny netto d
 
 ### Podwójne ceny na stronie produktu
 
-Aktywacja trybu "Oba" wyświetla cenę netto i brutto jednocześnie. Format prezentacji:
+Tryb "Oba" pokazuje cenę netto i brutto jednocześnie. Format:
 
 ```
 100,00 zł netto
@@ -129,21 +129,21 @@ W Polsce obowiązują cztery stawki VAT:
 | 5% | Stawka obniżona - żywność, książki, czasopisma |
 | 0% | Stawka zerowa - eksport, wewnątrzwspólnotowa dostawa towarów |
 
-Plugin automatycznie rozpoznaje stawkę przypisaną do produktu w WooCommerce i wyświetla odpowiednią informację.
+Wtyczka automatycznie odczytuje stawkę przypisaną do produktu i wyświetla prawidłową informację.
 
 ## Informacja o VAT w e-mailach
 
-Plugin dodaje informację o VAT również do e-maili transakcyjnych WooCommerce:
+Wtyczka dodaje informację o VAT do e-maili WooCommerce:
 
 - potwierdzenie zamówienia
 - faktura
 - zmiana statusu zamówienia
 
-Treść komunikatu jest spójna z ustawieniami sklepu.
+Treść komunikatu jest zgodna z ustawieniami sklepu.
 
 ## Stylowanie CSS
 
-Informacja o VAT jest opakowywana w elementy z dedykowanymi klasami CSS:
+Informacja o VAT jest opakowana w elementy z klasami CSS:
 
 ```css
 .polski-tax-notice {
@@ -165,11 +165,11 @@ Informacja o VAT jest opakowywana w elementy z dedykowanymi klasami CSS:
 
 ### Informacja o VAT wyświetla się podwójnie
 
-Sprawdź, czy motyw nie dodaje własnej informacji o VAT. Niektóre motywy dedykowane dla rynku polskiego mają wbudowaną obsługę VAT - w takim przypadku wyłącz jedną z implementacji.
+Sprawdź, czy motyw nie dodaje własnej informacji o VAT. Niektore polskie motywy mają wbudowaną obsługę VAT - wyłącz jedną z nich.
 
 ### Stawka VAT wyświetla się nieprawidłowo
 
-Upewnij się, że klasy podatkowe w **WooCommerce > Ustawienia > Podatki > Stawki standardowe** są poprawnie skonfigurowane. Plugin odczytuje stawkę bezpośrednio z konfiguracji WooCommerce.
+Sprawdź, czy klasy podatkowe w **WooCommerce > Ustawienia > Podatki > Stawki standardowe** sa poprawnie ustawione. Wtyczka odczytuje stawkę z konfiguracji WooCommerce.
 
 ## Powiązane zasoby
 

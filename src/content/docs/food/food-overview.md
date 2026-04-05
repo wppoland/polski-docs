@@ -3,11 +3,11 @@ title: Moduł produktów spożywczych
 description: Przegląd modułu żywności - wartości odżywcze, alergeny, składniki, Nutri-Score, alkohol i kraj pochodzenia w WooCommerce.
 ---
 
-Sprzedaż produktów spożywczych przez internet w Polsce podlega szczegółowym regulacjom dotyczącym informowania konsumentów. Rozporządzenie (UE) nr 1169/2011 (FIC) oraz polskie przepisy wykonawcze wymagają podawania pełnych informacji o składzie, wartościach odżywczych, alergenach i pochodzeniu produktu. Plugin Polski for WooCommerce zapewnia kompletny moduł do zarządzania tymi danymi.
+Sprzedaż żywności online wymaga podawania informacji o składzie, wartościach odżywczych, alergenach i pochodzeniu produktu (rozporządzenie UE nr 1169/2011). Wtyczka Polski for WooCommerce daje kompletny moduł do zarządzania tymi danymi.
 
 ## Wymagania prawne
 
-Rozporządzenie FIC nakłada na sprzedawców żywności obowiązek podawania następujących informacji:
+Sprzedawca żywności musi podać:
 
 | Informacja | Wymagana | Podstawa prawna |
 |------------|----------|----------------|
@@ -22,21 +22,21 @@ Rozporządzenie FIC nakłada na sprzedawców żywności obowiązek podawania nas
 | Kraj pochodzenia | Warunkowo | Art. 9 ust. 1 lit. i |
 | Wartość odżywcza | Tak | Art. 9 ust. 1 lit. l |
 
-W przypadku sprzedaży na odległość (sklep internetowy) większość tych informacji musi być dostępna przed zakupem - z wyjątkiem daty minimalnej trwałości, która może być podana przy dostawie.
+W sklepie internetowym większość tych informacji musi być dostępna przed zakupem. Wyjątek to data minimalnej trwałości - podajesz ją przy dostawie.
 
 ## Składniki modułu
 
-Moduł żywności składa się z kilku podmodułów, które można włączać niezależnie:
+Moduł żywności ma kilka podmodułów. Każdy włączasz osobno:
 
 ### Wartości odżywcze
 
-Tabela wartości odżywczych per 100 g lub 100 ml produktu. Obejmuje energię (kJ/kcal), tłuszcze, węglowodany, białko, sól i inne składniki odżywcze.
+Tabela wartości odżywczych per 100 g lub 100 ml. Zawiera energię (kJ/kcal), tłuszcze, węglowodany, białko, sól i inne składniki.
 
 Szczegóły: [Wartości odżywcze](food/nutrients/)
 
 ### Alergeny
 
-System deklaracji alergenów oparty na taksonomii WordPress. 14 głównych alergenów zgodnie z załącznikiem II rozporządzenia FIC.
+Deklaracja 14 głównych alergenów oparta na taksonomii WordPress.
 
 Szczegóły: [Alergeny](food/allergens/)
 
@@ -48,7 +48,7 @@ Szczegóły: [Nutri-Score](food/nutri-score/)
 
 ### Składniki (wykaz)
 
-Pole tekstowe na pełny wykaz składników produktu. Alergeny w wykazie są automatycznie wyróżniane pogrubieniem zgodnie z wymogami FIC.
+Pole tekstowe na wykaz składników. Alergeny w wykazie są automatycznie pogrubiane.
 
 ### Alkohol
 
@@ -60,7 +60,7 @@ Pola do zarządzania informacjami o produktach alkoholowych:
 | Ostrzeżenie | Komunikat o zakazie sprzedaży osobom nieletnim |
 | Weryfikacja wieku | Checkbox potwierdzenia pełnoletności przy dodaniu do koszyka |
 
-Dla napojów o zawartości alkoholu powyżej 1,2% obj. wymagane jest podanie zawartości alkoholu na etykiecie (art. 28 FIC).
+Napoje z alkoholem powyżej 1,2% obj. wymagają podania zawartości alkoholu.
 
 ### Kraj pochodzenia
 
@@ -90,7 +90,7 @@ Przejdź do **WooCommerce > Ustawienia > Polski > Żywność** i aktywuj moduł 
 
 ### Pozycja na stronie produktu
 
-Informacje o produkcie spożywczym mogą być wyświetlane w kilku miejscach:
+Dane o żywności wyświetlasz w jednym z miejsc:
 
 1. **Nowa zakładka** (zalecane) - osobna zakładka "Informacje o żywności" obok opisu i recenzji
 2. **Pod opisem** - bezpośrednio pod opisem produktu
@@ -99,7 +99,7 @@ Informacje o produkcie spożywczym mogą być wyświetlane w kilku miejscach:
 
 ## Edytor produktu
 
-Po aktywacji modułu żywności, w edytorze produktu pojawia się nowa zakładka "Żywność" z następującymi sekcjami:
+Po włączeniu modułu w edytorze produktu pojawi się zakładka "Żywność" z sekcjami:
 
 - **Wartości odżywcze** - tabela z polami na wszystkie składniki
 - **Składniki** - pole tekstowe (WYSIWYG) na wykaz składników
@@ -110,7 +110,7 @@ Po aktywacji modułu żywności, w edytorze produktu pojawia się nowa zakładka
 
 ## Import CSV
 
-Wszystkie dane żywnościowe można importować masowo przez CSV:
+Dane żywnościowe importujesz masowo przez CSV:
 
 | Kolumna CSV | Opis | Format |
 |-------------|------|--------|
@@ -129,7 +129,7 @@ Przykład:
 
 ## Kompatybilność z Schema.org
 
-Moduł automatycznie generuje dane strukturalne zgodne ze Schema.org:
+Moduł automatycznie tworzy dane strukturalne Schema.org:
 
 ```json
 {
@@ -192,7 +192,7 @@ Upewnij się, że opcja "Automatyczne wyróżnianie alergenów" jest włączona 
 
 ### Wartości odżywcze wyświetlają się nieprawidłowo
 
-Sprawdź format danych - wartości muszą być liczbami (z kropką jako separatorem dziesiętnym w bazie danych). Plugin automatycznie formatuje wyświetlanie zgodnie z polskimi ustawieniami regionalnymi (przecinek).
+Sprawdź format danych - w bazie wartości używają kropki jako separatora (np. 9.5). Wtyczka automatycznie wyświetla je z polskim przecinkiem (9,5).
 
 ## Powiązane zasoby
 

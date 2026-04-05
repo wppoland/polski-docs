@@ -3,7 +3,7 @@ title: Zapytania ofertowe (RFQ)
 description: Moduł zapytań ofertowych Polski PRO for WooCommerce - zamiana przycisku koszyka na formularz ofertowy, logowanie zgód, panel administracyjny i powiadomienia e-mail.
 ---
 
-Moduł zapytań ofertowych (Request for Quote) zastępuje standardowy przycisk "Dodaj do koszyka" przyciskiem "Zapytaj o cenę", umożliwiając klientom składanie zapytań ofertowych zamiast bezpośrednich zakupów. Jest to rozwiązanie szczególnie przydatne w sklepach B2B, przy produktach wymagających indywidualnej wyceny lub przy dużych zamówieniach hurtowych.
+Moduł zapytań ofertowych (RFQ) zamienia przycisk "Dodaj do koszyka" na "Zapytaj o cenę". Klienci składają zapytania zamiast kupować bezpośrednio. Przydatne w sklepach B2B i przy produktach z indywidualną wyceną.
 
 :::note[Wymagania]
 Polski PRO wymaga: Polski (free) v1.3.0+, WordPress 6.4+, WooCommerce 8.0+, PHP 8.1+
@@ -38,7 +38,7 @@ Formularz zapytania ofertowego zawiera domyślnie:
 
 ### Zamiana przycisku
 
-Po włączeniu modułu przycisk "Dodaj do koszyka" zostaje zastąpiony przyciskiem zapytania ofertowego. Dotyczy to:
+Po włączeniu moduł zamienia przycisk "Dodaj do koszyka" na przycisk zapytania. Dotyczy:
 
 - Strony pojedynczego produktu
 - Stron archiwum i kategorii (jeśli opcja `polski_quote_show_on_loops` jest włączona)
@@ -46,7 +46,7 @@ Po włączeniu modułu przycisk "Dodaj do koszyka" zostaje zastąpiony przyciski
 
 ### Shortcode
 
-Przycisk zapytania ofertowego można umieścić w dowolnym miejscu za pomocą shortcode:
+Przycisk zapytania umieść w dowolnym miejscu shortcodem:
 
 ```
 [polski_quote_button product_id="123" text="Zapytaj o cenę" class="custom-class"]
@@ -62,7 +62,7 @@ Przycisk zapytania ofertowego można umieścić w dowolnym miejscu za pomocą sh
 
 ### Wysyłka formularza (AJAX)
 
-Formularz jest wysyłany asynchronicznie (AJAX), bez przeładowania strony. Po wysłaniu klient widzi komunikat potwierdzający z numerem zapytania.
+Formularz wysyła się przez AJAX, bez przeładowania strony. Klient widzi potwierdzenie z numerem zapytania.
 
 ```php
 /**
@@ -86,14 +86,14 @@ add_filter('polski_pro/quote/before_save', function (array $quote_data, int $pro
 
 ## Logowanie zgód
 
-Każde zapytanie ofertowe zapisuje informację o udzielonych zgodach:
+Każde zapytanie zapisuje dane o udzielonych zgodach:
 
 - Znacznik czasu (timestamp) udzielenia zgody
 - Adres IP klienta (hashowany SHA-256)
 - Treść zgody w momencie udzielenia
 - Wersja formularza
 
-Dane te są przechowywane w tabeli `{prefix}_polski_quote_consents` i mogą być eksportowane do celów audytu RODO.
+Dane trafiają do tabeli `{prefix}_polski_quote_consents` i można je eksportować do audytu RODO.
 
 ```php
 /**
@@ -110,7 +110,7 @@ do_action('polski_pro/quote/consent_logged', int $quote_id, array $consent, stri
 
 ### Lista zapytań
 
-Zapytania ofertowe są dostępne w menu **WooCommerce > Zapytania ofertowe**. Lista zawiera:
+Przejdź do **WooCommerce > Zapytania ofertowe**. Lista zawiera:
 
 - Numer zapytania
 - Dane klienta (imię, e-mail, telefon)
@@ -131,7 +131,7 @@ Zapytania ofertowe są dostępne w menu **WooCommerce > Zapytania ofertowe**. Li
 
 ### Odpowiadanie na zapytanie
 
-Z poziomu panelu administrator może:
+Administrator może:
 
 1. Przejrzeć szczegóły zapytania
 2. Dodać notatkę wewnętrzną
@@ -141,7 +141,7 @@ Z poziomu panelu administrator może:
 
 ## Powiadomienia e-mail
 
-Moduł rejestruje następujące szablony e-mail w WooCommerce:
+Szablony e-mail modułu:
 
 | E-mail | Odbiorca | Wyzwalacz |
 |--------|----------|-----------|

@@ -3,7 +3,7 @@ title: Nadpisywanie szablonów
 description: Nadpisywanie szablonów Polski for WooCommerce w motywie - lista plików, struktura katalogów i przykłady.
 ---
 
-Polski for WooCommerce korzysta z systemu szablonów wzorowanego na WooCommerce. Możesz nadpisać dowolny szablon wtyczki kopiując go do katalogu `yourtheme/polski/` w swoim motywie.
+System szablonów wzorowany na WooCommerce. Nadpisz dowolny szablon kopiując go do `yourtheme/polski/` w motywie.
 
 ## Jak nadpisać szablon
 
@@ -12,7 +12,7 @@ Polski for WooCommerce korzysta z systemu szablonów wzorowanego na WooCommerce.
 3. Zachowaj strukturę podkatalogów
 4. Zmodyfikuj skopiowany plik
 
-Wtyczka automatycznie wykryje szablon w motywie i użyje go zamiast domyślnego.
+Wtyczka automatycznie użyje szablonu z motywu zamiast domyślnego.
 
 **Przykład:** aby nadpisać szablon ceny Omnibus, skopiuj:
 
@@ -28,7 +28,7 @@ wp-content/themes/twoj-motyw/polski/omnibus/price-display.php
 
 ## Motyw potomny (child theme)
 
-Jeśli korzystasz z motywu potomnego, szablony umieszczaj w katalogu motywu potomnego. Wtyczka szuka szablonów w następującej kolejności:
+Przy motywie potomnym umieszczaj szablony w katalogu potomnego. Kolejność szukania:
 
 1. `wp-content/themes/motyw-potomny/polski/`
 2. `wp-content/themes/motyw-rodzic/polski/`
@@ -156,9 +156,9 @@ defined('ABSPATH') || exit;
 
 ## Sprawdzanie wersji szablonu
 
-Każdy szablon zawiera komentarz `@version` w nagłówku. Po aktualizacji wtyczki sprawdź, czy Twoje nadpisane szablony wymagają aktualizacji.
+Każdy szablon ma komentarz `@version`. Po aktualizacji wtyczki sprawdź, czy nadpisane szablony wymagają aktualizacji.
 
-Wtyczka wyświetla ostrzeżenie w panelu admina (**WooCommerce > Status > Polski**), jeśli wykryje przestarzałe szablony w motywie.
+Ostrzeżenie o przestarzałych szablonach pojawia się w **WooCommerce > Status > Polski**.
 
 ```php
 /**
@@ -180,14 +180,14 @@ Wtedy szablony szukane będą w: `wp-content/themes/twoj-motyw/custom-polski-tem
 
 ## Debugowanie szablonów
 
-Aby sprawdzić, który szablon jest aktualnie ładowany, włącz tryb debug:
+Sprawdź, który szablon jest ładowany, włączając tryb debug:
 
 ```php
 // W wp-config.php
 define('POLSKI_TEMPLATE_DEBUG', true);
 ```
 
-W trybie debug każdy szablon otoczony jest komentarzami HTML wskazującymi ścieżkę:
+W trybie debug każdy szablon jest otoczony komentarzami HTML ze ścieżką:
 
 ```html
 <!-- polski template: /themes/twoj-motyw/polski/omnibus/price-display.php -->

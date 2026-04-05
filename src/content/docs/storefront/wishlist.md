@@ -3,27 +3,27 @@ title: Lista życzeń (wishlist)
 description: Moduł listy życzeń w Polski for WooCommerce - obsługa gości i zalogowanych użytkowników, konto klienta, AJAX i shortcode.
 ---
 
-Lista życzeń pozwala klientom zapisywać produkty do późniejszego zakupu. Moduł Polski for WooCommerce oferuje pełną implementację wishlisty - zarówno dla zalogowanych użytkowników, jak i gości odwiedzających sklep.
+Lista życzeń pozwala klientom zapisywać produkty na później. Działa zarówno dla zalogowanych klientów, jak i gości.
 
 ![Lista życzeń, porównywarka i szybki podgląd na stronie sklepu](../../../assets/screenshots/screenshot-8-wishlist-compare-quick-view.png)
 
 ## Włączenie modułu
 
-Przejdź do **WooCommerce > Polski > Moduły sklepowe** i aktywuj opcję **Lista życzeń**. Po włączeniu na każdym produkcie pojawi się ikona serca umożliwiająca dodanie do listy.
+Przejdź do **WooCommerce > Polski > Moduły sklepowe** i włącz **Lista życzeń**. Na każdym produkcie pojawi się ikona serca.
 
 ## Obsługa gości i zalogowanych użytkowników
 
 ### Goście (niezalogowani)
 
-Dla gości lista życzeń przechowywana jest w `localStorage` przeglądarki. Dane są dostępne natychmiast bez zapytań do serwera. Po zalogowaniu się użytkownika lista z `localStorage` zostaje automatycznie zsynchronizowana z bazą danych - produkty nie giną.
+Lista zapisuje się w `localStorage` przeglądarki. Dane są dostępne od razu, bez zapytań do serwera. Po zalogowaniu lista automatycznie synchronizuje się z bazą danych - produkty nie znikają.
 
 ### Zalogowani użytkownicy
 
-Dla zalogowanych klientów dane zapisywane są w tabeli `wp_usermeta` z kluczem `_polski_wishlist`. Dzięki temu lista jest dostępna na każdym urządzeniu po zalogowaniu.
+Dane zapisują się w tabeli `wp_usermeta` z kluczem `_polski_wishlist`. Lista jest dostępna na każdym urządzeniu po zalogowaniu.
 
 ## Konto klienta
 
-Moduł dodaje nową zakładkę **Lista życzeń** w sekcji **Moje konto** WooCommerce. Klient widzi tam:
+Moduł dodaje zakładkę **Lista życzeń** w **Moje konto**. Klient widzi tam:
 
 - Miniaturkę produktu
 - Nazwę z linkiem do strony produktu
@@ -32,11 +32,11 @@ Moduł dodaje nową zakładkę **Lista życzeń** w sekcji **Moje konto** WooCom
 - Przycisk **Dodaj do koszyka**
 - Przycisk **Usuń z listy**
 
-Zakładka jest widoczna tylko wtedy, gdy moduł jest aktywny. Endpoint w URL to `wishlist` - np. `twojsklep.pl/moje-konto/wishlist/`.
+Zakładka widoczna jest tylko gdy moduł jest aktywny. Endpoint w URL: `wishlist` - np. `twojsklep.pl/moje-konto/wishlist/`.
 
 ## Działanie AJAX
 
-Dodawanie i usuwanie produktów z listy działa przez AJAX - strona nie jest przeładowywana. Po kliknięciu ikony serca:
+Dodawanie i usuwanie produktów działa przez AJAX - strona się nie przeładowuje. Po kliknięciu ikony serca:
 
 1. Ikona zmienia stan (pusta/wypełniona) z animacją CSS
 2. Wysyłane jest żądanie AJAX do `admin-ajax.php`
@@ -53,7 +53,7 @@ Akcje AJAX obsługiwane przez moduł:
 
 ## Shortcode `[polski_wishlist]`
 
-Shortcode wyświetla tabelę listy życzeń w dowolnym miejscu sklepu.
+Wyświetla tabelę listy życzeń w dowolnym miejscu sklepu.
 
 ### Parametry
 
@@ -87,7 +87,7 @@ echo do_shortcode('[polski_wishlist columns="image,name,price,add_to_cart"]');
 
 ## Przycisk na stronie produktu
 
-Przycisk listy życzeń wyświetla się domyślnie pod przyciskiem **Dodaj do koszyka** na stronie produktu. Pozycję można zmienić filtrem:
+Przycisk wyświetla się domyślnie pod **Dodaj do koszyka**. Zmień pozycję filtrem:
 
 ```php
 add_filter('polski/wishlist/button_position', function (): string {
@@ -97,11 +97,11 @@ add_filter('polski/wishlist/button_position', function (): string {
 
 ## Przycisk na liście produktów
 
-Na stronach kategorii i archiwów przycisk serca pojawia się na miniaturce produktu w rogu. Można to wyłączyć w ustawieniach modułu.
+Na stronach kategorii i archiwów przycisk serca pojawia się w rogu miniaturki. Wyłącz go w ustawieniach modułu.
 
 ## Nagłówek sklepu
 
-Moduł dodaje ikonę serca z licznikiem do nagłówka sklepu (obok koszyka). Kliknięcie otwiera dropdown z podglądem zapisanych produktów. Pozycję ikony kontrolujesz hookiem:
+Moduł dodaje ikonę serca z licznikiem do nagłówka (obok koszyka). Kliknięcie otwiera dropdown z zapisanymi produktami. Pozycję ikony zmień hookiem:
 
 ```php
 add_action('polski/wishlist/header_icon', function (): void {
@@ -111,7 +111,7 @@ add_action('polski/wishlist/header_icon', function (): void {
 
 ## Stylowanie CSS
 
-Moduł korzysta z klas CSS z prefiksem `.polski-wishlist-`. Główne klasy:
+Klasy CSS mają prefiks `.polski-wishlist-`. Główne klasy:
 
 - `.polski-wishlist-button` - przycisk dodania/usunięcia
 - `.polski-wishlist-button--active` - stan aktywny (produkt na liście)
@@ -121,15 +121,15 @@ Moduł korzysta z klas CSS z prefiksem `.polski-wishlist-`. Główne klasy:
 
 ## Wydajność
 
-Dane listy życzeń dla zalogowanych użytkowników cachowane są w object cache (jeśli dostępny). Fragment HTML przycisku cachowany jest przez `wp_cache_set()` z grupą `polski_wishlist`. Cache jest automatycznie czyszczony po dodaniu lub usunięciu produktu.
+Dane listy dla zalogowanych klientów są cachowane w object cache (jeśli dostępny). HTML przycisku cachowany jest przez `wp_cache_set()` z grupą `polski_wishlist`. Cache czyści się automatycznie po dodaniu lub usunięciu produktu.
 
 ## Rozwiązywanie problemów
 
-**Przycisk nie pojawia się na produkcie** - upewnij się, że motyw obsługuje hook `woocommerce_single_product_summary`. Niektóre motywy nadpisują domyślne szablony WooCommerce.
+**Przycisk nie pojawia się na produkcie** - sprawdź, czy motyw obsługuje hook `woocommerce_single_product_summary`. Niektóre motywy nadpisują szablony WooCommerce.
 
-**Lista nie synchronizuje się po zalogowaniu** - sprawdź, czy nie masz wtyczki cache'ującej, która agresywnie buforuje stronę logowania. Wyłącz cache dla strony `moje-konto`.
+**Lista nie synchronizuje się po zalogowaniu** - sprawdź, czy wtyczka cache nie buforuje strony logowania. Wyłącz cache dla strony `moje-konto`.
 
-**Ikona w nagłówku nie wyświetla się** - motyw musi obsługiwać hook `wp_nav_menu_items` lub `storefront_header`. Jeśli używasz niestandardowego motywu, dodaj ikonę ręcznie w szablonie.
+**Ikona w nagłówku nie wyświetla się** - motyw musi obsługiwać hook `wp_nav_menu_items` lub `storefront_header`. W niestandardowym motywie dodaj ikonę ręcznie w szablonie.
 
 Zgłaszanie problemów: [github.com/wppoland/polski/issues](https://github.com/wppoland/polski/issues)
 

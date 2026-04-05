@@ -3,7 +3,7 @@ title: Integracje księgowe
 description: Integracje z systemami księgowymi wFirma, Fakturownia i iFirma w Polski PRO for WooCommerce - synchronizacja faktur, retry logic i konfiguracja per dostawca.
 ---
 
-Moduł integracji księgowych łączy WooCommerce z popularnymi polskimi systemami fakturowania: wFirma, Fakturownia i iFirma. Faktury są wysyłane automatycznie po złożeniu zamówienia, z mechanizmem ponownych prób (retry) i wykładniczym opóźnieniem (exponential backoff) w przypadku błędów API.
+Moduł łączy WooCommerce z polskimi systemami fakturowania: wFirma, Fakturownia i iFirma. Faktury wysyłane są automatycznie, z ponawianiem przy błędach API.
 
 :::note[Wymagania]
 Polski PRO wymaga: Polski (free) v1.3.0+, WordPress 6.4+, WooCommerce 8.0+, PHP 8.1+. Dodatkowo wymagane jest aktywne konto w wybranym systemie księgowym z dostępem API.
@@ -17,7 +17,7 @@ Polski PRO wymaga: Polski (free) v1.3.0+, WordPress 6.4+, WooCommerce 8.0+, PHP 
 | Fakturownia | JSON | v3 | API token |
 | iFirma | JSON | v1 | Login + API key (klucz faktur) |
 
-W danym momencie aktywna może być tylko jedna integracja księgowa.
+Tylko jedna integracja może być aktywna jednocześnie.
 
 ## Konfiguracja
 
@@ -25,7 +25,7 @@ Przejdź do **WooCommerce > Ustawienia > Polski PRO > Księgowość**.
 
 ### Wybór dostawcy
 
-Wybierz system księgowy i podaj dane uwierzytelniające.
+Wybierz system księgowy i wpisz dane logowania.
 
 #### wFirma
 
@@ -76,7 +76,7 @@ Wybierz system księgowy i podaj dane uwierzytelniające.
 
 ### Mapowanie danych
 
-Moduł automatycznie mapuje dane zamówienia WooCommerce na wymagany format API:
+Moduł automatycznie przelicza dane zamówienia na format API:
 
 | Dane WooCommerce | wFirma (XML) | Fakturownia (JSON) | iFirma (JSON) |
 |------------------|-------------|-------------------|---------------|
@@ -146,7 +146,7 @@ Moduł automatycznie mapuje dane zamówienia WooCommerce na wymagany format API:
 
 ### Exponential backoff
 
-Gdy API zwraca błąd (HTTP 5xx, timeout, błąd połączenia), moduł automatycznie planuje ponowną próbę z wykładniczym opóźnieniem:
+Przy błędach serwera (HTTP 5xx, timeout) moduł ponawia próbę z rosnącym opóźnieniem:
 
 | Próba | Opóźnienie | Czas od pierwszej próby |
 |-------|------------|------------------------|
@@ -160,18 +160,18 @@ Opóźnienie obliczane jest wzorem: `delay = base_delay * 2^(attempt - 1)`, gdzi
 
 ### Błędy niepodlegające retry
 
-Błędy klienta (HTTP 4xx) nie są ponawiane automatycznie, ponieważ wskazują na problem z danymi, a nie z API:
+Błędy klienta (HTTP 4xx) nie są ponawiane - wskazują na problem z danymi:
 
 - `400 Bad Request` - nieprawidłowe dane
 - `401 Unauthorized` - błędny token API
 - `403 Forbidden` - brak uprawnień
 - `422 Unprocessable Entity` - walidacja danych
 
-Te błędy są logowane i wymagają interwencji administratora.
+Te błędy wymagają ręcznej poprawki.
 
 ### Asynchroniczne wysyłanie
 
-Faktury są wysyłane asynchronicznie za pomocą `WC_Action_Scheduler`, co oznacza, że nie blokują procesu składania zamówienia. Klient widzi potwierdzenie zamówienia natychmiast, a faktura jest generowana w tle.
+Faktury wysyłane są w tle przez `WC_Action_Scheduler`. Klient widzi potwierdzenie zamówienia od razu, a faktura generuje się w tle.
 
 ```php
 /**
@@ -274,7 +274,7 @@ add_filter('polski_pro/accounting/invoice_data', function (
 
 ### Status synchronizacji
 
-Na liście zamówień WooCommerce dodana jest kolumna "Faktura" pokazująca:
+Na liście zamówień kolumna "Faktura" pokazuje:
 
 - Zielona ikona - faktura wystawiona pomyślnie
 - Żółta ikona - w trakcie wysyłania / retry
@@ -283,7 +283,7 @@ Na liście zamówień WooCommerce dodana jest kolumna "Faktura" pokazująca:
 
 ### Ręczne wystawianie
 
-Na stronie edycji zamówienia, w panelu **Faktura**, administrator może:
+W panelu **Faktura** na stronie zamówienia administrator może:
 
 1. Wystawić fakturę ręcznie (jeśli automatyczne wystawianie zawiodło)
 2. Pobrać PDF faktury
@@ -299,7 +299,7 @@ Sprawdź, czy status wyzwalający jest poprawny. Upewnij się, że Action Schedu
 Zweryfikuj dane uwierzytelniające. W przypadku wFirma sprawdź, czy API key i secret są z konta głównego (nie subkonta). W Fakturowni upewnij się, że subdomena jest poprawna.
 
 **Duplikaty faktur**
-Moduł zabezpiecza przed duplikatami przez sprawdzenie meta `_polski_pro_invoice_id` przed wystawieniem. Jeśli duplikaty występują, sprawdź, czy inna wtyczka nie wyzwala tego samego hooka zamówienia.
+Moduł sprawdza meta `_polski_pro_invoice_id` przed wystawieniem, aby uniknąć duplikatów. Jeśli duplikaty występują, sprawdź, czy inna wtyczka nie wyzwala tego samego hooka.
 
 ## Dalsze kroki
 

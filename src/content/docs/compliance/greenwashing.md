@@ -3,11 +3,11 @@ title: Ochrona przed greenwashingiem
 description: Pola produktowe anti-greenwashing w Polski for WooCommerce - podstawa deklaracji środowiskowej, certyfikat i data ważności zgodnie z Dyrektywą 2024/825.
 ---
 
-Dyrektywa UE 2024/825 (Empowering Consumers Directive) zakazuje nieuzasadnionych deklaracji środowiskowych w handlu elektronicznym. Od 27 września 2026 roku sprzedawcy nie mogą używać ogólnych twierdzeń ekologicznych (np. "eko", "zielony", "przyjazny środowisku") bez konkretnego uzasadnienia i certyfikacji. Polski for WooCommerce dostarcza pola produktowe pozwalające dokumentować i wyświetlać podstawy deklaracji środowiskowych.
+Dyrektywa UE 2024/825 zakazuje nieuzasadnionych deklaracji środowiskowych. Od 27 września 2026 nie możesz używać ogólnych twierdzeń ekologicznych (np. "eko", "zielony") bez konkretnego uzasadnienia i certyfikatu. Wtyczka dodaje pola produktowe do dokumentowania deklaracji środowiskowych.
 
 ## Czym jest greenwashing
 
-Greenwashing to praktyka polegająca na wprowadzaniu konsumentów w błąd co do właściwości środowiskowych produktu lub działalności firmy. Przykłady zakazanych praktyk:
+Greenwashing to wprowadzanie klientów w błąd co do ekologicznych właściwości produktu. Przykłady zakazanych praktyk:
 
 - Używanie ogólnikowych deklaracji ("eko", "bio", "zielony") bez certyfikacji
 - Twierdzenia o neutralności klimatycznej oparte wyłącznie na kompensacji emisji
@@ -17,11 +17,11 @@ Greenwashing to praktyka polegająca na wprowadzaniu konsumentów w błąd co do
 
 ## Pola produktowe
 
-W edycji produktu WooCommerce, w zakładce **Polski - Środowisko**, dostępne są trzy pola pozwalające udokumentować deklaracje środowiskowe.
+W edycji produktu, zakładka **Polski - Środowisko**, znajdziesz trzy pola do dokumentowania deklaracji środowiskowych.
 
 ### Podstawa deklaracji
 
-Pole tekstowe na opis podstawy naukowej lub technicznej deklaracji środowiskowej.
+Pole na opis naukowej lub technicznej podstawy deklaracji środowiskowej.
 
 **Co wpisać:**
 
@@ -41,7 +41,7 @@ Proces produkcji potwierdzony audytem wewnętrznym z dnia 2025-03-01.
 
 ### Certyfikat
 
-Pole na informacje o oficjalnym certyfikacie potwierdzającym deklarację środowiskową.
+Pole na informacje o certyfikacie potwierdzającym deklarację środowiskową.
 
 **Akceptowane certyfikaty:**
 
@@ -69,7 +69,7 @@ Weryfikacja: https://environment.ec.europa.eu/ecolabel_en
 
 ### Data ważności
 
-Pole daty określające, do kiedy certyfikat lub deklaracja środowiskowa zachowuje ważność.
+Data, do kiedy certyfikat lub deklaracja jest ważna.
 
 Po upływie daty ważności:
 
@@ -77,18 +77,18 @@ Po upływie daty ważności:
 - Administrator otrzymuje powiadomienie e-mail o wygasłym certyfikacie
 - Produkt jest oznaczany na liście produktów ikoną ostrzegawczą
 
-To zabezpieczenie chroni przed sytuacją, gdy wygasły certyfikat nadal jest wyświetlany klientom.
+Chroni to przed sytuacją, gdy wygasły certyfikat nadal widoczny jest dla klientów.
 
 ## Wyświetlanie na stronie produktu
 
-Gdy pola środowiskowe są wypełnione, wtyczka wyświetla sekcję "Informacja środowiskowa" na stronie produktu. Sekcja zawiera:
+Po wypełnieniu pól wtyczka wyświetla sekcję "Informacja środowiskowa" na stronie produktu z danymi:
 
 - Treść deklaracji środowiskowej
 - Nazwę i numer certyfikatu
 - Datę ważności certyfikatu
 - Ikonę certyfikatu (jeśli jest rozpoznany - np. EU Ecolabel)
 
-Sekcja jest wyświetlana w zakładce "Dodatkowe informacje" na stronie produktu lub jako osobna zakładka (konfigurowalne w ustawieniach).
+Sekcja pojawia się w zakładce "Dodatkowe informacje" lub jako osobna zakładka (do ustawienia w konfiguracji).
 
 ## Konfiguracja
 
@@ -105,7 +105,7 @@ Ustawienia modułu: **WooCommerce > Ustawienia > Polski > Środowisko**.
 
 ### Eksport CSV
 
-Dane środowiskowe są uwzględnione w eksporcie produktów WooCommerce. Dodatkowe kolumny:
+Dane środowiskowe są w eksporcie produktów WooCommerce. Dodatkowe kolumny:
 
 - `env_claim_basis` - podstawa deklaracji
 - `env_certificate` - certyfikat
@@ -117,7 +117,7 @@ Przygotuj plik CSV z odpowiednimi nagłówkami i importuj standardową ścieżk�
 
 ### Filtrowanie produktów
 
-Na liście produktów w panelu administracyjnym możesz filtrować produkty według statusu deklaracji środowiskowej:
+Na liście produktów możesz filtrować według statusu deklaracji:
 
 - Wszystkie produkty z deklaracją
 - Produkty z wygasłym certyfikatem
@@ -135,13 +135,13 @@ Na liście produktów w panelu administracyjnym możesz filtrować produkty wed�
 ## Rozwiązywanie problemów
 
 **Pola środowiskowe nie wyświetlają się w edycji produktu**
-Włącz moduł w **WooCommerce > Ustawienia > Polski > Moduły** i upewnij się, że opcja "Włącz moduł" jest zaznaczona w ustawieniach środowiskowych.
+Włącz moduł w **WooCommerce > Ustawienia > Polski > Moduły** i sprawdź, czy opcja "Włącz moduł" jest zaznaczona w ustawieniach środowiskowych.
 
 **Deklaracja zniknęła ze strony produktu**
-Sprawdź datę ważności certyfikatu. Jeśli certyfikat wygasł, deklaracja jest automatycznie ukrywana. Odnów certyfikat i zaktualizuj datę ważności.
+Sprawdź datę ważności certyfikatu. Po wygaśnięciu deklaracja jest automatycznie ukrywana. Odnów certyfikat i zaktualizuj datę.
 
 **Nie otrzymuję powiadomień o wygasających certyfikatach**
-Sprawdź, czy WP-Cron działa prawidłowo. Powiadomienia są wysyłane przez zaplanowane zadanie cron. Na serwerach z wyłączonym WP-Cron skonfiguruj systemowy cron.
+Sprawdź, czy WP-Cron działa. Powiadomienia wysyłane są przez zadanie cron. Na serwerach z wyłączonym WP-Cron skonfiguruj systemowy cron.
 
 ## Dalsze kroki
 

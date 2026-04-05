@@ -3,30 +3,30 @@ title: Prawo odstąpienia od umowy
 description: Obsługa prawa odstąpienia od umowy w Polski for WooCommerce - formularz zwrotu, wykluczenia produktowe, automatyczne e-maile i hooki deweloperskie.
 ---
 
-Dyrektywa UE 2023/2673 wprowadza nowe obowiązki dotyczące prawa odstąpienia od umowy, które stają się obowiązkowe od 19 czerwca 2026 roku. Polski for WooCommerce implementuje kompletny proces obsługi odstąpienia - od formularza klienta, przez potwierdzenia e-mail, po wykluczenia produktowe i hooki dla deweloperów.
+Dyrektywa UE 2023/2673 wprowadza nowe obowiązki dotyczące prawa odstąpienia od umowy (od 19 czerwca 2026). Wtyczka obsługuje cały proces - formularz klienta, potwierdzenia e-mail, wykluczenia produktowe i hooki dla deweloperów.
 
 ## Wymagania prawne
 
-Konsument ma prawo odstąpić od umowy zawartej na odległość w ciągu 14 dni bez podawania przyczyny. Sprzedawca jest zobowiązany:
+Konsument może odstąpić od umowy zawartej na odległość w ciągu 14 dni bez podawania przyczyny. Jako sprzedawca musisz:
 
 1. Poinformować konsumenta o prawie do odstąpienia przed zawarciem umowy
 2. Udostępnić formularz odstąpienia
 3. Potwierdzić otrzymanie oświadczenia o odstąpieniu
 4. Zwrócić płatność w ciągu 14 dni od otrzymania oświadczenia
 
-Dyrektywa 2023/2673 rozszerza te obowiązki o cyfrowy proces składania oświadczeń i automatyczne potwierdzenia.
+Dyrektywa 2023/2673 dodaje wymóg cyfrowego procesu składania oświadczeń i automatycznych potwierdzeń.
 
 ## Proces klienta
 
 ### Krok 1 - przycisk w Moje konto
 
-Po aktywacji modułu na stronie **Moje konto > Zamówienia** pojawia się przycisk "Odstąp od umowy" przy zamówieniach kwalifikujących się do zwrotu. Przycisk jest widoczny tylko w okresie odstąpienia (domyślnie 14 dni od dostawy).
+Po włączeniu modułu w **Moje konto > Zamówienia** pojawia się przycisk "Odstąp od umowy" przy zamówieniach, które kwalifikują się do zwrotu. Przycisk widoczny jest przez 14 dni od dostawy.
 
 ![Przyciski odstąpienia od umowy w panelu Moje konto](../../../assets/screenshots/screenshot-5-withdrawal-request.png)
 
 ### Krok 2 - formularz odstąpienia
 
-Po kliknięciu przycisku klient przechodzi do formularza, który zawiera:
+Po kliknięciu przycisku klient widzi formularz z polami:
 
 - Numer zamówienia (wypełniony automatycznie)
 - Datę zamówienia
@@ -43,11 +43,11 @@ Po złożeniu formularza system automatycznie:
 2. Wysyła administratorowi sklepu powiadomienie o nowym zgłoszeniu
 3. Zmienia status zgłoszenia na "Oczekujące"
 
-Administrator może następnie przetworzyć zgłoszenie w panelu WooCommerce i oznaczyć je jako zakończone.
+Następnie przetwórz zgłoszenie w panelu WooCommerce i oznacz jako zakończone.
 
 ## Wykluczenia produktowe
 
-Prawo do odstąpienia nie przysługuje w przypadku niektórych kategorii produktów. Możesz oznaczyć produkt jako wykluczony w zakładce **Polski - Odstąpienie** w edycji produktu.
+Niektóre produkty nie podlegają prawu do odstąpienia. Oznacz je jako wykluczone w zakładce **Polski - Odstąpienie** w edycji produktu.
 
 Typowe wykluczenia zgodnie z art. 38 ustawy o prawach konsumenta:
 
@@ -58,7 +58,7 @@ Typowe wykluczenia zgodnie z art. 38 ustawy o prawach konsumenta:
 - Treści cyfrowe dostarczone online (po rozpoczęciu świadczenia)
 - Prasa (dzienniki, periodyki, czasopisma)
 
-Dla produktu wykluczonego przycisk "Odstąp od umowy" nie wyświetla się w panelu klienta.
+Przy wykluczonym produkcie przycisk "Odstąp od umowy" nie pojawia się w panelu klienta.
 
 ## Shortcode
 
@@ -78,7 +78,7 @@ Wyświetla formularz dla zalogowanego klienta. Klient musi wybrać zamówienie z
 [polski_withdrawal_form order_id="789"]
 ```
 
-Wyświetla formularz wstępnie wypełniony danymi zamówienia o podanym ID. System weryfikuje, czy zalogowany użytkownik jest właścicielem tego zamówienia.
+Wyświetla formularz wypełniony danymi zamówienia o podanym ID. Wtyczka sprawdza, czy zalogowany użytkownik jest właścicielem zamówienia.
 
 ### Przykład osadzenia na stronie
 
@@ -88,7 +88,7 @@ Stwórz dedykowaną stronę "Formularz odstąpienia od umowy" i umieść na niej
 [polski_withdrawal_form]
 ```
 
-Następnie w ustawieniach wtyczki (**WooCommerce > Ustawienia > Polski > Odstąpienie**) wskaż tę stronę jako domyślną stronę formularza.
+W ustawieniach (**WooCommerce > Ustawienia > Polski > Odstąpienie**) wskaż tę stronę jako domyślną stronę formularza.
 
 ## Hooki
 
@@ -214,7 +214,7 @@ add_filter('polski/withdrawal/form_fields', function (array $fields): array {
 
 ## Administracja zgłoszeniami
 
-Zgłoszenia odstąpienia są dostępne w panelu WooCommerce pod **WooCommerce > Odstąpienia**. Każde zgłoszenie zawiera:
+Zgłoszenia znajdziesz w **WooCommerce > Odstąpienia**. Każde zgłoszenie zawiera:
 
 - Numer zamówienia i link do zamówienia
 - Datę złożenia formularza
@@ -223,7 +223,7 @@ Zgłoszenia odstąpienia są dostępne w panelu WooCommerce pod **WooCommerce > 
 - Lista produktów objętych odstąpieniem
 - Powód (jeśli podany)
 
-Administrator może zmienić status zgłoszenia, dodać notatkę wewnętrzną lub przetworzyć zwrot bezpośrednio z panelu.
+Możesz zmienić status zgłoszenia, dodać notatkę lub przetworzyć zwrot bezpośrednio z panelu.
 
 ## Rozwiązywanie problemów
 

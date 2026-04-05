@@ -3,11 +3,11 @@ title: Filtry AJAX
 description: Moduł filtrów AJAX w Polski for WooCommerce - filtrowanie po kategoriach, markach, cenie, stanach magazynowych, wyprzedaży, atrybutach, GET fallback, blok Gutenberg i shortcode.
 ---
 
-Filtry AJAX pozwalają klientom zawężać listę produktów bez przeładowania strony. Filtrowanie odbywa się natychmiast - produkty aktualizują się w czasie rzeczywistym po wybraniu kryteriów.
+Filtry AJAX pozwalają klientom zawężać listę produktów bez przeładowania strony. Produkty aktualizują się na żywo po wybraniu filtrów.
 
 ## Włączenie modułu
 
-Przejdź do **WooCommerce > Polski > Moduły sklepowe** i aktywuj opcję **Filtry AJAX**. Moduł udostępni filtry jako blok Gutenberg, shortcode oraz widget.
+Przejdź do **WooCommerce > Polski > Moduły sklepowe** i włącz **Filtry AJAX**. Filtry dostępne są jako blok Gutenberg, shortcode i widget.
 
 ![Filtry AJAX, lista życzeń i porównywarka na stronie sklepu](../../../assets/screenshots/screenshot-8-wishlist-compare-quick-view.png)
 
@@ -15,7 +15,7 @@ Przejdź do **WooCommerce > Polski > Moduły sklepowe** i aktywuj opcję **Filtr
 
 ### Kategorie
 
-Filtr hierarchiczny z rozwijanym drzewem kategorii. Liczba produktów wyświetlana jest obok każdej kategorii. Puste kategorie są domyślnie ukryte.
+Rozwijane drzewo kategorii z liczbą produktów obok każdej. Puste kategorie są domyślnie ukryte.
 
 Opcje:
 - Wyświetlanie jako drzewo lub płaska lista
@@ -24,11 +24,11 @@ Opcje:
 
 ### Marki (producenci)
 
-Filtr po producencie/marce. Wymaga aktywnego modułu **Producent** w Polski for WooCommerce. Wyświetla listę marek z liczbą produktów.
+Filtr po marce. Wymaga aktywnego modułu **Producent**. Wyświetla listę marek z liczbą produktów.
 
 ### Cena
 
-Suwak zakresu cen (range slider) z polami min/max. Zakres automatycznie dostosowuje się do aktualnie wyświetlanych produktów.
+Suwak zakresu cen z polami min/max. Zakres dopasowuje się do aktualnie widocznych produktów.
 
 Opcje:
 - Suwak (slider)
@@ -50,7 +50,7 @@ add_filter('polski/ajax_filters/price_ranges', function (): array {
 
 ### Stan magazynowy
 
-Filtr pozwalający pokazać tylko produkty dostępne w magazynie. Opcje:
+Filtrowanie po dostępności. Opcje:
 
 - **W magazynie** - produkty z `stock_status = instock`
 - **Na zamówienie** - produkty z `stock_status = onbackorder`
@@ -58,11 +58,11 @@ Filtr pozwalający pokazać tylko produkty dostępne w magazynie. Opcje:
 
 ### Wyprzedaż
 
-Checkbox **Tylko produkty w promocji** - filtruje wyłącznie produkty z aktywną ceną promocyjną.
+Checkbox **Tylko produkty w promocji** - pokazuje wyłącznie produkty z ceną promocyjną.
 
 ### Atrybuty produktów
 
-Dynamiczne filtry generowane automatycznie na podstawie atrybutów WooCommerce (kolor, rozmiar, materiał itp.). Każdy atrybut globalny może być użyty jako filtr.
+Filtry generowane automatycznie z atrybutów WooCommerce (kolor, rozmiar, materiał itp.). Każdy atrybut globalny może być filtrem.
 
 Typy wyświetlania atrybutów:
 - **Lista checkboxów** - domyślna
@@ -83,14 +83,9 @@ Po zmianie dowolnego filtra:
 
 ## Fallback GET (bez JavaScript)
 
-Moduł obsługuje tryb fallback bez JavaScript. Gdy JS jest wyłączony lub niedostępny:
+Gdy JavaScript jest wyłączony, filtry działają jako zwykły formularz HTML z parametrami GET. Strona przeładowuje się z przefiltrowaną listą. Parametry zapisują się w URL (np. `?pa_color=red&min_price=50&max_price=200`), co jest SEO-friendly.
 
-- Filtry działają jako standardowy formularz HTML z parametrami GET
-- Po zatwierdzeniu strona przeładowuje się z przefiltrowaną listą produktów
-- Parametry filtrów zapisywane są w URL, np.: `?pa_color=red&min_price=50&max_price=200`
-- Filtrowane URL-e są SEO-friendly i mogą być indeksowane przez wyszukiwarki
-
-Tryb fallback działa automatycznie - nie wymaga dodatkowej konfiguracji.
+Tryb fallback działa automatycznie - bez dodatkowej konfiguracji.
 
 ## Blok Gutenberg
 
@@ -140,11 +135,11 @@ echo do_shortcode('[polski_ajax_filters filters="category,price,stock,sale"]');
 
 ## Integracja z paginacją
 
-Filtry AJAX współpracują z paginacją WooCommerce. Po zmianie filtra użytkownik wraca na stronę 1 wyników. Paginacja również działa w trybie AJAX - przejście między stronami nie resetuje wybranych filtrów.
+Filtry współpracują z paginacją WooCommerce. Po zmianie filtra wraca strona 1. Przejście między stronami nie resetuje filtrów.
 
 ## Aktywne filtry
 
-Nad listą produktów wyświetlane są aktywne filtry w formie tagów (chips). Każdy tag ma przycisk X pozwalający usunąć pojedynczy filtr. Przycisk **Wyczyść wszystkie** resetuje wszystkie filtry jednocześnie.
+Nad listą produktów widoczne są aktywne filtry jako tagi (chips). Kliknij X na tagu, aby usunąć filtr. Przycisk **Wyczyść wszystkie** resetuje wszystkie filtry naraz.
 
 ```php
 // Zmiana pozycji paska aktywnych filtrów
@@ -155,9 +150,9 @@ add_filter('polski/ajax_filters/active_position', function (): string {
 
 ## Wydajność
 
-Zapytania filtrów korzystają z indeksów bazodanowych WooCommerce (`product_meta_lookup`). Dla sklepów z dużą liczbą produktów (10 000+) zalecane jest użycie object cache (Redis/Memcached).
+Filtry korzystają z indeksów bazodanowych WooCommerce (`product_meta_lookup`). Dla sklepów z 10 000+ produktów zalecany jest object cache (Redis/Memcached).
 
-Wyniki filtrowania cachowane są w transient API z kluczem opartym na hashie parametrów filtra. Cache jest czyszczony przy zmianie ceny, stanu magazynowego lub atrybutów produktu.
+Wyniki cachują się w transient API. Cache czyści się przy zmianie ceny, stanu magazynowego lub atrybutów produktu.
 
 ## Stylowanie CSS
 
@@ -171,11 +166,11 @@ Wyniki filtrowania cachowane są w transient API z kluczem opartym na hashie par
 
 ## Rozwiązywanie problemów
 
-**Filtry nie aktualizują listy produktów** - upewnij się, że selektor CSS listy produktów jest poprawny. Domyślnie moduł szuka `.products` lub `ul.products`. Niestandardowe motywy mogą używać innego selektora.
+**Filtry nie aktualizują listy produktów** - sprawdź selektor CSS listy produktów. Moduł szuka `.products` lub `ul.products`. Twój motyw może używać innego selektora.
 
-**Liczniki pokazują 0** - sprawdź, czy produkty mają przypisane atrybuty, kategorie i stan magazynowy. Pusty atrybut nie będzie liczony.
+**Liczniki pokazują 0** - sprawdź, czy produkty mają przypisane atrybuty, kategorie i stan magazynowy.
 
-**Suwak ceny nie działa** - sprawdź, czy na stronie nie ma konfliktu z jQuery UI z innej wtyczki.
+**Suwak ceny nie działa** - możliwy konflikt z jQuery UI z innej wtyczki.
 
 Zgłaszanie problemów: [github.com/wppoland/polski/issues](https://github.com/wppoland/polski/issues)
 

@@ -3,7 +3,7 @@ title: Integracja InPost (Paczkomaty)
 description: Moduł integracji InPost ShipX API w Polski PRO for WooCommerce - Paczkomaty, generowanie etykiet, mapa punktów odbioru i śledzenie przesyłek.
 ---
 
-Moduł InPost integruje WooCommerce z API ShipX InPost, umożliwiając generowanie etykiet przewozowych, wybór punktu odbioru przez klienta na mapie, wyszukiwanie Paczkomatów i śledzenie przesyłek bezpośrednio z panelu administracyjnego.
+Moduł InPost integruje WooCommerce z API ShipX. Generuj etykiety, pozwól klientom wybrać Paczkomat na mapie i śledź przesyłki z panelu admina.
 
 :::note[Wymagania]
 Polski PRO wymaga: Polski (free) v1.3.0+, WordPress 6.4+, WooCommerce 8.0+, PHP 8.1+. Dodatkowo wymagany jest aktywny token API InPost ShipX (uzyskiwany z panelu managera InPost).
@@ -21,7 +21,7 @@ Przejdź do **WooCommerce > Ustawienia > Polski PRO > InPost**.
 | ID organizacji | Identyfikator organizacji w systemie InPost |
 | Tryb sandbox | Używa środowiska testowego ShipX API |
 
-Token API jest przekazywany w nagłówku `Authorization: Bearer {token}` do każdego żądania ShipX API. Token powinien mieć uprawnienia do tworzenia przesyłek i generowania etykiet.
+Token trafia w nagłówku `Authorization: Bearer {token}`. Musi mieć uprawnienia do tworzenia przesyłek i etykiet.
 
 ### Ustawienia metody wysyłki
 
@@ -44,7 +44,7 @@ Po skonfigurowaniu API, utwórz nową metodę wysyłki:
 
 ### Widget mapy
 
-Na stronie kasy, po wybraniu metody wysyłki "InPost Paczkomat", wyświetlany jest interaktywny widget mapy umożliwiający wybór Paczkomatu.
+Po wybraniu "InPost Paczkomat" na kasie wyświetla się interaktywny widget mapy.
 
 Widget oferuje:
 
@@ -63,7 +63,7 @@ Widget wysyła zapytanie do endpointu ShipX API:
 GET /v1/points?type=parcel_locker&city={city}&per_page=25
 ```
 
-Wyniki są cache'owane przez 24 godziny w transients WordPress, aby zminimalizować liczbę zapytań do API.
+Wyniki są cache'owane na 24 godziny w transients WordPress.
 
 ### Wyszukiwanie po współrzędnych
 
@@ -101,7 +101,7 @@ add_filter('polski_pro/inpost/points', function (array $points, string $city, ar
 
 ### Z panelu zamówienia
 
-Na stronie edycji zamówienia w panelu **InPost** dostępne są opcje:
+W panelu **InPost** na stronie zamówienia:
 
 1. **Generuj etykietę** - tworzy przesyłkę w API ShipX i generuje etykietę PDF
 2. **Pobierz etykietę** - pobiera wygenerowaną etykietę
@@ -109,7 +109,7 @@ Na stronie edycji zamówienia w panelu **InPost** dostępne są opcje:
 
 ### Masowe generowanie
 
-Na liście zamówień zaznacz wiele zamówień i wybierz akcję zbiorczą "Generuj etykiety InPost". Etykiety są generowane asynchronicznie - po zakończeniu pojawi się powiadomienie z linkiem do pobrania pliku ZIP.
+Zaznacz wiele zamówień na liście i wybierz "Generuj etykiety InPost". Etykiety generują się w tle. Po zakończeniu pobierz plik ZIP.
 
 ### Dane przesyłki
 
@@ -148,7 +148,7 @@ add_filter('polski_pro/inpost/shipment_data', function (array $shipment_data, \W
 
 ### Automatyczne śledzenie
 
-Po wygenerowaniu etykiety moduł automatycznie sprawdza status przesyłki co 2 godziny (WP-Cron). Statusy są mapowane na statusy zamówień WooCommerce:
+Po wygenerowaniu etykiety moduł sprawdza status przesyłki co 2 godziny (WP-Cron). Statusy mapują się na statusy WooCommerce:
 
 | Status InPost | Status WooCommerce | Opis |
 |---------------|-------------------|------|
@@ -161,7 +161,7 @@ Po wygenerowaniu etykiety moduł automatycznie sprawdza status przesyłki co 2 g
 
 ### Powiadomienia klienta
 
-Klient otrzymuje e-mail z linkiem do śledzenia przesyłki na stronie InPost. Link śledzenia jest dodawany do:
+Klient dostaje e-mail z linkiem do śledzenia na stronie InPost. Link jest dodawany do:
 
 - E-maila "Zamówienie w realizacji"
 - Strony "Moje konto > Zamówienia > Szczegóły"

@@ -3,7 +3,7 @@ title: Komendy WP-CLI
 description: Komendy WP-CLI dostępne w Polski for WooCommerce - migracja danych i test poprawności konfiguracji.
 ---
 
-Polski for WooCommerce udostępnia komendy WP-CLI do zarządzania wtyczką z wiersza poleceń. Komendy pozwalają automatyzować migracje danych oraz weryfikować poprawność konfiguracji.
+Komendy WP-CLI do zarządzania wtyczką z wiersza poleceń. Automatyzuj migracje danych i weryfikuj konfigurację.
 
 ## Wymagania
 
@@ -13,7 +13,7 @@ Polski for WooCommerce udostępnia komendy WP-CLI do zarządzania wtyczką z wie
 
 ## wp polski migrate
 
-Komenda migracji danych przy aktualizacji wtyczki lub przenoszeniu sklepu.
+Migracja danych przy aktualizacji wtyczki lub przenoszeniu sklepu.
 
 ### Składnia
 
@@ -123,7 +123,7 @@ Wykonywanie migracji: omnibus_price_history...
 
 ## wp polski smoke-test
 
-Komenda testująca poprawność konfiguracji sklepu. Sprawdza wszystkie moduły wtyczki, strony prawne, checkboxy oraz integracje.
+Testuje konfigurację sklepu: moduły, strony prawne, checkboxy i integracje.
 
 ### Składnia
 
@@ -278,7 +278,7 @@ fi
 
 ## Multisite
 
-Komendy WP-CLI obsługują instalacje WordPress Multisite. Użyj flagi `--url` do wskazania konkretnej strony:
+Komendy obsługują WordPress Multisite. Wskaż stronę flagą `--url`:
 
 ```bash
 wp polski smoke-test --url=sklep1.twojadomena.pl

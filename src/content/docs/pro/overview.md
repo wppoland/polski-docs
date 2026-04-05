@@ -3,11 +3,11 @@ title: Polski PRO - przegląd
 description: Przegląd wtyczki Polski PRO for WooCommerce - moduły premium, wymagania systemowe, instalacja i aktywacja licencji.
 ---
 
-Polski PRO for WooCommerce to rozszerzenie premium do darmowej wtyczki Polski for WooCommerce. Dodaje zaawansowane moduły dla polskich sklepów internetowych - od fakturowania i integracji z KSeF, przez wieloetapową kasę, aż po karty podarunkowe, subskrypcje i program afiliacyjny.
+Polski PRO for WooCommerce to płatne rozszerzenie darmowej wtyczki Polski for WooCommerce. Dodaje moduły premium: fakturowanie, KSeF, wieloetapową kasę, karty podarunkowe, subskrypcje i program afiliacyjny.
 
 ## Co dodaje wersja PRO
 
-Darmowa wersja Polski for WooCommerce obsługuje podstawowe wymagania polskich sklepów: pola NIP, checkboxy prawne, ceny jednostkowe, wyświetlanie VAT i zgodność z Omnibus. Wersja PRO rozszerza te możliwości o osiem dodatkowych modułów:
+Darmowa wersja obsługuje podstawy: pola NIP, checkboxy prawne, ceny jednostkowe, VAT i Omnibus. Wersja PRO dodaje osiem modułów:
 
 | Moduł | Opis |
 |-------|------|
@@ -30,7 +30,7 @@ Każdy moduł można włączyć lub wyłączyć niezależnie w ustawieniach plug
 | WooCommerce | 8.0 |
 | PHP | 8.1 |
 
-Plugin PRO działa jako dodatek do darmowej wersji - wymaga jej obecności i aktywacji. Przed instalacją PRO upewnij się, że darmowa wersja jest zainstalowana i zaktualizowana do co najmniej wersji 1.3.0.
+Plugin PRO wymaga aktywnej darmowej wersji 1.3.0 lub nowszej. Zainstaluj i zaktualizuj ją przed instalacją PRO.
 
 ## Instalacja
 
@@ -52,7 +52,7 @@ Po zakupie licencji na [wppoland.com/polski-pro](https://wppoland.com/polski-pro
 3. Kliknij **Aktywuj licencję**
 4. Po poprawnej aktywacji pojawi się zielony komunikat z datą wygaśnięcia licencji
 
-Klucz licencyjny jest powiązany z domeną sklepu. Jeśli przenosisz sklep na inną domenę, najpierw dezaktywuj licencję na starej domenie, a następnie aktywuj ją na nowej.
+Klucz jest powiązany z domeną. Przy zmianie domeny najpierw dezaktywuj licencję na starej, potem aktywuj na nowej.
 
 ### Krok 4 - włącz moduły
 
@@ -60,13 +60,13 @@ Po aktywacji licencji przejdź do **WooCommerce > Ustawienia > Polski > Moduły 
 
 ## Aktualizacje
 
-Plugin PRO obsługuje automatyczne aktualizacje przez panel WordPress. Po aktywacji licencji aktualizacje są dostarczane tak samo jak w przypadku wtyczek z repozytorium WordPress.org:
+Po aktywacji licencji plugin aktualizuje się jak każda inna wtyczka WordPress:
 
 1. Powiadomienie o dostępnej aktualizacji pojawi się w panelu **Wtyczki**
 2. Kliknij **Zaktualizuj teraz**
 3. Plugin zaktualizuje się automatycznie
 
-Aktualizacje wymagają aktywnej licencji. Po wygaśnięciu licencji plugin nadal działa, ale nie otrzymuje aktualizacji.
+Bez aktywnej licencji plugin działa, ale nie otrzymuje aktualizacji.
 
 ## Aktualna wersja
 
@@ -74,7 +74,7 @@ Aktualna wersja Polski PRO for WooCommerce: **1.1.0**
 
 ## Licencja
 
-Licencja jest dostępna do zakupu na stronie [wppoland.com/polski-pro](https://wppoland.com/polski-pro). Obejmuje:
+Kup licencję na [wppoland.com/polski-pro](https://wppoland.com/polski-pro). Licencja obejmuje:
 
 - dostęp do wszystkich modułów PRO
 - aktualizacje przez okres licencji

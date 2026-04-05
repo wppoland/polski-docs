@@ -3,15 +3,15 @@ title: Panel zgodności (compliance dashboard)
 description: Panel kontroli wymogów prawnych w Polski for WooCommerce - lista kontrolna z kolorowym statusem dla każdego wymagania.
 ---
 
-Panel zgodności (compliance dashboard) to centralne miejsce do monitorowania stanu wymogów prawnych sklepu WooCommerce. Dashboard wyświetla listę kontrolną ze statusami dla każdego wymagania prawnego - od regulaminu po GPSR i DSA.
+Panel zgodności to centralne miejsce do sprawdzania wymogów prawnych sklepu. Wyświetla listę kontrolną ze statusem każdego wymagania - od regulaminu po GPSR i DSA.
 
 ## Dostęp do panelu
 
-Przejdź do **WooCommerce > Polski > Panel zgodności**. Panel dostępny jest dla użytkowników z uprawnieniem `manage_woocommerce` (role Administrator i Menedżer sklepu).
+Przejdź do **WooCommerce > Polski > Panel zgodności**. Wymaga uprawnienia `manage_woocommerce` (Administrator lub Menedżer sklepu).
 
 ## Lista kontrolna (checklist)
 
-Panel wyświetla listę wymagań prawnych pogrupowanych w kategorie. Każde wymaganie ma status wizualny:
+Wymagania prawne pogrupowane w kategorie. Każde ma status wizualny:
 
 ### Statusy
 
@@ -93,7 +93,7 @@ Panel wyświetla listę wymagań prawnych pogrupowanych w kategorie. Każde wyma
 
 ## Podsumowanie
 
-Na górze panelu wyświetlane jest podsumowanie:
+Na górze panelu widoczne jest podsumowanie:
 
 - **Ogólny wynik** - procent spełnionych wymagań (np. 85%)
 - **Pasek postępu** - wizualna reprezentacja wyniku
@@ -103,7 +103,7 @@ Na górze panelu wyświetlane jest podsumowanie:
 
 ## Szczegóły wymagania
 
-Kliknięcie wymagania rozwija sekcję ze szczegółami:
+Kliknij wymaganie, aby zobaczyć szczegóły:
 
 - **Opis** - co dokładnie jest sprawdzane
 - **Podstawa prawna** - odniesienie do przepisu
@@ -113,7 +113,7 @@ Kliknięcie wymagania rozwija sekcję ze szczegółami:
 
 ## Odświeżanie statusów
 
-Panel sprawdza statusy w czasie rzeczywistym przy każdym otwarciu. Sprawdzenia obejmują:
+Panel sprawdza statusy na żywo przy każdym otwarciu. Sprawdzenia obejmują:
 
 - Istnienie i status stron (opublikowana / szkic / usunięta)
 - Istnienie i konfigurację checkboxów
@@ -123,7 +123,7 @@ Panel sprawdza statusy w czasie rzeczywistym przy każdym otwarciu. Sprawdzenia 
 
 ## Eksport raportu
 
-Panel umożliwia eksport raportu zgodności:
+Eksportuj raport zgodności:
 
 - **PDF** - raport do pobrania lub wydruku
 - **JSON** - dane maszynowo czytelne (np. dla systemu monitoringu)
@@ -138,7 +138,7 @@ add_action('polski/compliance/report_generated', function (array $results, strin
 
 ## Powiadomienia
 
-Panel może wysyłać powiadomienia e-mail do administratora:
+Panel wysyła powiadomienia e-mail do administratora:
 
 - **Tygodniowy raport** - podsumowanie statusów wysyłane raz w tygodniu
 - **Alert krytyczny** - natychmiastowe powiadomienie gdy status zmieni się na FAIL
@@ -176,9 +176,9 @@ add_filter('polski/compliance/checks', function (array $checks): array {
 
 ## Rozwiązywanie problemów
 
-**Panel pokazuje przestarzałe dane** - kliknij przycisk **Odśwież** na górze panelu. Sprawdzenia wykonywane są na żywo, ale niektóre dane (np. GPSR sampling) mogą być cachowane.
+**Panel pokazuje przestarzałe dane** - kliknij **Odśwież** na górze panelu. Niektóre dane (np. GPSR sampling) mogą być cachowane.
 
-**Status FAIL dla strony prawnej** - sprawdź, czy strona jest opublikowana (nie w szkicu) i czy jest przypisana w **WooCommerce > Ustawienia > Zaawansowane > Ustawienia strony**.
+**Status FAIL dla strony prawnej** - sprawdź, czy strona jest opublikowana (nie szkic) i przypisana w **WooCommerce > Ustawienia > Zaawansowane > Ustawienia strony**.
 
 Zgłaszanie problemów: [github.com/wppoland/polski/issues](https://github.com/wppoland/polski/issues)
 

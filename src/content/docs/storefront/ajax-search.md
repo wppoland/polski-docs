@@ -3,29 +3,29 @@ title: Wyszukiwarka AJAX
 description: Moduł wyszukiwarki AJAX w Polski for WooCommerce - wyszukiwanie po SKU, producencie, GTIN, endpoint REST, blok Gutenberg, widget Elementor i shortcode.
 ---
 
-Wyszukiwarka AJAX zastępuje domyślne wyszukiwanie WooCommerce inteligentną wyszukiwarką z podpowiedziami w czasie rzeczywistym. Wyniki pojawiają się natychmiast podczas wpisywania frazy - bez przeładowania strony.
+Wyszukiwarka AJAX zastępuje domyślne wyszukiwanie WooCommerce. Wyniki pojawiają się na żywo podczas wpisywania - bez przeładowania strony.
 
 ## Włączenie modułu
 
-Przejdź do **WooCommerce > Polski > Moduły sklepowe** i aktywuj opcję **Wyszukiwarka AJAX**. Moduł automatycznie zastąpi domyślny widget wyszukiwania WooCommerce.
+Przejdź do **WooCommerce > Polski > Moduły sklepowe** i włącz **Wyszukiwarka AJAX**. Moduł automatycznie zastąpi domyślny widget wyszukiwania.
 
 ![Wyszukiwarka AJAX z podpowiedziami i filtrami na stronie sklepu](../../../assets/screenshots/screenshot-7-storefront-search-filters.png)
 
 ## Wyszukiwane pola
 
-Wyszukiwarka przeszukuje wiele pól produktu jednocześnie:
+Wyszukiwarka przeszukuje wiele pól produktu naraz:
 
 ### SKU (numer katalogowy)
 
-Klient może wpisać numer SKU produktu lub jego fragment. Wyszukiwanie po SKU jest szczególnie przydatne w sklepach B2B, gdzie klienci zamawiają produkty po numerach katalogowych.
+Klient może wpisać numer SKU lub jego fragment. Przydatne w sklepach B2B, gdzie klienci zamawiają po numerach katalogowych.
 
 ### Producent (manufacturer)
 
-Jeśli moduł **Producent** jest aktywny, wyszukiwarka uwzględnia nazwę producenta w wynikach. Wpisanie np. "Samsung" pokaże wszystkie produkty tego producenta.
+Gdy moduł **Producent** jest aktywny, wyszukiwarka uwzględnia nazwę producenta. Wpisanie "Samsung" pokaże wszystkie produkty tej marki.
 
 ### GTIN (EAN/UPC)
 
-Wyszukiwanie po kodach kreskowych GTIN/EAN/UPC. Klient może wpisać pełny kod kreskowy lub jego fragment, aby znaleźć produkt.
+Klient może wpisać pełny kod kreskowy GTIN/EAN/UPC lub jego fragment.
 
 ### Dodatkowe pola
 
@@ -66,7 +66,7 @@ add_filter('polski/ajax_search/min_chars', function (): int {
 
 ## Endpoint REST API
 
-Wyszukiwarka korzysta z własnego endpointu REST API zamiast `admin-ajax.php`, co zapewnia lepszą wydajność.
+Wyszukiwarka korzysta z własnego endpointu REST API zamiast `admin-ajax.php`. Dzięki temu działa szybciej.
 
 **Endpoint:** `GET /wp-json/polski/v1/search`
 
@@ -107,7 +107,7 @@ curl "https://twojsklep.pl/wp-json/polski/v1/search?q=koszulka&limit=5"
 
 ## Blok Gutenberg
 
-Moduł udostępnia blok **Polski - Wyszukiwarka AJAX** w edytorze Gutenberg. Blok można umieścić w dowolnym poście, stronie lub widgecie.
+Blok **Polski - Wyszukiwarka AJAX** dostępny w edytorze Gutenberg. Umieść go w dowolnym poście, stronie lub widgecie.
 
 Opcje bloku:
 
@@ -117,13 +117,13 @@ Opcje bloku:
 - **Filtr kategorii** - pokaż dropdown filtrowania po kategorii obok pola wyszukiwania
 - **Styl** - zaokrąglone rogi, obramowanie, cień
 
-Wstawienie bloku: w edytorze Gutenberg kliknij **+** i wyszukaj **Polski** lub **Wyszukiwarka AJAX**.
+W edytorze kliknij **+** i wyszukaj **Polski** lub **Wyszukiwarka AJAX**.
 
 ## Widget Elementor
 
-Dla użytkowników Elementora dostępny jest dedykowany widget **Polski AJAX Search**. Widget znajduje się w kategorii **Polski for WooCommerce** w panelu bocznym Elementora.
+Widget **Polski AJAX Search** dostępny w kategorii **Polski for WooCommerce** w panelu Elementora.
 
-Opcje widgetu obejmują wszystkie ustawienia bloku Gutenberg oraz dodatkowe:
+Oprócz opcji bloku Gutenberg, widget oferuje:
 
 - Kontrola typografii (rodzina fontu, rozmiar, grubość)
 - Kolory (tło, tekst, obramowanie, hover)
@@ -160,11 +160,11 @@ add_action('wp_body_open', function (): void {
 
 ## Debouncing i wydajność
 
-Wyszukiwarka stosuje debouncing 300 ms - żądanie do serwera wysyłane jest dopiero po 300 ms od ostatniego naciśnięcia klawisza. Zapobiega to nadmiernej liczbie zapytań podczas szybkiego wpisywania.
+Wyszukiwarka stosuje debouncing 300 ms - żądanie wysyła się dopiero 300 ms po ostatnim naciśnięciu klawisza. Zapobiega to zbyt wielu zapytaniom przy szybkim wpisywaniu.
 
-Wyniki są cachowane po stronie klienta w sesji przeglądarki. Ponowne wpisanie tej samej frazy nie generuje zapytania do serwera.
+Wyniki cachują się w przeglądarce. Ponowne wpisanie tej samej frazy nie wysyła zapytania do serwera.
 
-Po stronie serwera wyniki cachowane są w transient API WordPressa (domyślnie 1 godzina). Cache jest automatycznie czyszczony po zapisaniu, dodaniu lub usunięciu produktu.
+Na serwerze wyniki cachują się w transient API (domyślnie 1 godzina). Cache czyści się automatycznie po zapisaniu, dodaniu lub usunięciu produktu.
 
 ```php
 // Zmiana czasu cache
@@ -187,7 +187,7 @@ Klasy CSS modułu:
 
 ## Dostępność
 
-Wyszukiwarka obsługuje pełną nawigację klawiaturową:
+Wyszukiwarka obsługuje nawigację klawiaturową:
 
 - **Strzałka w dół/w górę** - nawigacja po wynikach
 - **Enter** - przejście do wybranego produktu

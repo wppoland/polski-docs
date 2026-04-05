@@ -3,19 +3,19 @@ title: Zweryfikowane opinie
 description: System zweryfikowanych opinii w Polski for WooCommerce - odznaka zakupu, dopasowanie e-mail i wiarygodność recenzji.
 ---
 
-Moduł zweryfikowanych opinii wzmacnia wiarygodność recenzji w sklepie WooCommerce. Opinie klientów, którzy faktycznie kupili produkt, oznaczane są odznaką potwierdzającą zakup. System ten wspiera zgodność z dyrektywą Omnibus i przepisami o nieuczciwych praktykach handlowych.
+Moduł oznacza opinie klientów, którzy kupili produkt, odznaką **Zweryfikowany zakup**. Zwiększa wiarygodność recenzji i wspiera zgodność z dyrektywą Omnibus.
 
 ## Włączenie modułu
 
-Przejdź do **WooCommerce > Polski > Narzędzia > Zweryfikowane opinie** i aktywuj moduł. Moduł wymaga włączonych opinii w WooCommerce (**WooCommerce > Ustawienia > Produkty > Ogólne > Włącz recenzje produktów**).
+Przejdź do **WooCommerce > Polski > Narzędzia > Zweryfikowane opinie** i włącz moduł. Wymaga włączonych recenzji w **WooCommerce > Ustawienia > Produkty > Ogólne > Włącz recenzje produktów**.
 
 ## Jak działa weryfikacja
 
 ### Odznaka zakupu (purchase badge)
 
-Po włączeniu modułu opinie klientów, którzy kupili produkt, otrzymują odznakę **Zweryfikowany zakup**. Odznaka wyświetla się obok nazwy recenzenta.
+Opinie klientów, którzy kupili produkt, otrzymują odznakę **Zweryfikowany zakup** obok nazwy recenzenta.
 
-Odznaka przyznawana jest, gdy:
+Odznaka pojawia się, gdy:
 
 1. Autor opinii jest zalogowany jako klient
 2. Klient ma co najmniej 1 zamówienie zawierające recenzowany produkt
@@ -23,9 +23,9 @@ Odznaka przyznawana jest, gdy:
 
 ### Dopasowanie e-mail (email matching)
 
-Dla gości (niezalogowanych), system porównuje adres e-mail podany w opinii z adresami e-mail z zamówień. Jeśli adres pasuje do zamówienia zawierającego recenzowany produkt, opinia otrzymuje odznakę weryfikacji.
+Dla gości system porównuje e-mail z opinii z e-mailami z zamówień. Jeśli pasuje do zamówienia z recenzowanym produktem - opinia dostaje odznakę.
 
-Dopasowanie e-mail działa w trybie:
+Tryby dopasowania:
 
 | Tryb         | Opis                                          | Bezpieczeństwo |
 | ------------ | --------------------------------------------- | -------------- |
@@ -104,7 +104,7 @@ Klasy CSS:
 
 ## Filtrowanie opinii
 
-Moduł dodaje filtr na stronie produktu pozwalający klientom wyświetlić:
+Filtr na stronie produktu pozwala klientom wyświetlić:
 
 - **Wszystkie opinie** - domyślny widok
 - **Tylko zweryfikowane** - opinie z odznaką
@@ -119,7 +119,7 @@ add_filter('polski/verified_reviews/show_filter', '__return_false');
 
 ## Sortowanie opinii
 
-Zweryfikowane opinie mogą być priorytetyzowane w sortowaniu. Opcje:
+Zweryfikowane opinie mogą wyświetlać się wyżej. Opcje sortowania:
 
 - **Chronologicznie** - domyślne sortowanie WooCommerce
 - **Zweryfikowane najpierw** - opinie z odznaką na górze
@@ -134,7 +134,7 @@ add_filter('polski/verified_reviews/default_sort', function (): string {
 
 ## Statystyki weryfikacji
 
-Panel admina (**WooCommerce > Polski > Zweryfikowane opinie > Statystyki**) wyświetla:
+W **WooCommerce > Polski > Zweryfikowane opinie > Statystyki** widoczne są:
 
 - **Łączna liczba opinii** - wszystkie opinie w sklepie
 - **Zweryfikowane** - opinie z odznaką (liczba i procent)
@@ -145,15 +145,15 @@ Panel admina (**WooCommerce > Polski > Zweryfikowane opinie > Statystyki**) wyś
 
 ## Ochrona przed fałszywymi opiniami
 
-Moduł oferuje dodatkowe mechanizmy ochrony:
+Dodatkowe mechanizmy ochrony:
 
 ### Limit opinii
 
-Klient może wystawić maksymalnie 1 opinię na produkt. Próba dodania drugiej opinii wyświetla komunikat z informacją, że opinia została już wystawiona.
+Klient może wystawić 1 opinię na produkt. Przy próbie dodania drugiej zobaczy komunikat.
 
 ### Minimalny czas
 
-Opinia może być wystawiona dopiero po X dniach od dostawy. Domyślnie **3 dni** - aby klient miał czas przetestować produkt.
+Opinia możliwa dopiero po X dniach od dostawy. Domyślnie **3 dni** - klient ma czas przetestować produkt.
 
 ```php
 add_filter('polski/verified_reviews/min_days_after_delivery', function (): int {
@@ -163,7 +163,7 @@ add_filter('polski/verified_reviews/min_days_after_delivery', function (): int {
 
 ### Moderacja
 
-Opinie mogą wymagać moderacji przed publikacją. Opcje:
+Opcje moderacji przed publikacją:
 
 - **Bez moderacji** - opinie publikowane natychmiast
 - **Moderacja niezweryfikowanych** - tylko opinie bez odznaki wymagają zatwierdzenia
@@ -173,7 +173,7 @@ Konfiguracja: **WooCommerce > Polski > Zweryfikowane opinie > Moderacja**.
 
 ### Wykrywanie podejrzanych opinii
 
-System automatycznie oznacza podejrzane opinie:
+Automatyczne oznaczanie podejrzanych opinii:
 
 | Sygnał                              | Opis                                     |
 | ------------------------------------ | ---------------------------------------- |
@@ -186,7 +186,7 @@ Podejrzane opinie trafiają do kolejki moderacji z etykietą **Do sprawdzenia**.
 
 ## Integracja z Schema.org
 
-Zweryfikowane opinie generują dane strukturalne `Review` z dodatkowym polem:
+Zweryfikowane opinie generują dane strukturalne `Review`:
 
 ```json
 {
@@ -213,7 +213,7 @@ Google preferuje opinie z potwierdzonych zakupów w rich snippets.
 
 ## E-mail z prośbą o opinię
 
-Moduł może automatycznie wysyłać e-mail do klienta z prośbą o opinię po X dniach od dostawy.
+Automatyczny e-mail z prośbą o opinię po X dniach od dostawy.
 
 Konfiguracja:
 
@@ -237,15 +237,15 @@ add_filter('polski/verified_reviews/email_delay_days', function (): int {
 [polski_verified_badge text="Potwierdzone zamówienie" icon="shield"]
 ```
 
-Shortcode wyświetla odznakę weryfikacji. Przydatny w niestandardowych szablonach opinii.
+Wyświetla odznakę weryfikacji. Przydatny w niestandardowych szablonach opinii.
 
 ## Rozwiązywanie problemów
 
-**Odznaka nie wyświetla się mimo zakupu** - sprawdź status zamówienia. Tylko zamówienia ze statusem `completed` lub `processing` kwalifikują się do weryfikacji. Sprawdź też, czy e-mail w opinii pasuje do e-mail z zamówienia.
+**Odznaka nie wyświetla się mimo zakupu** - sprawdź status zamówienia (wymagany `completed` lub `processing`). Sprawdź też, czy e-mail w opinii pasuje do e-mail z zamówienia.
 
-**Wszystkie opinie są niezweryfikowane** - upewnij się, że moduł jest aktywny i że WooCommerce wymaga adresu e-mail przy dodawaniu opinii.
+**Wszystkie opinie są niezweryfikowane** - sprawdź, czy moduł jest aktywny i WooCommerce wymaga e-mail przy dodawaniu opinii.
 
-**E-mail z prośbą o opinię nie dochodzi** - sprawdź konfigurację poczty WordPressa. Użyj wtyczki SMTP do niezawodnego wysyłania e-maili.
+**E-mail z prośbą o opinię nie dochodzi** - sprawdź konfigurację poczty WordPressa. Użyj wtyczki SMTP.
 
 Zgłaszanie problemów: [github.com/wppoland/polski/issues](https://github.com/wppoland/polski/issues)
 

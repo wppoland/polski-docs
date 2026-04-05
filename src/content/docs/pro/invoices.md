@@ -3,13 +3,13 @@ title: System faktur
 description: Dokumentacja systemu faktur Polski PRO for WooCommerce - Faktura VAT, korygująca, paragon, WZ, generowanie PDF, numeracja i REST API.
 ---
 
-Moduł faktur w Polski PRO for WooCommerce umożliwia generowanie dokumentów sprzedażowych bezpośrednio z poziomu WooCommerce. Obsługuje cztery typy dokumentów, automatyczną numerację, generowanie PDF i pełny cykl życia faktury.
+Moduł faktur generuje dokumenty sprzedażowe bezpośrednio w WooCommerce. Obsługuje cztery typy dokumentów, automatyczną numerację i PDF.
 
 ## Typy dokumentów
 
 ### Faktura VAT
 
-Standardowa faktura VAT zawierająca:
+Standardowa faktura VAT z danymi:
 
 - dane sprzedawcy i nabywcy (w tym NIP obu stron)
 - pozycje z nazwą, ilością, ceną netto, stawką VAT, kwotą VAT i ceną brutto
@@ -19,22 +19,22 @@ Standardowa faktura VAT zawierająca:
 
 ### Faktura korygująca
 
-Dokument korygujący do wcześniej wystawionej faktury. Zawiera:
+Korekta do wcześniejszej faktury. Zawiera:
 
 - numer i datę faktury korygowanej
 - pozycje przed korektą i po korekcie
 - różnicę wartości
 - powód korekty
 
-Fakturę korygującą można wystawić z poziomu panelu zamówienia lub przez REST API.
+Wystaw korektę z panelu zamówienia lub przez REST API.
 
 ### Paragon
 
-Uproszczony dokument sprzedaży dla klientów indywidualnych (bez NIP nabywcy). Zawiera pozycje z cenami brutto i podsumowanie.
+Uproszczony dokument dla klientów bez NIP. Zawiera pozycje z cenami brutto i podsumowanie.
 
 ### Dokument WZ (packing slip)
 
-Dokument wydania zewnętrznego dołączany do przesyłki. Zawiera listę produktów, ilości i ewentualne uwagi do zamówienia. Nie zawiera cen.
+Dokument dołączany do przesyłki. Zawiera listę produktów i ilości, bez cen.
 
 ## Konfiguracja
 
@@ -52,7 +52,7 @@ Przejdź do **WooCommerce > Ustawienia > Polski > Moduły PRO > Faktury**.
 
 ### Numeracja
 
-Plugin oferuje kilka strategii numeracji faktur:
+Dostępne strategie numeracji:
 
 | Strategia | Format | Przykład |
 |-----------|--------|---------|
@@ -71,13 +71,13 @@ Dostępne tokeny w formacie własnym:
 
 ### Automatyczne generowanie
 
-Plugin może automatycznie generować fakturę po zmianie statusu zamówienia na "Zrealizowane" (completed). Włącz opcję **Automatyczne generowanie faktury** w ustawieniach modułu.
+Włącz opcję **Automatyczne generowanie faktury**, aby plugin tworzył fakturę po zmianie statusu na "Zrealizowane".
 
-Możesz też skonfigurować automatyczne wysyłanie faktury PDF jako załącznika do e-maila WooCommerce "Zamówienie zrealizowane".
+Możesz też włączyć automatyczne dołączanie PDF faktury do e-maila "Zamówienie zrealizowane".
 
 ## Generowanie PDF
 
-Faktury PDF są generowane przy użyciu biblioteki TCPDF. Szablon PDF zawiera:
+PDF jest generowany biblioteką TCPDF. Szablon zawiera:
 
 - logo firmy (opcjonalne, konfigurowalne w ustawieniach)
 - dane sprzedawcy i nabywcy
@@ -87,11 +87,11 @@ Faktury PDF są generowane przy użyciu biblioteki TCPDF. Szablon PDF zawiera:
 
 ### Czcionki
 
-Plugin używa czcionki DejaVu Sans, która obsługuje polskie znaki diakrytyczne. Nie wymaga dodatkowej konfiguracji.
+Plugin używa czcionki DejaVu Sans z obsługą polskich znaków. Dodatkowa konfiguracja nie jest potrzebna.
 
 ## Status faktury
 
-Każda faktura przechodzi przez cykl statusów:
+Cykl statusów faktury:
 
 ```
 Draft (Szkic) → Issued (Wystawiona) → Sent (Wysłana) → Paid (Opłacona)
@@ -108,7 +108,7 @@ Draft (Szkic) → Issued (Wystawiona) → Sent (Wysłana) → Paid (Opłacona)
 
 ## Panel zamówienia
 
-W panelu administracyjnym zamówienia WooCommerce moduł dodaje meta box "Faktury" z następującymi funkcjami:
+W panelu zamówienia moduł dodaje meta box "Faktury" z funkcjami:
 
 - **Wystaw fakturę** - generuje fakturę na podstawie danych zamówienia
 - **Pobierz PDF** - pobiera fakturę w formacie PDF
@@ -126,11 +126,11 @@ Każda pozycja faktury zawiera szczegółowe dane VAT:
 - wartość netto
 - wartość brutto
 
-Plugin automatycznie rozpoznaje stawkę VAT z konfiguracji WooCommerce Tax. Obsługuje wiele stawek VAT na jednej fakturze z prawidłowym podsumowaniem.
+Plugin pobiera stawki VAT z konfiguracji WooCommerce Tax. Obsługuje wiele stawek na jednej fakturze.
 
 ## REST API
 
-Moduł udostępnia endpointy REST API do zarządzania fakturami programowo.
+Endpointy REST API do zarządzania fakturami:
 
 ### Lista faktur
 
@@ -280,11 +280,11 @@ add_filter('polski_pro/invoices/pdf_content', function (array $data, int $invoic
 
 ### Numeracja się resetuje
 
-Numeracja resetuje się zgodnie z wybraną strategią - roczna resetuje się 1 stycznia, miesięczna 1. dnia każdego miesiąca. Jeśli chcesz ciągłą numerację, wybierz strategię "Ciągła".
+Numeracja resetuje się zgodnie ze strategią: roczna - 1 stycznia, miesięczna - 1. dnia miesiąca. Chcesz ciągłą numerację? Wybierz strategię "Ciągła".
 
 ### Brak VAT na pozycjach
 
-Sprawdź konfigurację WooCommerce Tax. Plugin pobiera stawki VAT z ustawień podatkowych WooCommerce. Upewnij się, że stawki są poprawnie skonfigurowane dla Polski.
+Sprawdź konfigurację WooCommerce Tax. Upewnij się, że stawki VAT dla Polski są poprawnie ustawione.
 
 ## Powiązane zasoby
 

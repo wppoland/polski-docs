@@ -3,7 +3,7 @@ title: Shortcody
 description: Kompletna lista 23 shortcodów Polski for WooCommerce z parametrami, przykładami użycia i kodem PHP.
 ---
 
-Polski for WooCommerce udostępnia 23 shortcody do wyświetlania danych prawnych, informacji o produkcie oraz modułów sklepowych w dowolnym miejscu sklepu.
+23 shortcody do wyświetlania danych prawnych, informacji o produkcie i modułów sklepowych w dowolnym miejscu.
 
 ## Shortcody wymogów prawnych
 
@@ -451,7 +451,7 @@ if (shortcode_exists('polski_gpsr')) {
 
 ## Użycie shortcodów w Gutenberg
 
-W edytorze Gutenberg użyj bloku **Shortcode** i wklej żądany shortcode. Alternatywnie, wiele z tych shortcodów ma dedykowane bloki Gutenberg z podglądem w edytorze.
+W Gutenbergu użyj bloku **Shortcode** i wklej shortcode. Wiele shortcodów ma też dedykowane bloki z podglądem.
 
 Zgłaszanie problemów: [github.com/wppoland/polski/issues](https://github.com/wppoland/polski/issues)
 

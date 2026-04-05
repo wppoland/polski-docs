@@ -19,7 +19,7 @@ hero:
 
 ## Czym jest Polski for WooCommerce?
 
-**Polski for WooCommerce** to darmowa wtyczka open source (GPLv2) stworzona przez [wppoland.com](https://wppoland.com), która dostosowuje sklep WooCommerce do polskich wymogów prawnych oraz standardów e-commerce. Wtyczka łączy w sobie ponad 30 modułów obejmujących wymogi prawne, wyświetlanie cen, kasę, produkty spożywcze, moduły sklepowe i narzędzia dla deweloperów.
+**Polski for WooCommerce** to darmowa wtyczka open source (GPLv2) od [wppoland.com](https://wppoland.com). Dostosowuje sklep WooCommerce do polskich przepisów i standardów e-commerce. Zawiera ponad 30 modułów: wymogi prawne, ceny, kasa, żywność, funkcje sklepowe i narzędzia dla deweloperów.
 
 Aktualna wersja: **1.3.2**
 
@@ -42,26 +42,26 @@ Dla najlepszej wydajności zalecamy PHP 8.2+ oraz WooCommerce 9.x. Wtyczka jest 
 
 ## Przegląd modułów
 
-Wtyczka jest zbudowana modułowo - włączasz tylko te funkcje, których potrzebujesz. Poniżej znajdziesz opis wszystkich dostępnych grup modułów.
+Wtyczka działa modułowo - włączasz tylko to, czego potrzebujesz. Poniżej znajdziesz opis wszystkich grup modułów.
 
 ![Dashboard modułów Polski for WooCommerce](../../../assets/screenshots/screenshot-1-modules-dashboard.png)
 
 ### Wymogi prawne
 
-Moduły pomagające wdrożyć wymogi polskiego i unijnego prawa:
+Moduły do spełnienia wymogów polskiego i unijnego prawa:
 
-- **GPSR (rozporządzenie o bezpieczeństwie produktów)** - dane producenta, importera i osoby odpowiedzialnej na kartach produktów
-- **Omnibus** - wyświetlanie najniższej ceny z 30 dni przed obniżką, zgodnie z dyrektywą Omnibus
-- **Prawo do odstąpienia** - formularze i procedury zwrotów, generowanie dokumentów odstąpienia
-- **RODO** - zarządzanie zgodami, anonimizacja danych, rejestr przetwarzania
-- **DSA (Akt o usługach cyfrowych)** - punkt kontaktowy, raportowanie treści, transparentność
-- **KSeF** - przygotowanie do integracji z Krajowym Systemem e-Faktur
-- **Greenwashing** - weryfikacja i kontrola deklaracji środowiskowych
-- **Strony prawne** - generowanie regulaminu, polityki prywatności i polityki zwrotów
+- **GPSR (bezpieczeństwo produktów)** - dane producenta, importera i osoby odpowiedzialnej na kartach produktów
+- **Omnibus** - najniższa cena z 30 dni przed obniżką
+- **Prawo do odstąpienia** - formularze zwrotów i dokumenty odstąpienia
+- **RODO** - zgody, anonimizacja danych, rejestr przetwarzania
+- **DSA (Akt o usługach cyfrowych)** - punkt kontaktowy, zgłaszanie treści
+- **KSeF** - przygotowanie do Krajowego Systemu e-Faktur
+- **Greenwashing** - kontrola deklaracji środowiskowych
+- **Strony prawne** - regulamin, polityka prywatności i polityka zwrotów
 
 ### Ceny i informacje o produkcie
 
-Moduły związane z wyświetlaniem cen i danych produktowych:
+Moduły do wyświetlania cen i danych produktowych:
 
 - **Ceny jednostkowe** - automatyczne przeliczanie i wyświetlanie cen za jednostkę miary (zł/kg, zł/l)
 - **Wyświetlanie VAT** - informacja o stawce VAT i cenie netto/brutto
@@ -70,12 +70,12 @@ Moduły związane z wyświetlaniem cen i danych produktowych:
 
 ### Kasa i zamówienia
 
-Moduły modyfikujące stronę kasy i proces zamówienia:
+Moduły do strony kasy i procesu zamówienia:
 
 - **Przycisk zamówienia** - zmiana tekstu przycisku na "Zamawiam z obowiązkiem zapłaty" (wymóg prawny)
 - **Checkboxy prawne** - konfigurowalne zgody na regulamin, politykę prywatności, newsletter
-- **Wyszukiwanie NIP** - automatyczne uzupełnianie danych firmowych na podstawie numeru NIP (API GUS)
-- **Podwójne potwierdzenie** - weryfikacja adresu e-mail przez double opt-in
+- **Wyszukiwanie NIP** - auto-uzupełnianie danych firmowych po numerze NIP (API GUS)
+- **Podwójne potwierdzenie** - weryfikacja adresu e-mail (double opt-in)
 
 ### Produkty spożywcze
 
@@ -88,7 +88,7 @@ Specjalistyczne moduły dla sklepów z żywnością:
 
 ### Moduły sklepowe
 
-Funkcje poprawiające doświadczenie zakupowe:
+Funkcje ułatwiające zakupy klientom:
 
 - **Lista życzeń** - zapisywanie produktów na później
 - **Porównywarka** - porównywanie produktów obok siebie
@@ -101,7 +101,7 @@ Funkcje poprawiające doświadczenie zakupowe:
 
 ### Narzędzia
 
-Moduły ułatwiające zarządzanie sklepem:
+Moduły do zarządzania sklepem:
 
 - **Dashboard zgodności** - przegląd stanu wymogów prawnych sklepu w jednym miejscu
 - **Audyt strony** - automatyczna weryfikacja konfiguracji sklepu
@@ -125,7 +125,7 @@ Narzędzia i API dla programistów:
 
 ## Szybki start
 
-Trzy kroki do działającego sklepu spełniającego wymogi e-commerce:
+Trzy kroki do sklepu zgodnego z przepisami:
 
 1. **[Zainstaluj wtyczkę](getting-started/installation/)** - z poziomu panelu WordPress lub ręcznie z pliku ZIP
 2. **[Skonfiguruj podstawy](getting-started/configuration/)** - włącz potrzebne moduły w panelu ustawień
@@ -141,17 +141,17 @@ Jeśli napotkasz problem, zgłoś go na [GitHub Issues](https://github.com/wppol
 
 - **Wszystko w jednym** - zamiast 10 wtyczek, jedna spójna platforma
 - **Modułowa budowa** - włączasz tylko to, czego potrzebujesz
-- **Wymogi prawne** - narzędzia aktualizowane wraz ze zmianami przepisów
+- **Wymogi prawne** - aktualizowane wraz ze zmianami przepisów
 - **Open source** - kod źródłowy na GitHubie, licencja GPLv2
 - **Bez subskrypcji** - wszystkie funkcje dostępne bezpłatnie
-- **Wydajność** - minimalne zasoby ładowane tylko dla aktywnych modułów
+- **Wydajność** - zasoby ładowane tylko dla aktywnych modułów
 - **Aktywna społeczność** - wsparcie na GitHub Discussions
 
 ---
 
 ## Kompatybilność
 
-Wtyczka jest testowana z najpopularniejszymi motywami i wtyczkami WordPress:
+Wtyczka jest testowana z popularnymi motywami i wtyczkami WordPress:
 
 - Motywy: Storefront, Astra, GeneratePress, Kadence, Flavor, flavor theme
 - Page buildery: Gutenberg (bloki), Elementor, Beaver Builder

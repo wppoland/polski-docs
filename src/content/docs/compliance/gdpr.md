@@ -3,11 +3,11 @@ title: RODO - ochrona danych osobowych
 description: Konfiguracja zgód RODO w Polski for WooCommerce - 7 checkboxów, logowanie zgód, API shortcode i zgodność z Rozporządzeniem o ochronie danych osobowych.
 ---
 
-Rozporządzenie o Ochronie Danych Osobowych (RODO/GDPR) wymaga od sklepów internetowych uzyskania wyraźnej zgody na przetwarzanie danych osobowych. Polski for WooCommerce dostarcza 7 konfigurowalnych checkboxów na stronie zamówienia, system logowania zgód oraz narzędzia do zarządzania zgodami klientów.
+RODO (GDPR) wymaga od sklepów uzyskania wyraźnej zgody na przetwarzanie danych osobowych. Wtyczka dodaje 7 konfigurowalnych checkboxów na stronie zamówienia, logowanie zgód i narzędzia do zarządzania zgodami.
 
 ## Wymagane zgody w polskim e-commerce
 
-Zgodnie z RODO, ustawą o prawach konsumenta i ustawą o świadczeniu usług drogą elektroniczną, sklep internetowy powinien zbierać zgody na:
+Sklep internetowy powinien zbierać zgody na:
 
 1. Akceptację regulaminu sklepu
 2. Zapoznanie się z polityką prywatności
@@ -19,7 +19,7 @@ Zgodnie z RODO, ustawą o prawach konsumenta i ustawą o świadczeniu usług dro
 
 ## Konfiguracja checkboxów
 
-Przejdź do **WooCommerce > Ustawienia > Polski > RODO** aby skonfigurować poszczególne zgody.
+Przejdź do **WooCommerce > Ustawienia > Polski > RODO** i skonfiguruj zgody.
 
 ### 1. Regulamin sklepu
 
@@ -93,7 +93,7 @@ Zgoda na komunikację marketingową.
 
 ## Logowanie zgód
 
-Każda udzielona zgoda jest rejestrowana w bazie danych z następującymi informacjami:
+Każda zgoda jest zapisywana w bazie danych z danymi:
 
 | Pole | Opis |
 |------|------|
@@ -116,7 +116,7 @@ Logi zgód są dostępne w:
 
 ### Anonimizacja IP
 
-Domyślnie wtyczka anonimizuje ostatni oktet adresu IPv4 (np. `192.168.1.xxx`) i ostatnią grupę IPv6. Zachowuje to zgodność z RODO przy jednoczesnym utrzymaniu minimalnej użyteczności logów.
+Wtyczka anonimizuje ostatni oktet adresu IPv4 (np. `192.168.1.xxx`) i ostatnią grupę IPv6. To zapewnia zgodność z RODO i zachowuje podstawową użyteczność logów.
 
 ## Shortcode API
 
@@ -126,7 +126,7 @@ Domyślnie wtyczka anonimizuje ostatni oktet adresu IPv4 (np. `192.168.1.xxx`) i
 [polski_consent_status]
 ```
 
-Wyświetla zalogowanemu klientowi listę udzielonych zgód z możliwością ich wycofania (tam gdzie to prawnie dopuszczalne - np. zgoda marketingowa).
+Pokazuje zalogowanemu klientowi listę zgód z możliwością ich wycofania (np. zgoda marketingowa).
 
 ### Formularz wycofania zgody marketingowej
 
@@ -134,7 +134,7 @@ Wyświetla zalogowanemu klientowi listę udzielonych zgód z możliwością ich 
 [polski_consent_withdraw type="marketing"]
 ```
 
-Wyświetla formularz pozwalający klientowi wycofać zgodę marketingową. Po wycofaniu system automatycznie aktualizuje status zgody w bazie danych.
+Formularz do wycofania zgody marketingowej. Po wycofaniu wtyczka automatycznie aktualizuje status zgody w bazie danych.
 
 ### Parametry shortcode
 
@@ -144,11 +144,11 @@ Wyświetla formularz pozwalający klientowi wycofać zgodę marketingową. Po wy
 
 ## Integracja z WooCommerce Blocks
 
-Checkboxy zgód są automatycznie dodawane do blokowego formularza zamówienia (WooCommerce Blocks Checkout). Nie jest wymagana żadna dodatkowa konfiguracja.
+Checkboxy zgód działają też z blokowym formularzem zamówienia (WooCommerce Blocks Checkout). Nie trzeba nic konfigurować.
 
 ## Prawo do bycia zapomnianym
 
-Wtyczka integruje się z narzędziem WordPress do usuwania danych osobowych (**Narzędzia > Usuń dane osobowe**). Po zatwierdzeniu żądania usunięcia danych system automatycznie:
+Wtyczka współpracuje z narzędziem WordPress **Narzędzia > Usuń dane osobowe**. Po zatwierdzeniu żądania usunięcia wtyczka automatycznie:
 
 1. Anonimizuje dane w logach zgód
 2. Usuwa dane osobowe z formularzy odstąpienia
@@ -156,7 +156,7 @@ Wtyczka integruje się z narzędziem WordPress do usuwania danych osobowych (**N
 
 ## Prawo do przenoszenia danych
 
-Wtyczka integruje się z narzędziem eksportu danych WordPress (**Narzędzia > Eksportuj dane osobowe**). Eksport zawiera:
+Wtyczka współpracuje z **Narzędzia > Eksportuj dane osobowe**. Eksport zawiera:
 
 - Historię udzielonych zgód
 - Dane z formularzy (zanonimizowane)
@@ -165,13 +165,13 @@ Wtyczka integruje się z narzędziem eksportu danych WordPress (**Narzędzia > E
 ## Rozwiązywanie problemów
 
 **Checkboxy nie wyświetlają się na stronie zamówienia**
-Sprawdź, czy moduł RODO jest włączony w **WooCommerce > Ustawienia > Polski > Moduły**. Jeśli używasz blokowego formularza zamówienia, upewnij się, że WooCommerce jest zaktualizowany do wersji 8.0+.
+Sprawdź, czy moduł RODO jest włączony w **WooCommerce > Ustawienia > Polski > Moduły**. Przy blokowym formularzu zamówienia potrzebujesz WooCommerce 8.0+.
 
 **Klient zgłasza brak możliwości złożenia zamówienia**
-Sprawdź, czy wymagane checkboxy nie są zduplikowane przez inną wtyczkę (np. Germanized, WPML). Wyłącz inne wtyczki dodające zgody i używaj wyłącznie modułu Polski for WooCommerce.
+Sprawdź, czy inna wtyczka (np. Germanized, WPML) nie dodaje tych samych checkboxów. Wyłącz zgody z innych wtyczek i używaj tylko modułu Polski for WooCommerce.
 
 **Logi zgód nie zapisują adresu IP**
-Sprawdź, czy serwer prawidłowo przekazuje adres IP. Za reverse proxy (np. Cloudflare) może być konieczne skonfigurowanie nagłówka `X-Forwarded-For` w WordPress.
+Sprawdź, czy serwer przekazuje adres IP. Za reverse proxy (np. Cloudflare) skonfiguruj nagłówek `X-Forwarded-For` w WordPress.
 
 ## Dalsze kroki
 

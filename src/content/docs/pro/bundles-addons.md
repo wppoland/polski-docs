@@ -3,7 +3,7 @@ title: Pakiety, dodatki i "często kupowane razem"
 description: Moduły pakietów produktowych, dodatków do produktu i rekomendacji "często kupowane razem" w Polski PRO for WooCommerce.
 ---
 
-Polski PRO for WooCommerce oferuje trzy uzupełniające się moduły sprzedażowe: pakiety produktowe (bundles), dodatki do produktu (add-ons) oraz rekomendacje "często kupowane razem" (frequently bought together). Każdy moduł działa niezależnie i może być włączony osobno.
+Trzy moduły sprzedażowe: pakiety (bundles), dodatki do produktu (add-ons) i "często kupowane razem" (FBT). Każdy działa niezależnie.
 
 :::note[Wymagania]
 Polski PRO wymaga: Polski (free) v1.3.0+, WordPress 6.4+, WooCommerce 8.0+, PHP 8.1+
@@ -11,7 +11,7 @@ Polski PRO wymaga: Polski (free) v1.3.0+, WordPress 6.4+, WooCommerce 8.0+, PHP 
 
 ## Pakiety produktowe (bundles)
 
-Moduł pakietów pozwala tworzyć konfigurowalne zestawy produktów ze wspólnym rabatem. Klient kupuje pakiet jako jeden produkt, a poszczególne składniki są widoczne w szczegółach zamówienia.
+Twórz zestawy produktów ze wspólnym rabatem. Klient kupuje pakiet jako jeden produkt. Składniki widać w szczegółach zamówienia.
 
 ### Konfiguracja
 
@@ -96,7 +96,7 @@ do_action('polski_pro/bundles/added_to_cart', string $cart_item_key, int $bundle
 
 ## Dodatki do produktu (add-ons)
 
-Moduł dodatków pozwala wyświetlać opcjonalne produkty upsellowe bezpośrednio na stronie produktu. Klient może wybrać dodatkowe produkty i kupić je jednym kliknięciem razem z produktem głównym.
+Wyświetlaj opcjonalne produkty upsellowe na stronie produktu. Klient wybiera dodatki i kupuje je jednym kliknięciem razem z produktem głównym.
 
 ### Konfiguracja
 
@@ -119,7 +119,7 @@ Dodatki konfiguruje się w edycji produktu, w zakładce **Dodatki Polski PRO**:
 4. Opcjonalnie ustaw cenę promocyjną dodatku
 5. Określ kolejność wyświetlania
 
-Dodatki mogą mieć inną cenę niż produkt źródłowy - pozwala to na oferowanie specjalnych cen "razem z produktem".
+Dodatki mogą mieć inną cenę niż produkt źródłowy - możesz oferować specjalne ceny "razem z produktem".
 
 ### Walidacja wyboru
 
@@ -156,7 +156,7 @@ add_filter('polski_pro/addons/items', function (array $addons, \WC_Product $prod
 
 ## Często kupowane razem (frequently bought together)
 
-Moduł rekomendacji wyświetla produkty najczęściej kupowane razem z przeglądanym produktem, z możliwością dodania wielu produktów do koszyka jednym kliknięciem.
+Wyświetla produkty najczęściej kupowane razem z przeglądanym. Klient dodaje wiele produktów do koszyka jednym kliknięciem.
 
 ### Konfiguracja
 
@@ -180,7 +180,7 @@ W edycji produktu, zakładka **Często kupowane razem**:
 
 ### Automatyczne rekomendacje
 
-Gdy źródło danych jest ustawione na `auto`, moduł analizuje historię zamówień i identyfikuje produkty najczęściej kupowane razem. Analiza jest uruchamiana raz dziennie przez WP-Cron.
+W trybie `auto` moduł analizuje historię zamówień i znajduje produkty najczęściej kupowane razem. Analiza uruchamia się raz dziennie przez WP-Cron.
 
 ### Dodawanie do koszyka
 
@@ -192,7 +192,7 @@ Sekcja "Często kupowane razem" wyświetla:
 - Łączną cenę wybranych produktów
 - Przycisk "Dodaj wszystkie do koszyka"
 
-Klient zaznacza wybrane produkty i dodaje je jednym kliknięciem. Wszystkie produkty trafiają do koszyka jako osobne pozycje.
+Klient zaznacza produkty i dodaje jednym kliknięciem. Trafiają do koszyka jako osobne pozycje.
 
 ### Shortcode
 
@@ -238,7 +238,7 @@ Wszystkie trzy moduły mogą działać jednocześnie na tym samym produkcie:
 - Składniki pakietu mogą mieć własne dodatki
 - Rekomendacje FBT mogą wskazywać na pakiety
 
-Kolejność wyświetlania na stronie produktu jest konfigurowalna za pomocą priorytetu hooków WooCommerce.
+Kolejność wyświetlania ustaw priorytetem hooków WooCommerce.
 
 ## Rozwiązywanie problemów
 

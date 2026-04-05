@@ -3,21 +3,17 @@ title: Przycisk zamówienia z obowiązkiem zapłaty
 description: Konfiguracja przycisku "Zamawiam z obowiązkiem zapłaty" wymaganego przez polskie prawo konsumenckie w WooCommerce.
 ---
 
-Polska ustawa o prawach konsumenta (art. 17 ust. 3) wymaga, aby przycisk finalizujący zamówienie w sklepie internetowym był jednoznacznie oznaczony słowami "zamówienie z obowiązkiem zapłaty" lub równoznacznym sformułowaniem. Plugin Polski for WooCommerce automatycznie zmienia domyślny tekst przycisku WooCommerce na wymagany przez polskie przepisy.
+Polskie prawo wymaga, by przycisk zamówienia zawierał tekst "zamówienie z obowiązkiem zapłaty" lub podobny. Wtyczka Polski for WooCommerce automatycznie zmienia domyślny tekst przycisku WooCommerce.
 
 ## Wymagania prawne
 
-Zgodnie z art. 17 ust. 3 ustawy o prawach konsumenta, która implementuje dyrektywę 2011/83/UE:
-
-> "Przedsiębiorca zapewnia, aby konsument w momencie składania zamówienia wyraźnie potwierdził, że wie, iż zamówienie pociąga za sobą obowiązek zapłaty."
-
-Przycisk musi zawierać sformułowanie jednoznacznie wskazujące na obowiązek zapłaty. Akceptowane warianty:
+Przycisk musi jasno wskazywać na obowiązek zapłaty. Akceptowane warianty:
 
 - "Zamawiam z obowiązkiem zapłaty"
 - "Zamawiam i płacę"
 - "Kupuję i płacę"
 
-Użycie tekstu typu "Złóż zamówienie", "Zamów" czy "Potwierdź" jest niezgodne z prawem i może skutkować karami.
+Teksty "Złóż zamówienie", "Zamów" czy "Potwierdź" nie spełniają wymogów i grożą karami.
 
 ![Strona kasy z checkboxami prawnymi i przyciskiem zamówienia](../../../assets/screenshots/screenshot-3-checkout-checkboxes.png)
 
@@ -35,14 +31,14 @@ Przejdź do **WooCommerce > Ustawienia > Polski > Kasa** i skonfiguruj sekcję "
 
 ### Teksty per metoda płatności
 
-Niektóre bramki płatności (np. PayPal, Przelewy24) ustawiają własne teksty przycisków. Plugin pozwala wybrać, czy:
+Niektóre bramki płatności (np. PayPal, Przelewy24) ustawiają własne teksty przycisków. Wtyczka pozwala wybrać:
 
 1. **Nadpisywać wszystkie** - zawsze wyświetla ustawiony tekst (zalecane)
 2. **Zachować teksty bramek** - pozwala bramkom ustawiać własne teksty (upewnij się, że są zgodne z prawem)
 
 ## Implementacja techniczna
 
-Plugin modyfikuje tekst przycisku za pomocą filtra WooCommerce:
+Wtyczka zmienia tekst przycisku filtrem WooCommerce:
 
 ```php
 add_filter('woocommerce_order_button_text', function (): string {
@@ -52,14 +48,14 @@ add_filter('woocommerce_order_button_text', function (): string {
 
 ### Kompatybilność z Block Checkout
 
-Plugin obsługuje zarówno klasyczny checkout (shortcode), jak i nowy Block Checkout (Gutenberg). W przypadku Block Checkout modyfikacja odbywa się przez:
+Wtyczka działa z klasycznym checkout (shortcode) i Block Checkout (Gutenberg). Block Checkout korzysta z:
 
 - filtr `woocommerce_order_button_text` (klasyczny)
 - endpoint Store API (Block Checkout)
 
 ### Kompatybilność z popularnymi wtyczkami
 
-Plugin jest kompatybilny z popularnymi bramkami płatności na polskim rynku:
+Wtyczka działa z popularnymi bramkami płatności w Polsce:
 
 - Przelewy24
 - PayU
@@ -72,7 +68,7 @@ Plugin jest kompatybilny z popularnymi bramkami płatności na polskim rynku:
 
 ### Zmiana tekstu w ustawieniach
 
-Najprostszy sposób - zmień tekst w **WooCommerce > Ustawienia > Polski > Kasa**. Pamiętaj, że nowy tekst musi nadal zawierać informację o obowiązku zapłaty.
+Zmień tekst w **WooCommerce > Ustawienia > Polski > Kasa**. Nowy tekst musi nadal informować o obowiązku zapłaty.
 
 ### Zmiana tekstu programistycznie
 
@@ -104,7 +100,7 @@ add_filter('woocommerce_order_button_text', function (string $text): string {
 
 ## Stylowanie przycisku
 
-Przycisk zachowuje domyślne klasy CSS WooCommerce. Możesz dostosować jego wygląd:
+Przycisk używa domyślnych klas CSS WooCommerce. Dostosuj jego wygląd:
 
 ```css
 #place_order {
@@ -151,14 +147,14 @@ Sprawdź, czy:
 
 ### Tekst jest obcięty na urządzeniach mobilnych
 
-Długi tekst "Zamawiam z obowiązkiem zapłaty" może nie mieścić się na wąskich ekranach. Rozważ:
+Tekst "Zamawiam z obowiązkiem zapłaty" może nie mieścić się na małych ekranach. Rozwiązania:
 
 - użycie krótszego wariantu: "Kupuję i płacę"
 - dostosowanie CSS: `white-space: normal` na przycisku
 
 ### Block Checkout nie zmienia tekstu
 
-Upewnij się, że używasz najnowszej wersji pluginu. Starsze wersje mogą nie obsługiwać Block Checkout. Sprawdź również, czy WooCommerce Blocks jest zaktualizowany.
+Sprawdź, czy masz najnowszą wersję wtyczki. Starsze wersje mogą nie obsługiwać Block Checkout. Zaktualizuj też WooCommerce Blocks.
 
 ## Powiązane zasoby
 

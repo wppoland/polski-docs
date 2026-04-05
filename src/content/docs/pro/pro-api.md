@@ -3,7 +3,7 @@ title: PRO REST API
 description: Dokumentacja REST API Polski PRO for WooCommerce - endpointy faktur, ustawień, generowania dokumentów prawnych i integracji z KSeF.
 ---
 
-Polski PRO for WooCommerce udostępnia REST API w namespace `polski-pro/v1` do zarządzania fakturami, ustawieniami i dokumentami prawnymi. API jest dostępne dla uwierzytelnionych użytkowników z uprawnieniem `manage_woocommerce`.
+REST API w namespace `polski-pro/v1` do zarządzania fakturami, ustawieniami i dokumentami prawnymi. Wymaga uwierzytelnienia i uprawnienia `manage_woocommerce`.
 
 :::note[Wymagania]
 Polski PRO wymaga: Polski (free) v1.3.0+, WordPress 6.4+, WooCommerce 8.0+, PHP 8.1+
@@ -42,7 +42,7 @@ $response = wp_remote_get(
 );
 ```
 
-Nieuwierzytelnione żądania lub żądania od użytkowników bez wymaganego uprawnienia otrzymują odpowiedź `401 Unauthorized` lub `403 Forbidden`.
+Bez uwierzytelnienia lub uprawnień API zwraca `401 Unauthorized` lub `403 Forbidden`.
 
 ## Endpointy faktur
 
@@ -455,7 +455,7 @@ POST /wp-json/polski-pro/v1/settings
 POST /wp-json/polski-pro/v1/legal/generate
 ```
 
-Generuje dokumenty prawne (regulamin, polityka prywatności) na podstawie danych sklepu.
+Generuje dokumenty prawne na podstawie danych sklepu.
 
 **Parametry body (JSON):**
 
@@ -526,7 +526,7 @@ Wszystkie endpointy zwracają ustandaryzowane kody błędów:
 
 ## Limity i throttling
 
-API stosuje rate limiting: maksymalnie 60 żądań na minutę na użytkownika. Po przekroczeniu limitu zwracana jest odpowiedź `429` z nagłówkiem `Retry-After`.
+Limit: 60 żądań na minutę na użytkownika. Po przekroczeniu API zwraca `429` z nagłówkiem `Retry-After`.
 
 ```
 HTTP/1.1 429 Too Many Requests

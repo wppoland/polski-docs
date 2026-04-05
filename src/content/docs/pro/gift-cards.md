@@ -3,7 +3,7 @@ title: Karty podarunkowe
 description: Dokumentacja kart podarunkowych Polski PRO for WooCommerce - sprzedaż, generowanie kodów, realizacja w koszyku, śledzenie salda i panel Moje konto.
 ---
 
-Moduł kart podarunkowych w Polski PRO for WooCommerce umożliwia sprzedaż kart podarunkowych jako produktów WooCommerce. Klienci mogą kupić kartę, otrzymać unikalny kod i wykorzystać go jako formę płatności przy kolejnych zamówieniach.
+Moduł kart podarunkowych pozwala sprzedawać karty jako produkty WooCommerce. Klient kupuje kartę, otrzymuje kod i płaci nim przy kolejnych zamówieniach.
 
 ## Jak to działa
 
@@ -48,20 +48,20 @@ Dla kwoty dowolnej klient widzi pole do wpisania wartości karty zamiast ustalon
 
 ## Generowanie kodów
 
-Kody kart podarunkowych są generowane automatycznie po opłaceniu zamówienia. Algorytm:
+Kody generują się automatycznie po opłaceniu zamówienia. Cechy kodów:
 
 - znaki alfanumeryczne (A-Z, 0-9)
 - wykluczenie znaków niejednoznacznych (0, O, I, L, 1)
 - walidacja unikalności w bazie danych
 - formatowanie z separatorami (np. `ABCD-EFGH-JKMN-PQRS`)
 
-Każdy kod jest unikalny w skali całego sklepu. Plugin weryfikuje unikalność przed zapisem i w razie kolizji generuje nowy kod.
+Każdy kod jest unikalny. Przy kolizji plugin generuje nowy kod.
 
 ## Realizacja w koszyku
 
 ### Pole kodu
 
-Na stronie koszyka (i opcjonalnie na stronie kasy) wyświetla się pole do wpisania kodu karty podarunkowej:
+W koszyku (i opcjonalnie na kasie) klient widzi pole do wpisania kodu:
 
 ```
 [Wpisz kod karty podarunkowej] [Zastosuj]
@@ -76,18 +76,18 @@ Po wpisaniu prawidłowego kodu:
 
 ### Walidacja kodu
 
-Plugin waliduje kod karty przed zastosowaniem:
+Plugin sprawdza kod przed zastosowaniem:
 
 - sprawdzenie, czy kod istnieje w bazie
 - sprawdzenie, czy karta nie wygasła
 - sprawdzenie, czy saldo jest większe od zera
 - sprawdzenie, czy karta nie została zablokowana
 
-Komunikat błędu informuje klienta o przyczynie odrzucenia kodu.
+Klient widzi komunikat z przyczyną odrzucenia kodu.
 
 ### Śledzenie sesji
 
-Zastosowany kod karty jest przechowywany w sesji WooCommerce klienta. Oznacza to, że:
+Kod karty jest przechowywany w sesji WooCommerce:
 
 - kod jest zapamiętywany nawet po odświeżeniu strony
 - kod jest usuwany po złożeniu zamówienia lub wylogowaniu
@@ -95,7 +95,7 @@ Zastosowany kod karty jest przechowywany w sesji WooCommerce klienta. Oznacza to
 
 ## Śledzenie salda
 
-Każda karta podarunkowa ma saldo, które zmniejsza się z każdym użyciem. Historia transakcji karty zawiera:
+Saldo karty zmniejsza się z każdym użyciem. Historia transakcji zawiera:
 
 | Pole | Opis |
 |------|------|
@@ -117,7 +117,7 @@ W panelu **WooCommerce > Karty podarunkowe** administrator może:
 
 ## Panel Moje konto
 
-Moduł dodaje endpoint `/polski-gift-cards` do panelu Moje konto klienta. Endpoint jest dostępny pod adresem:
+Moduł dodaje sekcję w panelu Moje konto pod adresem:
 
 ```
 /moje-konto/polski-gift-cards/
@@ -223,7 +223,7 @@ apply_filters('polski_pro/gift_card/calculate_totals', float $discount, string $
 
 ## E-mail z kodem
 
-Po opłaceniu zamówienia zawierającego kartę podarunkową plugin wysyła e-mail z kodem. E-mail zawiera:
+Po opłaceniu zamówienia plugin wysyła e-mail z kodem karty. E-mail zawiera:
 
 - kod karty (sformatowany)
 - wartość nominalną
@@ -234,7 +234,7 @@ Szablon e-maila można dostosować w **WooCommerce > Ustawienia > E-maile > Kart
 
 ### E-mail dla obdarowanego
 
-Przy zakupie karty klient może podać adres e-mail obdarowanego. W takim przypadku:
+Klient może podać e-mail obdarowanego. Wtedy:
 
 - kod jest wysyłany na adres obdarowanego
 - kupujący otrzymuje potwierdzenie zakupu (bez kodu)

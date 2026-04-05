@@ -3,11 +3,11 @@ title: KSeF - Krajowy System e-Faktur
 description: Gotowość na KSeF w Polski for WooCommerce - automatyczne wykrywanie zamówień z NIP, kolumna statusu, hooki deweloperskie i integracja z systemami fakturowania.
 ---
 
-Krajowy System e-Faktur (KSeF) to platforma Ministerstwa Finansów do wystawiania i odbierania faktur ustrukturyzowanych. Polski for WooCommerce przygotowuje sklep WooCommerce na integrację z KSeF poprzez automatyczne wykrywanie zamówień wymagających faktury VAT, kolumnę statusu w panelu administracyjnym oraz hooki umożliwiające integrację z zewnętrznymi systemami fakturowania.
+KSeF to platforma Ministerstwa Finansów do faktur ustrukturyzowanych. Wtyczka przygotowuje sklep na integrację z KSeF - wykrywa zamówienia wymagające faktury VAT, dodaje kolumnę statusu i hooki do połączenia z systemami fakturowania.
 
 ## Stan prawny KSeF
 
-KSeF jest obecnie w fazie wdrażania. Wtyczka Polski for WooCommerce nie wystawia faktur bezpośrednio w KSeF, ale dostarcza infrastrukturę ułatwiającą integrację z systemami, które to robią (np. Fakturownia, iFirma, wFirma, InFakt).
+KSeF jest w fazie wdrażania. Wtyczka nie wystawia faktur w KSeF, ale ułatwia integrację z systemami, które to robią (np. Fakturownia, iFirma, wFirma, InFakt).
 
 Główne funkcje modułu KSeF:
 
@@ -18,7 +18,7 @@ Główne funkcje modułu KSeF:
 
 ## Wykrywanie zamówień z NIP
 
-Gdy klient poda numer NIP podczas składania zamówienia (pole NIP jest częścią modułu Checkout wtyczki), system automatycznie:
+Gdy klient poda NIP przy składaniu zamówienia (pole NIP jest częścią modułu Checkout), wtyczka automatycznie:
 
 1. Waliduje format NIP (10 cyfr, sprawdzenie sumy kontrolnej)
 2. Oznacza zamówienie jako wymagające faktury VAT
@@ -34,7 +34,7 @@ Wtyczka sprawdza poprawność NIP na dwóch poziomach:
 
 ## Kolumna statusu KSeF
 
-Na liście zamówień (**WooCommerce > Zamówienia**) wtyczka dodaje kolumnę **KSeF** z ikonami statusu:
+Na liście zamówień (**WooCommerce > Zamówienia**) pojawia się kolumna **KSeF** z ikonami statusu:
 
 | Ikona | Status | Opis |
 |-------|--------|------|
@@ -43,17 +43,17 @@ Na liście zamówień (**WooCommerce > Zamówienia**) wtyczka dodaje kolumnę **
 | Zielona | Wystawiona | Faktura została wystawiona (status ustawiony przez hook) |
 | Czerwona | Błąd | Wystąpił problem z wystawieniem faktury |
 
-Status można filtrować - użyj filtra na liście zamówień, aby wyświetlić np. tylko zamówienia oczekujące na fakturę.
+Możesz filtrować zamówienia po statusie KSeF, np. wyświetlić tylko te oczekujące na fakturę.
 
 ### Masowe akcje
 
-Na liście zamówień dostępna jest masowa akcja "Oznacz jako wystawione w KSeF", pozwalająca zaktualizować status wielu zamówień jednocześnie.
+Na liście zamówień możesz masowo oznaczyć wiele zamówień jako "wystawione w KSeF".
 
 ## Hooki
 
 ### polski/ksef/invoice_ready
 
-Wywoływany, gdy zamówienie z NIP zostanie opłacone i jest gotowe do wystawienia faktury. To główny hook do integracji z zewnętrznymi systemami fakturowania.
+Wywoływany, gdy zamówienie z NIP jest opłacone i gotowe do wystawienia faktury. Główny hook do integracji z systemami fakturowania.
 
 ```php
 /**
@@ -182,10 +182,10 @@ Ustawienia modułu KSeF: **WooCommerce > Ustawienia > Polski > KSeF**.
 Kliknij "Opcje ekranu" i zaznacz kolumnę KSeF. Upewnij się, że moduł jest włączony w ustawieniach.
 
 **NIP nie jest zapisywany w zamówieniu**
-Sprawdź, czy pole NIP jest włączone w module Checkout (**WooCommerce > Ustawienia > Polski > Kasa**). Pole NIP musi być aktywne, aby klient mógł je wypełnić.
+Sprawdź, czy pole NIP jest włączone w **WooCommerce > Ustawienia > Polski > Kasa**. Pole musi być aktywne, żeby klient mógł je wypełnić.
 
 **Hook invoice_ready nie jest wywoływany**
-Sprawdź ustawienie "Status wyzwalający hook". Domyślnie hook jest wywoływany przy zmianie statusu zamówienia na "W trakcie realizacji". Jeśli używasz niestandardowych statusów, zmień tę opcję.
+Sprawdź "Status wyzwalający hook". Domyślnie hook działa przy statusie "W trakcie realizacji". Przy niestandardowych statusach zmień tę opcję.
 
 ## Dalsze kroki
 

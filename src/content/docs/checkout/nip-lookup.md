@@ -3,11 +3,11 @@ title: NIP na kasie
 description: Walidacja numeru NIP z sumą kontrolną, weryfikacja w API GUS REGON oraz automatyczne pobieranie danych firmy na stronie kasy WooCommerce.
 ---
 
-Klienci firmowi składający zamówienia w sklepach internetowych potrzebują możliwości podania numeru NIP, aby otrzymać fakturę VAT. Plugin Polski for WooCommerce dodaje pole NIP na stronie kasy z pełną walidacją - od sumy kontrolnej po weryfikację w bazie GUS REGON z automatycznym uzupełnieniem danych firmy.
+Klienci firmowi potrzebują pola NIP na kasie, by otrzymać fakturę VAT. Wtyczka Polski for WooCommerce dodaje pole NIP z walidacją sumy kontrolnej i weryfikacją w bazie GUS REGON. Dane firmy uzupełniają się automatycznie.
 
 ## Funkcjonalności
 
-Moduł NIP oferuje trzy poziomy weryfikacji:
+Moduł NIP weryfikuje numer na trzech poziomach:
 
 1. **Walidacja formatu** - sprawdzenie, czy numer składa się z 10 cyfr
 2. **Walidacja sumy kontrolnej** - algorytm weryfikacji cyfry kontrolnej NIP
@@ -40,7 +40,7 @@ Zalecana opcja to wyświetlanie po zaznaczeniu checkboxa "Chcę fakturę" - jest
 
 ## Walidacja sumy kontrolnej
 
-Algorytm walidacji NIP opiera się na systemie wag. Cyfra kontrolna (ostatnia, dziesiąta cyfra) jest obliczana na podstawie dziewięciu poprzednich cyfr.
+NIP jest walidowany systemem wag. Ostatnia cyfra (kontrolna) musi pasować do wyniku obliczeń z dziewięciu poprzednich cyfr.
 
 ### Algorytm
 
@@ -53,11 +53,11 @@ Reszta = 214 mod 11
 Jeśli reszta == ostatnia cyfra NIP → NIP poprawny
 ```
 
-Plugin wykonuje tę walidację zarówno po stronie klienta (JavaScript), jak i po stronie serwera (PHP). Walidacja serwerowa jest zawsze aktywna - nie można jej obejść wyłączając JavaScript.
+Wtyczka waliduje NIP po stronie klienta (JavaScript) i serwera (PHP). Walidacja serwerowa jest zawsze aktywna - nie da się jej obejść.
 
 ### Obsługa formatów wejściowych
 
-Plugin akceptuje NIP w różnych formatach:
+Wtyczka akceptuje NIP w różnych formatach:
 
 - `1234567890` - same cyfry
 - `123-456-78-90` - z myślnikami
@@ -70,7 +70,7 @@ Wszystkie formaty są normalizowane do 10 cyfr przed walidacją.
 
 ### Konfiguracja API
 
-API GUS REGON wymaga klucza dostępowego. Plugin obsługuje dwa środowiska:
+API GUS REGON wymaga klucza dostępowego. Wtyczka obsługuje dwa środowiska:
 
 | Środowisko | URL | Klucz | Zastosowanie |
 |------------|-----|-------|-------------|
@@ -94,11 +94,11 @@ API GUS REGON wymaga klucza dostępowego. Plugin obsługuje dwa środowiska:
 
 ### Tryb testowy
 
-W trybie testowym plugin używa publicznego klucza testowego GUS. Baza testowa zawiera fikcyjne dane - nie służy do weryfikacji prawdziwych numerów NIP. Używaj go wyłącznie podczas rozwoju i testowania integracji.
+Tryb testowy korzysta z publicznego klucza GUS. Baza testowa zawiera fikcyjne dane - nie weryfikujesz w niej prawdziwych NIP-ów. Używaj go tylko podczas tworzenia i testowania sklepu.
 
 ## Automatyczne pobieranie danych firmy
 
-Po weryfikacji NIP w GUS REGON plugin automatycznie uzupełnia pola formularza:
+Po weryfikacji NIP wtyczka automatycznie uzupełnia pola formularza:
 
 | Pole WooCommerce | Dane z GUS |
 |-----------------|------------|
@@ -108,7 +108,7 @@ Po weryfikacji NIP w GUS REGON plugin automatycznie uzupełnia pola formularza:
 | Kod pocztowy | Kod pocztowy |
 | Województwo | Województwo |
 
-Klient widzi uzupełnione dane i może je skorygować przed złożeniem zamówienia.
+Klient widzi uzupełnione dane i może je poprawić przed zamówieniem.
 
 ### Zachowanie przy automatycznym uzupełnianiu
 

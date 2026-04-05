@@ -3,13 +3,13 @@ title: Zarządzanie zgodami
 description: Dokumentacja zaawansowanego zarządzania zgodami w Polski PRO for WooCommerce - wersjonowanie, audit trail, eksport RODO, integracja z Moje konto.
 ---
 
-Moduł zarządzania zgodami w Polski PRO for WooCommerce rozszerza podstawowe checkboxy prawne o wersjonowanie treści zgód, pełny audit trail, eksport danych i integrację z mechanizmami RODO w WordPress. Zapewnia narzędzia do śledzenia historii zgód klientów i reagowania na zmiany treści regulaminów.
+Moduł zarządzania zgodami dodaje wersjonowanie zgód, audit trail, eksport danych i integrację z RODO. Śledzi historię zgód klientów i reaguje na zmiany treści regulaminów.
 
 ## Wersjonowanie zgód
 
 ### Automatyczne wykrywanie zmian
 
-Plugin monitoruje treść etykiet checkboxów prawnych. Przy każdym zapisie ustawień oblicza hash (SHA-256) treści etykiety. Jeśli hash się zmienił - plugin automatycznie tworzy nową wersję zgody.
+Plugin śledzi treść checkboxów. Przy każdym zapisie ustawień porównuje hash (SHA-256) treści. Gdy treść się zmieni - tworzy nową wersję zgody automatycznie.
 
 Każda wersja zgody zawiera:
 
@@ -21,11 +21,11 @@ Każda wersja zgody zawiera:
 
 ### Historia wersji
 
-W ustawieniach checkboxów prawnych dostępny jest przycisk **Historia wersji** przy każdym checkboxie. Wyświetla listę wszystkich wersji z datami i podglądem treści.
+Kliknij **Historia wersji** przy checkboxie, aby zobaczyć wszystkie wersje z datami i treścią.
 
 ### Ponowne wyrażanie zgody
 
-Gdy treść zgody się zmieni (nowa wersja), plugin może wymagać ponownego wyrażenia zgody przez klientów. Konfiguracja:
+Gdy treść zgody się zmieni, plugin może wymagać ponownej zgody. Ustawienia:
 
 | Ustawienie | Opis |
 |------------|------|
@@ -33,13 +33,13 @@ Gdy treść zgody się zmieni (nowa wersja), plugin może wymagać ponownego wyr
 | Wyświetlaj monit | Na stronie kasy / W panelu Moje konto / Oba |
 | Treść komunikatu | Tekst informujący klienta o zmianie regulaminu |
 
-Klient widzi komunikat z informacją o zmianie treści i musi ponownie zaznaczyć checkbox. Wcześniejsza zgoda pozostaje w historii z oznaczeniem wersji.
+Klient widzi komunikat o zmianie i musi ponownie zaznaczyć checkbox. Wcześniejsza zgoda zostaje w historii.
 
 ## Audit trail
 
 ### Rejestrowane zdarzenia
 
-Plugin rejestruje wszystkie operacje związane ze zgodami:
+Plugin zapisuje wszystkie operacje na zgodach:
 
 | Zdarzenie | Dane |
 |-----------|------|
@@ -51,7 +51,7 @@ Plugin rejestruje wszystkie operacje związane ze zgodami:
 
 ### Przeglądanie historii
 
-Przejdź do **WooCommerce > Ustawienia > Polski > Moduły PRO > Zgody > Audit trail**. Tabela zawiera wszystkie zdarzenia z filtrami:
+Przejdź do **WooCommerce > Ustawienia > Polski > Moduły PRO > Zgody > Audit trail**. Filtruj zdarzenia po:
 
 - ID użytkownika lub e-mail
 - typ zdarzenia
@@ -60,34 +60,34 @@ Przejdź do **WooCommerce > Ustawienia > Polski > Moduły PRO > Zgody > Audit tr
 
 ### Eksport danych
 
-Audit trail można wyeksportować w dwóch formatach:
+Eksportuj audit trail w formacie:
 
-- **CSV** - do otwarcia w arkuszu kalkulacyjnym
-- **JSON** - do przetwarzania programowego lub importu do innego systemu
+- **CSV** - do arkusza kalkulacyjnego
+- **JSON** - do przetwarzania programowego
 
-Eksport jest dostępny z poziomu panelu Audit trail. Można wyeksportować pełną historię lub przefiltrowane wyniki.
+Eksportuj pełną historię lub przefiltrowane wyniki z panelu Audit trail.
 
 ## Integracja z panelem Moje konto
 
 ### Wycofanie zgody
 
-W panelu **Moje konto** klienta pojawia się sekcja "Moje zgody" z listą wyrażonych zgód. Klient może:
+W **Moje konto** klient widzi sekcję "Moje zgody". Może:
 
 - przeglądać aktualnie wyrażone zgody
 - zobaczyć datę wyrażenia każdej zgody
 - wycofać zgodę przyciskiem "Wycofaj"
 
-Wycofanie zgody jest rejestrowane w audit trail. Administrator otrzymuje powiadomienie e-mail o wycofaniu zgody (konfigurowalne).
+Wycofanie jest zapisywane w audit trail. Administrator dostaje powiadomienie e-mail (konfigurowalne).
 
 ### Monit o ponowną zgodę
 
-Jeśli treść zgody się zmieniła, klient widzi w panelu Moje konto komunikat z prośbą o zapoznanie się z nową wersją i ponowne wyrażenie zgody.
+Gdy treść zgody się zmieni, klient widzi w Moje konto prośbę o zapoznanie się z nową wersją i ponowną zgodę.
 
 ## Integracja RODO
 
 ### Eksport danych osobowych
 
-Plugin integruje się z mechanizmem eksportu danych osobowych WordPress (`wp_privacy_personal_data_exporters`). Przy żądaniu eksportu danych klienta plugin dołącza:
+Plugin integruje się z eksportem danych WordPress (`wp_privacy_personal_data_exporters`). Przy eksporcie danych klienta dołącza:
 
 - listę wyrażonych zgód z datami i wersjami
 - pełną historię zmian zgód (wyrażenia, wycofania, ponowne zgody)
@@ -108,7 +108,7 @@ add_filter('wp_privacy_personal_data_exporters', function (array $exporters): ar
 
 ### Usuwanie danych osobowych
 
-Plugin integruje się z mechanizmem usuwania danych WordPress (`wp_privacy_personal_data_erasers`). Przy żądaniu usunięcia danych:
+Plugin integruje się z usuwaniem danych WordPress (`wp_privacy_personal_data_erasers`). Przy usuwaniu danych:
 
 - dane osobowe w audit trail są anonimizowane (IP, user agent)
 - wpisy zgód są oznaczane jako usunięte
@@ -238,7 +238,7 @@ add_action('polski_pro/consent/revoked', function (int $user_id, string $consent
 
 ### Audit trail rośnie zbyt szybko
 
-Plugin przechowuje historię zgód w osobnej tabeli bazy danych. Przy dużej liczbie klientów tabela może rosnąć. Rozważ:
+Historia zgód jest w osobnej tabeli. Przy wielu klientach może rosnąć. Rozważ:
 
 - regularne eksportowanie i archiwizowanie starszych wpisów
 - ustawienie automatycznego czyszczenia wpisów starszych niż określona liczba miesięcy (opcja w ustawieniach)

@@ -3,24 +3,24 @@ title: Producent i marka
 description: Dane producenta (GPSR), taksonomia marki, numery GTIN/EAN oraz shortcode do wyświetlania informacji o producencie w WooCommerce.
 ---
 
-Rozporządzenie GPSR (General Product Safety Regulation) obowiązujące od 13 grudnia 2024 r. nakłada na sprzedawców internetowych obowiązek podawania danych producenta lub osoby odpowiedzialnej na stronie produktu. Plugin Polski for WooCommerce umożliwia dodanie pełnych danych producenta, marki oraz identyfikatorów produktu (GTIN/EAN) do każdego produktu w sklepie.
+Od 13 grudnia 2024 r. rozporządzenie GPSR wymaga podawania danych producenta na stronie produktu. Wtyczka Polski for WooCommerce pozwala dodać dane producenta, markę i numer GTIN/EAN do każdego produktu.
 
 ## Wymagania GPSR
 
-Zgodnie z rozporządzeniem (UE) 2023/988 (GPSR), na stronie produktu muszą być podane:
+Na stronie produktu musisz podać:
 
 - nazwa producenta lub importera
 - adres pocztowy producenta
 - adres e-mail lub strona internetowa do kontaktu
 - w przypadku produktów spoza UE - dane osoby odpowiedzialnej na terenie UE
 
-Te informacje muszą być łatwo dostępne dla konsumenta przed zakupem.
+Klient musi mieć dostęp do tych danych przed zakupem.
 
 ## Konfiguracja
 
 ### Włączenie modułu
 
-Przejdź do **WooCommerce > Ustawienia > Polski > Producent** i aktywuj moduł. Po aktywacji w edytorze produktu pojawią się nowe pola.
+Przejdź do **WooCommerce > Ustawienia > Polski > Producent** i włącz moduł. Po włączeniu w edytorze produktu pojawią się nowe pola.
 
 ### Dane producenta (GPSR)
 
@@ -39,11 +39,11 @@ W edytorze produktu, w zakładce "Polski" lub w panelu bocznym, znajdziesz sekcj
 
 ### Globalne dane producenta
 
-Jeśli sprzedajesz głównie produkty własnej marki, możesz ustawić domyślne dane producenta w **WooCommerce > Ustawienia > Polski > Producent**. Te dane będą automatycznie stosowane do wszystkich produktów, które nie mają przypisanych indywidualnych danych producenta.
+Jeśli sprzedajesz głównie własne produkty, ustaw domyślne dane producenta w **WooCommerce > Ustawienia > Polski > Producent**. Te dane pojawią się przy produktach bez własnych danych producenta.
 
 ## Taksonomia marki
 
-Plugin rejestruje taksonomię `polski_brand` pozwalającą na zarządzanie markami produktów.
+Wtyczka tworzy taksonomię `polski_brand` do zarządzania markami produktów.
 
 ### Zarządzanie markami
 
@@ -60,17 +60,17 @@ W edytorze produktu, w panelu bocznym, znajdziesz metabox "Marka" - wybierz mark
 
 ### Strony marki
 
-Plugin automatycznie generuje strony archiwum dla każdej marki. Klienci mogą przeglądać wszystkie produkty danej marki pod adresem:
+Wtyczka tworzy stronę archiwum dla każdej marki. Klienci przeglądają produkty marki pod adresem:
 
 ```
 /marka/nazwa-marki/
 ```
 
-Slug archiwum można zmienić w ustawieniach pluginu.
+Slug archiwum zmienisz w ustawieniach wtyczki.
 
 ## GTIN/EAN
 
-Plugin dodaje pole na numer identyfikacyjny produktu zgodny ze standardami GS1.
+Wtyczka dodaje pole na numer identyfikacyjny produktu (standard GS1).
 
 ### Obsługiwane formaty
 
@@ -84,11 +84,11 @@ Plugin dodaje pole na numer identyfikacyjny produktu zgodny ze standardami GS1.
 
 ### Walidacja
 
-Plugin automatycznie waliduje poprawność numeru GTIN/EAN (cyfra kontrolna). Nieprawidłowy numer zostanie odrzucony z komunikatem błędu.
+Wtyczka sprawdza poprawność numeru GTIN/EAN (cyfra kontrolna). Nieprawidłowy numer zostanie odrzucony z komunikatem błędu.
 
 ### Structured data (Schema.org)
 
-Numer GTIN jest automatycznie dodawany do danych strukturalnych produktu (JSON-LD), co poprawia widoczność w wynikach wyszukiwania Google:
+Numer GTIN trafia automatycznie do danych strukturalnych (JSON-LD), co poprawia widoczność w Google:
 
 ```json
 {
@@ -185,7 +185,7 @@ if (!empty($brands) && !is_wp_error($brands)) {
 
 ## Import CSV
 
-Dane producenta i GTIN można importować za pomocą CSV:
+Dane producenta i GTIN importujesz przez CSV:
 
 | Kolumna CSV | Opis |
 |-------------|------|

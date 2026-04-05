@@ -5,7 +5,7 @@ description: Pierwsze kroki po instalacji wtyczki Polski for WooCommerce. Włąc
 
 ## Panel główny wtyczki
 
-Po instalacji i aktywacji wtyczki przejdź do **WooCommerce > Polski** w menu panelu administracyjnego. Zobaczysz panel główny (dashboard) podzielony na kilka sekcji:
+Po aktywacji wtyczki przejdź do **WooCommerce > Polski**. Zobaczysz panel główny z sekcjami:
 
 - **Status zgodności** - szybki przegląd, które wymagania prawne są spełnione
 - **Aktywne moduły** - lista włączonych modułów z linkami do ich ustawień
@@ -15,14 +15,14 @@ Po instalacji i aktywacji wtyczki przejdź do **WooCommerce > Polski** w menu pa
 ![Dashboard modułów Polski for WooCommerce](../../../assets/screenshots/screenshot-1-modules-dashboard.png)
 
 :::tip[Kreator konfiguracji]
-Jeśli dopiero zaczynasz, zalecamy skorzystanie z [kreatora konfiguracji](getting-started/wizard/), który przeprowadzi Cię przez najważniejsze ustawienia krok po kroku. Kreator można uruchomić ponownie w dowolnym momencie z poziomu dashboardu.
+Jeśli dopiero zaczynasz, użyj [kreatora konfiguracji](getting-started/wizard/). Przeprowadzi Cię przez najważniejsze ustawienia krok po kroku. Możesz go uruchomić ponownie w każdej chwili.
 :::
 
 ---
 
 ## Włączanie i wyłączanie modułów
 
-Wtyczka działa modułowo - domyślnie po instalacji żaden moduł nie jest aktywny. Dzięki temu wtyczka nie wpływa na wydajność sklepu, dopóki nie włączysz konkretnych funkcji.
+Wtyczka działa modułowo - po instalacji wszystkie moduły są wyłączone. Włączasz tylko te, których potrzebujesz.
 
 ### Jak włączyć moduł
 
@@ -33,11 +33,11 @@ Wtyczka działa modułowo - domyślnie po instalacji żaden moduł nie jest akty
 
 ### Jak wyłączyć moduł
 
-Procedura jest identyczna - kliknij przełącznik przy aktywnym module, aby go wyłączyć. Wyłączenie modułu nie usuwa zapisanych danych, więc możesz go ponownie włączyć bez utraty konfiguracji.
+Kliknij przełącznik przy aktywnym module, aby go wyłączyć. Wyłączenie nie usuwa danych - możesz włączyć moduł ponownie bez utraty ustawień.
 
 ### Zalecane moduły na start
 
-Dla typowego polskiego sklepu internetowego zalecamy włączenie następujących modułów jako minimum:
+Dla typowego polskiego sklepu włącz co najmniej te moduły:
 
 | Moduł | Dlaczego jest ważny |
 |-------|-------------------|
@@ -53,19 +53,19 @@ Dla typowego polskiego sklepu internetowego zalecamy włączenie następujących
 
 ## Dashboard zgodności
 
-Dashboard zgodności to centralne miejsce, w którym sprawdzisz stan prawny swojego sklepu. Przejdź do **WooCommerce > Polski > Zgodność**, aby zobaczyć:
+Tu sprawdzisz, czy Twój sklep spełnia wymogi prawne. Przejdź do **WooCommerce > Polski > Zgodność**.
 
 ### Wskaźniki statusu
 
 Każdy wymóg prawny ma jeden z trzech statusów:
 
-- **Zgodny** (zielony) - wymóg jest spełniony, konfiguracja jest kompletna
-- **Wymaga uwagi** (żółty) - moduł jest włączony, ale brakuje części konfiguracji
-- **Niezgodny** (czerwony) - moduł jest wyłączony lub konfiguracja jest niekompletna
+- **Zgodny** (zielony) - wymóg spełniony, konfiguracja kompletna
+- **Wymaga uwagi** (żółty) - moduł włączony, ale brakuje części ustawień
+- **Niezgodny** (czerwony) - moduł wyłączony lub konfiguracja niekompletna
 
 ### Lista kontrolna
 
-Dashboard wyświetla listę kontrolną z konkretnymi krokami do wykonania:
+Dashboard pokazuje listę kontrolną z krokami do wykonania:
 
 ```
 [x] Przycisk zamówienia - tekst zgodny z prawem
@@ -92,7 +92,7 @@ Przejdź do **WooCommerce > Polski > Zgodność prawna**, aby skonfigurować:
 3. Wybierz format wyświetlania najniższej ceny
 4. Zapisz zmiany
 
-Wtyczka automatycznie zacznie rejestrować historię cen od momentu aktywacji modułu.
+Wtyczka zacznie rejestrować historię cen od momentu włączenia modułu.
 
 **GPSR (bezpieczeństwo produktów)**
 
@@ -168,11 +168,11 @@ Pozycja: Przed przyciskiem zamówienia
 
 ### Produkty spożywcze
 
-Te moduły są przeznaczone dla sklepów sprzedających żywność. Przejdź do **WooCommerce > Polski > Żywność**.
+Moduły dla sklepów z żywnością. Przejdź do **WooCommerce > Polski > Żywność**.
 
 1. Włącz potrzebne moduły (wartości odżywcze, alergeny, Nutri-Score)
-2. Na stronie edycji produktu pojawią się nowe zakładki do uzupełnienia danych
-3. Dane wyświetlą się automatycznie na karcie produktu w sklepie
+2. W edycji produktu pojawią się nowe zakładki do wypełnienia
+3. Dane pokażą się automatycznie na stronie produktu
 
 ### Moduły sklepowe
 
@@ -210,7 +210,7 @@ Te dane są wykorzystywane przez różne moduły (strony prawne, GPSR, DSA).
 
 ### Kompatybilność
 
-Jeśli używasz niestandardowego motywu lub wtyczek, które powodują konflikty:
+Jeśli motyw lub inna wtyczka powoduje konflikt:
 
 1. Przejdź do **WooCommerce > Polski > Ustawienia > Kompatybilność**
 2. Włącz tryb kompatybilności dla problematycznych modułów
@@ -220,7 +220,7 @@ Jeśli używasz niestandardowego motywu lub wtyczek, które powodują konflikty:
 
 ## Weryfikacja konfiguracji
 
-Po skonfigurowaniu modułów warto sprawdzić, czy wszystko działa:
+Po konfiguracji sprawdź, czy wszystko działa:
 
 1. **Dashboard zgodności** - przejdź do **WooCommerce > Polski > Zgodność** i sprawdź, czy wszystkie wskaźniki są zielone
 2. **Strona produktu** - otwórz dowolny produkt w sklepie i sprawdź, czy wyświetlają się nowe elementy (cena Omnibus, czas dostawy, dane GPSR)

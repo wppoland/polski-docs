@@ -3,7 +3,7 @@ title: Program afiliacyjny
 description: Dokumentacja programu afiliacyjnego Polski PRO for WooCommerce - linki polecające, śledzenie prowizji, rejestracja afiliantów i panel Moje konto.
 ---
 
-Moduł programu afiliacyjnego w Polski PRO for WooCommerce umożliwia prowadzenie programu poleceń bezpośrednio w sklepie WooCommerce. Afilianci udostępniają unikalne linki polecające, a plugin śledzi konwersje i nalicza prowizje za zamówienia złożone przez poleconych klientów.
+Moduł programu afiliacyjnego pozwala prowadzić program poleceń w sklepie. Afilianci dzielą się linkami polecającymi, a plugin śledzi konwersje i nalicza prowizje.
 
 ## Jak to działa
 
@@ -39,18 +39,18 @@ polski_affiliates
 
 ### Stawki prowizji per produkt
 
-Oprócz globalnej stawki prowizji administrator może ustawić indywidualną stawkę dla wybranego produktu. W edycji produktu w sekcji "Program afiliacyjny":
+Oprócz globalnej stawki ustaw indywidualną stawkę dla produktu. W edycji produktu, sekcja "Program afiliacyjny":
 
 - **Stawka prowizji (%)** - nadpisuje globalną stawkę
 - **Wyłącz z programu** - produkt nie generuje prowizji
 
-Stawki per kategoria produktu są również obsługiwane - ustawienie na kategorii dotyczy wszystkich produktów w tej kategorii, chyba że produkt ma własną stawkę.
+Stawki per kategoria też działają - dotyczą wszystkich produktów w kategorii, chyba że produkt ma własną stawkę.
 
 ## Linki polecające
 
 ### Format linku
 
-Link polecający zawiera parametr URL z tokenem afilianta:
+Link zawiera parametr URL z tokenem afilianta:
 
 ```
 https://example.com/?poleca=abc123def456
@@ -70,17 +70,17 @@ Po kliknięciu linku polecającego plugin ustawia cookie:
 | Ścieżka | `/` |
 | SameSite | `Lax` |
 
-Cookie jest ustawiane po stronie serwera (PHP) z flagą `HttpOnly`. Przy kolejnych wizytach klienta plugin sprawdza obecność cookie i powiązuje ewentualne zamówienie z afiliantem.
+Cookie jest ustawiane po stronie serwera (PHP) z flagą `HttpOnly`. Przy kolejnych wizytach plugin wiąże zamówienie z afiliantem.
 
 ### Atrybucja zamówienia
 
-Plugin stosuje model atrybucji "last click" - jeśli klient kliknął linki od kilku afiliantów, prowizję otrzymuje ostatni. Cookie jest nadpisywane przy każdym kliknięciu nowego linku.
+Plugin stosuje model "last click" - prowizję otrzymuje ostatni afiliant, którego link kliknął klient.
 
 ## Rejestracja i aktywacja afiliantów
 
 ### Rejestracja
 
-Klient może zarejestrować się jako afiliant w panelu Moje konto na stronie `/moje-konto/polski-affiliates/`. Formularz rejestracji zawiera:
+Klient rejestruje się jako afiliant w Moje konto (`/moje-konto/polski-affiliates/`). Formularz zawiera:
 
 - imię i nazwisko (pobierane automatycznie z konta)
 - metoda płatności prowizji (przelew / kod rabatowy)
@@ -89,12 +89,12 @@ Klient może zarejestrować się jako afiliant w panelu Moje konto na stronie `/
 
 ### Aktywacja
 
-Domyślnie nowe konta afiliantów wymagają ręcznej aktywacji przez administratora. Administrator otrzymuje powiadomienie e-mail o nowej rejestracji i może:
+Domyślnie nowe konta wymagają ręcznej aktywacji. Administrator dostaje e-mail o rejestracji i może:
 
 - aktywować konto w panelu **WooCommerce > Afilianci**
 - odrzucić rejestrację z podaniem powodu
 
-Opcjonalnie można włączyć automatyczną aktywację - nowe konta stają się aktywne natychmiast po rejestracji.
+Włącz automatyczną aktywację, aby konta stawały się aktywne od razu.
 
 ### Statusy afilianta
 
@@ -109,7 +109,7 @@ Opcjonalnie można włączyć automatyczną aktywację - nowe konta stają się 
 
 ### Naliczanie prowizji
 
-Prowizja jest naliczana automatycznie po opłaceniu zamówienia powiązanego z afiliantem. Prowizja nie jest naliczana dla:
+Prowizja nalicza się automatycznie po opłaceniu zamówienia. Nie nalicza się dla:
 
 - zamówień anulowanych lub zwróconych
 - zamówień złożonych przez samego afilianta (self-referral)
@@ -126,13 +126,13 @@ Prowizja jest naliczana automatycznie po opłaceniu zamówienia powiązanego z a
 
 ### Automatyczne zatwierdzanie
 
-Prowizja zmienia status z "Pending" na "Approved" po upływie konfigurowalnego okresu (domyślnie 14 dni). Opóźnienie chroni przed prowizjami od zamówień, które zostaną zwrócone.
+Prowizja zmienia się z "Pending" na "Approved" po 14 dniach (konfigurowalne). To chroni przed prowizjami od zwróconych zamówień.
 
-Jeśli zamówienie zostanie anulowane lub zwrócone w okresie oczekiwania, prowizja jest automatycznie odrzucana.
+Jeśli zamówienie zostanie anulowane w okresie oczekiwania, prowizja jest odrzucana automatycznie.
 
 ## Panel Moje konto
 
-Moduł dodaje endpoint `/polski-affiliates` do panelu Moje konto. Endpoint jest dostępny pod adresem:
+Moduł dodaje sekcję w Moje konto pod adresem:
 
 ```
 /moje-konto/polski-affiliates/

@@ -3,21 +3,21 @@ title: Pozostałe moduły sklepowe
 description: Dodatkowe moduły w Polski for WooCommerce - menedżer zakładek, wyróżnione wideo, zoom galerii, lista oczekujących, nieskończone przewijanie, popup.
 ---
 
-Polski for WooCommerce oferuje szereg dodatkowych modułów usprawniających działanie sklepu. Każdy moduł można włączyć niezależnie w **WooCommerce > Polski > Moduły sklepowe**.
+Dodatkowe moduły sklepowe. Każdy włączysz niezależnie w **WooCommerce > Polski > Moduły sklepowe**.
 
 ## Menedżer zakładek (tab manager)
 
-Menedżer zakładek pozwala kontrolować zakładki wyświetlane na stronie produktu (Opis, Informacje dodatkowe, Opinie itp.).
+Kontroluj zakładki na stronie produktu (Opis, Informacje dodatkowe, Opinie itp.).
 
 ### Możliwości
 
-- **Zmiana kolejności** - przeciągnij i upuść zakładki w żądanej kolejności
-- **Ukrywanie zakładek** - ukryj wybraną zakładkę bez usuwania treści
-- **Zmiana nazw** - nadaj zakładkom własne nazwy (np. "Szczegóły" zamiast "Opis")
-- **Dodawanie zakładek** - twórz niestandardowe zakładki z własną treścią
-- **Zakładki globalne** - zakładki widoczne na wszystkich produktach
-- **Zakładki per produkt** - zakładki widoczne tylko na wybranym produkcie
-- **Zakładki per kategoria** - zakładki widoczne na produktach z danej kategorii
+- **Zmiana kolejności** - przeciągnij i upuść
+- **Ukrywanie zakładek** - ukryj bez usuwania treści
+- **Zmiana nazw** - np. "Szczegóły" zamiast "Opis"
+- **Dodawanie zakładek** - własne zakładki z dowolną treścią
+- **Zakładki globalne** - widoczne na wszystkich produktach
+- **Zakładki per produkt** - tylko na wybranym produkcie
+- **Zakładki per kategoria** - tylko na produktach z danej kategorii
 
 ### Dodanie niestandardowej zakładki
 
@@ -45,7 +45,7 @@ add_filter('woocommerce_product_tabs', function (array $tabs): array {
 
 ## Wyróżnione wideo (featured video)
 
-Moduł pozwala zastąpić lub uzupełnić główne zdjęcie produktu filmem wideo.
+Zastąp lub uzupełnij główne zdjęcie produktu filmem wideo.
 
 ### Obsługiwane źródła
 
@@ -71,11 +71,11 @@ Opcje wyświetlania:
 
 ### Lazy loading
 
-Filmy YouTube i Vimeo ładowane są leniwie - iframe z odtwarzaczem wstawiany jest dopiero po kliknięciu miniaturki z ikoną play. Dzięki temu strona produktu nie jest spowalniana przez zewnętrzne skrypty odtwarzacza.
+Filmy YouTube i Vimeo ładują się leniwie - iframe wstawia się dopiero po kliknięciu miniaturki. Strona produktu nie jest spowalniana przez zewnętrzne skrypty.
 
 ## Zoom galerii (gallery zoom)
 
-Moduł dodaje powiększanie zdjęć produktu po najechaniu kursorem lub kliknięciu.
+Powiększanie zdjęć produktu po najechaniu kursorem lub kliknięciu.
 
 ### Tryby zoom
 
@@ -97,11 +97,11 @@ add_filter('polski/gallery_zoom/scale', function (): float {
 });
 ```
 
-Wymagania dotyczące zdjęć: aby zoom wyglądał dobrze, zdjęcia produktów powinny mieć rozdzielczość co najmniej 1200x1200 px. Przy niższej rozdzielczości powiększony obraz będzie rozmyty.
+Zdjęcia powinny mieć co najmniej 1200x1200 px. Przy niższej rozdzielczości powiększony obraz będzie rozmyty.
 
 ## Lista oczekujących (waitlist)
 
-Moduł pozwala klientom zapisać się na powiadomienie e-mail o dostępności produktu, który jest chwilowo niedostępny.
+Klienci mogą zapisać się na powiadomienie e-mail, gdy niedostępny produkt wróci do sprzedaży.
 
 ### Jak działa
 
@@ -121,7 +121,7 @@ W panelu admina (**WooCommerce > Polski > Lista oczekujących**) widoczne są:
 
 ### Zgoda RODO
 
-Formularz zapisania na listę zawiera checkbox zgody na przetwarzanie danych osobowych, zgodnie z RODO. Treść checkboxa konfigurujesz w ustawieniach modułu.
+Formularz zawiera checkbox zgody RODO. Treść checkboxa zmienisz w ustawieniach modułu.
 
 ```php
 add_filter('polski/waitlist/consent_text', function (): string {
@@ -138,7 +138,7 @@ Adresy e-mail usuwane są z listy po:
 
 ## Nieskończone przewijanie (infinite scroll)
 
-Moduł zastępuje tradycyjną paginację automatycznym ładowaniem kolejnych stron produktów przy przewijaniu.
+Zastępuje tradycyjną paginację automatycznym ładowaniem produktów przy przewijaniu.
 
 ### Tryby
 
@@ -157,7 +157,7 @@ Moduł zastępuje tradycyjną paginację automatycznym ładowaniem kolejnych str
 
 ### SEO
 
-Nieskończone przewijanie obsługuje parametr `?paged=N` w URL (History API). Wyszukiwarki nadal widzą klasyczną paginację - moduł serwuje paginowane URL-e dla botów.
+Moduł obsługuje parametr `?paged=N` w URL (History API). Wyszukiwarki widzą klasyczną paginację - boty otrzymują paginowane URL-e.
 
 ```php
 // Wyłączenie infinite scroll na urządzeniach mobilnych
@@ -168,7 +168,7 @@ add_filter('polski/infinite_scroll/enabled', function (): bool {
 
 ## Popup
 
-Moduł wyświetla konfigurowalny popup (okno modalne) na stronie sklepu.
+Konfigurowalny popup (okno modalne) na stronie sklepu.
 
 ### Typy popupów
 
@@ -206,7 +206,7 @@ Przejdź do **WooCommerce > Polski > Moduły sklepowe > Popup** i skonfiguruj:
 
 ### Wymogi prawne
 
-Popup nie powinien utrudniać korzystania ze sklepu (dark patterns). Moduł wymusza:
+Popup nie może utrudniać korzystania ze sklepu (dark patterns). Moduł wymusza:
 - Widoczny przycisk zamknięcia (X)
 - Możliwość zamknięcia kliknięciem w tło
 - Zamknięcie klawiszem Escape
@@ -214,13 +214,13 @@ Popup nie powinien utrudniać korzystania ze sklepu (dark patterns). Moduł wymu
 
 ## Rozwiązywanie problemów
 
-**Menedżer zakładek nie zapisuje kolejności** - wyczyść cache przeglądarki i cache WordPressa. Problem może być też spowodowany konfliktem z wtyczką zakładek.
+**Menedżer zakładek nie zapisuje kolejności** - wyczyść cache przeglądarki i WordPressa. Możliwy konflikt z inną wtyczką zakładek.
 
-**Zoom nie działa na mobile** - tryb hover i lens nie działają na urządzeniach dotykowych. Użyj trybu lightbox dla mobile.
+**Zoom nie działa na mobile** - tryb hover i lens nie działają na dotykowych ekranach. Użyj trybu lightbox.
 
-**Infinite scroll nie ładuje kolejnych stron** - sprawdź, czy motyw korzysta ze standardowej paginacji WooCommerce (`woocommerce_pagination()`).
+**Infinite scroll nie ładuje kolejnych stron** - sprawdź, czy motyw używa standardowej paginacji WooCommerce (`woocommerce_pagination()`).
 
-**Popup nie wyświetla się** - sprawdź ustawienia cookie. Jeśli popup już się wyświetlił, cookie blokuje ponowne wyświetlenie. Wyczyść cookies lub ustaw inną częstotliwość.
+**Popup nie wyświetla się** - jeśli popup już się pojawił, cookie blokuje ponowne wyświetlenie. Wyczyść cookies lub zmień częstotliwość.
 
 Zgłaszanie problemów: [github.com/wppoland/polski/issues](https://github.com/wppoland/polski/issues)
 

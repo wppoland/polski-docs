@@ -3,7 +3,7 @@ title: Bloki Gutenberg
 description: Bloki Gutenberg w Polski for WooCommerce - wyszukiwarka AJAX, filtry AJAX i slider produktów z podglądem w edytorze.
 ---
 
-Polski for WooCommerce udostępnia trzy bloki Gutenberg do wstawiania modułów sklepowych w edytorze blokowym. Każdy blok oferuje podgląd w edytorze (server-side render) i pełną konfigurację w panelu bocznym.
+Trzy bloki Gutenberg do wstawiania modułów sklepowych. Każdy blok ma podgląd w edytorze (server-side render) i konfigurację w panelu bocznym.
 
 ## Wymagania
 
@@ -13,13 +13,13 @@ Polski for WooCommerce udostępnia trzy bloki Gutenberg do wstawiania modułów 
 
 ## Wstawianie bloków
 
-Bloki Polski for WooCommerce znajdziesz w inserterze bloków (przycisk **+**) w kategorii **Polski for WooCommerce**. Możesz też wyszukać je po nazwie wpisując "Polski" lub nazwę modułu.
+Znajdź bloki w inserterze (przycisk **+**) w kategorii **Polski for WooCommerce**. Lub wyszukaj wpisując "Polski".
 
 ## Blok: wyszukiwarka AJAX
 
 **Nazwa bloku:** `polski/ajax-search`
 
-Wstawia pole wyszukiwania z podpowiedziami AJAX. Wyniki pojawiają się w dropdownie podczas wpisywania frazy.
+Pole wyszukiwania z podpowiedziami AJAX. Wyniki pojawiają się w dropdownie podczas wpisywania.
 
 ### Atrybuty bloku
 
@@ -101,7 +101,7 @@ add_filter('polski/blocks/ajax_search/output', function (string $html, array $at
 
 **Nazwa bloku:** `polski/ajax-filters`
 
-Wstawia zestaw filtrów AJAX do filtrowania listy produktów bez przeładowania strony.
+Filtry AJAX do filtrowania produktów bez przeładowania strony.
 
 ### Atrybuty bloku
 
@@ -156,15 +156,13 @@ add_filter('polski/blocks/ajax_filters/output', function (string $html, array $a
 
 ### Umieszczenie w sidebarze
 
-Blok filtrów AJAX najlepiej sprawdza się w sidebarze strony sklepu. W motywie blokowym (FSE) dodaj go do szablonu **Archive: Product** w kolumnie bocznej.
-
-W motywach klasycznych użyj bloku w obszarze widgetów **Sidebar sklepu**.
+Najlepiej działa w sidebarze. W motywie blokowym (FSE) dodaj go do szablonu **Archive: Product**. W motywach klasycznych użyj w widgetach **Sidebar sklepu**.
 
 ## Blok: slider produktów
 
 **Nazwa bloku:** `polski/product-slider`
 
-Wstawia karuzelę produktów z nawigacją strzałkami i opcjonalnymi kropkami paginacji.
+Karuzela produktów z nawigacją strzałkami i opcjonalnymi kropkami paginacji.
 
 ### Atrybuty bloku
 
@@ -209,9 +207,7 @@ Wstawia karuzelę produktów z nawigacją strzałkami i opcjonalnymi kropkami pa
 
 ### Podgląd w edytorze
 
-Blok renderuje podgląd slidera bezpośrednio w edytorze Gutenberg (server-side render). Podgląd pokazuje rzeczywiste produkty z bazy danych, co pozwala ocenić wygląd przed opublikowaniem.
-
-Jeśli sklep nie ma produktów pasujących do wybranego typu (np. brak produktów w promocji), blok wyświetla placeholder z komunikatem.
+Podgląd w edytorze pokazuje rzeczywiste produkty z bazy. Bez pasujących produktów blok wyświetla placeholder.
 
 ### Filtr renderowania
 
@@ -235,7 +231,7 @@ add_filter('polski/blocks/product_slider/query_args', function (array $args, arr
 
 ## Kompatybilność z motywami blokowymi (FSE)
 
-Bloki Polski for WooCommerce działają w pełni z motywami blokowymi (Full Site Editing). Można je wstawiać w:
+Bloki w pełni wspierają motywy blokowe (FSE). Wstawiaj je w:
 
 - Szablonach stron (Page Templates)
 - Szablonach archiwów produktów
@@ -244,7 +240,7 @@ Bloki Polski for WooCommerce działają w pełni z motywami blokowymi (Full Site
 
 ## Stylowanie bloków
 
-Każdy blok generuje klasy CSS zgodne z konwencją BEM. Dodatkowo bloki obsługują natywne ustawienia stylów Gutenberg:
+Klasy CSS zgodne z konwencją BEM. Bloki obsługują natywne ustawienia stylów Gutenberg:
 
 - Kolory (tekst, tło)
 - Typografia (rozmiar, grubość, rodzina fontu)

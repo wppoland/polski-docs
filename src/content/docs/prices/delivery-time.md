@@ -3,21 +3,21 @@ title: Czas dostawy
 description: Konfiguracja czasu dostawy per produkt i wariant, domyślna wartość zapasowa oraz taksonomia polski_delivery_time w WooCommerce.
 ---
 
-Dyrektywa Omnibus oraz polska ustawa o prawach konsumenta wymagają, aby sklep internetowy informował o przewidywanym czasie dostawy produktu przed złożeniem zamówienia. Plugin Polski for WooCommerce zapewnia elastyczny system zarządzania czasem dostawy - od globalnych ustawień domyślnych po indywidualne wartości dla każdego produktu i wariantu.
+Polskie prawo wymaga, by sklep informował o czasie dostawy przed złożeniem zamówienia. Wtyczka Polski for WooCommerce pozwala ustawić czas dostawy globalnie, per produkt i per wariant.
 
 ## Wymagania prawne
 
-Sprzedawca musi poinformować konsumenta o terminie dostarczenia towaru najpóźniej w chwili wyrażenia przez konsumenta woli związania się umową (czyli przed kliknięciem przycisku zamówienia). Informacja ta powinna być:
+Podaj czas dostawy zanim klient kliknie przycisk zamówienia. Informacja powinna być:
 
 - jasna i zrozumiała
 - podana w dniach roboczych lub kalendarzowych
 - widoczna na stronie produktu
 
-Brak informacji o czasie dostawy może skutkować karami ze strony UOKiK oraz stanowi naruszenie praw konsumenta.
+Brak tej informacji grozi karami od UOKiK.
 
 ## Taksonomia polski_delivery_time
 
-Plugin rejestruje dedykowaną taksonomię `polski_delivery_time`, która pozwala tworzyć predefiniowane czasy dostawy i przypisywać je do produktów.
+Wtyczka tworzy taksonomię `polski_delivery_time`, w której definiujesz czasy dostawy i przypisujesz je do produktów.
 
 ### Zarządzanie terminami dostawy
 
@@ -33,7 +33,7 @@ Przykładowe terminy:
 | Do 24 godzin | do-24-godzin | Produkty cyfrowe / ekspres |
 | Dostępny od ręki | dostepny-od-reki | Natychmiastowa realizacja |
 
-Terminy dostawy działają jak taksonomia WordPress - możesz je tworzyć, edytować i usuwać w panelu administracyjnym.
+Terminy dostawy to taksonomia WordPress - tworzysz, edytujesz i usuwasz je w panelu admina.
 
 ## Konfiguracja
 
@@ -51,7 +51,7 @@ Przejdź do **WooCommerce > Ustawienia > Polski > Ceny** i skonfiguruj sekcję "
 
 ### Domyślny fallback
 
-Domyślny czas dostawy (fallback) jest wyświetlany, gdy produkt nie ma przypisanego indywidualnego terminu. Pozwala to na szybkie wdrożenie bez konieczności edycji każdego produktu osobno.
+Domyślny czas dostawy (fallback) pojawia się, gdy produkt nie ma własnego terminu. Dzięki temu nie musisz edytować każdego produktu osobno.
 
 Hierarchia wyświetlania:
 
@@ -59,15 +59,15 @@ Hierarchia wyświetlania:
 2. Czas dostawy produktu głównego (jeśli ustawiony)
 3. Domyślny czas dostawy z ustawień globalnych (fallback)
 
-Jeśli żaden z powyższych nie jest ustawiony, informacja o czasie dostawy nie zostanie wyświetlona.
+Jeśli nic nie jest ustawione, czas dostawy nie pojawi się.
 
 ### Przypisywanie do produktu
 
-W edytorze produktu, w zakładce "Wysyłka", znajdziesz pole **Czas dostawy**. Wybierz z listy istniejący termin lub utwórz nowy.
+W edytorze produktu otwórz zakładkę "Wysyłka". W polu **Czas dostawy** wybierz termin z listy lub dodaj nowy.
 
 ### Przypisywanie do wariantu
 
-Dla produktów zmiennych każdy wariant może mieć własny czas dostawy. Rozwiń sekcję wariantu i ustaw indywidualny termin. Warianty bez ustawionego terminu dziedziczą wartość z produktu głównego.
+Każdy wariant może mieć własny czas dostawy. Rozwiń sekcję wariantu i ustaw termin. Warianty bez terminu dziedziczą wartość z produktu głównego.
 
 ## Shortcode
 
@@ -168,7 +168,7 @@ Przykład:
 
 ## Dynamiczny czas dostawy
 
-W przypadku produktów z długim czasem realizacji można programistycznie modyfikować wyświetlany czas dostawy na podstawie stanów magazynowych lub daty zamówienia.
+Możesz programistycznie zmieniać czas dostawy na podstawie stanu magazynowego lub daty zamówienia.
 
 ```php
 add_filter('polski/delivery_time/display', function (string $delivery_time, WC_Product $product): string {
@@ -209,7 +209,7 @@ add_filter('polski/delivery_time/display', function (string $delivery_time, WC_P
 
 ### Czas dostawy wariantu nie zmienia się po wyborze
 
-Upewnij się, że JavaScript pluginu jest załadowany. Sprawdź konsolę przeglądarki pod kątem błędów JS. Plugin aktualizuje czas dostawy wariantu przez AJAX przy zmianie opcji.
+Sprawdź, czy JavaScript wtyczki jest załadowany. Otwórz konsolę przeglądarki i szukaj błędów JS. Wtyczka aktualizuje czas dostawy wariantu przez AJAX.
 
 ## Powiązane zasoby
 

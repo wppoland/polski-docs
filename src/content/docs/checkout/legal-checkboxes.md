@@ -3,17 +3,17 @@ title: Checkboxy prawne
 description: Konfiguracja, walidacja i personalizacja obowiązkowych checkboxów prawnych na stronie kasy WooCommerce.
 ---
 
-Polskie prawo wymaga, aby konsument przed złożeniem zamówienia zaakceptował regulamin sklepu oraz politykę prywatności. Plugin Polski for WooCommerce zapewnia elastyczny system zarządzania checkboxami prawnymi - od konfiguracji treści i etykiet po walidację i komunikaty błędów.
+Przed złożeniem zamówienia klient musi zaakceptować regulamin i politykę prywatności. Wtyczka Polski for WooCommerce dodaje checkboxy prawne z konfiguracją treści, walidacją i komunikatami błędów.
 
 ## Wymagania prawne
 
-Zgodnie z ustawą o prawach konsumenta oraz ustawą o świadczeniu usług drogą elektroniczną, sklep internetowy musi uzyskać od konsumenta wyraźną zgodę na:
+Sklep musi uzyskać wyraźną zgodę klienta na:
 
 - regulamin sklepu (warunki umowy sprzedaży)
 - politykę prywatności (przetwarzanie danych osobowych)
 - prawo do odstąpienia od umowy (informacja o 14-dniowym terminie)
 
-Zgody muszą być wyrażone aktywnie (checkbox nie może być domyślnie zaznaczony) i osobno dla każdego celu.
+Każda zgoda wymaga osobnego checkboxa. Checkbox nie może być domyślnie zaznaczony.
 
 ![Checkboxy prawne na stronie kasy WooCommerce](../../../assets/screenshots/screenshot-3-checkout-checkboxes.png)
 
@@ -23,7 +23,7 @@ Przejdź do **WooCommerce > Ustawienia > Polski > Kasa** i skonfiguruj sekcję "
 
 ### Domyślne checkboxy
 
-Plugin dodaje następujące checkboxy:
+Wtyczka dodaje te checkboxy:
 
 | Checkbox | Wymagany | Domyślna treść |
 |----------|----------|----------------|
@@ -55,17 +55,17 @@ W treści etykiety możesz używać:
 - `<a href="URL">tekst</a>` - niestandardowy link
 - `<strong>tekst</strong>` - pogrubienie
 
-Strony regulaminu i polityki prywatności są pobierane z ustawień WooCommerce (**WooCommerce > Ustawienia > Zaawansowane > Konfiguracja strony**).
+Strony regulaminu i polityki prywatności pobierają się z **WooCommerce > Ustawienia > Zaawansowane > Konfiguracja strony**.
 
 ## Walidacja
 
 ### Walidacja po stronie serwera
 
-Plugin waliduje checkboxy po stronie serwera za pomocą hooka `woocommerce_checkout_process`. Jeśli wymagany checkbox nie jest zaznaczony, zamówienie nie zostanie złożone, a klient zobaczy komunikat błędu.
+Wtyczka sprawdza checkboxy po stronie serwera hookiem `woocommerce_checkout_process`. Jeśli wymagany checkbox nie jest zaznaczony, zamówienie nie przejdzie i klient zobaczy błąd.
 
 ### Walidacja po stronie klienta
 
-Opcjonalna walidacja JavaScript wyświetla komunikat błędu natychmiast po kliknięciu przycisku zamówienia, bez przeładowania strony. Włącz ją w ustawieniach:
+Opcjonalna walidacja JavaScript pokazuje błąd od razu po kliknięciu przycisku, bez przeładowania strony. Włącz ją w:
 
 **WooCommerce > Ustawienia > Polski > Kasa > Walidacja JS checkboxów**
 
@@ -81,13 +81,13 @@ Każdy checkbox ma konfigurowalny komunikat błędu. Domyślne komunikaty:
 
 ## Przechowywanie zgód
 
-Plugin zapisuje informacje o udzielonych zgodach:
+Wtyczka zapisuje informacje o zgodach:
 
 - jako metadane zamówienia (`_polski_consent_*`)
 - z datą i godziną udzielenia zgody
 - z wersją regulaminu/polityki prywatności (jeśli włączone śledzenie wersji)
 
-Te informacje są widoczne w panelu administracyjnym zamówienia oraz mogą być eksportowane na żądanie (RODO).
+Te dane widać w panelu admina zamówienia. Można je wyeksportować na potrzeby RODO.
 
 ### Podgląd zgód w zamówieniu
 
@@ -186,7 +186,7 @@ add_filter('polski/checkout/legal_checkboxes', function (array $checkboxes): arr
 
 ## Kompatybilność z Block Checkout
 
-Plugin obsługuje checkboxy prawne zarówno w klasycznym checkout, jak i w Block Checkout. W przypadku Block Checkout checkboxy są renderowane za pomocą bloku `woocommerce/checkout-terms-block`.
+Wtyczka obsługuje checkboxy w klasycznym checkout i Block Checkout. W Block Checkout checkboxy działają przez blok `woocommerce/checkout-terms-block`.
 
 ## Najczęstsze problemy
 

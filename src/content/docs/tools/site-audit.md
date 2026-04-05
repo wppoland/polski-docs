@@ -3,11 +3,11 @@ title: Audyt sklepu
 description: Narzędzie audytu sklepu w Polski for WooCommerce - weryfikacja stron prawnych, dark patterns, DPA, DSA, KSeF, greenwashing i bezpieczeństwa.
 ---
 
-Audyt sklepu to narzędzie automatycznie skanujące sklep WooCommerce pod kątem wymogów polskiego i unijnego prawa e-commerce. W odróżnieniu od panelu zgodności (checklist), audyt wykonuje głęboką analizę treści stron, interfejsu użytkownika oraz konfiguracji technicznej.
+Audyt automatycznie skanuje sklep pod kątem polskiego i unijnego prawa e-commerce. W odróżnieniu od panelu zgodności, audyt analizuje treść stron, interfejs i konfigurację techniczną.
 
 ## Uruchomienie audytu
 
-Przejdź do **WooCommerce > Polski > Narzędzia > Audyt sklepu** i kliknij **Uruchom audyt**. Audyt trwa od kilku sekund do kilku minut, w zależności od liczby produktów i stron.
+Przejdź do **WooCommerce > Polski > Narzędzia > Audyt sklepu** i kliknij **Uruchom audyt**. Czas trwania zależy od liczby produktów i stron.
 
 Audyt można też uruchomić z WP-CLI:
 
@@ -19,7 +19,7 @@ wp polski smoke-test --module=audit --verbose
 
 ### Strony prawne
 
-Audyt analizuje treść stron prawnych pod kątem:
+Audyt sprawdza treść stron prawnych:
 
 **Regulamin sklepu:**
 - Obecność wymaganych sekcji (dane firmy, procedura zamówienia, płatności, dostawa, odstąpienie, reklamacja)
@@ -50,7 +50,7 @@ Audyt analizuje treść stron prawnych pod kątem:
 
 ### Dark patterns
 
-Audyt wykrywa wzorce projektowe uznawane za manipulacyjne (dark patterns) zgodnie z dyrektywą DSA i polskim prawem:
+Audyt wykrywa manipulacyjne wzorce (dark patterns) wg dyrektywy DSA i polskiego prawa:
 
 | Wzorzec                    | Opis                                           | Poziom  |
 | -------------------------- | ---------------------------------------------- | ------- |
@@ -72,17 +72,17 @@ Audyt sprawdza:
 
 ### DPA (Data Processing Agreement)
 
-Audyt weryfikuje umowy powierzenia przetwarzania danych:
+Audyt sprawdza umowy powierzenia przetwarzania danych:
 
 - Czy sklep korzysta z usług zewnętrznych przetwarzających dane (analytics, e-mail marketing, bramki płatności)
 - Czy do wykrytych usług istnieją odpowiednie umowy DPA
 - Lista wykrytych usług: Google Analytics, Facebook Pixel, Mailchimp, GetResponse, PayU, Przelewy24, Stripe
 
-Audyt skanuje kod strony (JavaScript, piksele śledzące) i identyfikuje usługi zewnętrzne.
+Audyt skanuje kod strony (JavaScript, piksele śledzące) i rozpoznaje usługi zewnętrzne.
 
 ### DSA (Digital Services Act)
 
-Audyt sprawdza wymagania DSA:
+Sprawdzane wymagania DSA:
 
 - Formularz zgłoszenia nielegalnych treści - dostępność i poprawność pól
 - Punkt kontaktowy - czy e-mail kontaktowy jest opublikowany
@@ -92,7 +92,7 @@ Audyt sprawdza wymagania DSA:
 
 ### KSeF (Krajowy System e-Faktur)
 
-Audyt weryfikuje gotowość do integracji z KSeF:
+Sprawdzana jest gotowość do KSeF:
 
 - NIP firmy - poprawność formatu i weryfikacja w rejestrze
 - Połączenie z API KSeF - test connectivity
@@ -102,7 +102,7 @@ Audyt weryfikuje gotowość do integracji z KSeF:
 
 ### Greenwashing
 
-Audyt analizuje oświadczenia środowiskowe na produktach:
+Audyt sprawdza oświadczenia środowiskowe na produktach:
 
 - **Oświadczenia bez dowodów** - teksty typu "ekologiczny", "zielony", "naturalny" bez certyfikatu lub uzasadnienia
 - **Ogólne twierdzenia** - zbyt ogólne stwierdzenia bez szczegółów (np. "przyjazny dla środowiska")
@@ -110,11 +110,11 @@ Audyt analizuje oświadczenia środowiskowe na produktach:
 - **Niespójne dane** - oświadczenie o recyklingowalności bez informacji o materiale
 - **Offsetowanie** - twierdzenia o neutralności klimatycznej oparte wyłącznie na kompensacji
 
-Audyt skanuje nazwy produktów, opisy, opis krótki oraz meta dane modułu greenwashing.
+Skanowane są nazwy produktów, opisy, opis krótki i meta dane modułu greenwashing.
 
 ### Bezpieczeństwo
 
-Audyt sprawdza podstawowe aspekty bezpieczeństwa:
+Sprawdzane aspekty bezpieczeństwa:
 
 | Sprawdzenie                      | Opis                                  |
 | -------------------------------- | ------------------------------------- |
@@ -130,7 +130,7 @@ Audyt sprawdza podstawowe aspekty bezpieczeństwa:
 
 ## Raport z audytu
 
-Po zakończeniu audytu wyświetlany jest raport z wynikami:
+Po zakończeniu audytu wyświetla się raport:
 
 ### Podsumowanie
 
@@ -153,7 +153,7 @@ Każdy znaleziony problem zawiera:
 
 ### Eksport raportu
 
-Raport można wyeksportować w formatach:
+Eksportuj raport w formatach:
 
 - **PDF** - raport do wydruku lub udostępnienia prawnikowi
 - **CSV** - dane tabelaryczne do arkusza kalkulacyjnego
@@ -174,7 +174,7 @@ add_action('polski/audit/completed', function (array $results): void {
 
 ## Harmonogram audytów
 
-Audyt może być uruchamiany automatycznie w ustalonych odstępach:
+Audyt można uruchamiać automatycznie:
 
 - **Co tydzień** - zalecane dla aktywnych sklepów
 - **Co miesiąc** - minimum dla każdego sklepu
@@ -182,15 +182,15 @@ Audyt może być uruchamiany automatycznie w ustalonych odstępach:
 
 Konfiguracja: **WooCommerce > Polski > Narzędzia > Audyt sklepu > Harmonogram**.
 
-Wyniki automatycznych audytów zapisywane są w historii i wysyłane e-mailem do administratora.
+Wyniki zapisują się w historii i trafiają e-mailem do administratora.
 
 ## Rozwiązywanie problemów
 
-**Audyt trwa zbyt długo** - w sklepach z dużą liczbą produktów (10 000+) audyt greenwashingu może trwać dłużej. Użyj WP-CLI z opcją `--module` do uruchomienia audytu wybranych sekcji.
+**Audyt trwa zbyt długo** - przy 10 000+ produktów audyt greenwashingu może trwać dłużej. Użyj WP-CLI z `--module` dla wybranych sekcji.
 
-**Audyt nie wykrywa usługi zewnętrznej** - lista wykrywanych usług jest ograniczona. Zgłoś brakującą usługę na GitHub.
+**Audyt nie wykrywa usługi zewnętrznej** - lista wykrywanych usług jest ograniczona. Zgłoś brakującą na GitHub.
 
-**Fałszywy alarm dark patterns** - niektóre motywy mogą generować fałszywe alarmy (np. timer odliczający do końca dnia roboczego, nie do "wygaśnięcia oferty"). Zgłoś fałszywy alarm, a w międzyczasie możesz wyłączyć konkretne sprawdzenie.
+**Fałszywy alarm dark patterns** - niektóre motywy mogą generować fałszywe alarmy. Zgłoś problem i tymczasowo wyłącz konkretne sprawdzenie.
 
 Zgłaszanie problemów: [github.com/wppoland/polski/issues](https://github.com/wppoland/polski/issues)
 

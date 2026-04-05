@@ -3,11 +3,11 @@ title: Alergeny
 description: Deklaracja alergenów za pomocą taksonomii polski_allergen, automatyczne wyróżnianie w składnikach oraz shortcode wyświetlania w WooCommerce.
 ---
 
-Rozporządzenie (UE) nr 1169/2011 (załącznik II) określa 14 substancji powodujących alergie lub reakcje nietolerancji, które muszą być wyraźnie oznaczone na etykiecie produktu spożywczego. W przypadku sprzedaży internetowej informacja o alergenach musi być dostępna przed zakupem. Plugin Polski for WooCommerce zapewnia system deklaracji alergenów oparty na taksonomii WordPress.
+Przepisy UE wymagają oznaczania 14 alergenów na etykiecie produktu spożywczego. W sklepie internetowym informacja o alergenach musi być widoczna przed zakupem. Wtyczka Polski for WooCommerce obsługuje alergeny przez taksonomię WordPress.
 
 ## 14 głównych alergenów
 
-Zgodnie z załącznikiem II rozporządzenia FIC, obowiązkowa deklaracja obejmuje:
+Obowiązkowa deklaracja obejmuje:
 
 | Nr | Alergen | Slug taksonomii | Ikona |
 |----|---------|----------------|-------|
@@ -28,11 +28,11 @@ Zgodnie z załącznikiem II rozporządzenia FIC, obowiązkowa deklaracja obejmuj
 
 ## Taksonomia polski_allergen
 
-Plugin rejestruje taksonomię `polski_allergen` powiązaną z typem postu `product`. Podczas aktywacji pluginu taksonomia jest automatycznie wypełniana 14 głównych alergenami.
+Wtyczka tworzy taksonomię `polski_allergen` powiązaną z produktami. Przy aktywacji automatycznie dodaje 14 głównych alergenów.
 
 ### Zarządzanie alergenami
 
-Przejdź do **Produkty > Alergeny**, aby zarządzać listą alergenów. Domyślne 14 alergenów jest tworzonych automatycznie. Możesz dodawać własne alergeny specyficzne dla Twojego asortymentu.
+Przejdź do **Produkty > Alergeny**, by zarządzać listą. 14 alergenów tworzy się automatycznie. Możesz dodawać własne, specyficzne dla Twojego asortymentu.
 
 Każdy alergen zawiera:
 
@@ -57,7 +57,7 @@ Dostępne są trzy tryby deklaracji:
 
 ### Tryb "Może zawierać"
 
-Tryb "Może zawierać" (may contain) służy do oznaczania ryzyka śladowych ilości alergenu wynikających z procesów produkcyjnych. W edytorze produktu każdy alergen można oznaczyć jako:
+Tryb "Może zawierać" oznacza ryzyko śladowych ilości alergenu z procesu produkcji. Każdy alergen oznaczysz jako:
 
 - **Zawiera** - alergen jest składnikiem produktu
 - **Może zawierać** - ryzyko śladowych ilości
@@ -77,7 +77,7 @@ Przejdź do **WooCommerce > Ustawienia > Polski > Żywność** i skonfiguruj sek
 
 ## Automatyczne wyróżnianie w składnikach
 
-Zgodnie z art. 21 rozporządzenia FIC, alergeny w wykazie składników muszą być wyróżnione - zazwyczaj pogrubieniem lub wielkimi literami. Plugin automatycznie wyszukuje nazwy alergenów w polu "Składniki" i opakowuje je w tag `<strong>`.
+Alergeny w wykazie składników muszą być wyróżnione - najczęściej pogrubieniem. Wtyczka automatycznie wyszukuje nazwy alergenów w polu "Składniki" i opakowuje je w `<strong>`.
 
 Przykład:
 
@@ -99,7 +99,7 @@ Mąka <strong>pszenna (gluten)</strong>, cukier, masło (<strong>mleko</strong>)
 
 ### Konfiguracja wyróżniania
 
-Plugin przeszukuje wykaz składników pod kątem synonimów alergenów. Lista synonimów jest konfigurowalna:
+Wtyczka szuka synonimów alergenów w wykazie składników. Listę synonimów zmienisz filtrem:
 
 ```php
 add_filter('polski/allergens/synonyms', function (array $synonyms): array {
@@ -212,7 +212,7 @@ if (has_term('gluten', 'polski_allergen', $product_id)) {
 
 ## Import CSV
 
-Alergeny można importować przez CSV:
+Alergeny importujesz przez CSV:
 
 | Kolumna CSV | Opis | Format |
 |-------------|------|--------|
@@ -289,7 +289,7 @@ Przykład:
 
 ### Brak domyślnych alergenów po aktywacji
 
-Jeśli lista 14 alergenów nie została utworzona automatycznie, przejdź do **WooCommerce > Ustawienia > Polski > Żywność** i kliknij "Utwórz domyślne alergeny".
+Jeśli 14 alergenów nie pojawiło się automatycznie, przejdź do **WooCommerce > Ustawienia > Polski > Żywność** i kliknij "Utwórz domyślne alergeny".
 
 ## Powiązane zasoby
 

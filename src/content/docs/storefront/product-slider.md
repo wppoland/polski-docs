@@ -3,15 +3,15 @@ title: Slider produktów
 description: Moduł slidera produktów w Polski for WooCommerce - scroll-snap, produkty powiązane, promocyjne i polecane, blok Gutenberg i shortcode.
 ---
 
-Slider produktów wyświetla karuzelę produktów z płynnym przewijaniem opartym na CSS scroll-snap. Moduł nie wymaga zewnętrznych bibliotek JavaScript (Slick, Swiper) - korzysta wyłącznie z natywnych mechanizmów przeglądarki.
+Slider wyświetla karuzelę produktów z płynnym przewijaniem opartym na CSS scroll-snap. Nie wymaga zewnętrznych bibliotek JS (Slick, Swiper) - korzysta z natywnych mechanizmów przeglądarki.
 
 ## Włączenie modułu
 
-Przejdź do **WooCommerce > Polski > Moduły sklepowe** i aktywuj opcję **Slider produktów**.
+Przejdź do **WooCommerce > Polski > Moduły sklepowe** i włącz **Slider produktów**.
 
 ## Technologia scroll-snap
 
-Slider korzysta z CSS `scroll-snap-type: x mandatory` zamiast tradycyjnych bibliotek karuzelowych. Zalety:
+Slider korzysta z CSS `scroll-snap-type: x mandatory` zamiast bibliotek karuzelowych. Zalety:
 
 - **Zero JavaScript do przewijania** - płynne natywne przewijanie
 - **Brak zależności** - nie trzeba ładować Slick, Swiper ani Owl Carousel
@@ -37,7 +37,7 @@ Konfiguracja snap:
 
 ### Produkty powiązane (related)
 
-Slider wyświetla produkty powiązane z aktualnie oglądanym produktem. Produkty powiązane dobierane są na podstawie kategorii i tagów.
+Produkty powiązane z aktualnie oglądanym, dobierane na podstawie kategorii i tagów.
 
 ```html
 [polski_product_slider type="related" product_id="123"]
@@ -45,7 +45,7 @@ Slider wyświetla produkty powiązane z aktualnie oglądanym produktem. Produkty
 
 ### Produkty w promocji (sale)
 
-Wyświetla produkty z aktywną ceną promocyjną (sale price).
+Produkty z aktywną ceną promocyjną.
 
 ```html
 [polski_product_slider type="sale" limit="12"]
@@ -53,7 +53,7 @@ Wyświetla produkty z aktywną ceną promocyjną (sale price).
 
 ### Produkty polecane (featured)
 
-Wyświetla produkty oznaczone jako polecane (gwiazdka w panelu WooCommerce).
+Produkty oznaczone jako polecane (gwiazdka w panelu WooCommerce).
 
 ```html
 [polski_product_slider type="featured" limit="8"]
@@ -61,7 +61,7 @@ Wyświetla produkty oznaczone jako polecane (gwiazdka w panelu WooCommerce).
 
 ### Bestsellery
 
-Produkty posortowane po łącznej liczbie sprzedaży.
+Produkty posortowane po liczbie sprzedaży.
 
 ```html
 [polski_product_slider type="bestsellers" limit="10"]
@@ -93,7 +93,7 @@ Konkretne produkty podane po ID.
 
 ## Blok Gutenberg
 
-Blok **Polski - Slider produktów** dostępny w edytorze Gutenberg. Podgląd slidera widoczny bezpośrednio w edytorze.
+Blok **Polski - Slider produktów** dostępny w edytorze Gutenberg. Podgląd widoczny od razu w edytorze.
 
 Opcje bloku:
 
@@ -155,7 +155,7 @@ Automatycznie przewijany slider bestsellerów:
 
 ## Automatyczny scroll
 
-Gdy `autoplay="yes"`, slider automatycznie przewija produkty co określony czas. Przewijanie zatrzymuje się, gdy użytkownik najedzie kursorem na slider lub dotknie go na urządzeniu mobilnym. Po opuszczeniu slidera automatyczny scroll wznawia się.
+Gdy `autoplay="yes"`, slider przewija produkty automatycznie. Przewijanie zatrzymuje się po najechaniu kursorem lub dotknięciu na mobile. Po opuszczeniu slidera wznawia się.
 
 ```php
 // Zmiana domyślnego czasu autoplay globalnie
@@ -166,7 +166,7 @@ add_filter('polski/product_slider/autoplay_speed', function (): int {
 
 ## Integracja z modułami
 
-Karty produktów w sliderze zawierają elementy z innych modułów:
+Karty produktów w sliderze zawierają elementy innych modułów:
 
 - **Etykiety** - odznaki wyprzedaży, nowości, bestsellera
 - **Lista życzeń** - ikona serca
@@ -176,7 +176,7 @@ Karty produktów w sliderze zawierają elementy z innych modułów:
 
 ## Lazy loading zdjęć
 
-Zdjęcia produktów w sliderze ładowane są leniwie - obrazy poza widocznym obszarem nie są pobierane do momentu przewinięcia. Wykorzystywany jest natywny atrybut `loading="lazy"` oraz `Intersection Observer` dla starszych przeglądarek.
+Zdjęcia ładują się leniwie - obrazy poza widocznym obszarem pobierają się dopiero przy przewinięciu. Użyty jest natywny `loading="lazy"` i `Intersection Observer` dla starszych przeglądarek.
 
 ## Stylowanie CSS
 
@@ -193,11 +193,11 @@ Zdjęcia produktów w sliderze ładowane są leniwie - obrazy poza widocznym obs
 
 ## Rozwiązywanie problemów
 
-**Slider nie przewija się płynnie** - upewnij się, że przeglądarka obsługuje `scroll-snap-type`. Wszystkie nowoczesne przeglądarki (Chrome 69+, Firefox 68+, Safari 11+) obsługują tę właściwość.
+**Slider nie przewija się płynnie** - sprawdź wsparcie przeglądarki dla `scroll-snap-type` (Chrome 69+, Firefox 68+, Safari 11+).
 
-**Strzałki nie działają** - sprawdź, czy na stronie nie ma konfliktu CSS z innym sliderem. Klasy `.polski-slider__arrow` mogą być nadpisywane przez style motywu.
+**Strzałki nie działają** - możliwy konflikt CSS z innym sliderem. Style motywu mogą nadpisywać klasy `.polski-slider__arrow`.
 
-**Autoplay nie zatrzymuje się** - upewnij się, że JavaScript nie jest blokowany przez wtyczkę optymalizującą. Skrypt slidera musi być załadowany.
+**Autoplay nie zatrzymuje się** - sprawdź, czy wtyczka optymalizująca nie blokuje JavaScript. Skrypt slidera musi być załadowany.
 
 Zgłaszanie problemów: [github.com/wppoland/polski/issues](https://github.com/wppoland/polski/issues)
 

@@ -3,7 +3,7 @@ title: Import i eksport CSV
 description: Import i eksport danych CSV w Polski for WooCommerce - pola GPSR, greenwashing i dane produktów.
 ---
 
-Polski for WooCommerce rozszerza wbudowany importer/eksporter CSV WooCommerce o dodatkowe kolumny dla danych prawnych, GPSR, oświadczeń środowiskowych i innych pól specyficznych dla polskiego i unijnego prawa.
+Rozszerzenie importera/eksportera CSV WooCommerce o kolumny danych prawnych, GPSR, oświadczeń środowiskowych i innych pól wymaganych przez polskie i unijne prawo.
 
 ## Obsługiwane pola CSV
 
@@ -154,18 +154,18 @@ Import automatycznie waliduje dane:
 - **Alergeny** - weryfikacja czy wartości należą do zdefiniowanej listy (14 alergenów UE)
 - **Nutri-Score** - sprawdzenie czy wartość to A, B, C, D lub E
 
-Nieprawidłowe wartości są logowane i pomijane (nie blokują importu). Log dostępny po imporcie w sekcji wyników.
+Nieprawidłowe wartości są pomijane i logowane (nie blokują importu). Log dostępny w wynikach importu.
 
 ## Import masowy danych GPSR
 
-Dla sklepów z dużą liczbą produktów, gdzie producent jest wspólny dla wielu produktów:
+Dla sklepów z wieloma produktami od tego samego producenta:
 
 ```bash
 # Przygotuj CSV z minimalnymi danymi
 # ID,gpsr_manufacturer_name,gpsr_manufacturer_address,gpsr_manufacturer_email
 ```
 
-Następnie ustaw domyślne wartości GPSR w **WooCommerce > Polski > Zgodność prawna > GPSR > Domyślne wartości**. Import uzupełni tylko te produkty, które mają puste pola GPSR.
+Ustaw domyślne wartości GPSR w **WooCommerce > Polski > Zgodność prawna > GPSR > Domyślne wartości**. Import uzupełni tylko produkty z pustymi polami GPSR.
 
 ## Rozwiązywanie problemów
 
