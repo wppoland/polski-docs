@@ -11,7 +11,8 @@
       "Bash(cp:*)",
       "Bash(gh auth:*)",
       "Bash(gh run:*)",
-      "Bash(python3 -m json.tool)"
+      "Bash(python3 -m json.tool)",
+      "Bash(CLOUDFLARE_ACCOUNT_ID=3e15c851f9c8c0ba9a856581c0c02e22 CLOUDFLARE_API_TOKEN=cfut_xdW05lnAPBkZnsScPvL2Ntq9lwKu2gPYfPZ5HAZfc195d4a2 npx wrangler pages deploy dist --project-name=polski-docs --branch=main --commit-dirty=true)"
     ]
   }
 }
