@@ -253,6 +253,7 @@ export default defineConfig({
 								{ slug: 'pro/shipping-inpost' },
 								{ slug: 'pro/shipping-dpd' },
 								{ slug: 'pro/shipping-dhl' },
+								{ slug: 'pro/shipping-poczta-polska' },
 							],
 						},
 						{ slug: 'pro/pro-api', badge: { text: 'API', variant: 'note' } },
