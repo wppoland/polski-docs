@@ -139,6 +139,7 @@ export default defineConfig({
 								{ slug: 'storefront/ajax-search' },
 								{ slug: 'storefront/ajax-filters' },
 								{ slug: 'storefront/product-slider' },
+								{ slug: 'storefront/review-requests' },
 								{ slug: 'storefront/badges' },
 								{ slug: 'storefront/other-modules' },
 							],
@@ -247,6 +248,7 @@ export default defineConfig({
 								uk: 'Інтеграції',
 							},
 							items: [
+								{ slug: 'pro/delivery-date' },
 								{ slug: 'pro/fulfillment' },
 								{ slug: 'pro/shipping-inpost' },
 								{ slug: 'pro/shipping-dpd' },
