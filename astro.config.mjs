@@ -227,6 +227,7 @@ export default defineConfig({
 								uk: 'Продажі та маркетинг',
 							},
 							items: [
+								{ slug: 'pro/abandoned-carts' },
 								{ slug: 'pro/gift-cards' },
 								{ slug: 'pro/subscriptions' },
 								{ slug: 'pro/affiliates' },
