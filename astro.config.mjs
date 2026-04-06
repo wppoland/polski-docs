@@ -84,6 +84,7 @@ export default defineConfig({
 							},
 							items: [
 								{ slug: 'prices/unit-prices' },
+								{ slug: 'prices/from-price' },
 								{ slug: 'prices/vat-display' },
 								{ slug: 'prices/delivery-time' },
 								{ slug: 'prices/manufacturer' },
@@ -102,6 +103,7 @@ export default defineConfig({
 								{ slug: 'checkout/checkout-button' },
 								{ slug: 'checkout/legal-checkboxes' },
 								{ slug: 'checkout/nip-lookup' },
+								{ slug: 'checkout/minimum-order' },
 								{ slug: 'checkout/double-opt-in' },
 							],
 						},
@@ -244,7 +246,10 @@ export default defineConfig({
 								uk: 'Інтеграції',
 							},
 							items: [
+								{ slug: 'pro/fulfillment' },
 								{ slug: 'pro/shipping-inpost' },
+								{ slug: 'pro/shipping-dpd' },
+								{ slug: 'pro/shipping-dhl' },
 							],
 						},
 						{ slug: 'pro/pro-api', badge: { text: 'API', variant: 'note' } },

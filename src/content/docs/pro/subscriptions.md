@@ -31,7 +31,8 @@ polski_subscriptions
 |------------|------|
 | Włącz subskrypcje | Aktywuje moduł |
 | Tryb odnowienia | Ręczne (klient opłaca zamówienie) |
-| Dni przypomnienia | Ile dni przed odnowieniem wysłać przypomnienie (domyślnie 3) |
+| Pierwsze przypomnienie | Ile dni przed odnowieniem wyslac pierwsze przypomnienie (domyslnie 14) |
+| Drugie przypomnienie | Ile dni przed odnowieniem wyslac drugie przypomnienie (domyslnie 7) |
 | Okres karencji | Ile dni po terminie odnowienia subskrypcja pozostaje aktywna (domyślnie 7) |
 | Automatyczne zawieszenie | Zawieszaj subskrypcję po upływie okresu karencji |
 
@@ -106,14 +107,19 @@ Codzienne zadanie cron:
 
 ### Przypomnienia e-mail
 
-Plugin wysyła przypomnienia e-mail przed datą odnowienia:
+Plugin wysyla dwa przypomnienia e-mail przed data odnowienia:
 
-| E-mail | Kiedy | Treść |
+| E-mail | Kiedy | Tresc |
 |--------|-------|-------|
-| Przypomnienie o odnowieniu | X dni przed odnowieniem | Informacja o zbliżającym się odnowieniu, kwota, link do panelu |
-| Zamówienie odnowienia | W dniu odnowienia | Zamówienie do opłacenia z linkiem do płatności |
-| Subskrypcja wstrzymana | Po upływie terminu płatności | Informacja o wstrzymaniu, link do opłacenia |
-| Subskrypcja wygasła | Po upływie okresu karencji | Informacja o wygaśnięciu, link do ponownego zakupu |
+| Pierwsze przypomnienie | 14 dni przed odnowieniem (konfigurowalne) | Informacja o zblizajacym sie odnowieniu, kwota, **link do anulowania jednym kliknieciem** |
+| Drugie przypomnienie | 7 dni przed odnowieniem (konfigurowalne) | Ostatnie przypomnienie, kwota, link do anulowania i link do panelu |
+| Zamowienie odnowienia | W dniu odnowienia | Zamowienie do oplacenia z linkiem do platnosci |
+| Subskrypcja wstrzymana | Po uplywie terminu platnosci | Informacja o wstrzymaniu, link do oplacenia |
+| Subskrypcja wygasla | Po uplywie okresu karencji | Informacja o wygasnieciu, link do ponownego zakupu |
+
+:::tip[Zgodnosc z prawem EU]
+Oba przypomnienia zawieraja link do anulowania subskrypcji jednym kliknieciem. Spelnia to wymagania europejskie dotyczace latwosc rezygnacji z uslug cyklicznych (m.in. UOKiK, Dyrektywa o prawach konsumenta).
+:::
 
 Szablony e-maili można dostosować w **WooCommerce > Ustawienia > E-maile**.
 

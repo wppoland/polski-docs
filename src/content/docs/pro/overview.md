@@ -7,17 +7,26 @@ Polski PRO for WooCommerce to płatne rozszerzenie darmowej wtyczki Polski for W
 
 ## Co dodaje wersja PRO
 
-Darmowa wersja obsługuje podstawy: pola NIP, checkboxy prawne, ceny jednostkowe, VAT i Omnibus. Wersja PRO dodaje osiem modułów:
+Darmowa wersja obsluguje podstawy: pola NIP, checkboxy prawne, ceny jednostkowe, VAT i Omnibus. Wersja PRO dodaje kilkanascie modulow:
 
-| Moduł | Opis |
+| Modul | Opis |
 |-------|------|
-| [Faktury](/pro/invoices/) | System faktur VAT, korygujących, paragonów i dokumentów WZ z generowaniem PDF |
-| [Integracja KSeF](/pro/ksef/) | Wysyłka faktur elektronicznych do Krajowego Systemu e-Faktur |
-| [Wieloetapowy koszyk](/pro/multistep-checkout/) | Podział procesu zamówienia na kroki: adres, dostawa, płatność, podsumowanie |
-| [Zarządzanie zgodami](/pro/consent-management/) | Wersjonowanie zgód, audit trail, eksport CSV/JSON, integracja RODO |
-| [Karty podarunkowe](/pro/gift-cards/) | Sprzedaż kart podarunkowych, generowanie kodów, realizacja w koszyku |
-| [Subskrypcje](/pro/subscriptions/) | Produkty z płatnością cykliczną, odnowienia, przypomnienia e-mail |
-| [Program afiliacyjny](/pro/affiliates/) | Linki polecające, śledzenie prowizji, panel afilianta |
+| [Faktury](/pro/invoices/) | System faktur VAT, korygujacych, paragonow i dokumentow WZ z generowaniem PDF |
+| [Integracja KSeF](/pro/ksef/) | Wysylka faktur elektronicznych do Krajowego Systemu e-Faktur |
+| [Wieloetapowy koszyk](/pro/multistep-checkout/) | Podzial procesu zamowienia na kroki: adres, dostawa, platnosc, podsumowanie |
+| [Zarzadzanie zgodami](/pro/consent-management/) | Wersjonowanie zgod, audit trail, eksport CSV/JSON, integracja RODO |
+| [Realizacja zamowien](/pro/fulfillment/) | Statusy Spakowane/Wyslane/Dostarczone, pole sledzenia, emaile do klienta |
+| [InPost](/pro/shipping-inpost/) | Paczkomaty, etykiety, mapa punktow odbioru, sledzenie |
+| [DPD](/pro/shipping-dpd/) | Etykiety, sledzenie, punkty DPD Pickup |
+| [DHL](/pro/shipping-dhl/) | Etykiety, sledzenie, ServicePoint |
+| [Karty podarunkowe](/pro/gift-cards/) | Sprzedaz kart podarunkowych, generowanie kodow, realizacja w koszyku |
+| [Subskrypcje](/pro/subscriptions/) | Platnosci cykliczne, odnowienia, przypomnienia 14 i 7 dni przed, anulowanie jednym kliknieciem |
+| [Program afiliacyjny](/pro/affiliates/) | Linki polecajace, sledzenie prowizji, panel afilianta |
+| [Bundles i Add-ons](/pro/bundles-addons/) | Pakiety produktow, dodatkowe opcje per produkt |
+| [Zapytania ofertowe](/pro/quotes/) | Formularz ofertowy, panel zarzadzania |
+| [Pre-ordery](/pro/preorders/) | Sprzedaz produktow przed dostepnoscia |
+| [Tryb katalogowy](/pro/catalog-mode/) | Ukrycie cen i koszyka (B2B) |
+| [Integracje ksiegowe](/pro/accounting/) | wFirma, Fakturownia, iFirma |
 
 Każdy moduł można włączyć lub wyłączyć niezależnie w ustawieniach pluginu.
 
