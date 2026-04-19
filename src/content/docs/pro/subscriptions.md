@@ -226,6 +226,53 @@ Akcja wywoływana po opłaceniu zamówienia odnowienia.
 do_action('polski_pro/subscription/renewal_paid', int $order_id, int $subscription_id);
 ```
 
+### Hooki przypomnień o odnowieniu (1.8.2+)
+
+Silnik przypomnień (14 dni + 7 dni przed odnowieniem) udostępnia filtry i akcje do pełnej personalizacji:
+
+```php
+// Zmien okna przypomnien (w dniach)
+add_filter('polski_subscription_reminder_windows', fn ($w) => ['first' => 21, 'second' => 7, 'last' => 1]);
+
+// Zmien temat maila
+add_filter('polski_subscription_reminder_subject', fn ($subject, $sub, $type) => "[$type] $subject", 10, 3);
+
+// Zmien tresc maila
+add_filter('polski_subscription_reminder_body', fn ($body, $sub, $type) => $body . "\n\nDzieki!", 10, 3);
+
+// Dodatkowe naglowki (np. HTML mode)
+add_filter('polski_subscription_reminder_headers', fn () => ['Content-Type: text/html; charset=UTF-8']);
+
+// Pomin przypomnienie dla konkretnej subskrypcji
+add_filter('polski_subscription_skip_reminder', fn ($skip, $sub) => $sub->productId === 42, 10, 2);
+
+// Obserwuj wysylki
+add_action('polski_subscription_reminder_sent', fn ($sub, $type, $days) => error_log("Sent $type to $sub->email"), 10, 3);
+add_action('polski_subscription_reminder_failed', fn ($sub, $type) => error_log("Failed $type"), 10, 2);
+```
+
+### Powiadomienia o zmianie ceny (1.8.3+)
+
+`SubscriptionRepository::updateRecurringAmount()` wykrywa zmiane kwoty i automatycznie wysyla email do klienta z:
+- stara i nowa kwota,
+- data wejscia zmiany w zycie (nastepny cykl rozliczeniowy),
+- link one-click cancel (wymogi EU consumer protection).
+
+Hooki:
+
+```php
+// Obserwuj zmiane kwoty
+add_action('polski_subscription_amount_changed', function (int $id, float $previous, float $next) {
+    error_log("Subscription $id: $previous -> $next");
+}, 10, 3);
+
+// Personalizuj tresc maila
+add_filter('polski_subscription_amount_change_body', fn ($body, $sub, $prev, $next) => $body, 10, 4);
+
+// Obserwuj wynik wysylki
+add_action('polski_subscription_amount_change_notified', fn ($sub, $prev, $next, $sent) => null, 10, 4);
+```
+
 ## Panel administracyjny
 
 ### Lista subskrypcji

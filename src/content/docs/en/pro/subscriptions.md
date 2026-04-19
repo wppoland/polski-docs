@@ -220,6 +220,40 @@ Action fired after a renewal order is paid.
 do_action('polski_pro/subscription/renewal_paid', int $order_id, int $subscription_id);
 ```
 
+### Renewal reminder hooks (1.8.2+)
+
+The reminder engine (14 + 7 days before renewal by default) exposes filters and actions:
+
+```php
+// Customise windows (days before renewal)
+add_filter('polski_subscription_reminder_windows', fn ($w) => ['first' => 21, 'second' => 7, 'last' => 1]);
+
+// Subject / body / headers filters
+add_filter('polski_subscription_reminder_subject', fn ($s, $sub, $type) => "[$type] $s", 10, 3);
+add_filter('polski_subscription_reminder_body', fn ($b, $sub, $type) => $b . "\n\nThanks!", 10, 3);
+add_filter('polski_subscription_reminder_headers', fn () => ['Content-Type: text/html; charset=UTF-8']);
+
+// Skip a specific subscription
+add_filter('polski_subscription_skip_reminder', fn ($skip, $sub) => $sub->productId === 42, 10, 2);
+
+// Observe dispatch
+add_action('polski_subscription_reminder_sent', fn ($sub, $type, $days) => null, 10, 3);
+add_action('polski_subscription_reminder_failed', fn ($sub, $type) => null, 10, 2);
+```
+
+### Price-change notifications (1.8.3+)
+
+`SubscriptionRepository::updateRecurringAmount()` detects an amount change and emails the customer with old/new price, effective next billing date and a one-click cancel link (EU consumer-protection requirement).
+
+```php
+add_action('polski_subscription_amount_changed', function (int $id, float $prev, float $next) {
+    error_log("Subscription $id: $prev -> $next");
+}, 10, 3);
+
+add_filter('polski_subscription_amount_change_body', fn ($body, $sub, $prev, $next) => $body, 10, 4);
+add_action('polski_subscription_amount_change_notified', fn ($sub, $prev, $next, $sent) => null, 10, 4);
+```
+
 ## Admin panel
 
 ### Subscription list

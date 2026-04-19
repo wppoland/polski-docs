@@ -44,10 +44,17 @@ Das Audit erkennt als manipulativ geltende Designmuster (Dark Patterns) gemaess 
 | Versteckte Kosten               | Kosten, die erst an der Kasse erscheinen          | FAIL    |
 | Countdown-Timer           | Gefaelschte Countdown-Zaehler                    | WARN    |
 | Kuenstliche Knappheit              | Kuenstliche Meldungen ueber niedrigen Bestand             | WARN    |
-| Erzwungene Kontoerstellung    | Registrierungszwang vor dem Kauf            | WARN    |
+| Erzwungene Kontoerstellung    | Registrierungszwang vor dem Kauf            | WARN/FAIL |
 | Schwierige Abmeldung      | Erschwerter Newsletter-Abmeldeprozess      | FAIL    |
-| Verwirrende Button-Platzierung | Irreführende Platzierung von Akzeptanz-/Ablehnungsbuttons | WARN |
+| Verwirrende Button-Platzierung | Irrefuehrende Platzierung von Akzeptanz-/Ablehnungsbuttons | WARN |
 | Nervige Popups             | Wiederholte, schwer zu schliessende Popups   | WARN    |
+
+**Neue automatische Pruefungen (1.7.2):**
+
+- **Erzwungene Kontoerstellung** - prueft WooCommerce-Optionen: wenn `woocommerce_enable_guest_checkout=no` **und** `woocommerce_enable_checkout_login_reminder=yes`, FAIL (EU-Richtlinie 2023/2673); deaktivierter Gast-Checkout allein ergibt WARN.
+- **Veraltete Sale-Countdowns** - Scan der 100 zuletzt geaenderten Produkte: Produkte, deren `date_on_sale_to` abgelaufen ist, aber `is_on_sale()=true` zurueckgeben, werden markiert. Erkennt gefaelschte Countdown-Widgets, die sich nach Ablauf zuruecksetzen.
+- **Irrefuehrender "ab"-Preis** - Scan von bis zu 100 variablen Produkten: wenn der Minimalpreis unter 50% des Maximalpreises liegt, wird das Produkt als potenziell irrefuehrend markiert.
+- **Niedriger Bestand Schwellenwert** - wenn `woocommerce_notify_low_stock_amount > 5`, loest das die kuenstliche Dringlichkeit "nur X uebrig" auf Produkten mit hohem Bestand aus und wird markiert.
 
 ### DPA (Auftragsverarbeitungsvertrag)
 

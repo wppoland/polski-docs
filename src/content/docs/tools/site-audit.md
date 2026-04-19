@@ -58,10 +58,17 @@ Audyt wykrywa manipulacyjne wzorce (dark patterns) wg dyrektywy DSA i polskiego 
 | Hidden costs               | Koszty pojawiające się dopiero na kasie          | FAIL    |
 | Countdown timers           | Fałszywe liczniki odliczające                    | WARN    |
 | Fake scarcity              | Sztuczne komunikaty o niskim stanie             | WARN    |
-| Forced account creation    | Wymuszanie rejestracji przed zakupem            | WARN    |
+| Forced account creation    | Wymuszanie rejestracji przed zakupem            | WARN/FAIL |
 | Difficult unsubscribe      | Utrudniony proces rezygnacji z newslettera      | FAIL    |
 | Confusing button placement | Mylące rozmieszczenie przycisków akceptacji/odrzucenia | WARN |
 | Nagging popups             | Powtarzające się, trudne do zamknięcia popupy   | WARN    |
+
+**Nowe automatyczne sprawdzenia (1.7.2):**
+
+- **Forced account creation** - sprawdza opcje WooCommerce: jeśli `woocommerce_enable_guest_checkout=no` **i** `woocommerce_enable_checkout_login_reminder=yes`, status FAIL (EU Directive 2023/2673); sama wartość guest_checkout=no bez login reminder → WARN.
+- **Stale sale countdowns** - skan 100 ostatnich produktów: produkty z `date_on_sale_to` w przeszłości, które wciąż mają `is_on_sale()=true`, są flagowane. Wykrywa fałszywe „odliczenia promocyjne" które resetują się po każdym odświeżeniu.
+- **Misleading "from" price** - skan 100 produktów wariantowych: jeśli cena minimalna < 50% ceny maksymalnej, pozycja jest flagowana jako potencjalnie myląca (cena od X, ale dostępne tylko za kilkukrotność tej ceny).
+- **Low-stock threshold** - jeśli `woocommerce_notify_low_stock_amount > 5`, flagujemy sztuczną pilność: komunikat „zostało tylko X" pojawia się wtedy na produktach z dużym stanem magazynowym.
 
 Audyt sprawdza:
 - Formularz kasy - domyślne stany checkboxów

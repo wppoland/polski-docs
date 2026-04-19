@@ -58,10 +58,17 @@ The audit detects design patterns considered manipulative (dark patterns) accord
 | Hidden costs               | Costs appearing only at checkout               | FAIL    |
 | Countdown timers           | Fake countdown timers                          | WARN    |
 | Fake scarcity              | Artificial low stock messages                  | WARN    |
-| Forced account creation    | Forcing registration before purchase           | WARN    |
+| Forced account creation    | Forcing registration before purchase           | WARN/FAIL |
 | Difficult unsubscribe      | Complicated newsletter unsubscribe process     | FAIL    |
 | Confusing button placement | Misleading accept/reject button placement      | WARN    |
 | Nagging popups             | Repetitive, hard-to-close popups               | WARN    |
+
+**New automated checks (1.7.2):**
+
+- **Forced account creation** - inspects WooCommerce options: if `woocommerce_enable_guest_checkout=no` **and** `woocommerce_enable_checkout_login_reminder=yes`, status is FAIL (EU Directive 2023/2673); disabled guest checkout alone without login requirement yields WARN.
+- **Stale sale countdowns** - scans the 100 most recent products: items whose `date_on_sale_to` is in the past but still report `is_on_sale()=true` are flagged. Detects fake "sale countdowns" that reset on every page load.
+- **Misleading "from" price** - scans up to 100 variable products: when the minimum variant price is below 50% of the maximum, the product is flagged as potentially misleading ("from X" when most variants cost several times more).
+- **Low-stock threshold** - if `woocommerce_notify_low_stock_amount > 5`, the artificial urgency trigger "only X left" fires on products with high stock and is flagged.
 
 The audit checks:
 - Checkout form - default checkbox states
