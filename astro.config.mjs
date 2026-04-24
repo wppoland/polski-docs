@@ -87,6 +87,7 @@ export default defineConfig({
 								{ slug: 'prices/unit-prices' },
 								{ slug: 'prices/from-price' },
 								{ slug: 'prices/vat-display' },
+								{ slug: 'prices/oss-observer' },
 								{ slug: 'prices/delivery-time' },
 								{ slug: 'prices/manufacturer' },
 							],
