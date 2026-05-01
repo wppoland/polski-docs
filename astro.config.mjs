@@ -181,6 +181,7 @@ export default defineConfig({
 								{ slug: 'tools/complaint-template' },
 								{ slug: 'tools/copyright-helpers' },
 								{ slug: 'tools/rodo-training' },
+								{ slug: 'tools/ai-feed' },
 							],
 						},
 						{
