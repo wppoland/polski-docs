@@ -224,6 +224,7 @@ export default defineConfig({
 							},
 							items: [
 								{ slug: 'pro/invoices' },
+								{ slug: 'pro/invoice-ai-feed' },
 								{ slug: 'pro/ksef' },
 								{ slug: 'pro/accounting' },
 								{ slug: 'pro/tax-rules' },
