@@ -123,6 +123,68 @@ Bawełniana koszulka klasycznego kroju.
 Pełny opis produktu z bloków Gutenberga, w tym listy, tabele i nagłówki.
 ```
 
+## Manifest /llms.txt
+
+Zgodnie ze standardem [llmstxt.org](https://llmstxt.org) sklep udostępnia plik `/llms.txt` w korzeniu domeny. Agenci AI patrzą tam w pierwszej kolejności, by odkryć strukturę witryny bez znajomości konwencji URL.
+
+```bash
+curl https://sklep.pl/llms.txt
+```
+
+Odpowiedź (Markdown):
+
+```markdown
+# Twój sklep
+
+> Sklep z polskimi pamiątkami online.
+
+## Legal
+
+- [Regulamin](https://sklep.pl/regulamin/?output_format=md): Terms and conditions
+- [Polityka prywatności](https://sklep.pl/polityka/?output_format=md): Privacy policy
+- [Zwroty](https://sklep.pl/zwroty/?output_format=md): Returns and withdrawal policy
+
+## Shop
+
+- [Sklep](https://sklep.pl/sklep/): Storefront
+
+## Product categories
+
+- [Koszulki](https://sklep.pl/kategoria/koszulki/)
+- [Bluzy](https://sklep.pl/kategoria/bluzy/)
+```
+
+**Co znajduje się w manifeście domyślnie:**
+
+- Tytuł i opis sklepu (`get_bloginfo('name')`, `get_bloginfo('description')`)
+- Sekcja "Legal" z linkami `?output_format=md` do stron prawnych (Regulamin, Polityka prywatności, Zwroty, Reklamacje) - tylko jeśli strony są utworzone
+- Sekcja "Shop" z linkiem do strony sklepu WooCommerce
+- Sekcja "Product categories" z 20 najpopularniejszymi kategoriami produktów (sortowane po liczbie produktów)
+
+**Wyłączenie**
+
+```php
+add_filter('polski/ai_feed/llms_txt_enabled', '__return_false');
+```
+
+**Modyfikacja sekcji**
+
+```php
+add_filter('polski/ai_feed/llms_txt_sections', static function (array $sections): array {
+    $sections['Resources'] = [
+        ['Blog', home_url('/blog/'), 'Najnowsze wpisy'],
+        ['FAQ', home_url('/faq/')],
+    ];
+    return $sections;
+});
+```
+
+**Limit kategorii**
+
+```php
+add_filter('polski/ai_feed/llms_txt_category_limit', static fn () => 50);
+```
+
 ## Filtry deweloperskie
 
 | Filtr | Cel |
@@ -133,6 +195,9 @@ Pełny opis produktu z bloków Gutenberga, w tym listy, tabele i nagłówki.
 | `polski/ai_feed/product_markdown` | Końcowy Markdown produktu |
 | `polski/ai_feed/product_facts` | Lista par `[etykieta, wartość]` w sekcji "Product details" |
 | `polski/ai_feed/password_required` | Treść Markdown przy ochronie hasłem |
+| `polski/ai_feed/llms_txt_enabled` | Wyłącznik dla `/llms.txt` (bool) |
+| `polski/ai_feed/llms_txt_sections` | Mapa sekcji `[heading => list]` w manifeście |
+| `polski/ai_feed/llms_txt_category_limit` | Maksymalna liczba kategorii produktów (int) |
 
 ### Przykład - dodanie własnego CPT
 

@@ -123,6 +123,68 @@ Baumwoll-T-Shirt im klassischen Schnitt.
 Vollstaendige Produktbeschreibung aus Gutenberg-Bloecken, einschliesslich Listen, Tabellen und Ueberschriften.
 ```
 
+## /llms.txt Manifest
+
+Nach dem Standard von [llmstxt.org](https://llmstxt.org) liefert der Shop eine Datei `/llms.txt` an der Wurzel der Domain aus. KI-Agenten schauen dort zuerst nach, um die Struktur der Website ohne Kenntnis der URL-Konventionen zu erkunden.
+
+```bash
+curl https://shop.test/llms.txt
+```
+
+Antwort (Markdown):
+
+```markdown
+# Dein Shop
+
+> Online-Shop fuer polnische Produkte.
+
+## Legal
+
+- [Terms](https://shop.test/agb/?output_format=md): Terms and conditions
+- [Privacy](https://shop.test/datenschutz/?output_format=md): Privacy policy
+- [Returns](https://shop.test/rueckgabe/?output_format=md): Returns and withdrawal policy
+
+## Shop
+
+- [Shop](https://shop.test/shop/): Storefront
+
+## Product categories
+
+- [T-Shirts](https://shop.test/kategorie/t-shirts/)
+- [Hoodies](https://shop.test/kategorie/hoodies/)
+```
+
+**Standardinhalt**
+
+- Shop-Titel und -Beschreibung (`get_bloginfo('name')`, `get_bloginfo('description')`)
+- Abschnitt "Legal" mit `?output_format=md`-Links zu den Rechtstexten (AGB, Datenschutz, Rueckgabe, Reklamationen) - nur wenn diese Seiten existieren
+- Abschnitt "Shop" mit der WooCommerce-Shop-Seite
+- Abschnitt "Product categories" mit den 20 meistbestueckten Kategorien (sortiert nach Produktanzahl)
+
+**Deaktivieren**
+
+```php
+add_filter('polski/ai_feed/llms_txt_enabled', '__return_false');
+```
+
+**Sektionen anpassen**
+
+```php
+add_filter('polski/ai_feed/llms_txt_sections', static function (array $sections): array {
+    $sections['Resources'] = [
+        ['Blog', home_url('/blog/'), 'Aktuelle Beitraege'],
+        ['FAQ', home_url('/faq/')],
+    ];
+    return $sections;
+});
+```
+
+**Kategorienlimit**
+
+```php
+add_filter('polski/ai_feed/llms_txt_category_limit', static fn () => 50);
+```
+
 ## Entwickler-Filter
 
 | Filter | Zweck |
@@ -133,6 +195,9 @@ Vollstaendige Produktbeschreibung aus Gutenberg-Bloecken, einschliesslich Listen
 | `polski/ai_feed/product_markdown` | Endgueltiges Markdown fuer Produkt |
 | `polski/ai_feed/product_facts` | Liste der `[Label, Wert]`-Paare im Abschnitt "Product details" |
 | `polski/ai_feed/password_required` | Markdown bei passwortgeschuetzten Inhalten |
+| `polski/ai_feed/llms_txt_enabled` | Kill-Switch fuer `/llms.txt` (bool) |
+| `polski/ai_feed/llms_txt_sections` | Map `[Ueberschrift => Liste]` fuer das Manifest |
+| `polski/ai_feed/llms_txt_category_limit` | Maximale Anzahl der gelisteten Produktkategorien (int) |
 
 ### Beispiel - eigenen CPT registrieren
 

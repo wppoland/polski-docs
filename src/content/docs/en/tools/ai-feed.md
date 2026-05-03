@@ -123,6 +123,68 @@ Cotton t-shirt with classic cut.
 Full product description from Gutenberg blocks, including lists, tables, and headings.
 ```
 
+## /llms.txt manifest
+
+Following the [llmstxt.org](https://llmstxt.org) standard, the store exposes a `/llms.txt` file at the root of the domain. AI agents look there first to discover the site's structure without knowing any URL conventions.
+
+```bash
+curl https://shop.test/llms.txt
+```
+
+Response (Markdown):
+
+```markdown
+# Your store
+
+> An online store for Polish goods.
+
+## Legal
+
+- [Terms](https://shop.test/terms/?output_format=md): Terms and conditions
+- [Privacy](https://shop.test/privacy/?output_format=md): Privacy policy
+- [Returns](https://shop.test/returns/?output_format=md): Returns and withdrawal policy
+
+## Shop
+
+- [Shop](https://shop.test/shop/): Storefront
+
+## Product categories
+
+- [T-shirts](https://shop.test/category/t-shirts/)
+- [Hoodies](https://shop.test/category/hoodies/)
+```
+
+**Default contents**
+
+- Site title and description (from `get_bloginfo('name')`, `get_bloginfo('description')`)
+- "Legal" section with `?output_format=md` links to the legal pages (Terms, Privacy, Returns, Complaints) - only when those pages exist
+- "Shop" section with the WooCommerce shop page
+- "Product categories" with the 20 most populated categories (sorted by product count)
+
+**Disable**
+
+```php
+add_filter('polski/ai_feed/llms_txt_enabled', '__return_false');
+```
+
+**Customize sections**
+
+```php
+add_filter('polski/ai_feed/llms_txt_sections', static function (array $sections): array {
+    $sections['Resources'] = [
+        ['Blog', home_url('/blog/'), 'Latest posts'],
+        ['FAQ', home_url('/faq/')],
+    ];
+    return $sections;
+});
+```
+
+**Category limit**
+
+```php
+add_filter('polski/ai_feed/llms_txt_category_limit', static fn () => 50);
+```
+
 ## Developer filters
 
 | Filter | Purpose |
@@ -133,6 +195,9 @@ Full product description from Gutenberg blocks, including lists, tables, and hea
 | `polski/ai_feed/product_markdown` | Final Markdown for a product |
 | `polski/ai_feed/product_facts` | List of `[label, value]` pairs in the "Product details" section |
 | `polski/ai_feed/password_required` | Markdown body when content is password protected |
+| `polski/ai_feed/llms_txt_enabled` | Kill switch for `/llms.txt` (bool) |
+| `polski/ai_feed/llms_txt_sections` | Map of `[heading => list]` for the manifest |
+| `polski/ai_feed/llms_txt_category_limit` | Maximum product categories listed (int) |
 
 ### Example - register a custom CPT
 
