@@ -104,6 +104,7 @@ export default defineConfig({
 							items: [
 								{ slug: 'checkout/checkout-button' },
 								{ slug: 'checkout/legal-checkboxes' },
+								{ slug: 'checkout/b2b-fields' },
 								{ slug: 'checkout/nip-lookup' },
 								{ slug: 'checkout/minimum-order' },
 								{ slug: 'checkout/double-opt-in' },
