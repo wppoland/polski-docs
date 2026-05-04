@@ -183,6 +183,33 @@ Ustawienia modułu DSA znajdziesz w **WooCommerce > Ustawienia > Polski > DSA**.
 | Termin rozpatrzenia | Liczba dni roboczych na rozpatrzenie | 7 |
 | Kategorie zgłoszeń | Lista dostępnych kategorii | Domyślna lista |
 
+## Widget na stronie produktu (Polski 1.14.0+)
+
+Od wersji 1.14.0 możesz włączyć opcjonalny widget zgłaszania bezpośrednio na karcie produktu. Klient klika "Zgłoś nielegalne treści (DSA)" i rozwija formularz z **prefiltrowanym URL produktu** oraz nazwą - nie musi przepisywać linku.
+
+```php
+update_option('polski_dsa', array_merge(
+    (array) get_option('polski_dsa', []),
+    [
+        'product_widget_enabled' => true,
+        'product_widget_position' => 'after_summary', // lub 'product_meta'
+    ]
+));
+```
+
+Widget używa elementu HTML `<details>` - działa bez JavaScript, jest dostępny z klawiatury i czytników ekranu. Formularz wysyłany jest do tego samego handlera (`polski_dsa_report`), więc zgłoszenia trafiają do tej samej kolejki w panelu admina.
+
+| Klucz w `polski_dsa` | Wartość | Opis |
+|---|---|---|
+| `product_widget_enabled` | `false` (domyślnie) | Włącza widget na stronach produktów |
+| `product_widget_position` | `after_summary` \| `product_meta` | Pozycja na stronie produktu |
+
+Filtry deweloperskie:
+
+| Filtr | Cel |
+|---|---|
+| `polski/dsa/product_widget_enabled` | Główny przełącznik widgetu |
+
 ## Rozwiązywanie problemów
 
 **Formularz nie wyświetla się na stronie**

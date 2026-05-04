@@ -183,6 +183,33 @@ Moduleinstellungen finden Sie unter **WooCommerce > Einstellungen > Polski > DSA
 | Bearbeitungsfrist | Anzahl Werktage fuer die Bearbeitung | 7 |
 | Meldekategorien | Liste verfuegbarer Kategorien | Standardliste |
 
+## Widget auf der Produktseite (Polski 1.14.0+)
+
+Ab Version 1.14.0 koennen Sie ein optionales Meldungs-Widget direkt auf der Produktseite aktivieren. Der Kunde klickt auf "Zgłoś nielegalne treści (DSA)" und klappt ein Formular mit **vorausgefuellter Produkt-URL und -Name** auf - kein manuelles Kopieren des Links.
+
+```php
+update_option('polski_dsa', array_merge(
+    (array) get_option('polski_dsa', []),
+    [
+        'product_widget_enabled' => true,
+        'product_widget_position' => 'after_summary', // oder 'product_meta'
+    ]
+));
+```
+
+Das Widget nutzt das HTML-Element `<details>` - funktioniert ohne JavaScript, ist tastatur- und screenreader-tauglich. Das Formular wird an denselben Handler (`polski_dsa_report`) gesendet, sodass Meldungen in derselben Admin-Warteschlange landen wie Shortcode-Einreichungen.
+
+| Schluessel in `polski_dsa` | Wert | Beschreibung |
+|---|---|---|
+| `product_widget_enabled` | `false` (Standard) | Aktiviert das Widget auf Produktseiten |
+| `product_widget_position` | `after_summary` \| `product_meta` | Position auf der Produktseite |
+
+Entwicklerfilter:
+
+| Filter | Zweck |
+|---|---|
+| `polski/dsa/product_widget_enabled` | Hauptschalter fuer das Widget |
+
 ## Fehlerbehebung
 
 **Formular wird auf der Seite nicht angezeigt**

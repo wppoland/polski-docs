@@ -183,6 +183,33 @@ DSA module settings are in **WooCommerce > Settings > Polski > DSA**.
 | Processing deadline | Number of business days for processing | 7 |
 | Report categories | List of available categories | Default list |
 
+## Per-product widget (Polski 1.14.0+)
+
+From 1.14.0 you can enable an optional report widget directly on the product page. The customer clicks "Zgłoś nielegalne treści (DSA)" and expands a form with the **product URL and name prefilled** - no manual link copy.
+
+```php
+update_option('polski_dsa', array_merge(
+    (array) get_option('polski_dsa', []),
+    [
+        'product_widget_enabled' => true,
+        'product_widget_position' => 'after_summary', // or 'product_meta'
+    ]
+));
+```
+
+The widget uses the HTML `<details>` element - works without JavaScript, accessible to keyboards and screen readers. The form posts to the same handler (`polski_dsa_report`), so submissions land in the same admin queue as shortcode submissions.
+
+| `polski_dsa` key | Value | Description |
+|---|---|---|
+| `product_widget_enabled` | `false` (default) | Enables the widget on product pages |
+| `product_widget_position` | `after_summary` \| `product_meta` | Position on the product page |
+
+Developer filters:
+
+| Filter | Purpose |
+|---|---|
+| `polski/dsa/product_widget_enabled` | Master switch for the widget |
+
 ## Troubleshooting
 
 **The form does not display on the page**

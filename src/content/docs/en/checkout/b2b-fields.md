@@ -67,4 +67,8 @@ NIP, REGON, and IBAN are added to the "Billing details" block on the order scree
 
 ## Block checkout compatibility
 
-In this iteration the fields work only in the **classic WooCommerce checkout**. Block checkout (Cart & Checkout Blocks) support is planned for a follow-up release - the fields will be exposed via Store API in the same way as the existing legal checkbox registration (`Polski\Block\StoreApi\CheckoutValidation`).
+Starting with Polski 1.14.0, NIP / REGON / IBAN are registered via the WooCommerce `woocommerce_register_additional_checkout_field` API (WC 8.6+). A single registration covers both the **classic checkout** and the **Block checkout (Cart & Checkout Blocks)**. Validation runs on both sides.
+
+The WC API stores values under `_wc_billing/polski/nip`, `_wc_billing/polski/regon`, `_wc_billing/polski/iban` order meta. Polski automatically mirrors them to the **legacy** keys `_billing_nip`, `_billing_regon`, `_billing_iban` (`woocommerce_set_additional_field_value` action) so the KSeF and pro invoice modules read the data with no changes.
+
+Stores on WooCommerce older than 8.6 continue to use the classic-only registration path (`woocommerce_billing_fields`) with the "Buying as a company" toggle and inline JavaScript.
