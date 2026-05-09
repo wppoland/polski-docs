@@ -267,6 +267,7 @@ export default defineConfig({
 								{ slug: 'pro/customer-insights' },
 								{ slug: 'pro/inventory-forecast' },
 								{ slug: 'pro/download-watermark' },
+								{ slug: 'pro/automation-rules' },
 							],
 						},
 						{
