@@ -1,241 +1,162 @@
 ---
-title: Prawo odstąpienia od umowy
-description: Obsługa prawa odstąpienia od umowy w Polski for WooCommerce - formularz zwrotu, wykluczenia produktowe, automatyczne e-maile i hooki deweloperskie.
+title: Prawo odstąpienia od umowy (Art. 11a dyrektywy 2023/2673)
+description: Pełna implementacja prawa odstąpienia od umowy w Polski for WooCommerce — formularz dla klientów i gości, częściowe zwroty, wykluczenia, Annex I(A)/(B), zgoda Art. 16(m), abilities API i hooki.
 ---
 
-Dyrektywa UE 2023/2673 wprowadza nowe obowiązki dotyczące prawa odstąpienia od umowy (od 19 czerwca 2026). Wtyczka obsługuje cały proces - formularz klienta, potwierdzenia e-mail, wykluczenia produktowe i hooki dla deweloperów.
+Od **19 czerwca 2026** każdy sklep internetowy w UE sprzedający konsumentom musi udostępnić działającą funkcjonalność odstąpienia od umowy bezpośrednio w sklepie — wymaga tego Art. 11a dyrektywy 2011/83/UE zmienionej przez 2023/2673. Moduł odstąpień w Polski for WooCommerce dostarcza tę funkcjonalność plus dodatki ułatwiające codzienną obsługę.
 
-## Wymagania prawne
+:::caution
+Moduł realizuje techniczną stronę wymogu. Treść regulaminu, polityka zwrotów i komunikacja z klientem pozostają Twoją odpowiedzialnością. To nie jest porada prawna.
+:::
 
-Konsument może odstąpić od umowy zawartej na odległość w ciągu 14 dni bez podawania przyczyny. Jako sprzedawca musisz:
+## Co działa od razu po instalacji
 
-1. Poinformować konsumenta o prawie do odstąpienia przed zawarciem umowy
-2. Udostępnić formularz odstąpienia
-3. Potwierdzić otrzymanie oświadczenia o odstąpieniu
-4. Zwrócić płatność w ciągu 14 dni od otrzymania oświadczenia
+Po włączeniu modułu masz:
 
-Dyrektywa 2023/2673 dodaje wymóg cyfrowego procesu składania oświadczeń i automatycznych potwierdzeń.
+- Trzy nowe statusy zamówień: `wc-withdrawal-requested`, `wc-withdrawal-partial`, `wc-withdrawal-completed`
+- Migrację bazy `polski_withdrawals` + `polski_withdrawal_items` (Migration 2.2.0)
+- Tabelę admin `Polski > Withdrawals` z listą i filtrem statusu
+- Stronę ustawień `Polski > Withdrawal settings`
+- Trzy dynamiczne bloki Gutenberg + trzy shortcode (lookup, info, form template)
+- 16 abilities w WP 6.9+ Abilities API
+- Domyślny termin 14 dni z konfigurowalnym statusem uruchamiającym bieg
 
-## Proces klienta
+## Trzy ścieżki konsumenta
 
-### Krok 1 - przycisk w Moje konto
+### 1. Klient zalogowany — formularz dwustopniowy w Moim koncie
 
-Po włączeniu modułu w **Moje konto > Zamówienia** pojawia się przycisk "Odstąp od umowy" przy zamówieniach, które kwalifikują się do zwrotu. Przycisk widoczny jest przez 14 dni od dostawy.
+W `Moje konto › Zamówienia` przy każdym zamówieniu kwalifikującym się do zwrotu pojawia się akcja **Withdraw from contract** (tekst konfigurowalny). Po kliknięciu klient widzi formularz dwustopniowy:
 
-![Przyciski odstąpienia od umowy w panelu Moje konto](../../../assets/screenshots/screenshot-5-withdrawal-request.png)
+- **Krok 1: wybór pozycji.** Tabela z każdą linią zamówienia (waranty produktów jako osobne pozycje, z atrybutami), kolumna „Pozostało" pokazuje ile można jeszcze odstąpić, kolumna „Liczba sztuk do zwrotu" to spinner z `min=0`, `max=remaining_qty`. Pre-fill = pełna pozostała ilość.
+- **Krok 2: powód i potwierdzenie.** Textarea (opcjonalna) + submit „Złóż oświadczenie i wyślij potwierdzenie na e-mail".
 
-### Krok 2 - formularz odstąpienia
+Funkcjonalności:
 
-Po kliknięciu przycisku klient widzi formularz z polami:
+- **Częściowe odstąpienia** — od jednej sztuki, od kilku linii, lub wielu osobnych oświadczeń dla jednego zamówienia
+- **Pro-rata totals** — `line_total` i `line_tax` skalują się proporcjonalnie do wybranej ilości
+- **Live counter** (JS) — pod tabelą komunikat „Wybrano łącznie X sztuk" w `role="status" aria-live="polite"`
+- **Quick actions** — przyciski „Wybierz wszystkie pozycje" / „Wyczyść wybór"
+- **Anuluj i wróć** — link wstecz do listy zamówień bez wysłania
 
-- Numer zamówienia (wypełniony automatycznie)
-- Datę zamówienia
-- Lista produktów z zamówienia (z możliwością wyboru, od których odstępuje)
-- Powód odstąpienia (opcjonalny)
-- Dane kontaktowe klienta
-- Numer konta bankowego do zwrotu
+### 2. Gość — autoryzacja przez e-mail + magic-link
 
-### Krok 3 - potwierdzenie e-mail
+Na stronie z shortcodem `[polski_withdrawal_lookup]` gość podaje numer zamówienia i adres e-mail użyty przy zakupie. System:
 
-Po złożeniu formularza system automatycznie:
+1. Sprawdza, czy `billing_email` zamówienia odpowiada wprowadzonemu (case-insensitive)
+2. Sprawdza rate-limit (5 prób / 15 min per email+IP)
+3. Generuje 32-bajtowy token, zapisuje hash w transient z TTL 30 min
+4. Wysyła magic-link na e-mail (Polish subject + body)
+5. Zawsze zwraca to samo „masked" notice (zapobiega enumeracji)
 
-1. Wysyła klientowi e-mail z potwierdzeniem otrzymania oświadczenia
-2. Wysyła administratorowi sklepu powiadomienie o nowym zgłoszeniu
-3. Zmienia status zgłoszenia na "Oczekujące"
+Po kliknięciu linku ten sam shortcode renderuje formularz odstąpienia z **pełnym podsumowaniem zamówienia** (tabela pozycji, ilości, wartości, data, total) + opcjonalny powód + submit.
 
-Następnie przetwórz zgłoszenie w panelu WooCommerce i oznacz jako zakończone.
+### 3. Admin — ręczna rejestracja oświadczeń off-line
 
-## Wykluczenia produktowe
+W `Polski > Register withdrawal` operator zapisuje odstąpienie otrzymane telefonicznie, mailowo, listownie, w sklepie. Pola: numer zamówienia, kanał, powód. Po zapisie rekord ma `channel` i `registered_by_user_id`, status zamówienia zmienia się na `wc-withdrawal-requested`.
 
-Niektóre produkty nie podlegają prawu do odstąpienia. Oznacz je jako wykluczone w zakładce **Polski - Odstąpienie** w edycji produktu.
+## Wykluczenia produktów (Art. 38 ustawy o prawach konsumenta)
 
-Typowe wykluczenia zgodnie z art. 38 ustawy o prawach konsumenta:
+### Per produkt
 
-- Produkty wykonane na zamówienie lub spersonalizowane
-- Produkty ulegające szybkiemu zepsuciu
-- Produkty zapieczętowane ze względów higienicznych (po otwarciu)
-- Nagrania dźwiękowe/wizualne w zapieczętowanym opakowaniu (po otwarciu)
-- Treści cyfrowe dostarczone online (po rozpoczęciu świadczenia)
-- Prasa (dzienniki, periodyki, czasopisma)
+Na ekranie edycji produktu pole meta `_polski_withdrawal_exempt = 'yes'` plus dropdown z gotowymi powodami z `Polski\Enum\WithdrawalExemptionReason`:
 
-Przy wykluczonym produkcie przycisk "Odstąp od umowy" nie pojawia się w panelu klienta.
+- `art38_3` — Produkt na zamówienie indywidualne / personalizowany
+- `art38_4` — Szybko psujący się / krótki termin przydatności
+- `art38_5` — Zapieczętowany ze względu na ochronę zdrowia / higieniczny
+- `art38_6` — Nieoddzielnie połączony z innymi rzeczami
+- `art38_7` — Napoje alkoholowe (cena uzgodniona, dostarczenie później)
+- `art38_9` — Nagrania audio/wideo / oprogramowanie w zapieczętowanym opakowaniu
+- `art38_13` — Treści cyfrowe spełniane przed upływem terminu
+- `custom` — Inne (własne uzasadnienie)
 
-## Shortcode
+### Per kategoria
 
-Użyj shortcode `[polski_withdrawal_form]` do wyświetlenia formularza odstąpienia w dowolnym miejscu witryny.
+Na ekranie edycji kategorii produktu (`product_cat`) ten sam mechanizm na term meta `polski_withdrawal_exempt`. Jeden checkbox dla całego asortymentu zamiast setek produktów.
 
-### Podstawowe użycie
+### Logika priorytetu
 
-```
-[polski_withdrawal_form]
-```
+Meta produktu wygrywa, fallback to kategoria. Wariant produktu dziedziczy kategorie po `parent_id`. Filtr `polski/withdrawal/eligible` zwraca `false` jeśli wszystkie pozycje są exempt.
 
-Wyświetla formularz dla zalogowanego klienta. Klient musi wybrać zamówienie z listy.
+## Art. 16(m) — zgoda dla produktów cyfrowych
 
-### Z określeniem zamówienia
+Trzy tryby (`digital_consent_mode`):
 
-```
-[polski_withdrawal_form order_id="789"]
-```
+| Tryb | Co się dzieje |
+|---|---|
+| `required` | Checkout blokuje się dopóki konsument nie zaznaczy. Każde zamówienie 100% cyfrowe → wyłączone z prawa odstąpienia. |
+| `optional` | Checkbox widoczny, nie wymagany. Tylko zamówienia z zaznaczoną zgodą → wyłączone. |
+| `hidden` | Brak checkboxa. Zamówienia cyfrowe zachowują prawo odstąpienia. |
 
-Wyświetla formularz wypełniony danymi zamówienia o podanym ID. Wtyczka sprawdza, czy zalogowany użytkownik jest właścicielem zamówienia.
+Wersja Pro dodatkowo weryfikuje liczbę pobrań — jeśli konsument nie pobrał żadnego pliku, prawo odstąpienia zostaje przywrócone nawet po zgodzie.
 
-### Przykład osadzenia na stronie
+## Konfigurowalny termin i statusy uruchamiające
 
-Stwórz dedykowaną stronę "Formularz odstąpienia od umowy" i umieść na niej shortcode:
+- `period_days` — domyślnie 14
+- `trigger_statuses` — multi-select statusów WooCommerce (default: `completed`)
+- Gdy zamówienie wchodzi w trigger status, `_polski_withdrawal_clock_start` zapisuje się przez `$order->update_meta_data()` (HPOS-safe)
+- `isEligible()` liczy deadline = `clock_start + period_days`
 
-```
-[polski_withdrawal_form]
-```
+## Annex I(A) i I(B)
 
-W ustawieniach (**WooCommerce > Ustawienia > Polski > Odstąpienie**) wskaż tę stronę jako domyślną stronę formularza.
+Generator zasilany danymi z opcji `polski_general` (company_name, address, NIP, email, phone) z fallbackiem do `woocommerce_store_*`.
 
-## Hooki
+| Shortcode | Blok | Co renderuje |
+|---|---|---|
+| `[polski_withdrawal_info]` | `polski/withdrawal-info` | Annex I(A) — pełna informacja o prawie odstąpienia |
+| `[polski_withdrawal_form_template]` | `polski/withdrawal-form` | Annex I(B) — wzór formularza (do druku) |
+| `[polski_withdrawal_lookup]` | `polski/withdrawal-lookup` | Formularz dla gości |
 
-### polski/withdrawal/requested
+Pro dodaje tłumaczenia Annex I(B) w 8 językach (PL, DE, AT, FR, NL, IT, ES, generic EU) z krajowymi odniesieniami prawnymi (BGB §355 DE, KSchG §11 AT, art. L221-18 FR, itd.).
 
-Wywoływany, gdy klient złoży formularz odstąpienia.
+## E-mail potwierdzający jako trwały nośnik
 
-```php
-/**
- * @param int   $withdrawal_id ID zgłoszenia odstąpienia.
- * @param int   $order_id      ID zamówienia WooCommerce.
- * @param array $form_data     Dane z formularza.
- */
-add_action('polski/withdrawal/requested', function (int $withdrawal_id, int $order_id, array $form_data): void {
-    // Przykład: wyślij powiadomienie do zewnętrznego systemu CRM
-    $crm_api = new MyCrmApi();
-    $crm_api->notify_withdrawal($order_id, $form_data['reason']);
-}, 10, 3);
-```
+E-mail zawiera:
 
-### polski/withdrawal/confirmed
+- Numer deklaracji `POL-WD-NNNNNN`
+- Datę i godzinę złożenia (UTC + lokalna)
+- Numer i datę zamówienia
+- Tabelę pozycji z atrybutami wariantów i wartościami
+- Wartość zamówienia
+- Adres do wysyłki zwrotu
+- Notę o trwałym nośniku
 
-Wywoływany, gdy administrator potwierdzi otrzymanie zgłoszenia.
+Wersje HTML i plain text. Pro dorzuca PDF deklaracji A4 jako załącznik.
 
-```php
-/**
- * @param int $withdrawal_id ID zgłoszenia odstąpienia.
- * @param int $order_id      ID zamówienia WooCommerce.
- */
-add_action('polski/withdrawal/confirmed', function (int $withdrawal_id, int $order_id): void {
-    // Przykład: zmień status zamówienia
-    $order = wc_get_order($order_id);
-    if ($order) {
-        $order->update_status('withdrawal-confirmed', 'Odstąpienie potwierdzone.');
-    }
-}, 10, 2);
-```
-
-### polski/withdrawal/completed
-
-Wywoływany, gdy cały proces odstąpienia zostanie zakończony (zwrot przetworzony).
+## Hooki deweloperskie
 
 ```php
-/**
- * @param int   $withdrawal_id ID zgłoszenia odstąpienia.
- * @param int   $order_id      ID zamówienia WooCommerce.
- * @param float $refund_amount Kwota zwrotu.
- */
-add_action('polski/withdrawal/completed', function (int $withdrawal_id, int $order_id, float $refund_amount): void {
-    // Przykład: zarejestruj zwrot w systemie księgowym
-    do_action('my_accounting/register_refund', $order_id, $refund_amount);
-}, 10, 3);
+do_action('polski/withdrawal/requested', WithdrawalRequest $request);
+do_action('polski/withdrawal/guest_requested', int $id, WC_Order $order, string $email);
+do_action('polski/withdrawal/manual_registered', int $id, WC_Order $order, string $channel);
+do_action('polski/withdrawal/confirmed', WithdrawalRequest $request);
+do_action('polski/withdrawal/completed', WithdrawalRequest $request);
+do_action('polski/withdrawal/rejected', WithdrawalRequest $request);
+
+apply_filters('polski/withdrawal/eligible', bool $eligible, WC_Order $order);
+apply_filters('polski/withdrawal/period_days', int $days);
+apply_filters('polski/withdrawal/trigger_statuses', array $statuses);
+apply_filters('polski/withdrawal/order_status_on_request', string $slug, WC_Order, WithdrawalRequest);
+apply_filters('polski/withdrawal/order_status_on_complete', string $slug, WC_Order, WithdrawalRequest);
+apply_filters('polski/annex/info_html', string $html, array $merchant_data, int $days);
+apply_filters('polski/annex/form_html', string $html, array $merchant_data, string $lookup_url);
+apply_filters('polski/annex/merchant_data', array $data);
+apply_filters('polski/annex/locale', string $locale);
+apply_filters('polski/digital_consent/label', string $label);
 ```
 
-### polski/withdrawal/eligible
+## Abilities API (WP 6.9+)
 
-Filtr pozwalający na programowe określenie, czy zamówienie kwalifikuje się do odstąpienia.
+16 abilities w 4 kategoriach: `polski/withdrawal`, `polski/legal`, `polski/compliance`, `polski/shop`. Wywołanie przez `/wp-json/wp-abilities/v1/abilities/<id>/execute` lub `@wordpress/abilities` JS package. Pełna lista z input/output schema w `docs/withdrawal/abilities.md` w repozytorium pluginu.
 
-```php
-/**
- * @param bool     $is_eligible Czy zamówienie kwalifikuje się do odstąpienia.
- * @param WC_Order $order       Obiekt zamówienia WooCommerce.
- * @return bool
- */
-add_filter('polski/withdrawal/eligible', function (bool $is_eligible, WC_Order $order): bool {
-    // Przykład: wyklucz zamówienia z kategorii "usługi"
-    foreach ($order->get_items() as $item) {
-        $product = $item->get_product();
-        if ($product && has_term('uslugi', 'product_cat', $product->get_id())) {
-            return false;
-        }
-    }
-    return $is_eligible;
-}, 10, 2);
-```
+## Magazynowanie
 
-### polski/withdrawal/period_days
+Tabele własne (nie postmeta):
 
-Filtr pozwalający zmienić okres odstąpienia (domyślnie 14 dni).
+- `polski_withdrawals` — jeden rekord per oświadczenie (id, order_id, customer_id, status, channel, guest_email, refund_id, refund_amount, clock_started_at, requested/confirmed/completed/rejected_at, language_code)
+- `polski_withdrawal_items` — znormalizowane linie (id, withdrawal_id, order_item_id, product_id, variation_id, quantity, line_subtotal/total/tax, sku, name, attributes_json)
 
-```php
-/**
- * @param int      $days  Liczba dni na odstąpienie.
- * @param WC_Order $order Obiekt zamówienia WooCommerce.
- * @return int
- */
-add_filter('polski/withdrawal/period_days', function (int $days, WC_Order $order): int {
-    // Przykład: wydłuż okres do 30 dni w okresie świątecznym
-    $order_date = $order->get_date_created();
-    if ($order_date) {
-        $month = (int) $order_date->format('m');
-        if ($month === 12) {
-            return 30;
-        }
-    }
-    return $days;
-}, 10, 2);
-```
+Pro dodaje `polski_pro_withdrawal_audit` (Migration 2.5.0) z actor/IP/UA + payload snapshot.
 
-### polski/withdrawal/form_fields
+## Dostępność
 
-Filtr pozwalający modyfikować pola formularza odstąpienia.
-
-```php
-/**
- * @param array $fields Tablica pól formularza.
- * @return array
- */
-add_filter('polski/withdrawal/form_fields', function (array $fields): array {
-    // Przykład: dodaj pole na preferowany sposób zwrotu
-    $fields['refund_method'] = [
-        'type'     => 'select',
-        'label'    => 'Preferowany sposób zwrotu',
-        'required' => true,
-        'options'  => [
-            'bank_transfer' => 'Przelew bankowy',
-            'original'      => 'Tym samym sposobem płatności',
-        ],
-    ];
-    return $fields;
-}, 10, 1);
-```
-
-## Administracja zgłoszeniami
-
-Zgłoszenia znajdziesz w **WooCommerce > Odstąpienia**. Każde zgłoszenie zawiera:
-
-- Numer zamówienia i link do zamówienia
-- Datę złożenia formularza
-- Status (oczekujące, potwierdzone, zakończone, odrzucone)
-- Dane klienta
-- Lista produktów objętych odstąpieniem
-- Powód (jeśli podany)
-
-Możesz zmienić status zgłoszenia, dodać notatkę lub przetworzyć zwrot bezpośrednio z panelu.
-
-## Rozwiązywanie problemów
-
-**Przycisk "Odstąp od umowy" nie wyświetla się**
-Sprawdź, czy: (1) moduł jest włączony, (2) zamówienie jest w statusie "Zrealizowane", (3) nie minął okres odstąpienia, (4) żaden produkt w zamówieniu nie jest wykluczony.
-
-**Klient nie otrzymuje e-maila potwierdzającego**
-Sprawdź konfigurację e-maili WooCommerce w **WooCommerce > Ustawienia > E-maile** i upewnij się, że szablon "Potwierdzenie odstąpienia" jest włączony.
-
-## Dalsze kroki
-
-- Zgłaszaj problemy: [GitHub Issues](https://github.com/wppoland/polski/issues)
-- Dyskusje i pytania: [GitHub Discussions](https://github.com/wppoland/polski/discussions)
-
-<div class="disclaimer">Ta strona ma wyłącznie charakter informacyjny i nie stanowi porady prawnej. Przed wdrożeniem skonsultuj się z prawnikiem. Polski for WooCommerce jest oprogramowaniem open source (GPLv2) dostarczanym bez gwarancji.</div>
+Pełna zgodność WCAG 2.2 Level AA: `:focus-visible` ring, 44×44 touch targets, `lang="pl"` na każdej sekcji, `aria-required` + `aria-invalid` + `aria-describedby` + `aria-busy`, sticky form values, role=alert na error notice z autofocus, live region z liczbą wybranych sztuk, scroll-margin pod sticky header, widoczne FAQ accordion + JSON-LD FAQPage, kontakt fallback.
