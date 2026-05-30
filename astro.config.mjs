@@ -66,6 +66,7 @@ export default defineConfig({
 								{ slug: 'compliance/gpsr' },
 								{ slug: 'compliance/omnibus' },
 								{ slug: 'compliance/withdrawal' },
+								{ slug: 'compliance/returns' },
 								{ slug: 'compliance/gdpr' },
 								{ slug: 'compliance/dsa' },
 								{ slug: 'compliance/ksef' },
