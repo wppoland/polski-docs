@@ -78,7 +78,7 @@ Polski for WooCommerce
 
 Завантажте останню версію плагіна з одного з наступних джерел:
 
-- **WordPress.org**: [https://wordpress.org/plugins/polski-for-woocommerce/](https://wordpress.org/plugins/polski-for-woocommerce/)
+- **WordPress.org**: [https://wordpress.org/plugins/polski/](https://wordpress.org/plugins/polski/)
 - **GitHub Releases**: [https://github.com/wppoland/polski/releases](https://github.com/wppoland/polski/releases)
 
 ### Крок 2 - завантажте ZIP-файл
@@ -100,11 +100,11 @@ Polski for WooCommerce
 
 ### Крок 1 - розпакуйте архів
 
-Розпакуйте завантажений ZIP-файл на своєму комп'ютері. Ви отримаєте папку `polski-for-woocommerce`.
+Розпакуйте завантажений ZIP-файл на своєму комп'ютері. Ви отримаєте папку `polski`.
 
 ### Крок 2 - завантажте на сервер
 
-Підключіться до сервера через FTP/SFTP та завантажте всю папку `polski-for-woocommerce` до каталогу:
+Підключіться до сервера через FTP/SFTP та завантажте всю папку `polski` до каталогу:
 
 ```
 /wp-content/plugins/
@@ -115,8 +115,8 @@ Polski for WooCommerce
 ```
 wp-content/
   plugins/
-    polski-for-woocommerce/
-      polski-for-woocommerce.php
+    polski/
+      polski.php
       includes/
       assets/
       ...
@@ -133,19 +133,19 @@ wp-content/
 Якщо маєте доступ до терміналу сервера, встановіть плагін однією командою:
 
 ```bash
-wp plugin install polski-for-woocommerce --activate
+wp plugin install polski --activate
 ```
 
 Для оновлення до останньої версії:
 
 ```bash
-wp plugin update polski-for-woocommerce
+wp plugin update polski
 ```
 
 Перевірка поточної версії:
 
 ```bash
-wp plugin get polski-for-woocommerce --fields=name,version,status
+wp plugin get polski --fields=name,version,status
 ```
 
 ---
@@ -217,10 +217,10 @@ define('WP_DEBUG_DISPLAY', false);
 
 ```bash
 # Рекомендовані права для каталогів
-chmod 755 wp-content/plugins/polski-for-woocommerce/
+chmod 755 wp-content/plugins/polski/
 
 # Рекомендовані права для файлів
-chmod 644 wp-content/plugins/polski-for-woocommerce/*.php
+chmod 644 wp-content/plugins/polski/*.php
 ```
 
 ---

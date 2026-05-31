@@ -78,7 +78,7 @@ Use this method when you want to install a specific version or the server cannot
 
 Download the latest version of the plugin from one of the following sources:
 
-- **WordPress.org**: [https://wordpress.org/plugins/polski-for-woocommerce/](https://wordpress.org/plugins/polski-for-woocommerce/)
+- **WordPress.org**: [https://wordpress.org/plugins/polski/](https://wordpress.org/plugins/polski/)
 - **GitHub Releases**: [https://github.com/wppoland/polski/releases](https://github.com/wppoland/polski/releases)
 
 ### Step 2 - upload the ZIP file
@@ -100,11 +100,11 @@ Use this method when the WordPress panel does not allow file uploads (e.g. due t
 
 ### Step 1 - extract the archive
 
-Extract the downloaded ZIP file on your computer. You will get a folder called `polski-for-woocommerce`.
+Extract the downloaded ZIP file on your computer. You will get a folder called `polski`.
 
 ### Step 2 - upload to the server
 
-Connect to the server via FTP/SFTP and upload the entire `polski-for-woocommerce` folder to the directory:
+Connect to the server via FTP/SFTP and upload the entire `polski` folder to the directory:
 
 ```
 /wp-content/plugins/
@@ -115,8 +115,8 @@ The structure after upload should look like this:
 ```
 wp-content/
   plugins/
-    polski-for-woocommerce/
-      polski-for-woocommerce.php
+    polski/
+      polski.php
       includes/
       assets/
       ...
@@ -133,19 +133,19 @@ Go to **Plugins > Installed Plugins** in the WordPress dashboard and click **Act
 If you have terminal access to the server, you can install the plugin with a single command:
 
 ```bash
-wp plugin install polski-for-woocommerce --activate
+wp plugin install polski --activate
 ```
 
 To update the plugin to the latest version:
 
 ```bash
-wp plugin update polski-for-woocommerce
+wp plugin update polski
 ```
 
 Check the current version:
 
 ```bash
-wp plugin get polski-for-woocommerce --fields=name,version,status
+wp plugin get polski --fields=name,version,status
 ```
 
 ---
@@ -217,10 +217,10 @@ If manual installation does not work, check permissions:
 
 ```bash
 # Recommended permissions for directories
-chmod 755 wp-content/plugins/polski-for-woocommerce/
+chmod 755 wp-content/plugins/polski/
 
 # Recommended permissions for files
-chmod 644 wp-content/plugins/polski-for-woocommerce/*.php
+chmod 644 wp-content/plugins/polski/*.php
 ```
 
 ---

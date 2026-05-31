@@ -78,7 +78,7 @@ Pouzijte tuto metodu, pokud chcete nainstalovat konkretni verzi nebo server se n
 
 Stahnete nejnovejsi verzi pluginu z jednoho z nasledujicich zdroju:
 
-- **WordPress.org**: [https://wordpress.org/plugins/polski-for-woocommerce/](https://wordpress.org/plugins/polski-for-woocommerce/)
+- **WordPress.org**: [https://wordpress.org/plugins/polski/](https://wordpress.org/plugins/polski/)
 - **GitHub Releases**: [https://github.com/wppoland/polski/releases](https://github.com/wppoland/polski/releases)
 
 ### Krok 2 - nahrajte soubor ZIP
@@ -100,11 +100,11 @@ Pouzijte tuto metodu, pokud panel WordPress neumoznuje nahravat soubory (napr. k
 
 ### Krok 1 - rozbalte archiv
 
-Rozbalte stazeny soubor ZIP na svem pocitaci. Ziskate slozku `polski-for-woocommerce`.
+Rozbalte stazeny soubor ZIP na svem pocitaci. Ziskate slozku `polski`.
 
 ### Krok 2 - nahrajte na server
 
-Pripojte se k serveru pres FTP/SFTP a nahrajte celou slozku `polski-for-woocommerce` do adresare:
+Pripojte se k serveru pres FTP/SFTP a nahrajte celou slozku `polski` do adresare:
 
 ```
 /wp-content/plugins/
@@ -115,8 +115,8 @@ Struktura po nahrani by mela vypadat takto:
 ```
 wp-content/
   plugins/
-    polski-for-woocommerce/
-      polski-for-woocommerce.php
+    polski/
+      polski.php
       includes/
       assets/
       ...
@@ -133,19 +133,19 @@ Prejdete do **Pluginy > Nainstalovane pluginy** v panelu WordPress a kliknete **
 Pokud mate pristup k terminalu serveru, nainstalujte plugin jednim prikazem:
 
 ```bash
-wp plugin install polski-for-woocommerce --activate
+wp plugin install polski --activate
 ```
 
 Aktualizace pluginu na nejnovejsi verzi:
 
 ```bash
-wp plugin update polski-for-woocommerce
+wp plugin update polski
 ```
 
 Kontrola aktualni verze:
 
 ```bash
-wp plugin get polski-for-woocommerce --fields=name,version,status
+wp plugin get polski --fields=name,version,status
 ```
 
 ---
@@ -217,10 +217,10 @@ Pokud rucni instalace nefunguje, zkontrolujte opravneni:
 
 ```bash
 # Doporucena opravneni pro adresare
-chmod 755 wp-content/plugins/polski-for-woocommerce/
+chmod 755 wp-content/plugins/polski/
 
 # Doporucena opravneni pro soubory
-chmod 644 wp-content/plugins/polski-for-woocommerce/*.php
+chmod 644 wp-content/plugins/polski/*.php
 ```
 
 ---
