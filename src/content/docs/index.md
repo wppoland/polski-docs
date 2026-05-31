@@ -28,7 +28,7 @@ Polski for WooCommerce to modułowa platforma stworzona przez [wppoland.com](htt
 | | FREE | PRO |
 |---|---|---|
 | Licencja | GPLv2 (open source) | Licencja komercyjna |
-| Cena | Bezpłatnie | [wppoland.com/polski-pro](https://wppoland.com/polski-pro) |
+| Cena | Bezpłatnie | [wppoland.com/pl/polski-pro](https://wppoland.com/pl/polski-pro/) |
 | Wymogi prawne | GPSR, Omnibus, RODO, DSA, KSeF i inne | Wszystko z FREE |
 | Ceny i produkty | Cena jednostkowa, VAT, czas dostawy | Wszystko z FREE |
 | Kasa | Przycisk zamówienia, checkboxy, NIP | + wieloetapowy koszyk |
@@ -109,7 +109,7 @@ Aktualna wersja: **1.3.2** | Licencja: GPLv2 | [GitHub](https://github.com/wppol
 
 ## PRO - wersja rozszerzona
 
-Aktualna wersja: **1.1.0** | Wymaga: Polski FREE 1.3.0+ | [Kup na wppoland.com](https://wppoland.com/polski-pro)
+Aktualna wersja: **1.1.0** | Wymaga: Polski FREE 1.3.0+ | [Kup na wppoland.com](https://wppoland.com/pl/polski-pro/)
 
 :::note[PRO rozszerza FREE]
 Wersja PRO to osobna wtyczka instalowana obok darmowej wersji. Wszystkie moduły FREE pozostają dostępne - PRO dodaje nowe funkcje.

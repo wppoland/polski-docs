@@ -36,7 +36,7 @@ Plugin PRO funguje jako doplnek k bezplatne verzi - vyzaduje jeji pritomnost a a
 
 ### Krok 1 - stazeni souboru ZIP
 
-Po zakoupeni licence na [wppoland.com/polski-pro](https://wppoland.com/polski-pro) stahnete soubor ZIP pluginu z klientskeho panelu.
+Po zakoupeni licence na [wppoland.com/en/polski-pro](https://wppoland.com/en/polski-pro/) stahnete soubor ZIP pluginu z klientskeho panelu.
 
 ### Krok 2 - instalace pluginu
 
@@ -74,7 +74,7 @@ Aktualni verze Polski PRO for WooCommerce: **1.1.0**
 
 ## Licence
 
-Licenci lze zakoupit na strance [wppoland.com/polski-pro](https://wppoland.com/polski-pro). Zahrnuje:
+Licenci lze zakoupit na strance [wppoland.com/en/polski-pro](https://wppoland.com/en/polski-pro/). Zahrnuje:
 
 - pristup ke vsem modulum PRO
 - aktualizace po dobu licence
@@ -82,7 +82,7 @@ Licenci lze zakoupit na strance [wppoland.com/polski-pro](https://wppoland.com/p
 
 ## Souvisejici zdroje
 
-- [Zakoupit licenci PRO](https://wppoland.com/polski-pro)
+- [Zakoupit licenci PRO](https://wppoland.com/en/polski-pro/)
 - [Nahlasit problem](https://github.com/wppoland/polski/issues)
 
 <div class="disclaimer">Tato stránka slouží pouze k informačním účelům a nepředstavuje právní poradenství. Před implementací se poraďte s právníkem. Polski for WooCommerce je open source software (GPLv2) poskytovaný bez záruky.</div>
