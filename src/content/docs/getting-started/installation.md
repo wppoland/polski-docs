@@ -78,7 +78,7 @@ Użyj tej metody, gdy chcesz zainstalować konkretną wersję lub serwer nie ł�
 
 Pobierz najnowszą wersję wtyczki z jednego z poniższych źródeł:
 
-- **WordPress.org**: [https://wordpress.org/plugins/polski-for-woocommerce/](https://wordpress.org/plugins/polski-for-woocommerce/)
+- **WordPress.org**: [https://wordpress.org/plugins/polski/](https://wordpress.org/plugins/polski/)
 - **GitHub Releases**: [https://github.com/wppoland/polski/releases](https://github.com/wppoland/polski/releases)
 
 ### Krok 2 - prześlij plik ZIP
@@ -100,11 +100,11 @@ Użyj tej metody, gdy panel WordPress nie pozwala przesyłać plików (np. przez
 
 ### Krok 1 - rozpakuj archiwum
 
-Rozpakuj pobrany plik ZIP na swoim komputerze. Otrzymasz folder `polski-for-woocommerce`.
+Rozpakuj pobrany plik ZIP na swoim komputerze. Otrzymasz folder `polski`.
 
 ### Krok 2 - prześlij na serwer
 
-Połącz się z serwerem przez FTP/SFTP i prześlij cały folder `polski-for-woocommerce` do katalogu:
+Połącz się z serwerem przez FTP/SFTP i prześlij cały folder `polski` do katalogu:
 
 ```
 /wp-content/plugins/
@@ -115,8 +115,8 @@ Struktura po przesłaniu powinna wyglądać tak:
 ```
 wp-content/
   plugins/
-    polski-for-woocommerce/
-      polski-for-woocommerce.php
+    polski/
+      polski.php
       includes/
       assets/
       ...
@@ -133,19 +133,19 @@ Przejdź do **Wtyczki > Zainstalowane wtyczki** w panelu WordPress i kliknij **A
 Jeśli masz dostęp do terminala serwera, możesz zainstalować wtyczkę jedną komendą:
 
 ```bash
-wp plugin install polski-for-woocommerce --activate
+wp plugin install polski --activate
 ```
 
 Aby zaktualizować wtyczkę do najnowszej wersji:
 
 ```bash
-wp plugin update polski-for-woocommerce
+wp plugin update polski
 ```
 
 Sprawdzenie aktualnej wersji:
 
 ```bash
-wp plugin get polski-for-woocommerce --fields=name,version,status
+wp plugin get polski --fields=name,version,status
 ```
 
 ---
@@ -217,10 +217,10 @@ Jeśli instalacja ręczna nie działa, sprawdź uprawnienia:
 
 ```bash
 # Zalecane uprawnienia dla katalogów
-chmod 755 wp-content/plugins/polski-for-woocommerce/
+chmod 755 wp-content/plugins/polski/
 
 # Zalecane uprawnienia dla plików
-chmod 644 wp-content/plugins/polski-for-woocommerce/*.php
+chmod 644 wp-content/plugins/polski/*.php
 ```
 
 ---

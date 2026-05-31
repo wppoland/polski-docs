@@ -78,7 +78,7 @@ Verwenden Sie diese Methode, wenn Sie eine bestimmte Plugin-Version installieren
 
 Laden Sie die neueste Version des Plugins von einer der folgenden Quellen herunter:
 
-- **WordPress.org**: [https://wordpress.org/plugins/polski-for-woocommerce/](https://wordpress.org/plugins/polski-for-woocommerce/)
+- **WordPress.org**: [https://wordpress.org/plugins/polski/](https://wordpress.org/plugins/polski/)
 - **GitHub Releases**: [https://github.com/wppoland/polski/releases](https://github.com/wppoland/polski/releases)
 
 ### Schritt 2 - ZIP-Datei hochladen
@@ -100,11 +100,11 @@ Diese Methode ist nuetzlich, wenn das WordPress-Dashboard keine Dateiuploads erl
 
 ### Schritt 1 - Archiv entpacken
 
-Entpacken Sie die heruntergeladene ZIP-Datei auf Ihrem Computer. Sie erhalten den Ordner `polski-for-woocommerce`.
+Entpacken Sie die heruntergeladene ZIP-Datei auf Ihrem Computer. Sie erhalten den Ordner `polski`.
 
 ### Schritt 2 - Auf den Server hochladen
 
-Verbinden Sie sich per FTP/SFTP mit dem Server und laden Sie den gesamten Ordner `polski-for-woocommerce` in das Verzeichnis hoch:
+Verbinden Sie sich per FTP/SFTP mit dem Server und laden Sie den gesamten Ordner `polski` in das Verzeichnis hoch:
 
 ```
 /wp-content/plugins/
@@ -115,8 +115,8 @@ Die Struktur nach dem Hochladen sollte so aussehen:
 ```
 wp-content/
   plugins/
-    polski-for-woocommerce/
-      polski-for-woocommerce.php
+    polski/
+      polski.php
       includes/
       assets/
       ...
@@ -133,19 +133,19 @@ Gehen Sie zu **Plugins > Installierte Plugins** im WordPress-Dashboard und klick
 Wenn Sie Terminalzugang zum Server haben, koennen Sie das Plugin mit einem einzigen Befehl installieren:
 
 ```bash
-wp plugin install polski-for-woocommerce --activate
+wp plugin install polski --activate
 ```
 
 Um das Plugin auf die neueste Version zu aktualisieren:
 
 ```bash
-wp plugin update polski-for-woocommerce
+wp plugin update polski
 ```
 
 Aktuelle Version pruefen:
 
 ```bash
-wp plugin get polski-for-woocommerce --fields=name,version,status
+wp plugin get polski --fields=name,version,status
 ```
 
 ---
@@ -217,10 +217,10 @@ Wenn die manuelle Installation nicht funktioniert, pruefen Sie die Berechtigunge
 
 ```bash
 # Empfohlene Berechtigungen fuer Verzeichnisse
-chmod 755 wp-content/plugins/polski-for-woocommerce/
+chmod 755 wp-content/plugins/polski/
 
 # Empfohlene Berechtigungen fuer Dateien
-chmod 644 wp-content/plugins/polski-for-woocommerce/*.php
+chmod 644 wp-content/plugins/polski/*.php
 ```
 
 ---
