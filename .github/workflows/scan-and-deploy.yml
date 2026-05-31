@@ -51,16 +51,21 @@ jobs:
       - name: Check for changes
         id: changes
         run: |
-          git diff --quiet -- src/ scripts/data/ && echo "changed=false" >> "$GITHUB_OUTPUT" || echo "changed=true" >> "$GITHUB_OUTPUT"
+          # Only src/ is tracked; scripts/data/scan-results.json is gitignored.
+          git diff --quiet -- src/ && echo "changed=false" >> "$GITHUB_OUTPUT" || echo "changed=true" >> "$GITHUB_OUTPUT"
 
       - name: Commit updated docs
         if: steps.changes.outputs.changed == 'true'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add src/ scripts/data/scan-results.json
-          git commit -m "chore: auto-update developer reference from source scan"
-          git push
+          git add src/
+          if git diff --cached --quiet; then
+            echo "No staged changes to commit."
+          else
+            git commit -m "chore: auto-update developer reference from source scan"
+            git push || { git pull --rebase --autostash origin main && git push; }
+          fi
 
       - name: Build Astro site
         run: npm run build
