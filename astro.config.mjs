@@ -9,10 +9,11 @@ export default defineConfig({
 		starlight({
 			title: 'Polski for WooCommerce',
 			logo: {
-				src: './src/assets/icon.png',
+				light: './src/assets/wppoland-logo-light.svg',
+				dark: './src/assets/wppoland-logo-dark.svg',
 				replacesTitle: false,
 			},
-			favicon: '/favicon.png',
+			favicon: '/favicon.svg',
 			social: [
 				{ icon: 'github', label: 'GitHub', href: 'https://github.com/wppoland/polski' },
 			],
