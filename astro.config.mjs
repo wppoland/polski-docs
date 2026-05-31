@@ -173,6 +173,7 @@ export default defineConfig({
 							items: [
 								{ slug: 'tools/compliance-dashboard' },
 								{ slug: 'tools/site-audit' },
+								{ slug: 'tools/store-health' },
 								{ slug: 'tools/security-incidents' },
 								{ slug: 'tools/verified-reviews' },
 								{ slug: 'tools/order-export' },
