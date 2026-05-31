@@ -36,7 +36,7 @@ Polski PRO for WooCommerce - це платне розширення безкош
 
 ### Крок 1 - завантажте ZIP-файл
 
-Після придбання ліцензії на [wppoland.com/polski-pro](https://wppoland.com/polski-pro) завантажте ZIP-файл плагіна з панелі клієнта.
+Після придбання ліцензії на [wppoland.com/en/polski-pro](https://wppoland.com/en/polski-pro/) завантажте ZIP-файл плагіна з панелі клієнта.
 
 ### Крок 2 - встановіть плагін
 
@@ -74,7 +74,7 @@ Polski PRO for WooCommerce - це платне розширення безкош
 
 ## Ліцензія
 
-Ліцензію можна придбати на сторінці [wppoland.com/polski-pro](https://wppoland.com/polski-pro). Вона включає:
+Ліцензію можна придбати на сторінці [wppoland.com/en/polski-pro](https://wppoland.com/en/polski-pro/). Вона включає:
 
 - доступ до всіх модулів PRO
 - оновлення протягом терміну ліцензії
@@ -82,7 +82,7 @@ Polski PRO for WooCommerce - це платне розширення безкош
 
 ## Пов'язані ресурси
 
-- [Придбати ліцензію PRO](https://wppoland.com/polski-pro)
+- [Придбати ліцензію PRO](https://wppoland.com/en/polski-pro/)
 - [Повідомити про проблему](https://github.com/wppoland/polski/issues)
 
 <div class="disclaimer">Ця сторінка має виключно інформаційний характер і не є юридичною консультацією. Перед впровадженням зверніться до юриста. Polski for WooCommerce - це програмне забезпечення з відкритим кодом (GPLv2), що надається без гарантій.</div>

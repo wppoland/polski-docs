@@ -36,7 +36,7 @@ The PRO plugin works as an add-on to the free version - it requires it to be pre
 
 ### Step 1 - download the ZIP file
 
-After purchasing a license at [wppoland.com/polski-pro](https://wppoland.com/polski-pro), download the plugin ZIP file from the customer dashboard.
+After purchasing a license at [wppoland.com/en/polski-pro](https://wppoland.com/en/polski-pro/), download the plugin ZIP file from the customer dashboard.
 
 ### Step 2 - install the plugin
 
@@ -74,7 +74,7 @@ Current version of Polski PRO for WooCommerce: **1.1.0**
 
 ## License
 
-The license is available for purchase at [wppoland.com/polski-pro](https://wppoland.com/polski-pro). It includes:
+The license is available for purchase at [wppoland.com/en/polski-pro](https://wppoland.com/en/polski-pro/). It includes:
 
 - access to all PRO modules
 - updates for the license period
@@ -82,7 +82,7 @@ The license is available for purchase at [wppoland.com/polski-pro](https://wppol
 
 ## Related resources
 
-- [Buy PRO license](https://wppoland.com/polski-pro)
+- [Buy PRO license](https://wppoland.com/en/polski-pro/)
 - [Report an issue](https://github.com/wppoland/polski/issues)
 
 <div class="disclaimer">This page is for informational purposes only and does not constitute legal advice. Consult a lawyer before implementation. Polski for WooCommerce is open source software (GPLv2) provided without warranty.</div>

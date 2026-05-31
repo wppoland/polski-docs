@@ -45,7 +45,7 @@ Plugin PRO wymaga aktywnej darmowej wersji 1.3.0 lub nowszej. Zainstaluj i zaktu
 
 ### Krok 1 - pobierz plik ZIP
 
-Po zakupie licencji na [wppoland.com/polski-pro](https://wppoland.com/polski-pro) pobierz plik ZIP wtyczki z panelu klienta.
+Po zakupie licencji na [wppoland.com/pl/polski-pro](https://wppoland.com/pl/polski-pro/) pobierz plik ZIP wtyczki z panelu klienta.
 
 ### Krok 2 - zainstaluj wtyczkę
 
@@ -83,7 +83,7 @@ Aktualna wersja Polski PRO for WooCommerce: **1.1.0**
 
 ## Licencja
 
-Kup licencję na [wppoland.com/polski-pro](https://wppoland.com/polski-pro). Licencja obejmuje:
+Kup licencję na [wppoland.com/pl/polski-pro](https://wppoland.com/pl/polski-pro/). Licencja obejmuje:
 
 - dostęp do wszystkich modułów PRO
 - aktualizacje przez okres licencji
@@ -91,7 +91,7 @@ Kup licencję na [wppoland.com/polski-pro](https://wppoland.com/polski-pro). Lic
 
 ## Powiązane zasoby
 
-- [Kup licencję PRO](https://wppoland.com/polski-pro)
+- [Kup licencję PRO](https://wppoland.com/pl/polski-pro/)
 - [Zgłoś problem](https://github.com/wppoland/polski/issues)
 
 <div class="disclaimer">Ta strona ma wyłącznie charakter informacyjny i nie stanowi porady prawnej. Przed wdrożeniem skonsultuj się z prawnikiem. Polski for WooCommerce jest oprogramowaniem open source (GPLv2) dostarczanym bez gwarancji.</div>
