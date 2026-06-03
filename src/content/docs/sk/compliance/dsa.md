@@ -40,7 +40,7 @@ Vložte formulár na nahlasovanie DSA na ľubovoľnú stránku pomocou shortcode
 | `product_id` | ID produktu, ktorého sa hlásenie týka | Žiadna (používateľ vyberá) |
 | `category` | Vopred vybraná kategória hlásenia | Žiadna |
 
-![Formulár na nahlasovanie DSA na stránke obchodu](../../../assets/screenshots/screenshot-6-dsa-report-form.png)
+![Formulár na nahlasovanie DSA na stránke obchodu](../../../../assets/screenshots/screenshot-6-dsa-report-form.png)
 
 ### Polia formulára
 

@@ -11,7 +11,7 @@ Doplnok ukladá každú zmenu ceny produktu (vrátane variantov) do databázy. K
 
 Sledovanie sa začína po zapnutí modulu. Ak produkt ešte nemá históriu cien, zobrazí sa náhradná správa.
 
-![Stránka produktu so zobrazenou najnižšou cenou Omnibus](../../../assets/screenshots/screenshot-4-omnibus-lowest-price.png)
+![Stránka produktu so zobrazenou najnižšou cenou Omnibus](../../../../assets/screenshots/screenshot-4-omnibus-lowest-price.png)
 
 ## Konfigurácia
 

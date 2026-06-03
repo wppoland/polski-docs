@@ -22,7 +22,7 @@ Každý nepotravinový produkt predávaný v EÚ musí obsahovať:
 
 Polia GPSR nájdete v úprave produktu, v záložke **Polski - GPSR**. Každé pole je voliteľné, ale vyplňte všetky, ktoré sa daného produktu týkajú.
 
-![Polia GPSR v editore produktu WooCommerce](../../../assets/screenshots/screenshot-2-gpsr-product-editor.png)
+![Polia GPSR v editore produktu WooCommerce](../../../../assets/screenshots/screenshot-2-gpsr-product-editor.png)
 
 ### Výrobca
 
