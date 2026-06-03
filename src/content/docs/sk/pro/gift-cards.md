@@ -9,16 +9,16 @@ Modul darčekových kariet umožňuje predávať karty ako produkty WooCommerce.
 
 1. Administrátor vytvorí produkt typu "Darčeková karta"
 2. Zákazník kúpi darčekovú kartu v obchode
-3. Po uhradení objednávky plugin vygeneruje unikátny kód karty
+3. Po zaplatení objednávky plugin vygeneruje unikátny kód karty
 4. Kód je odoslaný zákazníkovi (alebo obdarovanému) e-mailom
-5. Obdarovaný zadá kód v košíku a dostane zľavu rovnajúcu sa hodnote karty
+5. Obdarovaný zadá kód v košíku a dostane zľavu rovnú hodnote karty
 6. Zostatok karty sa zníži o použitú sumu
 
 ## Konfigurácia
 
 Prejdite do **WooCommerce > Nastavenia > Polski > Moduly PRO > Darčekové karty**.
 
-Modul je riadený voľbou:
+Modul je ovládaný voľbou:
 
 ```
 polski_gift_cards
@@ -40,62 +40,62 @@ polski_gift_cards
 1. Prejdite do **Produkty > Pridať nový**
 2. Vyberte typ produktu: **Darčeková karta**
 3. Nastavte cenu (nominálna hodnota karty)
-4. Voliteľne: zapnite "Ľubovoľná suma" - zákazník si sám zadá hodnotu karty
+4. Voliteľne: zapnite "Ľubovoľná suma" - zákazník sám zadá hodnotu karty
 5. Voliteľne: nastavte minimálnu a maximálnu sumu pre ľubovoľnú sumu
 6. Publikujte produkt
 
-Pre ľubovoľnú sumu zákazník vidí pole na zadanie hodnoty karty namiesto stanovenej ceny.
+Pri ľubovoľnej sume zákazník vidí pole na zadanie hodnoty karty namiesto pevnej ceny.
 
 ## Generovanie kódov
 
-Kódy darčekových kariet sú generované automaticky po uhradení objednávky. Algoritmus:
+Kódy sa generujú automaticky po zaplatení objednávky. Vlastnosti kódov:
 
 - alfanumerické znaky (A-Z, 0-9)
 - vylúčenie nejednoznačných znakov (0, O, I, L, 1)
 - validácia unikátnosti v databáze
 - formátovanie so separátormi (napr. `ABCD-EFGH-JKMN-PQRS`)
 
-Každý kód je unikátny v rámci celého obchodu. Plugin overuje unikátnosť pred uložením a v prípade kolízie generuje nový kód.
+Každý kód je unikátny. Pri kolízii plugin vygeneruje nový kód.
 
 ## Uplatnenie v košíku
 
 ### Pole kódu
 
-Na stránke košíka (a voliteľne na stránke checkoutu) sa zobrazuje pole na zadanie kódu darčekovej karty:
+V košíku (a voliteľne na pokladni) zákazník vidí pole na zadanie kódu:
 
 ```
-[Zadajte kód darčekovej karty] [Použiť]
+[Zadaj kód darčekovej karty] [Použiť]
 ```
 
-Po zadaní platného kódu:
+Po zadaní správneho kódu:
 
-- zobrazí sa zostatok karty
-- suma zľavy sa odčíta od celkovej sumy objednávky
-- ak je zostatok karty menší ako hodnota objednávky - zvyšok sa platí inými metódami
-- ak je zostatok karty väčší - zostávajúca suma zostáva na karte
+- zostatok karty sa zobrazí
+- suma zľavy sa odpočíta od sumy objednávky
+- ak je zostatok karty menší ako hodnota objednávky - zvyšok na zaplatenie inými metódami
+- ak je zostatok karty väčší - zostávajúca suma ostáva na karte
 
 ### Validácia kódu
 
-Plugin validuje kód karty pred použitím:
+Plugin overí kód pred použitím:
 
 - kontrola, či kód existuje v databáze
 - kontrola, či karta nevypršala
 - kontrola, či je zostatok väčší ako nula
-- kontrola, či karta nie je zablokovaná
+- kontrola, či karta nebola zablokovaná
 
-Chybová správa informuje zákazníka o príčine odmietnutia kódu.
+Zákazník vidí správu s dôvodom odmietnutia kódu.
 
 ### Sledovanie relácie
 
-Použitý kód karty je uchovávaný v relácii WooCommerce zákazníka. To znamená, že:
+Kód karty je uložený v relácii WooCommerce:
 
-- kód je zapamätaný aj po obnovení stránky
-- kód je odstránený po odoslaní objednávky alebo odhlásení
-- zákazník môže použitý kód odstrániť manuálne
+- kód sa zapamätá aj po obnovení stránky
+- kód sa odstráni po odoslaní objednávky alebo odhlásení
+- zákazník môže použitý kód odstrániť ručne
 
 ## Sledovanie zostatku
 
-Každá darčeková karta má zostatok, ktorý sa znižuje s každým použitím. História transakcií karty obsahuje:
+Zostatok karty sa znižuje s každým použitím. História transakcií obsahuje:
 
 | Pole | Popis |
 |------|------|
@@ -107,17 +107,17 @@ Každá darčeková karta má zostatok, ktorý sa znižuje s každým použitím
 
 ### Administračný panel
 
-V paneli **WooCommerce > Darčekové karty** administrátor môže:
+V paneli **WooCommerce > Darčekové karty** môže administrátor:
 
-- prehliadať zoznam všetkých kariet so zostatkami
+- prezerať zoznam všetkých kariet so zostatkami
 - skontrolovať históriu transakcií karty
-- dobiť kartu manuálne
+- dobiť kartu ručne
 - zablokovať kartu
 - exportovať zoznam kariet (CSV)
 
 ## Panel Môj účet
 
-Modul pridáva endpoint `/polski-gift-cards` do panelu Môj účet zákazníka. Endpoint je dostupný na adrese:
+Modul pridáva sekciu v paneli Môj účet na adrese:
 
 ```
 /moje-konto/polski-gift-cards/
@@ -161,7 +161,7 @@ add_filter('polski_pro/gift_card/validate', function (bool $is_valid, string $co
 
 ### `polski_pro/gift_card/applied`
 
-Akcia volaná po použití darčekovej karty v košíku.
+Akcia vyvolaná po použití darčekovej karty v košíku.
 
 ```php
 /**
@@ -186,7 +186,7 @@ add_action('polski_pro/gift_card/applied', function (string $code, float $amount
 
 ### `polski_pro/gift_card/order_created`
 
-Akcia volaná po vytvorení objednávky s použitím darčekovej karty.
+Akcia vyvolaná po vytvorení objednávky s použitím darčekovej karty.
 
 ```php
 /**
@@ -210,7 +210,7 @@ add_action('polski_pro/gift_card/order_created', function (int $order_id, string
 
 ### `polski_pro/gift_card/calculate_totals`
 
-Filtruje sumu na odpočítanie z darčekovej karty pri prepočítavaní súm košíka.
+Filtruje sumu na odpočítanie z darčekovej karty pri prepočte súm košíka.
 
 ```php
 /**
@@ -223,21 +223,21 @@ apply_filters('polski_pro/gift_card/calculate_totals', float $discount, string $
 
 ## E-mail s kódom
 
-Po uhradení objednávky obsahujúcej darčekovú kartu plugin odošle e-mail s kódom. E-mail obsahuje:
+Po zaplatení objednávky plugin odošle e-mail s kódom karty. E-mail obsahuje:
 
-- kód karty (naformátovaný)
+- kód karty (formátovaný)
 - nominálnu hodnotu
-- dátum platnosti (ak sa vzťahuje)
-- návod na použitie
+- dátum platnosti (ak sa týka)
+- pokyny na použitie
 
-Šablónu e-mailu je možné prispôsobiť v **WooCommerce > Nastavenia > E-maily > Darčeková karta**.
+Šablónu e-mailu možno prispôsobiť v **WooCommerce > Nastavenia > E-maily > Darčeková karta**.
 
 ### E-mail pre obdarovaného
 
-Pri kúpe karty môže zákazník zadať e-mailovú adresu obdarovaného. V takom prípade:
+Zákazník môže zadať e-mail obdarovaného. Vtedy:
 
 - kód je odoslaný na adresu obdarovaného
-- kupujúci dostane potvrdenie o kúpe (bez kódu)
+- kupujúci dostane potvrdenie nákupu (bez kódu)
 - voliteľne: kupujúci môže pridať správu pre obdarovaného
 
 ## Najčastejšie problémy
@@ -251,19 +251,19 @@ Pri kúpe karty môže zákazník zadať e-mailovú adresu obdarovaného. V tako
 
 ### Zákazník nedostal kód e-mailom
 
-1. Skontrolujte, či je objednávka uhradená (stav "Processing" alebo "Completed")
+1. Skontrolujte, či je objednávka zaplatená (stav "Processing" alebo "Completed")
 2. Overte konfiguráciu e-mailov WooCommerce
-3. Skontrolujte logy e-mailov na chyby odosielania
+3. Skontrolujte logy e-mailov z hľadiska chýb odosielania
 
-### Zostatok sa neznižuje po objednávke
+### Zostatok sa po objednávke neznižuje
 
 1. Skontrolujte, či bola objednávka úspešne odoslaná (nie zrušená)
 2. Overte históriu transakcií karty v administračnom paneli
-3. Skontrolujte logy na PHP chyby
+3. Skontrolujte logy z hľadiska chýb PHP
 
 ## Súvisiace zdroje
 
 - [Prehľad PRO](/pro/overview/)
 - [Nahlásiť problém](https://github.com/wppoland/polski/issues)
 
-<div class="disclaimer">Táto stránka slúži len na informačné účely a nepredstavuje právne poradenstvo. Pred implementáciou sa poraďte s právnikom. Polski for WooCommerce je open source softvér (GPLv2) poskytovaný bez záruky.</div>
+<div class="disclaimer">Táto stránka má výlučne informačný charakter a nepredstavuje právne poradenstvo. Pred nasadením sa poraďte s právnikom. Polski for WooCommerce je open source softvér (GPLv2) dodávaný bez záruky.</div>

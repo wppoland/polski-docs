@@ -1,49 +1,49 @@
 ---
 title: Správa súhlasov
-description: Dokumentácia pokročilej správy súhlasov v Polski PRO for WooCommerce - verziovanie, audit trail, GDPR export, integrácia s panelom Môj účet.
+description: Dokumentácia pokročilej správy súhlasov v Polski PRO for WooCommerce - verziovanie, audit trail, GDPR export, integrácia s Môj účet.
 ---
 
-Modul správy súhlasov pridáva verziovanie súhlasov, audit trail, export údajov a integráciu s GDPR. Sleduje históriu súhlasov zákazníkov a reaguje na zmeny obsahu obchodných podmienok.
+Modul správy súhlasov pridáva verziovanie súhlasov, audit trail, export dát a integráciu s GDPR. Sleduje históriu súhlasov zákazníkov a reaguje na zmeny obsahu podmienok.
 
 ## Verziovanie súhlasov
 
 ### Automatická detekcia zmien
 
-Plugin monitoruje obsah štítkov právnych checkboxov. Pri každom uložení nastavení vypočíta hash (SHA-256) obsahu štítku. Ak sa hash zmenil - plugin automaticky vytvorí novú verziu súhlasu.
+Doplnok sleduje obsah checkboxov. Pri každom uložení nastavení porovnáva hash (SHA-256) obsahu. Keď sa obsah zmení, automaticky vytvorí novú verziu súhlasu.
 
 Každá verzia súhlasu obsahuje:
 
 - číslo verzie (autoinkrementácia)
-- hash obsahu štítku
-- úplný obsah štítku
+- hash obsahu menovky
+- úplný obsah menovky
 - dátum vytvorenia verzie
 - ID používateľa, ktorý vykonal zmenu
 
 ### História verzií
 
-V nastaveniach právnych checkboxov je k dispozícii tlačidlo **História verzií** pri každom checkboxe. Zobrazuje zoznam všetkých verzií s dátumami a náhľadom obsahu.
+Kliknite **História verzií** pri checkboxe, aby ste videli všetky verzie s dátumami a obsahom.
 
-### Opätovné udelenie súhlasu
+### Opätovné vyjadrenie súhlasu
 
-Keď sa obsah súhlasu zmení (nová verzia), plugin môže vyžadovať opätovné udelenie súhlasu zákazníkmi. Konfigurácia:
+Keď sa obsah súhlasu zmení, doplnok môže vyžadovať opätovný súhlas. Nastavenia:
 
 | Nastavenie | Popis |
 |------------|------|
-| Vyžadovať opätovný súhlas | Zapne výzvu na opätovné udelenie súhlasu po zmene obsahu |
-| Zobraziť výzvu | Na stránke checkoutu / V paneli Môj účet / Oboje |
-| Text správy | Text informujúci zákazníka o zmene obchodných podmienok |
+| Vyžadovať opätovný súhlas | Zapína výzvu na opätovné vyjadrenie súhlasu po zmene obsahu |
+| Zobrazovať výzvu | Na stránke pokladne / V paneli Môj účet / Oboje |
+| Obsah správy | Text informujúci zákazníka o zmene podmienok |
 
-Zákazník vidí správu s informáciou o zmene obsahu a musí znova zaškrtnúť checkbox. Predchádzajúci súhlas zostáva v histórii s označením verzie.
+Zákazník vidí správu o zmene a musí znovu zaškrtnúť checkbox. Skorší súhlas zostáva v histórii.
 
 ## Audit trail
 
 ### Zaznamenávané udalosti
 
-Plugin zaznamenáva všetky operácie súvisiace so súhlasmi:
+Doplnok zaznamenáva všetky operácie so súhlasmi:
 
-| Udalosť | Údaje |
+| Udalosť | Dáta |
 |-----------|------|
-| Súhlas udelený | ID používateľa, ID súhlasu, verzia, dátum, IP, user agent |
+| Súhlas vyjadrený | ID používateľa, ID súhlasu, verzia, dátum, IP, user agent |
 | Súhlas odvolaný | ID používateľa, ID súhlasu, dátum, zdroj (zákazník/admin) |
 | Zmena obsahu súhlasu | ID súhlasu, stará verzia, nová verzia, dátum, ID admina |
 | Výzva na opätovný súhlas | ID používateľa, ID súhlasu, dátum |
@@ -51,7 +51,7 @@ Plugin zaznamenáva všetky operácie súvisiace so súhlasmi:
 
 ### Prehliadanie histórie
 
-Prejdite do **WooCommerce > Nastavenia > Polski > Moduly PRO > Súhlasy > Audit trail**. Tabuľka obsahuje všetky udalosti s filtrami:
+Prejdite do **WooCommerce > Nastavenia > Polski > Moduly PRO > Súhlasy > Audit trail**. Filtrujte udalosti podľa:
 
 - ID používateľa alebo e-mail
 - typ udalosti
@@ -60,37 +60,37 @@ Prejdite do **WooCommerce > Nastavenia > Polski > Moduly PRO > Súhlasy > Audit 
 
 ### Export dát
 
-Audit trail je možné exportovať v dvoch formátoch:
+Exportujte audit trail vo formáte:
 
-- **CSV** - na otvorenie v tabuľkovom procesore
-- **JSON** - na programové spracovanie alebo import do iného systému
+- **CSV** - do tabuľkového procesora
+- **JSON** - na programové spracovanie
 
-Export je dostupný z panelu Audit trail. Je možné exportovať kompletnú históriu alebo filtrované výsledky.
+Exportujte úplnú históriu alebo prefiltrované výsledky z panela Audit trail.
 
 ## Integrácia s panelom Môj účet
 
 ### Odvolanie súhlasu
 
-V paneli **Môj účet** zákazníka sa zobrazuje sekcia "Moje súhlasy" so zoznamom udelených súhlasov. Zákazník môže:
+V **Môj účet** zákazník vidí sekciu "Moje súhlasy". Môže:
 
-- prehliadať aktuálne udelené súhlasy
-- vidieť dátum udelenia každého súhlasu
+- prehliadať aktuálne vyjadrené súhlasy
+- vidieť dátum vyjadrenia každého súhlasu
 - odvolať súhlas tlačidlom "Odvolať"
 
-Odvolanie súhlasu je zaznamenané v audit trail. Administrátor dostane e-mailové upozornenie o odvolaní súhlasu (konfigurovateľné).
+Odvolanie sa zaznamená v audit trail. Administrátor dostane e-mailové upozornenie (konfigurovateľné).
 
 ### Výzva na opätovný súhlas
 
-Ak sa obsah súhlasu zmenil, zákazník vidí v paneli Môj účet správu s výzvou oboznámiť sa s novou verziou a opätovne udeliť súhlas.
+Keď sa obsah súhlasu zmení, zákazník vidí v Môj účet žiadosť o oboznámenie sa s novou verziou a opätovný súhlas.
 
-## Integrácia GDPR
+## GDPR integrácia
 
 ### Export osobných údajov
 
-Plugin sa integruje s mechanizmom exportu osobných údajov WordPress (`wp_privacy_personal_data_exporters`). Pri žiadosti o export údajov zákazníka plugin priloží:
+Doplnok sa integruje s exportom dát WordPress (`wp_privacy_personal_data_exporters`). Pri exporte dát zákazníka pripája:
 
-- zoznam udelených súhlasov s dátumami a verziami
-- kompletnú históriu zmien súhlasov (udelenia, odvolania, opätovné súhlasy)
+- zoznam vyjadrených súhlasov s dátumami a verziami
+- úplnú históriu zmien súhlasov (vyjadrenia, odvolania, opätovné súhlasy)
 - IP adresy a dátumy spojené s každým súhlasom
 
 ```php
@@ -106,13 +106,13 @@ add_filter('wp_privacy_personal_data_exporters', function (array $exporters): ar
 });
 ```
 
-### Vymazanie osobných údajov
+### Odstránenie osobných údajov
 
-Plugin sa integruje s mechanizmom vymazania údajov WordPress (`wp_privacy_personal_data_erasers`). Pri žiadosti o vymazanie údajov:
+Doplnok sa integruje s odstránením dát WordPress (`wp_privacy_personal_data_erasers`). Pri odstránení dát:
 
-- osobné údaje v audit trail sú anonymizované (IP, user agent)
-- záznamy súhlasov sú označené ako vymazané
-- samotný fakt udelenia/odvolania súhlasu zostáva (bez identifikačných údajov) pre účely zodpovednosti
+- osobné údaje v audit trail sa anonymizujú (IP, user agent)
+- záznamy súhlasov sa označia ako odstránené
+- samotný fakt vyjadrenia/odvolania súhlasu zostáva (bez identifikačných údajov) na účely zúčtovateľnosti
 
 ```php
 /**
@@ -129,7 +129,7 @@ add_filter('wp_privacy_personal_data_erasers', function (array $erasers): array 
 
 ## REST API
 
-Modul sprístupňuje endpoint REST API na prehliadanie súhlasov (dostupný pre administrátorov):
+Modul poskytuje REST API endpoint na prehliadanie súhlasov (dostupný pre administrátorov):
 
 ### Zoznam súhlasov používateľa
 
@@ -145,7 +145,7 @@ Vracia zoznam súhlasov používateľa s aktuálnym stavom a verziou.
 GET /wp-json/polski-pro/v1/consents/audit?user_id={id}
 ```
 
-Parametre query:
+Query parametre:
 
 | Parameter | Typ | Popis |
 |----------|-----|------|
@@ -162,19 +162,19 @@ Parametre query:
 GET /wp-json/polski-pro/v1/consents/export?format={csv|json}
 ```
 
-Vracia kompletný export audit trail vo zvolenom formáte.
+Vracia úplný export audit trail vo vybranom formáte.
 
 ## Hooky
 
 ### `polski_pro/consent/granted`
 
-Akcia volaná po udelení súhlasu.
+Akcia vyvolaná po vyjadrení súhlasu.
 
 ```php
 /**
- * @param int    $user_id    ID użytkownika
- * @param string $consent_id ID zgody
- * @param int    $version    Numer wersji zgody
+ * @param int    $user_id    ID používateľa
+ * @param string $consent_id ID súhlasu
+ * @param int    $version    Číslo verzie súhlasu
  */
 do_action('polski_pro/consent/granted', int $user_id, string $consent_id, int $version);
 ```
@@ -200,13 +200,13 @@ add_action('polski_pro/consent/granted', function (int $user_id, string $consent
 
 ### `polski_pro/consent/revoked`
 
-Akcia volaná po odvolaní súhlasu.
+Akcia vyvolaná po odvolaní súhlasu.
 
 ```php
 /**
- * @param int    $user_id    ID użytkownika
- * @param string $consent_id ID zgody
- * @param string $source     Źródło wycofania (customer, admin)
+ * @param int    $user_id    ID používateľa
+ * @param string $consent_id ID súhlasu
+ * @param string $source     Zdroj odvolania (customer, admin)
  */
 do_action('polski_pro/consent/revoked', int $user_id, string $consent_id, string $source);
 ```
@@ -226,22 +226,22 @@ add_action('polski_pro/consent/revoked', function (int $user_id, string $consent
 
 ### Výzva na opätovný súhlas sa nezobrazuje
 
-1. Skontrolujte, či je voľba "Vyžadovať opätovný súhlas" zapnutá
+1. Skontrolujte, či je možnosť "Vyžadovať opätovný súhlas" zapnutá
 2. Overte, či sa obsah súhlasu skutočne zmenil (skontrolujte históriu verzií)
-3. Vymažte cache stránky checkoutu a panelu Môj účet
+3. Vyčistite cache stránky pokladne a panela Môj účet
 
-### GDPR export neobsahuje údaje súhlasov
+### GDPR export neobsahuje dáta súhlasov
 
 1. Uistite sa, že modul správy súhlasov je aktívny
 2. Skontrolujte, či je exportér `polski-pro-consents` zaregistrovaný v **Nástroje > Export osobných údajov**
-3. Overte logy na PHP chyby
+3. Overte logy z hľadiska PHP chýb
 
 ### Audit trail rastie príliš rýchlo
 
-Plugin uchováva históriu súhlasov v osobitnej tabuľke databázy. Pri veľkom počte zákazníkov môže tabuľka rásť. Zvážte:
+História súhlasov je v samostatnej tabuľke. Pri mnohých zákazníkoch môže rásť. Zvážte:
 
-- pravidelné exportovanie a archiváciu starších záznamov
-- nastavenie automatického čistenia záznamov starších ako určitý počet mesiacov (voľba v nastaveniach)
+- pravidelné exportovanie a archivovanie starších záznamov
+- nastavenie automatického čistenia záznamov starších než určený počet mesiacov (možnosť v nastaveniach)
 
 ## Súvisiace zdroje
 
@@ -249,4 +249,4 @@ Plugin uchováva históriu súhlasov v osobitnej tabuľke databázy. Pri veľkom
 - [GDPR](/compliance/gdpr/)
 - [Nahlásiť problém](https://github.com/wppoland/polski/issues)
 
-<div class="disclaimer">Táto stránka slúži len na informačné účely a nepredstavuje právne poradenstvo. Pred implementáciou sa poraďte s právnikom. Polski for WooCommerce je open source softvér (GPLv2) poskytovaný bez záruky.</div>
+<div class="disclaimer">Táto stránka má výlučne informačný charakter a nepredstavuje právne poradenstvo. Pred nasadením sa poraďte s právnikom. Polski for WooCommerce je open source softvér (GPLv2) poskytovaný bez záruky.</div>

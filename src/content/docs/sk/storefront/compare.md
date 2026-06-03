@@ -1,33 +1,35 @@
 ---
 title: Porovnávač produktov
-description: Modul porovnávania produktov v Polski for WooCommerce - tabuľka vlastností, limit produktov, automatická výmena a shortcód.
+description: Modul porovnávania produktov v Polski for WooCommerce - tabuľka vlastností, limit produktov, automatická výmena a shortcode.
 ---
 
-Porovnávač umožňuje zákazníkom zostaviť niekoľko produktov vedľa seba v tabuľke vlastností. Uľahčuje výber, zvlášť v obchodoch s veľkou ponukou.
+Porovnávač umožňuje zákazníkom postaviť niekoľko produktov vedľa seba v tabuľke vlastností. Uľahčuje výber, najmä v obchodoch so širokou ponukou.
+
+![Porovnávač produktov, zoznam želaní a filtre na stránke obchodu](../../../../assets/screenshots/screenshot-8-wishlist-compare-quick-view.png)
 
 ## Zapnutie modulu
 
-Prejdite do **WooCommerce > Polski > Obchodné moduly** a aktivujte možnosť **Porovnávač produktov**. Na produktoch sa zobrazí tlačidlo porovnania.
+Prejdite do **WooCommerce > Polski > Moduly obchodu** a zapnite **Porovnávač produktov**. Na produktoch sa objaví tlačidlo porovnania.
 
 ## Tabuľka vlastností (feature table)
 
-Po pridaní produktov do porovnania zákazník vidí tabuľku so stĺpcami pre každý produkt. Riadky tabuľky obsahujú:
+Zákazník vidí tabuľku so stĺpcom pre každý produkt. Riadky obsahujú:
 
-- Fotografiu produktu
+- Fotku produktu
 - Názov s odkazom
-- Cenu (s ohľadom na akcie a smernicu Omnibus)
+- Cenu (so zohľadnením akcií a smernice Omnibus)
 - Hodnotenie (hviezdičky)
 - Krátky popis
 - Stav dostupnosti
 - Atribúty produktu (farba, veľkosť atď.)
-- Dodaciu lehotu (ak je nastavená)
+- Čas dodania (ak je nastavený)
 - Tlačidlo **Pridať do košíka**
 
-Riadky, v ktorých sú všetky hodnoty identické, môžu byť automaticky skryté - zapnite možnosť **Skryť identické vlastnosti** v nastaveniach modulu. To umožňuje zamerať pozornosť zákazníka na rozdiely medzi produktmi.
+Riadky s identickými hodnotami môžu byť automaticky skryté, zapnite **Skryť identické vlastnosti** v nastaveniach. Zákazník uvidí len rozdiely medzi produktmi.
 
 ## Maximálny počet produktov
 
-Štandardne môže zákazník porovnať až **4 produkty** súčasne. Limit je možné zmeniť v nastaveniach alebo filtrom:
+Predvolene môže zákazník porovnať až **4 produkty** naraz. Limit zmeníte v nastaveniach alebo filtrom:
 
 ```php
 add_filter('polski/compare/max_items', function (): int {
@@ -35,13 +37,13 @@ add_filter('polski/compare/max_items', function (): int {
 });
 ```
 
-Po dosiahnutí limitu sa tlačidlo **Pridať do porovnania** deaktivuje s hlásením o dosiahnutom limite. Zákazník musí najprv odstrániť jeden z produktov.
+Po dosiahnutí limitu sa tlačidlo **Pridať do porovnania** stane neaktívnym. Zákazník musí najprv odstrániť jeden z produktov.
 
 ## Automatická výmena (auto-replace)
 
-Keď je možnosť **Automatická výmena** aktívna, pridanie produktu nad limit automaticky nahradí najstarší produkt v porovnaní novým. Zákazník dostane toast oznámenie o výmene.
+Keď je **Automatická výmena** zapnutá, nový produkt nad limit nahradí najstarší. Zákazník uvidí toast upozornenie o výmene.
 
-Zapnutie v nastaveniach: **WooCommerce > Polski > Obchodné moduly > Porovnávač > Automatická výmena**.
+Zapnutie v nastaveniach: **WooCommerce > Polski > Moduly obchodu > Porovnávač > Automatická výmena**.
 
 Alebo programovo:
 
@@ -49,30 +51,30 @@ Alebo programovo:
 add_filter('polski/compare/auto_replace', '__return_true');
 ```
 
-## Funkcia AJAX
+## Fungovanie AJAX
 
-Porovnávač funguje bez opätovného načítania stránky. AJAX akcie:
+Porovnávač funguje bez opätovného načítania stránky. Dostupné AJAX akcie:
 
-| Akcia                        | Popis                           |
+| Akcia                        | Popis                          |
 | ---------------------------- | ------------------------------ |
 | `polski_compare_add`         | Pridanie produktu              |
 | `polski_compare_remove`      | Odstránenie produktu           |
-| `polski_compare_get`         | Získanie zoznamu produktov     |
+| `polski_compare_get`         | Načítanie zoznamu produktov    |
 | `polski_compare_clear`       | Vyčistenie porovnania          |
 
-Údaje porovnania sú uložené v relácii WooCommerce (`WC()->session`), vďaka čomu fungujú pre hostí aj prihlásených používateľov.
+Údaje sú uložené v relácii WooCommerce (`WC()->session`). Fungujú pre hostí aj prihlásených zákazníkov.
 
-## Shortcód `[polski_compare]`
+## Shortcode `[polski_compare]`
 
-Shortcód zobrazuje tabuľku porovnania na ľubovoľnom mieste obchodu.
+Zobrazuje tabuľku porovnania na ľubovoľnom mieste obchodu.
 
 ### Parametre
 
-| Parameter        | Typ    | Predvolené | Popis                                          |
+| Parameter        | Typ    | Predvolene | Popis                                          |
 | --------------- | ------ | --------- | --------------------------------------------- |
-| `columns`       | string | `all`     | Vlastnosti na zobrazenie (oddelené čiarkou) |
-| `hide_similar`  | string | `no`      | Skryť riadky s identickými hodnotami        |
-| `show_remove`   | string | `yes`     | Zobraziť tlačidlo odstránenia produktu       |
+| `columns`       | string | `all`     | Vlastnosti na zobrazenie (oddelené čiarkou)    |
+| `hide_similar`  | string | `no`      | Skryť riadky s identickými hodnotami           |
+| `show_remove`   | string | `yes`     | Zobraziť tlačidlo odstránenia produktu         |
 
 ### Príklad použitia
 
@@ -80,19 +82,19 @@ Shortcód zobrazuje tabuľku porovnania na ľubovoľnom mieste obchodu.
 [polski_compare columns="image,name,price,rating,stock" hide_similar="yes"]
 ```
 
-### Použitie na špeciálnej stránke
+### Použitie na vyhradenej stránke
 
-Vytvorte stránku napr. **Porovnanie produktov** a vložte shortcód:
+Vytvorte stránku napr. **Porovnanie produktov** a vložte shortcode:
 
 ```html
 [polski_compare]
 ```
 
-Potom v nastaveniach modulu uveďte túto stránku ako **Stránka porovnania**. Tlačidlo **Zobraziť porovnanie** v popupe presmeruje na túto stránku.
+V nastaveniach modulu označte túto stránku ako **Stránka porovnania**. Tlačidlo **Zobraziť porovnanie** presmeruje na ňu.
 
 ## Tlačidlo porovnania
 
-Tlačidlo sa zobrazuje na karte produktu (stránka kategórie) a na stránke jednotlivého produktu. Pozíciu ovládate filtrom:
+Tlačidlo je viditeľné na karte produktu a na stránke produktu. Pozíciu zmeníte filtrom:
 
 ```php
 add_filter('polski/compare/button_position', function (): string {
@@ -104,17 +106,17 @@ Dostupné pozície: `before_add_to_cart`, `after_add_to_cart`, `after_summary`.
 
 ## Lišta porovnania (floating bar)
 
-Po pridaní prvého produktu do porovnania sa v spodnej časti obrazovky zobrazí lišta s miniatúrami vybraných produktov a tlačidlom **Porovnať**. Lišta je responzívna - na mobilných zariadeniach zobrazuje počet vybraných produktov namiesto miniatúr.
+Po pridaní prvého produktu sa v dolnej časti obrazovky objaví lišta s náhľadmi a tlačidlom **Porovnať**. Na mobile sa namiesto náhľadov zobrazuje počet vybraných produktov.
 
 ## Porovnanie v rámci kategórie
 
-Štandardne môže zákazník porovnávať produkty z rôznych kategórií. Ak chcete obmedziť porovnanie na produkty z rovnakej kategórie:
+Predvolene je možné porovnávať produkty z rôznych kategórií. Ak chcete obmedziť na rovnakú kategóriu:
 
 ```php
 add_filter('polski/compare/same_category_only', '__return_true');
 ```
 
-Pri pokuse o pridanie produktu z inej kategórie zákazník uvidí hlásenie s informáciou o obmedzení.
+Zákazník uvidí oznámenie, ak sa pokúsi pridať produkt z inej kategórie.
 
 ## Štýlovanie CSS
 
@@ -123,15 +125,15 @@ CSS triedy modulu:
 - `.polski-compare-button` - tlačidlo pridania do porovnania
 - `.polski-compare-button--active` - produkt je v porovnaní
 - `.polski-compare-table` - tabuľka porovnania
-- `.polski-compare-bar` - lišta v spodnej časti obrazovky
-- `.polski-compare-empty` - hlásenie prázdneho porovnania
+- `.polski-compare-bar` - lišta v dolnej časti obrazovky
+- `.polski-compare-empty` - oznámenie prázdneho porovnania
 
 ## Riešenie problémov
 
-**Tabuľka nezobrazuje atribúty** - uistite sa, že atribúty produktov sú nastavené ako **Viditeľné na stránke produktu** v úprave produktu (záložka Atribúty).
+**Tabuľka nezobrazuje atribúty** - skontrolujte, či majú atribúty zaškrtnuté **Viditeľné na stránke produktu** v úprave produktu (záložka Atribúty).
 
-**Tlačidlo nereaguje na kliknutie** - skontrolujte konzolu prehliadača na konflikty JavaScript. Najčastejšou príčinou je zduplikované jQuery alebo konflikt s pluginom optimalizujúcim JS.
+**Tlačidlo nereaguje na kliknutie** - skontrolujte konzolu prehliadača. Častou príčinou je duplikovaný jQuery alebo konflikt s pluginom optimalizujúcim JS.
 
 Nahlasovanie problémov: [github.com/wppoland/polski/issues](https://github.com/wppoland/polski/issues)
 
-<div class="disclaimer">Táto stránka slúži len na informačné účely a nepredstavuje právne poradenstvo. Pred implementáciou sa poraďte s právnikom. Polski for WooCommerce je open source softvér (GPLv2) poskytovaný bez záruky.</div>
+<div class="disclaimer">Táto stránka má výlučne informačný charakter a nepredstavuje právnu radu. Pred nasadením sa poraďte s právnikom. Polski for WooCommerce je open source softvér (GPLv2) dodávaný bez záruky.</div>

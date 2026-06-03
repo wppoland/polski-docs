@@ -3,11 +3,11 @@ title: Alergény
 description: Deklarácia alergénov pomocou taxonómie polski_allergen, automatické zvýrazňovanie v zložkách a shortcód zobrazovania vo WooCommerce.
 ---
 
-Predpisy EÚ vyžadujú označovanie 14 alergénov na etikete potravinárskeho produktu. V internetovom obchode musí byť informácia o alergénoch viditeľná pred nákupom. Plugin Polski for WooCommerce obsluhuje alergény cez taxonómiu WordPress.
+Predpisy EÚ vyžadujú označovanie 14 alergénov na etikete potravinárskeho produktu. V internetovom obchode musí byť informácia o alergénoch viditeľná pred nákupom. Plugin Polski for WooCommerce spravuje alergény cez taxonómiu WordPress.
 
 ## 14 hlavných alergénov
 
-V súlade s prílohou II nariadenia FIC povinná deklarácia zahŕňa:
+Povinná deklarácia zahŕňa:
 
 | Č. | Alergén | Slug taxonómie | Ikona |
 |----|---------|----------------|-------|
@@ -15,37 +15,37 @@ V súlade s prílohou II nariadenia FIC povinná deklarácia zahŕňa:
 | 2 | Kôrovce | `crustaceans` | kôrovce |
 | 3 | Vajcia | `eggs` | vajcia |
 | 4 | Ryby | `fish` | ryby |
-| 5 | Arašidy | `peanuts` | arašidy |
+| 5 | Arašidy (búrske oriešky) | `peanuts` | arašidy |
 | 6 | Sója | `soy` | sója |
 | 7 | Mlieko (laktóza) | `milk` | mlieko |
 | 8 | Orechy | `nuts` | orechy |
 | 9 | Zeler | `celery` | zeler |
 | 10 | Horčica | `mustard` | horčica |
-| 11 | Sezamové semienka | `sesame` | sezam |
+| 11 | Sezamové semená | `sesame` | sezam |
 | 12 | Oxid siričitý a siričitany | `sulphites` | siričitany |
-| 13 | Vlčí bôb | `lupin` | vlčí bôb |
+| 13 | Vlčí bôb (lupina) | `lupin` | lupina |
 | 14 | Mäkkýše | `molluscs` | mäkkýše |
 
 ## Taxonómia polski_allergen
 
-Plugin registruje taxonómiu `polski_allergen` prepojenú s typom príspevku `product`. Počas aktivácie pluginu je taxonómia automaticky vyplnená 14 hlavnými alergénmi.
+Plugin vytvára taxonómiu `polski_allergen` prepojenú s produktmi. Pri aktivácii automaticky pridá 14 hlavných alergénov.
 
 ### Správa alergénov
 
-Prejdite do **Produkty > Alergény** na správu zoznamu alergénov. Predvolených 14 alergénov je vytvorených automaticky. Môžete pridávať vlastné alergény špecifické pre váš sortiment.
+Prejdi na **Produkty > Alergény** na správu zoznamu. 14 alergénov sa vytvorí automaticky. Môžeš pridávať vlastné, špecifické pre tvoj sortiment.
 
 Každý alergén obsahuje:
 
 | Pole | Popis |
 |------|------|
-| Názov | Zobrazovaný názov alergénu (napr. "Mlieko a výrobky z mlieka") |
-| Slug | URL identifikátor (napr. `milk`) |
-| Popis | Ďalšie informácie o alergéne |
+| Názov | Zobrazovaný názov alergénu (napr. "Mlieko a produkty z neho") |
+| Slug | Identifikátor URL (napr. `milk`) |
+| Popis | Doplnkové informácie o alergéne |
 | Ikona | Voliteľná ikona (miniatúra taxonómie) |
 
-### Priradenie alergénov k produktu
+### Priraďovanie alergénov k produktu
 
-V editore produktu, v záložke "Potraviny" alebo v bočnom paneli "Alergény", zaškrtnite príslušné alergény zo zoznamu checkbox.
+V editore produktu, v záložke "Potraviny" alebo v bočnom paneli "Alergény", zaškrtni príslušné alergény zo zoznamu checkbox.
 
 Dostupné sú tri režimy deklarácie:
 
@@ -57,55 +57,55 @@ Dostupné sú tri režimy deklarácie:
 
 ### Režim "Môže obsahovať"
 
-Režim "Môže obsahovať" (may contain) slúži na označenie rizika stopových množstiev alergénu vyplývajúcich z výrobných procesov. V editore produktu je možné každý alergén označiť ako:
+Režim "Môže obsahovať" označuje riziko stopových množstiev alergénu z výrobného procesu. Každý alergén označíš ako:
 
 - **Obsahuje** - alergén je zložkou produktu
 - **Môže obsahovať** - riziko stopových množstiev
 
 ## Konfigurácia
 
-Prejdite do **WooCommerce > Nastavenia > Polski > Potraviny** a nakonfigurujte sekciu "Alergény".
+Prejdi na **WooCommerce > Nastavenia > Polski > Potraviny** a nakonfiguruj sekciu "Alergény".
 
 | Nastavenie | Predvolené | Popis |
 |------------|----------|------|
-| Zapnúť deklaráciu alergénov | Áno | Aktivuje systém alergénov |
-| Zvýrazňovať v zložkách | Áno | Automatické tučné písmo alergénov v zozname zložiek |
-| Zobrazovať ikony | Nie | Zobrazuje ikony alergénov |
+| Zapni deklaráciu alergénov | Áno | Aktivuje systém alergénov |
+| Zvýrazňuj v zložkách | Áno | Automatické zvýraznenie alergénov v zozname zložiek |
+| Zobraz ikony | Nie | Zobrazuje ikony alergénov |
 | Pozícia na stránke | Záložka potraviny | Kde zobrazovať alergény |
 | Režim "Môže obsahovať" | Áno | Zapína možnosť deklarácie stopových množstiev |
-| Formát zobrazovania | Zoznam | `zoznam`, `ikony`, `inline` |
+| Formát zobrazenia | Zoznam | `zoznam`, `ikony`, `inline` |
 
 ## Automatické zvýrazňovanie v zložkách
 
-V súlade s čl. 21 nariadenia FIC musia byť alergény v zozname zložiek zvýraznené - zvyčajne tučným písmom alebo veľkými písmenami. Plugin automaticky vyhľadáva názvy alergénov v poli "Zloženie" a obaľuje ich tagom `<strong>`.
+Alergény v zozname zložiek musia byť zvýraznené - najčastejšie tučným písmom. Plugin automaticky vyhľadáva názvy alergénov v poli "Zloženie" a obaľuje ich do `<strong>`.
 
 Príklad:
 
 Zadaný text:
 ```
-Mąka pszenna, cukier, masło, jaja kurze, mleko odtłuszczone w proszku, sól
+Pšeničná múka, cukor, maslo, slepačie vajcia, sušené odstredené mlieko, soľ
 ```
 
-Zobrazený text:
+Zobrazovaný text:
 ```
-Mąka pszenna (gluten), cukier, masło (mleko), jaja kurze, mleko odtłuszczone w proszku, sól
+Pšeničná múka (lepok), cukor, maslo (mlieko), slepačie vajcia, sušené odstredené mlieko, soľ
 ```
 
-S HTML zvýraznením:
+So zvýraznením HTML:
 ```html
-Mąka <strong>pszenna (gluten)</strong>, cukier, masło (<strong>mleko</strong>), 
-<strong>jaja</strong> kurze, <strong>mleko</strong> odtłuszczone w proszku, sól
+<strong>Pšeničná múka (lepok)</strong>, cukor, maslo (<strong>mlieko</strong>), 
+slepačie <strong>vajcia</strong>, sušené odstredené <strong>mlieko</strong>, soľ
 ```
 
 ### Konfigurácia zvýrazňovania
 
-Plugin prehľadáva zoznam zložiek na synonymá alergénov. Zoznam synoným je konfigurovateľný:
+Plugin hľadá synonymá alergénov v zozname zložiek. Zoznam synoným zmeníš filtrom:
 
 ```php
 add_filter('polski/allergens/synonyms', function (array $synonyms): array {
-    $synonyms['gluten'] = ['pszenica', 'pszenna', 'żyto', 'żytnia', 'owies', 'owsiana', 'jęczmień', 'orkisz'];
-    $synonyms['milk'] = ['mleko', 'mleczny', 'mleczna', 'masło', 'śmietana', 'jogurt', 'ser', 'laktoza'];
-    $synonyms['eggs'] = ['jaja', 'jajka', 'jajeczny', 'jajeczna'];
+    $synonyms['gluten'] = ['pšenica', 'pšeničná', 'raž', 'ražná', 'ovos', 'ovsená', 'jačmeň', 'špalda'];
+    $synonyms['milk'] = ['mlieko', 'mliečny', 'mliečna', 'maslo', 'smotana', 'jogurt', 'syr', 'laktóza'];
+    $synonyms['eggs'] = ['vajcia', 'vajíčka', 'vaječný', 'vaječná'];
 
     return $synonyms;
 });
@@ -113,7 +113,7 @@ add_filter('polski/allergens/synonyms', function (array $synonyms): array {
 
 ## Shortcód
 
-Použite shortcód `[polski_allergens]` na zobrazenie deklarácie alergénov.
+Použi shortcód `[polski_allergens]` na zobrazenie deklarácie alergénov.
 
 ### Parametre
 
@@ -123,8 +123,8 @@ Použite shortcód `[polski_allergens]` na zobrazenie deklarácie alergénov.
 | `format` | string | `list` | Formát: `list`, `icons`, `inline`, `table` |
 | `show_may_contain` | bool | `true` | Či zobrazovať sekciu "Môže obsahovať" |
 | `show_icons` | bool | `false` | Či zobrazovať ikony alergénov |
-| `label` | string | `"Alergeny: "` | Štítok pred zoznamom |
-| `wrapper` | string | `div` | Obaľujúci HTML prvok |
+| `label` | string | `"Alergény: "` | Označenie pred zoznamom |
+| `wrapper` | string | `div` | Obaľujúci HTML element |
 
 ### Príklady použitia
 
@@ -136,8 +136,8 @@ Základný zoznam alergénov:
 
 Výsledok:
 ```
-Alergeny: mleko, jaja, gluten
-Może zawierać: orzechy
+Alergény: mlieko, vajcia, lepok
+Môže obsahovať: orechy
 ```
 
 Formát inline s ikonami:
@@ -170,16 +170,16 @@ V PHP šablóne:
 echo do_shortcode('[polski_allergens product_id="' . $product->get_id() . '"]');
 ```
 
-## Programový prístup
+## Programátorský prístup
 
-### Získanie alergénov produktu
+### Načítanie alergénov produktu
 
 ```php
 // Alergény "Obsahuje"
 $allergens = wp_get_object_terms($product_id, 'polski_allergen');
 
 foreach ($allergens as $allergen) {
-    echo $allergen->name; // napr. "Mleko i produkty pochodne"
+    echo $allergen->name; // napr. "Mlieko a produkty z neho"
 }
 
 // Alergény "Môže obsahovať"
@@ -192,7 +192,7 @@ if ($may_contain) {
 }
 ```
 
-### Priradenie alergénov programovo
+### Priraďovanie alergénov programátorsky
 
 ```php
 // Nastavenie alergénov "Obsahuje"
@@ -210,11 +210,11 @@ if (has_term('gluten', 'polski_allergen', $product_id)) {
 }
 ```
 
-## Import CSV
+## CSV import
 
-Alergény je možné importovať cez CSV:
+Alergény importuješ cez CSV:
 
-| Stĺpec CSV | Popis | Formát |
+| CSV stĺpec | Popis | Formát |
 |-------------|------|--------|
 | `polski_allergens` | Alergény "Obsahuje" | Slugy oddelené čiarkami |
 | `polski_may_contain` | Alergény "Môže obsahovať" | Slugy oddelené čiarkami |
@@ -222,11 +222,11 @@ Alergény je možné importovať cez CSV:
 Príklad:
 
 ```csv
-"Ciastka maślane","gluten,milk,eggs","nuts,soy"
-"Sok pomarańczowy","",""
+"Maslové sušienky","gluten,milk,eggs","nuts,soy"
+"Pomarančový džús","",""
 ```
 
-## Štýlovanie CSS
+## CSS štýlovanie
 
 ```css
 .polski-allergens {
@@ -277,24 +277,24 @@ Príklad:
 
 ### Alergény sa nezobrazujú na stránke produktu
 
-1. Skontrolujte, či modul alergénov je zapnutý
-2. Uistite sa, že produkt má priradené alergény v editore
-3. Overte, či taxonómia `polski_allergen` je správne zaregistrovaná (Produkty > Alergény)
+1. Skontroluj, či je modul alergénov zapnutý
+2. Uisti sa, že produkt má priradené alergény v editore
+3. Over, či je taxonómia `polski_allergen` správne zaregistrovaná (Produkty > Alergény)
 
 ### Automatické zvýrazňovanie nefunguje
 
-1. Skontrolujte, či možnosť "Zvýrazňovať v zložkách" je zapnutá
-2. Uistite sa, že názvy alergénov alebo ich synonymá zodpovedajú textu v zozname zložiek
-3. Rozšírte zoznam synoným filtrom `polski/allergens/synonyms`
+1. Skontroluj, či je možnosť "Zvýrazňuj v zložkách" zapnutá
+2. Uisti sa, že názvy alergénov alebo ich synonymá zodpovedajú textu v zozname zložiek
+3. Rozšír zoznam synoným filtrom `polski/allergens/synonyms`
 
 ### Chýbajú predvolené alergény po aktivácii
 
-Ak zoznam 14 alergénov nebol vytvorený automaticky, prejdite do **WooCommerce > Nastavenia > Polski > Potraviny** a kliknite na "Vytvoriť predvolené alergény".
+Ak sa 14 alergénov neobjavilo automaticky, prejdi na **WooCommerce > Nastavenia > Polski > Potraviny** a klikni na "Vytvoriť predvolené alergény".
 
 ## Súvisiace zdroje
 
-- [Modul potravinárskych produktov](/sk/food/food-overview/)
-- [Výživové hodnoty](/sk/food/nutrients/)
+- [Modul potravinárskych produktov](food/food-overview/)
+- [Výživové hodnoty](food/nutrients/)
 - [Nahlásiť problém](https://github.com/wppoland/polski/issues)
 
-<div class="disclaimer">Táto stránka slúži len na informačné účely a nepredstavuje právne poradenstvo. Pred implementáciou sa poraďte s právnikom. Polski for WooCommerce je open source softvér (GPLv2) poskytovaný bez záruky.</div>
+<div class="disclaimer">Táto stránka má výlučne informatívny charakter a nepredstavuje právne poradenstvo. Pred nasadením sa poraďte s právnikom. Polski for WooCommerce je open source softvér (GPLv2) poskytovaný bez záruky.</div>

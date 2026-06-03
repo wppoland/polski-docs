@@ -1,99 +1,101 @@
 ---
-title: Právne checkboxy
-description: Konfigurácia, validácia a personalizácia povinných právnych checkboxov na stránke pokladne WooCommerce.
+title: Právne zaškrtávacie polia
+description: Konfigurácia, validácia a personalizácia povinných právnych zaškrtávacích polí na stránke pokladne WooCommerce.
 ---
 
-Pred zadaním objednávky musí zákazník akceptovať obchodné podmienky a zásady ochrany osobných údajov. Plugin Polski for WooCommerce pridáva právne checkboxy s konfiguráciou obsahu, validáciou a chybovými hláseniami.
+Pred vytvorením objednávky musí zákazník akceptovať obchodné podmienky a zásady ochrany osobných údajov. Doplnok Polski for WooCommerce pridáva právne zaškrtávacie polia s konfiguráciou obsahu, validáciou a chybovými oznamami.
 
 ## Právne požiadavky
 
-V súlade so zákonom o právach spotrebiteľa a zákonom o poskytovaní služieb elektronickou cestou musí internetový obchod získať od spotrebiteľa výslovný súhlas na:
+Obchod musí získať výslovný súhlas zákazníka s:
 
-- obchodné podmienky (podmienky kúpnej zmluvy)
-- zásady ochrany osobných údajov (spracovanie osobných údajov)
-- právo na odstúpenie od zmluvy (informácia o 14-dňovej lehote)
+- obchodnými podmienkami (podmienky kúpnej zmluvy)
+- zásadami ochrany osobných údajov (spracúvanie osobných údajov)
+- právom na odstúpenie od zmluvy (informácia o 14-dňovej lehote)
 
-Súhlasy musia byť vyjadrené aktívne (checkbox nesmie byť štandardne zaškrtnutý) a osobitne pre každý účel.
+Každý súhlas vyžaduje samostatné zaškrtávacie pole. Pole nesmie byť predvolene zaškrtnuté.
+
+![Právne zaškrtávacie polia na stránke pokladne WooCommerce](../../../../assets/screenshots/screenshot-3-checkout-checkboxes.png)
 
 ## Konfigurácia
 
-Prejdite do **WooCommerce > Nastavenia > Polski > Pokladňa** a nakonfigurujte sekciu "Právne checkboxy".
+Prejdite do **WooCommerce > Nastavenia > Polski > Pokladňa** a nakonfigurujte sekciu "Právne zaškrtávacie polia".
 
-### Predvolené checkboxy
+### Predvolené zaškrtávacie polia
 
-Plugin pridáva nasledujúce checkboxy:
+Doplnok pridáva tieto zaškrtávacie polia:
 
-| Checkbox | Povinný | Predvolený obsah |
+| Zaškrtávacie pole | Povinné | Predvolený obsah |
 |----------|----------|----------------|
-| Obchodné podmienky | Áno | Oboznámil/a som sa s [obchodnými podmienkami] a akceptujem ich ustanovenia. |
-| Zásady ochrany osobných údajov | Áno | Oboznámil/a som sa so [zásadami ochrany osobných údajov] a súhlasím so spracovaním mojich osobných údajov. |
-| Právo na odstúpenie | Áno | Bol/a som informovaný/á o práve na odstúpenie od zmluvy v lehote 14 dní. |
+| Obchodné podmienky | Áno | Oboznámil som sa s [obchodnými podmienkami] a akceptujem ich ustanovenia. |
+| Zásady ochrany osobných údajov | Áno | Oboznámil som sa so [zásadami ochrany osobných údajov] a súhlasím so spracúvaním mojich osobných údajov. |
+| Právo na odstúpenie | Áno | Bol som informovaný o práve na odstúpenie od zmluvy v lehote 14 dní. |
 | Marketingový súhlas | Nie | Súhlasím s prijímaním obchodných informácií elektronickou cestou. |
 
-### Pridanie vlastného checkboxu
+### Pridanie vlastného zaškrtávacieho poľa
 
-V paneli konfigurácie kliknite na **Pridať checkbox** a vyplňte formulár:
+V paneli konfigurácie kliknite na **Pridať zaškrtávacie pole** a vyplňte formulár:
 
 | Pole | Popis |
 |------|------|
 | Názov | Interný identifikátor (napr. `newsletter_consent`) |
-| Štítok | Text zobrazený vedľa checkboxu |
-| Povinný | Či checkbox musí byť zaškrtnutý na zadanie objednávky |
-| Pozícia | Poradie zobrazovania (číslo) |
-| Popis | Ďalší text pod checkboxom (voliteľný) |
-| Chybové hlásenie | Text zobrazený, keď povinný checkbox nie je zaškrtnutý |
+| Štítok | Text zobrazený vedľa zaškrtávacieho poľa |
+| Povinné | Či musí byť pole zaškrtnuté pre vytvorenie objednávky |
+| Pozícia | Poradie zobrazenia (číslo) |
+| Popis | Doplnkový text pod zaškrtávacím poľom (voliteľný) |
+| Chybový oznam | Text zobrazený, keď povinné pole nie je zaškrtnuté |
 
 ### Formátovanie štítkov
 
-V obsahu štítku môžete používať:
+V texte štítku môžete používať:
 
 - `[regulamin]` - automatický odkaz na stránku obchodných podmienok
 - `[polityka-prywatnosci]` - automatický odkaz na zásady ochrany osobných údajov
 - `[odstapienie]` - odkaz na stránku o práve na odstúpenie
 - `<a href="URL">text</a>` - vlastný odkaz
-- `<strong>text</strong>` - tučné písmo
+- `<strong>text</strong>` - zvýraznenie
 
-Stránky obchodných podmienok a zásad ochrany osobných údajov sú načítavané z nastavení WooCommerce (**WooCommerce > Nastavenia > Rozšírené > Konfigurácia stránky**).
+Stránky obchodných podmienok a zásad ochrany osobných údajov sa preberajú z **WooCommerce > Nastavenia > Pokročilé > Konfigurácia stránky**.
 
 ## Validácia
 
 ### Validácia na strane servera
 
-Plugin validuje checkboxy na strane servera pomocou hooku `woocommerce_checkout_process`. Ak povinný checkbox nie je zaškrtnutý, objednávka nebude zadaná a zákazník uvidí chybové hlásenie.
+Doplnok kontroluje zaškrtávacie polia na strane servera hookom `woocommerce_checkout_process`. Ak povinné pole nie je zaškrtnuté, objednávka neprejde a zákazník uvidí chybu.
 
 ### Validácia na strane klienta
 
-Voliteľná JavaScript validácia zobrazuje chybové hlásenie okamžite po kliknutí na tlačidlo objednávky, bez opätovného načítania stránky. Zapnite ju v nastaveniach:
+Voliteľná JavaScript validácia zobrazí chybu okamžite po kliknutí na tlačidlo, bez znovunačítania stránky. Zapnite ju v:
 
-**WooCommerce > Nastavenia > Polski > Pokladňa > JS validácia checkboxov**
+**WooCommerce > Nastavenia > Polski > Pokladňa > JS validácia zaškrtávacích polí**
 
-### Chybové hlásenia
+### Chybové oznamy
 
-Každý checkbox má konfigurovateľné chybové hlásenie. Predvolené hlásenia:
+Každé zaškrtávacie pole má konfigurovateľný chybový oznam. Predvolené oznamy:
 
-| Checkbox | Chybové hlásenie |
+| Zaškrtávacie pole | Chybový oznam |
 |----------|----------------|
-| Obchodné podmienky | Na zadanie objednávky musíte akceptovať obchodné podmienky. |
-| Zásady ochrany osobných údajov | Na zadanie objednávky musíte akceptovať zásady ochrany osobných údajov. |
+| Obchodné podmienky | Pre vytvorenie objednávky musíte akceptovať obchodné podmienky. |
+| Zásady ochrany osobných údajov | Pre vytvorenie objednávky musíte akceptovať zásady ochrany osobných údajov. |
 | Právo na odstúpenie | Musíte potvrdiť oboznámenie sa s informáciou o práve na odstúpenie. |
 
 ## Uchovávanie súhlasov
 
-Plugin ukladá informácie o udelených súhlasoch:
+Doplnok ukladá informácie o súhlasoch:
 
 - ako metadáta objednávky (`_polski_consent_*`)
 - s dátumom a časom udelenia súhlasu
 - s verziou obchodných podmienok/zásad ochrany osobných údajov (ak je zapnuté sledovanie verzií)
 
-Tieto informácie sú viditeľné v administračnom paneli objednávky a môžu byť exportované na požiadanie (GDPR).
+Tieto údaje vidno v admin paneli objednávky. Možno ich exportovať na účely GDPR.
 
 ### Náhľad súhlasov v objednávke
 
 V zobrazení objednávky v administračnom paneli, v sekcii "Právne súhlasy", nájdete zoznam udelených súhlasov s dátumami.
 
-## Programová správa checkboxov
+## Programová správa zaškrtávacích polí
 
-### Pridanie checkboxu programovo
+### Pridanie zaškrtávacieho poľa programovo
 
 ```php
 add_filter('polski/checkout/legal_checkboxes', function (array $checkboxes): array {
@@ -109,7 +111,7 @@ add_filter('polski/checkout/legal_checkboxes', function (array $checkboxes): arr
 });
 ```
 
-### Odstránenie checkboxu
+### Odstránenie zaškrtávacieho poľa
 
 ```php
 add_filter('polski/checkout/legal_checkboxes', function (array $checkboxes): array {
@@ -119,7 +121,7 @@ add_filter('polski/checkout/legal_checkboxes', function (array $checkboxes): arr
 });
 ```
 
-### Úprava existujúceho checkboxu
+### Úprava existujúceho zaškrtávacieho poľa
 
 ```php
 add_filter('polski/checkout/legal_checkboxes', function (array $checkboxes): array {
@@ -131,7 +133,7 @@ add_filter('polski/checkout/legal_checkboxes', function (array $checkboxes): arr
 });
 ```
 
-### Podmienené zobrazovanie checkboxu
+### Podmienené zobrazenie zaškrtávacieho poľa
 
 ```php
 add_filter('polski/checkout/legal_checkboxes', function (array $checkboxes): array {
@@ -184,26 +186,26 @@ add_filter('polski/checkout/legal_checkboxes', function (array $checkboxes): arr
 
 ## Kompatibilita s Block Checkout
 
-Plugin podporuje právne checkboxy v klasickom checkout aj v Block Checkout. V prípade Block Checkout sa checkboxy renderujú pomocou bloku `woocommerce/checkout-terms-block`.
+Doplnok podporuje zaškrtávacie polia v klasickej pokladni aj Block Checkout. V Block Checkout zaškrtávacie polia fungujú cez blok `woocommerce/checkout-terms-block`.
 
 ## Najčastejšie problémy
 
-### Checkboxy sa nezobrazujú
+### Zaškrtávacie polia sa nezobrazujú
 
-1. Skontrolujte, či modul je zapnutý v nastaveniach
+1. Skontrolujte, či je modul zapnutý v nastaveniach
 2. Uistite sa, že stránky obchodných podmienok a zásad ochrany osobných údajov sú nastavené vo WooCommerce
-3. Overte, či iný plugin neodstraňuje checkboxy
+3. Overte, či iný doplnok neodstraňuje zaškrtávacie polia
 
 ### Odkaz v štítku nefunguje
 
-Skontrolujte, či cieľová stránka je publikovaná (nie v koncepte) a či skratka (napr. `[regulamin]`) je správne vpísaná.
+Skontrolujte, či je cieľová stránka publikovaná (nie v koncepte) a či je skratka (napr. `[regulamin]`) správne zadaná.
 
-### Objednávka prechádza napriek nezaškrtnutému checkboxu
+### Objednávka prejde napriek nezaškrtnutému poľu
 
-Skontrolujte, či checkbox je označený ako "Povinný". Overte konzolu prehliadača na chyby JavaScript, ktoré môžu blokovať validáciu na strane klienta.
+Skontrolujte, či je zaškrtávacie pole označené ako "Povinné". Overte konzolu prehliadača kvôli JavaScript chybám, ktoré môžu blokovať validáciu na strane klienta.
 
 ## Súvisiace zdroje
 
 - [Nahlásiť problém](https://github.com/wppoland/polski/issues)
 
-<div class="disclaimer">Táto stránka slúži len na informačné účely a nepredstavuje právne poradenstvo. Pred implementáciou sa poraďte s právnikom. Polski for WooCommerce je open source softvér (GPLv2) poskytovaný bez záruky.</div>
+<div class="disclaimer">Táto stránka má výlučne informatívny charakter a nepredstavuje právne poradenstvo. Pred nasadením sa poraďte s právnikom. Polski for WooCommerce je open source softvér (GPLv2) poskytovaný bez záruky.</div>

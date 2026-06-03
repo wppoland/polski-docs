@@ -1,9 +1,9 @@
 ---
 title: B2B katalógový režim
-description: Modul katalógového režimu Polski PRO for WooCommerce - skrytie cien, blokácia nákupov, presmerovanie na cenové dopyty a integrácia s modulom RFQ.
+description: Modul katalógového režimu Polski PRO for WooCommerce - skrývanie cien, blokovanie nákupov, presmerovanie na cenové ponuky a integrácia s modulom RFQ.
 ---
 
-Katalógový režim premení obchod na katalóg bez možnosti nákupu. Skryte ceny, nahraďte tlačidlá správami alebo presmerujte na cenový dopyt. Určené pre B2B obchody s individuálnymi cenami.
+Katalógový režim zmení obchod na katalóg bez možnosti nákupu. Skryte ceny, zameňte tlačidlá za správy alebo presmerujte na cenovú ponuku. Určený pre B2B obchody s individuálnymi cenami.
 
 :::note[Požiadavky]
 Polski PRO vyžaduje: Polski (free) v1.3.0+, WordPress 6.4+, WooCommerce 8.0+, PHP 8.1+
@@ -11,18 +11,18 @@ Polski PRO vyžaduje: Polski (free) v1.3.0+, WordPress 6.4+, WooCommerce 8.0+, P
 
 ## Konfigurácia
 
-Prejdite do **WooCommerce > Nastavenia > Polski PRO > Katalógový režim** a zapnite modul (voľba `polski_catalog`).
+Prejdite do **WooCommerce > Nastavenia > Polski PRO > Katalógový režim** a zapnite modul (možnosť `polski_catalog`).
 
 ### Hlavné nastavenia
 
-| Nastavenie | Voľba v databáze | Predvolená hodnota | Popis |
+| Nastavenie | Možnosť v databáze | Predvolená hodnota | Popis |
 |------------|---------------|------------------|------|
 | Zapnúť katalógový režim | `polski_catalog` | Nie | Aktivuje katalógový režim |
 | Skryť ceny | `polski_catalog_hide_prices` | Áno | Odstráni zobrazovanie cien |
 | Skryť tlačidlo košíka | `polski_catalog_hide_cart` | Áno | Odstráni tlačidlo "Pridať do košíka" |
-| Náhradný text ceny | `polski_catalog_price_text` | "Zapytaj o cenę" | Text zobrazovaný namiesto ceny |
-| Správa na produkte | `polski_catalog_notice` | "" | Správa zobrazovaná na stránke produktu |
-| Presmerovať na RFQ | `polski_catalog_redirect_rfq` | Nie | Presmerovanie na formulár cenového dopytu |
+| Náhradný text ceny | `polski_catalog_price_text` | "Opýtať sa na cenu" | Text zobrazený namiesto ceny |
+| Správa na produkte | `polski_catalog_notice` | "" | Správa zobrazená na stránke produktu |
+| Presmerovať na RFQ | `polski_catalog_redirect_rfq` | Nie | Presmerovanie na formulár cenovej ponuky |
 | Podmienený režim | `polski_catalog_conditional` | `all` | `all`, `guests`, `roles` |
 
 ### Podmienený režim
@@ -30,15 +30,15 @@ Prejdite do **WooCommerce > Nastavenia > Polski PRO > Katalógový režim** a za
 Katalógový režim môže byť aktívny:
 
 - **Pre všetkých** (`all`) - každý vidí katalóg bez cien
-- **Iba pre neprihlásených** (`guests`) - prihlásení zákazníci vidia ceny a môžu nakupovať
-- **Pre vybrané roly** (`roles`) - katalóg aktívny iba pre vybrané roly WordPress
+- **Len pre neprihlásených** (`guests`) - prihlásení zákazníci vidia ceny a môžu nakupovať
+- **Pre vybrané roly** (`roles`) - katalóg aktívny len pre vybrané roly WordPress
 
-Podmienený režim "Iba pre neprihlásených" je populárny v B2B modeloch, kde veľkoobchod vyžaduje registráciu účtu pred odhalením cien.
+Režim "Len pre neprihlásených" je populárny v B2B - veľkoobchod vyžaduje registráciu pred odhalením cien.
 
 ```php
-// Príklad: vlastná podmienená logika
+// Przykład: własna logika warunkowa
 add_filter('polski_pro/catalog/is_active', function (bool $is_active): bool {
-    // Vypnúť katalógový režim pre zákazníkov s aspoň 5 objednávkami
+    // Wyłącz tryb katalogowy dla klientów z co najmniej 5 zamówieniami
     if (is_user_logged_in()) {
         $order_count = wc_get_customer_order_count(get_current_user_id());
         if ($order_count >= 5) {
@@ -51,16 +51,16 @@ add_filter('polski_pro/catalog/is_active', function (bool $is_active): bool {
 
 ## Mechanizmus fungovania
 
-### Skrytie cien
+### Skrývanie cien
 
-Modul sa pripojí k filtru `woocommerce_get_price_html` a nahradí HTML ceny nakonfigurovaným náhradným textom.
+Modul používa filter `woocommerce_get_price_html` a nahradí cenu nakonfigurovaným textom.
 
 ```php
 /**
- * Filtruje tekst zastępczy ceny w trybie katalogowym.
+ * Filtruje náhradný text ceny v katalógovom režime.
  *
- * @param string      $replacement Tekst zastępczy
- * @param \WC_Product $product     Obiekt produktu
+ * @param string      $replacement Náhradný text
+ * @param \WC_Product $product     Objekt produktu
  */
 apply_filters('polski_pro/catalog/price_replacement', string $replacement, \WC_Product $product): string;
 ```
@@ -76,16 +76,16 @@ add_filter('polski_pro/catalog/price_replacement', function (string $replacement
 }, 10, 2);
 ```
 
-### Blokácia nákupov
+### Blokovanie nákupov
 
-Modul využíva filter `woocommerce_is_purchasable` na zablokovanie možnosti nákupu:
+Modul blokuje nákup filtrom `woocommerce_is_purchasable`:
 
 ```php
 /**
- * Filtruje, czy produkt jest dostępny do zakupu w trybie katalogowym.
+ * Filtruje, či je produkt dostupný na nákup v katalógovom režime.
  *
- * @param bool        $purchasable Czy produkt jest dostępny do zakupu
- * @param \WC_Product $product     Obiekt produktu
+ * @param bool        $purchasable Či je produkt dostupný na nákup
+ * @param \WC_Product $product     Objekt produktu
  */
 apply_filters('polski_pro/catalog/is_purchasable', bool $purchasable, \WC_Product $product): bool;
 ```
@@ -94,7 +94,7 @@ apply_filters('polski_pro/catalog/is_purchasable', bool $purchasable, \WC_Produc
 
 ```php
 add_filter('polski_pro/catalog/is_purchasable', function (bool $purchasable, \WC_Product $product): bool {
-    $always_purchasable = [101, 102, 103]; // ID produktov vždy dostupných
+    $always_purchasable = [101, 102, 103]; // ID produktów zawsze dostępnych
     if (in_array($product->get_id(), $always_purchasable, true)) {
         return true;
     }
@@ -104,56 +104,56 @@ add_filter('polski_pro/catalog/is_purchasable', function (bool $purchasable, \WC
 
 ### Správa na stránke produktu
 
-Keď je voľba `polski_catalog_notice` nastavená, na stránke jednotlivého produktu sa zobrazuje správa (notice) informujúca zákazníka o katalógovom režime.
+Keď je `polski_catalog_notice` nastavené, na stránke produktu sa zobrazí správa o katalógovom režime.
 
 Príklad správy:
 
-> Aby ste zistili cenu tohto produktu, kontaktujte náš obchodný tím alebo vyplňte formulár cenového dopytu.
+> Ak chcete poznať cenu tohto produktu, kontaktujte náš obchodný tím alebo vyplňte formulár cenovej ponuky.
 
-## Integrácia s modulom cenových dopytov
+## Integrácia s modulom cenových ponúk
 
-Keď je voľba `polski_catalog_redirect_rfq` zapnutá, náhradné tlačidlo na stránke produktu smeruje na formulár cenového dopytu ([modul RFQ](/pro/quotes)). Integrácia zahŕňa:
+Keď je `polski_catalog_redirect_rfq` zapnuté, tlačidlo smeruje na formulár cenovej ponuky ([modul RFQ](/pro/quotes)):
 
 1. Tlačidlo "Opýtať sa na cenu" namiesto "Pridať do košíka"
 2. Automatické odovzdanie ID produktu do formulára RFQ
-3. Predvyplnenie názvu produktu vo formulári
-4. Návrat na produkt po odoslaní dopytu
+3. Pre-fill názvu produktu vo formulári
+4. Návrat na produkt po odoslaní ponuky
 
 Aby integrácia fungovala, oba moduly - katalógový a RFQ - musia byť aktívne.
 
 ## Skrývanie prvkov
 
-Okrem cien a tlačidla košíka modul automaticky skrýva:
+Modul automaticky skrýva:
 
 | Prvok | Hook WooCommerce | Efekt |
 |---------|-----------------|-------|
 | Tlačidlo "Pridať do košíka" | `woocommerce_is_purchasable` | Produkt označený ako nedostupný na nákup |
 | Cena | `woocommerce_get_price_html` | HTML ceny nahradené textom |
 | Ikona košíka v hlavičke | `polski_pro/catalog/hide_cart_icon` | Skryje ikonu mini-košíka |
-| Stránka košíka | `template_redirect` | Presmerovanie z /cart/ na hlavnú stránku |
-| Stránka checkoutu | `template_redirect` | Presmerovanie z /checkout/ na hlavnú stránku |
+| Stránka košíka | `template_redirect` | Presmerovanie z /cart/ na domovskú stránku |
+| Stránka pokladne | `template_redirect` | Presmerovanie z /checkout/ na domovskú stránku |
 
 ### Selektívne skrývanie
 
-Nie je nutné skrývať všetky prvky naraz. Každú voľbu je možné zapnúť alebo vypnúť nezávisle. Napríklad:
+Každú možnosť zapnite alebo vypnite nezávisle. Napríklad:
 
-- Skryť ceny, ale nechať tlačidlo košíka (zákazník kupuje "za neznámu cenu" - kontakt po objednávke)
-- Skryť tlačidlo košíka, ale zobraziť ceny (zákazník vidí ceny, ale musí sa opýtať na nákup)
-- Skryť všetko (plný katalógový režim)
+- Skry ceny, ale ponechaj tlačidlo košíka (zákazník kupuje "za neznámu cenu" - kontakt po objednávke)
+- Skry tlačidlo košíka, ale zobraz ceny (zákazník vidí ceny, ale musí sa opýtať na nákup)
+- Skry všetko (plný katalógový režim)
 
 ## Vylúčenie produktov a kategórií
 
 ### Vylúčenie produktov
 
-Vybrané produkty môžu byť vylúčené z katalógového režimu v úprave produktu, záložka **Polski PRO > Katalógový režim**, zaškrtnutím voľby "Vylúčiť z katalógového režimu".
+Vylúčte produkt z katalógového režimu: editácia produktu > **Polski PRO > Katalógový režim** > zaškrtnite "Vylúčiť z katalógového režimu".
 
 ### Vylúčenie kategórií
 
 ```php
 /**
- * Filtruje kategorie wykluczone z trybu katalogowego.
+ * Filtruje kategórie vylúčené z katalógového režimu.
  *
- * @param array $excluded_categories Tablica ID kategorii
+ * @param array $excluded_categories Pole ID kategórií
  */
 apply_filters('polski_pro/catalog/excluded_categories', array $excluded_categories): array;
 ```
@@ -162,17 +162,17 @@ apply_filters('polski_pro/catalog/excluded_categories', array $excluded_categori
 
 ```php
 add_filter('polski_pro/catalog/excluded_categories', function (array $excluded_categories): array {
-    $excluded_categories[] = 15; // "Príslušenstvo" - vždy dostupné na nákup
-    $excluded_categories[] = 28; // "Výpredaj"
+    $excluded_categories[] = 15; // "Akcesoria" - zawsze dostępne do zakupu
+    $excluded_categories[] = 28; // "Outlet"
     return $excluded_categories;
 });
 ```
 
 ## Pomocné CSS triedy
 
-Modul pridáva CSS triedy k `<body>` uľahčujúce štýlovanie:
+Modul pridáva CSS triedy do `<body>` uľahčujúce štýlovanie:
 
-| Trieda | Kedy pridaná |
+| Trieda | Kedy sa pridáva |
 |-------|----------------|
 | `polski-catalog-mode` | Katalógový režim je aktívny |
 | `polski-catalog-prices-hidden` | Ceny sú skryté |
@@ -182,7 +182,7 @@ Modul pridáva CSS triedy k `<body>` uľahčujúce štýlovanie:
 
 ```css
 .polski-catalog-mode .price {
-    display: none; /* Dodatočné skrytie ceny, ak téma nerešpektuje filter */
+    display: none; /* Dodatkowe ukrycie ceny, jeśli motyw nie respektuje filtra */
 }
 
 .polski-catalog-mode .single_add_to_cart_button {
@@ -193,18 +193,18 @@ Modul pridáva CSS triedy k `<body>` uľahčujúce štýlovanie:
 
 ## Riešenie problémov
 
-**Ceny sa stále zobrazujú napriek zapnutému katalógovému režimu**
-Niektoré témy používajú neštandardné metódy zobrazovania cien, obchádzajúce filter `woocommerce_get_price_html`. Použite CSS triedy `.polski-catalog-prices-hidden .price { display: none; }` ako zabezpečenie.
+**Ceny sa stále zobrazujú napriek zapnutiu katalógového režimu**
+Niektoré šablóny používajú vlastné metódy zobrazovania cien a obchádzajú filter `woocommerce_get_price_html`. Použite CSS triedy `.polski-catalog-prices-hidden .price { display: none; }` ako poistku.
 
 **Zákazník môže pridať produkt do košíka cez priamy URL**
-Modul to blokuje na úrovni filtra `woocommerce_is_purchasable`. Ak problém pretrváva, skontrolujte, či iný plugin neprepíše tento filter s vyššou prioritou.
+Modul to blokuje na úrovni filtra `woocommerce_is_purchasable`. Ak sa problém vyskytuje, skontrolujte, či iný doplnok neprepisuje tento filter s vyššou prioritou.
 
 **Podmienený režim nefunguje správne s cache**
-Kešovacie pluginy môžu servírovať kešovanú verziu nezávisle od stavu prihlásenia. Nakonfigurujte kešovací plugin, aby oddeľoval cache pre prihlásených a neprihlásených používateľov.
+Cache doplnky môžu servírovať verziu z cache nezávisle od stavu prihlásenia. Nakonfigurujte cache doplnok tak, aby oddeľoval cache pre prihlásených a neprihlásených používateľov.
 
 ## Ďalšie kroky
 
-- Hlásenie problémov: [GitHub Issues](https://github.com/wppoland/polski/issues)
-- Súvisiace moduly: [Cenové dopyty](/pro/quotes)
+- Nahlasujte problémy: [GitHub Issues](https://github.com/wppoland/polski/issues)
+- Súvisiace moduly: [Cenové ponuky](/pro/quotes)
 
-<div class="disclaimer">Táto stránka slúži len na informačné účely a nepredstavuje právne poradenstvo. Pred implementáciou sa poraďte s právnikom. Polski for WooCommerce je open source softvér (GPLv2) poskytovaný bez záruky.</div>
+<div class="disclaimer">Táto stránka má výlučne informačný charakter a nepredstavuje právne poradenstvo. Pred nasadením sa poraďte s právnikom. Polski for WooCommerce je open source softvér (GPLv2) poskytovaný bez záruky.</div>

@@ -1,27 +1,27 @@
 ---
-title: Integrácia InPost (Packomaty)
-description: Modul integrácie InPost ShipX API v Polski PRO for WooCommerce - Packomaty, generovanie štítkov, mapa odberných miest a sledovanie zásielok.
+title: Integrácia InPost (Paczkomaty)
+description: Modul integrácie InPost ShipX API v Polski PRO for WooCommerce - Paczkomaty, generovanie štítkov, mapa odberných miest a sledovanie zásielok.
 ---
 
-Modul InPost integruje WooCommerce s API ShipX. Generujte štítky, umožnite zákazníkom vybrať Packomat na mape a sledujte zásielky z panelu admina.
+Modul InPost integruje WooCommerce s API ShipX. Generujte štítky, umožnite zákazníkom vybrať Paczkomat na mape a sledujte zásielky z admin panela.
 
 :::note[Požiadavky]
-Polski PRO vyžaduje: Polski (free) v1.3.0+, WordPress 6.4+, WooCommerce 8.0+, PHP 8.1+. Dodatočne je potrebný aktívny token API InPost ShipX (získaný z panelu managera InPost).
+Polski PRO vyžaduje: Polski (free) v1.3.0+, WordPress 6.4+, WooCommerce 8.0+, PHP 8.1+. Navyše je potrebný aktívny API token InPost ShipX (získaný z panela manažéra InPost).
 :::
 
 ## Konfigurácia
 
 Prejdite do **WooCommerce > Nastavenia > Polski PRO > InPost**.
 
-### Autentifikácia API
+### Overenie API
 
 | Nastavenie | Popis |
 |------------|------|
-| Token API | Autorizačný token z panelu InPost Manager |
+| API token | Autorizačný token z panela InPost Manager |
 | ID organizácie | Identifikátor organizácie v systéme InPost |
-| Sandbox režim | Používa testovacie prostredie ShipX API |
+| Režim sandbox | Používa testovacie prostredie ShipX API |
 
-Token API sa odovzdáva v hlavičke `Authorization: Bearer {token}` ku každej požiadavke ShipX API. Token by mal mať oprávnenia na vytváranie zásielok a generovanie štítkov.
+Token sa odosiela v hlavičke `Authorization: Bearer {token}`. Musí mať oprávnenia na vytváranie zásielok a štítkov.
 
 ### Nastavenia metódy dopravy
 
@@ -29,31 +29,31 @@ Po nakonfigurovaní API vytvorte novú metódu dopravy:
 
 1. Prejdite do **WooCommerce > Nastavenia > Doprava > Zóny dopravy**
 2. Upravte zónu "Poľsko"
-3. Kliknite "Pridať metódu dopravy"
-4. Vyberte "InPost Packomat" alebo "InPost Kuriér"
+3. Kliknite na "Pridať metódu dopravy"
+4. Vyberte "InPost Paczkomat" alebo "InPost Kuriér"
 
 | Nastavenie metódy | Predvolená hodnota | Popis |
 |-------------------|------------------|------|
-| Názov metódy | "InPost Paczkomat" | Názov zobrazovaný zákazníkovi |
+| Názov metódy | "InPost Paczkomat" | Názov zobrazený zákazníkovi |
 | Cena | 0 | Cena dopravy (0 = zadarmo) |
 | Doprava zadarmo od | "" | Suma objednávky, od ktorej je doprava zadarmo |
 | Predvolená veľkosť balíka | A | Veľkosť: `A`, `B`, `C` |
-| Poistenie | Nie | Pridať poistenie k zásielke |
+| Poistenie | Nie | Pridaj poistenie k zásielke |
 
 ## Mapa odberných miest
 
 ### Widget mapy
 
-Na stránke checkoutu po výbere metódy dopravy "InPost Packomat" sa zobrazuje interaktívny widget mapy umožňujúci výber Packomatu.
+Po výbere "InPost Paczkomat" v pokladni sa zobrazí interaktívny widget mapy.
 
 Widget ponúka:
 
-- **Mapu** s pinmi Packomatov
+- **Mapu** so značkami Paczkomatov
 - **Vyhľadávanie podľa mesta** - zadajte názov mesta na vycentrovanie mapy
-- **Vyhľadávanie podľa súradníc** - automatická geolokácia (so súhlasom používateľa)
-- **Vyhľadávanie podľa PSČ** - nájdite najbližšie Packomaty
-- **Zoznam Packomatov** - zoradený od najbližšieho
-- **Podrobnosti bodu** - adresa, otváracie hodiny, dostupné veľkosti priehradok
+- **Vyhľadávanie podľa súradníc** - automatická geolokalizácia (so súhlasom používateľa)
+- **Vyhľadávanie podľa PSČ** - nájdite najbližšie Paczkomaty
+- **Zoznam Paczkomatov** - zoradený od najbližšieho
+- **Detaily miesta** - adresa, otváracie hodiny, dostupné veľkosti schránok
 
 ### Vyhľadávanie podľa mesta
 
@@ -63,30 +63,30 @@ Widget odosiela požiadavku na endpoint ShipX API:
 GET /v1/points?type=parcel_locker&city={city}&per_page=25
 ```
 
-Výsledky sú kešované 24 hodín v transientoch WordPress, aby sa minimalizoval počet požiadaviek na API.
+Výsledky sa cachujú na 24 hodín v transients WordPressu.
 
 ### Vyhľadávanie podľa súradníc
 
-Keď zákazník vyjadrí súhlas s geolokáciou:
+Keď zákazník udelí súhlas s geolokalizáciou:
 
 ```
 GET /v1/points?type=parcel_locker&relative_point={lat},{lng}&per_page=10
 ```
 
-### Filtrovanie bodov
+### Filtrovanie miest
 
 ```php
 /**
- * Filtruje listę punktów odbioru InPost.
+ * Filtruje zoznam odberných miest InPost.
  *
- * @param array  $points  Tablica punktów odbioru z API
- * @param string $city    Wyszukiwane miasto
- * @param array  $coords  Współrzędne [lat, lng] lub pusta tablica
+ * @param array  $points  Pole odberných miest z API
+ * @param string $city    Hľadané mesto
+ * @param array  $coords  Súradnice [lat, lng] alebo prázdne pole
  */
 apply_filters('polski_pro/inpost/points', array $points, string $city, array $coords): array;
 ```
 
-**Príklad - vylúčenie dočasne nedostupných bodov:**
+**Príklad - vylúčenie dočasne nedostupných miest:**
 
 ```php
 add_filter('polski_pro/inpost/points', function (array $points, string $city, array $coords): array {
@@ -99,27 +99,27 @@ add_filter('polski_pro/inpost/points', function (array $points, string $city, ar
 
 ## Generovanie štítkov
 
-### Z panelu objednávky
+### Z panela objednávky
 
-Na stránke úpravy objednávky v paneli **InPost** sú dostupné voľby:
+V paneli **InPost** na stránke objednávky:
 
-1. **Generovať štítok** - vytvorí zásielku v API ShipX a vygeneruje PDF štítok
+1. **Generovať štítok** - vytvorí zásielku v API ShipX a vygeneruje štítok PDF
 2. **Stiahnuť štítok** - stiahne vygenerovaný štítok
-3. **Vytlačiť štítok** - otvorí náhľad tlače
+3. **Tlačiť štítok** - otvorí náhľad tlače
 
 ### Hromadné generovanie
 
-Na zozname objednávok zaškrtnite viacero objednávok a vyberte hromadnú akciu "Generovať štítky InPost". Štítky sa generujú asynchrónne - po dokončení sa zobrazí upozornenie s odkazom na stiahnutie ZIP súboru.
+Označte viacero objednávok v zozname a vyberte "Generovať štítky InPost". Štítky sa generujú na pozadí. Po dokončení stiahnite súbor ZIP.
 
-### Dáta zásielky
+### Údaje zásielky
 
 Štítok sa generuje na základe:
 
 | Pole | Zdroj | Popis |
 |------|--------|------|
-| Odosielateľ | Nastavenia obchodu | Adresa a údaje firmy z WooCommerce |
-| Príjemca | Dáta objednávky | Meno, priezvisko, telefón, e-mail |
-| Odberné miesto | Výber zákazníka | ID Packomatu vybraného na checkоute |
+| Odosielateľ | Nastavenia obchodu | Adresa a firemné údaje z WooCommerce |
+| Príjemca | Údaje objednávky | Meno, priezvisko, telefón, e-mail |
+| Odberné miesto | Výber zákazníka | ID Paczkomatu vybraného v pokladni |
 | Veľkosť balíka | Nastavenie metódy | Alebo prepísanie v objednávke |
 | Suma dobierky | Objednávka COD | Iba pre objednávky na dobierku |
 
@@ -127,10 +127,10 @@ Na zozname objednávok zaškrtnite viacero objednávok a vyberte hromadnú akciu
 
 ```php
 /**
- * Filtruje dane przesyłki przed wysłaniem do API ShipX.
+ * Filtruje údaje zásielky pred odoslaním do API ShipX.
  *
- * @param array     $shipment_data Dane przesyłki
- * @param \WC_Order $order         Zamówienie WooCommerce
+ * @param array     $shipment_data Údaje zásielky
+ * @param \WC_Order $order         Objednávka WooCommerce
  */
 apply_filters('polski_pro/inpost/shipment_data', array $shipment_data, \WC_Order $order): array;
 ```
@@ -148,40 +148,40 @@ add_filter('polski_pro/inpost/shipment_data', function (array $shipment_data, \W
 
 ### Automatické sledovanie
 
-Po vygenerovaní štítku modul automaticky kontroluje stav zásielky každé 2 hodiny (WP-Cron). Stavy sú mapované na stavy objednávok WooCommerce:
+Po vygenerovaní štítku modul kontroluje stav zásielky každé 2 hodiny (WP-Cron). Stavy sa mapujú na stavy WooCommerce:
 
 | Stav InPost | Stav WooCommerce | Popis |
 |---------------|-------------------|------|
 | `created` | `processing` | Zásielka vytvorená |
-| `dispatched_by_sender` | `processing` | Odoslaná odosielateľom |
+| `dispatched_by_sender` | `processing` | Podaná odosielateľom |
 | `collected_from_sender` | `shipped` | Prevzatá od odosielateľa |
-| `out_for_delivery` | `shipped` | V doručení |
-| `ready_to_pickup` | `shipped` | Pripravená na vyzdvihnutie v Packomate |
-| `delivered` | `completed` | Doručená / vyzdvihnutá |
+| `out_for_delivery` | `shipped` | Doručuje sa |
+| `ready_to_pickup` | `shipped` | Pripravená na odber v Paczkomate |
+| `delivered` | `completed` | Doručená / prevzatá |
 
 ### Notifikácie zákazníka
 
-Zákazník dostane e-mail s odkazom na sledovanie zásielky na stránke InPost. Odkaz na sledovanie je pridaný do:
+Zákazník dostane e-mail s odkazom na sledovanie na stránke InPost. Odkaz sa pridáva do:
 
-- E-mailu "Objednávka v spracovaní"
-- Stránky "Môj účet > Objednávky > Podrobnosti"
+- E-mailu "Objednávka sa spracúva"
+- Stránky "Môj účet > Objednávky > Detaily"
 - Poznámok objednávky (viditeľných pre zákazníka)
 
 ### Hook sledovania
 
 ```php
 /**
- * Akcja wywoływana po aktualizacji statusu przesyłki.
+ * Akcia vyvolaná po aktualizácii stavu zásielky.
  *
- * @param int      $order_id      ID zamówienia
- * @param string   $tracking_number Numer śledzenia
- * @param string   $old_status    Poprzedni status InPost
- * @param string   $new_status    Nowy status InPost
+ * @param int      $order_id      ID objednávky
+ * @param string   $tracking_number Číslo sledovania
+ * @param string   $old_status    Predchádzajúci stav InPost
+ * @param string   $new_status    Nový stav InPost
  */
 do_action('polski_pro/inpost/status_updated', int $order_id, string $tracking_number, string $old_status, string $new_status);
 ```
 
-**Príklad - SMS notifikácia o pripravenosti na vyzdvihnutie:**
+**Príklad - SMS notifikácia o pripravenosti na odber:**
 
 ```php
 add_action('polski_pro/inpost/status_updated', function (
@@ -194,7 +194,7 @@ add_action('polski_pro/inpost/status_updated', function (
         $order = wc_get_order($order_id);
         $phone = $order->get_billing_phone();
         send_sms($phone, sprintf(
-            'Twoja paczka %s czeka w Paczkomacie. Kod odbioru w e-mailu.',
+            'Tvoj balík %s čaká v Paczkomate. Kód na odber je v e-maile.',
             $tracking_number
         ));
     }
@@ -209,22 +209,22 @@ add_action('polski_pro/inpost/status_updated', function (
 | B | 19 x 38 x 64 | 25 kg |
 | C | 41 x 38 x 64 | 25 kg |
 
-Veľkosť balíka je možné nastaviť globálne, per metóda dopravy alebo prepísať manuálne v objednávke.
+Veľkosť balíka je možné nastaviť globálne, na metódu dopravy alebo ručne prepísať v objednávke.
 
 ## Riešenie problémov
 
-**Mapa Packomatov sa nenačítava**
-Skontrolujte, či je token API správny a aktívny. Skontrolujte konzolu prehliadača na CORS alebo JavaScript chyby. Uistite sa, že skript `polski-pro-inpost-map.js` je načítaný.
+**Mapa Paczkomatov sa nenačíta**
+Skontrolujte, či je API token správny a aktívny. Skontrolujte konzolu prehliadača na chyby CORS alebo JavaScript. Uistite sa, že skript `polski-pro-inpost-map.js` je načítaný.
 
 **Chyba generovania štítku "Unauthorized"**
-Token API vypršal alebo nemá oprávnenia na vytváranie zásielok. Vygenerujte nový token v paneli InPost Manager.
+API token vypršal alebo nemá oprávnenia na vytváranie zásielok. Vygenerujte nový token v paneli InPost Manager.
 
 **Stav zásielky sa neaktualizuje**
-Skontrolujte, či WP-Cron funguje správne. Spustite manuálne: `wp cron event run polski_pro_inpost_tracking`.
+Skontrolujte, či WP-Cron funguje správne. Spustite ručne: `wp cron event run polski_pro_inpost_tracking`.
 
 ## Ďalšie kroky
 
-- Hlásenie problémov: [GitHub Issues](https://github.com/wppoland/polski/issues)
+- Nahlasujte problémy: [GitHub Issues](https://github.com/wppoland/polski/issues)
 - Dokumentácia API ShipX: [https://docs.inpost24.com/](https://docs.inpost24.com/)
 
-<div class="disclaimer">Táto stránka slúži len na informačné účely a nepredstavuje právne poradenstvo. Pred implementáciou sa poraďte s právnikom. Polski for WooCommerce je open source softvér (GPLv2) poskytovaný bez záruky.</div>
+<div class="disclaimer">Táto stránka má výlučne informačný charakter a nepredstavuje právne poradenstvo. Pred nasadením sa poraďte s právnikom. Polski for WooCommerce je open source softvér (GPLv2) poskytovaný bez záruky.</div>

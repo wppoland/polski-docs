@@ -1,12 +1,12 @@
 ---
 title: Účtovné integrácie
-description: Integrácie s účtovnými systémami wFirma, Fakturownia a iFirma v Polski PRO for WooCommerce - synchronizácia faktúr, retry logika a konfigurácia per poskytovateľ.
+description: Integrácie s účtovnými systémami wFirma, Fakturownia a iFirma v Polski PRO for WooCommerce - synchronizácia faktúr, retry logika a konfigurácia podľa poskytovateľa.
 ---
 
 Modul prepája WooCommerce s poľskými fakturačnými systémami: wFirma, Fakturownia a iFirma. Faktúry sa odosielajú automaticky, s opakovaním pri chybách API.
 
 :::note[Požiadavky]
-Polski PRO vyžaduje: Polski (free) v1.3.0+, WordPress 6.4+, WooCommerce 8.0+, PHP 8.1+. Dodatočne je potrebný aktívny účet vo vybranom účtovnom systéme s prístupom k API.
+Polski PRO vyžaduje: Polski (free) v1.3.0+, WordPress 6.4+, WooCommerce 8.0+, PHP 8.1+. Navyše je potrebný aktívny účet vo vybranom účtovnom systéme s prístupom k API.
 :::
 
 ## Podporované systémy
@@ -17,7 +17,7 @@ Polski PRO vyžaduje: Polski (free) v1.3.0+, WordPress 6.4+, WooCommerce 8.0+, P
 | Fakturownia | JSON | v3 | API token |
 | iFirma | JSON | v1 | Login + API key (kľúč faktúr) |
 
-V danom momente môže byť aktívna iba jedna účtovná integrácia.
+Naraz môže byť aktívna len jedna integrácia.
 
 ## Konfigurácia
 
@@ -25,14 +25,14 @@ Prejdite do **WooCommerce > Nastavenia > Polski PRO > Účtovníctvo**.
 
 ### Výber poskytovateľa
 
-Vyberte účtovný systém a zadajte autentifikačné údaje.
+Vyberte účtovný systém a zadajte prihlasovacie údaje.
 
 #### wFirma
 
 | Nastavenie | Popis |
 |------------|------|
-| API key | Kľúč API z panelu wFirma |
-| API secret | Secret API |
+| API key | API kľúč z panela wFirma |
+| API secret | API secret |
 | ID firmy | Identifikátor firmy vo wFirma |
 | Séria faktúr | Séria číslovania (napr. "FV", "FVS") |
 
@@ -41,7 +41,7 @@ Vyberte účtovný systém a zadajte autentifikačné údaje.
 | Nastavenie | Popis |
 |------------|------|
 | Subdoména | Názov subdomény (napr. `mojafirma.fakturownia.pl`) |
-| API token | Token API z nastavení účtu |
+| API token | API token z nastavení účtu |
 | ID oddelenia | Voliteľne - ID oddelenia vystavujúceho faktúry |
 | Jazyk faktúry | `pl` alebo `en` |
 
@@ -50,42 +50,42 @@ Vyberte účtovný systém a zadajte autentifikačné údaje.
 | Nastavenie | Popis |
 |------------|------|
 | Login | Login do účtu iFirma |
-| Kľúč API faktúr | Kľúč API na vystavovanie faktúr |
-| Kľúč API predplatiteľa | Kľúč API predplatiteľa (na načítavanie dát) |
+| Kľúč API faktúr | API kľúč na vystavovanie faktúr |
+| Kľúč API predplatiteľa | API kľúč predplatiteľa (na získavanie údajov) |
 
 ### Spoločné nastavenia
 
 | Nastavenie | Predvolená hodnota | Popis |
 |------------|------------------|------|
-| Automatické vystavovanie | Áno | Vystaviť faktúru automaticky po uhradení objednávky |
+| Automatické vystavovanie | Áno | Vystaviť faktúru automaticky po zaplatení objednávky |
 | Spúšťací stav | `processing` | Stav objednávky spúšťajúci vystavenie faktúry |
 | Typ dokumentu | Faktúra s DPH | Faktúra s DPH, Proforma faktúra, Účet |
-| Pridať k e-mailu | Áno | Priložiť PDF faktúry k e-mailu objednávky |
+| Pridať do e-mailu | Áno | Priložiť PDF faktúry k e-mailu objednávky |
 | Retry pri chybe | Áno | Opakovať pokus pri chybe API |
 | Maximálny počet pokusov | 5 | Limit opakovaných pokusov |
 
 ## Synchronizácia faktúr
 
-### Automatický priebeh
+### Automatický tok
 
 1. Objednávka WooCommerce zmení stav na `processing` (alebo iný nakonfigurovaný)
-2. Modul zozbiera dáta objednávky a namapuje ich na formát poskytovateľa
-3. Dáta sú odoslané asynchrónne na API účtovného systému
-4. Po úspešnom vytvorení sa ID faktúry uloží do metadát objednávky
+2. Modul zhromaždí dáta objednávky a namapuje ich na formát poskytovateľa
+3. Dáta sa odošlú asynchrónne do API účtovného systému
+4. Po úspešnom vytvorení sa ID faktúry uloží do meta objednávky
 5. PDF faktúry sa stiahne a priloží k e-mailu zákazníka
 
 ### Mapovanie dát
 
-Modul automaticky mapuje dáta objednávky WooCommerce na požadovaný formát API:
+Modul automaticky prepočítava dáta objednávky na formát API:
 
 | Dáta WooCommerce | wFirma (XML) | Fakturownia (JSON) | iFirma (JSON) |
 |------------------|-------------|-------------------|---------------|
 | Názov firmy | `<contractor><name>` | `buyer_name` | `Kontrahent.Nazwa` |
-| IČ DPH | `<contractor><nip>` | `buyer_tax_no` | `Kontrahent.NIP` |
+| NIP | `<contractor><nip>` | `buyer_tax_no` | `Kontrahent.NIP` |
 | Adresa | `<contractor><street>` | `buyer_street` | `Kontrahent.Ulica` |
 | Položky objednávky | `<invoicecontents>` | `positions` | `Pozycje` |
 | Sadzba DPH | `<vat_code>` | `tax` | `StawkaVat` |
-| Platobná metóda | `<paymentmethod>` | `payment_type` | `SposobZaplaty` |
+| Spôsob platby | `<paymentmethod>` | `payment_type` | `SposobZaplaty` |
 
 ### Formát XML (wFirma)
 
@@ -146,7 +146,7 @@ Modul automaticky mapuje dáta objednávky WooCommerce na požadovaný formát A
 
 ### Exponential backoff
 
-Keď API vráti chybu (HTTP 5xx, timeout, chyba pripojenia), modul automaticky naplánuje opakovaný pokus s exponenciálnym oneskorením:
+Pri chybách servera (HTTP 5xx, timeout) modul opakuje pokus s rastúcim oneskorením:
 
 | Pokus | Oneskorenie | Čas od prvého pokusu |
 |-------|------------|------------------------|
@@ -160,26 +160,26 @@ Oneskorenie sa počíta vzorcom: `delay = base_delay * 2^(attempt - 1)`, kde `ba
 
 ### Chyby nepodliehajúce retry
 
-Chyby klienta (HTTP 4xx) sa neopakujú automaticky, pretože indikujú problém s dátami, nie s API:
+Chyby klienta (HTTP 4xx) sa neopakujú, indikujú problém s dátami:
 
-- `400 Bad Request` - neplatné dáta
-- `401 Unauthorized` - chybný token API
+- `400 Bad Request` - nesprávne dáta
+- `401 Unauthorized` - chybný API token
 - `403 Forbidden` - chýbajúce oprávnenia
 - `422 Unprocessable Entity` - validácia dát
 
-Tieto chyby sú logované a vyžadujú zásah administrátora.
+Tieto chyby vyžadujú ručnú opravu.
 
 ### Asynchrónne odosielanie
 
-Faktúry sa odosielajú asynchrónne pomocou `WC_Action_Scheduler`, čo znamená, že neblokujú proces skladania objednávky. Zákazník vidí potvrdenie objednávky ihneď a faktúra sa generuje na pozadí.
+Faktúry sa odosielajú na pozadí cez `WC_Action_Scheduler`. Zákazník vidí potvrdenie objednávky ihneď a faktúra sa generuje na pozadí.
 
 ```php
 /**
- * Akcja wywoływana po pomyślnym wystawieniu faktury.
+ * Akcia vyvolaná po úspešnom vystavení faktúry.
  *
- * @param int    $order_id   ID zamówienia
- * @param string $invoice_id ID faktury w systemie księgowym
- * @param string $provider   Nazwa dostawcy ('wfirma', 'fakturownia', 'ifirma')
+ * @param int    $order_id   ID objednávky
+ * @param string $invoice_id ID faktúry v účtovnom systéme
+ * @param string $provider   Názov poskytovateľa ('wfirma', 'fakturownia', 'ifirma')
  */
 do_action('polski_pro/accounting/invoice_created', int $order_id, string $invoice_id, string $provider);
 ```
@@ -205,17 +205,17 @@ add_action('polski_pro/accounting/invoice_created', function (
 
 ```php
 /**
- * Akcja wywoływana po wyczerpaniu prób wysłania faktury.
+ * Akcia vyvolaná po vyčerpaní pokusov o odoslanie faktúry.
  *
- * @param int    $order_id   ID zamówienia
- * @param string $provider   Nazwa dostawcy
- * @param string $error      Komunikat błędu
- * @param int    $attempts   Liczba wykonanych prób
+ * @param int    $order_id   ID objednávky
+ * @param string $provider   Názov poskytovateľa
+ * @param string $error      Správa o chybe
+ * @param int    $attempts   Počet vykonaných pokusov
  */
 do_action('polski_pro/accounting/invoice_failed', int $order_id, string $provider, string $error, int $attempts);
 ```
 
-**Príklad - notifikácia administrátora:**
+**Príklad - upozornenie administrátora:**
 
 ```php
 add_action('polski_pro/accounting/invoice_failed', function (
@@ -243,11 +243,11 @@ add_action('polski_pro/accounting/invoice_failed', function (
 
 ```php
 /**
- * Filtruje dane faktury przed wysłaniem do API.
+ * Filtruje dáta faktúry pred odoslaním do API.
  *
- * @param array     $invoice_data Dane faktury w formacie dostawcy
- * @param \WC_Order $order        Zamówienie WooCommerce
- * @param string    $provider     Nazwa dostawcy
+ * @param array     $invoice_data Dáta faktúry vo formáte poskytovateľa
+ * @param \WC_Order $order        Objednávka WooCommerce
+ * @param string    $provider     Názov poskytovateľa
  */
 apply_filters('polski_pro/accounting/invoice_data', array $invoice_data, \WC_Order $order, string $provider): array;
 ```
@@ -270,20 +270,20 @@ add_filter('polski_pro/accounting/invoice_data', function (
 }, 10, 3);
 ```
 
-## Administračný panel
+## Administrátorský panel
 
 ### Stav synchronizácie
 
-Na zozname objednávok WooCommerce je pridaný stĺpec "Faktúra" zobrazujúci:
+V zozname objednávok stĺpec "Faktúra" zobrazuje:
 
 - Zelená ikona - faktúra úspešne vystavená
-- Žltá ikona - v procese odosielania / retry
-- Červená ikona - chyba (kliknite pre podrobnosti)
+- Žltá ikona - prebieha odosielanie / retry
+- Červená ikona - chyba (kliknite pre zobrazenie podrobností)
 - Sivá ikona - netýka sa (bez automatického vystavovania)
 
 ### Ručné vystavovanie
 
-Na stránke úpravy objednávky, v paneli **Faktúra**, administrátor môže:
+V paneli **Faktúra** na stránke objednávky administrátor môže:
 
 1. Vystaviť faktúru ručne (ak automatické vystavovanie zlyhalo)
 2. Stiahnuť PDF faktúry
@@ -296,14 +296,14 @@ Na stránke úpravy objednávky, v paneli **Faktúra**, administrátor môže:
 Skontrolujte, či je spúšťací stav správny. Uistite sa, že Action Scheduler funguje (WooCommerce > Stav > Naplánované akcie). Skontrolujte log chýb v **WooCommerce > Stav > Logy**.
 
 **Chyba "Unauthorized" pri pripojení k API**
-Overte autentifikačné údaje. V prípade wFirma skontrolujte, či API key a secret sú z hlavného účtu (nie podúčtu). Vo Fakturowni sa uistite, že subdoména je správna.
+Overte autentifikačné údaje. V prípade wFirma skontrolujte, či sú API key a secret z hlavného účtu (nie z podúčtu). Vo Fakturowni sa uistite, že subdoména je správna.
 
 **Duplikáty faktúr**
-Modul chráni pred duplikátmi kontrolou meta `_polski_pro_invoice_id` pred vystavením. Ak duplikáty vznikajú, skontrolujte, či iný plugin nespúšťa ten istý hook objednávky.
+Modul kontroluje meta `_polski_pro_invoice_id` pred vystavením, aby sa vyhol duplikátom. Ak sa duplikáty vyskytujú, skontrolujte, či iný doplnok nespúšťa rovnaký hook.
 
 ## Ďalšie kroky
 
-- Hlásenie problémov: [GitHub Issues](https://github.com/wppoland/polski/issues)
+- Nahlasujte problémy: [GitHub Issues](https://github.com/wppoland/polski/issues)
 - Súvisiace: [PRO REST API](/pro/pro-api)
 
-<div class="disclaimer">Táto stránka slúži len na informačné účely a nepredstavuje právne poradenstvo. Pred implementáciou sa poraďte s právnikom. Polski for WooCommerce je open source softvér (GPLv2) poskytovaný bez záruky.</div>
+<div class="disclaimer">Táto stránka má výlučne informačný charakter a nepredstavuje právne poradenstvo. Pred nasadením sa poraďte s právnikom. Polski for WooCommerce je open source softvér (GPLv2) poskytovaný bez záruky.</div>

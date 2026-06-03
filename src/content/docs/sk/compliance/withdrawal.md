@@ -1,239 +1,162 @@
 ---
-title: Právo na odstúpenie od zmluvy
-description: Obsluha práva na odstúpenie od zmluvy v Polski for WooCommerce - formulár vrátenia, produktové výnimky, automatické e-maily a vývojárske hooky.
+title: Právo na odstúpenie od zmluvy (Čl. 11a smernice 2023/2673)
+description: 'Plná implementácia práva na odstúpenie od zmluvy v Polski for WooCommerce - formulár pre zákazníkov a hostí, čiastočné vrátenia, vylúčenia, Annex I(A)/(B), súhlas Čl. 16(m), abilities API a hooky.'
 ---
 
-Smernica EÚ 2023/2673 zavádza nové povinnosti týkajúce sa práva na odstúpenie od zmluvy (od 19. júna 2026). Plugin obsluhuje celý proces - formulár zákazníka, e-mailové potvrdenia, produktové výnimky a hooky pre vývojárov.
+Od **19. júna 2026** musí každý internetový obchod v EÚ predávajúci spotrebiteľom sprístupniť funkčnú možnosť odstúpenia od zmluvy priamo v obchode - vyžaduje to Čl. 11a smernice 2011/83/EÚ zmenenej smernicou 2023/2673. Modul odstúpení v Polski for WooCommerce poskytuje túto funkcionalitu plus doplnky uľahčujúce každodennú obsluhu.
 
-## Právne požiadavky
+:::caution
+Modul realizuje technickú stránku požiadavky. Obsah obchodných podmienok, zásady vrátenia a komunikácia so zákazníkom zostávajú vašou zodpovednosťou. Toto nie je právne poradenstvo.
+:::
 
-Spotrebiteľ má právo odstúpiť od zmluvy uzavretej na diaľku v lehote 14 dní bez udania dôvodu. Predajca je povinný:
+## Čo funguje hneď po inštalácii
 
-1. Informovať spotrebiteľa o práve na odstúpenie pred uzavretím zmluvy
-2. Sprístupniť formulár na odstúpenie
-3. Potvrdiť prijatie vyhlásenia o odstúpení
-4. Vrátiť platbu v lehote 14 dní od prijatia vyhlásenia
+Po zapnutí modulu máte:
 
-Smernica 2023/2673 rozširuje tieto povinnosti o digitálny proces a automatické potvrdenia.
+- Tri nové stavy objednávok: `wc-withdrawal-requested`, `wc-withdrawal-partial`, `wc-withdrawal-completed`
+- Migráciu databázy `polski_withdrawals` + `polski_withdrawal_items` (Migration 2.2.0)
+- Admin tabuľku `Polski > Withdrawals` so zoznamom a filtrom stavu
+- Stránku nastavení `Polski > Withdrawal settings`
+- Tri dynamické bloky Gutenberg + tri shortcode (lookup, info, form template)
+- 16 abilities vo WP 6.9+ Abilities API
+- Predvolenú lehotu 14 dní s konfigurovateľným stavom spúšťajúcim beh
 
-## Proces zákazníka
+## Tri cesty spotrebiteľa
 
-### Krok 1 - tlačidlo v Môj účet
+### 1. Prihlásený zákazník - dvojkrokový formulár v Mojom účte
 
-Po aktivácii modulu sa na stránke **Môj účet > Objednávky** zobrazuje tlačidlo "Odstúpiť od zmluvy" pri objednávkach kvalifikujúcich sa na vrátenie. Tlačidlo je viditeľné len v lehote na odstúpenie (štandardne 14 dní od doručenia).
+V `Môj účet › Objednávky` sa pri každej objednávke kvalifikujúcej sa na vrátenie zobrazuje akcia **Withdraw from contract** (text konfigurovateľný). Po kliknutí zákazník vidí dvojkrokový formulár:
 
-### Krok 2 - formulár na odstúpenie
+- **Krok 1: výber položiek.** Tabuľka s každým riadkom objednávky (varianty produktov ako samostatné položky, s atribútmi), stĺpec "Zostáva" zobrazuje, koľko sa ešte dá odstúpiť, stĺpec "Počet kusov na vrátenie" je spinner s `min=0`, `max=remaining_qty`. Pre-fill = úplné zostávajúce množstvo.
+- **Krok 2: dôvod a potvrdenie.** Textarea (voliteľná) + submit "Podajte vyhlásenie a odošlite potvrdenie na e-mail".
 
-Po kliknutí na tlačidlo zákazník prejde na formulár s poliami:
+Funkcionality:
 
-- Číslo objednávky (vyplnené automaticky)
-- Dátum objednávky
-- Zoznam produktov z objednávky (s možnosťou výberu, od ktorých odstupuje)
-- Dôvod odstúpenia (voliteľný)
-- Kontaktné údaje zákazníka
-- Číslo bankového účtu na vrátenie
+- **Čiastočné odstúpenia** - od jedného kusu, od niekoľkých riadkov, alebo viacero samostatných vyhlásení pre jednu objednávku
+- **Pro-rata totals** - `line_total` a `line_tax` sa škálujú proporcionálne k vybranému množstvu
+- **Live counter** (JS) - pod tabuľkou správa "Vybraných spolu X kusov" v `role="status" aria-live="polite"`
+- **Quick actions** - tlačidlá "Vybrať všetky položky" / "Vymazať výber"
+- **Zrušiť a vrátiť sa** - odkaz späť na zoznam objednávok bez odoslania
 
-### Krok 3 - e-mailové potvrdenie
+### 2. Hosť - autorizácia cez e-mail + magic-link
 
-Po odoslaní formulára systém automaticky:
+Na stránke so shortcode `[polski_withdrawal_lookup]` hosť zadá číslo objednávky a e-mailovú adresu použitú pri nákupe. Systém:
 
-1. Zašle zákazníkovi e-mail s potvrdením prijatia vyhlásenia
-2. Zašle administrátorovi obchodu oznámenie o novom hlásení
-3. Zmení stav hlásenia na "Čakajúce"
+1. Skontroluje, či `billing_email` objednávky zodpovedá zadanému (case-insensitive)
+2. Skontroluje rate-limit (5 pokusov / 15 min na email+IP)
+3. Vygeneruje 32-bajtový token, uloží hash v transient s TTL 30 min
+4. Odošle magic-link na e-mail (Polish subject + body)
+5. Vždy vráti to isté "masked" notice (zabraňuje enumerácii)
 
-Administrátor môže následne spracovať hlásenie v paneli WooCommerce a označiť ho ako ukončené.
+Po kliknutí na odkaz ten istý shortcode vykreslí formulár odstúpenia s **úplným zhrnutím objednávky** (tabuľka položiek, množstvá, hodnoty, dátum, total) + voliteľný dôvod + submit.
 
-## Produktové výnimky
+### 3. Admin - manuálna registrácia vyhlásení off-line
 
-Právo na odstúpenie sa nevzťahuje na niektoré kategórie produktov. Produkt označíte ako vylúčený v záložke **Polski - Odstúpenie** v úprave produktu.
+V `Polski > Register withdrawal` operátor zapíše odstúpenie prijaté telefonicky, e-mailom, listom, v obchode. Polia: číslo objednávky, kanál, dôvod. Po uložení má záznam `channel` a `registered_by_user_id`, stav objednávky sa zmení na `wc-withdrawal-requested`.
 
-Typické výnimky podľa čl. 38 zákona o právach spotrebiteľa:
+## Vylúčenia produktov (Čl. 38 zákona o právach spotrebiteľa)
 
-- Produkty vyrobené na zákazku alebo personalizované
-- Produkty podliehajúce rýchlemu kazeniu
-- Zapečatené produkty z hygienických dôvodov (po otvorení)
-- Zvukové/vizuálne záznamy v zapečatenom obale (po otvorení)
-- Digitálny obsah dodaný online (po začatí poskytovania)
-- Tlač (denníky, periodická tlač, časopisy)
+### Na produkt
 
-Pre vylúčený produkt sa tlačidlo "Odstúpiť od zmluvy" nezobrazuje v paneli zákazníka.
+Na obrazovke úpravy produktu meta pole `_polski_withdrawal_exempt = 'yes'` plus dropdown s hotovými dôvodmi z `Polski\Enum\WithdrawalExemptionReason`:
 
-## Shortcód
+- `art38_3` - Produkt na individuálnu objednávku / personalizovaný
+- `art38_4` - Rýchlo podliehajúci skaze / krátka doba trvanlivosti
+- `art38_5` - Zapečatený z dôvodu ochrany zdravia / hygienický
+- `art38_6` - Neoddeliteľne spojený s inými vecami
+- `art38_7` - Alkoholické nápoje (cena dohodnutá, dodanie neskôr)
+- `art38_9` - Audio/video nahrávky / softvér v zapečatenom obale
+- `art38_13` - Digitálny obsah plnený pred uplynutím lehoty
+- `custom` - Iné (vlastné odôvodnenie)
 
-Použite shortcód `[polski_withdrawal_form]` na zobrazenie formulára na odstúpenie na ľubovoľnom mieste stránky.
+### Na kategóriu
 
-### Základné použitie
+Na obrazovke úpravy kategórie produktu (`product_cat`) ten istý mechanizmus na term meta `polski_withdrawal_exempt`. Jeden checkbox pre celý sortiment namiesto stoviek produktov.
 
-```
-[polski_withdrawal_form]
-```
+### Logika priority
 
-Zobrazí formulár pre prihláseného zákazníka. Zákazník musí vybrať objednávku zo zoznamu.
+Meta produktu vyhráva, fallback na kategóriu. Variant produktu dedí kategórie podľa `parent_id`. Filter `polski/withdrawal/eligible` vráti `false`, ak sú všetky položky exempt.
 
-### S určením objednávky
+## Čl. 16(m) - súhlas pre digitálne produkty
 
-```
-[polski_withdrawal_form order_id="789"]
-```
+Tri režimy (`digital_consent_mode`):
 
-Zobrazí formulár predvyplnený údajmi objednávky s uvedeným ID. Plugin overí, či prihlásený používateľ je vlastníkom tejto objednávky.
+| Režim | Čo sa deje |
+|---|---|
+| `required` | Checkout sa zablokuje, kým spotrebiteľ nezaškrtne. Každá 100% digitálna objednávka → vylúčená z práva na odstúpenie. |
+| `optional` | Checkbox viditeľný, nie povinný. Iba objednávky so zaškrtnutým súhlasom → vylúčené. |
+| `hidden` | Žiadny checkbox. Digitálne objednávky si zachovávajú právo na odstúpenie. |
 
-### Príklad vloženia na stránku
+Verzia Pro navyše overuje počet stiahnutí - ak spotrebiteľ nestiahol žiadny súbor, právo na odstúpenie sa obnoví aj po súhlase.
 
-Vytvorte špeciálnu stránku "Formulár na odstúpenie od zmluvy" a vložte na ňu shortcód:
+## Konfigurovateľná lehota a spúšťacie stavy
 
-```
-[polski_withdrawal_form]
-```
+- `period_days` - predvolene 14
+- `trigger_statuses` - multi-select stavov WooCommerce (default: `completed`)
+- Keď objednávka vstúpi do trigger stavu, `_polski_withdrawal_clock_start` sa uloží cez `$order->update_meta_data()` (HPOS-safe)
+- `isEligible()` počíta deadline = `clock_start + period_days`
 
-V nastaveniach pluginu (**WooCommerce > Nastavenia > Polski > Odstúpenie**) uveďte túto stránku ako predvolenú stránku formulára.
+## Annex I(A) a I(B)
 
-## Hooky
+Generátor napájaný údajmi z možnosti `polski_general` (company_name, address, NIP, email, phone) s fallbackom na `woocommerce_store_*`.
 
-### polski/withdrawal/requested
+| Shortcode | Blok | Čo vykresľuje |
+|---|---|---|
+| `[polski_withdrawal_info]` | `polski/withdrawal-info` | Annex I(A) - úplná informácia o práve na odstúpenie |
+| `[polski_withdrawal_form_template]` | `polski/withdrawal-form` | Annex I(B) - vzor formulára (na tlač) |
+| `[polski_withdrawal_lookup]` | `polski/withdrawal-lookup` | Formulár pre hostí |
 
-Volaný, keď zákazník odošle formulár na odstúpenie.
+Pro pridáva preklady Annex I(B) v 8 jazykoch (PL, DE, AT, FR, NL, IT, ES, generic EU) s národnými právnymi odkazmi (BGB §355 DE, KSchG §11 AT, čl. L221-18 FR, atď.).
 
-```php
-/**
- * @param int   $withdrawal_id ID zgłoszenia odstąpienia.
- * @param int   $order_id      ID zamówienia WooCommerce.
- * @param array $form_data     Dane z formularza.
- */
-add_action('polski/withdrawal/requested', function (int $withdrawal_id, int $order_id, array $form_data): void {
-    // Przykład: wyślij powiadomienie do zewnętrznego systemu CRM
-    $crm_api = new MyCrmApi();
-    $crm_api->notify_withdrawal($order_id, $form_data['reason']);
-}, 10, 3);
-```
+## Potvrdzujúci e-mail ako trvalý nosič
 
-### polski/withdrawal/confirmed
+E-mail obsahuje:
 
-Volaný, keď administrátor potvrdí prijatie hlásenia.
+- Číslo deklarácie `POL-WD-NNNNNN`
+- Dátum a čas podania (UTC + lokálny)
+- Číslo a dátum objednávky
+- Tabuľku položiek s atribútmi variantov a hodnotami
+- Hodnotu objednávky
+- Adresu na odoslanie vrátenia
+- Poznámku o trvalom nosiči
 
-```php
-/**
- * @param int $withdrawal_id ID zgłoszenia odstąpienia.
- * @param int $order_id      ID zamówienia WooCommerce.
- */
-add_action('polski/withdrawal/confirmed', function (int $withdrawal_id, int $order_id): void {
-    // Przykład: zmień status zamówienia
-    $order = wc_get_order($order_id);
-    if ($order) {
-        $order->update_status('withdrawal-confirmed', 'Odstąpienie potwierdzone.');
-    }
-}, 10, 2);
-```
+Verzie HTML a plain text. Pro pridáva PDF deklarácie A4 ako prílohu.
 
-### polski/withdrawal/completed
-
-Volaný, keď je celý proces odstúpenia ukončený (vrátenie spracované).
+## Vývojárske hooky
 
 ```php
-/**
- * @param int   $withdrawal_id ID zgłoszenia odstąpienia.
- * @param int   $order_id      ID zamówienia WooCommerce.
- * @param float $refund_amount Kwota zwrotu.
- */
-add_action('polski/withdrawal/completed', function (int $withdrawal_id, int $order_id, float $refund_amount): void {
-    // Przykład: zarejestruj zwrot w systemie księgowym
-    do_action('my_accounting/register_refund', $order_id, $refund_amount);
-}, 10, 3);
+do_action('polski/withdrawal/requested', WithdrawalRequest $request);
+do_action('polski/withdrawal/guest_requested', int $id, WC_Order $order, string $email);
+do_action('polski/withdrawal/manual_registered', int $id, WC_Order $order, string $channel);
+do_action('polski/withdrawal/confirmed', WithdrawalRequest $request);
+do_action('polski/withdrawal/completed', WithdrawalRequest $request);
+do_action('polski/withdrawal/rejected', WithdrawalRequest $request);
+
+apply_filters('polski/withdrawal/eligible', bool $eligible, WC_Order $order);
+apply_filters('polski/withdrawal/period_days', int $days);
+apply_filters('polski/withdrawal/trigger_statuses', array $statuses);
+apply_filters('polski/withdrawal/order_status_on_request', string $slug, WC_Order, WithdrawalRequest);
+apply_filters('polski/withdrawal/order_status_on_complete', string $slug, WC_Order, WithdrawalRequest);
+apply_filters('polski/annex/info_html', string $html, array $merchant_data, int $days);
+apply_filters('polski/annex/form_html', string $html, array $merchant_data, string $lookup_url);
+apply_filters('polski/annex/merchant_data', array $data);
+apply_filters('polski/annex/locale', string $locale);
+apply_filters('polski/digital_consent/label', string $label);
 ```
 
-### polski/withdrawal/eligible
+## Abilities API (WP 6.9+)
 
-Filter umožňujúci programovo určiť, či sa objednávka kvalifikuje na odstúpenie.
+16 abilities v 4 kategóriách: `polski/withdrawal`, `polski/legal`, `polski/compliance`, `polski/shop`. Volanie cez `/wp-json/wp-abilities/v1/abilities/<id>/execute` alebo `@wordpress/abilities` JS package. Úplný zoznam s input/output schémou v `docs/withdrawal/abilities.md` v repozitári doplnku.
 
-```php
-/**
- * @param bool     $is_eligible Czy zamówienie kwalifikuje się do odstąpienia.
- * @param WC_Order $order       Obiekt zamówienia WooCommerce.
- * @return bool
- */
-add_filter('polski/withdrawal/eligible', function (bool $is_eligible, WC_Order $order): bool {
-    // Przykład: wyklucz zamówienia z kategorii "usługi"
-    foreach ($order->get_items() as $item) {
-        $product = $item->get_product();
-        if ($product && has_term('uslugi', 'product_cat', $product->get_id())) {
-            return false;
-        }
-    }
-    return $is_eligible;
-}, 10, 2);
-```
+## Ukladanie
 
-### polski/withdrawal/period_days
+Vlastné tabuľky (nie postmeta):
 
-Filter umožňujúci zmeniť lehotu na odstúpenie (štandardne 14 dní).
+- `polski_withdrawals` - jeden záznam na vyhlásenie (id, order_id, customer_id, status, channel, guest_email, refund_id, refund_amount, clock_started_at, requested/confirmed/completed/rejected_at, language_code)
+- `polski_withdrawal_items` - normalizované riadky (id, withdrawal_id, order_item_id, product_id, variation_id, quantity, line_subtotal/total/tax, sku, name, attributes_json)
 
-```php
-/**
- * @param int      $days  Liczba dni na odstąpienie.
- * @param WC_Order $order Obiekt zamówienia WooCommerce.
- * @return int
- */
-add_filter('polski/withdrawal/period_days', function (int $days, WC_Order $order): int {
-    // Przykład: wydłuż okres do 30 dni w okresie świątecznym
-    $order_date = $order->get_date_created();
-    if ($order_date) {
-        $month = (int) $order_date->format('m');
-        if ($month === 12) {
-            return 30;
-        }
-    }
-    return $days;
-}, 10, 2);
-```
+Pro pridáva `polski_pro_withdrawal_audit` (Migration 2.5.0) s actor/IP/UA + payload snapshot.
 
-### polski/withdrawal/form_fields
+## Prístupnosť
 
-Filter umožňujúci upravovať polia formulára na odstúpenie.
-
-```php
-/**
- * @param array $fields Tablica pól formularza.
- * @return array
- */
-add_filter('polski/withdrawal/form_fields', function (array $fields): array {
-    // Przykład: dodaj pole na preferowany sposób zwrotu
-    $fields['refund_method'] = [
-        'type'     => 'select',
-        'label'    => 'Preferowany sposób zwrotu',
-        'required' => true,
-        'options'  => [
-            'bank_transfer' => 'Przelew bankowy',
-            'original'      => 'Tym samym sposobem płatności',
-        ],
-    ];
-    return $fields;
-}, 10, 1);
-```
-
-## Administrácia hlásení
-
-Hlásenia o odstúpení nájdete v **WooCommerce > Odstúpenia**. Každé hlásenie obsahuje:
-
-- Číslo objednávky a odkaz na objednávku
-- Dátum odoslania formulára
-- Stav (čakajúce, potvrdené, ukončené, zamietnuté)
-- Údaje zákazníka
-- Zoznam produktov zahrnutých v odstúpení
-- Dôvod (ak bol uvedený)
-
-Administrátor môže zmeniť stav hlásenia, pridať internú poznámku alebo spracovať vrátenie priamo z panelu.
-
-## Riešenie problémov
-
-**Tlačidlo "Odstúpiť od zmluvy" sa nezobrazuje**
-Skontrolujte, či: (1) modul je zapnutý, (2) objednávka je v stave "Zrealizovaná", (3) neuplynula lehota na odstúpenie, (4) žiadny produkt v objednávke nie je vylúčený.
-
-**Zákazník nedostáva potvrdzujúci e-mail**
-Skontrolujte konfiguráciu e-mailov WooCommerce v **WooCommerce > Nastavenia > E-maily** a uistite sa, že šablóna "Potvrdenie odstúpenia" je zapnutá.
-
-## Ďalšie kroky
-
-- Nahlasovanie problémov: [GitHub Issues](https://github.com/wppoland/polski/issues)
-- Diskusie a otázky: [GitHub Discussions](https://github.com/wppoland/polski/discussions)
-
-<div class="disclaimer">Táto stránka slúži len na informačné účely a nepredstavuje právne poradenstvo. Pred implementáciou sa poraďte s právnikom. Polski for WooCommerce je open source softvér (GPLv2) poskytovaný bez záruky.</div>
+Plný súlad s WCAG 2.2 Level AA: `:focus-visible` ring, 44×44 touch targets, `lang="pl"` na každej sekcii, `aria-required` + `aria-invalid` + `aria-describedby` + `aria-busy`, sticky form values, role=alert na error notice s autofocusom, live region s počtom vybraných kusov, scroll-margin pod sticky header, viditeľný FAQ accordion + JSON-LD FAQPage, kontakt fallback.

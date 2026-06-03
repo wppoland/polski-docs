@@ -3,24 +3,24 @@ title: REST API
 description: Dokumentácia REST API pluginu Polski for WooCommerce - namespace polski/v1/, endpointy nastavení, checkboxov, právnych stránok, vyhľadávania a sprievodcu.
 ---
 
-REST API v namespace `polski/v1/`. Spravujte nastavenia, právne checkboxy, právne stránky a vyhľadávanie produktov.
+REST API v namespace `polski/v1/`. Spravuj nastavenia, právne checkboxy, právne stránky a vyhľadávanie produktov.
 
-## Autentifikácia
+## Overovanie
 
-API vyžaduje autentifikáciu pre endpointy upravujúce údaje (POST, PUT, DELETE). Endpoint vyhľadávania (`/search`) je dostupný verejne.
+Endpointy, ktoré upravujú údaje (POST, PUT, DELETE), vyžadujú overenie. Endpoint `/search` je verejný.
 
-Podporované metódy autentifikácie:
+Podporované metódy overovania:
 - **Application Passwords** (WordPress 5.6+) - odporúčané
-- **Cookie + nonce** - pre požiadavky z admin panelu
+- **Cookie + nonce** - pre požiadavky z admin panela
 - **Basic Auth** (s pluginom Basic Auth) - len pre vývoj
 
-Vyžadované oprávnenie: `manage_woocommerce` (štandardne role Administrator a Manažér obchodu).
+Vyžadované oprávnenie: `manage_woocommerce` (predvolene rola Administrátor a Manažér obchodu).
 
 ## Endpointy
 
 ### GET /polski/v1/settings
 
-Získa všetky skupiny nastavení pluginu.
+Načíta všetky skupiny nastavení pluginu.
 
 **Oprávnenia:** `manage_woocommerce`
 
@@ -28,7 +28,7 @@ Získa všetky skupiny nastavení pluginu.
 
 ```bash
 curl -u admin:XXXX-XXXX-XXXX-XXXX \
-  "https://tvoj-obchod.pl/wp-json/polski/v1/settings"
+  "https://tvojobchod.sk/wp-json/polski/v1/settings"
 ```
 
 **Príklad odpovede:**
@@ -38,23 +38,23 @@ curl -u admin:XXXX-XXXX-XXXX-XXXX \
   "groups": [
     {
       "id": "general",
-      "label": "Ustawienia ogólne",
-      "description": "Podstawowa konfiguracja wtyczki"
+      "label": "Všeobecné nastavenia",
+      "description": "Základná konfigurácia pluginu"
     },
     {
       "id": "compliance",
-      "label": "Wymogi prawne",
-      "description": "Ustawienia wymogów prawa UE i polskiego"
+      "label": "Právne požiadavky",
+      "description": "Nastavenia právnych požiadaviek EÚ a poľského práva"
     },
     {
       "id": "storefront",
-      "label": "Moduły sklepowe",
-      "description": "Moduły rozszerzające sklep"
+      "label": "Moduly obchodu",
+      "description": "Moduly rozširujúce obchod"
     },
     {
       "id": "checkout",
-      "label": "Kasa i zamówienia",
-      "description": "Ustawienia kasy i procesu zamówienia"
+      "label": "Pokladňa a objednávky",
+      "description": "Nastavenia pokladne a procesu objednávky"
     }
   ]
 }
@@ -62,15 +62,40 @@ curl -u admin:XXXX-XXXX-XXXX-XXXX \
 
 ### GET /polski/v1/settings/{group}
 
-Získa nastavenia z vybranej skupiny.
+Načíta nastavenia z vybranej skupiny.
 
 **Parametre URL:**
 
-| Parameter | Typ    | Popis            |
+| Parameter | Typ    | Popis           |
 | -------- | ------ | --------------- |
 | `group`  | string | ID skupiny nastavení |
 
 **Oprávnenia:** `manage_woocommerce`
+
+**Príklad požiadavky:**
+
+```bash
+curl -u admin:XXXX-XXXX-XXXX-XXXX \
+  "https://tvojobchod.sk/wp-json/polski/v1/settings/compliance"
+```
+
+**Príklad odpovede:**
+
+```json
+{
+  "group": "compliance",
+  "settings": {
+    "omnibus_enabled": true,
+    "omnibus_days": 30,
+    "gpsr_enabled": true,
+    "withdrawal_enabled": true,
+    "withdrawal_days": 14,
+    "dsa_enabled": true,
+    "ksef_enabled": false,
+    "greenwashing_enabled": true
+  }
+}
+```
 
 ### POST /polski/v1/settings/{group}
 
@@ -85,49 +110,199 @@ curl -X POST \
   -u admin:XXXX-XXXX-XXXX-XXXX \
   -H "Content-Type: application/json" \
   -d '{"omnibus_days": 30, "withdrawal_days": 14}' \
-  "https://tvoj-obchod.pl/wp-json/polski/v1/settings/compliance"
+  "https://tvojobchod.sk/wp-json/polski/v1/settings/compliance"
+```
+
+**Príklad odpovede:**
+
+```json
+{
+  "updated": true,
+  "group": "compliance",
+  "changes": {
+    "omnibus_days": 30,
+    "withdrawal_days": 14
+  }
+}
 ```
 
 ### GET /polski/v1/checkboxes
 
-Získa zoznam všetkých právnych checkboxov (pokladňa, registrácia, kontakt).
+Načíta zoznam všetkých právnych checkboxov (pokladňa, registrácia, kontakt).
 
 **Oprávnenia:** `manage_woocommerce`
+
+**Príklad odpovede:**
+
+```json
+{
+  "checkboxes": [
+    {
+      "id": 1,
+      "label": "Súhlasím s obchodnými podmienkami",
+      "required": true,
+      "location": "checkout",
+      "enabled": true,
+      "position": 10,
+      "legal_page_id": 45
+    },
+    {
+      "id": 2,
+      "label": "Oboznámil som sa so zásadami ochrany osobných údajov",
+      "required": true,
+      "location": "checkout",
+      "enabled": true,
+      "position": 20,
+      "legal_page_id": 47
+    }
+  ],
+  "total": 2
+}
+```
 
 ### GET /polski/v1/checkboxes/stats
 
-Získa štatistiky akceptácie checkboxov.
+Načíta štatistiky akceptácie checkboxov.
 
 **Oprávnenia:** `manage_woocommerce`
 
+**Príklad odpovede:**
+
+```json
+{
+  "stats": [
+    {
+      "checkbox_id": 1,
+      "label": "Súhlasím s obchodnými podmienkami",
+      "total_shown": 1250,
+      "total_accepted": 1180,
+      "acceptance_rate": 94.4
+    }
+  ]
+}
+```
+
 ### GET /polski/v1/checkboxes/{id}
 
-Získa podrobnosti jednotlivého checkboxu.
+Načíta podrobnosti jednotlivého checkboxu.
+
+**Parametre URL:**
+
+| Parameter | Typ | Popis        |
+| -------- | --- | ------------ |
+| `id`     | int | ID checkboxu |
+
+**Oprávnenia:** `manage_woocommerce`
+
+**Príklad odpovede:**
+
+```json
+{
+  "id": 1,
+  "label": "Súhlasím s obchodnými podmienkami",
+  "required": true,
+  "location": "checkout",
+  "enabled": true,
+  "position": 10,
+  "legal_page_id": 45,
+  "created_at": "2025-01-15T10:30:00",
+  "updated_at": "2025-06-01T14:22:00",
+  "stats": {
+    "total_shown": 1250,
+    "total_accepted": 1180,
+    "acceptance_rate": 94.4
+  }
+}
+```
 
 ### PUT /polski/v1/checkboxes/{id}
 
 Aktualizuje checkbox.
 
+**Oprávnenia:** `manage_woocommerce`
+
+**Príklad požiadavky:**
+
+```bash
+curl -X PUT \
+  -u admin:XXXX-XXXX-XXXX-XXXX \
+  -H "Content-Type: application/json" \
+  -d '{"label": "Súhlasím s podmienkami", "required": true}' \
+  "https://tvojobchod.sk/wp-json/polski/v1/checkboxes/1"
+```
+
 ### GET /polski/v1/legal-pages
 
-Získa zoznam právnych stránok (obchodné podmienky, zásady ochrany osobných údajov atď.).
+Načíta zoznam právnych stránok (obchodné podmienky, zásady ochrany osobných údajov atď.).
+
+**Oprávnenia:** `manage_woocommerce`
+
+**Príklad odpovede:**
+
+```json
+{
+  "pages": [
+    {
+      "id": 45,
+      "type": "terms",
+      "title": "Obchodné podmienky",
+      "status": "publish",
+      "url": "https://tvojobchod.sk/obchodne-podmienky/",
+      "last_modified": "2025-06-01T14:00:00",
+      "word_count": 3200
+    },
+    {
+      "id": 47,
+      "type": "privacy",
+      "title": "Zásady ochrany osobných údajov",
+      "status": "publish",
+      "url": "https://tvojobchod.sk/ochrana-osobnych-udajov/",
+      "last_modified": "2025-05-15T09:30:00",
+      "word_count": 2800
+    }
+  ],
+  "total": 2
+}
+```
 
 ### POST /polski/v1/legal-pages/generate
 
-Generuje právnu stránku na základe šablóny.
+Vygeneruje právnu stránku na základe šablóny.
 
 **Oprávnenia:** `manage_woocommerce`
 
 **Parametre body:**
 
-| Parameter      | Typ    | Povinný | Popis                                     |
+| Parameter      | Typ    | Vyžadovaný | Popis                                    |
 | ------------- | ------ | -------- | ---------------------------------------- |
 | `type`        | string | Áno      | Typ stránky: terms, privacy, withdrawal, dsa_report |
 | `company_name`| string | Áno      | Názov firmy                              |
-| `company_address` | string | Áno  | Adresa firmy                              |
+| `company_address` | string | Áno  | Adresa firmy                             |
 | `email`       | string | Áno      | Kontaktná e-mailová adresa               |
 | `phone`       | string | Nie      | Telefónne číslo                          |
 | `nip`         | string | Nie      | NIP firmy                                |
+
+**Príklad požiadavky:**
+
+```bash
+curl -X POST \
+  -u admin:XXXX-XXXX-XXXX-XXXX \
+  -H "Content-Type: application/json" \
+  -d '{"type": "terms", "company_name": "Môj Obchod s.r.o.", "company_address": "Príkladová 1, 811 01 Bratislava", "email": "kontakt@mojobchod.sk"}' \
+  "https://tvojobchod.sk/wp-json/polski/v1/legal-pages/generate"
+```
+
+**Príklad odpovede:**
+
+```json
+{
+  "page_id": 120,
+  "type": "terms",
+  "title": "Obchodné podmienky",
+  "url": "https://tvojobchod.sk/obchodne-podmienky/",
+  "status": "draft"
+}
+```
 
 ### GET /polski/v1/search
 
@@ -135,35 +310,93 @@ Vyhľadávanie produktov (verejný endpoint).
 
 **Parametre query:**
 
-| Parameter | Typ    | Povinný | Popis                        |
+| Parameter | Typ    | Vyžadovaný | Popis                        |
 | -------- | ------ | -------- | --------------------------- |
-| `q`      | string | Áno      | Vyhľadávacia fráza           |
-| `limit`  | int    | Nie      | Limit výsledkov (štandardne 8) |
-| `cat`    | int    | Nie      | ID kategórie                 |
+| `q`      | string | Áno      | Vyhľadávacia fráza          |
+| `limit`  | int    | Nie      | Limit výsledkov (predvolene 8) |
+| `cat`    | int    | Nie      | ID kategórie                |
 
-**Oprávnenia:** verejný (nevyžaduje autentifikáciu)
+**Oprávnenia:** verejný (nevyžaduje overenie)
+
+**Príklad požiadavky:**
+
+```bash
+curl "https://tvojobchod.sk/wp-json/polski/v1/search?q=topanky&limit=5"
+```
+
+**Príklad odpovede:**
+
+```json
+{
+  "results": [
+    {
+      "id": 456,
+      "title": "Športové topánky Nike",
+      "url": "https://tvojobchod.sk/produkt/sportove-topanky-nike/",
+      "image": "https://tvojobchod.sk/wp-content/uploads/topanky-nike.jpg",
+      "price_html": "<span class=\"amount\">29,90&nbsp;EUR</span>",
+      "category": "Obuv",
+      "in_stock": true,
+      "rating": 4.8
+    }
+  ],
+  "total": 1,
+  "query": "topanky"
+}
+```
 
 ### POST /polski/v1/wizard/complete
 
-Označí sprievodcu konfiguráciou ako dokončený.
+Označí konfiguračného sprievodcu ako dokončeného.
 
 **Oprávnenia:** `manage_woocommerce`
 
+**Parametre body:**
+
+| Parameter       | Typ   | Vyžadovaný | Popis                         |
+| -------------- | ----- | -------- | ----------------------------- |
+| `steps_completed` | array | Áno   | Zoznam dokončených krokov     |
+
+**Príklad požiadavky:**
+
+```bash
+curl -X POST \
+  -u admin:XXXX-XXXX-XXXX-XXXX \
+  -H "Content-Type: application/json" \
+  -d '{"steps_completed": ["company_info", "legal_pages", "checkboxes", "compliance"]}' \
+  "https://tvojobchod.sk/wp-json/polski/v1/wizard/complete"
+```
+
+**Príklad odpovede:**
+
+```json
+{
+  "completed": true,
+  "completed_at": "2025-06-15T12:00:00",
+  "steps": {
+    "company_info": true,
+    "legal_pages": true,
+    "checkboxes": true,
+    "compliance": true
+  }
+}
+```
+
 ## HTTP kódy odpovedí
 
-| Kód | Popis                                              |
+| Kód | Popis                                             |
 | --- | ------------------------------------------------- |
 | 200 | Úspech                                            |
 | 201 | Zdroj vytvorený (POST)                            |
-| 400 | Nesprávna požiadavka (chýbajúce parametre)        |
-| 401 | Chýba autentifikácia                              |
+| 400 | Nesprávna požiadavka (chýbajúce parametre)         |
+| 401 | Chýba overenie                                    |
 | 403 | Chýbajú oprávnenia                                |
-| 404 | Zdroj nebol nájdený                               |
-| 500 | Chyba servera                                      |
+| 404 | Zdroj nenájdený                                   |
+| 500 | Chyba servera                                     |
 
 ## Filtrovanie odpovedí
 
-Každý endpoint podporuje WordPress filter umožňujúci upravovať odpoveď:
+Každý endpoint má filter na úpravu odpovede:
 
 ```php
 add_filter('polski/rest/settings_response', function (array $response, WP_REST_Request $request): array {
@@ -174,8 +407,8 @@ add_filter('polski/rest/settings_response', function (array $response, WP_REST_R
 
 ## Rate limiting
 
-API neimplementuje vlastný rate limiting. Odporúča sa použitie pluginu alebo konfigurácie servera (napr. Cloudflare, Nginx rate limiting) pre verejné endpointy.
+Žiadny zabudovaný rate limiting. Použi Cloudflare, Nginx alebo plugin na limitovanie verejných endpointov.
 
-Nahlasovanie problémov: [github.com/wppoland/polski/issues](https://github.com/wppoland/polski/issues)
+Hlásenie problémov: [github.com/wppoland/polski/issues](https://github.com/wppoland/polski/issues)
 
-<div class="disclaimer">Táto stránka slúži len na informačné účely a nepredstavuje právne poradenstvo. Pred implementáciou sa poraďte s právnikom. Polski for WooCommerce je open source softvér (GPLv2) poskytovaný bez záruky.</div>
+<div class="disclaimer">Táto stránka má výlučne informatívny charakter a nepredstavuje právne poradenstvo. Pred nasadením sa poraďte s právnikom. Polski for WooCommerce je open source softvér (GPLv2) poskytovaný bez záruky.</div>

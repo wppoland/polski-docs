@@ -1,118 +1,172 @@
 ---
-title: Panel súladu (compliance dashboard)
-description: Panel kontroly právnych požiadaviek v Polski for WooCommerce - kontrolný zoznam s farebným stavom pre každú požiadavku.
+title: Panel zhody (compliance dashboard)
+description: Panel kontroly pravnych poziadaviek v Polski for WooCommerce - kontrolny zoznam s farebnym statusom pre kazdu poziadavku.
 ---
 
-Panel súladu je centrálne miesto na kontrolu právnych požiadaviek obchodu. Zobrazuje kontrolný zoznam so stavom každej požiadavky - od obchodných podmienok po GPSR a DSA.
+Panel zhody je centralne miesto na kontrolu pravnych poziadaviek obchodu. Zobrazuje kontrolny zoznam so statusom kazdej poziadavky - od obchodnych podmienok az po GPSR a DSA.
 
-## Prístup k panelu
+## Pristup k panelu
 
-Prejdite do **WooCommerce > Polski > Panel súladu**. Panel je dostupný pre používateľov s oprávnením `manage_woocommerce` (role Administrator a Manažér obchodu).
+Prejdite do **WooCommerce > Polski > Panel zhody**. Vyzaduje opravnenie `manage_woocommerce` (Administrator alebo Spravca obchodu).
 
-## Kontrolný zoznam (checklist)
+## Kontrolny zoznam (checklist)
 
-Panel zobrazuje zoznam právnych požiadaviek zoskupených do kategórií. Každá požiadavka má vizuálny stav:
+Pravne poziadavky su zoskupene do kategorii. Kazda ma vizualny status:
 
-### Stavy
+### Statusy
 
-| Stav | Farba   | Ikona | Popis                                      |
-| ------ | ------- | ----- | ----------------------------------------- |
-| OK     | Zelený  | ✓     | Požiadavka splnená                         |
-| WARN   | Žltý   | !     | Čiastočne splnená, vyžaduje pozornosť      |
-| FAIL   | Červený | ✗     | Nesplnená, vyžaduje okamžitú akciu          |
-| OFF    | Šedý   | -     | Modul vypnutý                              |
+| Status | Farba    | Ikona | Popis                                     |
+| ------ | -------- | ----- | ----------------------------------------- |
+| OK     | Zelena   | ✓     | Poziadavka splnena                        |
+| WARN   | Zlta     | !     | Ciastocne splnena, vyzaduje pozornost     |
+| FAIL   | Cervena  | ✗     | Nesplnena, vyzaduje okamzitu akciu        |
+| OFF    | Siva     | -     | Modul vypnuty                             |
 
-### Kategória: právne stránky
+### Kategoria: pravne stranky
 
-| Kontrola                             | Zelený stav keď                         |
+| Kontrola                             | Status zeleny ak                        |
 | ------------------------------------ | --------------------------------------- |
-| Obchodné podmienky                   | Stránka publikovaná a priradená          |
-| Zásady ochrany osobných údajov       | Stránka publikovaná a priradená          |
-| Informácia o odstúpení od zmluvy     | Stránka publikovaná s formulárom         |
-| Zásady cookies                       | Stránka publikovaná                      |
-| Informácia o doručení a platbách     | Stránka publikovaná                      |
+| Obchodne podmienky                   | Stranka publikovana a priradena         |
+| Zasady ochrany sukromia              | Stranka publikovana a priradena         |
+| Informacia o odstupeni od zmluvy     | Stranka publikovana s formularom        |
+| Zasady cookies                       | Stranka publikovana                     |
+| Informacia o dodani a platbach       | Stranka publikovana                     |
 
-### Kategória: právne checkboxy
+### Kategoria: pravne checkboxy
 
-| Kontrola                             | Zelený stav keď                         |
+| Kontrola                             | Status zeleny ak                        |
 | ------------------------------------ | --------------------------------------- |
-| Akceptácia obch. podmienok (pokladňa)| Checkbox aktívny a povinný               |
-| Zásady ochrany os. údajov (pokladňa) | Checkbox aktívny a povinný               |
-| Akceptácia obch. podmienok (registrácia)| Checkbox aktívny a povinný             |
-| Marketingový súhlas                   | Checkbox aktívny (voliteľný)             |
+| Akceptacia podmienok (pokladna)      | Checkbox aktivny a povinny              |
+| Zasady ochrany sukromia (pokladna)   | Checkbox aktivny a povinny              |
+| Akceptacia podmienok (registracia)   | Checkbox aktivny a povinny              |
+| Marketingovy suhlas                  | Checkbox aktivny (volitelny)            |
 
-### Kategória: smernica Omnibus
+### Kategoria: smernica Omnibus
 
-| Kontrola                             | Zelený stav keď                         |
+| Kontrola                             | Status zeleny ak                        |
 | ------------------------------------ | --------------------------------------- |
-| Modul Omnibus aktívny                | Modul zapnutý v nastaveniach             |
-| História cien ukladaná              | Tabuľka histórie cien existuje a funguje |
-| Najnižšia cena zobrazovaná          | Cena viditeľná na produktoch v akcii     |
-| Obdobie 30 dní                       | Nastavené obdobie aspoň 30 dní          |
+| Modul Omnibus aktivny                | Modul zapnuty v nastaveniach            |
+| Historia cien sa zaznamenava         | Tabulka historie cien existuje a funguje |
+| Najnizsia cena sa zobrazuje          | Cena viditelna na produktoch v akcii    |
+| Obdobie 30 dni                       | Nastavene obdobie aspon 30 dni          |
 
-### Kategória: GPSR, DSA, KSeF, greenwashing
+### Kategoria: GPSR
 
-Panel obsahuje ďalšie kategórie pre GPSR, DSA, KSeF a greenwashing s príslušnými kontrolami stavu.
+| Kontrola                             | Status zeleny ak                        |
+| ------------------------------------ | --------------------------------------- |
+| Modul GPSR aktivny                   | Modul zapnuty                           |
+| Udaje vyrobcu doplnene               | Aspon 80 % produktov ma udaje GPSR      |
+| Udaje zastupcu                       | Doplnene pre produkty mimo EU           |
+| Informacie o bezpecnosti             | Doplnene pre produkty, ktore to vyzaduju |
+
+### Kategoria: DSA (Digital Services Act)
+
+| Kontrola                             | Status zeleny ak                        |
+| ------------------------------------ | --------------------------------------- |
+| Formular nahlaseni DSA               | Formular dostupny na stranke            |
+| Kontaktny bod DSA                    | Kontaktny email nastaveny               |
+| Register nahlaseni                   | Tabulka nahlaseni existuje              |
+
+### Kategoria: pokladna
+
+| Kontrola                             | Status zeleny ak                        |
+| ------------------------------------ | --------------------------------------- |
+| Popisok tlacidla objednavky          | Text v sulade so smernicou EU           |
+| Zhrnutie objednavky                  | Viditelne pred tlacidlom platby         |
+| Informacia o DPH a doruceni          | Zobrazena pri cenach produktov          |
+
+### Kategoria: KSeF
+
+| Kontrola                             | Status zeleny ak                        |
+| ------------------------------------ | --------------------------------------- |
+| Modul KSeF aktivny                   | Modul zapnuty                           |
+| NIP firmy nastaveny                  | NIP nakonfigurovany v nastaveniach      |
+| Spojenie s KSeF                      | Test spojenia uspesne ukonceny          |
+
+### Kategoria: greenwashing
+
+| Kontrola                             | Status zeleny ak                        |
+| ------------------------------------ | --------------------------------------- |
+| Modul anti-greenwashing aktivny      | Modul zapnuty                           |
+| Vyhlasenia s dokazmi                 | Vsetky vyhlasenia maju odovodnenie      |
+| Certifikaty s odkazmi                | Certifikaty maju cisla a URL adresy     |
 
 ## Zhrnutie
 
-V hornej časti panelu sa zobrazuje zhrnutie:
+V hornej casti panela je viditelne zhrnutie:
 
-- **Celkový výsledok** - percento splnených požiadaviek (napr. 85%)
-- **Progresová lišta** - vizuálna reprezentácia výsledku
-- **Kritické požiadavky** - počet nesplnených požiadaviek FAIL
-- **Varovania** - počet čiastočne splnených požiadaviek WARN
-- **Dátum poslednej kontroly** - kedy bol panel naposledy obnovený
+- **Celkovy vysledok** - percento splnenych poziadaviek (napr. 85 %)
+- **Lista priebehu** - vizualna reprezentacia vysledku
+- **Kriticke poziadavky** - pocet nesplnenych poziadaviek FAIL
+- **Upozornenia** - pocet ciastocne splnenych poziadaviek WARN
+- **Datum poslednej kontroly** - kedy bol panel naposledy obnoveny
 
-## Podrobnosti požiadavky
+## Detaily poziadavky
 
-Kliknutie na požiadavku rozvinie sekciu s podrobnosťami:
+Kliknite na poziadavku, aby ste videli detaily:
 
-- **Popis** - čo presne sa kontroluje
-- **Právny základ** - odkaz na predpis
-- **Stav** - podrobný popis stavu
-- **Odporúčaná akcia** - čo je treba urobiť na splnenie požiadavky
-- **Odkaz na nastavenia** - priamy odkaz na príslušnú stránku nastavení
+- **Popis** - co presne sa kontroluje
+- **Pravny zaklad** - odkaz na predpis
+- **Status** - podrobny popis stavu
+- **Odporucana akcia** - co treba urobit na splnenie poziadavky
+- **Odkaz na nastavenia** - priamy odkaz na prislusnu stranku nastaveni
 
-## Export správy
+## Obnovovanie statusov
 
-Panel umožňuje export správy o súlade:
+Panel kontroluje statusy naopak pri kazdom otvoreni. Kontroly zahrnaju:
 
-- **PDF** - správa na stiahnutie alebo tlač
-- **JSON** - strojovo čitateľné údaje (napr. pre monitorovací systém)
+- Existenciu a status stranok (publikovana / koncept / odstranena)
+- Existenciu a konfiguraciu checkboxov
+- Spravnost udajov v meta produktov (sampling - nahodna vzorka 100 produktov)
+- Fungovanie modulov (aktivita, spravnost konfiguracie)
+- Testy spojeni s externymi API (KSeF)
+
+## Export reportu
+
+Exportujte report zhody:
+
+- **PDF** - report na stiahnutie alebo tlac
+- **JSON** - strojovo citatelne udaje (napr. pre monitorovaci system)
 
 ```php
-// Hook po vygenerovaní správy
+// Hook po vygenerovani reportu
 add_action('polski/compliance/report_generated', function (array $results, string $format): void {
-    // Logovanie dátumu generovania správy
+    // Logovanie datumu generovania reportu
     update_option('polski_last_compliance_report', current_time('mysql'));
 }, 10, 2);
 ```
 
-## Oznámenia
+## Notifikacie
 
-Panel môže zasielať e-mailové oznámenia administrátorovi:
+Panel posiela emailove notifikacie administratorovi:
 
-- **Týždenná správa** - zhrnutie stavov zasielané raz týždenne
-- **Kritický alert** - okamžité oznámenie keď sa stav zmení na FAIL
+- **Tyzdenny report** - zhrnutie statusov posielane raz tyzdenne
+- **Kriticky alert** - okamzita notifikacia, ked sa status zmeni na FAIL
 
-Konfigurácia oznámení: **WooCommerce > Polski > Panel súladu > Oznámenia**.
+Konfiguracia notifikacii: **WooCommerce > Polski > Panel zhody > Notifikacie**.
 
-## Filter požiadaviek
+```php
+// Zmena frekvencie reportu
+add_filter('polski/compliance/report_frequency', function (): string {
+    return 'daily'; // 'daily', 'weekly', 'monthly'
+});
+```
 
-Môžete pridať vlastné kontroly do panelu:
+## Filter poziadaviek
+
+Mozete pridat vlastne kontroly do panela:
 
 ```php
 add_filter('polski/compliance/checks', function (array $checks): array {
     $checks[] = [
         'id'       => 'custom_ssl',
         'category' => 'security',
-        'label'    => 'Certifikát SSL',
+        'label'    => 'Certifikat SSL',
         'callback' => function (): array {
             $is_ssl = is_ssl();
             return [
                 'status'  => $is_ssl ? 'ok' : 'fail',
-                'message' => $is_ssl ? 'SSL aktívny' : 'Chýba certifikát SSL',
+                'message' => $is_ssl ? 'SSL aktivny' : 'Chyba certifikat SSL',
             ];
         },
     ];
@@ -120,12 +174,12 @@ add_filter('polski/compliance/checks', function (array $checks): array {
 });
 ```
 
-## Riešenie problémov
+## Riesenie problemov
 
-**Panel zobrazuje zastarané údaje** - kliknite na tlačidlo **Obnoviť** v hornej časti panelu.
+**Panel zobrazuje zastarane udaje** - kliknite na **Obnovit** v hornej casti panela. Niektore udaje (napr. GPSR sampling) mozu byt cachovane.
 
-**Stav FAIL pre právnu stránku** - skontrolujte, či stránka je publikovaná (nie v koncepte) a či je priradená v **WooCommerce > Nastavenia > Rozšírené > Nastavenia stránky**.
+**Status FAIL pre pravnu stranku** - skontrolujte, ci je stranka publikovana (nie koncept) a priradena v **WooCommerce > Nastavenia > Pokrocile > Nastavenia stranok**.
 
-Nahlasovanie problémov: [github.com/wppoland/polski/issues](https://github.com/wppoland/polski/issues)
+Nahlasovanie problemov: [github.com/wppoland/polski/issues](https://github.com/wppoland/polski/issues)
 
-<div class="disclaimer">Táto stránka slúži len na informačné účely a nepredstavuje právne poradenstvo. Pred implementáciou sa poraďte s právnikom. Polski for WooCommerce je open source softvér (GPLv2) poskytovaný bez záruky.</div>
+<div class="disclaimer">Tato stranka ma vylucne informacny charakter a nepredstavuje pravne poradenstvo. Pred nasadenim sa poradte s pravnikom. Polski for WooCommerce je open source softver (GPLv2) poskytovany bez zaruky.</div>

@@ -7,9 +7,9 @@ Predaj potravín online vyžaduje uvádzanie informácií o zložení, výživov
 
 ## Právne požiadavky
 
-Nariadenie FIC ukladá predajcom potravín povinnosť uvádzať nasledujúce informácie:
+Predajca potravín musí uviesť:
 
-| Informácia | Povinná | Právny základ |
+| Informácia | Vyžadovaná | Právny základ |
 |------------|----------|----------------|
 | Názov potraviny | Áno | Čl. 9 ods. 1 písm. a |
 | Zoznam zložiek | Áno | Čl. 9 ods. 1 písm. b |
@@ -17,38 +17,38 @@ Nariadenie FIC ukladá predajcom potravín povinnosť uvádzať nasledujúce inf
 | Množstvo zložiek | Podmienečne | Čl. 9 ods. 1 písm. d |
 | Čisté množstvo | Áno | Čl. 9 ods. 1 písm. e |
 | Dátum minimálnej trvanlivosti | Áno | Čl. 9 ods. 1 písm. f |
-| Podmienky uchovávania | Podmienečne | Čl. 9 ods. 1 písm. g |
+| Podmienky skladovania | Podmienečne | Čl. 9 ods. 1 písm. g |
 | Údaje výrobcu | Áno | Čl. 9 ods. 1 písm. h |
 | Krajina pôvodu | Podmienečne | Čl. 9 ods. 1 písm. i |
 | Výživová hodnota | Áno | Čl. 9 ods. 1 písm. l |
 
-Pri predaji na diaľku (internetový obchod) musí byť väčšina týchto informácií dostupná pred nákupom - s výnimkou dátumu minimálnej trvanlivosti, ktorý môže byť uvedený pri doručení.
+V internetovom obchode musí byť väčšina týchto informácií dostupná pred nákupom. Výnimkou je dátum minimálnej trvanlivosti - uvádzaš ho pri doručení.
 
-## Zložky modulu
+## Súčasti modulu
 
-Modul potravín sa skladá z niekoľkých podmodulov, ktoré je možné zapínať nezávisle:
+Modul potravín má niekoľko podmodulov. Každý zapínaš samostatne:
 
 ### Výživové hodnoty
 
-Tabuľka výživových hodnôt per 100 g alebo 100 ml produktu. Zahŕňa energiu (kJ/kcal), tuky, sacharidy, bielkoviny, soľ a ďalšie výživové zložky.
+Tabuľka výživových hodnôt na 100 g alebo 100 ml. Obsahuje energiu (kJ/kcal), tuky, sacharidy, bielkoviny, soľ a ďalšie zložky.
 
-Podrobnosti: [Výživové hodnoty](/sk/food/nutrients/)
+Podrobnosti: [Výživové hodnoty](food/nutrients/)
 
 ### Alergény
 
-Systém deklarácie alergénov založený na taxonómii WordPress. 14 hlavných alergénov podľa prílohy II nariadenia FIC.
+Deklarácia 14 hlavných alergénov založená na taxonómii WordPress.
 
-Podrobnosti: [Alergény](/sk/food/allergens/)
+Podrobnosti: [Alergény](food/allergens/)
 
 ### Nutri-Score
 
-Zobrazenie označenia Nutri-Score (A-E) s príslušnými farbami a CSS triedami.
+Zobrazovanie označenia Nutri-Score (A-E) s príslušnými farbami a CSS triedami.
 
-Podrobnosti: [Nutri-Score](/sk/food/nutri-score/)
+Podrobnosti: [Nutri-Score](food/nutri-score/)
 
 ### Zloženie (zoznam)
 
-Textové pole na úplný zoznam zložiek produktu. Alergény v zozname sú automaticky zvýrazňované tučným písmom v súlade s požiadavkami FIC.
+Textové pole na zoznam zložiek. Alergény v zozname sa automaticky zvýrazňujú tučným písmom.
 
 ### Alkohol
 
@@ -57,62 +57,62 @@ Polia na správu informácií o alkoholických produktoch:
 | Pole | Popis |
 |------|------|
 | Obsah alkoholu (% obj.) | Percentuálny obsah alkoholu |
-| Varovanie | Hlásenie o zákaze predaja neplnoletým |
+| Upozornenie | Správa o zákaze predaja maloletým |
 | Overenie veku | Checkbox potvrdenia plnoletosti pri pridaní do košíka |
 
-Pre nápoje s obsahom alkoholu nad 1,2% obj. sa vyžaduje uvedenie obsahu alkoholu na etikete (čl. 28 FIC).
+Nápoje s obsahom alkoholu nad 1,2 % obj. vyžadujú uvedenie obsahu alkoholu.
 
 ### Krajina pôvodu
 
 Pole na informáciu o krajine pôvodu alebo mieste proveniencie. Vyžadované pre:
 
-- mäso (hovädzie, bravčové, hydinové, jahňacie)
+- mäso (hovädzie, bravčové, hydina, baranina)
 - ovocie a zeleninu
 - ryby
 - olivový olej
 - med
-- produkty, kde by absencia informácie mohla zavádzať spotrebiteľa
+- produkty, kde by chýbajúca informácia mohla uviesť spotrebiteľa do omylu
 
 ## Konfigurácia
 
 ### Zapnutie modulu
 
-Prejdite do **WooCommerce > Nastavenia > Polski > Potraviny** a aktivujte modul a vyberte potrebné podmoduly.
+Prejdi na **WooCommerce > Nastavenia > Polski > Potraviny** a aktivuj modul aj vyber potrebné podmoduly.
 
 ### Globálne nastavenia
 
 | Nastavenie | Popis |
 |------------|------|
-| Referenčná jednotka | Predvolená jednotka: per 100 g alebo per 100 ml |
+| Referenčná jednotka | Predvolená jednotka: na 100 g alebo na 100 ml |
 | Pozícia na stránke produktu | Kde zobrazovať informácie (záložka, pod popisom, v bočnom paneli) |
-| Zobrazovať v zozname | Či zobrazovať skrátené informácie na stránkach kategórií |
-| Automatické zvýrazňovanie alergénov | Tučné písmo názvov alergénov v zozname zložiek |
+| Zobrazuj v listingu | Či zobrazovať skrátené informácie na stránkach kategórií |
+| Automatické zvýrazňovanie alergénov | Zvýraznenie názvov alergénov v zozname zložiek |
 
 ### Pozícia na stránke produktu
 
-Informácie o potravinárskom produkte môžu byť zobrazované na viacerých miestach:
+Údaje o potravine zobrazuješ na jednom z miest:
 
 1. **Nová záložka** (odporúčané) - samostatná záložka "Informácie o potravine" vedľa popisu a recenzií
 2. **Pod popisom** - priamo pod popisom produktu
 3. **V metadátach** - v sekcii SKU/kategórie
-4. **Vlastné** - pomocou shortcódov na ľubovoľnom mieste
+4. **Vlastná** - pomocou shortcódov na ľubovoľnom mieste
 
 ## Editor produktu
 
-Po aktivácii modulu potravín sa v editore produktu zobrazí nová záložka "Potraviny" s nasledujúcimi sekciami:
+Po zapnutí modulu sa v editore produktu objaví záložka "Potraviny" so sekciami:
 
-- **Výživové hodnoty** - tabuľka s poľami na všetky zložky
+- **Výživové hodnoty** - tabuľka s poliami na všetky zložky
 - **Zloženie** - textové pole (WYSIWYG) na zoznam zložiek
 - **Alergény** - checkbox zoznam alergénov
 - **Nutri-Score** - výber úrovne A-E
 - **Alkohol** - polia súvisiace s alkoholickými nápojmi
 - **Pôvod** - krajina pôvodu a miesto proveniencie
 
-## Import CSV
+## CSV import
 
-Všetky potravinárske údaje je možné importovať hromadne cez CSV:
+Potravinárske údaje importuješ hromadne cez CSV:
 
-| Stĺpec CSV | Popis | Formát |
+| CSV stĺpec | Popis | Formát |
 |-------------|------|--------|
 | `polski_nutrients` | Výživové hodnoty | JSON |
 | `polski_ingredients` | Zoznam zložiek | Text |
@@ -124,12 +124,12 @@ Všetky potravinárske údaje je možné importovať hromadne cez CSV:
 Príklad:
 
 ```csv
-"Sok pomarańczowy 1L",'{"energy_kj":180,"energy_kcal":43,"fat":0.1,"carbohydrates":9.8,"sugars":8.4,"protein":0.7,"salt":0.01}',,"",B,,Hiszpania
+"Pomarančový džús 1L",'{"energy_kj":180,"energy_kcal":43,"fat":0.1,"carbohydrates":9.8,"sugars":8.4,"protein":0.7,"salt":0.01}',,"",B,,Španielsko
 ```
 
 ## Kompatibilita so Schema.org
 
-Modul automaticky generuje štrukturované údaje kompatibilné so Schema.org:
+Modul automaticky vytvára štrukturované údaje Schema.org:
 
 ```json
 {
@@ -137,29 +137,29 @@ Modul automaticky generuje štrukturované údaje kompatibilné so Schema.org:
     "additionalProperty": [
         {
             "@type": "PropertyValue",
-            "name": "Wartość energetyczna",
+            "name": "Energetická hodnota",
             "value": "250 kcal / 1046 kJ"
         }
     ],
-    "hasAllergen": ["gluten", "mleko"],
+    "hasAllergen": ["gluten", "mlieko"],
     "countryOfOrigin": {
         "@type": "Country",
-        "name": "Polska"
+        "name": "Slovensko"
     }
 }
 ```
 
-## Programové rozšírenia
+## Programátorské rozšírenia
 
 ### Pridanie vlastného potravinárskeho poľa
 
 ```php
 add_filter('polski/food/custom_fields', function (array $fields): array {
     $fields['organic_certified'] = [
-        'label'   => 'Certyfikat ekologiczny',
+        'label'   => 'Ekologický certifikát',
         'type'    => 'select',
         'options' => [
-            ''       => 'Brak',
+            ''       => 'Žiadny',
             'eu_bio' => 'EU Bio',
             'demeter' => 'Demeter',
         ],
@@ -169,7 +169,7 @@ add_filter('polski/food/custom_fields', function (array $fields): array {
 });
 ```
 
-### Filter zobrazovania potravinárskych informácií
+### Filter zobrazenia potravinárskych informácií
 
 ```php
 add_filter('polski/food/display_html', function (string $html, int $product_id): string {
@@ -180,25 +180,25 @@ add_filter('polski/food/display_html', function (string $html, int $product_id):
 
 ## Najčastejšie problémy
 
-### Záložka "Potraviny" sa nezobrazuje v editore produktu
+### Záložka "Potraviny" sa neobjavuje v editore produktu
 
-1. Skontrolujte, či modul potravín je zapnutý v nastaveniach
-2. Overte, či produkt nie je typu "externý/afiliátový" (modul nepodporuje tento typ)
-3. Vymažte cache prehliadača a opätovne načítajte administračný panel
+1. Skontroluj, či je modul potravín zapnutý v nastaveniach
+2. Over, či produkt nie je typu "externý/affiliate" (modul tento typ nepodporuje)
+3. Vymaž cache prehliadača a znova načítaj administračný panel
 
-### Alergény nie sú tučné v zozname zložiek
+### Alergény nie sú zvýraznené v zozname zložiek
 
-Uistite sa, že možnosť "Automatické zvýrazňovanie alergénov" je zapnutá a že názvy alergénov v zozname zodpovedajú názvom v taxonómii.
+Uisti sa, že možnosť "Automatické zvýrazňovanie alergénov" je zapnutá a že názvy alergénov v zozname zodpovedajú názvom v taxonómii.
 
 ### Výživové hodnoty sa zobrazujú nesprávne
 
-Skontrolujte formát údajov - hodnoty musia byť čísla (s bodkou ako desatinným oddeľovačom v databáze). Plugin automaticky formátuje zobrazenie podľa poľských regionálnych nastavení (čiarka).
+Skontroluj formát údajov - v databáze hodnoty používajú bodku ako oddeľovač (napr. 9.5). Plugin ich automaticky zobrazuje so slovenskou čiarkou (9,5).
 
 ## Súvisiace zdroje
 
-- [Výživové hodnoty](/sk/food/nutrients/)
-- [Alergény](/sk/food/allergens/)
-- [Nutri-Score](/sk/food/nutri-score/)
+- [Výživové hodnoty](food/nutrients/)
+- [Alergény](food/allergens/)
+- [Nutri-Score](food/nutri-score/)
 - [Nahlásiť problém](https://github.com/wppoland/polski/issues)
 
-<div class="disclaimer">Táto stránka slúži len na informačné účely a nepredstavuje právne poradenstvo. Pred implementáciou sa poraďte s právnikom. Polski for WooCommerce je open source softvér (GPLv2) poskytovaný bez záruky.</div>
+<div class="disclaimer">Táto stránka má výlučne informatívny charakter a nepredstavuje právne poradenstvo. Pred nasadením sa poraďte s právnikom. Polski for WooCommerce je open source softvér (GPLv2) poskytovaný bez záruky.</div>

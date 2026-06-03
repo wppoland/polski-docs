@@ -7,30 +7,32 @@ Modul označuje recenzie zákazníkov, ktorí kúpili produkt, odznakom **Overen
 
 ## Zapnutie modulu
 
-Prejdite do **WooCommerce > Polski > Nástroje > Overené recenzie** a aktivujte modul. Modul vyžaduje zapnuté recenzie vo WooCommerce (**WooCommerce > Nastavenia > Produkty > Všeobecné > Zapnúť recenzie produktov**).
+Prejdite do **WooCommerce > Polski > Nástroje > Overené recenzie** a zapnite modul. Vyžaduje zapnuté recenzie v **WooCommerce > Nastavenia > Produkty > Všeobecné > Zapnúť recenzie produktov**.
 
-## Ako funguje overenie
+## Ako funguje overovanie
 
 ### Odznak nákupu (purchase badge)
 
-Po zapnutí modulu recenzie zákazníkov, ktorí kúpili produkt, dostávajú odznak **Overený nákup**. Odznak sa zobrazuje vedľa mena recenzenta.
+Recenzie zákazníkov, ktorí kúpili produkt, dostávajú odznak **Overený nákup** vedľa mena recenzenta.
 
-Odznak sa udeľuje, keď:
+Odznak sa objaví, keď:
 
 1. Autor recenzie je prihlásený ako zákazník
 2. Zákazník má aspoň 1 objednávku obsahujúcu recenzovaný produkt
-3. Objednávka má stav `completed` (zrealizovaná) alebo `processing` (spracovávaná)
+3. Objednávka má stav `completed` (dokončená) alebo `processing` (v realizácii)
 
 ### Párovanie e-mailov (email matching)
 
-Pre hostí (neprihlásených) systém porovnáva e-mailovú adresu uvedenú v recenzii s e-mailovými adresami z objednávok. Ak adresa zodpovedá objednávke obsahujúcej recenzovaný produkt, recenzia dostáva odznak overenia.
+Pri hosťoch systém porovnáva e-mail z recenzie s e-mailmi z objednávok. Ak sa zhoduje s objednávkou s recenzovaným produktom, recenzia dostane odznak.
 
-Párovanie e-mailov funguje v režime:
+Režimy párovania:
 
-| Režim        | Popis                                          | Bezpečnosť |
+| Režim        | Popis                                         | Bezpečnosť     |
 | ------------ | --------------------------------------------- | -------------- |
 | Presné       | E-mail musí byť identický                     | Vysoká         |
 | Normalizované| Ignoruje veľkosť písmen a aliasy Gmail (+)    | Stredná        |
+
+Konfigurácia režimu: **WooCommerce > Polski > Overené recenzie > Režim párovania e-mailov**.
 
 ```php
 // Zmena režimu programovo
@@ -39,20 +41,39 @@ add_filter('polski/verified_reviews/email_matching', function (): string {
 });
 ```
 
+### Proces overovania
+
+```
+Zákazník zadá recenziu
+        ↓
+Systém kontroluje:
+  1. Je zákazník prihlásený?
+     → ÁNO: skontroluj objednávky podľa user_id
+     → NIE: skontroluj objednávky podľa e-mailu
+        ↓
+  2. Existuje objednávka obsahujúca tento produkt?
+     → ÁNO: skontroluj stav objednávky
+     → NIE: žiadny odznak
+        ↓
+  3. Je stav objednávky "completed" alebo "processing"?
+     → ÁNO: prideľ odznak "Overený nákup"
+     → NIE: žiadny odznak
+```
+
 ## Konfigurácia odznaku
 
 ### Vzhľad
 
 Možnosti konfigurácie odznaku:
 
-| Možnosť         | Popis                              | Predvolené              |
+| Možnosť         | Popis                             | Predvolene             |
 | --------------- | --------------------------------- | ---------------------- |
-| Text            | Obsah odznaku                      | Overený nákup           |
-| Ikona           | Ikona vedľa textu                  | Checkmark (✓)          |
-| Farba pozadia   | Farba pozadia odznaku              | Zelená (#059669)       |
-| Farba textu     | Farba textu                        | Biela (#ffffff)        |
-| Pozícia         | Pozícia voči menu autora           | Za menom               |
-| Veľkosť         | Veľkosť odznaku                    | Malá                   |
+| Text            | Obsah odznaku                     | Overený nákup          |
+| Ikona           | Ikona vedľa textu                 | Checkmark (✓)          |
+| Farba pozadia   | Farba pozadia odznaku             | Zelená (#059669)       |
+| Farba textu     | Farba textu                       | Biela (#ffffff)        |
+| Pozícia         | Pozícia vzhľadom k menu autora    | Za menom               |
+| Veľkosť         | Veľkosť odznaku                   | Malá                   |
 
 ### Štýlovanie CSS
 
@@ -83,23 +104,25 @@ CSS triedy:
 
 ## Filtrovanie recenzií
 
-Modul pridáva filter na stránke produktu umožňujúci zákazníkom zobraziť:
+Filter na stránke produktu umožňuje zákazníkom zobraziť:
 
 - **Všetky recenzie** - predvolené zobrazenie
 - **Len overené** - recenzie s odznakom
 - **Len neoverené** - recenzie bez odznaku
+
+Filter sa zobrazuje ako sada tlačidiel nad zoznamom recenzií.
 
 ```php
 // Vypnutie filtra
 add_filter('polski/verified_reviews/show_filter', '__return_false');
 ```
 
-## Zoradenie recenzií
+## Triedenie recenzií
 
-Overené recenzie môžu byť priorizované v zoradení. Možnosti:
+Overené recenzie sa môžu zobrazovať vyššie. Možnosti triedenia:
 
-- **Chronologicky** - predvolené zoradenie WooCommerce
-- **Overené najskôr** - recenzie s odznakom navrchu
+- **Chronologicky** - predvolené triedenie WooCommerce
+- **Overené najprv** - recenzie s odznakom hore
 - **Hodnotenie zostupne** - od najvyššieho hodnotenia
 - **Hodnotenie vzostupne** - od najnižšieho hodnotenia
 
@@ -109,64 +132,97 @@ add_filter('polski/verified_reviews/default_sort', function (): string {
 });
 ```
 
-## Štatistiky overenia
+## Štatistiky overovania
 
-Admin panel (**WooCommerce > Polski > Overené recenzie > Štatistiky**) zobrazuje:
+V **WooCommerce > Polski > Overené recenzie > Štatistiky** sú viditeľné:
 
 - **Celkový počet recenzií** - všetky recenzie v obchode
 - **Overené** - recenzie s odznakom (počet a percento)
 - **Neoverené** - recenzie bez odznaku
-- **Priemerné hodnotenie overených** - priemer hviezdičiek overených recenzií
-- **Priemerné hodnotenie neoverených** - priemer hviezdičiek neoverených recenzií
+- **Priemerné hodnotenie overených** - priemer hviezdičiek recenzií s odznakom
+- **Priemerné hodnotenie neoverených** - priemer hviezdičiek recenzií bez odznaku
 - **Mesačný graf** - trend overených vs neoverených recenzií
 
 ## Ochrana pred falošnými recenziami
 
+Dodatočné ochranné mechanizmy:
+
 ### Limit recenzií
 
-Zákazník môže napísať maximálne 1 recenziu na produkt.
+Zákazník môže vystaviť 1 recenziu na produkt. Pri pokuse o pridanie druhej uvidí správu.
 
 ### Minimálny čas
 
-Recenziu je možné napísať až po X dňoch od doručenia. Štandardne **3 dni**.
+Recenzia je možná až po X dňoch od dodania. Predvolene **3 dni** - zákazník má čas otestovať produkt.
 
 ```php
 add_filter('polski/verified_reviews/min_days_after_delivery', function (): int {
-    return 7; // 7 dní od doručenia
+    return 7; // 7 dní od dodania
 });
 ```
 
-### Moderácia
+### Moderovanie
 
-Recenzie môžu vyžadovať moderáciu pred publikáciou:
+Možnosti moderovania pred publikovaním:
 
-- **Bez moderácie** - recenzie publikované okamžite
-- **Moderácia neoverených** - len recenzie bez odznaku vyžadujú schválenie
-- **Moderácia všetkých** - všetky recenzie vyžadujú schválenie
+- **Bez moderovania** - recenzie publikované okamžite
+- **Moderovanie neoverených** - schválenie vyžadujú len recenzie bez odznaku
+- **Moderovanie všetkých** - všetky recenzie vyžadujú schválenie
 
-### Detekcia podozrivých recenzií
+Konfigurácia: **WooCommerce > Polski > Overené recenzie > Moderovanie**.
 
-Systém automaticky označuje podozrivé recenzie:
+### Zisťovanie podozrivých recenzií
 
-| Signál                              | Popis                                     |
+Automatické označovanie podozrivých recenzií:
+
+| Signál                              | Popis                                    |
 | ------------------------------------ | ---------------------------------------- |
 | Viacero recenzií z jednej IP         | Viac ako 3 recenzie z tej istej IP/deň   |
-| Recenzia okamžite po nákupe          | Recenzia napísaná v priebehu minút od objednávky |
-| Identický text                       | Rovnaký text recenzie na rôznych produktoch |
+| Recenzia okamžite po nákupe          | Recenzia vystavená v priebehu minút od objednávky |
+| Identický text                       | Ten istý text recenzie na rôznych produktoch |
 | Podozrivý e-mail                     | E-mailová adresa z dočasnej domény       |
 
-## E-mail s požiadavkou na recenziu
+Podozrivé recenzie sa dostávajú do fronty moderovania so štítkom **Na skontrolovanie**.
 
-Modul môže automaticky zasielať e-mail zákazníkovi s požiadavkou na recenziu po X dňoch od doručenia.
+## Integrácia so Schema.org
+
+Overené recenzie generujú štruktúrované dáta `Review`:
+
+```json
+{
+  "@type": "Review",
+  "author": {
+    "@type": "Person",
+    "name": "Ján K."
+  },
+  "reviewRating": {
+    "@type": "Rating",
+    "ratingValue": "5",
+    "bestRating": "5"
+  },
+  "datePublished": "2025-05-20",
+  "reviewBody": "Výborná kvalita, odporúčam.",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Môj obchod"
+  }
+}
+```
+
+Google preferuje recenzie z potvrdených nákupov v rich snippets.
+
+## E-mail so žiadosťou o recenziu
+
+Automatický e-mail so žiadosťou o recenziu po X dňoch od dodania.
 
 Konfigurácia:
 
-| Možnosť              | Popis                            | Predvolené |
+| Možnosť            | Popis                           | Predvolene |
 | ------------------- | ------------------------------- | --------- |
-| Zapnutý             | Či zasielať e-mail               | Nie       |
-| Oneskorenie         | Dni po doručení                  | 7         |
-| Šablóna             | Šablóna e-mailu                  | Predvolená |
-| Limit               | Max 1 e-mail na objednávku       | Áno       |
+| Zapnutý            | Či posielať e-mail              | Nie       |
+| Oneskorenie        | Dní po dodaní                   | 7         |
+| Šablóna            | Šablóna e-mailu                 | Predvolená|
+| Limit              | Max 1 e-mail na objednávku      | Áno       |
 
 ```php
 // Zmena oneskorenia e-mailu
@@ -175,22 +231,22 @@ add_filter('polski/verified_reviews/email_delay_days', function (): int {
 });
 ```
 
-## Shortcód
+## Shortcode
 
 ```html
-[polski_verified_badge text="Potwierdzone zamówienie" icon="shield"]
+[polski_verified_badge text="Potvrdená objednávka" icon="shield"]
 ```
 
-Shortcód zobrazuje odznak overenia. Užitočný v vlastných šablónach recenzií.
+Zobrazuje odznak overenia. Užitočný v neštandardných šablónach recenzií.
 
 ## Riešenie problémov
 
-**Odznak sa nezobrazuje napriek nákupu** - skontrolujte stav objednávky. Len objednávky so stavom `completed` alebo `processing` sa kvalifikujú na overenie. Skontrolujte tiež, či e-mail v recenzii zodpovedá e-mailu z objednávky.
+**Odznak sa nezobrazuje napriek nákupu** - skontrolujte stav objednávky (vyžadovaný `completed` alebo `processing`). Skontrolujte tiež, či sa e-mail v recenzii zhoduje s e-mailom z objednávky.
 
-**Všetky recenzie sú neoverené** - uistite sa, že modul je aktívny a že WooCommerce vyžaduje e-mailovú adresu pri pridávaní recenzií.
+**Všetky recenzie sú neoverené** - skontrolujte, či je modul aktívny a WooCommerce vyžaduje e-mail pri pridávaní recenzie.
 
-**E-mail s požiadavkou na recenziu nedochádza** - skontrolujte konfiguráciu pošty WordPressu. Použite SMTP plugin na spoľahlivé zasielanie e-mailov.
+**E-mail so žiadosťou o recenziu neprichádza** - skontrolujte konfiguráciu pošty WordPressu. Použite plugin SMTP.
 
-Nahlasovanie problémov: [github.com/wppoland/polski/issues](https://github.com/wppoland/polski/issues)
+Hlásenie problémov: [github.com/wppoland/polski/issues](https://github.com/wppoland/polski/issues)
 
-<div class="disclaimer">Táto stránka slúži len na informačné účely a nepredstavuje právne poradenstvo. Pred implementáciou sa poraďte s právnikom. Polski for WooCommerce je open source softvér (GPLv2) poskytovaný bez záruky.</div>
+<div class="disclaimer">Táto stránka má výhradne informačný charakter a nepredstavuje právne poradenstvo. Pred zavedením sa poraďte s právnikom. Polski for WooCommerce je open source softvér (GPLv2) dodávaný bez záruky.</div>

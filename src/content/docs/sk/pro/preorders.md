@@ -1,9 +1,9 @@
 ---
 title: Predpredaj (pre-orders)
-description: Modul predpredaja Polski PRO for WooCommerce - označenie produktov ako pre-order, dátum premiéry, vlastný text tlačidla a validácia košíka.
+description: Modul predpredaja Polski PRO for WooCommerce - označovanie produktov ako pre-order, dátum uvedenia, vlastný text tlačidla a validácia košíka.
 ---
 
-Modul predpredaja umožňuje označovať produkty ako pre-order, zobrazovať dátum premiéry a meniť text tlačidla. Užitočný v obchodoch s elektronikou, knihami, hrami a inými produktmi ponúkanými pred premiérou.
+Modul predpredaja umožňuje označovať produkty ako pre-order, zobrazovať dátum uvedenia a meniť text tlačidla. Užitočný v obchodoch s elektronikou, knihami, hrami a inými produktmi ponúkanými pred uvedením.
 
 :::note[Požiadavky]
 Polski PRO vyžaduje: Polski (free) v1.3.0+, WordPress 6.4+, WooCommerce 8.0+, PHP 8.1+
@@ -11,26 +11,26 @@ Polski PRO vyžaduje: Polski (free) v1.3.0+, WordPress 6.4+, WooCommerce 8.0+, P
 
 ## Globálna konfigurácia
 
-Prejdite do **WooCommerce > Nastavenia > Polski PRO > Predpredaj**.
+Prejdite na **WooCommerce > Nastavenia > Polski PRO > Predpredaj**.
 
 | Nastavenie | Predvolená hodnota | Popis |
 |------------|------------------|------|
-| Text tlačidla | "Zamów w przedsprzedaży" | Globálny text tlačidla pre produkty pre-order |
-| Text dostupnosti | "Dostępne od {date}" | Šablóna textu zobrazovaného namiesto stavu skladu |
-| Formát dátumu | `d.m.Y` | Formát zobrazenia dátumu premiéry |
+| Text tlačidla | "Objednať v predpredaji" | Globálny text tlačidla pre pre-order produkty |
+| Text dostupnosti | "Dostupné od {date}" | Šablóna textu zobrazovaného namiesto stavu skladu |
+| Formát dátumu | `d.m.Y` | Formát zobrazenia dátumu uvedenia |
 | Blokovať miešanie košíka | Áno | Zakazuje pridávanie štandardných produktov do košíka s pre-order |
-| Správa blokácie | "Produkty w przedsprzedaży muszą być zamawiane osobno." | Správa zobrazovaná pri pokuse o miešanie |
+| Správa blokovania | "Produkty v predpredaji musia byť objednané samostatne." | Správa zobrazená pri pokuse o miešanie |
 
 ## Konfigurácia produktu
 
 ### Meta polia
 
-Nastavenia predpredaja sa nachádzajú v úprave produktu, v záložke **Všeobecné** v paneli dát produktu.
+Nastavenia nájdete pri úprave produktu, záložka **Všeobecné**.
 
 | Meta pole | Kľúč | Typ | Popis |
 |-----------|-------|-----|------|
-| Zapnúť predpredaj | `_polski_preorder_enabled` | `bool` | Označí produkt ako pre-order |
-| Dátum premiéry | `_polski_preorder_release_date` | `string` (Y-m-d) | Dátum, od ktorého je produkt dostupný štandardne |
+| Zapnúť predpredaj | `_polski_preorder_enabled` | `bool` | Označuje produkt ako pre-order |
+| Dátum uvedenia | `_polski_preorder_release_date` | `string` (Y-m-d) | Dátum, od ktorého je produkt dostupný štandardne |
 | Text tlačidla | `_polski_preorder_button_text` | `string` | Prepíše globálny text tlačidla pre tento produkt |
 | Text dostupnosti | `_polski_preorder_availability_text` | `string` | Prepíše globálny text dostupnosti |
 
@@ -53,24 +53,24 @@ update_post_meta($product_id, '_polski_preorder_release_date', '2026-06-15');
 
 ### Tlačidlo nákupu
 
-Keď je produkt označený ako pre-order, text tlačidla "Pridať do košíka" sa zmení na nakonfigurovaný text predpredaja. Týka sa to:
+Tlačidlo "Pridať do košíka" sa zmení na text predpredaja. Týka sa:
 
 - Stránky jednotlivého produktu
-- Stránok archívu, kategórií a štítkov
+- Stránok archívu, kategórií a tagov
 - Výsledkov vyhľadávania
 - Blokov WooCommerce (Product Grid, Product Collection)
 
 ### Text dostupnosti
 
-Namiesto štandardného stavu skladu ("Skladom", "Nedostupné") sa zobrazuje text dostupnosti s dátumom premiéry. Placeholder `{date}` je nahradený naformátovaným dátumom.
+Namiesto stavu skladu sa zobrazuje text s dátumom uvedenia. Placeholder `{date}` sa nahradí dátumom.
 
 **Príklad zobrazenia:**
 
-> Dostępne od 15.06.2026
+> Dostupné od 15.06.2026
 
 ### Automatická deaktivácia
 
-Po prekročení dátumu premiéry sa produkt automaticky vráti do štandardného režimu. Deaktivácia prebieha cez úlohu WP-Cron spúšťanú denne o 00:01.
+Po dátume uvedenia sa produkt automaticky vráti do štandardného režimu. WP-Cron to kontroluje denne o 00:01.
 
 ```php
 /**
@@ -82,7 +82,7 @@ Po prekročení dátumu premiéry sa produkt automaticky vráti do štandardnéh
 do_action('polski_pro/preorder/deactivated', int $product_id, string $release_date);
 ```
 
-**Príklad - notifikácia zákazníkov o dostupnosti:**
+**Príklad - upozornenie zákazníkov na dostupnosť:**
 
 ```php
 add_action('polski_pro/preorder/deactivated', function (int $product_id, string $release_date): void {
@@ -101,14 +101,14 @@ add_action('polski_pro/preorder/deactivated', function (int $product_id, string 
 
 ## Validácia košíka
 
-### Blokácia miešania produktov
+### Blokovanie miešania produktov
 
-Keď je voľba "Blokovať miešanie košíka" zapnutá, zákazník nemôže pridať do košíka súčasne:
+Keď je "Blokovať miešanie košíka" zapnuté, zákazník nemôže pridať súčasne:
 
 - Produkty v predpredaji a štandardné produkty
-- Produkty pre-order s rôznymi dátumami premiéry (voliteľne)
+- Pre-order produkty s rôznymi dátumami uvedenia (voliteľne)
 
-Pri pokuse o pridanie produktu iného typu sa zobrazí správa blokácie a produkt sa nepridá.
+Pri pokuse o miešanie sa zobrazí správa blokovania.
 
 ### Hook validácie
 
@@ -136,7 +136,7 @@ add_filter('polski_pro/preorder/allow_mixed_cart', function (bool $allow, int $p
 
 ## Shortcode
 
-Zobrazenie odpočítavania do dátumu premiéry:
+Zobrazenie odpočítavania do dátumu uvedenia:
 
 ```
 [polski_preorder_countdown product_id="123" format="days" label="Do premiery pozostało:"]
@@ -185,27 +185,27 @@ apply_filters('polski_pro/preorder/availability_text', string $text, string $rel
 
 ## Kompatibilita s variantmi
 
-Modul predpredaja funguje s variantnými produktmi. Každý variant môže mať nezávislé nastavenia pre-order:
+Modul funguje s variantnými produktmi. Každý variant má nezávislé nastavenia pre-order:
 
-- Variant A - štandardný (dostupný ihneď)
-- Variant B - pre-order (premiéra o 2 týždne)
+- Variant A - štandardný (dostupný hneď)
+- Variant B - pre-order (uvedenie o 2 týždne)
 
-Miešanie variantov pre-order a štandardných v rámci jedného produktu je povolené - validácia košíka sa týka iba miešania rôznych produktov.
+Miešanie pre-order a štandardných variantov v jednom produkte je povolené. Blokovanie sa týka iba miešania rôznych produktov.
 
 ## Riešenie problémov
 
-**Produkt sa automaticky neprepína po dátume premiéry**
-Skontrolujte, či WP-Cron funguje správne. Ak používate externý CRON, uistite sa, že `wp-cron.php` je volaný pravidelne. Alternatívne spustite manuálne: `wp cron event run polski_pro_preorder_check`.
+**Produkt sa neprepína automaticky po dátume uvedenia**
+Skontrolujte, či WP-Cron funguje správne. Ak používate externý CRON, uistite sa, že `wp-cron.php` sa volá pravidelne. Alternatívne spustite ručne: `wp cron event run polski_pro_preorder_check`.
 
-**Zákazník pridal produkty pre-order a bežné do košíka**
-Skontrolujte, či je voľba "Blokovať miešanie košíka" zapnutá. Vymažte cache, ak používate pluginy kešujúce fragmenty košíka.
+**Zákazník pridal pre-order a bežné produkty do košíka**
+Skontrolujte, či je možnosť "Blokovať miešanie košíka" zapnutá. Vyčistite cache, ak používate pluginy cacheujúce fragmenty košíka.
 
-**Dátum premiéry sa zobrazuje v zlom formáte**
-Skontrolujte nastavenie "Formát dátumu" v konfigurácii modulu. Formát používa štandardné placeholdery PHP `date()`.
+**Dátum uvedenia sa zobrazuje v zlom formáte**
+Skontrolujte nastavenie "Formát dátumu" v konfigurácii modulu. Formát používa štandardné PHP placeholdery `date()`.
 
 ## Ďalšie kroky
 
-- Hlásenie problémov: [GitHub Issues](https://github.com/wppoland/polski/issues)
-- Súvisiace moduly: [Balíky a doplnky](/pro/bundles-addons)
+- Nahlasujte problémy: [GitHub Issues](https://github.com/wppoland/polski/issues)
+- Súvisiace moduly: [Balíčky a doplnky](/pro/bundles-addons)
 
-<div class="disclaimer">Táto stránka slúži len na informačné účely a nepredstavuje právne poradenstvo. Pred implementáciou sa poraďte s právnikom. Polski for WooCommerce je open source softvér (GPLv2) poskytovaný bez záruky.</div>
+<div class="disclaimer">Táto stránka má výlučne informačný charakter a nepredstavuje právne poradenstvo. Pred nasadením sa poraďte s právnikom. Polski for WooCommerce je open source softvér (GPLv2) poskytovaný bez záruky.</div>

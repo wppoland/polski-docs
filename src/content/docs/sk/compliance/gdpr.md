@@ -1,21 +1,21 @@
 ---
 title: GDPR - ochrana osobných údajov
-description: Konfigurácia súhlasov GDPR v Polski for WooCommerce - 7 checkboxov, logovanie súhlasov, API shortcód a súlad s nariadením o ochrane osobných údajov.
+description: Konfigurácia súhlasov GDPR v Polski for WooCommerce - 7 checkboxov, logovanie súhlasov, shortcode API a súlad s Nariadením o ochrane osobných údajov.
 ---
 
-GDPR vyžaduje od obchodov získanie výslovného súhlasu na spracovanie osobných údajov. Plugin pridáva 7 konfigurovateľných checkboxov na stránke objednávky, logovanie súhlasov a nástroje na správu súhlasov.
+GDPR (RODO) vyžaduje od obchodov získanie výslovného súhlasu so spracovaním osobných údajov. Doplnok pridáva 7 konfigurovateľných checkboxov na stránke objednávky, logovanie súhlasov a nástroje na správu súhlasov.
 
 ## Požadované súhlasy v poľskom e-commerce
 
-Internetový obchod by mal zbierať súhlasy na:
+Internetový obchod by mal zbierať súhlasy s:
 
-1. Akceptáciu obchodných podmienok
-2. Oboznámenie sa so zásadami ochrany osobných údajov
-3. Právo na odstúpenie od zmluvy (potvrdenie oboznámenia)
-4. Súhlas na dodanie digitálneho obsahu pred uplynutím lehoty na odstúpenie
-5. Oznámenia o doručení (SMS/e-mail)
-6. Pripomienky na recenziu
-7. Marketing (newsletter, obchodné ponuky)
+1. Akceptáciou obchodných podmienok
+2. Oboznámením sa so zásadami ochrany súkromia
+3. Právom na odstúpenie od zmluvy (potvrdenie oboznámenia)
+4. Súhlasom na dodanie digitálneho obsahu pred uplynutím lehoty na odstúpenie
+5. Notifikáciami o doručení (SMS/e-mail)
+6. Pripomienkami na recenziu
+7. Marketingom (newsletter, obchodné ponuky)
 
 ## Konfigurácia checkboxov
 
@@ -23,23 +23,23 @@ Prejdite do **WooCommerce > Nastavenia > Polski > GDPR** a nakonfigurujte súhla
 
 ### 1. Obchodné podmienky
 
-Povinný checkbox s odkazom na stránku obchodných podmienok.
+Povinný checkbox odkazujúci na stránku s obchodnými podmienkami.
 
 | Nastavenie | Popis |
 |------------|------|
-| Text | Konfigurovateľný, štandardne: "Oboznámil/a som sa s [obchodnými podmienkami] a akceptujem ich ustanovenia" |
+| Text | Konfigurovateľný, predvolene: "Oboznámil/a som sa s [obchodnými podmienkami] a akceptujem ich" |
 | Povinný | Áno (vždy) |
-| Stránka obchodných podmienok | Vyberte zo stránok WordPress |
+| Stránka s podmienkami | Vyberte zo stránok WordPress |
 
-### 2. Zásady ochrany osobných údajov
+### 2. Zásady ochrany súkromia
 
-Povinný checkbox s odkazom na zásady ochrany osobných údajov.
+Povinný checkbox odkazujúci na zásady ochrany súkromia.
 
 | Nastavenie | Popis |
 |------------|------|
-| Text | Štandardne: "Oboznámil/a som sa so [zásadami ochrany osobných údajov]" |
+| Text | Predvolene: "Oboznámil/a som sa so [zásadami ochrany súkromia]" |
 | Povinný | Áno (vždy) |
-| Stránka zásad | Vyberte zo stránok WordPress |
+| Stránka so zásadami | Vyberte zo stránok WordPress |
 
 ### 3. Právo na odstúpenie od zmluvy
 
@@ -47,53 +47,53 @@ Informácia o oboznámení sa s podmienkami odstúpenia.
 
 | Nastavenie | Popis |
 |------------|------|
-| Text | Štandardne: "Oboznámil/a som sa s podmienkami [odstúpenia od zmluvy]" |
+| Text | Predvolene: "Oboznámil/a som sa s podmienkami [odstúpenia od zmluvy]" |
 | Povinný | Áno |
 | Stránka odstúpenia | Vyberte zo stránok WordPress |
 
 ### 4. Digitálny obsah
 
-Súhlas vyžadovaný pri predaji digitálneho obsahu (napr. e-booky, súbory na stiahnutie).
+Súhlas vyžadovaný pri predaji digitálneho obsahu (napr. e-knihy, súbory na stiahnutie).
 
 | Nastavenie | Popis |
 |------------|------|
-| Text | Štandardne: "Súhlasím s dodaním digitálneho obsahu pred uplynutím lehoty na odstúpenie od zmluvy a beriem na vedomie stratu práva na odstúpenie" |
+| Text | Predvolene: "Súhlasím s dodaním digitálneho obsahu pred uplynutím lehoty na odstúpenie od zmluvy a beriem na vedomie stratu práva na odstúpenie" |
 | Povinný | Áno (keď košík obsahuje digitálne produkty) |
-| Podmienka | Zobrazovať len keď košík obsahuje virtuálne produkty alebo produkty na stiahnutie |
+| Podmienka | Zobrazovať iba keď košík obsahuje virtuálne produkty alebo produkty na stiahnutie |
 
-### 5. Oznámenia o doručení
+### 5. Notifikácie o doručení
 
-Súhlas na zasielanie SMS/e-mail oznámení o stave zásielky.
+Súhlas s odosielaním SMS/e-mail notifikácií o stave zásielky.
 
 | Nastavenie | Popis |
 |------------|------|
-| Text | Štandardne: "Súhlasím s prijímaním oznámení o stave doručenia" |
+| Text | Predvolene: "Súhlasím s prijímaním notifikácií o stave doručenia" |
 | Povinný | Nie |
-| Kanál | E-mail, SMS alebo oboje |
+| Kanál | E-mail, SMS alebo oba |
 
 ### 6. Pripomienka na recenziu
 
-Súhlas na zaslanie e-mailu s požiadavkou na napísanie recenzie po nákupe.
+Súhlas s odoslaním e-mailu so žiadosťou o vystavenie recenzie po nákupe.
 
 | Nastavenie | Popis |
 |------------|------|
-| Text | Štandardne: "Súhlasím s prijatím e-mailu s požiadavkou na napísanie recenzie na zakúpený produkt" |
+| Text | Predvolene: "Súhlasím s prijatím e-mailu so žiadosťou o vystavenie hodnotenia zakúpeného produktu" |
 | Povinný | Nie |
-| Oneskorenie | Počet dní po doručení (štandardne 7) |
+| Oneskorenie | Počet dní po doručení (predvolene 7) |
 
 ### 7. Marketing
 
-Súhlas na marketingovú komunikáciu.
+Súhlas s marketingovou komunikáciou.
 
 | Nastavenie | Popis |
 |------------|------|
-| Text | Štandardne: "Súhlasím s prijímaním obchodných informácií elektronickou cestou" |
+| Text | Predvolene: "Súhlasím s prijímaním obchodných informácií elektronickou cestou" |
 | Povinný | Nie |
 | Rozsah | Newsletter, ponuky, akcie |
 
 ## Logovanie súhlasov
 
-Každý súhlas sa zapisuje do databázy s údajmi:
+Každý súhlas sa ukladá do databázy s údajmi:
 
 | Pole | Popis |
 |------|------|
@@ -104,9 +104,9 @@ Každý súhlas sa zapisuje do databázy s údajmi:
 | IP adresa | Anonymizovaná IP adresa zákazníka |
 | User Agent | Prehliadač a operačný systém |
 | Časová značka | Dátum a čas udelenia súhlasu (UTC) |
-| Verzia dokumentu | Hash verzie obchodných podmienok/zásad v momente udelenia súhlasu |
+| Verzia dokumentu | Hash verzie podmienok/zásad v momente udelenia súhlasu |
 
-### Prezeranie logov súhlasov
+### Prehliadanie logov súhlasov
 
 Logy súhlasov sú dostupné v:
 
@@ -116,9 +116,9 @@ Logy súhlasov sú dostupné v:
 
 ### Anonymizácia IP
 
-Plugin anonymizuje posledný oktet adresy IPv4 (napr. `192.168.1.xxx`) a poslednú skupinu IPv6. To zabezpečuje súlad s GDPR a zachováva základnú užitočnosť logov.
+Doplnok anonymizuje posledný oktet IPv4 adresy (napr. `192.168.1.xxx`) a poslednú skupinu IPv6. To zabezpečuje súlad s GDPR a zachováva základnú použiteľnosť logov.
 
-## Shortcód API
+## Shortcode API
 
 ### Zobrazenie stavu súhlasov zákazníka
 
@@ -126,17 +126,17 @@ Plugin anonymizuje posledný oktet adresy IPv4 (napr. `192.168.1.xxx`) a posledn
 [polski_consent_status]
 ```
 
-Zobrazí prihlásenému zákazníkovi zoznam súhlasov s možnosťou ich odvolania (napr. marketingový súhlas).
+Zobrazuje prihlásenému zákazníkovi zoznam súhlasov s možnosťou ich odvolania (napr. marketingový súhlas).
 
-### Formulár odvolania marketingového súhlasu
+### Formulár na odvolanie marketingového súhlasu
 
 ```
 [polski_consent_withdraw type="marketing"]
 ```
 
-Formulár na odvolanie marketingového súhlasu. Po odvolaní plugin automaticky aktualizuje stav súhlasu v databáze.
+Formulár na odvolanie marketingového súhlasu. Po odvolaní doplnok automaticky aktualizuje stav súhlasu v databáze.
 
-### Parametre shortcódu
+### Parametre shortcode
 
 | Parameter | Popis | Dostupné hodnoty |
 |----------|------|-------------------|
@@ -146,17 +146,17 @@ Formulár na odvolanie marketingového súhlasu. Po odvolaní plugin automaticky
 
 Checkboxy súhlasov fungujú aj s blokovým formulárom objednávky (WooCommerce Blocks Checkout). Nie je potrebné nič konfigurovať.
 
-## Právo byť zabudnutý
+## Právo na zabudnutie
 
-Plugin spolupracuje s nástrojom WordPress **Nástroje > Odstrániť osobné údaje**. Po schválení žiadosti o odstránenie plugin automaticky:
+Doplnok spolupracuje s nástrojom WordPress **Nástroje > Odstrániť osobné údaje**. Po schválení žiadosti o odstránenie doplnok automaticky:
 
 1. Anonymizuje údaje v logoch súhlasov
 2. Odstráni osobné údaje z formulárov odstúpenia
-3. Zachová anonymizované záznamy na účely zodpovednosti
+3. Zachová anonymizované záznamy na účely preukázateľnosti
 
-## Právo na prenositeľnosť údajov
+## Právo na prenosnosť údajov
 
-Plugin spolupracuje s **Nástroje > Exportovať osobné údaje**. Export obsahuje:
+Doplnok spolupracuje s **Nástroje > Exportovať osobné údaje**. Export obsahuje:
 
 - Históriu udelených súhlasov
 - Údaje z formulárov (anonymizované)
@@ -165,17 +165,17 @@ Plugin spolupracuje s **Nástroje > Exportovať osobné údaje**. Export obsahuj
 ## Riešenie problémov
 
 **Checkboxy sa nezobrazujú na stránke objednávky**
-Skontrolujte, či modul GDPR je zapnutý v **WooCommerce > Nastavenia > Polski > Moduly**. Pri blokovom formulári objednávky potrebujete WooCommerce 8.0+.
+Skontrolujte, či je modul GDPR zapnutý v **WooCommerce > Nastavenia > Polski > Moduly**. Pri blokovom formulári objednávky potrebujete WooCommerce 8.0+.
 
-**Zákazník hlási nemožnosť zadať objednávku**
-Skontrolujte, či iný plugin (napr. Germanized, WPML) nepridáva rovnaké checkboxy. Vypnite súhlasy z iných pluginov a používajte len modul Polski for WooCommerce.
+**Zákazník hlási, že nemôže odoslať objednávku**
+Skontrolujte, či iný doplnok (napr. Germanized, WPML) nepridáva tie isté checkboxy. Vypnite súhlasy z iných doplnkov a používajte iba modul Polski for WooCommerce.
 
 **Logy súhlasov neukladajú IP adresu**
-Skontrolujte, či server odovzdáva IP adresu. Za reverse proxy (napr. Cloudflare) nakonfigurujte hlavičku `X-Forwarded-For` vo WordPress.
+Skontrolujte, či server odovzdáva IP adresu. Za reverzným proxy (napr. Cloudflare) nakonfigurujte hlavičku `X-Forwarded-For` vo WordPress.
 
 ## Ďalšie kroky
 
-- Nahlasovanie problémov: [GitHub Issues](https://github.com/wppoland/polski/issues)
+- Nahlasujte problémy: [GitHub Issues](https://github.com/wppoland/polski/issues)
 - Diskusie a otázky: [GitHub Discussions](https://github.com/wppoland/polski/discussions)
 
-<div class="disclaimer">Táto stránka slúži len na informačné účely a nepredstavuje právne poradenstvo. Pred implementáciou sa poraďte s právnikom. Polski for WooCommerce je open source softvér (GPLv2) poskytovaný bez záruky.</div>
+<div class="disclaimer">Táto stránka má výlučne informačný charakter a nepredstavuje právne poradenstvo. Pred nasadením sa poraďte s právnikom. Polski for WooCommerce je open source softvér (GPLv2) poskytovaný bez záruky.</div>

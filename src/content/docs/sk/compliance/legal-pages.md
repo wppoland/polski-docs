@@ -1,110 +1,110 @@
 ---
 title: Právne stránky
-description: Automatické generovanie právnych stránok v Polski for WooCommerce - obchodné podmienky, zásady ochrany osobných údajov, zásady vrátenia, reklamácie, prílohy k e-mailom a informácia ODR.
+description: Automatické generovanie právnych stránok v Polski for WooCommerce - obchodné podmienky, zásady ochrany súkromia, zásady vrátenia, reklamácie, prílohy k e-mailom a informácia ODR.
 ---
 
-Každý internetový obchod v Poľsku musí mať právne dokumenty. Plugin generuje štyri právne stránky, prikladá ich k e-mailom a zobrazuje informáciu o platforme ODR.
+Každý internetový obchod v Poľsku musí mať právne dokumenty. Doplnok generuje štyri právne stránky, prikladá ich k e-mailom a zobrazuje informáciu o platforme ODR.
 
 ## Generované právne stránky
 
 ### 1. Obchodné podmienky
 
-Generované obchodné podmienky obsahujú prvky vyžadované zákonom o právach spotrebiteľa:
+Obchodné podmienky obsahujú prvky vyžadované zákonom o právach spotrebiteľa:
 
-- Identifikačné údaje predajcu (názov, adresa, NIP, REGON, KRS)
-- Postup pri zadávaní objednávky
+- Identifikačné údaje predávajúceho (názov, adresa, NIP, REGON, KRS)
+- Postup podania objednávky
 - Spôsoby platby
 - Náklady a spôsoby doručenia
 - Právo na odstúpenie od zmluvy (14 dní)
-- Reklamačný postup
+- Postup reklamácie
 - Mimosúdne spôsoby riešenia reklamácií a uplatňovania nárokov
 - Záverečné ustanovenia
 
-### 2. Zásady ochrany osobných údajov
+### 2. Zásady ochrany súkromia
 
-Generované zásady ochrany osobných údajov v súlade s GDPR obsahujú:
+Zásady ochrany súkromia v súlade s GDPR obsahujú:
 
-- Údaje správcu osobných údajov
+- Údaje prevádzkovateľa osobných údajov
 - Účely a právne základy spracovania údajov
 - Kategórie spracúvaných údajov
 - Príjemcovia údajov (kuriéri, platobné brány, hosting)
-- Obdobie uchovávania údajov
+- Doba uchovávania údajov
 - Práva dotknutých osôb
 - Informácia o súboroch cookies
-- Informácia o profilovaní (ak sa uplatňuje)
+- Informácia o profilovaní (ak sa týka)
 
 ### 3. Zásady vrátenia
 
-Generované zásady vrátenia zahŕňajú:
+Zásady vrátenia zahŕňajú:
 
 - Lehotu na odstúpenie od zmluvy (14 dní)
 - Vzor formulára na odstúpenie
 - Postup vrátenia tovaru
-- Náklady na vrátenie (kto znáša)
+- Náklady na vrátenie (kto ich znáša)
 - Lehotu na vrátenie platby
 - Výnimky z práva na odstúpenie
 - Stav vráteného tovaru
 
-### 4. Reklamačné zásady
+### 4. Zásady reklamácie
 
-Generované reklamačné zásady obsahujú:
+Zásady reklamácie obsahujú:
 
-- Právny základ (zákonná zodpovednosť za vady, záruka)
+- Právny základ (zodpovednosť za vady, záruka)
 - Spôsoby podania reklamácie
-- Lehotu na vybavenie reklamácie (14 dní)
+- Lehotu na posúdenie reklamácie (14 dní)
 - Oprávnenia spotrebiteľa (oprava, výmena, zníženie ceny, odstúpenie)
-- Reklamačný formulár
+- Formulár reklamácie
 - Kontaktné údaje na podávanie reklamácií
 
 ## Konfigurácia generátora
 
-Prejdite do **WooCommerce > Nastavenia > Polski > Právne stránky** na generovanie alebo aktualizáciu stránok.
+Prejdite do **WooCommerce > Nastavenia > Polski > Právne stránky** na vygenerovanie alebo aktualizáciu stránok.
 
-### Údaje predajcu
+### Údaje predávajúceho
 
-Pred generovaním stránok vyplňte firemné údaje:
+Najprv vyplňte údaje firmy:
 
 | Pole | Popis | Príklad |
 |------|------|---------|
-| Názov firmy | Úplný názov alebo obchodné meno | Sklep XYZ Jan Kowalski |
+| Názov firmy | Úplný názov alebo firma | Obchod XYZ Jan Kowalski |
 | Adresa | Ulica, číslo | ul. Przykładowa 1/2 |
 | PSČ a mesto | - | 00-001 Warszawa |
 | NIP | Daňové identifikačné číslo | 1234567890 |
 | REGON | - | 123456789 |
-| KRS | Ak sa uplatňuje | 0000123456 |
+| KRS | Ak sa týka | 0000123456 |
 | Kontaktný e-mail | - | kontakt@sklep.pl |
 | Telefón | - | +48 123 456 789 |
-| Číslo bankového účtu | Na vrátenia | PL 12 3456 7890 1234 5678 9012 3456 |
+| Číslo bankového účtu | Na vrátenie platieb | PL 12 3456 7890 1234 5678 9012 3456 |
 
 ### Generovanie stránok
 
-1. Vyplňte údaje predajcu
+1. Vyplňte údaje predávajúceho
 2. Kliknite na "Generovať právne stránky"
 3. Systém vytvorí 4 stránky WordPress v stave "Koncept"
-4. Prezrite obsah každej stránky
+4. Prezrite si obsah každej stránky
 5. Publikujte stránky po overení
 
-Stránky sa vytvárajú ako koncepty, pretože pred publikáciou sa odporúča konzultovať ich obsah s právnikom.
+Stránky sa vytvárajú ako koncepty - prezrite si ich a poraďte sa s právnikom pred publikáciou.
 
 ### Aktualizácia stránok
 
-Keď zmeníte firemné údaje, kliknite na "Aktualizovať právne stránky". Systém aktualizuje vygenerované sekcie, pričom zachová vaše ručné úpravy v označených blokoch.
+Po zmene údajov firmy kliknite na "Aktualizovať právne stránky". Doplnok aktualizuje vygenerované sekcie a zachová vaše manuálne zmeny.
 
 Štruktúra generovanej stránky:
 
 ```
 <!-- POLSKI-AUTO-START -->
-Automaticky vygenerovaný obsah - neupravujte tento blok
+Automatycznie wygenerowana treść - nie edytuj tego bloku
 <!-- POLSKI-AUTO-END -->
 
-Váš ďalší obsah - bezpečne upravujte nižšie
+Twoja dodatkowa treść - bezpiecznie edytuj poniżej
 ```
 
-Pri aktualizácii systém prepíše len obsah medzi značkami `POLSKI-AUTO-START` a `POLSKI-AUTO-END`. Obsah pridaný mimo tieto značky je zachovaný.
+Pri aktualizácii doplnok prepisuje iba obsah medzi `POLSKI-AUTO-START` a `POLSKI-AUTO-END`. Obsah mimo týchto značiek sa zachováva.
 
 ## Prílohy k e-mailom
 
-Plugin umožňuje prikladanie právnych stránok ako PDF príloh k transakčným e-mailom WooCommerce.
+Doplnok prikladá právne stránky ako PDF k transakčným e-mailom WooCommerce.
 
 ### Konfigurácia
 
@@ -112,14 +112,14 @@ V **WooCommerce > Nastavenia > Polski > Právne stránky > Prílohy e-mailov** n
 
 | E-mail | Odporúčané prílohy |
 |--------|---------------------|
-| Nová objednávka (zákazník) | Obchodné podmienky, Zásady ochrany osobných údajov, Zásady vrátenia |
-| Objednávka zrealizovaná | Zásady vrátenia |
+| Nová objednávka (zákazník) | Obchodné podmienky, Zásady ochrany súkromia, Zásady vrátenia |
+| Objednávka vybavená | Zásady vrátenia |
 | Faktúra | Obchodné podmienky |
-| Dobropis | Zásady vrátenia, Reklamačné zásady |
+| Dobropis | Zásady vrátenia, Zásady reklamácie |
 
 ### Formát príloh
 
-Dokumenty sú automaticky konvertované do formátu PDF s hlavičkou obsahujúcou logo obchodu a dátum vygenerovávania. Veľkosť súboru je optimalizovaná, aby nezaťažovala poštový server.
+Dokumenty sa konvertujú do PDF s logom obchodu a dátumom. Veľkosť súboru je optimalizovaná.
 
 | Možnosť | Popis | Predvolená hodnota |
 |-------|------|------------------|
@@ -130,19 +130,19 @@ Dokumenty sú automaticky konvertované do formátu PDF s hlavičkou obsahujúco
 
 ## Informácia ODR
 
-Nariadenie EÚ 524/2013 vyžaduje od internetových predajcov umiestnenie odkazu na platformu ODR (Online Dispute Resolution) - platformu mimosúdneho riešenia sporov.
+Nariadenie EÚ 524/2013 vyžaduje od internetových obchodov odkaz na platformu ODR (Online Dispute Resolution) na mimosúdne riešenie sporov.
 
-### Automatické zobrazovanie
+### Automatické zobrazenie
 
-Plugin automaticky pridáva informáciu ODR v:
+Doplnok automaticky pridáva informáciu ODR v:
 
-- **Pätičke obchodu** - odkaz na platformu ODR
+- **Päte obchodu** - odkaz na platformu ODR
 - **Obchodných podmienkach** - sekcia o mimosúdnom riešení sporov
-- **Transakčných e-mailoch** - pätička s odkazom ODR
+- **Transakčných e-mailoch** - päta s odkazom ODR
 
 ### Obsah informácie ODR
 
-Štandardný obsah zobrazovaný pluginom:
+Štandardný obsah zobrazovaný doplnkom:
 
 > Platforma ODR (Online Dispute Resolution) je dostupná na adrese: https://ec.europa.eu/consumers/odr/. Platforma slúži na riešenie sporov medzi spotrebiteľmi a podnikateľmi na úrovni EÚ.
 
@@ -150,47 +150,47 @@ Plugin automaticky pridáva informáciu ODR v:
 
 | Možnosť | Popis | Predvolená hodnota |
 |-------|------|------------------|
-| Zobrazovať v pätičke | Pridať informáciu ODR do pätičky obchodu | Áno |
-| Zobrazovať v e-mailoch | Pridať informáciu ODR do transakčných e-mailov | Áno |
+| Zobrazovať v päte | Pridaj informáciu ODR do päty obchodu | Áno |
+| Zobrazovať v e-mailoch | Pridaj informáciu ODR do transakčných e-mailov | Áno |
 | Text ODR | Konfigurovateľný text informácie | Predvolený obsah |
-| Pozícia v pätičke | Miesto zobrazovania | Pred informáciou o autorských právach |
+| Pozícia v päte | Miesto zobrazenia | Pred informáciou o autorských právach |
 
-## Verziovanie dokumentov
+## Verzovanie dokumentov
 
-Plugin automaticky zaznamenáva verzie právnych stránok:
+Doplnok zaznamenáva verzie právnych stránok:
 
 - Každá zmena obsahu vytvára novú verziu
-- Dátum poslednej aktualizácie je zobrazený na stránke
-- Logy súhlasov GDPR obsahujú hash verzie dokumentu, ktorá platila v momente udelenia súhlasu
+- Dátum poslednej aktualizácie sa zobrazuje na stránke
+- Logy súhlasov GDPR obsahujú hash verzie dokumentu z momentu udelenia súhlasu
 - História verzií je dostupná v **Revíziách** stránky WordPress
 
 ## Viacjazyčnosť
 
-Generované stránky sú štandardne v poľštine. Ak používate WPML alebo Polylang, plugin generuje samostatné stránky pre každý aktívny jazyk. Preklady sú dodávané pre:
+Stránky sa generujú po poľsky. Pri WPML alebo Polylang doplnok vytvára samostatné stránky pre každý jazyk. Hotové preklady:
 
-- Poľštinu (predvolená)
-- Angličtinu
-- Nemčinu
+- Poľský (predvolený)
+- Anglický
+- Nemecký
 
-Pre ostatné jazyky sa generuje poľská verzia s možnosťou ručného prekladu.
+Pre ostatné jazyky sa vytvára poľská verzia na manuálny preklad.
 
 ## Riešenie problémov
 
 **Stránky sa negenerujú**
-Skontrolujte, či všetky povinné polia údajov predajcu sú vyplnené. Polia názov firmy, adresa, NIP a e-mail sú povinné.
+Skontrolujte, či ste vyplnili všetky požadované polia: názov firmy, adresa, NIP a e-mail.
 
-**PDF prílohy sa neprikladajú k e-mailom**
-Skontrolujte, či na serveri je nainštalovaná knižnica na generovanie PDF. Plugin vyžaduje PHP rozšírenie `mbstring` a `dom`. Skontrolujte logy PHP na chyby.
+**Prílohy PDF sa nepriložia k e-mailom**
+Skontrolujte, či má server rozšírenia PHP `mbstring` a `dom`. Skontrolujte logy PHP kvôli chybám.
 
-**Informácia ODR sa nezobrazuje v pätičke**
-Skontrolujte, či téma podporuje hooky pätičky WooCommerce (`wp_footer` alebo `woocommerce_after_footer`). Niektoré témy vyžadujú ručné pridanie widgetu.
+**Informácia ODR sa nezobrazuje v päte**
+Skontrolujte, či téma podporuje hooky päty (`wp_footer` alebo `woocommerce_after_footer`). Niektoré témy vyžadujú pridanie widgetu manuálne.
 
 **Aktualizácia prepísala moje zmeny**
-Upravujte obsah len mimo značiek `POLSKI-AUTO-START` / `POLSKI-AUTO-END`. Obsah medzi týmito značkami je prepísaný pri každej aktualizácii.
+Upravujte obsah iba mimo značiek `POLSKI-AUTO-START` / `POLSKI-AUTO-END`. Obsah medzi týmito značkami sa prepisuje pri každej aktualizácii.
 
 ## Ďalšie kroky
 
-- Nahlasovanie problémov: [GitHub Issues](https://github.com/wppoland/polski/issues)
+- Nahlasujte problémy: [GitHub Issues](https://github.com/wppoland/polski/issues)
 - Diskusie a otázky: [GitHub Discussions](https://github.com/wppoland/polski/discussions)
 
-<div class="disclaimer">Táto stránka slúži len na informačné účely a nepredstavuje právne poradenstvo. Pred implementáciou sa poraďte s právnikom. Polski for WooCommerce je open source softvér (GPLv2) poskytovaný bez záruky.</div>
+<div class="disclaimer">Táto stránka má výlučne informačný charakter a nepredstavuje právne poradenstvo. Pred nasadením sa poraďte s právnikom. Polski for WooCommerce je open source softvér (GPLv2) poskytovaný bez záruky.</div>

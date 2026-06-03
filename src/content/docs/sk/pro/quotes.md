@@ -1,9 +1,9 @@
 ---
-title: Cenové dopyty (RFQ)
-description: Modul cenových dopytov Polski PRO for WooCommerce - nahradenie tlačidla košíka dopytovým formulárom, logovanie súhlasov, administračný panel a e-mailové notifikácie.
+title: Cenové ponuky (RFQ)
+description: Modul cenových ponúk Polski PRO for WooCommerce - nahradenie tlačidla košíka formulárom cenovej ponuky, logovanie súhlasov, administračný panel a e-mailové upozornenia.
 ---
 
-Modul cenových dopytov (RFQ) nahrádza tlačidlo "Pridať do košíka" tlačidlom "Opýtať sa na cenu". Zákazníci skladajú dopyty namiesto priamych nákupov. Užitočné v B2B obchodoch a pri produktoch s individuálnou cenou.
+Modul cenových ponúk (RFQ) nahrádza tlačidlo "Pridať do košíka" tlačidlom "Opýtať sa na cenu". Zákazníci podávajú dopyty namiesto priameho nákupu. Užitočné v B2B obchodoch a pri produktoch s individuálnym ocenením.
 
 :::note[Požiadavky]
 Polski PRO vyžaduje: Polski (free) v1.3.0+, WordPress 6.4+, WooCommerce 8.0+, PHP 8.1+
@@ -11,42 +11,42 @@ Polski PRO vyžaduje: Polski (free) v1.3.0+, WordPress 6.4+, WooCommerce 8.0+, P
 
 ## Konfigurácia
 
-Prejdite do **WooCommerce > Nastavenia > Polski PRO > Cenové dopyty** a zapnite modul.
+Prejdite na **WooCommerce > Nastavenia > Polski PRO > Cenové ponuky** a zapnite modul.
 
 ### Základné nastavenia
 
-| Nastavenie | Voľba v databáze | Predvolená hodnota | Popis |
+| Nastavenie | Možnosť v databáze | Predvolená hodnota | Popis |
 |------------|---------------|------------------|------|
-| Zapnúť modul | `polski_quote` | Nie | Aktivuje funkcionalitu cenových dopytov |
-| Text tlačidla | `polski_quote_button_text` | "Zapytaj o cenę" | Text zobrazený na tlačidle |
-| Zobraziť na zoznamoch | `polski_quote_show_on_loops` | Nie | Zobrazí tlačidlo dopytu na stránkach archívu a kategórie |
+| Zapnúť modul | `polski_quote` | Nie | Aktivuje funkcionalitu cenových ponúk |
+| Text tlačidla | `polski_quote_button_text` | "Opýtať sa na cenu" | Text zobrazený na tlačidle |
+| Zobraziť v zoznamoch | `polski_quote_show_on_loops` | Nie | Zobrazuje tlačidlo dopytu na stránkach archívu a kategórií |
 | Vyžadovať prihlásenie | `polski_quote_require_login` | Nie | Vyžaduje prihlásenie pred odoslaním dopytu |
-| Súhlas so spracovaním | `polski_quote_consent` | Áno | Pridá GDPR checkbox súhlasu k formuláru |
+| Súhlas so spracovaním | `polski_quote_consent` | Áno | Pridáva checkbox súhlasu GDPR do formulára |
 
 ### Polia formulára
 
-Formulár cenového dopytu predvolene obsahuje:
+Formulár cenovej ponuky štandardne obsahuje:
 
 - **Meno a priezvisko** - povinné
-- **E-mailová adresa** - povinná, validácia formátu
+- **E-mailová adresa** - povinné, validácia formátu
 - **Telefón** - voliteľné
 - **Množstvo** - povinné, číselná validácia
 - **Správa** - voliteľné, textarea
-- **GDPR súhlas** - checkbox, povinný ak zapnutý
+- **Súhlas GDPR** - checkbox, povinné ak zapnuté
 
 ## Fungovanie na frontende
 
 ### Nahradenie tlačidla
 
-Po zapnutí modulu je tlačidlo "Pridať do košíka" nahradené tlačidlom cenového dopytu. Týka sa to:
+Po zapnutí modul nahrádza tlačidlo "Pridať do košíka" tlačidlom dopytu. Týka sa:
 
 - Stránky jednotlivého produktu
-- Stránok archívu a kategórií (ak je voľba `polski_quote_show_on_loops` zapnutá)
-- Widgetov a shortcódov produktov
+- Stránok archívu a kategórií (ak je možnosť `polski_quote_show_on_loops` zapnutá)
+- Widgetov a produktových shortcodov
 
 ### Shortcode
 
-Tlačidlo cenového dopytu je možné umiestniť na ľubovoľné miesto pomocou shortcódu:
+Tlačidlo dopytu umiestnite na ľubovoľné miesto shortcodom:
 
 ```
 [polski_quote_button product_id="123" text="Zapytaj o cenę" class="custom-class"]
@@ -58,11 +58,11 @@ Tlačidlo cenového dopytu je možné umiestniť na ľubovoľné miesto pomocou 
 |----------|----------|------|
 | `product_id` | Nie | ID produktu (predvolene aktuálny produkt) |
 | `text` | Nie | Text tlačidla |
-| `class` | Nie | Ďalšie CSS triedy |
+| `class` | Nie | Dodatočné CSS triedy |
 
-### Odosielanie formulára (AJAX)
+### Odoslanie formulára (AJAX)
 
-Formulár sa odosiela asynchrónne (AJAX), bez opätovného načítania stránky. Po odoslaní zákazník vidí potvrdzujúcu správu s číslom dopytu.
+Formulár sa odosiela cez AJAX, bez znovunačítania stránky. Zákazník vidí potvrdenie s číslom dopytu.
 
 ```php
 /**
@@ -86,14 +86,14 @@ add_filter('polski_pro/quote/before_save', function (array $quote_data, int $pro
 
 ## Logovanie súhlasov
 
-Každý cenový dopyt ukladá informáciu o udelených súhlasoch:
+Každý dopyt ukladá údaje o udelených súhlasoch:
 
 - Časová pečiatka (timestamp) udelenia súhlasu
 - IP adresa zákazníka (hashovaná SHA-256)
 - Obsah súhlasu v momente udelenia
 - Verzia formulára
 
-Tieto údaje sú uložené v tabuľke `{prefix}_polski_quote_consents` a môžu byť exportované na účely GDPR auditu.
+Údaje sa ukladajú do tabuľky `{prefix}_polski_quote_consents` a je možné ich exportovať na audit GDPR.
 
 ```php
 /**
@@ -110,47 +110,47 @@ do_action('polski_pro/quote/consent_logged', int $quote_id, array $consent, stri
 
 ### Zoznam dopytov
 
-Cenové dopyty sú dostupné v menu **WooCommerce > Cenové dopyty**. Zoznam obsahuje:
+Prejdite na **WooCommerce > Cenové ponuky**. Zoznam obsahuje:
 
 - Číslo dopytu
 - Údaje zákazníka (meno, e-mail, telefón)
 - Produkt a množstvo
-- Stav (nový, v spracovaní, odpoveď odoslaná, uzavretý)
-- Dátum odoslania
+- Stav (nové, prebieha, odpovedané, uzavreté)
+- Dátum podania
 
 ### Stavy dopytov
 
 | Stav | Popis |
 |--------|------|
-| `new` | Nový dopyt, neobslúžený |
-| `in_progress` | V procese prípravy ponuky |
+| `new` | Nový dopyt, nespracovaný |
+| `in_progress` | Prebieha príprava ponuky |
 | `replied` | Ponuka odoslaná zákazníkovi |
-| `accepted` | Zákazník prijal ponuku |
+| `accepted` | Zákazník akceptoval ponuku |
 | `rejected` | Zákazník odmietol ponuku |
 | `closed` | Dopyt uzavretý |
 
-### Odpoveď na dopyt
+### Odpovedanie na dopyt
 
-Z panelu môže administrátor:
+Administrátor môže:
 
-1. Prezrieť podrobnosti dopytu
+1. Prezrieť detaily dopytu
 2. Pridať internú poznámku
-3. Nastaviť ponukovú cenu
-4. Odoslať odpoveď e-mailom zákazníkovi
+3. Nastaviť cenu ponuky
+4. Odoslať e-mailovú odpoveď zákazníkovi
 5. Premeniť dopyt na objednávku WooCommerce
 
-## E-mailové notifikácie
+## E-mailové upozornenia
 
-Modul registruje nasledujúce e-mailové šablóny vo WooCommerce:
+E-mailové šablóny modulu:
 
 | E-mail | Príjemca | Spúšťač |
 |--------|----------|-----------|
-| Nový cenový dopyt | Administrátor | Odoslanie dopytu zákazníkom |
-| Potvrdenie dopytu | Zákazník | Odoslanie dopytu |
+| Nový dopyt cenovej ponuky | Administrátor | Podanie dopytu zákazníkom |
+| Potvrdenie dopytu | Zákazník | Podanie dopytu |
 | Odpoveď na dopyt | Zákazník | Odoslanie ponuky administrátorom |
 | Zmena stavu dopytu | Zákazník | Zmena stavu dopytu |
 
-Šablóny e-mailov je možné prepísať v téme v priečinku `woocommerce/emails/`:
+E-mailové šablóny je možné prepísať v téme v adresári `woocommerce/emails/`:
 
 - `polski-pro-quote-new.php`
 - `polski-pro-quote-confirmation.php`
@@ -171,7 +171,7 @@ Modul registruje nasledujúce e-mailové šablóny vo WooCommerce:
 apply_filters('polski_pro/quote/form_fields', array $fields, int $product_id): array;
 ```
 
-**Príklad - pridanie poľa IČ DPH:**
+**Príklad - pridanie poľa NIP:**
 
 ```php
 add_filter('polski_pro/quote/form_fields', function (array $fields, int $product_id): array {
@@ -214,17 +214,17 @@ add_action('polski_pro/quote/submitted', function (int $quote_id, array $quote_d
 ## Riešenie problémov
 
 **Tlačidlo "Pridať do košíka" sa stále zobrazuje**
-Skontrolujte, či je voľba `polski_quote` zapnutá. Vymažte cache kešovacích pluginov (WP Super Cache, W3 Total Cache, LiteSpeed Cache).
+Skontrolujte, či je možnosť `polski_quote` zapnutá. Vyčistite cache cacheujúcich pluginov (WP Super Cache, W3 Total Cache, LiteSpeed Cache).
 
 **Formulár sa neodosiela (chyba AJAX)**
-Skontrolujte konzolu prehliadača na JavaScript chyby. Uistite sa, že skript `polski-pro-quote.js` je načítaný. Konflikty s inými pluginmi môžu blokovať AJAX - vypnite ostatné pluginy na identifikáciu konfliktu.
+Skontrolujte konzolu prehliadača na chyby JavaScript. Uistite sa, že skript `polski-pro-quote.js` je načítaný. Konflikty s inými pluginmi môžu blokovať AJAX - vypnite ostatné pluginy na identifikáciu konfliktu.
 
 **E-maily sa neodosielajú**
-Skontrolujte konfiguráciu e-mailov v **WooCommerce > Nastavenia > E-maily**. Uistite sa, že šablóny Polski PRO sú zapnuté.
+Skontrolujte konfiguráciu e-mailu v **WooCommerce > Nastavenia > E-maily**. Uistite sa, že šablóny Polski PRO sú zapnuté.
 
 ## Ďalšie kroky
 
-- Hlásenie problémov: [GitHub Issues](https://github.com/wppoland/polski/issues)
-- Integrácia s katalógovým režimom: [B2B katalógový režim](/pro/catalog-mode)
+- Nahlasujte problémy: [GitHub Issues](https://github.com/wppoland/polski/issues)
+- Integrácia s katalógovým režimom: [Katalógový režim B2B](/pro/catalog-mode)
 
-<div class="disclaimer">Táto stránka slúži len na informačné účely a nepredstavuje právne poradenstvo. Pred implementáciou sa poraďte s právnikom. Polski for WooCommerce je open source softvér (GPLv2) poskytovaný bez záruky.</div>
+<div class="disclaimer">Táto stránka má výlučne informačný charakter a nepredstavuje právne poradenstvo. Pred nasadením sa poraďte s právnikom. Polski for WooCommerce je open source softvér (GPLv2) poskytovaný bez záruky.</div>

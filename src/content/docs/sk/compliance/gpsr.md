@@ -1,32 +1,32 @@
 ---
 title: GPSR - bezpečnosť produktov
-description: Konfigurácia polí GPSR (General Product Safety Regulation) v Polski for WooCommerce - výrobca, dovozca, zodpovedná osoba v EÚ, identifikátory, varovania a pokyny.
+description: Konfigurácia polí GPSR (General Product Safety Regulation) v Polski for WooCommerce - výrobca, dovozca, zodpovedná osoba v EÚ, identifikátory, upozornenia a návody.
 ---
 
-Nariadenie GPSR (General Product Safety Regulation, EU 2023/988) platí od 13. decembra 2024. Vyžaduje uvádzanie informácií o bezpečnosti produktov predávaných v EÚ. Polski for WooCommerce pridáva produktové polia, stĺpec stavu a import/export CSV - všetko, čo potrebujete, bez ďalších pluginov.
+Nariadenie GPSR (General Product Safety Regulation, EU 2023/988) platí od 13. decembra 2024. Vyžaduje uvádzanie informácií o bezpečnosti produktov predávaných v EÚ. Polski for WooCommerce pridáva produktové polia, stĺpec stavu a import/export CSV - všetko, čo potrebujete, bez ďalších doplnkov.
 
 ## Požiadavky GPSR
 
-Každý nepotravinársky produkt predávaný v EÚ musí obsahovať:
+Každý nepotravinový produkt predávaný v EÚ musí obsahovať:
 
 1. **Údaje výrobcu** - názov, adresa, kontaktné údaje
 2. **Údaje dovozcu** - ak má výrobca sídlo mimo EÚ
 3. **Zodpovedná osoba v EÚ** - vyžadovaná pre produkty mimo EÚ
 4. **Identifikátory produktu** - číslo šarže, sériové číslo, kód EAN/GTIN
-5. **Varovania** - informácie o rizikách a vekových obmedzeniach
-6. **Bezpečnostné pokyny** - pravidlá bezpečného používania
-7. **Fotografie/dokumenty** - voliteľné prílohy (bezpečnostné listy, certifikáty)
+5. **Upozornenia** - informácie o rizikách a vekových obmedzeniach
+6. **Bezpečnostné návody** - pravidlá bezpečného používania
+7. **Fotografie/dokumenty** - voliteľné prílohy (karty bezpečnostných údajov, certifikáty)
 8. **Kategória rizika** - klasifikácia úrovne rizika produktu
 
 ## Konfigurácia polí GPSR
 
-Polia GPSR nájdete v úprave produktu, v záložke **Polski - GPSR**. Každé pole je voliteľné, ale vyplňte všetky, ktoré sa vzťahujú na daný produkt.
+Polia GPSR nájdete v úprave produktu, v záložke **Polski - GPSR**. Každé pole je voliteľné, ale vyplňte všetky, ktoré sa daného produktu týkajú.
 
-![Polia GPSR v editore produktu WooCommerce](../../../../assets/screenshots/screenshot-2-gpsr-product-editor.png)
+![Polia GPSR v editore produktu WooCommerce](../../../assets/screenshots/screenshot-2-gpsr-product-editor.png)
 
 ### Výrobca
 
-Vyplňte úplné údaje výrobcu:
+Vyplňte kompletné údaje výrobcu:
 
 - Názov firmy
 - Adresa (ulica, PSČ, mesto, krajina)
@@ -36,11 +36,11 @@ Vyplňte úplné údaje výrobcu:
 
 ### Dovozca
 
-Vyžadované, keď má výrobca sídlo mimo EÚ. Uveďte rovnaké údaje ako pre výrobcu.
+Vyžadované, keď má výrobca sídlo mimo EÚ. Uveďte tie isté údaje ako pre výrobcu.
 
 ### Zodpovedná osoba v EÚ
 
-Každý nepotravinársky produkt od subjektu mimo EÚ musí mať zodpovednú osobu so sídlom v Únii. Uveďte:
+Každý nepotravinový produkt od subjektu mimo EÚ musí mať zodpovednú osobu so sídlom v Únii. Uveďte:
 
 - Názov firmy alebo meno a priezvisko
 - Adresa v EÚ
@@ -49,11 +49,11 @@ Každý nepotravinársky produkt od subjektu mimo EÚ musí mať zodpovednú oso
 ### Identifikátory produktu
 
 - **Číslo šarže (LOT)** - identifikátor výrobnej šarže
-- **Sériové číslo** - unikátny identifikátor exemplára
+- **Sériové číslo** - jedinečný identifikátor kusu
 - **EAN/GTIN** - čiarový kód produktu
 - **Číslo modelu** - označenie modelu
 
-### Varovania a obmedzenia
+### Upozornenia a obmedzenia
 
 Textové pole na informácie o:
 
@@ -62,9 +62,9 @@ Textové pole na informácie o:
 - Požiadavkách na dohľad dospelej osoby
 - Nebezpečných látkach
 
-### Bezpečnostné pokyny
+### Bezpečnostné návody
 
-Pole na pokyny týkajúce sa:
+Pole na návody týkajúce sa:
 
 - Správnej montáže a inštalácie
 - Bezpečného používania
@@ -73,11 +73,11 @@ Pole na pokyny týkajúce sa:
 
 ## Stĺpec stavu GPSR
 
-V zozname produktov (**Produkty > Všetky produkty**) plugin pridáva stĺpec **GPSR** so stavom vyplnenia:
+V zozname produktov (**Produkty > Všetky produkty**) doplnok pridáva stĺpec **GPSR** so stavom vyplnenia:
 
-- Zelená ikona - všetky povinné polia vyplnené
+- Zelená ikona - všetky požadované polia vyplnené
 - Oranžová ikona - čiastočne vyplnené
-- Červená ikona - chýbajú údaje GPSR
+- Červená ikona - bez údajov GPSR
 
 Stĺpec umožňuje rýchlo nájsť produkty, ktoré vyžadujú doplnenie údajov.
 
@@ -85,7 +85,7 @@ Stĺpec umožňuje rýchlo nájsť produkty, ktoré vyžadujú doplnenie údajov
 
 ### Export
 
-Pri exporte produktov (**Produkty > Exportovať**) plugin pridáva stĺpce GPSR do súboru CSV:
+Pri exporte produktov (**Produkty > Exportovať**) doplnok pridáva stĺpce GPSR do súboru CSV:
 
 - `gpsr_manufacturer_name`
 - `gpsr_manufacturer_address`
@@ -111,9 +111,9 @@ Pripravte súbor CSV s rovnakými hlavičkami ako pri exporte. Importujte cez **
 
 Tip: najprv exportujte niekoľko produktov - dostanete šablónu CSV so správnymi hlavičkami.
 
-## Shortcód
+## Shortcode
 
-Použite shortcód `[polski_gpsr]` na zobrazenie informácií GPSR na stránke produktu alebo na ľubovoľnom mieste stránky.
+Použite shortcode `[polski_gpsr]` na zobrazenie informácií GPSR na stránke produktu alebo na ľubovoľnom mieste webu.
 
 ### Základné použitie
 
@@ -121,7 +121,7 @@ Použite shortcód `[polski_gpsr]` na zobrazenie informácií GPSR na stránke p
 [polski_gpsr]
 ```
 
-Zobrazí údaje GPSR aktuálneho produktu (funguje na stránke produktu WooCommerce).
+Zobrazuje údaje GPSR aktuálneho produktu (funguje na stránke produktu WooCommerce).
 
 ### S určením produktu
 
@@ -129,24 +129,24 @@ Zobrazí údaje GPSR aktuálneho produktu (funguje na stránke produktu WooComme
 [polski_gpsr product_id="123"]
 ```
 
-Zobrazí údaje GPSR pre produkt s uvedeným ID.
+Zobrazuje údaje GPSR pre produkt so zadaným ID.
 
 ### Príklad výstupu
 
-Shortcód generuje formátovanú tabuľku so sekciami:
+Shortcode generuje naformátovanú tabuľku so sekciami:
 
 | Sekcia | Obsah |
 |--------|-----------|
-| Výrobca | Názov, adresa, e-mail, telefón, webová stránka |
-| Dovozca | Názov, adresa, e-mail (ak sa uplatňuje) |
+| Výrobca | Názov, adresa, e-mail, telefón, web |
+| Dovozca | Názov, adresa, e-mail (ak sa týka) |
 | Zodpovedná osoba v EÚ | Názov, adresa, kontaktné údaje |
 | Identifikátory | LOT, sériové číslo, EAN, model |
-| Varovania | Text varovaní |
-| Pokyny | Text bezpečnostných pokynov |
+| Upozornenia | Text upozornení |
+| Návody | Text bezpečnostných návodov |
 
-## Hromadné doplňovanie údajov
+## Hromadné dopĺňanie údajov
 
-Ak veľa produktov má rovnakého výrobcu, najrýchlejší spôsob je:
+Ak má viacero produktov toho istého výrobcu, najrýchlejšia metóda je:
 
 1. Exportujte produkty do CSV
 2. Vyplňte stĺpce výrobcu pre všetky riadky (kopírovať-vložiť v tabuľkovom procesore)
@@ -155,17 +155,17 @@ Ak veľa produktov má rovnakého výrobcu, najrýchlejší spôsob je:
 ## Riešenie problémov
 
 **Polia GPSR sa nezobrazujú v úprave produktu**
-Uistite sa, že modul GPSR je zapnutý v nastaveniach pluginu: **WooCommerce > Nastavenia > Polski > Moduly**.
+Uistite sa, že je modul GPSR zapnutý v nastaveniach doplnku: **WooCommerce > Nastavenia > Polski > Moduly**.
 
 **Stĺpec stavu sa nezobrazuje v zozname produktov**
 Kliknite na tlačidlo "Možnosti obrazovky" v pravom hornom rohu stránky so zoznamom produktov a zaškrtnite stĺpec GPSR.
 
 **Údaje sa neimportujú z CSV**
-Skontrolujte, či hlavičky stĺpcov v súbore CSV presne zodpovedajú formátu exportu. Názvy stĺpcov sú citlivé na veľkosť písmen.
+Skontrolujte, či hlavičky stĺpcov v súbore CSV presne zodpovedajú formátu exportu. Názvy stĺpcov rozlišujú veľké a malé písmená.
 
 ## Ďalšie kroky
 
-- Nahlasovanie problémov: [GitHub Issues](https://github.com/wppoland/polski/issues)
+- Nahlasujte problémy: [GitHub Issues](https://github.com/wppoland/polski/issues)
 - Diskusie a otázky: [GitHub Discussions](https://github.com/wppoland/polski/discussions)
 
-<div class="disclaimer">Táto stránka slúži len na informačné účely a nepredstavuje právne poradenstvo. Pred implementáciou sa poraďte s právnikom. Polski for WooCommerce je open source softvér (GPLv2) poskytovaný bez záruky.</div>
+<div class="disclaimer">Táto stránka má výlučne informačný charakter a nepredstavuje právne poradenstvo. Pred nasadením sa poraďte s právnikom. Polski for WooCommerce je open source softvér (GPLv2) poskytovaný bez záruky.</div>

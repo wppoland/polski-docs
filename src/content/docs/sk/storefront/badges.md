@@ -1,30 +1,30 @@
 ---
-title: Etikety produktov
-description: Modul etikiet v Polski for WooCommerce - automatické odznaky (výpredaj, novinka, nízky stav, bestseller) a ručné etikety per produkt.
+title: Štítky produktov
+description: Modul štítkov v Polski for WooCommerce - automatické odznaky (výpredaj, novinka, nízky stav, bestseller) a ručné štítky pre jednotlivé produkty.
 ---
 
-Etikety (badges) sú farebné odznaky zobrazované na fotografiách produktov. Pomáhajú zákazníkom rýchlo identifikovať produkty v akcii, novinky, bestsellery a produkty s nízkym stavom skladu.
+Štítky (badges) sú farebné odznaky na fotkách produktov. Pomáhajú zákazníkom rýchlo rozpoznať akcie, novinky, bestsellery a produkty s nízkym stavom.
 
 ## Zapnutie modulu
 
-Prejdite do **WooCommerce > Polski > Obchodné moduly** a aktivujte možnosť **Etikety produktov**. Modul nahradí predvolený odznak WooCommerce "Výpredaj!" vlastnými, konfigurovateľnými etiketami.
+Prejdite do **WooCommerce > Polski > Moduly obchodu** a zapnite **Štítky produktov**. Modul nahradí predvolený odznak "Výpredaj!" konfigurovateľnými štítkami.
 
-## Automatické etikety
+## Automatické štítky
 
-Automatické etikety sú generované na základe údajov produktu. Nevyžadujú ručnú konfiguráciu - po zapnutí fungujú okamžite na všetkých produktoch.
+Generujú sa automaticky na základe údajov produktu. Po zapnutí fungujú okamžite na všetkých produktoch.
 
 ### Výpredaj (sale)
 
-Zobrazovaná keď produkt má nastavenú akčnú cenu. Štandardne zobrazuje percento zľavy (napr. **-25%**) namiesto štandardného textu "Výpredaj!".
+Zobrazí sa, keď má produkt akciovú cenu. Predvolene zobrazuje percento zľavy (napr. **-25%**) namiesto textu "Výpredaj!".
 
 Konfigurácia formátu:
 
-| Možnosť        | Popis                             | Príklad      |
+| Možnosť        | Popis                            | Príklad       |
 | -------------- | -------------------------------- | ------------- |
-| Percento       | Percento zľavy                    | -25%          |
-| Suma           | Suma úspory                       | -50 PLN       |
-| Text           | Vlastný text                      | Akcia         |
-| Percento + suma| Obe hodnoty                       | -25% (-50 PLN)|
+| Percento       | Percento zľavy                   | -25%          |
+| Suma           | Výška úspory                     | -50 zł        |
+| Text           | Vlastný text                     | Akcia         |
+| Percento + suma| Obe hodnoty                      | -25% (-50 zł) |
 
 ```php
 // Zmena formátu odznaku výpredaja
@@ -33,38 +33,38 @@ add_filter('polski/badges/sale_format', function (): string {
 });
 ```
 
-Pre variantné produkty sa percento počíta na základe variantu s najväčšou zľavou.
+Pre variabilné produkty sa percento počíta z variantu s najväčšou zľavou.
 
 ### Novinka (new)
 
-Zobrazovaná na produktoch pridaných v priebehu posledných X dní. Štandardne **14 dní**.
+Zobrazí sa na produktoch pridaných počas posledných X dní. Predvolene **14 dní**.
 
 ```php
 // Zmena obdobia novinky
 add_filter('polski/badges/new_days', function (): int {
-    return 30; // produkty pridané za posledných 30 dní
+    return 30; // produkty pridané počas posledných 30 dní
 });
 ```
 
-### Nízky stav skladu (low stock)
+### Nízky stav zásob (low stock)
 
-Zobrazovaná keď množstvo produktu na sklade klesne pod stanovený prah. Predvolený prah je hodnota nastavená vo WooCommerce (**WooCommerce > Nastavenia > Produkty > Sklad > Prah nízkeho stavu**).
+Zobrazí sa, keď stav zásob klesne pod prahovú hodnotu. Prahovú hodnotu nastavíte v **WooCommerce > Nastavenia > Produkty > Sklad > Prah nízkeho stavu**.
 
-Obsah etikety: **Posledných X kusov!** (kde X je aktuálne množstvo).
+Obsah štítku: **Posledných X kusov!** (kde X je aktuálne množstvo).
 
 ```php
-// Vlastný text etikety nízkeho stavu
+// Vlastný text štítku nízkeho stavu
 add_filter('polski/badges/low_stock_text', function (string $text, int $stock): string {
     if ($stock <= 3) {
         return 'Posledné kusy!';
     }
-    return sprintf('Zostáva %d ks', $stock);
+    return sprintf('Zostáva %d ks.', $stock);
 }, 10, 2);
 ```
 
 ### Bestseller
 
-Zobrazovaná na produktoch s najväčším počtom predajov. Štandardne top **10 produktov** v obchode.
+Zobrazí sa na najpredávanejších produktoch. Predvolene top **10 produktov**.
 
 ```php
 // Zmena limitu bestsellerov
@@ -73,95 +73,95 @@ add_filter('polski/badges/bestseller_limit', function (): int {
 });
 ```
 
-Výpočet bestsellerov je cachovaný v transient API (štandardne 24 hodín).
+Zoznam bestsellerov sa ukladá do transient API (predvolene 24 hodín).
 
-## Ručné etikety (per produkt)
+## Ručné štítky (pre jednotlivé produkty)
 
-Okrem automatických etikiet môžete pridávať vlastné odznaky k jednotlivým produktom. V editore produktu v paneli **Údaje produktu** nájdete záložku **Etikety**.
+Môžete tiež pridávať vlastné odznaky k jednotlivým produktom. V editore produktu otvorte **Údaje produktu > Štítky**.
 
-Možnosti ručnej etikety:
+Možnosti ručného štítku:
 
 - **Text** - obsah zobrazený na odznaku (napr. "Odporúčame", "Eco", "Doprava zdarma")
 - **Farba pozadia** - farba odznaku (color picker)
 - **Farba textu** - farba textu na odznaku
-- **Pozícia** - ľavý hore, pravý hore, ľavý dole, pravý dole
-- **Priorita** - poradie zobrazovania keď má produkt viacero etikiet
+- **Pozícia** - vľavo hore, vpravo hore, vľavo dole, vpravo dole
+- **Priorita** - poradie zobrazenia, keď má produkt viac štítkov
 
-Maximálny počet etikiet na jednom produkte je **4** (automatické + ručné dohromady). Tento limit zabraňuje zahlcovaniu miniatúry.
+Maximálne **4** štítky na produkte (automatické + ručné spolu). Limit chráni náhľad pred zahltením.
 
 ```php
-// Zmena limitu etikiet na produkte
+// Zmena limitu štítkov na produkte
 add_filter('polski/badges/max_per_product', function (): int {
     return 3;
 });
 ```
 
-## Poziciovanie etikiet
+## Umiestnenie štítkov
 
-Automatické etikety majú predvolené pozície:
+Automatické štítky majú predvolené pozície:
 
-| Etiketa      | Predvolená pozícia |
-| ------------ | ---------------- |
-| Výpredaj     | Ľavý hore       |
-| Novinka      | Pravý hore      |
-| Nízky stav   | Ľavý dole       |
-| Bestseller   | Pravý hore      |
+| Štítok       | Predvolená pozícia |
+| ------------ | ------------------ |
+| Výpredaj     | Vľavo hore         |
+| Novinka      | Vpravo hore        |
+| Nízky stav   | Vľavo dole         |
+| Bestseller   | Vpravo hore        |
 
-Pozície konfigurujete v nastaveniach modulu. Ak dve etikety majú rovnakú pozíciu, ukladajú sa zvisle jedna pod druhou.
+Pozície zmeníte v nastaveniach modulu. Dva štítky v rovnakej pozícii sa zoradia zvisle.
 
-## Tvary etikiet
+## Tvary štítkov
 
 Dostupné tvary:
 
 - **Obdĺžnik** - predvolený
 - **Obdĺžnik so zaoblenými rohmi** - border-radius
 - **Kruh** - pre krátke texty (napr. "-25%")
-- **Stuha** - dekoratívny tvar so skosom
+- **Stužka** - dekoratívny tvar so skosením
 
-Konfigurácia v nastaveniach: **WooCommerce > Polski > Obchodné moduly > Etikety > Tvar**.
+Konfigurácia v nastaveniach: **WooCommerce > Polski > Moduly obchodu > Štítky > Tvar**.
 
-## Viditeľnosť etikiet
+## Viditeľnosť štítkov
 
-Etikety sa zobrazujú na:
+Štítky sa zobrazujú na:
 
 - Stránkach kategórií a archívov (karty produktov)
-- Stránke jednotlivého produktu (hlavná fotografia)
+- Stránke jednotlivého produktu (hlavná fotka)
 - Slideri produktov (modul slider)
 - Rýchlom náhľade (modul quick view)
 - Výsledkoch vyhľadávania
 
-Môžete vypnúť etikety pre vybrané lokality:
+Štítky môžete vypnúť pre vybrané miesta:
 
 ```php
-// Vypnutie etikiet na stránke jednotlivého produktu
+// Vypnutie štítkov na stránke jednotlivého produktu
 add_filter('polski/badges/show_on_single', '__return_false');
 ```
 
-## Etikety pre variantné produkty
+## Štítky pre variabilné produkty
 
-Pre variantné produkty (variable products):
+Pre variabilné produkty (variable products):
 
 - **Výpredaj** - zobrazuje najväčšie percento zľavy spomedzi všetkých variantov
-- **Nízky stav** - zobrazuje sa keď aspoň jeden variant má nízky stav
+- **Nízky stav** - zobrazí sa, keď má aspoň jeden variant nízky stav
 - **Novinka** - na základe dátumu pridania produktu (nie variantu)
 
 ## Štýlovanie CSS
 
 CSS triedy:
 
-- `.polski-badge` - základná trieda etikety
+- `.polski-badge` - základná trieda štítku
 - `.polski-badge--sale` - výpredaj
 - `.polski-badge--new` - novinka
 - `.polski-badge--low-stock` - nízky stav
 - `.polski-badge--bestseller` - bestseller
-- `.polski-badge--custom` - ručná etiketa
-- `.polski-badge--top-left` - pozícia ľavý hore
-- `.polski-badge--top-right` - pozícia pravý hore
-- `.polski-badge--bottom-left` - pozícia ľavý dole
-- `.polski-badge--bottom-right` - pozícia pravý dole
+- `.polski-badge--custom` - ručný štítok
+- `.polski-badge--top-left` - pozícia vľavo hore
+- `.polski-badge--top-right` - pozícia vpravo hore
+- `.polski-badge--bottom-left` - pozícia vľavo dole
+- `.polski-badge--bottom-right` - pozícia vpravo dole
 - `.polski-badge--rectangle` - obdĺžnikový tvar
-- `.polski-badge--circle` - kruhový tvar
-- `.polski-badge--ribbon` - tvar stuhy
+- `.polski-badge--circle` - tvar kruhu
+- `.polski-badge--ribbon` - tvar stužky
 
 Príklad štýlovania:
 
@@ -177,16 +177,16 @@ Príklad štýlovania:
 
 ## Výkon
 
-Automatické etikety sú cachované v meta produktu (`_polski_badges_cache`) a aktualizované pri každom uložení produktu. Výpočet bestsellerov sa vykonáva raz za 24 hodín cez transient API.
+Štítky sa ukladajú do meta produktu (`_polski_badges_cache`) a aktualizujú sa pri uložení produktu. Bestsellery sa prepočítavajú raz za 24 hodín (transient API).
 
 ## Riešenie problémov
 
-**Etiketa výpredaja nezobrazuje percento** - skontrolujte, či bežná cena produktu je nastavená. Bez bežnej ceny percento nemôže byť vypočítané.
+**Štítok výpredaja nezobrazuje percento** - skontrolujte, či má produkt nastavenú bežnú cenu. Bez nej nie je možné vypočítať percento.
 
-**Ručná etiketa sa nezobrazuje** - skontrolujte limit etikiet na produkte. Ak produkt už má 4 automatické etikety, ručná sa nezobrazí.
+**Ručný štítok sa nezobrazuje** - skontrolujte limit štítkov. Ak má produkt už 4 štítky, ručný sa nezobrazí.
 
-**Etikety zakrývajú tlačidlo rýchleho náhľadu** - zmeňte pozíciu etikiet alebo tlačidla quick view v nastaveniach modulov.
+**Štítky zakrývajú tlačidlo rýchleho náhľadu** - zmeňte pozíciu štítkov alebo tlačidla quick view v nastaveniach.
 
 Nahlasovanie problémov: [github.com/wppoland/polski/issues](https://github.com/wppoland/polski/issues)
 
-<div class="disclaimer">Táto stránka slúži len na informačné účely a nepredstavuje právne poradenstvo. Pred implementáciou sa poraďte s právnikom. Polski for WooCommerce je open source softvér (GPLv2) poskytovaný bez záruky.</div>
+<div class="disclaimer">Táto stránka má výlučne informačný charakter a nepredstavuje právnu radu. Pred nasadením sa poraďte s právnikom. Polski for WooCommerce je open source softvér (GPLv2) dodávaný bez záruky.</div>

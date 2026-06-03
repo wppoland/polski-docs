@@ -1,23 +1,21 @@
 ---
 title: Tlačidlo objednávky s povinnosťou platby
-description: Konfigurácia tlačidla "Zamawiam z obowiązkiem zapłaty" vyžadovaného poľským spotrebiteľským právom vo WooCommerce.
+description: Konfigurácia tlačidla "Objednávam s povinnosťou platby" vyžadovaného poľským spotrebiteľským právom vo WooCommerce.
 ---
 
-Poľské právo vyžaduje, aby tlačidlo objednávky obsahovalo text "zamówienie z obowiązkiem zapłaty" alebo podobný. Plugin Polski for WooCommerce automaticky mení predvolený text tlačidla WooCommerce.
+Poľské právo vyžaduje, aby tlačidlo objednávky obsahovalo text "objednávka s povinnosťou platby" alebo podobný. Doplnok Polski for WooCommerce automaticky mení predvolený text tlačidla WooCommerce.
 
 ## Právne požiadavky
 
-Podľa čl. 17 ods. 3 zákona o právach spotrebiteľa:
+Tlačidlo musí jasne uvádzať povinnosť platby. Akceptované varianty:
 
-> "Podnikateľ zabezpečí, aby spotrebiteľ v momente zadávania objednávky výslovne potvrdil, že vie, že objednávka je spojená s povinnosťou platby."
+- "Objednávam s povinnosťou platby"
+- "Objednávam a platím"
+- "Kupujem a platím"
 
-Tlačidlo musí obsahovať formuláciu jednoznačne ukazujúcu na povinnosť platby. Akceptované varianty:
+Texty "Vytvoriť objednávku", "Objednať" alebo "Potvrdiť" nespĺňajú požiadavky a hrozia za ne pokuty.
 
-- "Zamawiam z obowiązkiem zapłaty"
-- "Zamawiam i płacę"
-- "Kupuję i płacę"
-
-Použitie textu "Odoslať objednávku", "Objednať" alebo "Potvrdiť" nie je v súlade s právom.
+![Stránka pokladne s právnymi zaškrtávacími poľami a tlačidlom objednávky](../../../../assets/screenshots/screenshot-3-checkout-checkboxes.png)
 
 ## Konfigurácia
 
@@ -27,20 +25,20 @@ Prejdite do **WooCommerce > Nastavenia > Polski > Pokladňa** a nakonfigurujte s
 
 | Nastavenie | Predvolená hodnota | Popis |
 |------------|-----------------|------|
-| Text tlačidla | Zamawiam z obowiązkiem zapłaty | Text zobrazený na tlačidle |
-| Prepísať pre všetky platobné metódy | Áno | Či aplikovať text nezávisle od zvolenej metódy |
-| Prepísať text platobných brán | Áno | Či prepísať texty nastavené pluginmi platobných brán |
+| Text tlačidla | Objednávam s povinnosťou platby | Text zobrazený na tlačidle |
+| Prepísať pre všetky platobné metódy | Áno | Či používať text bez ohľadu na vybranú metódu |
+| Prepísať text platobných brán | Áno | Či prepisovať texty nastavené doplnkami platobných brán |
 
-### Texty per platobná metóda
+### Texty podľa platobnej metódy
 
-Niektoré platobné brány (napr. PayPal, Przelewy24) nastavujú vlastné texty tlačidiel. Vyberte si:
+Niektoré platobné brány (napr. PayPal, Przelewy24) nastavujú vlastné texty tlačidiel. Doplnok umožňuje vybrať:
 
-1. **Prepísať všetky** - vždy zobrazovať nastavený text (odporúčané)
-2. **Zachovať texty brán** - umožniť bránam nastaviť vlastné texty (uistite sa, že sú v súlade s právom)
+1. **Prepísať všetky** - vždy zobrazuje nastavený text (odporúčané)
+2. **Zachovať texty brán** - umožňuje bránam nastavovať vlastné texty (uistite sa, že sú v súlade s právom)
 
 ## Technická implementácia
 
-Plugin upravuje text tlačidla pomocou filtra WooCommerce:
+Doplnok mení text tlačidla filtrom WooCommerce:
 
 ```php
 add_filter('woocommerce_order_button_text', function (): string {
@@ -50,14 +48,14 @@ add_filter('woocommerce_order_button_text', function (): string {
 
 ### Kompatibilita s Block Checkout
 
-Plugin podporuje klasický checkout (shortcód) aj Block Checkout (Gutenberg). Pre Block Checkout sa úprava vykonáva cez:
+Doplnok funguje s klasickou pokladňou (shortcode) aj Block Checkout (Gutenberg). Block Checkout využíva:
 
 - filter `woocommerce_order_button_text` (klasický)
 - endpoint Store API (Block Checkout)
 
-### Kompatibilita s populárnymi pluginmi
+### Kompatibilita s populárnymi doplnkami
 
-Plugin je kompatibilný s populárnymi platobnými bránami:
+Doplnok funguje s populárnymi platobnými bránami v Poľsku:
 
 - Przelewy24
 - PayU
@@ -70,7 +68,7 @@ Plugin je kompatibilný s populárnymi platobnými bránami:
 
 ### Zmena textu v nastaveniach
 
-Zmeňte text v **WooCommerce > Nastavenia > Polski > Pokladňa**. Nový text musí stále obsahovať informáciu o povinnosti platby.
+Zmeňte text v **WooCommerce > Nastavenia > Polski > Pokladňa**. Nový text musí naďalej informovať o povinnosti platby.
 
 ### Zmena textu programovo
 
@@ -80,7 +78,7 @@ add_filter('woocommerce_order_button_text', function (string $text): string {
 }, 20);
 ```
 
-Priorita `20` zabezpečuje, že filter sa vykoná po filtri pluginu (priorita `10`).
+Priorita `20` zabezpečuje, že filter sa vykoná po filtri doplnku (priorita `10`).
 
 ### Text závislý od platobnej metódy
 
@@ -102,7 +100,7 @@ add_filter('woocommerce_order_button_text', function (string $text): string {
 
 ## Štýlovanie tlačidla
 
-Tlačidlo zachováva predvolené CSS triedy WooCommerce. Môžete prispôsobiť jeho vzhľad:
+Tlačidlo používa predvolené CSS triedy WooCommerce. Prispôsobte jeho vzhľad:
 
 ```css
 #place_order {
@@ -131,11 +129,11 @@ Pre Block Checkout:
 
 Po konfigurácii skontrolujte tlačidlo v nasledujúcich scenároch:
 
-1. Checkout s rôznymi platobnými metódami
-2. Checkout ako hosť a prihlásený používateľ
-3. Checkout so zľavovým kupónom (coupon)
-4. Checkout s predplatným (ak používate WooCommerce Subscriptions)
-5. Mobilný checkout - uistite sa, že text nie je orezaný
+1. Pokladňa s rôznymi platobnými metódami
+2. Pokladňa ako hosť a prihlásený používateľ
+3. Pokladňa so zľavovým kupónom (coupon)
+4. Pokladňa s predplatným (ak používate WooCommerce Subscriptions)
+5. Mobilná pokladňa - uistite sa, že text nie je orezaný
 
 ## Najčastejšie problémy
 
@@ -143,23 +141,23 @@ Po konfigurácii skontrolujte tlačidlo v nasledujúcich scenároch:
 
 Skontrolujte, či:
 
-1. Plugin je aktívny a modul pokladne je zapnutý
-2. Žiadny iný plugin neprepíše filter s vyššou prioritou
-3. Téma nehardkóduje text tlačidla v šablóne
+1. Doplnok je aktívny a modul pokladne je zapnutý
+2. Žiadny iný doplnok neprepisuje filter s vyššou prioritou
+3. Téma nemá natvrdo zakódovaný text tlačidla v šablóne
 
 ### Text je orezaný na mobilných zariadeniach
 
-Dlhý text "Zamawiam z obowiązkiem zapłaty" sa nemusí vojsť na úzke obrazovky. Zvážte:
+Text "Objednávam s povinnosťou platby" sa nemusí zmestiť na malé obrazovky. Riešenia:
 
-- použitie kratšieho variantu: "Kupuję i płacę"
+- použitie kratšieho variantu: "Kupujem a platím"
 - prispôsobenie CSS: `white-space: normal` na tlačidle
 
 ### Block Checkout nemení text
 
-Použite najnovšiu verziu pluginu. Staršie verzie nemusia podporovať Block Checkout. Skontrolujte aj aktualizáciu WooCommerce Blocks.
+Skontrolujte, či máte najnovšiu verziu doplnku. Staršie verzie nemusia podporovať Block Checkout. Aktualizujte aj WooCommerce Blocks.
 
 ## Súvisiace zdroje
 
 - [Nahlásiť problém](https://github.com/wppoland/polski/issues)
 
-<div class="disclaimer">Táto stránka slúži len na informačné účely a nepredstavuje právne poradenstvo. Pred implementáciou sa poraďte s právnikom. Polski for WooCommerce je open source softvér (GPLv2) poskytovaný bez záruky.</div>
+<div class="disclaimer">Táto stránka má výlučne informatívny charakter a nepredstavuje právne poradenstvo. Pred nasadením sa poraďte s právnikom. Polski for WooCommerce je open source softvér (GPLv2) poskytovaný bez záruky.</div>

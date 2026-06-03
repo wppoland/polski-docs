@@ -1,17 +1,17 @@
 ---
 title: Integrácia s KSeF
-description: Dokumentácia integrácie Polski PRO for WooCommerce s Krajovým systémom e-faktúr - odosielanie faktúr, sledovanie stavov, konfigurácia API a spracovanie chýb.
+description: Dokumentácia integrácie Polski PRO for WooCommerce s Krajowym Systemom e-Faktur - odosielanie faktúr, sledovanie stavov, konfigurácia API a spracovanie chýb.
 ---
 
-Modul KSeF odosiela elektronické faktúry do Krajového systému e-faktúr (Ministerstvo financií). Faktúry sa odosielajú na pozadí, s automatickým opakovaním pri chybách.
+Modul KSeF odosiela elektronické faktúry do Krajowego Systemu e-Faktur (poľské Ministerstvo financií). Faktúry sa odosielajú na pozadí, s automatickým opakovaním pri chybách.
 
 ## Čo je KSeF
 
-KSeF je platforma Ministerstva financií na štrukturované faktúry vo formáte XML. Plugin generuje faktúry v požadovanom formáte a odosiela ich do systému.
+KSeF je platforma poľského Ministerstva financií na spracovanie faktúr vo formáte XML. Plugin generuje faktúry v požadovanom formáte a odosiela ich do KSeF.
 
 ## Konfigurácia
 
-Prejdite do **WooCommerce > Nastavenia > Polski > Moduly PRO > KSeF**.
+Prejdite na **WooCommerce > Nastavenia > Polski > Moduly PRO > KSeF**.
 
 ### Nastavenia pripojenia
 
@@ -19,23 +19,23 @@ Prejdite do **WooCommerce > Nastavenia > Polski > Moduly PRO > KSeF**.
 |------------|------|
 | Zapnúť integráciu KSeF | Aktivuje modul |
 | Prostredie | Testovacie (sandbox) alebo Produkčné |
-| Kľúč API (token) | Autorizačný token vygenerovaný na portáli KSeF |
-| IČ DPH vystaviteľa | IČ DPH prepojené s účtom KSeF |
+| API kľúč (token) | Autorizačný token vygenerovaný v portáli KSeF |
+| NIP vystavovateľa | NIP priradený ku kontu KSeF |
 
 ### Testovacie prostredie
 
-KSeF sprístupňuje testovacie prostredie (sandbox) na overenie integrácie. Testovacie prostredie:
+KSeF má testovacie prostredie (sandbox) na overenie integrácie. Sandbox:
 
 - nevyžaduje skutočný autorizačný kľúč
-- prijíma faktúry v identicky formáte ako produkčné prostredie
+- prijíma faktúry v rovnakom formáte ako produkčné prostredie
 - neodosiela údaje na daňový úrad
-- je odporúčané na prvé testy integrácie
+- odporúča sa pre prvé testy integrácie
 
-Po úspešnom overení v testovacom prostredí prepnite na produkčné prostredie a zadajte príslušný kľúč API.
+Po úspešných testoch prepnite na produkčné prostredie a zadajte správny API kľúč.
 
-### Získanie tokena API
+### Získanie API tokenu
 
-1. Prihláste sa na portál KSeF: https://ksef.mf.gov.pl/
+1. Prihláste sa do portálu KSeF: https://ksef.mf.gov.pl/
 2. Prejdite do sekcie správy tokenov
 3. Vygenerujte nový token s oprávneniami na vystavovanie faktúr
 4. Skopírujte token a vložte ho do nastavení pluginu
@@ -44,32 +44,32 @@ Po úspešnom overení v testovacom prostredí prepnite na produkčné prostredi
 
 ### Automatické odosielanie
 
-Po zapnutí možnosti **Automatické odosielanie do KSeF** plugin odosiela faktúru do KSeF automaticky po zmene jej stavu na "Vystavená" (Issued). Odosielanie prebieha asynchrónne cez Action Scheduler.
+Zapnite **Automatické odosielanie do KSeF**, aby plugin odoslal faktúru do KSeF po zmene stavu na "Vystavená". Odosielanie funguje na pozadí cez Action Scheduler.
 
-### Ručné odosielanie
+### Manuálne odosielanie
 
-V paneli objednávky v meta boxe "Faktúry" je k dispozícii tlačidlo **Odoslať do KSeF**. Kliknutie pridá úlohu odosielania do fronty Action Scheduler.
+V meta boxe "Faktúry" kliknite na **Odoslať do KSeF**. Úloha sa zaradí do fronty Action Scheduler.
 
 ### Asynchrónne spracovanie
 
-Plugin využíva Action Scheduler (zabudovaný vo WooCommerce) na asynchrónne odosielanie faktúr. To znamená, že:
+Plugin používa Action Scheduler (zabudovaný vo WooCommerce) na odosielanie na pozadí:
 
 - odosielanie neblokuje spracovanie objednávky
-- faktúry sa odosielajú vo fronte, jedna po druhej
-- v prípade veľkého počtu faktúr systém ich spracováva postupne
+- faktúry sa odosielajú postupne
+- veľké množstvá faktúr sa spracúvajú postupne
 
 ## Generovanie XML
 
-Plugin generuje faktúru vo formáte XML kompatibilnom so schémou KSeF (FA(2)). Dokument XML obsahuje:
+Plugin generuje faktúru vo formáte XML kompatibilnom so schémou KSeF (FA(2)). XML dokument obsahuje:
 
 - hlavičku s dátumom a typom faktúry
-- údaje predávajúceho (IČ DPH, názov, adresa)
-- údaje kupujúceho (IČ DPH, názov, adresa)
-- položky faktúry (názov, množstvo, cena bez DPH, sadzba DPH, hodnota)
-- zhrnutie s rozpisom podľa sadzieb DPH
+- údaje predajcu (NIP, názov, adresa)
+- údaje odberateľa (NIP, názov, adresa)
+- položky faktúry (názov, množstvo, cena netto, sadzba VAT, hodnota)
+- súhrn s rozdelením podľa sadzieb VAT
 - informácie o platbe
 
-XML je validovaný pred odoslaním. Ak validácia odhalí chyby, faktúra nebude odoslaná a v logu sa zobrazí podrobná správa.
+XML sa pred odoslaním validuje. Pri chybách validácie sa faktúra neodošle a v logu sa objaví správa.
 
 ## Sledovanie stavu
 
@@ -77,21 +77,21 @@ Po odoslaní faktúry do KSeF plugin sleduje jej stav:
 
 | Stav | Popis |
 |--------|------|
-| Queued | Faktúra pridaná do fronty odosielania |
+| Queued | Faktúra pridaná do fronty na odoslanie |
 | Submitted | Faktúra odoslaná do KSeF, čaká na spracovanie |
 | Accepted | Faktúra prijatá KSeF, pridelené číslo KSeF |
-| Rejected | Faktúra odmietnutá - skontrolujte správu chyby |
+| Rejected | Faktúra zamietnutá - skontrolujte chybovú správu |
 | Error | Chyba komunikácie s API KSeF |
 
-Po prijatí faktúry plugin uloží referenčné číslo KSeF do metadát faktúry. Toto číslo je viditeľné v paneli objednávky a na výtlačku PDF.
+Po prijatí plugin uloží číslo KSeF. Je viditeľné v paneli objednávky a na PDF.
 
 ### Polling stavu
 
-Plugin automaticky kontroluje stav odoslaných faktúr. Po odoslaní faktúry do KSeF plugin dopytuje API na stav každých niekoľko minút (cez Action Scheduler), kým nedostane odpoveď "Accepted" alebo "Rejected".
+Plugin automaticky kontroluje stav odoslaných faktúr každých niekoľko minút (cez Action Scheduler), kým nedostane odpoveď "Accepted" alebo "Rejected".
 
 ## Spracovanie chýb a opakovanie
 
-V prípade chyby komunikácie s API KSeF plugin uplatňuje mechanizmus exponential backoff:
+Pri chybách API plugin opakuje pokusy s narastajúcim oneskorením (exponential backoff):
 
 | Pokus | Oneskorenie |
 |-------|-----------|
@@ -99,14 +99,14 @@ V prípade chyby komunikácie s API KSeF plugin uplatňuje mechanizmus exponenti
 | 2. opakovanie | 25 minút |
 | 3. opakovanie | 125 minút |
 
-Po troch neúspešných pokusoch faktúra získa stav "Error" a vyžaduje manuálny zásah. Administrátor dostane e-mailové upozornenie o neúspešnom odoslaní.
+Po troch neúspešných pokusoch dostane faktúra stav "Error". Administrátor dostane e-mail o neúspešnom odoslaní.
 
 Typické príčiny chýb:
 
-- neplatný alebo expirovaný token API
-- chyby validácie XML (napr. chýbajúce údaje kupujúceho)
+- nesprávny alebo expirovaný API token
+- chyby validácie XML (napr. chýbajúce údaje odberateľa)
 - dočasná nedostupnosť API KSeF
-- nesúlad IČ DPH vystaviteľa s tokenom
+- nezhoda NIP vystavovateľa s tokenom
 
 ## Hooky
 
@@ -143,7 +143,7 @@ add_action('polski_pro_ksef_submit', function (int $invoice_id, string $xml): vo
 
 ### `polski_pro_ksef_check_status`
 
-Akcia volaná po kontrole stavu faktúry v KSeF.
+Akcia volaná po skontrolovaní stavu faktúry v KSeF.
 
 ```php
 /**
@@ -175,42 +175,42 @@ add_action('polski_pro_ksef_check_status', function (int $invoice_id, string $st
 
 ### Logy
 
-Plugin loguje všetky operácie KSeF v logu WooCommerce. Prejdite do **WooCommerce > Stav > Logy** a vyberte zdroj `polski-pro-ksef`.
+Všetky operácie KSeF sú v logu WooCommerce. Prejdite na **WooCommerce > Stav > Logy** a vyberte `polski-pro-ksef`.
 
 Logované udalosti:
 
-- odosielanie faktúry (request/response)
+- odoslanie faktúry (request/response)
 - kontrola stavu
 - chyby validácie XML
 - chyby komunikácie s API
-- opakovanie odosielania
+- opakovania odosielania
 
 ### Testovanie pripojenia
 
-V nastaveniach modulu KSeF je k dispozícii tlačidlo **Testovať pripojenie**. Odošle testovaciu požiadavku na API KSeF a overí:
+Kliknite na **Otestovať pripojenie** v nastaveniach KSeF. Test overuje:
 
-- správnosť tokena
+- správnosť tokenu
 - konektivitu so serverom KSeF
-- súlad IČ DPH s tokenom
+- zhodu NIP s tokenom
 
 ## Najčastejšie problémy
 
-### Faktúra odmietnutá KSeF
+### Faktúra zamietnutá KSeF
 
-1. Skontrolujte správu chyby v logu WooCommerce
-2. Najčastejšie príčiny: chýbajúce IČ DPH kupujúceho, neplatná sadzba DPH, neúplné adresné údaje
+1. Skontrolujte chybovú správu v logu WooCommerce
+2. Najčastejšie príčiny: chýbajúci NIP odberateľa, nesprávna sadzba VAT, neúplné adresné údaje
 3. Opravte údaje a odošlite znova
 
-### Token API nefunguje
+### API token nefunguje
 
-1. Uistite sa, že token nevypršal
+1. Uistite sa, že token neexpiroval
 2. Skontrolujte, či má token oprávnenia na vystavovanie faktúr
-3. Overte súlad IČ DPH v nastaveniach pluginu s IČ DPH prepojeným s tokenom
+3. Overte zhodu NIP v nastaveniach pluginu s NIP priradeným k tokenu
 
-### Action Scheduler nespracováva frontu
+### Action Scheduler nespracúva frontu
 
 1. Skontrolujte, či WP-Cron funguje správne
-2. Prejdite do **Nástroje > Scheduled Actions** a skontrolujte stav fronty
+2. Prejdite na **Nástroje > Scheduled Actions** a skontrolujte stav fronty
 3. Overte, či nie sú zablokované úlohy
 
 ## Súvisiace zdroje
@@ -219,4 +219,4 @@ V nastaveniach modulu KSeF je k dispozícii tlačidlo **Testovať pripojenie**. 
 - [Informácie o KSeF](/compliance/ksef/)
 - [Nahlásiť problém](https://github.com/wppoland/polski/issues)
 
-<div class="disclaimer">Táto stránka slúži len na informačné účely a nepredstavuje právne poradenstvo. Pred implementáciou sa poraďte s právnikom. Polski for WooCommerce je open source softvér (GPLv2) poskytovaný bez záruky.</div>
+<div class="disclaimer">Táto stránka má výlučne informačný charakter a nepredstavuje právne poradenstvo. Pred nasadením sa poraďte s právnikom. Polski for WooCommerce je open source softvér (GPLv2) poskytovaný bez záruky.</div>

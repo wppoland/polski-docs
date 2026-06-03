@@ -1,36 +1,36 @@
 ---
-title: Viackrokový checkout
-description: Dokumentácia viackrokového checkoutu Polski PRO for WooCommerce - rozdelenie procesu objednávky na kroky, konfigurácia, React Checkout Blocks a klasický fallback.
+title: Viackrokový košík
+description: Dokumentácia viackrokového košíka Polski PRO for WooCommerce - rozdelenie procesu objednávky na kroky, konfigurácia, React Checkout Blocks a klasický fallback.
 ---
 
-Modul rozdeľuje pokladňu na štyri kroky: adresa, doručenie, platba a zhrnutie. Zákazník vidí ukazovateľ priebehu a prechádza postupne každým krokom.
+Modul rozdeľuje pokladňu na štyri kroky: adresa, doprava, platba a súhrn. Zákazník vidí lištu postupu a postupne prechádza každým krokom.
 
-## Kroky checkoutu
+## Kroky pokladne
 
-Viackrokový checkout sa skladá zo štyroch krokov:
+Viackrokový košík sa skladá zo štyroch krokov:
 
 | Krok | Predvolený názov | Obsah |
 |------|----------------|-----------|
-| 1 | Adresa | Formulár fakturačných údajov a dodacej adresy |
-| 2 | Doprava | Výber spôsobu dopravy a možností zásielky |
+| 1 | Adresa | Formulár fakturačných údajov a doručovacej adresy |
+| 2 | Doprava | Výber spôsobu doručenia a možností zásielky |
 | 3 | Platba | Výber spôsobu platby a platobné údaje |
-| 4 | Zhrnutie | Prehľad objednávky, právne checkboxy, tlačidlo "Objednať a zaplatiť" |
+| 4 | Súhrn | Prehľad objednávky, právne checkboxy, tlačidlo "Kupujem a platím" |
 
-Zákazník sa môže vrátiť k predchádzajúcim krokom bez straty zadaných údajov. Prechod na ďalší krok vyžaduje správne vyplnenie aktuálneho formulára.
+Zákazník sa môže vrátiť späť bez straty údajov. Prechod ďalej vyžaduje správne vyplnenie aktuálneho formulára.
 
 ## Konfigurácia
 
-Prejdite do **WooCommerce > Nastavenia > Polski > Moduly PRO > Pokladňa**.
+Prejdite na **WooCommerce > Nastavenia > Polski > Moduly PRO > Pokladňa**.
 
 ### Zapnutie modulu
 
-Viackrokový checkout je riadený voľbou:
+Viackrokový košík riadi možnosť:
 
 ```
 polski_pro_checkout[multistep_enabled]
 ```
 
-Hodnota `1` zapína viackrokový vzhľad, `0` obnoví predvolený checkout WooCommerce.
+Hodnota `1` zapína viackrokové rozloženie, `0` obnovuje predvolenú pokladňu WooCommerce.
 
 ### Názvy krokov
 
@@ -41,55 +41,53 @@ Predvolené názvy krokov je možné zmeniť v nastaveniach:
 | Názov kroku 1 | Adresa |
 | Názov kroku 2 | Doprava |
 | Názov kroku 3 | Platba |
-| Názov kroku 4 | Zhrnutie |
+| Názov kroku 4 | Súhrn |
 
-Názvy krokov sú zobrazované v ukazovateľi priebehu nad formulárom checkoutu.
+Názvy krokov sa zobrazujú v lište postupu nad formulárom pokladne.
 
 ### Validácia medzi krokmi
 
-Plugin validuje údaje po každom kroku pred povolením prechodu na ďalší:
+Plugin kontroluje údaje po každom kroku pred prechodom ďalej:
 
 - **Krok 1 (Adresa)** - povinné polia: meno, priezvisko, adresa, mesto, PSČ, telefón, e-mail
-- **Krok 2 (Doprava)** - povinný výber spôsobu dopravy
+- **Krok 2 (Doprava)** - povinný výber spôsobu doručenia
 - **Krok 3 (Platba)** - povinný výber spôsobu platby
-- **Krok 4 (Zhrnutie)** - povinné zaškrtnutie povinných právnych checkboxov
+- **Krok 4 (Súhrn)** - povinné zaškrtnutie povinných právnych checkboxov
 
-Validačné správy sa zobrazujú inline pod príslušným poľom.
+Chybové správy sa zobrazujú pod poľami.
 
 ## Technická implementácia
 
 ### WooCommerce Checkout Blocks (React)
 
-Pre obchody využívajúce WooCommerce Checkout Blocks (blokový editor) modul používa React na renderovanie krokov. Komponenty sa integrujú s WooCommerce Store API a zachovávajú plnú kompatibilitu s rozšíreniami Checkout Blocks.
-
-Renderovanie prebieha na strane klienta. Plugin sa registruje ako rozšírenie Checkout Blocks a upravuje rozloženie formulára bez zásahu do logiky WooCommerce.
+Pre obchody s WooCommerce Checkout Blocks modul používa React. Integruje sa s WooCommerce Store API a nezasahuje do logiky WooCommerce.
 
 ### Klasický fallback (shortcode)
 
-Pre obchody používajúce klasický checkout (shortcode `[woocommerce_checkout]`) modul zabezpečuje JavaScript fallback. Skript rozdelí existujúci formulár na sekcie a pridá navigáciu medzi nimi.
+Pre klasickú pokladňu (shortcode `[woocommerce_checkout]`) modul používa JavaScript fallback - rozdeľuje formulár na sekcie a pridáva navigáciu.
 
 Klasický fallback:
 
 - nevyžaduje React
-- funguje s existujúcimi témami a prispôsobeniami checkoutu
-- podporuje rovnaké štyri kroky ako verzia Blocks
-- využíva jQuery na manipuláciu DOM
+- funguje s existujúcimi témami a úpravami pokladne
+- obsluhuje rovnaké štyri kroky ako verzia Blocks
+- využíva jQuery na manipuláciu s DOM
 
 ### Detekcia režimu
 
-Plugin automaticky zisťuje, či checkout používa Checkout Blocks alebo klasický shortcode, a načíta príslušnú implementáciu. Nevyžaduje manuálnu konfiguráciu režimu.
+Plugin sám zisťuje typ pokladne (Blocks alebo shortcode) a načíta príslušnú verziu. Nie je potrebné nič nastavovať ručne.
 
-## Štylizácia
+## Štýlovanie
 
 ### CSS trieda body
 
-Keď je viackrokový checkout aktívny, k elementu `<body>` sa pridáva trieda:
+Keď je viackrokový košík aktívny, `<body>` dostane triedu:
 
 ```
 polski-multistep-checkout
 ```
 
-Umožňuje to cieliť CSS štýly výhradne na stránky s viackrokovým checkoutom:
+Vďaka tomu CSS cieli iba na stránky s viackrokovou pokladňou:
 
 ```css
 body.polski-multistep-checkout .woocommerce-checkout {
@@ -100,42 +98,42 @@ body.polski-multistep-checkout .woocommerce-checkout {
 
 ### Triedy krokov
 
-Každý krok dostáva vlastnú CSS triedu:
+Každý krok dostane vlastnú CSS triedu:
 
 ```css
-.polski-checkout-step { /* spoločné štýly krokov */ }
-.polski-checkout-step--active { /* aktívny krok */ }
-.polski-checkout-step--completed { /* dokončený krok */ }
-.polski-checkout-step--address { /* adresový krok */ }
-.polski-checkout-step--shipping { /* krok dopravy */ }
-.polski-checkout-step--payment { /* krok platby */ }
-.polski-checkout-step--review { /* krok zhrnutia */ }
+.polski-checkout-step { /* wspólne style kroków */ }
+.polski-checkout-step--active { /* aktywny krok */ }
+.polski-checkout-step--completed { /* ukończony krok */ }
+.polski-checkout-step--address { /* krok adresowy */ }
+.polski-checkout-step--shipping { /* krok dostawy */ }
+.polski-checkout-step--payment { /* krok płatności */ }
+.polski-checkout-step--review { /* krok podsumowania */ }
 ```
 
-### Ukazovateľ priebehu
+### Lišta postupu
 
-Ukazovateľ priebehu je renderovaný ako element `<ol>` s triedou `.polski-checkout-progress`. Každý prvok zoznamu zodpovedá jednému kroku:
+Lišta postupu je element `<ol>` s triedou `.polski-checkout-progress`:
 
 ```css
-.polski-checkout-progress { /* kontajner ukazovateľa */ }
-.polski-checkout-progress__step { /* jednotlivý krok v ukazovateľi */ }
-.polski-checkout-progress__step--active { /* aktívny krok v ukazovateľi */ }
-.polski-checkout-progress__step--done { /* dokončený krok v ukazovateľi */ }
+.polski-checkout-progress { /* kontener paska */ }
+.polski-checkout-progress__step { /* pojedynczy krok w pasku */ }
+.polski-checkout-progress__step--active { /* aktywny krok w pasku */ }
+.polski-checkout-progress__step--done { /* ukończony krok w pasku */ }
 ```
 
 ## Kompatibilita s inými modulmi
 
 ### Právne checkboxy
 
-Právne checkboxy z bezplatnej verzie Polski for WooCommerce sú automaticky presunuté do kroku 4 (Zhrnutie). Zákazník ich musí zaškrtnúť pred odoslaním objednávky.
+Právne checkboxy z bezplatnej verzie sa presunú do kroku 4 (Súhrn). Zákazník ich zaškrtne pred odoslaním objednávky.
 
-### Pole IČ DPH
+### Pole NIP
 
-Pole IČ DPH sa zobrazuje v kroku 1 (Adresa) v súlade s konfiguráciou podmieneného zobrazovania z modulu IČ DPH.
+Pole NIP sa zobrazuje v kroku 1 (Adresa), v súlade s nastaveniami modulu NIP.
 
 ### Vlastné polia
 
-Polia pridané inými pluginmi (napr. cez hook `woocommerce_checkout_fields`) sú automaticky priraďované k príslušnému kroku na základe ich sekcie:
+Polia pridané inými pluginmi (napr. hook `woocommerce_checkout_fields`) sa presunú do krokov podľa sekcie:
 
 - `billing_*` - krok 1
 - `shipping_*` - krok 2
@@ -143,27 +141,27 @@ Polia pridané inými pluginmi (napr. cez hook `woocommerce_checkout_fields`) s�
 
 ## Prístupnosť (a11y)
 
-Viackrokový checkout podporuje:
+Viackrokový košík podporuje:
 
 - navigáciu klávesnicou (Tab, Enter, Escape)
-- atribúty ARIA (`aria-current`, `aria-label`, `role="tablist"`)
-- oznamovanie zmien krokov čítačkami obrazovky
+- ARIA atribúty (`aria-current`, `aria-label`, `role="tablist"`)
+- ohlasovanie zmien krokov čítačkami obrazovky
 - viditeľný fokus na interaktívnych prvkoch
 
 ## Výkon
 
-Modul načítava skripty a štýly iba na stránke checkoutu. Na ostatných stránkach obchodu nepridáva žiadne zdroje. Skripty sú načítavané s atribútom `defer`, aby neblokovali renderovanie stránky.
+Skripty a štýly sa načítavajú iba na stránke pokladne. Na iných stránkach modul nepridáva zdroje. Skripty majú atribút `defer` a neblokujú vykresľovanie.
 
 ## Najčastejšie problémy
 
-### Checkout sa nerozdeľuje na kroky
+### Pokladňa sa nedelí na kroky
 
-1. Skontrolujte, či je voľba `polski_pro_checkout[multistep_enabled]` nastavená na `1`
-2. Vymažte cache (pluginy cache, CDN, cache prehliadača)
-3. Skontrolujte konzolu prehliadača na JavaScript chyby
-4. Overte, či nedochádza ku konfliktu s inými pluginmi modifikujúcimi checkout
+1. Skontrolujte, či je možnosť `polski_pro_checkout[multistep_enabled]` nastavená na `1`
+2. Vyčistite cache (cache pluginy, CDN, cache prehliadača)
+3. Skontrolujte konzolu prehliadača na chyby JavaScript
+4. Overte, či nedochádza ku konfliktu s inými pluginmi upravujúcimi pokladňu
 
-### Formulár neprechádza na ďalší krok
+### Formulár neprechádza do ďalšieho kroku
 
 1. Skontrolujte, či sú všetky povinné polia vyplnené
 2. Overte validačné správy pod poľami
@@ -178,7 +176,7 @@ Modul načítava skripty a štýly iba na stránke checkoutu. Na ostatných str�
 ## Súvisiace zdroje
 
 - [Právne checkboxy](/checkout/legal-checkboxes/)
-- [IČ DPH na checkоute](/checkout/nip-lookup/)
+- [NIP na pokladni](/checkout/nip-lookup/)
 - [Nahlásiť problém](https://github.com/wppoland/polski/issues)
 
-<div class="disclaimer">Táto stránka slúži len na informačné účely a nepredstavuje právne poradenstvo. Pred implementáciou sa poraďte s právnikom. Polski for WooCommerce je open source softvér (GPLv2) poskytovaný bez záruky.</div>
+<div class="disclaimer">Táto stránka má výlučne informačný charakter a nepredstavuje právne poradenstvo. Pred nasadením sa poraďte s právnikom. Polski for WooCommerce je open source softvér (GPLv2) poskytovaný bez záruky.</div>

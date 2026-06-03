@@ -1,24 +1,24 @@
 ---
 title: Jednotková cena
-description: Zobrazenie ceny za kilogram, liter, meter alebo kus vo WooCommerce v súlade s poľským spotrebiteľským právom.
+description: Zobrazovanie ceny za kilogram, liter, meter alebo kus vo WooCommerce v súlade s poľským spotrebiteľským právom.
 ---
 
-Poľské právo vyžaduje, aby obchod zobrazoval jednotkovú cenu produktu - napr. cenu za kilogram, liter alebo meter. Plugin Polski for WooCommerce pridáva túto informáciu automaticky na stránke produktu, v zoznamoch a v košíku.
+Poľské právo vyžaduje, aby internetový obchod zobrazoval jednotkovú cenu produktu - napr. cenu za kilogram, liter alebo meter. Plugin Polski for WooCommerce pridáva túto informáciu automaticky na stránku produktu, do zoznamu a do košíka.
 
 ## Kedy je jednotková cena vyžadovaná
 
-Povinnosť uvádzať jednotkovú cenu sa týka produktov predávaných na hmotnosť, objem alebo dĺžku. V praxi to zahŕňa:
+Jednotkovú cenu uvádzate pre produkty predávané na váhu, objem alebo dĺžku. Týka sa to okrem iného:
 
-- potravinárske produkty (cena za kg alebo liter)
-- kozmetiku a čistiace prostriedky (cena za 100 ml alebo liter)
+- potravinové produkty (cena za kg alebo liter)
+- kozmetika a čistiace prostriedky (cena za 100 ml alebo liter)
 - stavebné materiály (cena za bežný meter alebo štvorcový meter)
 - sypké produkty (cena za kg)
 
-Jednotková cena musí byť viditeľná na každom mieste, kde je prezentovaná cena produktu - na stránke produktu, vo výsledkoch vyhľadávania, v cenových porovnávačoch a v košíku.
+Jednotková cena musí byť viditeľná všade, kde zobrazujete cenu produktu - na stránke produktu, vo výsledkoch vyhľadávania, v porovnávačoch a v košíku.
 
 ## Konfigurácia
 
-Prejdite do **WooCommerce > Nastavenia > Polski > Ceny** a zapnite modul jednotkovej ceny. Po aktivácii sa v editore produktu zobrazí nová sekcia v záložke "Všeobecné".
+Prejdite do **WooCommerce > Nastavenia > Polski > Ceny** a zapnite modul jednotkovej ceny. Po zapnutí sa v editore produktu objaví nová sekcia v záložke "Všeobecné".
 
 ### Polia v editore produktu
 
@@ -27,33 +27,33 @@ Prejdite do **WooCommerce > Nastavenia > Polski > Ceny** a zapnite modul jednotk
 | Základné množstvo | Množstvo produktu v balení | `500` |
 | Základná jednotka | Merná jednotka produktu | `g` |
 | Referenčné množstvo | Referenčné množstvo pre jednotkovú cenu | `1` |
-| Referenčná jednotka | Jednotka, za ktorú je uvádzaná cena | `kg` |
+| Referenčná jednotka | Jednotka, za ktorú sa uvádza cena | `kg` |
 
-Pre produkt s hmotnosťou 500 g a cenou 12,99 PLN plugin automaticky vypočíta jednotkovú cenu ako 25,98 PLN/kg.
+Pre produkt s hmotnosťou 500 g a cenou 12,99 zł plugin automaticky vypočíta jednotkovú cenu ako 25,98 zł/kg.
 
 ### Podporované jednotky
 
-Plugin podporuje nasledujúce merné jednotky:
+Plugin podporuje tieto merné jednotky:
 
 - **Hmotnosť:** g, kg, mg
 - **Objem:** ml, l, cl
 - **Dĺžka:** mm, cm, m
-- **Kusy:** szt (kus)
+- **Kusy:** szt (piece)
 
-Prepočet medzi jednotkami prebieha automaticky. Ak má produkt hmotnosť v gramoch a referenčná jednotka je kilogram, plugin sám prepočíta hodnotu.
+Plugin prepočítava jednotky automaticky. Ak má produkt hmotnosť v gramoch a referenčná jednotka je kilogram - hodnota sa prepočíta.
 
 ## Varianty produktov
 
-Pre variantné produkty (variable products) je možné nastaviť jednotkovú cenu na dvoch úrovniach:
+Pre variabilné produkty nastavujete jednotkovú cenu na dvoch úrovniach:
 
-1. **Na úrovni hlavného produktu** - hodnota zdedená všetkými variantmi
-2. **Na úrovni variantu** - prepíše nastavenia hlavného produktu
+1. **Na úrovni hlavného produktu** - hodnota dedená všetkými variantmi
+2. **Na úrovni variantu** - prepisuje nastavenia hlavného produktu
 
-V prípade variantov s rôznou hmotnosťou (napr. balenie 250 g a 500 g) nastavte jednotkovú cenu zvlášť pre každý variant. Plugin automaticky aktualizuje zobrazenú cenu pri zmene variantu zákazníkom (AJAX).
+Ak majú varianty rôznu hmotnosť (napr. 250 g a 500 g), nastavte jednotkovú cenu zvlášť pre každý variant. Plugin automaticky aktualizuje cenu, keď zákazník zmení variant (AJAX).
 
-## Shortcód
+## Shortcode
 
-Použite shortcód `[polski_unit_price]` na zobrazenie jednotkovej ceny na ľubovoľnom mieste.
+Použite shortcode `[polski_unit_price]`, aby ste zobrazili jednotkovú cenu na ľubovoľnom mieste.
 
 ### Parametre
 
@@ -61,8 +61,8 @@ Použite shortcód `[polski_unit_price]` na zobrazenie jednotkovej ceny na ľubo
 |----------|-----|----------|------|
 | `product_id` | int | aktuálny | ID produktu |
 | `before` | string | `""` | Text pred cenou |
-| `after` | string | `""` | Text za cenou |
-| `wrapper` | string | `span` | Obaľujúci HTML prvok |
+| `after` | string | `""` | Text po cene |
+| `wrapper` | string | `span` | Obaľujúci HTML element |
 
 ### Príklady použitia
 
@@ -78,7 +78,7 @@ S vlastným ID produktu a textom:
 [polski_unit_price product_id="123" before="Cena za kg: " after=" brutto"]
 ```
 
-V PHP šablóne:
+V šablóne PHP:
 
 ```php
 echo do_shortcode('[polski_unit_price product_id="' . $product->get_id() . '"]');
@@ -86,7 +86,7 @@ echo do_shortcode('[polski_unit_price product_id="' . $product->get_id() . '"]')
 
 ## Hook: polski/price/unit_price_html
 
-Tento filter umožňuje upraviť HTML jednotkovej ceny pred zobrazením.
+Filter umožňuje zmeniť HTML jednotkovej ceny pred zobrazením.
 
 ### Signatúra
 
@@ -98,7 +98,7 @@ apply_filters('polski/price/unit_price_html', string $html, float $unit_price, W
 
 | Parameter | Typ | Popis |
 |----------|-----|------|
-| `$html` | string | Vygenerované HTML jednotkovej ceny |
+| `$html` | string | Vygenerovaný HTML jednotkovej ceny |
 | `$unit_price` | float | Vypočítaná jednotková cena |
 | `$product` | WC_Product | Objekt produktu WooCommerce |
 | `$args` | array | Pole s kľúčmi: `base_qty`, `base_unit`, `ref_qty`, `ref_unit` |
@@ -135,7 +135,7 @@ add_filter('polski/price/unit_price_html', function (string $html, float $unit_p
 
 ## Import CSV
 
-Jednotkovú cenu je možné importovať pomocou štandardného importéra WooCommerce. Pridajte nasledujúce stĺpce do súboru CSV:
+Jednotkovú cenu importujete cez štandardný importér WooCommerce. Pridajte tieto stĺpce do súboru CSV:
 
 | Stĺpec CSV | Popis |
 |-------------|------|
@@ -144,7 +144,7 @@ Jednotkovú cenu je možné importovať pomocou štandardného importéra WooCom
 | `polski_unit_ref_qty` | Referenčné množstvo |
 | `polski_unit_ref_unit` | Referenčná jednotka |
 
-Príkladný riadok CSV:
+Príklad riadku CSV:
 
 ```csv
 "Kawa mielona 500g",29.99,500,g,1,kg
@@ -158,14 +158,14 @@ Skontrolujte, či:
 
 1. Modul jednotkovej ceny je zapnutý v nastaveniach
 2. Produkt má vyplnené polia základného množstva a jednotky
-3. Téma podporuje hook `woocommerce_after_shop_loop_item_title` (zoznam) a `woocommerce_single_product_summary` (stránka produktu)
+3. Šablóna podporuje hook `woocommerce_after_shop_loop_item_title` (zoznam) a `woocommerce_single_product_summary` (stránka produktu)
 
 ### Nesprávny prepočet
 
-Uistite sa, že základná a referenčná jednotka patria do rovnakej kategórie (napr. obidve hmotnostné alebo obidve objemové). Plugin neprepočítava medzi kategóriami - nie je možné prepočítať gramy na litre.
+Skontrolujte, či sú základná a referenčná jednotka z rovnakej kategórie (napr. obe hmotnostné alebo obe objemové). Plugin neprepočítava gramy na litre.
 
 ## Súvisiace zdroje
 
 - [Nahlásiť problém](https://github.com/wppoland/polski/issues)
 
-<div class="disclaimer">Táto stránka slúži len na informačné účely a nepredstavuje právne poradenstvo. Pred implementáciou sa poraďte s právnikom. Polski for WooCommerce je open source softvér (GPLv2) poskytovaný bez záruky.</div>
+<div class="disclaimer">Táto stránka má výlučne informatívny charakter a nepredstavuje právnu radu. Pred nasadením sa poraďte s právnikom. Polski for WooCommerce je open source softvér (GPLv2) poskytovaný bez záruky.</div>

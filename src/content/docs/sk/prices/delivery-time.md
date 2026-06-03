@@ -1,27 +1,27 @@
 ---
-title: Dodacia lehota
-description: Konfigurácia dodacej lehoty per produkt a variant, predvolená záložná hodnota a taxonómia polski_delivery_time vo WooCommerce.
+title: Čas dodania
+description: Konfigurácia času dodania per produkt a variant, predvolená záložná hodnota a taxonómia polski_delivery_time vo WooCommerce.
 ---
 
-Poľské právo vyžaduje, aby obchod informoval o čase dostavy pred zadaním objednávky. Plugin Polski for WooCommerce umožňuje nastaviť dodaciu lehotu globálne, per produkt a per variant.
+Poľské právo vyžaduje, aby obchod informoval o čase dodania pred zadaním objednávky. Plugin Polski for WooCommerce umožňuje nastaviť čas dodania globálne, per produkt a per variant.
 
 ## Právne požiadavky
 
-Predajca musí informovať spotrebiteľa o termíne dodania tovaru najneskôr v momente vyjadrenia vôle spotrebiteľa byť viazaný zmluvou (teda pred kliknutím na tlačidlo objednávky). Táto informácia musí byť:
+Uveďte čas dodania predtým, ako zákazník klikne na tlačidlo objednávky. Informácia by mala byť:
 
 - jasná a zrozumiteľná
 - uvedená v pracovných alebo kalendárnych dňoch
 - viditeľná na stránke produktu
 
-Chýbajúca informácia o dodacej lehote môže mať za následok sankcie zo strany UOKiK a predstavuje porušenie práv spotrebiteľa.
+Absencia tejto informácie hrozí pokutami od UOKiK.
 
 ## Taxonómia polski_delivery_time
 
-Plugin registruje vyhradenú taxonómiu `polski_delivery_time`, ktorá umožňuje vytvárať preddefinované dodacie lehoty a priraďovať ich produktom.
+Plugin vytvára taxonómiu `polski_delivery_time`, v ktorej definujete časy dodania a priraďujete ich k produktom.
 
 ### Správa termínov dodania
 
-Prejdite do **Produkty > Dodacia lehota** na správu dostupných termínov.
+Prejdite do **Produkty > Čas dodania**, aby ste spravovali dostupné termíny.
 
 Príklady termínov:
 
@@ -30,58 +30,58 @@ Príklady termínov:
 | 1-2 pracovné dni | 1-2-dni-robocze | Produkty na sklade |
 | 3-5 pracovných dní | 3-5-dni-roboczych | Produkty objednávané u dodávateľa |
 | 7-14 pracovných dní | 7-14-dni-roboczych | Produkty na objednávku |
-| Do 24 hodín | do-24-godzin | Digitálne produkty / expresné |
-| Ihneď dostupný | dostepny-od-reki | Okamžitá realizácia |
+| Do 24 hodín | do-24-godzin | Digitálne produkty / expres |
+| Dostupný ihneď | dostepny-od-reki | Okamžitá realizácia |
 
-Termíny dodania fungujú ako taxonómia WordPress - môžete ich vytvárať, upravovať a odstraňovať v administračnom paneli.
+Termíny dodania sú taxonómia WordPress - vytvárate, upravujete a odstraňujete ich v paneli admina.
 
 ## Konfigurácia
 
 ### Globálne nastavenia
 
-Prejdite do **WooCommerce > Nastavenia > Polski > Ceny** a nakonfigurujte sekciu "Dodacia lehota".
+Prejdite do **WooCommerce > Nastavenia > Polski > Ceny** a nakonfigurujte sekciu "Čas dodania".
 
 | Nastavenie | Popis |
 |------------|------|
-| Zapnúť dodaciu lehotu | Aktivuje zobrazovanie na stránke produktu |
-| Predvolená dodacia lehota | Záložná hodnota (fallback) pre produkty bez priradeného termínu |
-| Zobraziť v zozname | Zobrazuje dodaciu lehotu na stránkach kategórií |
-| Zobraziť v košíku | Zobrazuje dodaciu lehotu v košíku |
-| Štítok | Text pred dodacou lehotou (štandardne: "Dodacia lehota:") |
+| Zapnúť čas dodania | Aktivuje zobrazovanie na stránke produktu |
+| Predvolený čas dodania | Záložná hodnota (fallback) pre produkty bez priradeného termínu |
+| Zobraziť v zozname | Zobrazuje čas dodania na stránkach kategórií |
+| Zobraziť v košíku | Zobrazuje čas dodania v košíku |
+| Štítok | Text pred časom dodania (predvolene: "Čas dodania:") |
 
 ### Predvolený fallback
 
-Predvolená dodacia lehota (fallback) sa zobrazuje, keď produkt nemá priradený individuálny termín. To umožňuje rýchlu implementáciu bez nutnosti úpravy každého produktu zvlášť.
+Predvolený čas dodania (fallback) sa objaví, keď produkt nemá vlastný termín. Vďaka tomu nemusíte upravovať každý produkt zvlášť.
 
 Hierarchia zobrazovania:
 
-1. Dodacia lehota variantu (ak je nastavená)
-2. Dodacia lehota hlavného produktu (ak je nastavená)
-3. Predvolená dodacia lehota z globálnych nastavení (fallback)
+1. Čas dodania variantu (ak je nastavený)
+2. Čas dodania hlavného produktu (ak je nastavený)
+3. Predvolený čas dodania z globálnych nastavení (fallback)
 
-Ak žiadna z vyššie uvedených nie je nastavená, informácia o dodacej lehote sa nezobrazí.
+Ak nie je nastavené nič, čas dodania sa neobjaví.
 
-### Priradenie k produktu
+### Priraďovanie k produktu
 
-V editore produktu, v záložke "Doručenie", nájdete pole **Dodacia lehota**. Vyberte zo zoznamu existujúci termín alebo vytvorte nový.
+V editore produktu otvorte záložku "Doprava". V poli **Čas dodania** vyberte termín zo zoznamu alebo pridajte nový.
 
-### Priradenie k variantu
+### Priraďovanie k variantu
 
-Pre variantné produkty môže mať každý variant vlastnú dodaciu lehotu. Rozbaľte sekciu variantu a nastavte individuálny termín. Varianty bez nastaveného termínu dedia hodnotu z hlavného produktu.
+Každý variant môže mať vlastný čas dodania. Rozbaľte sekciu variantu a nastavte termín. Varianty bez termínu dedia hodnotu z hlavného produktu.
 
-## Shortcód
+## Shortcode
 
-Použite shortcód `[polski_delivery_time]` na zobrazenie dodacej lehoty na ľubovoľnom mieste.
+Použite shortcode `[polski_delivery_time]`, aby ste zobrazili čas dodania na ľubovoľnom mieste.
 
 ### Parametre
 
 | Parameter | Typ | Predvolený | Popis |
 |----------|-----|----------|------|
 | `product_id` | int | aktuálny | ID produktu |
-| `label` | string | `"Czas dostawy: "` | Štítok pred hodnotou |
+| `label` | string | `"Čas dodania: "` | Štítok pred hodnotou |
 | `show_label` | bool | `true` | Či zobrazovať štítok |
-| `wrapper` | string | `span` | Obaľujúci HTML prvok |
-| `fallback` | string | `""` | Text keď chýba dodacia lehota |
+| `wrapper` | string | `span` | Obaľujúci HTML element |
+| `fallback` | string | `""` | Text, keď chýba čas dodania |
 
 ### Príklady použitia
 
@@ -91,7 +91,7 @@ Základné použitie:
 [polski_delivery_time]
 ```
 
-Výsledok: `Czas dostawy: 1-2 dni robocze`
+Výsledok: `Čas dodania: 1-2 pracovné dni`
 
 Bez štítku:
 
@@ -99,12 +99,12 @@ Bez štítku:
 [polski_delivery_time show_label="false"]
 ```
 
-Výsledok: `1-2 dni robocze`
+Výsledok: `1-2 pracovné dni`
 
 S vlastným štítkom a fallbackom:
 
 ```html
-[polski_delivery_time label="Wysyłka: " fallback="Zapytaj o dostępność"]
+[polski_delivery_time label="Odoslanie: " fallback="Spýtajte sa na dostupnosť"]
 ```
 
 Pre konkrétny produkt:
@@ -113,21 +113,21 @@ Pre konkrétny produkt:
 [polski_delivery_time product_id="456"]
 ```
 
-V PHP šablóne:
+V šablóne PHP:
 
 ```php
 echo do_shortcode('[polski_delivery_time product_id="' . $product->get_id() . '"]');
 ```
 
-## Programová správa dodacej lehoty
+## Programové spravovanie času dodania
 
-### Priradenie termínu k produktu
+### Priraďovanie termínu k produktu
 
 ```php
 wp_set_object_terms($product_id, '1-2-dni-robocze', 'polski_delivery_time');
 ```
 
-### Získanie termínu produktu
+### Získavanie termínu produktu
 
 ```php
 $terms = wp_get_object_terms($product_id, 'polski_delivery_time');
@@ -144,20 +144,20 @@ wp_insert_term(
     'polski_delivery_time',
     [
         'slug'        => '2-3-dni-robocze',
-        'description' => 'Standardowy czas realizacji',
+        'description' => 'Štandardný čas realizácie',
     ]
 );
 ```
 
 ## Import CSV
 
-Na import dodacej lehoty cez CSV použite stĺpec:
+Na import času dodania cez CSV použite stĺpec:
 
 | Stĺpec CSV | Popis | Hodnota |
 |-------------|------|--------|
 | `polski_delivery_time` | Názov termínu dodania | `1-2 dni robocze` |
 
-Ak termín s uvedeným názvom neexistuje, bude automaticky vytvorený počas importu.
+Ak termín s daným názvom neexistuje, automaticky sa vytvorí počas importu.
 
 Príklad:
 
@@ -166,9 +166,9 @@ Príklad:
 "Mysz Logitech MX",299.00,"1-2 dni robocze"
 ```
 
-## Dynamická dodacia lehota
+## Dynamický čas dodania
 
-V prípade produktov s dlhým časom realizácie je možné programovo upravovať zobrazenú dodaciu lehotu na základe skladových stavov alebo dátumu objednávky.
+Čas dodania môžete programovo meniť na základe stavu skladu alebo dátumu objednávky.
 
 ```php
 add_filter('polski/delivery_time/display', function (string $delivery_time, WC_Product $product): string {
@@ -180,7 +180,7 @@ add_filter('polski/delivery_time/display', function (string $delivery_time, WC_P
 }, 10, 2);
 ```
 
-## Štýlovanie CSS
+## Stylovanie CSS
 
 ```css
 .polski-delivery-time {
@@ -201,18 +201,18 @@ add_filter('polski/delivery_time/display', function (string $delivery_time, WC_P
 
 ## Najčastejšie problémy
 
-### Dodacia lehota sa nezobrazuje
+### Čas dodania sa nezobrazuje
 
-1. Skontrolujte, či modul je zapnutý v nastaveniach
+1. Skontrolujte, či je modul zapnutý v nastaveniach
 2. Uistite sa, že produkt má priradený termín alebo je nastavený predvolený fallback
-3. Overte, či téma podporuje hook `woocommerce_single_product_summary`
+3. Overte, či šablóna podporuje hook `woocommerce_single_product_summary`
 
-### Dodacia lehota variantu sa nemení po výbere
+### Čas dodania variantu sa po výbere nemení
 
-Uistite sa, že JavaScript pluginu je načítaný. Skontrolujte konzolu prehliadača na chyby JS. Plugin aktualizuje dodaciu lehotu variantu cez AJAX pri zmene možností.
+Skontrolujte, či je JavaScript pluginu načítaný. Otvorte konzolu prehliadača a hľadajte chyby JS. Plugin aktualizuje čas dodania variantu cez AJAX.
 
 ## Súvisiace zdroje
 
 - [Nahlásiť problém](https://github.com/wppoland/polski/issues)
 
-<div class="disclaimer">Táto stránka slúži len na informačné účely a nepredstavuje právne poradenstvo. Pred implementáciou sa poraďte s právnikom. Polski for WooCommerce je open source softvér (GPLv2) poskytovaný bez záruky.</div>
+<div class="disclaimer">Táto stránka má výlučne informatívny charakter a nepredstavuje právnu radu. Pred nasadením sa poraďte s právnikom. Polski for WooCommerce je open source softvér (GPLv2) poskytovaný bez záruky.</div>

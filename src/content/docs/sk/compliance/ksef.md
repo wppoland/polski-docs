@@ -1,59 +1,59 @@
 ---
 title: KSeF - Národný systém e-faktúr
-description: Pripravenosť na KSeF v Polski for WooCommerce - automatická detekcia objednávok s NIP, stĺpec stavu, vývojárske hooky a integrácia so systémami fakturácie.
+description: Pripravenosť na KSeF v Polski for WooCommerce - automatické rozpoznávanie objednávok s NIP, stĺpec stavu, vývojárske hooky a integrácia so systémami fakturácie.
 ---
 
-KSeF je platforma Ministerstva financií na štrukturované faktúry. Plugin pripravuje obchod na integráciu s KSeF - detekuje objednávky vyžadujúce faktúru s DPH, pridáva stĺpec stavu a hooky na pripojenie k systémom fakturácie.
+KSeF je platforma poľského Ministerstva financií pre štruktúrované faktúry. Doplnok pripravuje obchod na integráciu s KSeF - rozpoznáva objednávky vyžadujúce faktúru s DPH, pridáva stĺpec stavu a hooky na prepojenie so systémami fakturácie.
 
 ## Právny stav KSeF
 
-KSeF je vo fáze implementácie. Plugin nevystavuje faktúry v KSeF, ale uľahčuje integráciu so systémami, ktoré to robia (napr. Fakturownia, iFirma, wFirma, InFakt).
+KSeF je vo fáze zavádzania. Doplnok nevystavuje faktúry v KSeF, ale uľahčuje integráciu so systémami, ktoré to robia (napr. Fakturownia, iFirma, wFirma, InFakt).
 
 Hlavné funkcie modulu KSeF:
 
-1. Automatická detekcia objednávok s číslom NIP
+1. Automatické rozpoznávanie objednávok s číslom NIP
 2. Stĺpec stavu KSeF v zozname objednávok
 3. Hooky na integráciu s externými systémami fakturácie
 4. Meta-údaje objednávky pripravené na odovzdanie do systému KSeF
 
-## Detekcia objednávok s NIP
+## Rozpoznávanie objednávok s NIP
 
-Keď zákazník uvedie číslo NIP pri zadávaní objednávky (pole NIP je súčasťou modulu Checkout pluginu), systém automaticky:
+Keď zákazník zadá NIP pri podaní objednávky (pole NIP je súčasťou modulu Checkout), doplnok automaticky:
 
 1. Validuje formát NIP (10 číslic, kontrola kontrolného súčtu)
 2. Označí objednávku ako vyžadujúcu faktúru s DPH
 3. Uloží NIP do meta-údajov objednávky
-4. Voliteľne stiahne firemné údaje z API GUS/CEIDG
+4. Voliteľne načíta údaje firmy z API GUS/CEIDG
 
 ### Validácia NIP
 
-Plugin kontroluje správnosť NIP na dvoch úrovniach:
+Doplnok kontroluje správnosť NIP na dvoch úrovniach:
 
 - **Formát** - 10 číslic, správny kontrolný súčet (váhy: 6, 5, 7, 2, 3, 4, 5, 6, 7)
-- **Online overenie** - voliteľná kontrola v databáze VIES (pre EÚ NIP) alebo API GUS
+- **Online overenie** - voliteľná kontrola v databáze VIES (pre EU NIP) alebo API GUS
 
 ## Stĺpec stavu KSeF
 
-V zozname objednávok (**WooCommerce > Objednávky**) plugin pridáva stĺpec **KSeF** s ikonami stavu:
+V zozname objednávok (**WooCommerce > Objednávky**) sa zobrazuje stĺpec **KSeF** s ikonami stavu:
 
 | Ikona | Stav | Popis |
 |-------|--------|------|
-| Šedá | Netýka sa | Objednávka bez NIP, faktúra nie je vyžadovaná |
+| Sivá | Netýka sa | Objednávka bez NIP, faktúra sa nevyžaduje |
 | Modrá | Čaká | Objednávka s NIP, faktúra na vystavenie |
 | Zelená | Vystavená | Faktúra bola vystavená (stav nastavený hookom) |
 | Červená | Chyba | Vyskytol sa problém s vystavením faktúry |
 
-Stav je možné filtrovať - použite filter v zozname objednávok na zobrazenie napr. len objednávok čakajúcich na faktúru.
+Objednávky môžete filtrovať podľa stavu KSeF, napr. zobraziť iba tie čakajúce na faktúru.
 
 ### Hromadné akcie
 
-V zozname objednávok je dostupná hromadná akcia "Označiť ako vystavené v KSeF", umožňujúca aktualizovať stav viacerých objednávok súčasne.
+V zozname objednávok môžete hromadne označiť viacero objednávok ako "vystavené v KSeF".
 
 ## Hooky
 
 ### polski/ksef/invoice_ready
 
-Volaný, keď je objednávka s NIP zaplatená a pripravená na vystavenie faktúry. Toto je hlavný hook na integráciu s externými systémami fakturácie.
+Volaný, keď je objednávka s NIP zaplatená a pripravená na vystavenie faktúry. Hlavný hook na integráciu so systémami fakturácie.
 
 ```php
 /**
@@ -131,7 +131,7 @@ add_filter('polski/ksef/is_required', function (bool $is_required, WC_Order $ord
 }, 10, 2);
 ```
 
-### Príklad - automatické označenie stavu po integrácii
+### Príklad - automatické označovanie stavu po integrácii
 
 ```php
 /**
@@ -171,25 +171,25 @@ Nastavenia modulu KSeF: **WooCommerce > Nastavenia > Polski > KSeF**.
 
 | Možnosť | Popis | Predvolená hodnota |
 |-------|------|------------------|
-| Zapnúť modul KSeF | Aktivuje detekciu a sledovanie | Áno |
-| Online validácia NIP | Kontrolovať NIP v API GUS/VIES | Nie |
-| Auto-sťahovanie firemných údajov | Sťahovať údaje z GUS po zadaní NIP | Nie |
-| Stav spúšťajúci hook | Stav objednávky, pri ktorom vyvolať `invoice_ready` | `processing` |
+| Zapnúť modul KSeF | Aktivuje rozpoznávanie a sledovanie | Áno |
+| Online validácia NIP | Kontroluj NIP v API GUS/VIES | Nie |
+| Auto-načítanie údajov firmy | Načítaj údaje z GUS po zadaní NIP | Nie |
+| Stav spúšťajúci hook | Stav objednávky, pri ktorom volať `invoice_ready` | `processing` |
 
 ## Riešenie problémov
 
 **Stĺpec KSeF sa nezobrazuje v zozname objednávok**
-Kliknite na "Možnosti obrazovky" a zaškrtnite stĺpec KSeF. Uistite sa, že modul je zapnutý v nastaveniach.
+Kliknite na "Možnosti obrazovky" a zaškrtnite stĺpec KSeF. Uistite sa, že je modul zapnutý v nastaveniach.
 
-**NIP sa neukladá do objednávky**
-Skontrolujte, či pole NIP je zapnuté v module Checkout (**WooCommerce > Nastavenia > Polski > Pokladňa**). Pole NIP musí byť aktívne, aby ho zákazník mohol vyplniť.
+**NIP sa neukladá v objednávke**
+Skontrolujte, či je pole NIP zapnuté v **WooCommerce > Nastavenia > Polski > Pokladňa**. Pole musí byť aktívne, aby ho zákazník mohol vyplniť.
 
 **Hook invoice_ready sa nevolá**
-Skontrolujte nastavenie "Stav spúšťajúci hook". Štandardne je hook volaný pri zmene stavu objednávky na "Spracovávaná". Ak používate neštandardné stavy, zmeňte túto možnosť.
+Skontrolujte "Stav spúšťajúci hook". Predvolene hook funguje pri stave "Prebieha spracovanie". Pri vlastných stavoch zmeňte túto možnosť.
 
 ## Ďalšie kroky
 
-- Nahlasovanie problémov: [GitHub Issues](https://github.com/wppoland/polski/issues)
+- Nahlasujte problémy: [GitHub Issues](https://github.com/wppoland/polski/issues)
 - Diskusie a otázky: [GitHub Discussions](https://github.com/wppoland/polski/discussions)
 
-<div class="disclaimer">Táto stránka slúži len na informačné účely a nepredstavuje právne poradenstvo. Pred implementáciou sa poraďte s právnikom. Polski for WooCommerce je open source softvér (GPLv2) poskytovaný bez záruky.</div>
+<div class="disclaimer">Táto stránka má výlučne informačný charakter a nepredstavuje právne poradenstvo. Pred nasadením sa poraďte s právnikom. Polski for WooCommerce je open source softvér (GPLv2) poskytovaný bez záruky.</div>

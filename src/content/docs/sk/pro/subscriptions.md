@@ -1,5 +1,5 @@
 ---
-title: Predplatné
+title: Predplatné (subskripcie)
 description: Dokumentácia modulu predplatného Polski PRO for WooCommerce - cyklické produkty, obnovenia, e-mailové pripomienky, cron a panel Môj účet.
 ---
 

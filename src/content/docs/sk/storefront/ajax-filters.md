@@ -1,13 +1,15 @@
 ---
 title: AJAX filtre
-description: Modul AJAX filtrov v Polski for WooCommerce - filtrovanie podľa kategórií, značiek, ceny, skladových stavov, výpredaja, atribútov, GET fallback, Gutenberg blok a shortcód.
+description: Modul AJAX filtrov v Polski for WooCommerce - filtrovanie podľa kategórií, značiek, ceny, skladových stavov, výpredaja, atribútov, GET fallback, Gutenberg blok a shortcode.
 ---
 
-AJAX filtre umožňujú zákazníkom zužovať zoznam produktov bez opätovného načítania stránky. Produkty sa aktualizujú živé po výbere filtrov.
+AJAX filtre umožňujú zákazníkom zužovať zoznam produktov bez načítania stránky. Produkty sa aktualizujú naživo po výbere filtrov.
 
 ## Zapnutie modulu
 
-Prejdite do **WooCommerce > Polski > Obchodné moduly** a aktivujte možnosť **AJAX filtre**. Modul sprístupní filtre ako Gutenberg blok, shortcód a widget.
+Prejdite do **WooCommerce > Polski > Moduly obchodu** a zapnite **AJAX filtre**. Filtre sú dostupné ako Gutenberg blok, shortcode a widget.
+
+![AJAX filtre, zoznam želaní a porovnávač na stránke obchodu](../../../../assets/screenshots/screenshot-8-wishlist-compare-quick-view.png)
 
 ## Dostupné typy filtrov
 

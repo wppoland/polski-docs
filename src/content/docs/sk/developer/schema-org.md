@@ -3,72 +3,89 @@ title: Štrukturované údaje Schema.org
 description: Automatické štrukturované údaje JSON-LD v Polski for WooCommerce - Product, Offer, AggregateRating a ďalšie typy Schema.org.
 ---
 
-Automatické štrukturované údaje JSON-LD (Schema.org) na stránkach produktov. Pomáhajú vyhľadávačom zobrazovať rich snippety vo výsledkoch.
+Automatické štrukturované údaje JSON-LD (Schema.org) na stránkach produktov. Pomáhajú vyhľadávačom zobrazovať rich snippets vo výsledkoch.
 
 ## Automatické generovanie
 
-Štrukturované údaje sú generované automaticky na stránkach produktov. Nie je potrebné inštalovať ďalšie SEO pluginy na obsluhu štrukturovaných údajov produktov - Polski for WooCommerce to obsluhuje samostatne.
+Údaje sa generujú automaticky na stránkach produktov. Nepotrebuješ ďalší SEO plugin.
 
-Ak používate SEO plugin (Yoast, Rank Math, SEOPress), Polski for WooCommerce sa s ním integruje a dopĺňa údaje namiesto ich duplikovania.
+Ak používaš Yoast, Rank Math alebo SEOPress, plugin dopĺňa ich údaje namiesto duplikovania.
 
 ## Typ Product
 
-Na každej stránke produktu sa generuje objekt `Product` obsahujúci:
+Na stránke produktu sa generuje objekt `Product`:
 
 ```json
 {
   "@context": "https://schema.org",
   "@type": "Product",
-  "name": "Koszulka bawełniana Premium",
-  "description": "Koszulka z certyfikowanej bawełny organicznej, rozmiary S-XXL.",
+  "name": "Bavlnené tričko Premium",
+  "description": "Tričko z certifikovanej organickej bavlny, veľkosti S-XXL.",
   "image": [
-    "https://tvoj-obchod.pl/wp-content/uploads/koszulka-1.jpg",
-    "https://tvoj-obchod.pl/wp-content/uploads/koszulka-2.jpg"
+    "https://tvojobchod.sk/wp-content/uploads/tricko-1.jpg",
+    "https://tvojobchod.sk/wp-content/uploads/tricko-2.jpg"
   ],
-  "sku": "KSZ-001",
+  "sku": "TRK-001",
   "gtin13": "5901234123457",
   "brand": {
     "@type": "Brand",
-    "name": "MojaMarka"
+    "name": "MojaZnacka"
   },
   "manufacturer": {
     "@type": "Organization",
-    "name": "Producent XYZ Sp. z o.o.",
+    "name": "Výrobca XYZ s.r.o.",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "ul. Fabryczna 1",
-      "addressLocality": "Warszawa",
-      "postalCode": "00-001",
-      "addressCountry": "PL"
+      "streetAddress": "Továrenská 1",
+      "addressLocality": "Bratislava",
+      "postalCode": "811 01",
+      "addressCountry": "SK"
     },
-    "email": "kontakt@xyz.pl",
-    "url": "https://xyz.pl"
+    "email": "kontakt@xyz.sk",
+    "url": "https://xyz.sk"
   },
   "countryOfOrigin": {
     "@type": "Country",
-    "name": "PL"
+    "name": "SK"
   },
   "offers": { ... },
   "aggregateRating": { ... }
 }
 ```
 
+### Polia Product
+
+| Pole Schema.org        | Zdroj údajov                         | Vyžadované |
+| ---------------------- | ------------------------------------ | -------- |
+| `name`                 | Názov produktu WooCommerce           | Áno      |
+| `description`          | Krátky popis produktu                | Áno      |
+| `image`                | Hlavná fotka + galéria               | Áno      |
+| `sku`                  | SKU produktu                         | Nie      |
+| `gtin13` / `gtin8`     | Pole GTIN/EAN z Polski               | Nie      |
+| `brand`                | Výrobca/značka z Polski              | Nie      |
+| `manufacturer`         | Údaje GPSR výrobcu                   | Nie      |
+| `countryOfOrigin`      | Krajina pôvodu z GPSR               | Nie      |
+| `category`             | Kategória produktu                   | Nie      |
+| `material`             | Atribút "materiál" (ak existuje)     | Nie      |
+| `color`                | Atribút "farba" (ak existuje)        | Nie      |
+| `weight`               | Hmotnosť produktu WooCommerce        | Nie      |
+
 ## Typ Offer
 
-Každý produkt obsahuje vnorený objekt `Offer` s informáciami o cene a dostupnosti:
+Vnorený objekt `Offer` s cenou a dostupnosťou:
 
 ```json
 {
   "@type": "Offer",
-  "url": "https://tvoj-obchod.pl/produkt/koszulka-bawelniana/",
-  "price": "89.00",
-  "priceCurrency": "PLN",
+  "url": "https://tvojobchod.sk/produkt/bavlnene-tricko/",
+  "price": "8.90",
+  "priceCurrency": "EUR",
   "priceValidUntil": "2026-12-31",
   "availability": "https://schema.org/InStock",
   "itemCondition": "https://schema.org/NewCondition",
   "seller": {
     "@type": "Organization",
-    "name": "Môj obchod"
+    "name": "Môj Obchod"
   },
   "shippingDetails": {
     "@type": "OfferShippingDetails",
@@ -89,7 +106,7 @@ Každý produkt obsahuje vnorený objekt `Offer` s informáciami o cene a dostup
     },
     "shippingDestination": {
       "@type": "DefinedRegion",
-      "addressCountry": "PL"
+      "addressCountry": "SK"
     }
   },
   "hasMerchantReturnPolicy": {
@@ -101,9 +118,53 @@ Každý produkt obsahuje vnorený objekt `Offer` s informáciami o cene a dostup
 }
 ```
 
+### Polia Offer
+
+| Pole Schema.org              | Zdroj údajov                     |
+| ---------------------------- | -------------------------------- |
+| `price`                      | Cena produktu                    |
+| `priceCurrency`              | Mena WooCommerce                 |
+| `priceValidUntil`            | Dátum ukončenia akcie            |
+| `availability`               | Skladový status                  |
+| `itemCondition`              | Vždy NewCondition                |
+| `seller`                     | Názov obchodu z nastavení        |
+| `deliveryTime`               | Čas doručenia z modulu Polski    |
+| `hasMerchantReturnPolicy`    | Právo na odstúpenie z modulu Polski |
+
+### Mapovanie dostupnosti
+
+| Status WooCommerce | Schema.org                        |
+| ------------------- | --------------------------------- |
+| `instock`           | `https://schema.org/InStock`      |
+| `outofstock`        | `https://schema.org/OutOfStock`   |
+| `onbackorder`       | `https://schema.org/BackOrder`    |
+
+## Typ Offer pre variabilné produkty
+
+Variabilné produkty generujú `AggregateOffer`:
+
+```json
+{
+  "@type": "AggregateOffer",
+  "lowPrice": "6.90",
+  "highPrice": "12.90",
+  "priceCurrency": "EUR",
+  "offerCount": 6,
+  "availability": "https://schema.org/InStock",
+  "offers": [
+    {
+      "@type": "Offer",
+      "price": "6.90",
+      "sku": "TRK-001-S",
+      "availability": "https://schema.org/InStock"
+    }
+  ]
+}
+```
+
 ## Typ AggregateRating
 
-Ak má produkt recenzie, generuje sa objekt `AggregateRating`:
+Pri produktoch s recenziami sa generuje `AggregateRating`:
 
 ```json
 {
@@ -116,9 +177,32 @@ Ak má produkt recenzie, generuje sa objekt `AggregateRating`:
 }
 ```
 
+Údaje zo systému recenzií WooCommerce. S aktívnym modulom **Overené recenzie** sa zohľadňujú len recenzie z potvrdeného nákupu.
+
+## Typ Review
+
+Jednotlivé recenzie sa generujú ako objekty `Review`:
+
+```json
+{
+  "@type": "Review",
+  "author": {
+    "@type": "Person",
+    "name": "Ján K."
+  },
+  "datePublished": "2025-05-20",
+  "reviewRating": {
+    "@type": "Rating",
+    "ratingValue": "5",
+    "bestRating": "5"
+  },
+  "reviewBody": "Skvelá kvalita materiálu, odporúčam."
+}
+```
+
 ## Potravinárske produkty - NutritionInformation
 
-Pre produkty z potravinárskeho modulu sa generuje objekt `NutritionInformation`:
+Potravinárske produkty generujú objekt `NutritionInformation`:
 
 ```json
 {
@@ -142,7 +226,7 @@ Pre produkty z potravinárskeho modulu sa generuje objekt `NutritionInformation`
 ```php
 add_filter('polski/schema/product', function (array $schema, WC_Product $product): array {
     // Pridanie vlastného poľa
-    $schema['award'] = 'Produkt Roku 2025';
+    $schema['award'] = 'Produkt Roka 2025';
     return $schema;
 }, 10, 2);
 ```
@@ -168,39 +252,48 @@ add_filter('polski/schema/offer', function (array $offer, WC_Product $product): 
 
 ```php
 add_filter('polski/schema/enabled', function (bool $enabled, int $product_id): bool {
-    // Vypnúť pre produkty z kategórie "dočasné"
-    if (has_term('tymczasowe', 'product_cat', $product_id)) {
+    // Vypni pre produkty z kategórie "dočasné"
+    if (has_term('docasne', 'product_cat', $product_id)) {
         return false;
     }
     return $enabled;
 }, 10, 2);
 ```
 
+## Validácia štrukturovaných údajov
+
+Otestuj štrukturované údaje:
+
+- [Google Rich Results Test](https://search.google.com/test/rich-results) - oficiálny nástroj Google
+- [Schema.org Validator](https://validator.schema.org/) - validátor Schema.org
+
+S `WP_DEBUG = true` plugin loguje chýbajúce polia Schema.org do `debug.log`.
+
 ## Integrácia s SEO pluginmi
 
-Polski for WooCommerce rozpoznáva populárne SEO pluginy a prispôsobuje svoje správanie:
+Plugin rozpoznáva SEO pluginy a prispôsobuje správanie:
 
-| Plugin     | Správanie                                            |
+| Plugin     | Správanie                                           |
 | ---------- | --------------------------------------------------- |
 | Yoast SEO  | Dopĺňa existujúcu schému Yoast o polia Polski       |
 | Rank Math  | Dopĺňa schému Rank Math o polia Polski              |
 | SEOPress   | Dopĺňa schému SEOPress o polia Polski               |
-| Žiadny     | Generuje úplnú schému samostatne                    |
+| Žiadny     | Generuje plnú schému samostatne                     |
 
-V prípade konfliktu (duplikácia štrukturovaných údajov) použite filter:
+Pri duplikácii údajov použi filter:
 
 ```php
-add_filter('polski/schema/standalone', '__return_false'); // Vypnúť samostatné generovanie
+add_filter('polski/schema/standalone', '__return_false'); // Vypni samostatné generovanie
 ```
 
 ## Riešenie problémov
 
-**Google nezobrazuje rich snippety** - rich snippety sa môžu objaviť po niekoľkých týždňoch od indexovania. Uistite sa, že údaje prechádzajú validáciou v Rich Results Test.
+**Google nezobrazuje rich snippets** - rich snippets sa môžu objaviť až po niekoľkých týždňoch od zaindexovania. Uisti sa, že údaje prejdú validáciou v Rich Results Test.
 
-**Duplikácia štrukturovaných údajov** - ak iný plugin generuje schému Product, použite filter `polski/schema/standalone` na vypnutie samostatného generovania.
+**Duplikácia štrukturovaných údajov** - ak iný plugin generuje schému Product, použi filter `polski/schema/standalone` na vypnutie samostatného generovania.
 
-**Chýbajú hodnotenia v Schema.org** - produkt musí mať aspoň 1 recenziu s hodnotením hviezdičkami.
+**Chýbajú hodnotenia v Schema.org** - produkt musí mať aspoň 1 recenziu s hviezdičkovým hodnotením.
 
-Nahlasovanie problémov: [github.com/wppoland/polski/issues](https://github.com/wppoland/polski/issues)
+Hlásenie problémov: [github.com/wppoland/polski/issues](https://github.com/wppoland/polski/issues)
 
-<div class="disclaimer">Táto stránka slúži len na informačné účely a nepredstavuje právne poradenstvo. Pred implementáciou sa poraďte s právnikom. Polski for WooCommerce je open source softvér (GPLv2) poskytovaný bez záruky.</div>
+<div class="disclaimer">Táto stránka má výlučne informatívny charakter a nepredstavuje právne poradenstvo. Pred nasadením sa poraďte s právnikom. Polski for WooCommerce je open source softvér (GPLv2) poskytovaný bez záruky.</div>
