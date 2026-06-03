@@ -1,132 +1,132 @@
 ---
 title: Integrace s KSeF
-description: Dokumentace integrace Polski PRO for WooCommerce s Krajovym systemem e-Faktur - odesilani faktur, sledovani statusu, konfigurace API a zpracovani chyb.
+description: Dokumentace integrace Polski PRO for WooCommerce s Krajowym Systemem e-Faktur - odesílání faktur, sledování stavů, konfigurace API a zpracování chyb.
 ---
 
-Modul KSeF odesila elektronicke faktury do Krajoweho systemu e-Faktur (Ministerstvo financi). Faktury se odesilaji na pozadi s automatickym opakovanim pri chybach.
+Modul KSeF odesílá elektronické faktury do Krajowego Systemu e-Faktur (polské Ministerstvo financí). Faktury se odesílají na pozadí, s automatickým opakováním při chybách.
 
 ## Co je KSeF
 
-Krajovy system e-Faktur (KSeF) je platforma Ministerstva financi pro vystavovani, uchovavani a prijimani strukturovanych faktur ve formatu XML. Plugin poskytuje nastroje pro integraci WooCommerce s KSeF - generuje faktury v pozadovanem formatu XML a odesila je do systemu.
+KSeF je platforma polského Ministerstva financí pro zpracování faktur ve formátu XML. Plugin generuje faktury v požadovaném formátu a odesílá je do KSeF.
 
 ## Konfigurace
 
-Prejdete do **WooCommerce > Nastaveni > Polski > Moduly PRO > KSeF**.
+Přejděte do **WooCommerce > Nastavení > Polski > Moduly PRO > KSeF**.
 
-### Nastaveni pripojeni
+### Nastavení připojení
 
-| Nastaveni | Popis |
-|-----------|-------|
+| Nastavení | Popis |
+|------------|------|
 | Zapnout integraci KSeF | Aktivuje modul |
-| Prostredi | Testovaci (sandbox) nebo Produkcni |
-| API klic (token) | Autorizacni token vygenerovany v portalu KSeF |
-| DIC vystavce | DIC spojene s uctem KSeF |
+| Prostředí | Testovací (sandbox) nebo Produkční |
+| API klíč (token) | Autorizační token vygenerovaný v portálu KSeF |
+| NIP vystavitele | NIP propojený s účtem KSeF |
 
-### Testovaci prostredi
+### Testovací prostředí
 
-KSeF poskytuje testovaci prostredi (sandbox) pro overeni integrace. Testovaci prostredi:
+KSeF má testovací prostředí (sandbox) pro ověření integrace. Sandbox:
 
-- nevyzaduje skutecny autorizacni klic
-- prijima faktury ve stejnem formatu jako produkcni prostredi
-- neodesila data financnimu uradu
-- je doporuceno pro prvni testy integrace
+- nevyžaduje skutečný autorizační klíč
+- přijímá faktury ve stejném formátu jako produkční prostředí
+- neodesílá data na finanční úřad
+- je doporučeno pro první testy integrace
 
-Po uspesnem overeni v testovacim prostredi prepnete na produkcni prostredi a zadejte spravny API klic.
+Po úspěšných testech přepněte na produkční prostředí a zadejte správný API klíč.
 
-### Ziskani API tokenu
+### Získání API tokenu
 
-1. Prihaste se do portalu KSeF: https://ksef.mf.gov.pl/
-2. Prejdete do sekce spravy tokenu
-3. Vygenerujte novy token s opravnenim pro vystavovani faktur
-4. Zkopirujte token a vlozte ho do nastaveni pluginu
+1. Přihlaste se do portálu KSeF: https://ksef.mf.gov.pl/
+2. Přejděte do sekce správy tokenů
+3. Vygenerujte nový token s oprávněním k vystavování faktur
+4. Zkopírujte token a vložte jej do nastavení pluginu
 
-## Odesilani faktur
+## Odesílání faktur
 
-### Automaticke odesilani
+### Automatické odesílání
 
-Po zapnuti moznosti **Automaticke odesilani do KSeF** plugin odesle fakturu do KSeF automaticky po zmene jejiho statusu na "Vystavena" (Issued). Odesilani probiha asynchronne pres Action Scheduler.
+Zapněte **Automatické odesílání do KSeF**, aby plugin odeslal fakturu do KSeF po změně stavu na "Vystavena". Odesílání běží na pozadí přes Action Scheduler.
 
-### Rucni odesilani
+### Ruční odesílání
 
-V panelu objednavky v meta boxu "Faktury" je k dispozici tlacitko **Odeslat do KSeF**. Kliknuti prida ulohu odesilani do fronty Action Scheduleru.
+V meta boxu "Faktury" klikněte na **Odeslat do KSeF**. Úloha se zařadí do fronty Action Scheduler.
 
-### Asynchronni zpracovani
+### Asynchronní zpracování
 
-Plugin vyuziva Action Scheduler (vestavenou soucast WooCommerce) pro asynchronni odesilani faktur. To znamena, ze:
+Plugin používá Action Scheduler (vestavěný do WooCommerce) k odesílání na pozadí:
 
-- odesilani neblokuje zpracovani objednavky
-- faktury jsou odesilany ve fronte, jedna po druhe
-- v pripade velkeho poctu faktur je system zpracovava postupne
+- odesílání neblokuje zpracování objednávky
+- faktury se odesílají postupně
+- velké množství faktur se zpracovává postupně
 
-## Generovani XML
+## Generování XML
 
-Plugin generuje fakturu ve formatu XML kompatibilnim se schematem KSeF (FA(2)). Dokument XML obsahuje:
+Plugin generuje fakturu ve formátu XML kompatibilním se schématem KSeF (FA(2)). Dokument XML obsahuje:
 
-- hlavicku s datem a typem faktury
-- udaje prodavajiciho (DIC, nazev, adresa)
-- udaje kupujiciho (DIC, nazev, adresa)
-- polozky faktury (nazev, mnozstvi, cena bez DPH, sazba DPH, hodnota)
-- souhrn s rozpisem podle sazeb DPH
-- informace o platbe
+- záhlaví s datem a typem faktury
+- údaje prodávajícího (NIP, název, adresa)
+- údaje kupujícího (NIP, název, adresa)
+- položky faktury (název, množství, cena bez DPH, sazba DPH, hodnota)
+- souhrn s rozčleněním podle sazeb DPH
+- informace o platbě
 
-XML je validovan pred odeslanim. Pokud validace zjisti chyby, faktura nebude odeslana a v logu se objevi podrobna zprava.
+XML se před odesláním validuje. Při chybách validace nebude faktura odeslána a v logu se objeví zpráva.
 
-## Sledovani statusu
+## Sledování stavu
 
-Po odeslani faktury do KSeF plugin sleduje jeji status:
+Po odeslání faktury do KSeF plugin sleduje její stav:
 
-| Status | Popis |
-|--------|-------|
-| Queued | Faktura pridana do fronty odesilani |
-| Submitted | Faktura odeslana do KSeF, ceka na zpracovani |
-| Accepted | Faktura prijata KSeF, prideleno cislo KSeF |
-| Rejected | Faktura odmitnuta - zkontrolujte chybovou zpravu |
+| Stav | Popis |
+|--------|------|
+| Queued | Faktura přidána do fronty odesílání |
+| Submitted | Faktura odeslána do KSeF, čeká na zpracování |
+| Accepted | Faktura přijata systémem KSeF, přiděleno číslo KSeF |
+| Rejected | Faktura odmítnuta - zkontrolujte chybovou zprávu |
 | Error | Chyba komunikace s API KSeF |
 
-Po prijeti faktury plugin ulozi referencni cislo KSeF do metadat faktury. Toto cislo je viditelne v panelu objednavky a na PDF vytisknuti.
+Po přijetí plugin uloží číslo KSeF. Je viditelné v panelu objednávky a na PDF.
 
-### Dotazovani na status
+### Polling stavu
 
-Plugin automaticky kontroluje status odeslenych faktur. Po odeslani faktury do KSeF plugin dotazuje API na status kazdych nekolik minut (pres Action Scheduler), dokud neobdrzi odpoved "Accepted" nebo "Rejected".
+Plugin automaticky kontroluje stav odeslaných faktur každých několik minut (přes Action Scheduler), dokud neobdrží odpověď "Accepted" nebo "Rejected".
 
-## Zpracovani chyb a opakovani
+## Zpracování chyb a opakování
 
-V pripade chyby komunikace s API KSeF plugin pouziva mechanismus exponential backoff:
+Při chybách API plugin opakuje pokusy s rostoucím zpožděním (exponential backoff):
 
-| Pokus | Zpozdeni |
-|-------|----------|
-| 1. opakovani | 5 minut |
-| 2. opakovani | 25 minut |
-| 3. opakovani | 125 minut |
+| Pokus | Zpoždění |
+|-------|-----------|
+| 1. opakování | 5 minut |
+| 2. opakování | 25 minut |
+| 3. opakování | 125 minut |
 
-Po trech neuspesnych pokusech faktura obdrzi status "Error" a vyzaduje rucni zasah. Administrator obdrzi e-mailove oznameni o neuspesnem odeslani.
+Po třech neúspěšných pokusech dostane faktura stav "Error". Administrátor obdrží e-mail o neúspěšném odeslání.
 
-Typicke priciny chyb:
+Typické příčiny chyb:
 
-- neplatny nebo propadly API token
-- chyby validace XML (napr. chybejici udaje kupujiciho)
-- docasna nedostupnost API KSeF
-- neshoda DIC vystavce s tokenem
+- nesprávný nebo vypršený API token
+- chyby validace XML (např. chybějící údaje kupujícího)
+- dočasná nedostupnost API KSeF
+- nesoulad NIP vystavitele s tokenem
 
 ## Hooky
 
 ### `polski_pro_ksef_submit`
 
-Akce volana pred odeslanim faktury do KSeF.
+Akce volaná před odesláním faktury do KSeF.
 
 ```php
 /**
  * @param int    $invoice_id ID faktury
- * @param string $xml        Wygenerowany XML faktury
+ * @param string $xml        Vygenerovaný XML faktury
  */
 do_action('polski_pro_ksef_submit', int $invoice_id, string $xml);
 ```
 
-**Priklad:**
+**Příklad:**
 
 ```php
 add_action('polski_pro_ksef_submit', function (int $invoice_id, string $xml): void {
-    // Zapisanie kopii XML przed wysyłką
+    // Uložení kopie XML před odesláním
     $upload_dir = wp_upload_dir();
     $xml_path = $upload_dir['basedir'] . '/polski-pro/ksef-xml/';
     
@@ -143,23 +143,23 @@ add_action('polski_pro_ksef_submit', function (int $invoice_id, string $xml): vo
 
 ### `polski_pro_ksef_check_status`
 
-Akce volana po kontrole statusu faktury v KSeF.
+Akce volaná po kontrole stavu faktury v KSeF.
 
 ```php
 /**
  * @param int    $invoice_id    ID faktury
- * @param string $status        Nowy status (accepted, rejected, error)
- * @param string $ksef_number   Numer referencyjny KSeF (tylko dla accepted)
+ * @param string $status        Nový stav (accepted, rejected, error)
+ * @param string $ksef_number   Referenční číslo KSeF (pouze pro accepted)
  */
 do_action('polski_pro_ksef_check_status', int $invoice_id, string $status, string $ksef_number);
 ```
 
-**Priklad:**
+**Příklad:**
 
 ```php
 add_action('polski_pro_ksef_check_status', function (int $invoice_id, string $status, string $ksef_number): void {
     if ($status === 'accepted') {
-        // Powiadomienie zewnętrznego systemu o zaakceptowaniu faktury
+        // Oznámení externího systému o přijetí faktury
         wp_remote_post('https://erp.example.com/api/ksef-update', [
             'body' => wp_json_encode([
                 'invoice_id'  => $invoice_id,
@@ -175,48 +175,48 @@ add_action('polski_pro_ksef_check_status', function (int $invoice_id, string $st
 
 ### Logy
 
-Plugin loguje vsechny operace KSeF do logu WooCommerce. Prejdete do **WooCommerce > Stav > Logy** a vyberte zdroj `polski-pro-ksef`.
+Všechny operace KSeF jsou v logu WooCommerce. Přejděte do **WooCommerce > Stav > Logy** a vyberte `polski-pro-ksef`.
 
-Logovane udalosti:
+Logované události:
 
-- odeslani faktury (request/response)
-- kontrola statusu
+- odeslání faktury (request/response)
+- kontrola stavu
 - chyby validace XML
 - chyby komunikace s API
-- opakovani odeslani
+- opakování odeslání
 
-### Testovani pripojeni
+### Testování připojení
 
-V nastaveni modulu KSeF je k dispozici tlacitko **Otestovat pripojeni**. Odesle testovaci pozadavek do API KSeF a overi:
+Klikněte na **Otestovat připojení** v nastavení KSeF. Test ověří:
 
-- spravnost tokenu
-- pripojeni k serveru KSeF
-- shodu DIC s tokenem
+- správnost tokenu
+- konektivitu se serverem KSeF
+- shodu NIP s tokenem
 
-## Nejcastejsi problemy
+## Nejčastější problémy
 
-### Faktura odmitnuta KSeF
+### Faktura odmítnuta systémem KSeF
 
-1. Zkontrolujte chybovou zpravu v logu WooCommerce
-2. Nejcastejsi priciny: chybejici DIC kupujiciho, neplatna sazba DPH, neuplne adresni udaje
-3. Opravte data a odeslate znovu
+1. Zkontrolujte chybovou zprávu v logu WooCommerce
+2. Nejčastější příčiny: chybějící NIP kupujícího, nesprávná sazba DPH, neúplné adresní údaje
+3. Opravte údaje a odešlete znovu
 
 ### API token nefunguje
 
-1. Ujistete se, ze token nevyprsel
-2. Zkontrolujte, ze token ma opravneni pro vystavovani faktur
-3. Overite shodu DIC v nastaveni pluginu s DIC spojenym s tokenem
+1. Ujistěte se, že token nevypršel
+2. Zkontrolujte, zda má token oprávnění k vystavování faktur
+3. Ověřte shodu NIP v nastavení pluginu s NIP propojeným s tokenem
 
-### Action Scheduler nezpracovava frontu
+### Action Scheduler nezpracovává frontu
 
-1. Zkontrolujte, ze WP-Cron funguje spravne
-2. Prejdete do **Nastroje > Scheduled Actions** a zkontrolujte stav fronty
-3. Overite, ze nejsou zablokovane ulohy
+1. Zkontrolujte, zda WP-Cron funguje správně
+2. Přejděte do **Nástroje > Scheduled Actions** a zkontrolujte stav fronty
+3. Ověřte, zda nejsou zablokované úlohy
 
-## Souvisejici zdroje
+## Související zdroje
 
-- [System faktur](/pro/invoices/)
+- [Systém faktur](/pro/invoices/)
 - [Informace o KSeF](/compliance/ksef/)
-- [Nahlasit problem](https://github.com/wppoland/polski/issues)
+- [Nahlásit problém](https://github.com/wppoland/polski/issues)
 
-<div class="disclaimer">Tato stránka slouží pouze k informačním účelům a nepředstavuje právní poradenství. Před implementací se poraďte s právníkem. Polski for WooCommerce je open source software (GPLv2) poskytovaný bez záruky.</div>
+<div class="disclaimer">Tato stránka má pouze informativní charakter a nepředstavuje právní poradenství. Před nasazením se poraďte s právníkem. Polski for WooCommerce je open source software (GPLv2) poskytovaný bez záruky.</div>

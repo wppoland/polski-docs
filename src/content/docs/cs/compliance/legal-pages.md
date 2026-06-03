@@ -1,196 +1,196 @@
 ---
-title: Pravni stranky
-description: Automaticke generovani pravnich stranek v Polski for WooCommerce - obchodni podminky, zasady ochrany osobnich udaju, zasady vraceni, reklamace, prilohy e-mailu a informace ODR.
+title: Právní stránky
+description: Automatické generování právních stránek v Polski for WooCommerce - obchodní podmínky, zásady ochrany osobních údajů, zásady vrácení, reklamace, přílohy e-mailů a informace ODR.
 ---
 
-Kazdy internetovy obchod v Polsku musi mit pravni dokumenty. Plugin generuje ctyri pravni stranky, prikladá je k e-mailum a zobrazuje informaci o platforme ODR.
+Každý internetový obchod v Polsku musí mít právní dokumenty. Plugin generuje čtyři právní stránky, přikládá je k e-mailům a zobrazuje informaci o platformě ODR.
 
-## Generovane pravni stranky
+## Generované právní stránky
 
-### 1. Obchodni podminky
+### 1. Obchodní podmínky
 
-Obchodni podminky obsahuji elementy vyzadovane zakonem o pravech spotrebitele:
+Obchodní podmínky obsahují prvky vyžadované zákonem o právech spotřebitele:
 
-- Identifikacni udaje prodejce (nazev, adresa, NIP, REGON, KRS)
-- Postup skladani objednavek
-- Zpusoby platby
-- Naklady a zpusoby doruceni
-- Pravo na odstoupeni od smlouvy (14 dnu)
+- Identifikační údaje prodejce (název, adresa, NIP, REGON, KRS)
+- Postup zadávání objednávek
+- Způsoby platby
+- Náklady a způsoby doručení
+- Právo na odstoupení od smlouvy (14 dnů)
 - Postup reklamace
-- Mimosoudni zpusoby reseni reklamaci a uplatnovani naroku
-- Zaverecna ustanoveni
+- Mimosoudní způsoby řešení reklamací a uplatňování nároků
+- Závěrečná ustanovení
 
-### 2. Zasady ochrany osobnich udaju
+### 2. Zásady ochrany osobních údajů
 
-Zasady ochrany osobnich udaju v souladu s GDPR obsahuji:
+Zásady ochrany osobních údajů v souladu s GDPR obsahují:
 
-- Udaje spravce osobnich udaju
-- Ucely a pravni zaklady zpracovani dat
-- Kategorie zpracovavanych dat
-- Prijemci dat (kuryrni sluzby, platebni brany, hosting)
-- Doba uchovavani dat
-- Prava subjektu udaju
+- Údaje správce osobních údajů
+- Účely a právní základy zpracování dat
+- Kategorie zpracovávaných dat
+- Příjemci dat (kurýrní služby, platební brány, hosting)
+- Doba uchovávání dat
+- Práva subjektů údajů
 - Informace o cookies
-- Informace o profilovani (pokud se tyka)
+- Informace o profilování (pokud se týká)
 
-### 3. Zasady vraceni
+### 3. Zásady vrácení
 
-Zasady vraceni zahrnuji:
+Zásady vrácení zahrnují:
 
-- Lhuta pro odstoupeni od smlouvy (14 dnu)
-- Vzor formulare odstoupeni
-- Postup vraceni zbozi
-- Naklady na vraceni (kdo hradí)
-- Lhuta pro vraceni platby
-- Vyjimky z prava na odstoupeni
-- Stav vraceneho zbozi
+- Lhůta pro odstoupení od smlouvy (14 dnů)
+- Vzor formuláře odstoupení
+- Postup vrácení zboží
+- Náklady na vrácení (kdo je hradí)
+- Lhůta pro vrácení platby
+- Výjimky z práva na odstoupení
+- Stav vraceného zboží
 
-### 4. Reklamacni rad
+### 4. Reklamační řád
 
-Reklamacni rad obsahuje:
+Reklamační řád obsahuje:
 
-- Pravni zaklad (odpovědnost za vady, zaruka)
-- Zpusoby podani reklamace
-- Lhuta pro vyrizeni reklamace (14 dnu)
-- Prava spotrebitele (oprava, vymena, snizeni ceny, odstoupeni)
-- Formular reklamace
-- Kontaktni udaje pro podani reklamaci
+- Právní základ (odpovědnost za vady, záruka)
+- Způsoby podání reklamace
+- Lhůta pro vyřízení reklamace (14 dnů)
+- Práva spotřebitele (oprava, výměna, snížení ceny, odstoupení)
+- Formulář reklamace
+- Kontaktní údaje pro podání reklamací
 
-## Konfigurace generatoru
+## Konfigurace generátoru
 
-Prejdete do **WooCommerce > Nastaveni > Polski > Pravni stranky** pro generovani nebo aktualizaci stranek.
+Přejděte do **WooCommerce > Nastavení > Polski > Právní stránky** pro generování nebo aktualizaci stránek.
 
-### Udaje prodejce
+### Údaje prodejce
 
-Nejprve vyplnte udaje firmy:
+Nejprve vyplňte údaje firmy:
 
-| Pole | Popis | Priklad |
+| Pole | Popis | Příklad |
 |------|------|---------|
-| Nazev firmy | Uplny nazev nebo firma | Sklep XYZ Jan Kowalski |
-| Adresa | Ulice, cislo | ul. Przykładowa 1/2 |
-| PSC a mesto | - | 00-001 Warszawa |
-| NIP | Danove identifikacni cislo | 1234567890 |
+| Název firmy | Úplný název nebo firma | Sklep XYZ Jan Kowalski |
+| Adresa | Ulice, číslo | ul. Przykładowa 1/2 |
+| PSČ a město | - | 00-001 Warszawa |
+| NIP | Daňové identifikační číslo | 1234567890 |
 | REGON | - | 123456789 |
-| KRS | Pokud se tyka | 0000123456 |
-| Kontaktni e-mail | - | kontakt@sklep.pl |
+| KRS | Pokud se týká | 0000123456 |
+| Kontaktní e-mail | - | kontakt@sklep.pl |
 | Telefon | - | +48 123 456 789 |
-| Cislo bankovniho uctu | Pro vraceni | PL 12 3456 7890 1234 5678 9012 3456 |
+| Číslo bankovního účtu | Pro vrácení | PL 12 3456 7890 1234 5678 9012 3456 |
 
-### Generovani stranek
+### Generování stránek
 
-1. Vyplnte udaje prodejce
-2. Kliknete "Generovat pravni stranky"
-3. System vytvori 4 stranky WordPress ve stavu "Koncept"
-4. Projdete obsah kazde stranky
-5. Publikujte stranky po overeni
+1. Vyplňte údaje prodejce
+2. Klikněte na "Generovat právní stránky"
+3. Systém vytvoří 4 stránky WordPress ve stavu "Koncept"
+4. Projděte obsah každé stránky
+5. Publikujte stránky po ověření
 
-Stranky jsou vytvareny jako koncepty - projdete je a konzultujte s pravnikem pred publikaci.
+Stránky jsou vytvářeny jako koncepty, projděte je a konzultujte s právníkem před publikací.
 
-### Aktualizace stranek
+### Aktualizace stránek
 
-Po zmene udaju firmy kliknete "Aktualizovat pravni stranky". Plugin aktualizuje generovane sekce a zachova vase rucni zmeny.
+Po změně údajů firmy klikněte na "Aktualizovat právní stránky". Plugin aktualizuje vygenerované sekce a zachová vaše ruční změny.
 
-Struktura generovane stranky:
+Struktura generované stránky:
 
 ```
 <!-- POLSKI-AUTO-START -->
-Automaticky generovany obsah - needitujte tento blok
+Automatycznie wygenerowana treść - nie edytuj tego bloku
 <!-- POLSKI-AUTO-END -->
 
-Vas doplnkovy obsah - bezpecne editujte nize
+Twoja dodatkowa treść - bezpiecznie edytuj poniżej
 ```
 
-Pri aktualizaci system prepisuje pouze obsah mezi znackami `POLSKI-AUTO-START` a `POLSKI-AUTO-END`. Obsah pridany mimo tyto znacky je zachovan.
+Při aktualizaci plugin přepisuje pouze obsah mezi `POLSKI-AUTO-START` a `POLSKI-AUTO-END`. Obsah mimo tyto značky je zachován.
 
-## Prilohy e-mailu
+## Přílohy e-mailů
 
-Plugin priklada pravni stranky jako PDF k transakcnim e-mailum WooCommerce.
+Plugin přikládá právní stránky jako PDF k transakčním e-mailům WooCommerce.
 
 ### Konfigurace
 
-V **WooCommerce > Nastaveni > Polski > Pravni stranky > Prilohy e-mailu** nakonfigurujte, ktere dokumenty prikladat k jednotlivym typum e-mailu:
+V **WooCommerce > Nastavení > Polski > Právní stránky > Přílohy e-mailů** nakonfigurujte, které dokumenty přikládat k jednotlivým typům e-mailů:
 
-| E-mail | Doporucene prilohy |
+| E-mail | Doporučené přílohy |
 |--------|---------------------|
-| Nova objednavka (zakaznik) | Obchodni podminky, Zasady ochrany osobnich udaju, Zasady vraceni |
-| Objednavka vyrizena | Zasady vraceni |
-| Faktura | Obchodni podminky |
-| Dobropis | Zasady vraceni, Reklamacni rad |
+| Nová objednávka (zákazník) | Obchodní podmínky, Zásady ochrany osobních údajů, Zásady vrácení |
+| Objednávka vyřízena | Zásady vrácení |
+| Faktura | Obchodní podmínky |
+| Dobropis | Zásady vrácení, Reklamační řád |
 
-### Format priloh
+### Formát příloh
 
-Dokumenty se konvertuji do PDF s logem obchodu a datem. Velikost souboru je optimalizovana.
+Dokumenty se konvertují do PDF s logem obchodu a datem. Velikost souboru je optimalizována.
 
-| Moznost | Popis | Vychozi hodnota |
+| Možnost | Popis | Výchozí hodnota |
 |-------|------|------------------|
-| Format | Typ prilohy | PDF |
-| Logo v hlavicce | Zda prilozit logo obchodu | Ano |
-| Velikost papiru | - | A4 |
+| Formát | Typ přílohy | PDF |
+| Logo v hlavičce | Zda přiložit logo obchodu | Ano |
+| Velikost papíru | - | A4 |
 | Okraj | Okraj dokumentu | 20mm |
 
 ## Informace ODR
 
-Narizeni EU 524/2013 vyzaduje od internetovych obchodu odkaz na platformu ODR (Online Dispute Resolution) pro mimosoudni reseni sporu.
+Nařízení EU 524/2013 vyžaduje od internetových obchodů odkaz na platformu ODR (Online Dispute Resolution) pro mimosoudní řešení sporů.
 
-### Automaticke zobrazeni
+### Automatické zobrazení
 
-Plugin automaticky pridava informaci ODR v:
+Plugin automaticky přidává informaci ODR v:
 
-- **Paticce obchodu** - odkaz na platformu ODR
-- **Obchodnich podminkach** - sekce o mimosoudnim reseni sporu
-- **Transakcnich e-mailech** - paticka s odkazem ODR
+- **Patičce obchodu** - odkaz na platformu ODR
+- **Obchodních podmínkách** - sekce o mimosoudním řešení sporů
+- **Transakčních e-mailech** - patička s odkazem ODR
 
 ### Obsah informace ODR
 
-Standardni obsah zobrazovany pluginem:
+Standardní obsah zobrazovaný pluginem:
 
 > Platforma ODR (Online Dispute Resolution) dostępna jest pod adresem: https://ec.europa.eu/consumers/odr/. Platforma służy rozstrzyganiu sporów pomiędzy konsumentami i przedsiębiorcami na szczeblu unijnym.
 
 ### Konfigurace ODR
 
-| Moznost | Popis | Vychozi hodnota |
+| Možnost | Popis | Výchozí hodnota |
 |-------|------|------------------|
-| Zobrazit v paticce | Pridat informaci ODR do paticky obchodu | Ano |
-| Zobrazit v e-mailech | Pridat informaci ODR do transakcnich e-mailu | Ano |
-| Text ODR | Konfigurovatelny text informace | Vychozi obsah |
-| Pozice v paticce | Misto zobrazeni | Pred informaci o autorskych pravech |
+| Zobrazit v patičce | Přidat informaci ODR do patičky obchodu | Ano |
+| Zobrazit v e-mailech | Přidat informaci ODR do transakčních e-mailů | Ano |
+| Text ODR | Konfigurovatelný text informace | Výchozí obsah |
+| Pozice v patičce | Místo zobrazení | Před informací o autorských právech |
 
-## Verzovani dokumentu
+## Verzování dokumentů
 
-Plugin zaznamenava verze pravnich stranek:
+Plugin zaznamenává verze právních stránek:
 
-- Kazda zmena obsahu vytvori novou verzi
-- Datum posledni aktualizace je zobrazeno na strance
-- Logy souhlasu GDPR obsahuji hash verze dokumentu, ktera platila v okamziku udeleni souhlasu
-- Historie verzi je dostupna v **Revizich** stranky WordPress
+- Každá změna obsahu vytvoří novou verzi
+- Datum poslední aktualizace je zobrazeno na stránce
+- Logy souhlasů GDPR obsahují hash verze dokumentu z okamžiku udělení souhlasu
+- Historie verzí je dostupná v **Revizích** stránky WordPress
 
-## Vicejazycnost
+## Vícejazyčnost
 
-Stranky se generuji v polstine. Pri WPML nebo Polylang plugin vytvari samostatne stranky pro kazdy jazyk. Pripravene preklady:
+Stránky se generují v polštině. Při WPML nebo Polylang plugin vytváří samostatné stránky pro každý jazyk. Připravené překlady:
 
-- Polstinu (vychozi)
-- Anglictinu
-- Nemcinu
+- Polština (výchozí)
+- Angličtina
+- Němčina
 
-Pro ostatni jazyky se vytvori polska verze k rucnimu prekladu.
+Pro ostatní jazyky se vytvoří polská verze k ručnímu překladu.
 
-## Reseni problemu
+## Řešení problémů
 
-**Stranky se negeneruji**
-Zkontrolujte, zda vsechna vyzadovana pole udaju prodejce jsou vyplnena. Pole nazev firmy, adresa, NIP a e-mail jsou povinna.
+**Stránky se negenerují**
+Zkontrolujte, zda jste vyplnili všechna povinná pole: název firmy, adresu, NIP a e-mail.
 
-**Prilohy PDF nejsou prikladany k e-mailum**
-Zkontrolujte, zda na serveru je nainstalovana knihovna pro generovani PDF. Plugin vyzaduje rozsireni PHP `mbstring` a `dom`. Zkontrolujte logy PHP na chyby.
+**Přílohy PDF nejsou přikládány k e-mailům**
+Zkontrolujte, zda má server rozšíření PHP `mbstring` a `dom`. Zkontrolujte logy PHP na chyby.
 
-**Informace ODR se nezobrazuje v paticce**
-Zkontrolujte, zda motiv podporuje hooky paticky WooCommerce (`wp_footer` nebo `woocommerce_after_footer`). Nektere motivy vyzaduji rucni pridani widgetu.
+**Informace ODR se nezobrazuje v patičce**
+Zkontrolujte, zda motiv podporuje hooky patičky (`wp_footer` nebo `woocommerce_after_footer`). Některé motivy vyžadují ruční přidání widgetu.
 
-**Aktualizace prepsala moje zmeny**
-Editujte obsah pouze mimo znacky `POLSKI-AUTO-START` / `POLSKI-AUTO-END`. Obsah mezi temito znackami je prepsan pri kazde aktualizaci.
+**Aktualizace přepsala moje změny**
+Editujte obsah pouze mimo značky `POLSKI-AUTO-START` / `POLSKI-AUTO-END`. Obsah mezi těmito značkami je přepsán při každé aktualizaci.
 
-## Dalsi kroky
+## Další kroky
 
-- Hlaseni problemu: [GitHub Issues](https://github.com/wppoland/polski/issues)
-- Diskuse a otazky: [GitHub Discussions](https://github.com/wppoland/polski/discussions)
+- Nahlašujte problémy: [GitHub Issues](https://github.com/wppoland/polski/issues)
+- Diskuse a dotazy: [GitHub Discussions](https://github.com/wppoland/polski/discussions)
 
-<div class="disclaimer">Tato stránka slouží pouze k informačním účelům a nepředstavuje právní poradenství. Před implementací se poraďte s právníkem. Polski for WooCommerce je open source software (GPLv2) poskytovaný bez záruky.</div>
+<div class="disclaimer">Tato stránka má pouze informativní charakter a nepředstavuje právní poradenství. Před nasazením se poraďte s právníkem. Polski for WooCommerce je open source software (GPLv2) poskytovaný bez záruky.</div>

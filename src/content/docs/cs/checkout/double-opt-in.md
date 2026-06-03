@@ -1,119 +1,119 @@
 ---
-title: Overeni e-mailove adresy
-description: Double opt-in pri registraci - aktivacni odkaz, blokada prihlaseni a konfigurace zprav ve WooCommerce.
+title: Ověření e-mailové adresy
+description: Double opt-in při registraci - aktivační odkaz, blokování přihlášení a konfigurace zpráv ve WooCommerce.
 ---
 
-Double opt-in potvrzuje, ze zadany e-mail skutecne patri osobe zakladajici ucet. Plugin odesle aktivacni odkaz a blokuje prihlaseni do kliknuti na tento odkaz.
+Double opt-in potvrzuje, že zadaný e-mail skutečně patří osobě zakládající účet. Zásuvný modul Polski for WooCommerce odešle aktivační odkaz a blokuje přihlášení do okamžiku kliknutí na tento odkaz.
 
-## Proc pouzivat double opt-in
+## Proč používat double opt-in
 
-Double opt-in neni vyzadovan polskym pravem, ale je doporucovan z duvodu:
+Polské právo double opt-in nevyžaduje, ale vyplatí se ho zapnout kvůli:
 
-- **GDPR** - overeni totožnosti osoby, jejiz data zpracovavame
-- **Ochrana pred boty** - zabranuje vytvareni falsenych uctu
-- **Kvalita zakaznicke databaze** - garantuje, ze e-mailove adresy jsou spravne
-- **Dorucitelnost e-mailu** - snizuje riziko nedoruceni (bounces) a oznaceni jako spam
-- **Soulad se zakonem o poskytovani sluzeb elektronickou cestou** - potvrzeni zameru vyuzivat sluzbu
+- **GDPR** - potvrzujete totožnost vlastníka e-mailu
+- **Ochrana před boty** - blokuje falešné účty
+- **Kvalita databáze** - máte jistotu, že e-maily jsou pravé
+- **Doručitelnost** - méně vrácených zpráv a označení jako spam
+- **Zákon o elektronických službách** - potvrzení ochoty využívat službu
 
 ## Konfigurace
 
-Prejdete do **WooCommerce > Nastaveni > Polski > Pokladna** a nakonfigurujte sekci "Overeni e-mailu".
+Přejděte do **WooCommerce > Nastavení > Polski > Pokladna** a nakonfigurujte sekci "Ověření e-mailu".
 
-### Zakladni nastaveni
+### Základní nastavení
 
-| Nastaveni | Vychozi hodnota | Popis |
+| Nastavení | Výchozí hodnota | Popis |
 |------------|-----------------|------|
-| Aktivovat overeni e-mailu | Ne | Aktivuje mechanismus double opt-in |
-| Doba platnosti odkazu | 48 hodin | Jak dlouho je aktivacni odkaz aktivni |
-| Automaticke odstranovani neoverenych | 7 dnu | Po kolika dnech odstranit neoverene ucty |
-| Povolit nakupy bez overeni | Ne | Zda neovereny uzivatel muze skladat objednavky |
+| Zapnout ověření e-mailu | Ne | Aktivuje mechanismus double opt-in |
+| Doba platnosti odkazu | 48 hodin | Jak dlouho je aktivační odkaz platný |
+| Automatické mazání neověřených | 7 dní | Po kolika dnech smazat neověřené účty |
+| Povolit nákupy bez ověření | Ne | Zda může neověřený uživatel vytvářet objednávky |
 
-### Pokrocila nastaveni
+### Pokročilá nastavení
 
-| Nastaveni | Popis |
+| Nastavení | Popis |
 |------------|------|
-| Presmerovani po aktivaci | URL, na ktere bude uzivatel presmerovan po kliknuti na odkaz |
-| Stranka cekani | Stranka zobrazena misto panelu "Muj ucet" pro neoverene |
-| Opetovne odeslani odkazu | Zda zobrazit tlacitko "Odeslat znovu aktivacni odkaz" |
-| Limit opetovnych odeslani | Maximalni pocet opetovnych odeslani odkazu (ochrana pred zneuzitim) |
+| Přesměrování po aktivaci | URL, na kterou bude uživatel přesměrován po kliknutí na odkaz |
+| Stránka čekání | Stránka zobrazená místo panelu "Můj účet" pro neověřené |
+| Opětovné odeslání odkazu | Zda zobrazit tlačítko "Odeslat aktivační odkaz znovu" |
+| Limit opětovných odeslání | Maximální počet opětovných odeslání odkazu (ochrana před zneužitím) |
 
-## Proces overeni
+## Proces ověření
 
 ### Krok za krokem
 
-1. Zakaznik registruje ucet ve WooCommerce (pres stranku "Muj ucet" nebo pri skladani objednavky)
-2. Plugin generuje unikatni aktivacni token a ulozi jej v databazi
-3. E-mail s aktivacnim odkazem je odeslan na zadanou adresu
-4. Ucet ma stav "neovereny" - prihlaseni je blokovano
-5. Zakaznik klikne na aktivacni odkaz v e-mailu
-6. Plugin overi token, aktivuje ucet a prihlasi uzivatele
-7. Zakaznik je presmerovan na stranku "Muj ucet" nebo nakonfigurovany URL
+1. Zákazník zaregistruje účet (přes "Můj účet" nebo při objednávce)
+2. Zásuvný modul vygeneruje aktivační token a uloží ho do databáze
+3. E-mail s aktivačním odkazem dorazí na zadanou adresu
+4. Účet má stav "neověřený" - přihlášení zablokováno
+5. Zákazník klikne na odkaz v e-mailu
+6. Zásuvný modul ověří token, aktivuje účet a přihlásí zákazníka
+7. Zákazník se dostane na stránku "Můj účet" nebo zvolenou URL
 
-### Registrace pri skladani objednavky
+### Registrace při vytváření objednávky
 
-Pokud je moznost "Povolit nakupy bez overeni" deaktivovana:
+Pokud je možnost "Povolit nákupy bez ověření" vypnutá:
 
-- objednavka nebude slozena, dokud zakaznik neoveri e-mail
-- zakaznik uvidi zpravu s instrukci zkontrolovat postovni schranku
+- objednávka nebude vytvořena, dokud zákazník neověří e-mail
+- zákazník uvidí zprávu s pokynem ke kontrole e-mailové schránky
 
-Pokud je moznost aktivovana:
+Pokud je možnost zapnutá:
 
-- objednavka bude slozena normalne
-- ucet bude vyzadovat overeni pri prisim prihlaseni
-- aktivacni e-mail bude odeslan paralelne s potvrzenim objednavky
+- objednávka bude vytvořena normálně
+- účet bude vyžadovat ověření při příštím přihlášení
+- aktivační e-mail bude odeslán souběžně s potvrzením objednávky
 
-## Blokada prihlaseni
+## Blokování přihlášení
 
-Neovereni uzivatele se nemohou prihlasit. Pri pokusu o prihlaseni uvidi zpravu:
+Neověření uživatelé se nemohou přihlásit. Vidí zprávu:
 
-> "Twoje konto nie zostało jeszcze zweryfikowane. Sprawdź swoją skrzynkę e-mail i kliknij link aktywacyjny. [Wyślij ponownie link]"
+> "Váš účet ještě nebyl ověřen. Zkontrolujte svou e-mailovou schránku a klikněte na aktivační odkaz. [Odeslat odkaz znovu]"
 
-### Konfigurace zpravy blokady
+### Konfigurace zprávy o blokování
 
-Zpravu lze prizpusobit v nastaveních pluginu. Dostupne promenne:
+Zprávu změníte v nastavení zásuvného modulu. Dostupné proměnné:
 
-| Promenna | Popis |
+| Proměnná | Popis |
 |---------|------|
-| `{email}` | E-mailova adresa uzivatele |
-| `{resend_link}` | Odkaz na opetovne odeslani aktivacniho e-mailu |
+| `{email}` | E-mailová adresa uživatele |
+| `{resend_link}` | Odkaz na opětovné odeslání aktivačního e-mailu |
 | `{expiry}` | Doba platnosti odkazu |
 
-Priklad vlastni zpravy:
+Příklad vlastní zprávy:
 
 ```
-Konto {email} wymaga weryfikacji. Kliknij link w e-mailu, który wysłaliśmy. 
-Nie otrzymałeś wiadomości? {resend_link}
+Účet {email} vyžaduje ověření. Klikněte na odkaz v e-mailu, který jsme odeslali. 
+Zprávu jste neobdrželi? {resend_link}
 ```
 
-## Konfigurace e-mailove zpravy
+## Konfigurace e-mailových zpráv
 
-### Sablona aktivacniho e-mailu
+### Šablona aktivačního e-mailu
 
-Plugin pridava novy typ e-mailu v **WooCommerce > Nastaveni > E-maily > Overeni e-mailove adresy**.
+Zásuvný modul přidává nový typ e-mailu v **WooCommerce > Nastavení > E-maily > Ověření e-mailové adresy**.
 
-Dostupna nastaveni:
+Dostupná nastavení:
 
-| Nastaveni | Popis |
+| Nastavení | Popis |
 |------------|------|
-| Aktivovat/deaktivovat | Aktivuje odesilani e-mailu |
-| Predmet | Predmet zpravy (vychozi: "Potwierdź swój adres e-mail") |
-| Hlavicka | Hlavicka v obsahu e-mailu |
-| Obsah | Doplnkovy text nad aktivacnim odkazem |
-| Typ e-mailu | HTML nebo cisty text |
+| Zapnout/vypnout | Aktivuje odesílání e-mailu |
+| Předmět | Předmět zprávy (výchozí: "Potvrďte svou e-mailovou adresu") |
+| Záhlaví | Záhlaví v obsahu e-mailu |
+| Obsah | Doplňkový text nad aktivačním odkazem |
+| Typ e-mailu | HTML nebo prostý text |
 
-### Promenne v sablone
+### Proměnné v šabloně
 
-| Promenna | Popis |
+| Proměnná | Popis |
 |---------|------|
-| `{site_title}` | Nazev obchodu |
-| `{customer_name}` | Jmeno zakaznika |
-| `{activation_link}` | Aktivacni odkaz (uplny URL) |
-| `{activation_button}` | Aktivacni tlacitko (HTML) |
-| `{expiry_hours}` | Doba platnosti odkazu v hodinach |
+| `{site_title}` | Název obchodu |
+| `{customer_name}` | Jméno zákazníka |
+| `{activation_link}` | Aktivační odkaz (úplná URL) |
+| `{activation_button}` | Aktivační tlačítko (HTML) |
+| `{expiry_hours}` | Doba platnosti odkazu v hodinách |
 
-### Prepis sablony e-mailu
+### Přepsání e-mailové šablony
 
-Pro prizpusobeni HTML sablony zkopirujte soubor:
+Pro úpravu HTML šablony zkopírujte soubor:
 
 ```
 wp-content/plugins/polski/templates/emails/email-verification.php
@@ -122,31 +122,33 @@ wp-content/plugins/polski/templates/emails/email-verification.php
 do:
 
 ```
-wp-content/themes/twoj-motyw/woocommerce/emails/email-verification.php
+wp-content/themes/tvuj-motiv/woocommerce/emails/email-verification.php
 ```
 
-## Programaticka rozsireni
+## Programová rozšíření
 
-### Hook pred overenim
+### Hook před ověřením
 
 ```php
 add_action('polski/email_verification/before_verify', function (int $user_id, string $token): void {
-    // Logika pred aktivaci uctu
+    // Logika před aktivací účtu
+    // např. logování události
     error_log(sprintf('Weryfikacja e-mail dla użytkownika #%d', $user_id));
 }, 10, 2);
 ```
 
-### Hook po overeni
+### Hook po ověření
 
 ```php
 add_action('polski/email_verification/verified', function (int $user_id): void {
-    // Logika po aktivaci uctu
+    // Logika po aktivaci účtu
+    // např. přiřazení role, odeslání uvítacího e-mailu
     $user = new WP_User($user_id);
     $user->set_role('customer');
 }, 10, 1);
 ```
 
-### Filtr URL presmerovani
+### Filtr URL přesměrování
 
 ```php
 add_filter('polski/email_verification/redirect_url', function (string $url, int $user_id): string {
@@ -158,56 +160,56 @@ add_filter('polski/email_verification/redirect_url', function (string $url, int 
 
 ```php
 add_filter('polski/email_verification/token_expiry', function (int $hours): int {
-    return 72; // 72 hodin misto vychozich 48
+    return 72; // 72 hodin místo výchozích 48
 });
 ```
 
-### Kontrola stavu overeni
+### Kontrola stavu ověření
 
 ```php
 $is_verified = get_user_meta($user_id, '_polski_email_verified', true);
 
 if ($is_verified !== 'yes') {
-    // Ucet neovereny
+    // Účet neověřen
 }
 ```
 
-## Ochrana pred zneuzitim
+## Ochrana před zneužitím
 
-### Limitovani opetovnych odeslani
+### Omezení opětovných odeslání
 
-Plugin omezuje pocet opetovnych odeslani aktivacniho odkazu na 5 za hodinu na e-mailovou adresu. Limit lze zmenit v nastaveních.
+Zásuvný modul umožňuje odeslat aktivační odkaz znovu maximálně 5krát za hodinu na jeden e-mail. Limit změníte v nastavení.
 
-### Ochrana tokenu
+### Ochrana tokenů
 
-- Tokeny jsou generovany pomoci `wp_generate_password(32, false)` - kryptograficky bezpecne
-- Kazdy token muze byt pouzit pouze jednou
-- Tokeny expiruji po nakonfigurovanem case
-- Expirovane tokeny jsou automaticky odstranovany pres WP-Cron
+- Tokeny jsou generovány funkcí `wp_generate_password(32, false)` - kryptograficky bezpečné
+- Každý token funguje jen jednou
+- Tokeny vyprší po nastavené době
+- WP-Cron automaticky maže prošlé tokeny
 
-## Nejcastejsi problemy
+## Nejčastější problémy
 
-### Aktivacni e-mail nedochazi
+### Aktivační e-mail nedorazí
 
-1. Zkontrolujte slozku spam/junk
-2. Overite konfiguraci SMTP (doporuceno: WP Mail SMTP nebo podobny plugin)
-3. Zkontrolujte logy e-mailu v **WooCommerce > Stav > Logy**
-4. Ujistete se, ze e-mail neni blokovan postovnim serverem
+1. Zkontrolujte složku spam/junk
+2. Ověřte konfiguraci SMTP (doporučeno: WP Mail SMTP nebo podobný zásuvný modul)
+3. Zkontrolujte logy e-mailů v **WooCommerce > Stav > Logy**
+4. Ujistěte se, že e-mail neblokuje poštovní server
 
-### Aktivacni odkaz nefunguje
+### Aktivační odkaz nefunguje
 
-1. Zkontrolujte, zda odkaz nevyprsiel (vychozi 48 hodin)
-2. Overite, zda permalink ve WordPress je spravne nakonfiguran
-3. Zkontrolujte, zda bezpecnostni plugin neblokuje URL s tokenem
+1. Zkontrolujte, zda odkaz nevypršel (výchozí 48 hodin)
+2. Ověřte, zda jsou permalinky ve WordPress správně nakonfigurovány
+3. Zkontrolujte, zda bezpečnostní zásuvný modul neblokuje URL s tokenem
 
-### Zakaznik overil e-mail, ale nemuze se prihlasit
+### Zákazník ověřil e-mail, ale nemůže se přihlásit
 
-1. Zkontrolujte, zda meta `_polski_email_verified` ma hodnotu `yes` v profilu uzivatele
-2. Overite, zda jiny plugin neblokuje prihlaseni
-3. Zkontrolujte, zda ucet nebyl oznacen jako spam antispamem
+1. Zkontrolujte, zda meta `_polski_email_verified` má hodnotu `yes` v profilu uživatele
+2. Ověřte, zda jiný zásuvný modul neblokuje přihlášení
+3. Zkontrolujte, zda účet nebyl označen jako spam antispamem
 
-## Souvisejici zdroje
+## Související zdroje
 
-- [Nahlasit problem](https://github.com/wppoland/polski/issues)
+- [Nahlásit problém](https://github.com/wppoland/polski/issues)
 
-<div class="disclaimer">Tato stránka slouží pouze k informačním účelům a nepředstavuje právní poradenství. Před implementací se poraďte s právníkem. Polski for WooCommerce je open source software (GPLv2) poskytovaný bez záruky.</div>
+<div class="disclaimer">Tato stránka má výhradně informativní charakter a nepředstavuje právní poradenství. Před nasazením se poraďte s právníkem. Polski for WooCommerce je open source software (GPLv2) dodávaný bez záruky.</div>

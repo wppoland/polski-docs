@@ -1,12 +1,12 @@
 ---
 title: Polski for WooCommerce
-description: Komplexni plugin pro WordPress k prizpusobeni obchodu WooCommerce polskym pravnim predpisum a pozadavkum trhu. Soulad s Omnibus, GPSR, DSA, GDPR a dalsimi regulacemi.
+description: Komplexní plugin pro WordPress k přizpůsobení obchodu WooCommerce polským právním předpisům a požadavkům trhu. Soulad s Omnibus, GPSR, DSA, GDPR a dalšími regulacemi.
 template: splash
 hero:
-  tagline: Kompletni reseni podporujici provozovani internetoveho obchodu v Polsku. Pravni nastroje, lokalni funkce, polske standardy e-commerce - vse v jednom pluginu.
+  tagline: Kompletní řešení podporující provoz internetového obchodu v Polsku. Právní požadavky, lokální funkce, polské standardy e-commerce - vše v jednom pluginu.
   actions:
-    - text: Zacnete s konfiguraci
-      link: /cs/getting-started/installation/
+    - text: Začít konfiguraci
+      link: /pl/getting-started/installation/
       icon: right-arrow
       variant: primary
     - text: GitHub
@@ -19,151 +19,151 @@ hero:
 
 ## Co je Polski for WooCommerce?
 
-**Polski for WooCommerce** je bezplatny open source plugin (GPLv2) od [wppoland.com](https://wppoland.com). Prizpusobuje obchod WooCommerce polskym predpisum a standardum e-commerce. Obsahuje vice nez 30 modulu: pravni pozadavky, ceny, pokladna, potraviny, funkce obchodu a nastroje pro vyvojare.
+**Polski for WooCommerce** je bezplatný open source plugin (GPLv2) od [wppoland.com](https://wppoland.com). Přizpůsobuje obchod WooCommerce polským předpisům a standardům e-commerce. Obsahuje více než 30 modulů: právní požadavky, ceny, pokladnu, potraviny, obchodní funkce a nástroje pro vývojáře.
 
-Aktualni verze: **1.3.2**
+Aktuální verze: **1.3.2**
 
-### Systemove pozadavky
+### Systémové požadavky
 
-Pred instalaci se ujistete, ze vas server splnuje minimalni pozadavky:
+Před instalací se ujistěte, že váš server splňuje minimální požadavky:
 
-| Pozadavek | Minimalni verze |
+| Požadavek | Minimální verze |
 |-----------|-----------------|
-| WordPress | 6.4 nebo novejsi |
-| WooCommerce | 8.0 nebo novejsi |
-| PHP | 8.1 nebo novejsi |
-| MySQL | 5.7 nebo novejsi / MariaDB 10.3+ |
+| WordPress | 6.4 nebo novější |
+| WooCommerce | 8.0 nebo novější |
+| PHP | 8.1 nebo novější |
+| MySQL | 5.7 nebo novější / MariaDB 10.3+ |
 
-:::tip[Doporuceni]
-Pro nejlepsi vykon doporucujeme PHP 8.2+ a WooCommerce 9.x. Plugin je pravidelne testovan s nejnovejsimi verzemi WordPress a WooCommerce.
+:::tip[Doporučení]
+Pro nejlepší výkon doporučujeme PHP 8.2+ a WooCommerce 9.x. Plugin je pravidelně testován s nejnovějšími verzemi WordPress a WooCommerce.
 :::
 
 ---
 
-## Prehled modulu
+## Přehled modulů
 
-Plugin funguje modularne - aktivujete pouze to, co potrebujete. Nize najdete popis vsech skupin modulu.
+Plugin funguje modulárně - zapínáte jen to, co potřebujete. Níže najdete popis všech skupin modulů.
 
-![Dashboard modulu Polski for WooCommerce](../../../../assets/screenshots/screenshot-1-modules-dashboard.png)
+![Dashboard modulů Polski for WooCommerce](../../../../assets/screenshots/screenshot-1-modules-dashboard.png)
 
-### Pravni pozadavky
+### Právní požadavky
 
-Moduly pro splneni pozadavku polskeho a unijniho prava:
+Moduly pro splnění požadavků polského a unijního práva:
 
-- **GPSR (bezpecnost produktu)** - udaje vyrobce, dovozce a odpovedne osoby na strankach produktu
-- **Omnibus** - nejnizsi cena za 30 dni pred slevou
-- **Pravo na odstoupeni** - formulare a dokumenty pro odstoupeni
-- **GDPR** - souhlasy, anonymizace dat, registr zpracovani
-- **DSA (akt o digitalnich sluzbach)** - kontaktni misto, hlaseni obsahu
-- **KSeF** - priprava na Krajovy system e-faktur
-- **Greenwashing** - kontrola environmentalnich prohlaseni
-- **Pravni stranky** - obchodni podminky, zasady ochrany udaju a vraceni zbozi
+- **GPSR (bezpečnost produktů)** - údaje výrobce, dovozce a odpovědné osoby na kartách produktů
+- **Omnibus** - nejnižší cena za 30 dní před zlevněním
+- **Právo na odstoupení** - formuláře pro vrácení zboží a dokumenty odstoupení
+- **GDPR** - souhlasy, anonymizace dat, evidence zpracování
+- **DSA (Akt o digitálních službách)** - kontaktní místo, nahlašování obsahu
+- **KSeF** - příprava na Národní systém e-faktur
+- **Greenwashing** - kontrola environmentálních prohlášení
+- **Právní stránky** - obchodní podmínky, zásady ochrany osobních údajů a zásady vrácení zboží
 
 ### Ceny a informace o produktu
 
-Moduly pro zobrazovani cen a udaju o produktech:
+Moduly pro zobrazování cen a produktových dat:
 
-- **Jednotkove ceny** - automaticky prepocet a zobrazovani cen za jednotku miry (PLN/kg, PLN/l)
-- **Zobrazovani DPH** - informace o sazbe DPH a cene bez/s DPH
-- **Doba dodani** - odhadovana doba vyrizeni objednavky na strance produktu
-- **Udaje o vyrobci** - pole vyrobce, znacka, katalogove cislo
+- **Jednotkové ceny** - automatický přepočet a zobrazování cen za měrnou jednotku (zł/kg, zł/l)
+- **Zobrazování DPH** - informace o sazbě DPH a ceně bez/s daní
+- **Doba dodání** - odhadovaná doba realizace objednávky na kartě produktu
+- **Údaje výrobce** - pole výrobce, značka, katalogové číslo
 
-### Pokladna a objednavky
+### Pokladna a objednávky
 
-Moduly pro stranku pokladny a proces objednavek:
+Moduly pro stránku pokladny a proces objednávky:
 
-- **Tlacitko objednavky** - zmena textu tlacitka na "Objednavka se zavazkem platby" (zakonny pozadavek)
-- **Pravni checkboxy** - konfigurovatelne souhlasy s obchodnimi podminkami, ochranou udaju, newsletterem
-- **Vyhledavani NIP** - automaticke doplneni firemnich udaju podle cisla NIP (API GUS)
-- **Dvojite potvrzeni** - overeni e-mailove adresy (double opt-in)
+- **Tlačítko objednávky** - změna textu tlačítka na "Objednávám s povinností platby" (právní požadavek)
+- **Právní checkboxy** - konfigurovatelné souhlasy s obchodními podmínkami, zásadami ochrany osobních údajů, newsletterem
+- **Vyhledávání NIP** - automatické doplnění firemních údajů podle čísla NIP (API GUS)
+- **Dvojité potvrzení** - ověření e-mailové adresy (double opt-in)
 
-### Potraviny
+### Potravinové produkty
 
-Specializovane moduly pro obchody s potravinami:
+Specializované moduly pro obchody s potravinami:
 
-- **Prehled potravinovych produktu** - vyhrazena pole pro potravinarsky sortiment
-- **Vyzivove hodnoty** - tabulka vyzivovych hodnot v souladu s narizenim 1169/2011
-- **Alergeny** - zvyraznene alergeny v popisu produktu (14 hlavnich alergenu)
-- **Nutri-Score** - zobrazovani oznaceni Nutri-Score (A-E)
+- **Přehled potravinových produktů** - vyhrazená pole pro potravinové produkty
+- **Výživové hodnoty** - tabulka výživových hodnot v souladu s nařízením 1169/2011
+- **Alergeny** - zvýrazněné alergeny v popisu produktu (14 hlavních alergenů)
+- **Nutri-Score** - zobrazování označení Nutri-Score (A-E)
 
-### Moduly obchodu
+### Obchodní moduly
 
-Funkce usnadnujici nakupovani zakaznikum:
+Funkce usnadňující nákup zákazníkům:
 
-- **Wishlist** - ukladani produktu na pozdeji
-- **Porovnavac** - porovnavani produktu vedle sebe
-- **Rychly nahled** - nahled produktu bez opusteni stranky kategorie
-- **AJAX vyhledavac** - vyhledavani produktu v realnem case
-- **AJAX filtry** - dynamicke filtrovani produktu bez opetovneho nacitani stranky
-- **Slider produktu** - karusely produktu s konfigurovatelnymi nastavenimi
-- **Stitky produktu** - stitky typu "Novinka", "Bestseller", "Posledni kusy"
-- **Dalsi moduly** - doplnkove funkce obchodu
+- **Seznam přání** - ukládání produktů na později
+- **Porovnávač** - porovnávání produktů vedle sebe
+- **Rychlý náhled** - náhled produktu bez opuštění stránky kategorie
+- **Vyhledávač AJAX** - vyhledávání produktů v reálném čase
+- **Filtry AJAX** - dynamické filtrování produktů bez načítání stránky
+- **Slider produktů** - karusely produktů s konfigurovatelnými nastaveními
+- **Odznaky produktů** - štítky typu "Novinka", "Bestseller", "Poslední kusy"
+- **Další moduly** - doplňkové obchodní funkce
 
-### Nastroje
+### Nástroje
 
-Moduly pro spravu obchodu:
+Moduly pro správu obchodu:
 
-- **Dashboard souladu** - prehled stavu pravnich pozadavku obchodu na jednom miste
-- **Audit webu** - automaticka kontrola konfigurace obchodu
-- **Bezpecnostni incidenty** - registr a sprava incidentu GDPR
-- **Overene recenze** - system overenych zakaznickych recenzi
+- **Dashboard souladu** - přehled stavu právních požadavků obchodu na jednom místě
+- **Audit obchodu** - automatické ověření konfigurace obchodu
+- **Bezpečnostní incidenty** - evidence a správa incidentů GDPR
+- **Ověřené recenze** - systém ověřených recenzí zákazníků
 
-### Pro vyvojare
+### Pro vývojáře
 
-Nastroje a API pro programatory:
+Nástroje a API pro programátory:
 
-- **REST API** - endpointy pro spravu dat pluginu
-- **Hooky (akce a filtry)** - vice nez 100 hooku pro rozsireni funkcnosti
-- **Shortcody** - pripravene shortcody pro vkladani elementu do obsahu
-- **Sablony** - prepis sablon pluginu v motivu
-- **WP-CLI** - CLI prikazy pro spravu pluginu z terminalu
-- **CSV import** - hromadny import produktovych dat
-- **Gutenberg bloky** - vyhrazene bloky editoru
-- **Schema.org** - automaticka strukturovana data pro produkty
+- **REST API** - endpointy pro správu dat pluginu
+- **Hooky (akce a filtry)** - více než 100 hooků pro rozšiřování funkčnosti
+- **Shortcody** - hotové shortcody pro vkládání prvků do obsahu
+- **Šablony** - přepisování šablon pluginu v šabloně
+- **WP-CLI** - CLI příkazy pro správu pluginu z terminálu
+- **Import CSV** - hromadný import produktových dat
+- **Bloky Gutenberg** - vyhrazené bloky editoru
+- **Schema.org** - automatická strukturovaná data pro produkty
 
 ---
 
-## Rychly start
+## Rychlý start
 
-Tri kroky k obchodu v souladu s predpisy:
+Tři kroky k obchodu v souladu s předpisy:
 
-1. **[Nainstalujte plugin](/cs/getting-started/installation/)** - z panelu WordPress nebo rucne ze souboru ZIP
-2. **[Nakonfigurujte zaklady](/cs/getting-started/configuration/)** - aktivujte potrebne moduly v panelu nastaveni
-3. **[Projdete pruvodcem](/cs/getting-started/wizard/)** - doplnte udaje firmy, vygenerujte pravni stranky, nakonfigurujte checkboxy
+1. **[Nainstalujte plugin](getting-started/installation/)** - z panelu WordPress nebo ručně ze souboru ZIP
+2. **[Nakonfigurujte základy](getting-started/configuration/)** - zapněte potřebné moduly v panelu nastavení
+3. **[Projděte průvodce](getting-started/wizard/)** - doplňte údaje firmy, vygenerujte právní stránky, nakonfigurujte checkboxy
 
-:::note[Potrebujete pomoc?]
-Pokud narazite na problem, nahlaste jej na [GitHub Issues](https://github.com/wppoland/polski/issues). Mate otazku nebo navrh? Napiste na [GitHub Discussions](https://github.com/wppoland/polski/discussions).
+:::note[Potřebujete pomoc?]
+Pokud narazíte na problém, nahlaste ho na [GitHub Issues](https://github.com/wppoland/polski/issues). Máte otázku nebo návrh? Napište na [GitHub Discussions](https://github.com/wppoland/polski/discussions).
 :::
 
 ---
 
-## Proc se to vyplati?
+## Proč se vyplatí?
 
-- **Vse v jednom** - misto 10 pluginu jedna souvisla platforma
-- **Modularni stavba** - aktivujete pouze to, co potrebujete
-- **Pravni pozadavky** - aktualizovano spolu se zmenami predpisu
-- **Open source** - zdrojovy kod na GitHubu, licence GPLv2
-- **Bez predplatneho** - vsechny funkce dostupne zdarma
-- **Vykon** - zdroje nacitane pouze pro aktivni moduly
-- **Aktivni komunita** - podpora na GitHub Discussions
+- **Vše v jednom** - místo 10 pluginů jedna ucelená platforma
+- **Modulární stavba** - zapínáte jen to, co potřebujete
+- **Právní požadavky** - aktualizované spolu se změnami předpisů
+- **Open source** - zdrojový kód na GitHubu, licence GPLv2
+- **Bez předplatného** - všechny funkce dostupné zdarma
+- **Výkon** - zdroje načítané jen pro aktivní moduly
+- **Aktivní komunita** - podpora na GitHub Discussions
 
 ---
 
 ## Kompatibilita
 
-Plugin je testovan s popularnymi motivy a pluginy WordPress:
+Plugin je testován s populárními šablonami a pluginy WordPress:
 
-- Motivy: Storefront, Astra, GeneratePress, Kadence, Flavor, flavor theme
+- Šablony: Storefront, Astra, GeneratePress, Kadence, Flavor, flavor theme
 - Page buildery: Gutenberg (bloky), Elementor, Beaver Builder
-- Platebni pluginy: Przelewy24, PayU, BLIK, tpay
-- Dopravni pluginy: InPost, DPD, DHL, Poczta Polska, Orlen Paczka
+- Platební pluginy: Przelewy24, PayU, BLIK, tpay
+- Doručovací pluginy: InPost, DPD, DHL, Poczta Polska, Orlen Paczka
 
 ---
 
 ## Podpora a komunita
 
-- [GitHub Issues](https://github.com/wppoland/polski/issues) - hlaseni chyb a navrhu funkci
-- [GitHub Discussions](https://github.com/wppoland/polski/discussions) - otazky, diskuse, pomoc komunity
-- [wppoland.com](https://wppoland.com) - web projektu a blog s navody
+- [GitHub Issues](https://github.com/wppoland/polski/issues) - nahlašování chyb a návrhů funkcí
+- [GitHub Discussions](https://github.com/wppoland/polski/discussions) - otázky, diskuze, pomoc komunity
+- [wppoland.com](https://wppoland.com) - stránka projektu a blog s návody
 
-<div class="disclaimer">Tato stránka slouží pouze k informačním účelům a nepředstavuje právní poradenství. Před implementací se poraďte s právníkem. Polski for WooCommerce je open source software (GPLv2) poskytovaný bez záruky.</div>
+<div class="disclaimer">Tato stránka má výhradně informativní charakter a nepředstavuje právní poradenství. Před nasazením se poraďte s právníkem. Polski for WooCommerce je open source software (GPLv2) dodávaný bez záruky.</div>

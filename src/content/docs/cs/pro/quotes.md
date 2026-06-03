@@ -1,81 +1,81 @@
 ---
-title: Poptavky (RFQ)
-description: Modul poptavek Polski PRO for WooCommerce - zamena tlacitka kosiku za poptavkovy formular, logovani souhlasu, administracni panel a e-mailova oznameni.
+title: Cenové poptávky (RFQ)
+description: Modul cenových poptávek Polski PRO for WooCommerce - záměna tlačítka košíku za poptávkový formulář, logování souhlasů, administrační panel a e-mailová oznámení.
 ---
 
-Modul poptavek (RFQ) meni tlacitko "Pridat do kosiku" na "Zeptejte se na cenu". Zakaznici posilaji poptavky misto primych nakupu. Uzitecne v B2B obchodech a u produktu s individualni cenou.
+Modul cenových poptávek (RFQ) zaměňuje tlačítko "Přidat do košíku" za "Zeptat se na cenu". Zákazníci podávají poptávky místo přímého nákupu. Hodí se v B2B obchodech a u produktů s individuálním oceněním.
 
-:::note[Pozadavky]
-Polski PRO vyzaduje: Polski (free) v1.3.0+, WordPress 6.4+, WooCommerce 8.0+, PHP 8.1+
+:::note[Požadavky]
+Polski PRO vyžaduje: Polski (free) v1.3.0+, WordPress 6.4+, WooCommerce 8.0+, PHP 8.1+
 :::
 
 ## Konfigurace
 
-Prejdete do **WooCommerce > Nastaveni > Polski PRO > Poptavky** a zapnete modul.
+Přejděte do **WooCommerce > Nastavení > Polski PRO > Cenové poptávky** a zapněte modul.
 
-### Zakladni nastaveni
+### Základní nastavení
 
-| Nastaveni | Moznost v databazi | Vychozi hodnota | Popis |
-|-----------|-------------------|-----------------|-------|
-| Zapnout modul | `polski_quote` | Ne | Aktivuje funkcionalitu poptavek |
-| Text tlacitka | `polski_quote_button_text` | "Zapytaj o cenę" | Text zobrazeny na tlacitku |
-| Zobrazit na seznamech | `polski_quote_show_on_loops` | Ne | Zobrazuje tlacitko poptavky na strankach archivu a kategorii |
-| Vyzadovat prihlaseni | `polski_quote_require_login` | Ne | Vyzaduje prihlaseni pred odeslanim poptavky |
-| Souhlas se zpracovanim | `polski_quote_consent` | Ano | Pridava checkbox souhlasu GDPR do formulare |
+| Nastavení | Volba v databázi | Výchozí hodnota | Popis |
+|------------|---------------|------------------|------|
+| Zapnout modul | `polski_quote` | Ne | Aktivuje funkcionalitu cenových poptávek |
+| Text tlačítka | `polski_quote_button_text` | "Zeptat se na cenu" | Text zobrazený na tlačítku |
+| Zobrazit na výpisech | `polski_quote_show_on_loops` | Ne | Zobrazuje tlačítko poptávky na stránkách archivu a kategorií |
+| Vyžadovat přihlášení | `polski_quote_require_login` | Ne | Vyžaduje přihlášení před odesláním poptávky |
+| Souhlas se zpracováním | `polski_quote_consent` | Ano | Přidává GDPR checkbox souhlasu do formuláře |
 
-### Pole formulare
+### Pole formuláře
 
-Formular poptavky obsahuje ve vychozim stavu:
+Poptávkový formulář ve výchozím stavu obsahuje:
 
-- **Jmeno a prijmeni** - povinne
-- **E-mailova adresa** - povinne, validace formatu
-- **Telefon** - volitelne
-- **Mnozstvi** - povinne, numericka validace
-- **Zprava** - volitelne, textarea
-- **Souhlas GDPR** - checkbox, povinne pokud zapnuto
+- **Jméno a příjmení** - povinné
+- **E-mailová adresa** - povinné, validace formátu
+- **Telefon** - volitelné
+- **Množství** - povinné, číselná validace
+- **Zpráva** - volitelné, textarea
+- **GDPR souhlas** - checkbox, povinný pokud zapnuto
 
-## Fungovani na frontendu
+## Chování na frontendu
 
-### Zamena tlacitka
+### Záměna tlačítka
 
-Po zapnuti modulu je tlacitko "Pridat do kosiku" nahrazeno tlacitkem poptavky. Tyka se to:
+Po zapnutí modul zaměňuje tlačítko "Přidat do košíku" za tlačítko poptávky. Týká se:
 
-- Stranky jednotliveho produktu
-- Stranek archivu a kategorii (pokud je moznost `polski_quote_show_on_loops` zapnuta)
-- Widgetu a shortcodu produktu
+- Stránky jednotlivého produktu
+- Stránek archivu a kategorií (pokud je volba `polski_quote_show_on_loops` zapnuta)
+- Produktových widgetů a shortcodů
 
 ### Shortcode
 
-Tlacitko poptavky lze umistit kamkoli pomoci shortcode:
+Tlačítko poptávky umístíte kamkoli shortcodem:
 
 ```
-[polski_quote_button product_id="123" text="Zapytaj o cenę" class="custom-class"]
+[polski_quote_button product_id="123" text="Zeptat se na cenu" class="custom-class"]
 ```
 
 **Parametry:**
 
-| Parametr | Povinny | Popis |
-|----------|---------|-------|
-| `product_id` | Ne | ID produktu (vychozi aktualni produkt) |
-| `text` | Ne | Text tlacitka |
-| `class` | Ne | Doplnkove CSS tridy |
+| Parametr | Povinný | Popis |
+|----------|----------|------|
+| `product_id` | Ne | ID produktu (výchozí aktuální produkt) |
+| `text` | Ne | Text tlačítka |
+| `class` | Ne | Doplňkové CSS třídy |
 
-### Odeslani formulare (AJAX)
+### Odeslání formuláře (AJAX)
 
-Formular je odeslany asynchronne (AJAX), bez obnoveni stranky. Po odeslani zakaznik vidi potvrzujici zpravu s cislem poptavky.
+Formulář se odesílá přes AJAX, bez přenačtení stránky. Zákazník vidí potvrzení s číslem poptávky.
 
 ```php
 /**
- * Filtruje dane zapytania ofertowego przed zapisem.
+ * Filtruje data cenové poptávky před uložením.
  *
- * @param array    $quote_data Dane zapytania
+ * @param array    $quote_data Data poptávky
  * @param int      $product_id ID produktu
- * @param \WP_User $user       Obiekt zalogowanego użytkownika lub pusty
+ * @param \WP_User $user       Objekt přihlášeného uživatele nebo prázdný
  */
 apply_filters('polski_pro/quote/before_save', array $quote_data, int $product_id, $user): array;
 ```
 
-**Priklad - pridani vlastniho pole:**
+**Příklad - přidání vlastního pole:**
 
 ```php
 add_filter('polski_pro/quote/before_save', function (array $quote_data, int $product_id, $user): array {
@@ -84,73 +84,73 @@ add_filter('polski_pro/quote/before_save', function (array $quote_data, int $pro
 }, 10, 3);
 ```
 
-## Logovani souhlasu
+## Logování souhlasů
 
-Kazda poptavka uklada informaci o udelenych souhlasech:
+Každá poptávka ukládá údaje o udělených souhlasech:
 
-- Casove razitko (timestamp) udeleni souhlasu
-- IP adresa zakaznika (hashovana SHA-256)
-- Obsah souhlasu v okamziku udeleni
-- Verze formulare
+- Časová značka (timestamp) udělení souhlasu
+- IP adresa zákazníka (hashovaná SHA-256)
+- Obsah souhlasu v okamžiku udělení
+- Verze formuláře
 
-Data jsou uchovavana v tabulce `{prefix}_polski_quote_consents` a mohou byt exportovana pro ucely auditu GDPR.
+Data se ukládají do tabulky `{prefix}_polski_quote_consents` a lze je exportovat pro audit GDPR.
 
 ```php
 /**
- * Akcja wywoływana po zapisaniu zgody.
+ * Akce volaná po uložení souhlasu.
  *
- * @param int    $quote_id   ID zapytania ofertowego
- * @param array  $consent    Dane zgody
- * @param string $ip_hash    Zahashowany adres IP
+ * @param int    $quote_id   ID cenové poptávky
+ * @param array  $consent    Data souhlasu
+ * @param string $ip_hash    Zahashovaná IP adresa
  */
 do_action('polski_pro/quote/consent_logged', int $quote_id, array $consent, string $ip_hash);
 ```
 
-## Administracni panel
+## Administrační panel
 
-### Seznam poptavek
+### Seznam poptávek
 
-Poptavky jsou dostupne v menu **WooCommerce > Poptavky**. Seznam obsahuje:
+Přejděte do **WooCommerce > Cenové poptávky**. Seznam obsahuje:
 
-- Cislo poptavky
-- Udaje zakaznika (jmeno, e-mail, telefon)
-- Produkt a mnozstvi
-- Status (nova, v prubehu, odpovedeno, uzavrena)
-- Datum podani
+- Číslo poptávky
+- Údaje zákazníka (jméno, e-mail, telefon)
+- Produkt a množství
+- Stav (nová, probíhá, odpovězeno, uzavřeno)
+- Datum podání
 
-### Statusy poptavek
+### Stavy poptávek
 
-| Status | Popis |
-|--------|-------|
-| `new` | Nova poptavka, nezpracovana |
-| `in_progress` | Probiha priprava nabidky |
-| `replied` | Nabidka odeslana zakaznikovi |
-| `accepted` | Zakaznik prijal nabidku |
-| `rejected` | Zakaznik odmitl nabidku |
-| `closed` | Poptavka uzavrena |
+| Stav | Popis |
+|--------|------|
+| `new` | Nová poptávka, nezpracovaná |
+| `in_progress` | Probíhá příprava nabídky |
+| `replied` | Nabídka odeslána zákazníkovi |
+| `accepted` | Zákazník přijal nabídku |
+| `rejected` | Zákazník odmítl nabídku |
+| `closed` | Poptávka uzavřena |
 
-### Odpovidani na poptavku
+### Odpovídání na poptávku
 
-Z panelu administrator muze:
+Administrátor může:
 
-1. Projit detaily poptavky
-2. Pridat interni poznamku
-3. Nastavit nabidkovou cenu
-4. Odeslat e-mailovou odpoved zakaznikovi
-5. Prevest poptavku na objednavku WooCommerce
+1. Prohlédnout detaily poptávky
+2. Přidat interní poznámku
+3. Nastavit cenu nabídky
+4. Odeslat e-mailovou odpověď zákazníkovi
+5. Převést poptávku na objednávku WooCommerce
 
-## E-mailova oznameni
+## E-mailová oznámení
 
-Modul registruje nasledujici e-mailove sablony v WooCommerce:
+E-mailové šablony modulu:
 
-| E-mail | Prijemce | Spoustec |
-|--------|----------|----------|
-| Nova poptavka | Administrator | Podani poptavky zakaznikem |
-| Potvrzeni poptavky | Zakaznik | Podani poptavky |
-| Odpoved na poptavku | Zakaznik | Odeslani nabidky administratorem |
-| Zmena statusu poptavky | Zakaznik | Zmena statusu poptavky |
+| E-mail | Příjemce | Spouštěč |
+|--------|----------|-----------|
+| Nová cenová poptávka | Administrátor | Podání poptávky zákazníkem |
+| Potvrzení poptávky | Zákazník | Podání poptávky |
+| Odpověď na poptávku | Zákazník | Odeslání nabídky administrátorem |
+| Změna stavu poptávky | Zákazník | Změna stavu poptávky |
 
-E-mailove sablony lze prepsat v motivu v adresari `woocommerce/emails/`:
+E-mailové šablony lze přepsat v šabloně v adresáři `woocommerce/emails/`:
 
 - `polski-pro-quote-new.php`
 - `polski-pro-quote-confirmation.php`
@@ -159,19 +159,19 @@ E-mailove sablony lze prepsat v motivu v adresari `woocommerce/emails/`:
 
 ## Hooky
 
-### Filtr formulare
+### Filtr formuláře
 
 ```php
 /**
- * Filtruje pola formularza zapytania ofertowego.
+ * Filtruje pole formuláře cenové poptávky.
  *
- * @param array $fields Tablica pól formularza
+ * @param array $fields Pole formuláře
  * @param int   $product_id ID produktu
  */
 apply_filters('polski_pro/quote/form_fields', array $fields, int $product_id): array;
 ```
 
-**Priklad - pridani pole DIC:**
+**Příklad - přidání pole NIP:**
 
 ```php
 add_filter('polski_pro/quote/form_fields', function (array $fields, int $product_id): array {
@@ -185,19 +185,19 @@ add_filter('polski_pro/quote/form_fields', function (array $fields, int $product
 }, 10, 2);
 ```
 
-### Akce po odeslani
+### Akce po odeslání
 
 ```php
 /**
- * Akcja wywoływana po zapisaniu zapytania ofertowego.
+ * Akce volaná po uložení cenové poptávky.
  *
- * @param int   $quote_id   ID zapytania
- * @param array $quote_data Dane zapytania
+ * @param int   $quote_id   ID poptávky
+ * @param array $quote_data Data poptávky
  */
 do_action('polski_pro/quote/submitted', int $quote_id, array $quote_data);
 ```
 
-**Priklad - odeslani do CRM:**
+**Příklad - odeslání do CRM:**
 
 ```php
 add_action('polski_pro/quote/submitted', function (int $quote_id, array $quote_data): void {
@@ -211,20 +211,20 @@ add_action('polski_pro/quote/submitted', function (int $quote_id, array $quote_d
 }, 10, 2);
 ```
 
-## Reseni problemu
+## Řešení problémů
 
-**Tlacitko "Pridat do kosiku" se stale zobrazuje**
-Zkontrolujte, ze moznost `polski_quote` je zapnuta. Vycistete cache cachovacich pluginu (WP Super Cache, W3 Total Cache, LiteSpeed Cache).
+**Tlačítko "Přidat do košíku" se stále zobrazuje**
+Zkontrolujte, zda je volba `polski_quote` zapnuta. Vymažte cache cachujících pluginů (WP Super Cache, W3 Total Cache, LiteSpeed Cache).
 
-**Formular se neodesila (chyba AJAX)**
-Zkontrolujte konzoli prohlizece na chyby JavaScriptu. Ujistete se, ze skript `polski-pro-quote.js` je nacten. Konflikty s jinymi pluginy mohou blokovat AJAX - vypnete ostatni pluginy pro identifikaci konfliktu.
+**Formulář se neodesílá (chyba AJAX)**
+Zkontrolujte konzoli prohlížeče na chyby JavaScriptu. Ujistěte se, že je skript `polski-pro-quote.js` načten. Konflikty s jinými pluginy mohou blokovat AJAX - vypněte ostatní pluginy, abyste identifikovali konflikt.
 
-**E-maily se neodesilaji**
-Zkontrolujte konfiguraci e-mailu v **WooCommerce > Nastaveni > E-maily**. Ujistete se, ze sablony Polski PRO jsou zapnute.
+**E-maily se neodesílají**
+Zkontrolujte konfiguraci e-mailu v **WooCommerce > Nastavení > E-maily**. Ujistěte se, že jsou šablony Polski PRO zapnuté.
 
-## Dalsi kroky
+## Další kroky
 
-- Hlaste problemy: [GitHub Issues](https://github.com/wppoland/polski/issues)
-- Integrace s katalogovym rezimem: [Katalogovy rezim B2B](/pro/catalog-mode)
+- Hlaste problémy: [GitHub Issues](https://github.com/wppoland/polski/issues)
+- Integrace s katalogovým režimem: [Katalogový režim B2B](/pro/catalog-mode)
 
-<div class="disclaimer">Tato stránka slouží pouze k informačním účelům a nepředstavuje právní poradenství. Před implementací se poraďte s právníkem. Polski for WooCommerce je open source software (GPLv2) poskytovaný bez záruky.</div>
+<div class="disclaimer">Tato stránka má pouze informativní charakter a nepředstavuje právní poradenství. Před nasazením se poraďte s právníkem. Polski for WooCommerce je open source software (GPLv2) poskytovaný bez záruky.</div>

@@ -1,66 +1,66 @@
 ---
 title: Nutri-Score
-description: Zobrazovani odznaku Nutri-Score A-E s CSS tridami pro kazdy stupen na strance produktu WooCommerce.
+description: Zobrazení odznaku Nutri-Score A-E s CSS třídami pro každou úroveň na stránce produktu WooCommerce.
 ---
 
-Nutri-Score hodnoti vyzivovou kvalitu produktu ve skale od A (nejlepsi) do E (nejhorsi). V Polsku je dobrovolny, ale stale popularnejsi. Plugin zobrazuje odznak Nutri-Score na strance produktu.
+Nutri-Score hodnotí výživovou kvalitu produktu ve škále od A (nejlepší) do E (nejhorší). V Polsku je dobrovolný, ale stále populárnější. Plugin Polski for WooCommerce zobrazuje odznak Nutri-Score na stránce produktu.
 
 ## Co je Nutri-Score
 
-System Nutri-Score klasifikuje potraviny na zaklade algoritmu zohlednujiciho:
+Nutri-Score klasifikuje produkty na základě:
 
-**Negativni slozky (zaporne body):**
-- energeticka hodnota
+**Negativní složky (záporné body):**
+- energetická hodnota
 - cukry
-- nasycene mastne kyseliny
-- sul (sodik)
+- nasycené mastné kyseliny
+- sůl (sodík)
 
-**Pozitivni slozky (kladne body):**
-- ovoce, zelenina, orechy, oleje (repkovy, orechovy, olivovy)
-- vlaknina
-- bilkoviny
+**Pozitivní složky (kladné body):**
+- ovoce, zelenina, ořechy, oleje (řepkový, ořechový, olivový)
+- vláknina
+- bílkoviny
 
-Na zaklade bilance bodu produkt obdrzi hodnoceni:
+Na základě bilance bodů produkt dostane hodnocení:
 
-| Stupen | Barva | Rozsah bodu (tuha strava) | Popis |
+| Úroveň | Barva | Rozsah bodů (tuhá strava) | Popis |
 |--------|-------|-------------------------------|------|
-| A | Tmave zelena (#038141) | od -15 do -1 | Nejvyssi vyzivova kvalita |
-| B | Svetle zelena (#85BB2F) | od 0 do 2 | Dobra vyzivova kvalita |
-| C | Zluta (#FECB02) | od 3 do 10 | Stredni vyzivova kvalita |
-| D | Oranzova (#EE8100) | od 11 do 18 | Nizka vyzivova kvalita |
-| E | Cervena (#E63E11) | od 19 do 40 | Nejnizsi vyzivova kvalita |
+| A | Tmavě zelená (#038141) | od -15 do -1 | Nejvyšší výživová kvalita |
+| B | Světle zelená (#85BB2F) | od 0 do 2 | Dobrá výživová kvalita |
+| C | Žlutá (#FECB02) | od 3 do 10 | Střední výživová kvalita |
+| D | Oranžová (#EE8100) | od 11 do 18 | Nízká výživová kvalita |
+| E | Červená (#E63E11) | od 19 do 40 | Nejnižší výživová kvalita |
 
 ## Konfigurace
 
-### Aktivace modulu
+### Zapnutí modulu
 
-Prejdete do **WooCommerce > Nastaveni > Polski > Potraviny** a aktivujte podmodul "Nutri-Score".
+Přejděte do **WooCommerce > Nastavení > Polski > Potraviny** a aktivujte podmodul "Nutri-Score".
 
-### Nastaveni
+### Nastavení
 
-| Nastaveni | Vychozi | Popis |
+| Nastavení | Výchozí | Popis |
 |------------|----------|------|
-| Aktivovat Nutri-Score | Ne | Aktivuje zobrazeni odznaku |
-| Pozice na strance produktu | Pod cenou | Kde zobrazit odznak |
-| Zobrazit na listingu | Ano | Zda zobrazit na strankach kategorii |
-| Velikost odznaku | Normalni | `maly`, `normalni`, `velky` |
-| Styl odznaku | Uplny | `uplny` (vsechna pismena), `kompaktni` (pouze aktivni pismeno) |
+| Zapnout Nutri-Score | Ne | Aktivuje zobrazení odznaku |
+| Pozice na stránce produktu | Pod cenou | Kde zobrazovat odznak |
+| Zobrazit v listingu | Ano | Zda zobrazovat na stránkách kategorií |
+| Velikost odznaku | Normální | `malý`, `normální`, `velký` |
+| Styl odznaku | Úplný | `úplný` (všechna písmena), `kompaktní` (pouze aktivní písmeno) |
 
-### Prirazeni Nutri-Score k produktu
+### Přiřazení Nutri-Score k produktu
 
-V editoru produktu, v zalozce "Potraviny", vyberte uroven Nutri-Score z rozbalovacieho seznamu:
+V editoru produktu, v záložce "Potraviny", vyberte úroveň Nutri-Score z rozbalovacího seznamu:
 
-- A - Nejvyssi vyzivova kvalita
-- B - Dobra vyzivova kvalita
-- C - Stredni vyzivova kvalita
-- D - Nizka vyzivova kvalita
-- E - Nejnizsi vyzivova kvalita
+- A - Nejvyšší výživová kvalita
+- B - Dobrá výživová kvalita
+- C - Střední výživová kvalita
+- D - Nízká výživová kvalita
+- E - Nejnižší výživová kvalita
 
-Plugin nepocita Nutri-Score automaticky - musite znat hodnoceni sveho produktu. Pro vypocet muzete pouzit oficialni kalkulator nebo data od vyrobce.
+Plugin nepočítá Nutri-Score automaticky. Použijte oficiální kalkulátor nebo data od výrobce.
 
-## Vygenerovany HTML
+## Vygenerovaný HTML
 
-Odznak Nutri-Score je renderovan jako sada HTML elementu s vyhrazenymi CSS tridami:
+Odznak Nutri-Score je sada HTML elementů s CSS třídami:
 
 ```html
 <div class="polski-nutri-score polski-nutri-score--active-c">
@@ -75,39 +75,39 @@ Odznak Nutri-Score je renderovan jako sada HTML elementu s vyhrazenymi CSS trida
 </div>
 ```
 
-## CSS tridy pro kazdy stupen
+## CSS třídy pro každou úroveň
 
-Plugin generuje CSS tridy pro kazdy stupen, coz umoznuje plnou kontrolu nad stylovanim:
+Plugin generuje CSS třídy pro každou úroveň, což dává plnou kontrolu nad stylováním:
 
-### Tridy na kontejneru
+### Třídy na kontejneru
 
-| Trida | Popis |
+| Třída | Popis |
 |-------|------|
-| `.polski-nutri-score` | Hlavni kontejner |
-| `.polski-nutri-score--active-a` | Aktivni stupen A |
-| `.polski-nutri-score--active-b` | Aktivni stupen B |
-| `.polski-nutri-score--active-c` | Aktivni stupen C |
-| `.polski-nutri-score--active-d` | Aktivni stupen D |
-| `.polski-nutri-score--active-e` | Aktivni stupen E |
-| `.polski-nutri-score--small` | Mala velikost |
-| `.polski-nutri-score--normal` | Normalni velikost |
-| `.polski-nutri-score--large` | Velka velikost |
+| `.polski-nutri-score` | Hlavní kontejner |
+| `.polski-nutri-score--active-a` | Aktivní úroveň A |
+| `.polski-nutri-score--active-b` | Aktivní úroveň B |
+| `.polski-nutri-score--active-c` | Aktivní úroveň C |
+| `.polski-nutri-score--active-d` | Aktivní úroveň D |
+| `.polski-nutri-score--active-e` | Aktivní úroveň E |
+| `.polski-nutri-score--small` | Malá velikost |
+| `.polski-nutri-score--normal` | Normální velikost |
+| `.polski-nutri-score--large` | Velká velikost |
 
-### Tridy na odznacich
+### Třídy na odznacích
 
-| Trida | Popis |
+| Třída | Popis |
 |-------|------|
-| `.polski-nutri-score__badge` | Kazdy odznak (pismeno) |
+| `.polski-nutri-score__badge` | Každý odznak (písmeno) |
 | `.polski-nutri-score__badge--a` | Odznak A |
 | `.polski-nutri-score__badge--b` | Odznak B |
 | `.polski-nutri-score__badge--c` | Odznak C |
 | `.polski-nutri-score__badge--d` | Odznak D |
 | `.polski-nutri-score__badge--e` | Odznak E |
-| `.polski-nutri-score__badge--active` | Aktivni (vybrany) odznak |
+| `.polski-nutri-score__badge--active` | Aktivní (vybraný) odznak |
 
-## Vychozi CSS styly
+## Výchozí CSS styly
 
-Plugin obsahuje vestavene CSS styly pro odznak Nutri-Score:
+Plugin obsahuje vestavěné CSS styly:
 
 ```css
 .polski-nutri-score {
@@ -153,28 +153,79 @@ Plugin obsahuje vestavene CSS styly pro odznak Nutri-Score:
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
 }
 
-/* Barvy pro kazdy stupen */
-.polski-nutri-score__badge--a { background-color: #038141; }
-.polski-nutri-score__badge--b { background-color: #85BB2F; }
-.polski-nutri-score__badge--c { background-color: #FECB02; color: #333; }
-.polski-nutri-score__badge--d { background-color: #EE8100; }
-.polski-nutri-score__badge--e { background-color: #E63E11; }
+/* Barvy pro každou úroveň */
+.polski-nutri-score__badge--a {
+    background-color: #038141;
+}
+
+.polski-nutri-score__badge--b {
+    background-color: #85BB2F;
+}
+
+.polski-nutri-score__badge--c {
+    background-color: #FECB02;
+    color: #333;
+}
+
+.polski-nutri-score__badge--d {
+    background-color: #EE8100;
+}
+
+.polski-nutri-score__badge--e {
+    background-color: #E63E11;
+}
 
 /* Velikosti */
-.polski-nutri-score--small .polski-nutri-score__badge { width: 1.5em; height: 1.5em; font-size: 0.7em; }
-.polski-nutri-score--large .polski-nutri-score__badge { width: 2.5em; height: 2.5em; font-size: 1em; }
+.polski-nutri-score--small .polski-nutri-score__badge {
+    width: 1.5em;
+    height: 1.5em;
+    font-size: 0.7em;
+}
+
+.polski-nutri-score--large .polski-nutri-score__badge {
+    width: 2.5em;
+    height: 2.5em;
+    font-size: 1em;
+}
 ```
 
-## Programaticky pristup
+### Přepsání stylů
 
-### Ziskani Nutri-Score produktu
+Přepište CSS třídy v souboru `style.css` motivu:
+
+```css
+/* Příklad: čtvercové odznaky se zaoblenými rohy */
+.polski-nutri-score__badges {
+    gap: 4px;
+    border-radius: 0;
+}
+
+.polski-nutri-score__badge {
+    border-radius: 6px;
+    width: 2.2em;
+    height: 2.2em;
+}
+
+/* Příklad: tmavý motiv */
+.polski-nutri-score__label {
+    color: #ccc;
+}
+
+.polski-nutri-score__badge {
+    opacity: 0.25;
+}
+```
+
+## Programatický přístup
+
+### Získání Nutri-Score produktu
 
 ```php
 $nutri_score = get_post_meta($product_id, '_polski_nutri_score', true);
-// Vraci: 'a', 'b', 'c', 'd', 'e' nebo '' (prazdny)
+// Vrací: 'a', 'b', 'c', 'd', 'e' nebo '' (prázdný)
 ```
 
-### Nastaveni Nutri-Score
+### Nastavení Nutri-Score
 
 ```php
 update_post_meta($product_id, '_polski_nutri_score', 'b');
@@ -184,18 +235,33 @@ update_post_meta($product_id, '_polski_nutri_score', 'b');
 
 ```php
 add_filter('polski/nutri_score/html', function (string $html, string $score, int $product_id): string {
-    // Uprava HTML odznaku
+    // Úprava HTML odznaku
     return $html;
 }, 10, 3);
 ```
 
-## CSV import
+### Podmíněné zobrazení
+
+```php
+add_filter('polski/nutri_score/display', function (bool $display, int $product_id): bool {
+    // Skryj Nutri-Score pro produkty bez vyplněných výživových hodnot
+    $nutrients = get_post_meta($product_id, '_polski_nutrients', true);
+
+    if (empty($nutrients)) {
+        return false;
+    }
+
+    return $display;
+}, 10, 2);
+```
+
+## Import CSV
 
 | Sloupec CSV | Popis | Hodnoty |
 |-------------|------|---------|
-| `polski_nutri_score` | Stupen Nutri-Score | `a`, `b`, `c`, `d`, `e` |
+| `polski_nutri_score` | Úroveň Nutri-Score | `a`, `b`, `c`, `d`, `e` |
 
-Priklad:
+Příklad:
 
 ```csv
 "Jabłko",a
@@ -206,7 +272,7 @@ Priklad:
 
 ## Schema.org
 
-Plugin pridava Nutri-Score do strukturovanych dat produktu:
+Plugin přidává Nutri-Score do strukturovaných dat produktu:
 
 ```json
 {
@@ -221,36 +287,42 @@ Plugin pridava Nutri-Score do strukturovanych dat produktu:
 }
 ```
 
-## Pristupnost (a11y)
+## Přístupnost (a11y)
 
-Odznak Nutri-Score obsahuje ARIA atributy pro ctecky obrazovky:
+Odznak obsahuje atributy ARIA pro čtečky obrazovky:
 
 ```html
-<div class="polski-nutri-score" role="img" aria-label="Nutri-Score: C - średnia jakość odżywcza">
+<div class="polski-nutri-score" role="img" aria-label="Nutri-Score: C - střední výživová kvalita">
 ```
 
-Kazdy neaktivni odznak ma `aria-hidden="true"` a aktivni obsahuje `aria-current="true"`.
+Každý neaktivní odznak má `aria-hidden="true"` a aktivní obsahuje `aria-current="true"`.
 
-## Nejcastejsi problemy
+## Nejčastější problémy
 
 ### Odznak se nezobrazuje
 
-1. Zkontrolujte, zda je podmodul Nutri-Score aktivovan
-2. Ujistete se, ze produkt ma prirazeny stupen Nutri-Score
-3. Overite, zda CSS pluginu je nactene (bez konfliktu s optimalizacnimi pluginy)
+1. Zkontrolujte, zda je podmodul Nutri-Score zapnutý
+2. Ujistěte se, že produkt má přiřazenou úroveň Nutri-Score
+3. Ověřte, zda je CSS pluginu načtené (bez konfliktu s optimalizačními pluginy)
 
-### Barvy odznaku jsou jine nez ocekavane
+### Barvy odznaku jsou jiné než očekávané
 
-Motiv muze prepisovat barvy pozadi. Pouzijte specifictejsi CSS selektory nebo pridejte `!important`.
+Motiv může přepisovat barvy. Použijte specifičtější CSS selektory nebo přidejte `!important`:
 
-### Odznak je prilis velky nebo prilis maly
+```css
+.polski-nutri-score__badge--a {
+    background-color: #038141 !important;
+}
+```
 
-Zmente velikost v nastaveních nebo prepiste CSS tridu velikosti.
+### Odznak je příliš velký nebo příliš malý
 
-## Souvisejici zdroje
+Změňte velikost v nastavení (**WooCommerce > Nastavení > Polski > Potraviny > Nutri-Score > Velikost odznaku**) nebo přepište CSS třídu velikosti.
 
-- [Modul potravinovych produktu](/cs/food/food-overview/)
-- [Vyzivove hodnoty](/cs/food/nutrients/)
-- [Nahlasit problem](https://github.com/wppoland/polski/issues)
+## Související zdroje
 
-<div class="disclaimer">Tato stránka slouží pouze k informačním účelům a nepředstavuje právní poradenství. Před implementací se poraďte s právníkem. Polski for WooCommerce je open source software (GPLv2) poskytovaný bez záruky.</div>
+- [Modul potravinových produktů](food/food-overview/)
+- [Výživové hodnoty](food/nutrients/)
+- [Nahlásit problém](https://github.com/wppoland/polski/issues)
+
+<div class="disclaimer">Tato stránka má pouze informativní charakter a nepředstavuje právní poradenství. Před nasazením se poraďte s právníkem. Polski for WooCommerce je open source software (GPLv2) poskytovaný bez záruky.</div>

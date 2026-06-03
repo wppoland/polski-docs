@@ -1,224 +1,224 @@
 ---
 title: Affiliate program
-description: Dokumentace affiliate programu Polski PRO for WooCommerce - doporucujici odkazy, sledovani provizi, registrace afiliatu a panel Muj ucet.
+description: Dokumentace affiliate programu Polski PRO for WooCommerce - doporučující odkazy, sledování provizí, registrace afiliátů a panel Můj účet.
 ---
 
-Modul affiliate programu umoznuje provozovat program doporuceni primo v obchode. Afiliati sdileji jedinecne odkazy a plugin sleduje konverze a pripocitava provize za objednavky od doporucenych zakazniku.
+Modul affiliate programu umožňuje provozovat program doporučení v obchodě. Afiliáti sdílejí doporučující odkazy a plugin sleduje konverze a počítá provize.
 
 ## Jak to funguje
 
-1. Zakaznik se zaregistruje jako afiliat v panelu Muj ucet
-2. Administrator aktivuje ucet afiliata
-3. Afiliat obdrzi jedinecny token a doporucujici odkaz
-4. Afiliat sdili odkaz (napr. na socialnich sitich, na blogu)
-5. Navstevnik klikne na odkaz - token je ulozen v cookie
-6. Navstevnik vytvori objednavku - plugin spoji objednavku s afiliatem
-7. Po zaplaceni objednavky plugin pripocita provizi
+1. Zákazník se zaregistruje jako afiliát v panelu Můj účet
+2. Administrátor aktivuje účet afiliáta
+3. Afiliát obdrží jedinečný token a doporučující odkaz
+4. Afiliát sdílí odkaz (např. na sociálních sítích, na blogu)
+5. Návštěvník klikne na odkaz - token je uložen do cookie
+6. Návštěvník odešle objednávku - plugin přiřadí objednávku k afiliátovi
+7. Po zaplacení objednávky plugin vypočítá provizi
 
 ## Konfigurace
 
-Prejdete do **WooCommerce > Nastaveni > Polski > Moduly PRO > Affiliate program**.
+Přejděte na **WooCommerce > Nastavení > Polski > Moduly PRO > Affiliate program**.
 
-Modul je rizen moznosti:
+Modul je řízen možností:
 
 ```
 polski_affiliates
 ```
 
-### Obecna nastaveni
+### Obecná nastavení
 
-| Nastaveni | Popis |
-|-----------|-------|
+| Nastavení | Popis |
+|------------|------|
 | Zapnout affiliate program | Aktivuje modul |
-| Sazba provize (%) | Procentualni provize z hodnoty objednavky (vychozi 10 %) |
-| Zaklad provize | Castka bez DPH / Castka s DPH / Castka bez DPH bez dopravy |
-| Doba trvani cookie (dny) | Kolik dnu je cookie s tokenem platne (vychozi 30) |
-| Automaticka aktivace | Automaticky aktivovat nove afiliaty (vychozi: vypnuto) |
-| Minimalni vyplata | Minimalni castka provize k vyplate |
-| Parametr URL | Nazev parametru v doporucujicim odkazu (vychozi `poleca`) |
+| Sazba provize (%) | Procentní provize z hodnoty objednávky (výchozí 10 %) |
+| Základ provize | Částka bez DPH / Částka s DPH / Částka bez DPH bez dopravy |
+| Doba platnosti cookie (dny) | Kolik dní je cookie s tokenem platná (výchozí 30) |
+| Automatická aktivace | Automaticky aktivovat nové afiliáty (výchozí: vypnuto) |
+| Minimální výplata | Minimální částka provize k výplatě |
+| Parametr URL | Název parametru v doporučujícím odkazu (výchozí `poleca`) |
 
-### Sazby provize na produkt
+### Sazby provize pro jednotlivé produkty
 
-Krome globalni sazby provize administrator muze nastavit individualni sazbu pro vybrany produkt. V uprave produktu v sekci "Affiliate program":
+Kromě globální sazby nastavte individuální sazbu pro produkt. V editaci produktu, sekce "Affiliate program":
 
-- **Sazba provize (%)** - prepise globalni sazbu
-- **Vyloucit z programu** - produkt negeneruje provize
+- **Sazba provize (%)** - přepisuje globální sazbu
+- **Vyloučit z programu** - produkt negeneruje provizi
 
-Sazby na kategorii produktu jsou take podporovany - nastaveni na kategorii se tyka vsech produktu v teto kategorii, pokud produkt nema vlastni sazbu.
+Sazby pro jednotlivé kategorie také fungují - týkají se všech produktů v kategorii, pokud produkt nemá vlastní sazbu.
 
-## Doporucujici odkazy
+## Doporučující odkazy
 
-### Format odkazu
+### Formát odkazu
 
-Doporucujici odkaz obsahuje parametr URL s tokenem afiliata:
+Odkaz obsahuje parametr URL s tokenem afiliáta:
 
 ```
 https://example.com/?poleca=abc123def456
 ```
 
-Parametr `poleca` je konfigurovatelny. Token je jedinecny identifikator afiliata generovany pri registraci.
+Parametr `poleca` je konfigurovatelný. Token je jedinečný identifikátor afiliáta generovaný při registraci.
 
-### Sledovani pomoci cookie
+### Cookie tracking
 
-Po kliknuti na doporucujici odkaz plugin nastavi cookie:
+Po kliknutí na doporučující odkaz plugin nastaví cookie:
 
 | Parametr | Hodnota |
 |----------|---------|
-| Nazev cookie | `polski_affiliate_token` |
-| Hodnota | Token afiliata |
-| Doba zivota | Konfigurovatelna (vychozi 30 dnu) |
+| Název cookie | `polski_affiliate_token` |
+| Hodnota | Token afiliáta |
+| Doba platnosti | Konfigurovatelná (výchozí 30 dní) |
 | Cesta | `/` |
 | SameSite | `Lax` |
 
-Cookie je nastaveno na strane serveru (PHP) s priznakem `HttpOnly`. Pri dalsich navstevach zakaznika plugin kontroluje pritomnost cookie a spojuje pripadnou objednavku s afiliatem.
+Cookie je nastavena na straně serveru (PHP) s příznakem `HttpOnly`. Při následujících návštěvách plugin přiřadí objednávku k afiliátovi.
 
-### Atribuce objednavky
+### Atribuce objednávky
 
-Plugin pouziva model atribuce "last click" - pokud zakaznik klikl na odkazy od vice afiliatu, provizi dostane posledni. Cookie je prepsano pri kazdem kliknuti na novy odkaz.
+Plugin používá model "last click" - provizi obdrží poslední afiliát, na jehož odkaz zákazník klikl.
 
-## Registrace a aktivace afiliatu
+## Registrace a aktivace afiliátů
 
 ### Registrace
 
-Zakaznik se muze zaregistrovat jako afiliat v panelu Muj ucet na strance `/moje-konto/polski-affiliates/`. Registracni formular obsahuje:
+Zákazník se zaregistruje jako afiliát v Můj účet (`/muj-ucet/polski-affiliates/`). Formulář obsahuje:
 
-- jmeno a prijmeni (nacteno automaticky z uctu)
-- zpusob vyplaty provize (prevod / slevovy kod)
-- cislo bankovniho uctu (pro prevod)
-- souhlas s podminkami affiliate programu
+- jméno a příjmení (načítáno automaticky z účtu)
+- způsob výplaty provize (převod / slevový kód)
+- číslo bankovního účtu (pro převod)
+- souhlas s podmínkami affiliate programu
 
 ### Aktivace
 
-Ve vychozim nastaveni nove ucty afiliatu vyzaduji rucni aktivaci administratorem. Administrator obdrzi e-mailove oznameni o nove registraci a muze:
+Ve výchozím nastavení nové účty vyžadují ruční aktivaci. Administrátor obdrží e-mail o registraci a může:
 
-- aktivovat ucet v panelu **WooCommerce > Afiliati**
-- odmitnout registraci s uvedenim duvodu
+- aktivovat účet v panelu **WooCommerce > Afiliáti**
+- zamítnout registraci s uvedením důvodu
 
-Volitelne lze zapnout automatickou aktivaci - nove ucty se stanuji aktivnimi ihned po registraci.
+Zapněte automatickou aktivaci, aby se účty staly aktivními ihned.
 
-### Statusy afiliata
+### Stavy afiliáta
 
-| Status | Popis |
-|--------|-------|
-| Pending | Cekajici na aktivaci |
-| Active | Aktivni - muze generovat odkazy a vydelavat provize |
-| Suspended | Pozastaveny administratorem |
-| Rejected | Odmitnuty - registrace odmitnuta |
+| Stav | Popis |
+|--------|------|
+| Pending | Čeká na aktivaci |
+| Active | Aktivní - může generovat odkazy a vydělávat provize |
+| Suspended | Pozastaven administrátorem |
+| Rejected | Zamítnut - registrace zamítnuta |
 
-## Sledovani provizi
+## Sledování provizí
 
-### Pripocitani provize
+### Výpočet provize
 
-Provize je pripocitana automaticky po zaplaceni objednavky spojene s afiliatem. Provize se nepripocitava pro:
+Provize se počítá automaticky po zaplacení objednávky. Nepočítá se pro:
 
-- zrusene nebo vracene objednavky
-- objednavky zlozene samotnym afiliatem (self-referral)
-- produkty vyloucene z programu
+- zrušené nebo vrácené objednávky
+- objednávky odeslané samotným afiliátem (self-referral)
+- produkty vyloučené z programu
 
-### Statusy provize
+### Stavy provize
 
-| Status | Popis |
-|--------|-------|
-| Pending | Pripocitana, ceka na schvaleni |
-| Approved | Schvalena, pripravena k vyplate |
+| Stav | Popis |
+|--------|------|
+| Pending | Vypočtena, čeká na schválení |
+| Approved | Schválena, připravena k výplatě |
 | Paid | Vyplacena |
-| Rejected | Odmitnuta (napr. objednavka vracena) |
+| Rejected | Zamítnuta (např. vrácená objednávka) |
 
-### Automaticke schvalovani
+### Automatické schvalování
 
-Provize meni status z "Pending" na "Approved" po uplynutu konfigurovatelneho obdobi (vychozi 14 dnu). Zpozdeni chrani pred provizemi z objednavek, ktere budou vraceny.
+Provize se mění z "Pending" na "Approved" po 14 dnech (konfigurovatelné). To chrání před provizemi z vrácených objednávek.
 
-Pokud je objednavka zrusena nebo vracena v obdobi cekani, provize je automaticky odmitnuta.
+Pokud je objednávka zrušena během čekací doby, provize je automaticky zamítnuta.
 
-## Panel Muj ucet
+## Panel Můj účet
 
-Modul pridava endpoint `/polski-affiliates` do panelu Muj ucet. Endpoint je dostupny na adrese:
+Modul přidává sekci v Můj účet na adrese:
 
 ```
-/moje-konto/polski-affiliates/
+/muj-ucet/polski-affiliates/
 ```
 
-### Dashboard afiliata
+### Dashboard afiliáta
 
-Po aktivaci uctu afiliat vidi dashboard s:
+Po aktivaci účtu afiliát vidí dashboard s:
 
-- **Statistiky** - celkovy pocet kliknuti, objednavek, provizi
-- **Doporucujici odkaz** - uplny odkaz s tlacitkem kopirovani
-- **Provize** - seznam provizi s daty, castkami a statusy
-- **Vyplaty** - historie vyplat
-- **Mesicni statistiky** - graf kliknuti a konverzi
+- **Statistiky** - celkový počet kliknutí, objednávek, provizí
+- **Doporučující odkaz** - úplný odkaz s tlačítkem kopírování
+- **Provize** - seznam provizí s daty, částkami a stavy
+- **Výplaty** - historie výplat
+- **Měsíční statistiky** - graf kliknutí a konverzí
 
-### Generovani odkazu
+### Generování odkazů
 
-Afiliat muze vygenerovat doporucujici odkaz na:
+Afiliát může vygenerovat doporučující odkaz na:
 
-- hlavni stranku obchodu
-- konkretni produkt
-- kategorii produktu
-- jakoukoli stranku v domene obchodu
+- domovskou stránku obchodu
+- konkrétní produkt
+- kategorii produktů
+- libovolnou stránku v doméně obchodu
 
-Kazdy odkaz obsahuje parametr `poleca` s tokenem afiliata.
+Každý odkaz obsahuje parametr `poleca` s tokenem afiliáta.
 
-## Administracni panel
+## Panel administrátora
 
-### Seznam afiliatu
+### Seznam afiliátů
 
-Prejdete do **WooCommerce > Afiliati**. Tabulka obsahuje:
+Přejděte na **WooCommerce > Afiliáti**. Tabulka obsahuje:
 
-- jmeno a prijmeni
+- jméno a příjmení
 - e-mail
-- status
+- stav
 - datum registrace
-- pocet doporuceni
-- celkova provize
-- zustatek k vyplate
+- počet doporučení
+- celková provize
+- zůstatek k výplatě
 
-### Sprava provizi
+### Správa provizí
 
-Prejdete do **WooCommerce > Afiliati > Provize**. Administrator muze:
+Přejděte na **WooCommerce > Afiliáti > Provize**. Administrátor může:
 
-- prohlizet seznam provizi s filtry (afiliat, status, datum)
-- schvalovat nebo odmitnout provize
-- oznacovat provize jako vyplacene
+- prohlížet seznam provizí s filtry (afiliát, stav, datum)
+- schvalovat nebo zamítat provize
+- označovat provize jako vyplacené
 - exportovat provize do CSV
 
 ### Report
 
-Prejdete do **WooCommerce > Afiliati > Report**. Report obsahuje:
+Přejděte na **WooCommerce > Afiliáti > Report**. Report obsahuje:
 
-- celkova hodnota objednavek z doporuceni
-- celkova castka provizi
-- konverze (kliknuti -> objednavky)
-- top 10 afiliatu
-- mesicni trend
+- celkovou hodnotu objednávek z doporučení
+- celkovou částku provizí
+- konverzi (kliknutí -> objednávky)
+- top 10 afiliátů
+- měsíční trend
 
 ## Hooky
 
 ### `polski_pro/affiliate/commission_created`
 
-Akce volana po pripocitani provize.
+Akce volaná po výpočtu provize.
 
 ```php
 /**
- * @param int   $commission_id ID prowizji
- * @param int   $affiliate_id  ID afilianta
- * @param int   $order_id      ID zamówienia
- * @param float $amount        Kwota prowizji
+ * @param int   $commission_id ID provize
+ * @param int   $affiliate_id  ID afiliáta
+ * @param int   $order_id      ID objednávky
+ * @param float $amount        Částka provize
  */
 do_action('polski_pro/affiliate/commission_created', int $commission_id, int $affiliate_id, int $order_id, float $amount);
 ```
 
-**Priklad:**
+**Příklad:**
 
 ```php
 add_action('polski_pro/affiliate/commission_created', function (int $commission_id, int $affiliate_id, int $order_id, float $amount): void {
-    // Powiadomienie afilianta o nowej prowizji
+    // Upozornění afiliáta na novou provizi
     $affiliate = get_userdata($affiliate_id);
     wp_mail(
         $affiliate->user_email,
-        'Nowa prowizja w programie afiliacyjnym',
+        'Nová provize v affiliate programu',
         sprintf(
-            'Otrzymałeś prowizję %.2f zł za zamówienie #%d.',
+            'Obdrželi jste provizi %.2f zł za objednávku #%d.',
             $amount,
             $order_id
         )
@@ -228,21 +228,21 @@ add_action('polski_pro/affiliate/commission_created', function (int $commission_
 
 ### `polski_pro/affiliate/registered`
 
-Akce volana po registraci noveho afiliata.
+Akce volaná po registraci nového afiliáta.
 
 ```php
 /**
- * @param int $user_id ID użytkownika
- * @param string $token Wygenerowany token afilianta
+ * @param int $user_id ID uživatele
+ * @param string $token Vygenerovaný token afiliáta
  */
 do_action('polski_pro/affiliate/registered', int $user_id, string $token);
 ```
 
-**Priklad:**
+**Příklad:**
 
 ```php
 add_action('polski_pro/affiliate/registered', function (int $user_id, string $token): void {
-    // Przypisanie roli WordPress
+    // Přiřazení role WordPress
     $user = get_userdata($user_id);
     $user->add_role('affiliate');
 }, 10, 2);
@@ -250,18 +250,18 @@ add_action('polski_pro/affiliate/registered', function (int $user_id, string $to
 
 ### `polski_pro/affiliate/validate_referral`
 
-Filtruje validaci doporuceni pred pripocitanim provize.
+Filtruje validaci doporučení před výpočtem provize.
 
 ```php
 /**
- * @param bool $is_valid     Czy polecenie jest prawidłowe
- * @param int  $affiliate_id ID afilianta
- * @param int  $order_id     ID zamówienia
+ * @param bool $is_valid     Zda je doporučení platné
+ * @param int  $affiliate_id ID afiliáta
+ * @param int  $order_id     ID objednávky
  */
 apply_filters('polski_pro/affiliate/validate_referral', bool $is_valid, int $affiliate_id, int $order_id): bool;
 ```
 
-**Priklad:**
+**Příklad:**
 
 ```php
 add_filter('polski_pro/affiliate/validate_referral', function (bool $is_valid, int $affiliate_id, int $order_id): bool {
@@ -277,30 +277,30 @@ add_filter('polski_pro/affiliate/validate_referral', function (bool $is_valid, i
 }, 10, 3);
 ```
 
-## Nejcastejsi problemy
+## Nejčastější problémy
 
-### Provize se nepripocitava
+### Provize se nepočítá
 
-1. Zkontrolujte, ze afiliat ma status "Active"
-2. Overite, ze cookie `polski_affiliate_token` je nastaveno (vyvojarske nastroje prohlizece)
-3. Zkontrolujte, ze objednavka nebyla zlozena samotnym afiliatem
-4. Overite, ze produkty v objednavce nejsou vylouceny z programu
+1. Zkontrolujte, zda má afiliát stav "Active"
+2. Ověřte, zda je cookie `polski_affiliate_token` nastavena (vývojářské nástroje prohlížeče)
+3. Zkontrolujte, zda objednávka nebyla odeslána samotným afiliátem
+4. Ověřte, zda produkty v objednávce nejsou vyloučeny z programu
 
-### Cookie se nenastavuje po kliknuti na odkaz
+### Cookie se po kliknutí na odkaz nenastavuje
 
-1. Zkontrolujte, ze parametr URL je spravny (vychozi `poleca`)
-2. Overite, ze token afiliata existuje a je aktivni
-3. Zkontrolujte, ze cache pluginy necachuji stranku s parametry URL - pridejte parametr `poleca` do seznamu vylouceni cache
+1. Zkontrolujte, zda je parametr URL správný (výchozí `poleca`)
+2. Ověřte, zda token afiliáta existuje a je aktivní
+3. Zkontrolujte, zda cache pluginy necachují stránku s parametry URL - přidejte parametr `poleca` do seznamu vyloučení cache
 
-### Afiliat nevidi panel v Muj ucet
+### Afiliát nevidí panel v Můj účet
 
-1. Zkontrolujte, ze modul affiliate je zapnuty
-2. Prejdete do **Nastaveni > Permalinky** a kliknete "Ulozit" (obnovi pravidla rewrite)
-3. Overite, ze endpoint `polski-affiliates` je zaregistrovany
+1. Zkontrolujte, zda je affiliate modul zapnutý
+2. Přejděte na **Nastavení > Trvalé odkazy** a klikněte na "Uložit" (obnoví rewrite pravidla)
+3. Ověřte, zda je endpoint `polski-affiliates` registrován
 
-## Souvisejici zdroje
+## Související zdroje
 
-- [Prehled PRO](/pro/overview/)
-- [Nahlasit problem](https://github.com/wppoland/polski/issues)
+- [Přehled PRO](/pro/overview/)
+- [Nahlásit problém](https://github.com/wppoland/polski/issues)
 
-<div class="disclaimer">Tato stránka slouží pouze k informačním účelům a nepředstavuje právní poradenství. Před implementací se poraďte s právníkem. Polski for WooCommerce je open source software (GPLv2) poskytovaný bez záruky.</div>
+<div class="disclaimer">Tato stránka má pouze informativní charakter a nepředstavuje právní poradenství. Před nasazením se poraďte s právníkem. Polski for WooCommerce je open source software (GPLv2) poskytovaný bez záruky.</div>

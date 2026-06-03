@@ -1,20 +1,20 @@
 ---
-title: Prepis sablon
-description: Prepisovani sablon Polski for WooCommerce v motivu - seznam souboru, struktura adresaru a priklady.
+title: Přepisování šablon
+description: Přepisování šablon Polski for WooCommerce v motivu - seznam souborů, struktura adresářů a příklady.
 ---
 
-System sablon inspirovany WooCommerce. Prepsete libovolnou sablonu kopiovanim do `yourtheme/polski/` v motivu.
+Systém šablon inspirovaný WooCommerce. Přepište libovolnou šablonu zkopírováním do `yourtheme/polski/` v motivu.
 
-## Jak prepsat sablonu
+## Jak přepsat šablonu
 
-1. Najdete originalni sablonu v adresari pluginu: `wp-content/plugins/polski/templates/`
-2. Zkopirujte soubor do adresare motivu: `wp-content/themes/vas-motiv/polski/`
-3. Zachovejte strukturu podadresaru
-4. Upravte zkopirovalny soubor
+1. Najděte originální šablonu v adresáři pluginu: `wp-content/plugins/polski/templates/`
+2. Zkopírujte soubor do adresáře motivu: `wp-content/themes/vas-motiv/polski/`
+3. Zachovejte strukturu podadresářů
+4. Upravte zkopírovaný soubor
 
-Plugin automaticky detekuje sablonu v motivu a pouzije ji misto vychozi.
+Plugin automaticky použije šablonu z motivu místo výchozí.
 
-**Priklad:** pro prepis sablony ceny Omnibus zkopirujte:
+**Příklad:** pro přepsání šablony ceny Omnibus zkopírujte:
 
 ```
 wp-content/plugins/polski/templates/omnibus/price-display.php
@@ -26,99 +26,114 @@ do:
 wp-content/themes/vas-motiv/polski/omnibus/price-display.php
 ```
 
-## Potomkovy motiv (child theme)
+## Potomkovský motiv (child theme)
 
-Pokud pouzivate potomkovy motiv, sablony umistujte do adresare potomkoveho motivu. Plugin hleda sablony v nasledujicim poradi:
+U potomkovského motivu umisťujte šablony do adresáře potomkovského motivu. Pořadí hledání:
 
-1. `wp-content/themes/potomkovy-motiv/polski/`
+1. `wp-content/themes/potomkovsky-motiv/polski/`
 2. `wp-content/themes/rodicovsky-motiv/polski/`
 3. `wp-content/plugins/polski/templates/`
 
-## Seznam sablon
+## Seznam šablon
 
-### Pravni pozadavky
+### Právní požadavky
 
-| Soubor sablony | Popis |
+| Soubor šablony                           | Popis                                   |
 | ---------------------------------------- | --------------------------------------- |
-| `omnibus/price-display.php` | Zobrazeni ceny Omnibus |
-| `omnibus/price-history.php` | Historie cen (tabulka) |
-| `gpsr/product-info.php` | Informace GPSR na strance produktu |
-| `gpsr/safety-sheet.php` | Bezpecnostni list produktu |
-| `withdrawal/form.php` | Formular odstoupeni od smlouvy |
-| `withdrawal/confirmation.php` | Potvrzeni podani odstoupeni |
-| `withdrawal/email.php` | Sablona e-mailu potvrzeni |
-| `dsa/report-form.php` | Formular hlaseni DSA |
-| `gdpr/consent-checkboxes.php` | Checkboxy souhlasu GDPR |
-| `ksef/invoice-template.php` | Sablona faktury KSeF |
-| `greenwashing/product-claims.php` | Environmentalni prohlaseni produktu |
-| `legal-pages/terms-template.php` | Sablona obchodnich podminek |
-| `legal-pages/privacy-template.php` | Sablona zasad ochrany osobnich udaju |
+| `omnibus/price-display.php`              | Zobrazení ceny Omnibus                  |
+| `omnibus/price-history.php`              | Historie cen (tabulka)                  |
+| `gpsr/product-info.php`                  | Informace GPSR na stránce produktu      |
+| `gpsr/safety-sheet.php`                  | Bezpečnostní list produktu              |
+| `withdrawal/form.php`                    | Formulář odstoupení od smlouvy          |
+| `withdrawal/confirmation.php`            | Potvrzení podání odstoupení             |
+| `withdrawal/email.php`                   | Šablona e-mailu potvrzení               |
+| `dsa/report-form.php`                    | Formulář hlášení DSA                    |
+| `dsa/report-confirmation.php`            | Potvrzení hlášení DSA                   |
+| `gdpr/consent-checkboxes.php`            | Checkboxy souhlasu GDPR                 |
+| `ksef/invoice-template.php`              | Šablona faktury KSeF                    |
+| `greenwashing/product-claims.php`        | Environmentální prohlášení produktu     |
+| `legal-pages/terms-template.php`         | Šablona obchodních podmínek             |
+| `legal-pages/privacy-template.php`       | Šablona zásad ochrany osobních údajů    |
+| `legal-pages/withdrawal-template.php`    | Šablona informace o odstoupení          |
 
 ### Ceny a informace o produktu
 
-| Soubor sablony | Popis |
+| Soubor šablony                           | Popis                                   |
 | ---------------------------------------- | --------------------------------------- |
-| `prices/unit-price.php` | Jednotkova cena |
-| `prices/vat-notice.php` | Informace o DPH a doruceni |
-| `prices/delivery-time.php` | Odhadovana doba dodani |
-| `manufacturer/info.php` | Informace o vyrobci |
+| `prices/unit-price.php`                  | Jednotková cena                         |
+| `prices/vat-notice.php`                  | Informace o DPH a doručení              |
+| `prices/delivery-time.php`               | Odhadovaná doba dodání                  |
+| `manufacturer/info.php`                  | Informace o výrobci                     |
+| `manufacturer/logo.php`                  | Logo výrobce                            |
 
 ### Potraviny
 
-| Soubor sablony | Popis |
+| Soubor šablony                           | Popis                                   |
 | ---------------------------------------- | --------------------------------------- |
-| `food/nutrients-table.php` | Tabulka vyzivovych hodnot |
-| `food/allergens-list.php` | Seznam alergenu |
-| `food/nutri-score.php` | Oznaceni Nutri-Score |
+| `food/nutrients-table.php`               | Tabulka výživových hodnot               |
+| `food/allergens-list.php`                | Seznam alergenů                         |
+| `food/nutri-score.php`                   | Označení Nutri-Score                    |
 
-### Pokladna a objednavky
+### Pokladna a objednávky
 
-| Soubor sablony | Popis |
+| Soubor šablony                           | Popis                                   |
 | ---------------------------------------- | --------------------------------------- |
-| `checkout/button-label.php` | Stitek tlacitka objednavky |
-| `checkout/legal-checkboxes.php` | Pravni checkboxy na pokladne |
-| `checkout/nip-field.php` | Pole NIP s autodoplnenim |
-| `checkout/doi-notice.php` | Zprava double opt-in |
+| `checkout/button-label.php`              | Popisek tlačítka objednávky             |
+| `checkout/legal-checkboxes.php`          | Právní checkboxy na pokladně            |
+| `checkout/nip-field.php`                 | Pole NIP s automatickým doplňováním     |
+| `checkout/doi-notice.php`                | Zpráva double opt-in                    |
 
 ### Moduly obchodu
 
-| Soubor sablony | Popis |
+| Soubor šablony                           | Popis                                   |
 | ---------------------------------------- | --------------------------------------- |
-| `wishlist/table.php` | Tabulka wishlistu |
-| `wishlist/button.php` | Tlacitko pridani na seznam |
-| `compare/table.php` | Tabulka porovnani |
-| `compare/button.php` | Tlacitko porovnani |
-| `quick-view/modal.php` | Okno lightbox rychleho nahledu |
-| `ajax-search/form.php` | Pole AJAX vyhledavace |
-| `ajax-search/results.php` | Dropdown s vysledky vyhledavani |
-| `ajax-filters/container.php` | Kontejner AJAX filtru |
-| `product-slider/slider.php` | Kontejner slideru |
-| `badges/badge.php` | Jednotlivy stitek |
+| `wishlist/table.php`                     | Tabulka seznamu přání                   |
+| `wishlist/button.php`                    | Tlačítko přidání na seznam              |
+| `wishlist/header-icon.php`               | Ikona v hlavičce                        |
+| `compare/table.php`                      | Tabulka porovnání                       |
+| `compare/button.php`                     | Tlačítko porovnání                      |
+| `compare/floating-bar.php`               | Lišta porovnání (dolní část obrazovky)  |
+| `quick-view/modal.php`                   | Okno lightbox rychlého náhledu          |
+| `quick-view/button.php`                  | Tlačítko rychlého náhledu               |
+| `ajax-search/form.php`                   | Pole AJAX vyhledávače                   |
+| `ajax-search/results.php`                | Dropdown s výsledky vyhledávání         |
+| `ajax-search/result-item.php`            | Jednotlivý výsledek vyhledávání         |
+| `ajax-filters/container.php`             | Kontejner AJAX filtrů                   |
+| `ajax-filters/filter-category.php`       | Filtr kategorie                         |
+| `ajax-filters/filter-price.php`          | Filtr ceny (posuvník)                   |
+| `ajax-filters/filter-attribute.php`      | Filtr atributu                          |
+| `ajax-filters/active-filters.php`        | Lišta aktivních filtrů                  |
+| `product-slider/slider.php`              | Kontejner slideru                       |
+| `product-slider/item.php`                | Karta produktu ve slideru               |
+| `badges/badge.php`                       | Jednotlivý štítek                       |
+| `badges/container.php`                   | Kontejner štítků na produktu            |
+| `waitlist/form.php`                      | Formulář seznamu čekajících             |
+| `waitlist/email.php`                     | E-mail oznámení o dostupnosti           |
 
-### Nastroje
+### Nástroje
 
-| Soubor sablony | Popis |
+| Soubor šablony                           | Popis                                   |
 | ---------------------------------------- | --------------------------------------- |
-| `tools/compliance-checklist.php` | Kontrolni seznam souladu |
-| `tools/audit-report.php` | Zprava z auditu |
-| `tools/security-incident-form.php` | Formular bezpecnostniho incidentu |
-| `tools/verified-review-badge.php` | Odznak overene recenze |
+| `tools/compliance-checklist.php`         | Kontrolní seznam souladu                |
+| `tools/audit-report.php`                 | Zpráva z auditu                         |
+| `tools/security-incident-form.php`       | Formulář bezpečnostního incidentu       |
+| `tools/verified-review-badge.php`        | Odznak ověřené recenze                  |
 
-## Dostupne promenne v sablonach
+## Dostupné proměnné v šablonách
 
-Kazda sablona obdrzi sadu promennych. Priklad pro `omnibus/price-display.php`:
+Každá šablona obdrží sadu proměnných. Příklad pro `omnibus/price-display.php`:
 
 ```php
 <?php
 /**
- * Sablona zobrazeni ceny Omnibus
+ * Šablona zobrazení ceny Omnibus
  *
- * Dostupne promenne:
- * @var float  $lowest_price  Nejnizsi cena za obdobi
- * @var int    $days          Pocet dnu
+ * Dostupné proměnné:
+ * @var float  $lowest_price  Nejnižší cena za období
+ * @var int    $days          Počet dní
  * @var int    $product_id    ID produktu
- * @var string $price_html    Formatovana cena HTML
- * @var string $date          Datum nejnizsi ceny
+ * @var string $price_html    Formátovaná cena HTML
+ * @var string $date          Datum nejnižší ceny
  *
  * @package Polski
  */
@@ -139,23 +154,47 @@ defined('ABSPATH') || exit;
 </div>
 ```
 
-## Hook pro zmenu cesty sablon
+## Kontrola verze šablony
+
+Každá šablona má komentář `@version`. Po aktualizaci pluginu zkontrolujte, zda přepsané šablony vyžadují aktualizaci.
+
+Varování o zastaralých šablonách se objevuje v **WooCommerce > Stav > Polski**.
+
+```php
+/**
+ * @version 1.5.0
+ */
+```
+
+## Hook pro změnu cesty šablon
+
+Pokud chcete změnit výchozí umístění šablon v motivu:
 
 ```php
 add_filter('polski/template/path', function (string $path): string {
-    return 'custom-polski-templates/'; // misto 'polski/'
+    return 'custom-polski-templates/'; // místo 'polski/'
 });
 ```
 
-## Ladeni sablon
+Pak budou šablony hledány v: `wp-content/themes/vas-motiv/custom-polski-templates/`
 
-Pro zjisteni, ktera sablona je aktualne nacitana, aktivujte rezim ladeni:
+## Ladění šablon
+
+Zjistěte, která šablona je načítána, zapnutím režimu ladění:
 
 ```php
 // Ve wp-config.php
 define('POLSKI_TEMPLATE_DEBUG', true);
 ```
 
-Hlaseni problemu: [github.com/wppoland/polski/issues](https://github.com/wppoland/polski/issues)
+V režimu ladění je každá šablona obklopena HTML komentáři s cestou:
 
-<div class="disclaimer">Tato stránka slouží pouze k informačním účelům a nepředstavuje právní poradenství. Před implementací se poraďte s právníkem. Polski for WooCommerce je open source software (GPLv2) poskytovaný bez záruky.</div>
+```html
+<!-- polski template: /themes/vas-motiv/polski/omnibus/price-display.php -->
+...
+<!-- /polski template -->
+```
+
+Hlášení problémů: [github.com/wppoland/polski/issues](https://github.com/wppoland/polski/issues)
+
+<div class="disclaimer">Tato stránka má pouze informativní charakter a nepředstavuje právní poradenství. Před nasazením se poraďte s právníkem. Polski for WooCommerce je open source software (GPLv2) poskytovaný bez záruky.</div>

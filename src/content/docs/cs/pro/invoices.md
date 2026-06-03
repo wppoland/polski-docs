@@ -1,136 +1,136 @@
 ---
-title: System faktur
-description: Dokumentace systemu faktur Polski PRO for WooCommerce - faktura DPH, opravna faktura, uctenka, dodaci list, generovani PDF, cislovani a REST API.
+title: Systém faktur
+description: Dokumentace systému faktur Polski PRO for WooCommerce - Faktura VAT, opravná, paragon, WZ, generování PDF, číslování a REST API.
 ---
 
-Modul faktur generuje prodejni dokumenty primo ve WooCommerce. Podporuje ctyri typy dokumentu, automaticke cislovani a PDF.
+Modul faktur generuje prodejní dokumenty přímo ve WooCommerce. Podporuje čtyři typy dokumentů, automatické číslování a PDF.
 
-## Typy dokumentu
+## Typy dokumentů
 
-### Faktura DPH
+### Faktura VAT
 
-Standardni faktura DPH obsahujici:
+Standardní faktura VAT s údaji:
 
-- udaje prodavajiciho a kupujiciho (vcetne DIC obou stran)
-- polozky s nazvem, mnozstvim, cenou bez DPH, sazbou DPH, castkou DPH a cenou s DPH
-- souhrn s rozpisem podle sazeb DPH
-- cislo faktury, datum vystaveni a datum uskutecneni zdanitelneho plneni
-- splatnost a zpusob platby
+- údaje prodávajícího a kupujícího (včetně NIP obou stran)
+- položky s názvem, množstvím, cenou netto, sazbou VAT, částkou VAT a cenou brutto
+- souhrn s rozdělením podle sazeb VAT
+- číslo faktury, datum vystavení a datum prodeje
+- termín a formu platby
 
-### Opravna faktura
+### Opravná faktura
 
-Opravny dokument k drive vystavene fakture. Obsahuje:
+Korekce k dřívější faktuře. Obsahuje:
 
-- cislo a datum opravovane faktury
-- polozky pred opravou a po oprave
-- rozdil hodnot
-- duvod opravy
+- číslo a datum opravované faktury
+- položky před korekcí a po korekci
+- rozdíl hodnoty
+- důvod korekce
 
-Opravnou fakturu lze vystavit z panelu objednavky nebo pres REST API.
+Vystavte korekci z panelu objednávky nebo přes REST API.
 
-### Uctenka
+### Paragon
 
-Zjednoduseny prodejni dokument pro fyzicke osoby (bez DIC kupujiciho). Obsahuje polozky s cenami vcetne DPH a souhrn.
+Zjednodušený dokument pro zákazníky bez NIP. Obsahuje položky s cenami brutto a souhrn.
 
-### Dodaci list (packing slip)
+### Dokument WZ (packing slip)
 
-Dokument o vydani zbozi prilozeny k zasilce. Obsahuje seznam produktu, mnozstvi a pripadne poznamky k objednavce. Neobsahuje ceny.
+Dokument přikládaný k zásilce. Obsahuje seznam produktů a množství, bez cen.
 
 ## Konfigurace
 
-Prejdete do **WooCommerce > Nastaveni > Polski > Moduly PRO > Faktury**.
+Přejděte do **WooCommerce > Nastavení > Polski > Moduly PRO > Faktury**.
 
-### Udaje prodavajiciho
+### Údaje prodávajícího
 
 | Pole | Popis |
-|------|-------|
-| Nazev firmy | Uplny nazev firmy prodavajiciho |
-| DIC | Danove identifikacni cislo prodavajiciho |
-| Adresa | Ulice, cislo, PSC, mesto |
-| Cislo bankovniho uctu | Cislo uctu pro prevody |
-| Kontaktni e-mail | E-mailova adresa zobrazena na fakture |
+|------|------|
+| Název firmy | Plný název firmy prodávajícího |
+| NIP | Daňové identifikační číslo prodávajícího |
+| Adresa | Ulice, číslo, PSČ, město |
+| Číslo bankovního účtu | Číslo účtu pro převody |
+| Kontaktní e-mail | E-mailová adresa viditelná na faktuře |
 
-### Cislovani
+### Číslování
 
-Plugin nabizi nekolik strategii cislovani faktur:
+Dostupné strategie číslování:
 
-| Strategie | Format | Priklad |
+| Strategie | Formát | Příklad |
 |-----------|--------|---------|
-| Rocni | `FV/{numer}/{rok}` | FV/1/2026 |
-| Mesicni | `FV/{numer}/{miesiąc}/{rok}` | FV/1/04/2026 |
-| Prubezne | `FV/{numer}` | FV/1 |
-| Vlastni vzor | Definovany uzivatelem | FV/2026/04/001 |
+| Roční | `FV/{numer}/{rok}` | FV/1/2026 |
+| Měsíční | `FV/{numer}/{miesiąc}/{rok}` | FV/1/04/2026 |
+| Průběžná | `FV/{numer}` | FV/1 |
+| Vlastní vzor | Definovaný uživatelem | FV/2026/04/001 |
 
-Dostupne tokeny ve vlastnim formatu:
+Dostupné tokeny ve vlastním formátu:
 
-- `{numer}` - poradove cislo faktury (s nulovanim podle strategie)
-- `{rok}` - rok ctyrmistny
-- `{miesiac}` - mesic dvoumistny
-- `{dzien}` - den dvoumistny
-- `{id_zamowienia}` - ID objednavky WooCommerce
+- `{numer}` - pořadové číslo faktury (s nulováním podle strategie)
+- `{rok}` - čtyřmístný rok
+- `{miesiac}` - dvojmístný měsíc
+- `{dzien}` - dvojmístný den
+- `{id_zamowienia}` - ID objednávky WooCommerce
 
-### Automaticke generovani
+### Automatické generování
 
-Plugin muze automaticky vygenerovat fakturu po zmene stavu objednavky na "Dokonceno" (completed). Zapnete moznost **Automaticke generovani faktury** v nastaveni modulu.
+Zapněte volbu **Automatické generování faktury**, aby plugin vytvořil fakturu po změně stavu na "Dokončeno".
 
-Muzete take nakonfigurovat automaticke odesilani PDF faktury jako prilohy e-mailu WooCommerce "Objednavka dokoncena".
+Můžete také zapnout automatické přiložení PDF faktury k e-mailu "Objednávka dokončena".
 
-## Generovani PDF
+## Generování PDF
 
-PDF faktury jsou generovany pomoci knihovny TCPDF. Sablona PDF obsahuje:
+PDF je generováno knihovnou TCPDF. Šablona obsahuje:
 
-- logo firmy (volitelne, konfigurovatelne v nastaveni)
-- udaje prodavajiciho a kupujiciho
-- tabulku polozek se sloupci DPH
-- souhrn s rozpisem podle sazeb DPH
-- paticku s udaji firmy
+- logo firmy (volitelné, konfigurovatelné v nastavení)
+- údaje prodávajícího a kupujícího
+- tabulku položek se sloupci VAT
+- souhrn s rozdělením podle sazeb VAT
+- patičku s údaji firmy
 
-### Pisma
+### Písma
 
-Plugin pouziva pismo DejaVu Sans, ktere podporuje ceske a polske diakritiche znaky. Nevyzaduje dalsi konfiguraci.
+Plugin používá písmo DejaVu Sans s podporou polských znaků. Dodatečná konfigurace není potřeba.
 
-## Status faktury
+## Stav faktury
 
-Kazda faktura prochazi cyklem statusu:
+Cyklus stavů faktury:
 
 ```
-Draft (Koncept) → Issued (Vystavena) → Sent (Odeslana) → Paid (Zaplacena)
-                                                        → Cancelled (Stornovana)
+Draft (Koncept) → Issued (Vystavena) → Sent (Odeslána) → Paid (Zaplacena)
+                                                        → Cancelled (Zrušena)
 ```
 
-| Status | Popis |
-|--------|-------|
-| Draft | Faktura vytvorena, ale dosud nevystavena. Lze upravovat |
-| Issued | Faktura vystavena s pridelenym cislem. Nelze upravovat |
-| Sent | Faktura odeslana zakaznikovi (e-mail nebo KSeF) |
+| Stav | Popis |
+|--------|------|
+| Draft | Faktura vytvořena, ale ještě nevystavena. Lze upravovat |
+| Issued | Faktura vystavena s přiděleným číslem. Nelze upravovat |
+| Sent | Faktura odeslána zákazníkovi (e-mail nebo KSeF) |
 | Paid | Faktura zaplacena |
-| Cancelled | Faktura stornovana. Vyzaduje vystaveni opravne faktury |
+| Cancelled | Faktura zrušena. Vyžaduje vystavení korekce |
 
-## Panel objednavky
+## Panel objednávky
 
-V administracnim panelu objednavky WooCommerce modul pridava meta box "Faktury" s nasledujicimi funkcemi:
+V panelu objednávky modul přidává meta box "Faktury" s funkcemi:
 
-- **Vystavit fakturu** - vygeneruje fakturu na zaklade udaju objednavky
-- **Stahnout PDF** - stahne fakturu ve formatu PDF
-- **Odeslat zakaznikovi** - odesle fakturu e-mailem
-- **Vystavit opravu** - vytvori opravnou fakturu
-- **Historie** - seznam vsech dokumentu souvisejicich s objednavkou
+- **Vystavit fakturu** - generuje fakturu na základě údajů objednávky
+- **Stáhnout PDF** - stáhne fakturu ve formátu PDF
+- **Odeslat zákazníkovi** - odešle fakturu e-mailem
+- **Vystavit korekci** - vytvoří opravnou fakturu
+- **Historie** - seznam všech dokumentů spojených s objednávkou
 
-## DPH na polozkach
+## VAT na položkách
 
-Kazda polozka faktury obsahuje podrobne udaje o DPH:
+Každá položka faktury obsahuje podrobné údaje VAT:
 
-- jednotkova cena bez DPH
-- sazba DPH (23 %, 8 %, 5 %, 0 %, osv., np., oo.)
-- jednotkova castka DPH
-- hodnota bez DPH
-- hodnota s DPH
+- jednotková cena netto
+- sazba VAT (23%, 8%, 5%, 0%, zw., np., oo.)
+- jednotková částka VAT
+- hodnota netto
+- hodnota brutto
 
-Plugin automaticky rozpoznava sazbu DPH z konfigurace WooCommerce Tax. Podporuje vice sazeb DPH na jedne fakture se spravnym souhrnem.
+Plugin načítá sazby VAT z konfigurace WooCommerce Tax. Podporuje více sazeb na jedné faktuře.
 
 ## REST API
 
-Modul poskytuje endpointy REST API pro programovou spravu faktur.
+Endpointy REST API pro správu faktur:
 
 ### Seznam faktur
 
@@ -138,19 +138,19 @@ Modul poskytuje endpointy REST API pro programovou spravu faktur.
 GET /wp-json/polski-pro/v1/invoices
 ```
 
-Parametry dotazu:
+Parametry query:
 
 | Parametr | Typ | Popis |
-|----------|-----|-------|
-| `order_id` | int | Filtrovat podle ID objednavky |
-| `status` | string | Filtrovat podle statusu (draft, issued, sent, paid, cancelled) |
+|----------|-----|------|
+| `order_id` | int | Filtrovat podle ID objednávky |
+| `status` | string | Filtrovat podle stavu (draft, issued, sent, paid, cancelled) |
 | `type` | string | Filtrovat podle typu (invoice, correction, receipt, packing_slip) |
 | `date_from` | string | Datum od (YYYY-MM-DD) |
 | `date_to` | string | Datum do (YYYY-MM-DD) |
-| `per_page` | int | Pocet vysledku na stranku (vychozi 20) |
-| `page` | int | Cislo stranky |
+| `per_page` | int | Počet výsledků na stránku (výchozí 20) |
+| `page` | int | Číslo stránky |
 
-### Vytvoreni faktury
+### Vytvoření faktury
 
 ```
 POST /wp-json/polski-pro/v1/invoices
@@ -164,15 +164,15 @@ POST /wp-json/polski-pro/v1/invoices
 }
 ```
 
-### Stazeni PDF
+### Stažení PDF
 
 ```
 GET /wp-json/polski-pro/v1/invoices/{id}/pdf
 ```
 
-Vraci soubor PDF jako `application/pdf` s hlavickou `Content-Disposition: attachment`.
+Vrací soubor PDF jako `application/pdf` s hlavičkou `Content-Disposition: attachment`.
 
-### Vystaveni opravne faktury
+### Vystavení korekce
 
 ```
 POST /wp-json/polski-pro/v1/invoices/{id}/correction
@@ -198,13 +198,13 @@ POST /wp-json/polski-pro/v1/invoices/{id}/correction
 GET /wp-json/polski-pro/v1/invoices/stats
 ```
 
-Vraci statistiky faktur: celkovy pocet, hodnoty bez DPH/s DPH, rozpis podle statusu.
+Vrací statistiky faktur: celkový počet, hodnoty netto/brutto, rozdělení podle stavů.
 
 ## Hooky
 
 ### `polski_pro/invoices/before_generate`
 
-Akce volana pred vygenerovanim faktury.
+Akce volaná před vygenerováním faktury.
 
 ```php
 /**
@@ -214,12 +214,12 @@ Akce volana pred vygenerovanim faktury.
 do_action('polski_pro/invoices/before_generate', int $order_id, string $type);
 ```
 
-**Priklad:**
+**Příklad:**
 
 ```php
 add_action('polski_pro/invoices/before_generate', function (int $order_id, string $type): void {
     if ($type === 'invoice') {
-        // Logovani generovani faktury
+        // Logowanie generowania faktury
         error_log("Generowanie faktury dla zamówienia #{$order_id}");
     }
 }, 10, 2);
@@ -227,7 +227,7 @@ add_action('polski_pro/invoices/before_generate', function (int $order_id, strin
 
 ### `polski_pro/invoices/number_format`
 
-Filtruje format cisla faktury.
+Filtruje formát čísla faktury.
 
 ```php
 /**
@@ -238,7 +238,7 @@ Filtruje format cisla faktury.
 apply_filters('polski_pro/invoices/number_format', string $number, string $type, int $order_id): string;
 ```
 
-**Priklad:**
+**Příklad:**
 
 ```php
 add_filter('polski_pro/invoices/number_format', function (string $number, string $type, int $order_id): string {
@@ -251,7 +251,7 @@ add_filter('polski_pro/invoices/number_format', function (string $number, string
 
 ### `polski_pro/invoices/pdf_content`
 
-Filtruje data predavana do sablony PDF.
+Filtruje data předávaná do šablony PDF.
 
 ```php
 /**
@@ -261,7 +261,7 @@ Filtruje data predavana do sablony PDF.
 apply_filters('polski_pro/invoices/pdf_content', array $data, int $invoice_id): array;
 ```
 
-**Priklad:**
+**Příklad:**
 
 ```php
 add_filter('polski_pro/invoices/pdf_content', function (array $data, int $invoice_id): array {
@@ -270,25 +270,25 @@ add_filter('polski_pro/invoices/pdf_content', function (array $data, int $invoic
 }, 10, 2);
 ```
 
-## Nejcastejsi problemy
+## Nejčastější problémy
 
-### PDF generuje prazdne stranky
+### PDF generuje prázdné stránky
 
-1. Overite, ze rozsireni PHP `mbstring` je nainstalovano
-2. Ujistete se, ze adresar `wp-content/uploads/polski-pro/invoices/` ma opravneni pro zapis (755)
-3. Zkontrolujte, ze udaje prodavajiciho jsou vyplneny v nastaveni
+1. Zkontrolujte, zda je nainstalováno rozšíření PHP `mbstring`
+2. Ujistěte se, že adresář `wp-content/uploads/polski-pro/invoices/` má oprávnění k zápisu (755)
+3. Ověřte, zda jsou údaje prodávajícího vyplněny v nastavení
 
-### Cislovani se resetuje
+### Číslování se resetuje
 
-Cislovani se resetuje podle zvolene strategie - rocni se resetuje 1. ledna, mesicni 1. dne kazdeho mesice. Pokud chcete prubezne cislovani, zvolte strategii "Prubezne".
+Číslování se resetuje podle strategie: roční - 1. ledna, měsíční - 1. dne měsíce. Chcete průběžné číslování? Zvolte strategii "Průběžná".
 
-### Chybi DPH na polozkach
+### Chybí VAT na položkách
 
-Zkontrolujte konfiguraci WooCommerce Tax. Plugin cte sazby DPH z danovych nastaveni WooCommerce. Ujistete se, ze sazby jsou spravne nastaveny.
+Zkontrolujte konfiguraci WooCommerce Tax. Ujistěte se, že sazby VAT pro Polsko jsou správně nastaveny.
 
-## Souvisejici zdroje
+## Související zdroje
 
 - [Integrace KSeF](/pro/ksef/)
-- [Nahlasit problem](https://github.com/wppoland/polski/issues)
+- [Nahlásit problém](https://github.com/wppoland/polski/issues)
 
-<div class="disclaimer">Tato stránka slouží pouze k informačním účelům a nepředstavuje právní poradenství. Před implementací se poraďte s právníkem. Polski for WooCommerce je open source software (GPLv2) poskytovaný bez záruky.</div>
+<div class="disclaimer">Tato stránka má výhradně informativní charakter a nepředstavuje právní poradenství. Před nasazením se poraďte s právníkem. Polski for WooCommerce je open source software (GPLv2) dodávaný bez záruky.</div>

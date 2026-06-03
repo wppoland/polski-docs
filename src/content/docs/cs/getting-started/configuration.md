@@ -1,242 +1,242 @@
 ---
 title: Konfigurace pluginu
-description: Prvni kroky po instalaci pluginu Polski for WooCommerce. Aktivace modulu, dashboard souladu, prehled nastaveni a prizpusobeni potrebam obchodu.
+description: První kroky po instalaci pluginu Polski for WooCommerce. Zapínání modulů, dashboard souladu, přehled nastavení a přizpůsobení potřebám obchodu.
 ---
 
-## Hlavni panel pluginu
+## Hlavní panel pluginu
 
-Po aktivaci pluginu prejdete do **WooCommerce > Polski**. Uvidite hlavni panel se sekcemi:
+Po aktivaci pluginu přejděte do **WooCommerce > Polski**. Uvidíte hlavní panel se sekcemi:
 
-- **Stav souladu** - rychly prehled, ktere pravni pozadavky jsou splneny
-- **Aktivni moduly** - seznam aktivovanych modulu s odkazy na jejich nastaveni
-- **Vyzadovane akce** - oznameni o chybejicich konfiguracich
-- **Rychle odkazy** - odkazy na nejdulezitejsi nastaveni
+- **Stav souladu** - rychlý přehled, které právní požadavky jsou splněny
+- **Aktivní moduly** - seznam zapnutých modulů s odkazy na jejich nastavení
+- **Požadované kroky** - oznámení o chybějících konfiguracích
+- **Rychlé odkazy** - odkazy na nejdůležitější nastavení
 
-![Dashboard modulu Polski for WooCommerce](../../../../assets/screenshots/screenshot-1-modules-dashboard.png)
+![Dashboard modulů Polski for WooCommerce](../../../../assets/screenshots/screenshot-1-modules-dashboard.png)
 
-:::tip[Pruvodce konfiguraci]
-Pokud teprve zacinat, pouzijte [pruvodce konfiguraci](/cs/getting-started/wizard/). Provede vas nejdulezitejsimi nastavenimi krok za krokem. Muzete jej spustit znovu kdykoli.
+:::tip[Průvodce konfigurací]
+Pokud teprve začínáte, použijte [průvodce konfigurací](getting-started/wizard/). Provede vás krok za krokem nejdůležitějšími nastaveními. Můžete ho kdykoli spustit znovu.
 :::
 
 ---
 
-## Aktivace a deaktivace modulu
+## Zapínání a vypínání modulů
 
-Plugin funguje modularne - po instalaci jsou vsechny moduly vypnute. Aktivujete pouze ty, ktere potrebujete.
+Plugin funguje modulárně - po instalaci jsou všechny moduly vypnuté. Zapínáte pouze ty, které potřebujete.
 
-### Jak aktivovat modul
+### Jak zapnout modul
 
-1. Prejdete do **WooCommerce > Polski > Moduly**
-2. Najdete pozadovany modul v seznamu
-3. Kliknete na prepinac u nazvu modulu pro jeho aktivaci
-4. Kliknete **Ulozit zmeny** ve spodni casti stranky
+1. Přejděte do **WooCommerce > Polski > Moduly**
+2. Najděte na seznamu modul, který vás zajímá
+3. Klikněte na přepínač vedle názvu modulu, abyste ho zapnuli
+4. Klikněte na **Uložit změny** v dolní části stránky
 
-### Jak deaktivovat modul
+### Jak vypnout modul
 
-Kliknete na prepinac u aktivniho modulu. Deaktivace neodstrani data - muzete modul znovu aktivovat bez ztraty nastaveni.
+Klikněte na přepínač u aktivního modulu, abyste ho vypnuli. Vypnutí nesmaže data - modul můžete znovu zapnout bez ztráty nastavení.
 
-### Doporucene moduly pro start
+### Doporučené moduly na začátek
 
-Pro typicky polsky obchod aktivujte minimalne tyto moduly:
+Pro typický polský obchod zapněte alespoň tyto moduly:
 
-| Modul | Proc je dulezity |
+| Modul | Proč je důležitý |
 |-------|-------------------|
-| Omnibus | Zakonny pozadavek - zobrazovani historie cen |
-| Tlacitko objednavky | Zakonny pozadavek - "Objednavka se zavazkem platby" |
-| Pravni checkboxy | Zakonny pozadavek - souhlasy pri skladani objednavky |
-| Pravni stranky | Obchodni podminky a zasady ochrany osobnich udaju |
-| Pravo na odstoupeni | Zakonny pozadavek - formular a pouceni o odstoupeni |
-| Doba dodani | Doporuceno - odhadovana doba dodani na strance produktu |
-| GPSR | Vyzadovano od 13. 12. 2024 - udaje o bezpecnosti produktu |
+| Omnibus | Vyžadováno zákonem - zobrazování historie cen |
+| Tlačítko objednávky | Vyžadováno zákonem - "Objednávám s povinností platby" |
+| Právní checkboxy | Vyžadováno zákonem - souhlasy při dokončení objednávky |
+| Právní stránky | Obchodní podmínky a zásady ochrany osobních údajů |
+| Právo na odstoupení | Vyžadováno zákonem - formulář a poučení o odstoupení |
+| Doba dodání | Doporučeno - odhadovaná doba dodání na kartě produktu |
+| GPSR | Vyžadováno od 13.12.2024 - údaje o bezpečnosti produktu |
 
 ---
 
 ## Dashboard souladu
 
-Zde zkontrolujete, zda vas obchod splnuje pravni pozadavky. Prejdete do **WooCommerce > Polski > Soulad**.
+Zde zkontrolujete, zda váš obchod splňuje právní požadavky. Přejděte do **WooCommerce > Polski > Soulad**.
 
-### Ukazatele stavu
+### Indikátory stavu
 
-Kazdy pravni pozadavek ma jeden ze tri stavu:
+Každý právní požadavek má jeden ze tří stavů:
 
-- **Vyhovujici** (zeleny) - pozadavek je splnen, konfigurace je kompletni
-- **Vyzaduje pozornost** (zluty) - modul je aktivovan, ale chybi cast konfigurace
-- **Nevyhovujici** (cerveny) - modul je deaktivovan nebo konfigurace je nekompletni
+- **V souladu** (zelený) - požadavek splněn, konfigurace kompletní
+- **Vyžaduje pozornost** (žlutý) - modul zapnutý, ale chybí část nastavení
+- **Není v souladu** (červený) - modul vypnutý nebo konfigurace neúplná
 
-### Kontrolni seznam
+### Kontrolní seznam
 
-Dashboard zobrazuje kontrolni seznam s konkretnymi kroky k provedeni:
+Dashboard zobrazuje kontrolní seznam s kroky k provedení:
 
 ```
-[x] Tlacitko objednavky - text v souladu s pravem
-[x] Omnibus - zobrazovani historie cen aktivovano
-[ ] Obchodni podminky - stranka neni prirazena
-[ ] Zasady ochrany osobnich udaju - stranka neni prirazena
-[ ] GPSR - chybi udaje vyrobce u 12 produktu
+[x] Tlačítko objednávky - text v souladu se zákonem
+[x] Omnibus - zobrazování historie cen zapnuto
+[ ] Obchodní podmínky - stránka s podmínkami není přiřazena
+[ ] Zásady ochrany osobních údajů - stránka není přiřazena
+[ ] GPSR - chybí údaje výrobce u 12 produktů
 ```
 
-Kliknutim na libovolnou polozku seznamu prejdete primo na prislusna nastaveni.
+Klikněte na libovolnou položku seznamu, abyste přešli přímo do odpovídajících nastavení.
 
 ---
 
-## Konfigurace jednotlivych skupin modulu
+## Konfigurace jednotlivých skupin modulů
 
-### Pravni pozadavky
+### Právní požadavky
 
-Prejdete do **WooCommerce > Polski > Pravni soulad** pro konfiguraci:
+Přejděte do **WooCommerce > Polski > Právní soulad**, abyste nakonfigurovali:
 
-**Omnibus (cenova smernice)**
+**Omnibus (cenová směrnice)**
 
-1. Aktivujte modul Omnibus
-2. Nastavte obdobi sledovani cen (vychozi 30 dni)
-3. Zvolte format zobrazovani nejnizsi ceny
-4. Ulozte zmeny
+1. Zapněte modul Omnibus
+2. Nastavte období sledování cen (výchozí 30 dní)
+3. Vyberte formát zobrazování nejnižší ceny
+4. Uložte změny
 
-Plugin zacne zaznamenavat historii cen od okamziku aktivace modulu.
+Plugin začne zaznamenávat historii cen od okamžiku zapnutí modulu.
 
-**GPSR (bezpecnost produktu)**
+**GPSR (bezpečnost produktů)**
 
-1. Aktivujte modul GPSR
-2. Doplnte udaje vychoziho vyrobce v globalnich nastaveních
-3. Pro jednotlive produkty - upravte udaje v zalozce "GPSR" na strance editace produktu
+1. Zapněte modul GPSR
+2. Doplňte údaje výchozího výrobce v globálních nastaveních
+3. Pro jednotlivé produkty - upravte údaje na záložce "GPSR" na stránce úpravy produktu
 
-**Pravni stranky**
+**Právní stránky**
 
-1. Aktivujte modul pravnich stranek
-2. Pouzijte generator pro vytvoreni obchodnich podminek, zasad ochrany osobnich udaju a zasad vraceni zbozi
-3. Priradte vygenerovane stranky v **WooCommerce > Nastaveni > Pokrocile > Nastaveni stranky**
+1. Zapněte modul právních stránek
+2. Použijte generátor k vytvoření obchodních podmínek, zásad ochrany osobních údajů a zásad vrácení zboží
+3. Přiřaďte vygenerované stránky v **WooCommerce > Nastavení > Pokročilé > Nastavení stránek**
 
 ### Ceny a informace o produktu
 
-Prejdete do **WooCommerce > Polski > Ceny** pro konfiguraci:
+Přejděte do **WooCommerce > Polski > Ceny**, abyste nakonfigurovali:
 
-**Jednotkove ceny**
+**Jednotkové ceny**
 
-1. Aktivujte modul jednotkovych cen
-2. Zvolte vychozi mernou jednotku (kg, l, m, ks)
-3. Na strance produktu doplnte pole "Bazove mnozstvi" a "Merna jednotka"
+1. Zapněte modul jednotkových cen
+2. Vyberte výchozí měrnou jednotku (kg, l, m, ks)
+3. Na kartě produktu doplňte pole "Základní množství" a "Měrná jednotka"
 
-Priklad konfigurace v editoru produktu:
-
-```
-Cena produktu: 15,99 PLN
-Bazove mnozstvi: 500
-Merna jednotka: g
-Referencni jednotka: kg
-
-Vysledek: 15,99 PLN / 500g (31,98 PLN/kg)
-```
-
-**Doba dodani**
-
-1. Aktivujte modul doby dodani
-2. Nastavte vychozi dobu dodani (napr. "1-3 pracovni dny")
-3. Volitelne - nastavte individualni dobu pro jednotlive produkty
-
-### Pokladna a objednavky
-
-Prejdete do **WooCommerce > Polski > Pokladna** pro konfiguraci:
-
-**Tlacitko objednavky**
-
-1. Aktivujte modul
-2. Vychozi text je "Zamawiam z obowiązkiem zapłaty"
-3. Text lze prizpusobit, ale musi splnovat pozadavky cl. 17 zakona o pravech spotrebitele
-
-**Pravni checkboxy**
-
-1. Aktivujte modul checkboxu
-2. Pridejte vyzadovane souhlasy (obchodni podminky, zasady ochrany osobnich udaju)
-3. Nakonfigurujte obsah kazdeho checkboxu vcetne odkazu na pravni stranky
-4. Oznacte, ktere checkboxy jsou povinne
-
-Priklad konfigurace checkboxu:
+Příklad konfigurace v editoru produktu:
 
 ```
-Stitek: obchodni podminky
-Obsah: Seznamil/a jsem se s [obchodnimi podminkami] a prijimam jejich ustanoveni.
-Povinny: Ano
+Cena produktu: 15,99 zł
+Základní množství: 500
+Měrná jednotka: g
+Referenční jednotka: kg
+
+Výsledek: 15,99 zł / 500g (31,98 zł/kg)
+```
+
+**Doba dodání**
+
+1. Zapněte modul doby dodání
+2. Nastavte výchozí dobu dodání (např. "1-3 pracovní dny")
+3. Volitelně - nastavte individuální dobu pro jednotlivé produkty
+
+### Pokladna a objednávky
+
+Přejděte do **WooCommerce > Polski > Pokladna**, abyste nakonfigurovali:
+
+**Tlačítko objednávky**
+
+1. Zapněte modul
+2. Výchozí text je "Objednávám s povinností platby"
+3. Text můžete přizpůsobit, ale musí splňovat požadavky čl. 17 zákona o právech spotřebitele
+
+**Právní checkboxy**
+
+1. Zapněte modul checkboxů
+2. Přidejte vyžadované souhlasy (obchodní podmínky, zásady ochrany osobních údajů)
+3. Nakonfigurujte obsah každého checkboxu, včetně odkazů na právní stránky
+4. Označte, které checkboxy jsou povinné
+
+Příklad konfigurace checkboxu:
+
+```
+Štítek: obchodní podmínky
+Obsah: Seznámil/a jsem se s [obchodními podmínkami] a přijímám jejich ustanovení.
+Vyžadováno: Ano
 Odkaz: /obchodni-podminky/
-Pozice: Pred tlacitkem objednavky
+Pozice: Před tlačítkem objednávky
 ```
 
-**Vyhledavani NIP**
+**Vyhledávání NIP**
 
-1. Aktivujte modul NIP
-2. Pole NIP se automaticky objevi na strance pokladny
-3. Po zadani NIP a kliknuti na "Overit" se udaje firmy automaticky doplni z databaze GUS
+1. Zapněte modul NIP
+2. Pole NIP se na stránce pokladny objeví automaticky
+3. Po zadání NIP a kliknutí na "Ověřit" se údaje firmy automaticky doplní z databáze GUS
 
-### Potraviny
+### Potravinové produkty
 
-Moduly pro obchody s potravinami. Prejdete do **WooCommerce > Polski > Potraviny**.
+Moduly pro obchody s potravinami. Přejděte do **WooCommerce > Polski > Potraviny**.
 
-1. Aktivujte potrebne moduly (vyzivove hodnoty, alergeny, Nutri-Score)
-2. Na strance editace produktu se objevi nove zalozky pro doplneni dat
-3. Data se automaticky zobrazi na strance produktu v obchode
+1. Zapněte potřebné moduly (výživové hodnoty, alergeny, Nutri-Score)
+2. V úpravě produktu se objeví nové záložky k vyplnění
+3. Údaje se na stránce produktu zobrazí automaticky
 
-### Moduly obchodu
+### Obchodní moduly
 
-Prejdete do **WooCommerce > Polski > Obchod** pro aktivaci doplnkovych funkci:
+Přejděte do **WooCommerce > Polski > Obchod**, abyste zapnuli další funkce:
 
-- Wishlist, porovnavac, rychly nahled - aktivujte a prizpusobte vzhled
-- AJAX vyhledavac - aktivujte a nakonfigurujte pocet zobrazovanych vysledku
-- AJAX filtry - aktivujte a zvolte atributy pro filtrovani
-- Slider a stitky - nakonfigurujte styl a chovani
+- Seznam přání, porovnávač, rychlý náhled - zapněte a přizpůsobte vzhled
+- Vyhledávač AJAX - zapněte a nakonfigurujte počet zobrazovaných výsledků
+- Filtry AJAX - zapněte a vyberte atributy k filtrování
+- Slider a odznaky - nakonfigurujte styl a chování
 
 ---
 
-## Globalni nastaveni
+## Globální nastavení
 
-V zalozce **WooCommerce > Polski > Nastaveni** naleznete globalni moznosti:
+Na záložce **WooCommerce > Polski > Nastavení** najdete globální možnosti:
 
-### Udaje firmy
+### Údaje firmy
 
-Doplnte zakladni udaje vasi firmy:
+Doplňte základní údaje své firmy:
 
-- Nazev firmy
-- NIP (DIC)
-- REGON (IC)
-- Adresa sidla
-- Kontaktni e-mail
-- Telefonni cislo
+- Název firmy
+- NIP
+- REGON
+- Adresa sídla
+- Kontaktní e-mailová adresa
+- Telefonní číslo
 
-Tyto udaje jsou vyuzivany ruznymi moduly (pravni stranky, GPSR, DSA).
+Tyto údaje využívají různé moduly (právní stránky, GPSR, DSA).
 
-### Vykon
+### Výkon
 
-- **Nacitani zdroju** - CSS a JS nacitane pouze na strankach, kde jsou potreba
-- **Cache** - plugin vyuziva Transients API WordPress pro cachovani dat
-- **Minifikace** - front-endove zdroje jsou minifikovane
+- **Načítání zdrojů** - CSS a JS se načítají jen na stránkách, kde jsou potřeba
+- **Cache** - plugin využívá Transients API WordPress k cachování dat
+- **Minifikace** - frontendové zdroje jsou minifikované
 
 ### Kompatibilita
 
-Pokud motiv nebo jiny plugin zpusobuje konflikt:
+Pokud šablona nebo jiný plugin způsobuje konflikt:
 
-1. Prejdete do **WooCommerce > Polski > Nastaveni > Kompatibilita**
-2. Aktivujte rezim kompatibility pro problematicke moduly
-3. Prizpusobte priority hooku, pokud se elementy zobrazuji v nespravnem poradi
-
----
-
-## Overeni konfigurace
-
-Po konfiguraci zkontrolujte, zda vse funguje:
-
-1. **Dashboard souladu** - prejdete do **WooCommerce > Polski > Soulad** a zkontrolujte, zda jsou vsechny ukazatele zelene
-2. **Stranka produktu** - otevrte libovolny produkt v obchode a zkontrolujte, zda se zobrazuji nove elementy (cena Omnibus, doba dodani, udaje GPSR)
-3. **Stranka pokladny** - udelejte testovaci objednavku a zkontrolujte, zda jsou checkboxy a tlacitko spravne
-4. **Pravni stranky** - otevrte obchodni podminky a zasady ochrany osobnich udaju a zkontrolujte jejich obsah
-
-Muzete take spustit automaticky audit: **WooCommerce > Polski > Nastroje > Audit webu**.
+1. Přejděte do **WooCommerce > Polski > Nastavení > Kompatibilita**
+2. Zapněte režim kompatibility pro problematické moduly
+3. Upravte priority hooků, pokud se prvky zobrazují ve špatném pořadí
 
 ---
 
-## Dalsi kroky
+## Ověření konfigurace
 
-- [Pruvodce konfiguraci](/cs/getting-started/wizard/) - automaticka konfigurace nejdulezitejsich nastaveni
-- [Dashboard souladu](/cs/tools/compliance-dashboard/) - monitorovani stavu pravnich pozadavku
-- [Audit webu](/cs/tools/site-audit/) - automaticka kontrola konfigurace
+Po konfiguraci zkontrolujte, zda vše funguje:
 
-Mate otazku? Napiste na [GitHub Discussions](https://github.com/wppoland/polski/discussions). Nasli jste chybu? Nahlaste ji na [GitHub Issues](https://github.com/wppoland/polski/issues).
+1. **Dashboard souladu** - přejděte do **WooCommerce > Polski > Soulad** a zkontrolujte, zda jsou všechny indikátory zelené
+2. **Stránka produktu** - otevřete libovolný produkt v obchodě a zkontrolujte, zda se zobrazují nové prvky (cena Omnibus, doba dodání, údaje GPSR)
+3. **Stránka pokladny** - dokončete testovací objednávku a zkontrolujte, zda jsou checkboxy a tlačítko správné
+4. **Právní stránky** - otevřete obchodní podmínky a zásady ochrany osobních údajů a zkontrolujte jejich obsah
 
-<div class="disclaimer">Tato stránka slouží pouze k informačním účelům a nepředstavuje právní poradenství. Před implementací se poraďte s právníkem. Polski for WooCommerce je open source software (GPLv2) poskytovaný bez záruky.</div>
+Můžete také spustit automatický audit: **WooCommerce > Polski > Nástroje > Audit obchodu**.
+
+---
+
+## Další kroky
+
+- [Průvodce konfigurací](getting-started/wizard/) - automatická konfigurace nejdůležitějších nastavení
+- [Dashboard souladu](tools/compliance-dashboard/) - monitorování stavu právních požadavků
+- [Audit obchodu](tools/site-audit/) - automatické ověření konfigurace
+
+Máte otázku? Napište na [GitHub Discussions](https://github.com/wppoland/polski/discussions). Našli jste chybu? Nahlaste ji na [GitHub Issues](https://github.com/wppoland/polski/issues).
+
+<div class="disclaimer">Tato stránka má výhradně informativní charakter a nepředstavuje právní poradenství. Před nasazením se poraďte s právníkem. Polski for WooCommerce je open source software (GPLv2) dodávaný bez záruky.</div>

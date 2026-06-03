@@ -1,46 +1,44 @@
 ---
-title: Tlacitko objednavky se zavazkem platby
-description: Konfigurace tlacitka "Zamawiam z obowiązkiem zapłaty" vyzadovaneho polskym spotrebitelskym pravem ve WooCommerce.
+title: Tlačítko objednávky s povinností platby
+description: Konfigurace tlačítka "Objednávám s povinností platby" vyžadovaného polským spotřebitelským právem ve WooCommerce.
 ---
 
-Polske pravo vyzaduje, aby tlacitko objednavky obsahovalo text "objednavka se zavazkem platby" nebo podobny. Plugin automaticky meni vychozi text tlacitka WooCommerce.
+Polské právo vyžaduje, aby tlačítko objednávky obsahovalo text "objednávka s povinností platby" nebo podobný. Zásuvný modul Polski for WooCommerce automaticky mění výchozí text tlačítka WooCommerce.
 
-## Pravni pozadavky
+## Právní požadavky
 
-Podle cl. 17 odst. 3 zakona o pravech spotrebitele, ktery implementuje smernici 2011/83/EU:
+Tlačítko musí jasně poukazovat na povinnost platby. Akceptované varianty:
 
-> "Przedsiębiorca zapewnia, aby konsument w momencie składania zamówienia wyraźnie potwierdził, że wie, iż zamówienie pociąga za sobą obowiązek zapłaty."
+- "Objednávám s povinností platby"
+- "Objednávám a platím"
+- "Kupuji a platím"
 
-Tlacitko musi obsahovat formulaci jednoznacne ukazujici na zavazek platby. Akceptovane varianty:
+Texty "Odeslat objednávku", "Objednat" nebo "Potvrdit" nesplňují požadavky a hrozí za ně sankce.
 
-- "Zamawiam z obowiązkiem zapłaty"
-- "Zamawiam i płacę"
-- "Kupuję i płacę"
-
-Pouziti textu typu "Slozit objednavku", "Objednat" nebo "Potvrdit" je v rozporu s pravem a muze vest k sankcim.
+![Stránka pokladny s právními zaškrtávacími poli a tlačítkem objednávky](../../../../assets/screenshots/screenshot-3-checkout-checkboxes.png)
 
 ## Konfigurace
 
-Prejdete do **WooCommerce > Nastaveni > Polski > Pokladna** a nakonfigurujte sekci "Tlacitko objednavky".
+Přejděte do **WooCommerce > Nastavení > Polski > Pokladna** a nakonfigurujte sekci "Tlačítko objednávky".
 
-### Nastaveni
+### Nastavení
 
-| Nastaveni | Vychozi hodnota | Popis |
+| Nastavení | Výchozí hodnota | Popis |
 |------------|-----------------|------|
-| Text tlacitka | Zamawiam z obowiązkiem zapłaty | Text zobrazovany na tlacitku |
-| Prepsat pro vsechny platebni metody | Ano | Zda pouzit text nezavisle na zvolene metode |
-| Prepsat texty platebnich bran | Ano | Zda prepsat texty nastavene pluginy platebnich bran |
+| Text tlačítka | Objednávám s povinností platby | Text zobrazený na tlačítku |
+| Přepsat pro všechny platební metody | Ano | Zda použít text bez ohledu na zvolenou metodu |
+| Přepsat texty platebních bran | Ano | Zda přepisovat texty nastavené zásuvnými moduly platebních bran |
 
-### Texty dle platebni metody
+### Texty podle platební metody
 
-Nektere platebni brany (napr. PayPal, Przelewy24) nastavuji vlastni texty tlacitek. Plugin umoznuje zvolit, zda:
+Některé platební brány (např. PayPal, Przelewy24) nastavují vlastní texty tlačítek. Zásuvný modul umožňuje zvolit:
 
-1. **Prepsat vse** - vzdy zobrazuje nastaveny text (doporuceno)
-2. **Zachovat texty bran** - umoznuje branam nastavovat vlastni texty (ujistete se, ze jsou v souladu s pravem)
+1. **Přepsat všechny** - vždy zobrazí nastavený text (doporučeno)
+2. **Zachovat texty bran** - umožní branám nastavit vlastní texty (ujistěte se, že jsou v souladu s právem)
 
-## Technicka implementace
+## Technická implementace
 
-Plugin upravuje text tlacitka pomoci filtru WooCommerce:
+Zásuvný modul mění text tlačítka filtrem WooCommerce:
 
 ```php
 add_filter('woocommerce_order_button_text', function (): string {
@@ -50,29 +48,29 @@ add_filter('woocommerce_order_button_text', function (): string {
 
 ### Kompatibilita s Block Checkout
 
-Plugin podporuje jak klasicky checkout (shortcode), tak novy Block Checkout (Gutenberg). V pripade Block Checkout se uprava provadi pres:
+Zásuvný modul funguje s klasickou pokladnou (shortcode) i Block Checkout (Gutenberg). Block Checkout využívá:
 
-- filtr `woocommerce_order_button_text` (klasicky)
+- filtr `woocommerce_order_button_text` (klasický)
 - endpoint Store API (Block Checkout)
 
-### Kompatibilita s popularnimi pluginy
+### Kompatibilita s oblíbenými zásuvnými moduly
 
-Plugin je kompatibilni s popularnimi platebnimi branami na polskem trhu:
+Zásuvný modul funguje s oblíbenými platebními branami v Polsku:
 
 - Przelewy24
 - PayU
 - Tpay
 - Stripe
 - PayPal
-- BLIK (pres ruzne brany)
+- BLIK (přes různé brány)
 
-## Prizpusobeni textu
+## Přizpůsobení textu
 
-### Zmena textu v nastaveních
+### Změna textu v nastavení
 
-Nejjednodussi zpusob - zmente text v **WooCommerce > Nastaveni > Polski > Pokladna**. Pamatujte, ze novy text musi stale obsahovat informaci o zavazku platby.
+Změňte text v **WooCommerce > Nastavení > Polski > Pokladna**. Nový text musí nadále informovat o povinnosti platby.
 
-### Zmena textu programove
+### Změna textu programově
 
 ```php
 add_filter('woocommerce_order_button_text', function (string $text): string {
@@ -80,9 +78,9 @@ add_filter('woocommerce_order_button_text', function (string $text): string {
 }, 20);
 ```
 
-Priorita `20` zajistuje, ze filtr bude proveden po filtru pluginu (priorita `10`).
+Priorita `20` zajišťuje, že se filtr vykoná po filtru zásuvného modulu (priorita `10`).
 
-### Text zavisly na platebni metode
+### Text závislý na platební metodě
 
 ```php
 add_filter('woocommerce_order_button_text', function (string $text): string {
@@ -100,9 +98,9 @@ add_filter('woocommerce_order_button_text', function (string $text): string {
 }, 20);
 ```
 
-## Stylovani tlacitka
+## Stylování tlačítka
 
-Tlacitko zachovava vychozi CSS tridy WooCommerce. Muzete prizpusobit jeho vzhled:
+Tlačítko používá výchozí CSS třídy WooCommerce. Přizpůsobte jeho vzhled:
 
 ```css
 #place_order {
@@ -127,39 +125,39 @@ Pro Block Checkout:
 }
 ```
 
-## Testovani
+## Testování
 
-Po konfiguraci zkontrolujte tlacitko v nasledujicich scenarech:
+Po konfiguraci zkontrolujte tlačítko v následujících scénářích:
 
-1. Checkout s ruznymi platebnimi metodami
-2. Checkout jako host i prihlaseny uzivatel
-3. Checkout se slevovym kuponem (coupon)
-4. Checkout s predplatnym (pokud pouzivate WooCommerce Subscriptions)
-5. Mobilni checkout - ujistete se, ze text neni oriznuly
+1. Pokladna s různými platebními metodami
+2. Pokladna jako host i přihlášený uživatel
+3. Pokladna se slevovým kupónem (coupon)
+4. Pokladna s předplatným (pokud používáte WooCommerce Subscriptions)
+5. Mobilní pokladna - ujistěte se, že text není oříznutý
 
-## Nejcastejsi problemy
+## Nejčastější problémy
 
-### Text tlacitka se vraci na vychozi "Place order"
+### Text tlačítka se vrací na výchozí "Place order"
 
 Zkontrolujte, zda:
 
-1. Plugin je aktivni a modul pokladny je aktivovan
-2. Zadny jiny plugin neprepisuje filtr s vyssi prioritou
-3. Motiv nema pevne nakodovany text tlacitka v sablone
+1. Zásuvný modul je aktivní a modul pokladny je zapnutý
+2. Žádný jiný zásuvný modul nepřepisuje filtr s vyšší prioritou
+3. Šablona motivu nemá text tlačítka napevno v kódu
 
-### Text je oriznuly na mobilnich zarizenich
+### Text je oříznutý na mobilních zařízeních
 
-Dlouhy text "Zamawiam z obowiązkiem zapłaty" se nemusi vejit na uzke obrazovky. Zvazite:
+Text "Objednávám s povinností platby" se nemusí vejít na malé obrazovky. Řešení:
 
-- pouziti kratsiho variantu: "Kupuję i płacę"
-- prizpusobeni CSS: `white-space: normal` na tlacitku
+- použití kratší varianty: "Kupuji a platím"
+- úprava CSS: `white-space: normal` na tlačítku
 
-### Block Checkout nemeni text
+### Block Checkout nemění text
 
-Ujistete se, ze pouzivate nejnovejsi verzi pluginu. Starsi verze nemusi podporovat Block Checkout. Zkontrolujte take, zda je WooCommerce Blocks aktualizovan.
+Zkontrolujte, zda máte nejnovější verzi zásuvného modulu. Starší verze nemusí Block Checkout podporovat. Aktualizujte také WooCommerce Blocks.
 
-## Souvisejici zdroje
+## Související zdroje
 
-- [Nahlasit problem](https://github.com/wppoland/polski/issues)
+- [Nahlásit problém](https://github.com/wppoland/polski/issues)
 
-<div class="disclaimer">Tato stránka slouží pouze k informačním účelům a nepředstavuje právní poradenství. Před implementací se poraďte s právníkem. Polski for WooCommerce je open source software (GPLv2) poskytovaný bez záruky.</div>
+<div class="disclaimer">Tato stránka má výhradně informativní charakter a nepředstavuje právní poradenství. Před nasazením se poraďte s právníkem. Polski for WooCommerce je open source software (GPLv2) dodávaný bez záruky.</div>

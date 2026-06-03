@@ -1,29 +1,27 @@
 ---
-title: DSA - Akt o digitalnich sluzbach
-description: Nastroje DSA (Digital Services Act) v Polski for WooCommerce - formular hlaseni, administracni panel, sledovani stavu a e-mailova oznameni.
+title: DSA - Akt o digitálních službách
+description: Nástroje DSA (Digital Services Act) v Polski for WooCommerce - formulář pro nahlášení, administrační panel, sledování stavů a e-mailová upozornění.
 ---
 
-Akt o digitalnich sluzbach (Digital Services Act, EU 2022/2065) vyzaduje, aby platformy umoznovaly hlasit nelegalni obsah. Plugin pridava formular hlaseni, panel pro spravu hlaseni, sledovani stavu a automaticka e-mailova oznameni.
+Akt o digitálních službách (Digital Services Act, EU 2022/2065) vyžaduje, aby online platformy umožňovaly nahlašovat nezákonný obsah. Plugin přidává formulář pro nahlášení, panel pro správu hlášení, sledování stavů a automatická e-mailová upozornění.
 
-## Pozadavky DSA pro internetove obchody
+## Požadavky DSA pro internetové obchody
 
-Od 17. unora 2024 obchody s obsahem uzivatelu (recenze, komentare, fotografie) musi:
+Od 17. února 2024 musí obchody s uživatelským obsahem (recenze, komentáře, fotografie):
 
-1. Zpristupnit mechanismus hlaseni nelegalniho obsahu
-2. Potvrdit prijeti hlaseni
-3. Prosetrit hlaseni v primerenem terminu
-4. Informovat oznamovatele o rozhodnuti
-5. Umoznit odvolani proti rozhodnuti
+1. Zpřístupnit mechanismus pro nahlašování nezákonného obsahu
+2. Potvrdit přijetí hlášení
+3. Vyřídit hlášení v přiměřené lhůtě
+4. Informovat oznamovatele o rozhodnutí
+5. Umožnit odvolání proti rozhodnutí
 
-Tyka se obchodu, kde uzivatele mohou publikovat obsah - predevsim recenze produktu.
+Týká se obchodů, v nichž uživatelé mohou zveřejňovat obsah, především recenze produktů.
 
-![Formular hlaseni DSA na strance obchodu](../../../../assets/screenshots/screenshot-6-dsa-report-form.png)
-
-## Formular hlaseni
+## Formulář pro nahlášení
 
 ### Shortcode
 
-Vlozte formular hlaseni DSA na libovolnou stranku pomoci shortcode:
+Vložte formulář pro nahlášení DSA na libovolnou stránku pomocí shortcode:
 
 ```
 [polski_dsa_report]
@@ -37,85 +35,87 @@ Vlozte formular hlaseni DSA na libovolnou stranku pomoci shortcode:
 
 ### Parametry shortcode
 
-| Parametr | Popis | Vychozi hodnota |
+| Parametr | Popis | Výchozí hodnota |
 |----------|------|------------------|
-| `product_id` | ID produktu, ktereho se hlaseni tyka | Zadna (uzivatel vybere) |
-| `category` | Predem vybrana kategorie hlaseni | Zadna |
+| `product_id` | ID produktu, kterého se hlášení týká | Žádné (vybírá uživatel) |
+| `category` | Předem vybraná kategorie hlášení | Žádné |
 
-### Pole formulare
+![Formulář pro nahlášení DSA na stránce obchodu](../../../../assets/screenshots/screenshot-6-dsa-report-form.png)
 
-Formular obsahuje nasledujici pole:
+### Pole formuláře
 
-- **Kategorie hlaseni** - vyber ze seznamu (nelegalni obsah, poruseni autorskych prav, falesna recenze, nenavist, osobni udaje, jine)
-- **URL nebo identifikator obsahu** - odkaz na hlaseny obsah nebo ID recenze
-- **Popis** - podrobny popis problemu
-- **Pravni zaklad** - volitelne uvedeni predpisu
-- **Kontaktni udaje** - jmeno, e-mailova adresa oznamovatele
-- **Prohlaseni** - checkbox potvrzujici, ze hlaseni je podano v dobre vire
+Formulář obsahuje následující pole:
 
-### Priklad vlozeni
+- **Kategorie hlášení** - výběr ze seznamu (nezákonný obsah, porušení autorských práv, falešná recenze, nenávistné projevy, osobní údaje, jiné)
+- **URL nebo identifikátor obsahu** - odkaz na nahlašovaný obsah nebo ID recenze
+- **Popis** - podrobný popis problému
+- **Právní základ** - volitelné uvedení předpisu
+- **Kontaktní údaje** - jméno, e-mailová adresa oznamovatele
+- **Prohlášení** - zaškrtávací políčko potvrzující, že hlášení je podáno v dobré víře
 
-Vytvorte stranku "Nahlasit obsah" a pridejte shortcode:
+### Příklad vložení
+
+Vytvořte stránku "Nahlásit obsah" a přidejte shortcode:
 
 ```
 [polski_dsa_report]
 ```
 
-Pridejte odkaz na tuto stranku do paticky obchodu, aby byla snadno dostupna.
+Přidejte odkaz na tuto stránku do patičky obchodu, aby byla snadno dostupná.
 
-## Administracni panel
+## Administrační panel
 
-Hlaseni DSA spravujete v **WooCommerce > Hlaseni DSA**.
+Hlášení DSA spravujete v **WooCommerce > Hlášení DSA**.
 
-### Seznam hlaseni
+### Seznam hlášení
 
-Seznam zobrazuje vsechna hlaseni se sloupci:
+Seznam zobrazuje všechna hlášení se sloupci:
 
-- ID hlaseni
-- Datum podani
+- ID hlášení
+- Datum podání
 - Kategorie
-- Stav (nove, probihajici, vyresene, zamitnute)
-- Oznamovatel (jmeno, e-mail)
+- Stav (nové, probíhá, vyřízeno, odmítnuto)
+- Oznamovatel (jméno, e-mail)
 - Odkaz na obsah
 
-### Podrobnosti hlaseni
+### Detail hlášení
 
-Po kliknuti na hlaseni uvidite:
+Po kliknutí na hlášení uvidíte:
 
-- Uplne udaje formulare
-- Nahled hlaseneho obsahu (pokud je to recenze - primy odkaz)
-- Historii zmen stavu
-- Pole pro interni poznamku
-- Tlacitka akci (zmenit stav, odstranit obsah, zamitnout)
+- Kompletní data formuláře
+- Náhled nahlašovaného obsahu (pokud jde o recenzi, přímý odkaz)
+- Historii změn stavu
+- Pole pro interní poznámku
+- Tlačítka akcí (změnit stav, odstranit obsah, odmítnout)
 
-### Stavy hlaseni
+### Stavy hlášení
 
 | Stav | Popis |
 |--------|------|
-| `new` | Nove hlaseni, ceka na vyrizeni |
-| `in_progress` | Hlaseni v prubehu analyzy |
-| `resolved` | Hlaseni vyrizeno, obsah odstranen nebo provedeno jine opatreni |
-| `rejected` | Hlaseni zamitnuto jako bezpredmetne |
-| `appealed` | Oznamovatel podal odvolani proti rozhodnuti |
+| `new` | Nové hlášení, čeká na vyřízení |
+| `in_progress` | Hlášení v procesu analýzy |
+| `resolved` | Hlášení vyřízeno, obsah odstraněn nebo provedena jiná akce |
+| `rejected` | Hlášení odmítnuto jako neopodstatněné |
+| `appealed` | Oznamovatel podal odvolání proti rozhodnutí |
 
-## E-mailova oznameni
+## E-mailová upozornění
 
-Plugin odesila automaticke e-maily v techto situacich:
+Plugin odesílá automatické e-maily v těchto situacích:
 
-| Udalost | Prijemce | Obsah |
+| Událost | Příjemce | Obsah |
 |-----------|----------|-------|
-| Nove hlaseni | Administrator | Informace o novem hlaseni s udaji |
-| Potvrzeni | Oznamovatel | Potvrzeni prijeti hlaseni s cislem ID |
-| Zmena stavu | Oznamovatel | Informace o zmene stavu s oduvodnenim |
-| Vyrizeni | Oznamovatel | Rozhodnuti s oduvodnenim a informaci o pravu na odvolani |
+| Nové hlášení | Administrátor | Informace o novém hlášení s údaji |
+| Potvrzení | Oznamovatel | Potvrzení přijetí hlášení s číslem ID |
+| Změna stavu | Oznamovatel | Informace o změně stavu s odůvodněním |
+| Vyřízení | Oznamovatel | Rozhodnutí s odůvodněním a informací o právu na odvolání |
 
-Sablony e-mailu lze prizpusobit v **WooCommerce > Nastaveni > E-maily**.
+Šablony e-mailů lze přizpůsobit v **WooCommerce > Nastavení > E-maily**.
 
 ## Hook
 
 ### polski/dsa/report_created
 
-Vyvolan po vytvoreni noveho hlaseni DSA.
+Vyvolán po vytvoření nového hlášení DSA.
 
 ```php
 /**
@@ -124,7 +124,7 @@ Vyvolan po vytvoreni noveho hlaseni DSA.
  * @param string $category    Kategoria zgłoszenia.
  */
 add_action('polski/dsa/report_created', function (int $report_id, array $report_data, string $category): void {
-    // Priklad: odeslat oznameni pravnimu tymu pres Slack
+    // Przykład: wyślij powiadomienie do zespołu prawnego przez Slack
     $webhook_url = 'https://hooks.slack.com/services/XXXX/YYYY/ZZZZ';
     
     wp_remote_post($webhook_url, [
@@ -141,11 +141,11 @@ add_action('polski/dsa/report_created', function (int $report_id, array $report_
 }, 10, 3);
 ```
 
-### Priklad - automaticke skryti recenzi urcite kategorie
+### Příklad - automatické odstranění recenze určité kategorie
 
 ```php
 add_action('polski/dsa/report_created', function (int $report_id, array $report_data, string $category): void {
-    // Automaticky skryt recenze nahlasene jako nenavistna rec
+    // Automatycznie ukryj recenzje zgłoszone jako mowa nienawiści
     if ($category !== 'hate_speech') {
         return;
     }
@@ -154,49 +154,76 @@ add_action('polski/dsa/report_created', function (int $report_id, array $report_
     if ($comment_id > 0) {
         wp_set_comment_status($comment_id, 'hold');
         
-        // Zalogovat automatickou akci
+        // Zaloguj automatyczną akcję
         update_post_meta($report_id, '_auto_action', 'comment_held');
     }
 }, 10, 3);
 ```
 
-## Reportovani
+## Reportování
 
-DSA vyzaduje vedeni registru hlaseni. Exportujte vsechna hlaseni do CSV pres **WooCommerce > Hlaseni DSA > Exportovat**. Export obsahuje:
+DSA vyžaduje vedení registru hlášení. Exportujte všechna hlášení do CSV přes **WooCommerce > Hlášení DSA > Exportovat**. Export obsahuje:
 
-- ID hlaseni
-- Datum a cas podani
+- ID hlášení
+- Datum a čas podání
 - Kategorii
-- Stav a datum vyrizeni
-- Dobu obsluhy (v hodinach)
-- Provedene opatreni
+- Stav a datum vyřízení
+- Dobu zpracování (v hodinách)
+- Provedenou akci
 
 ## Konfigurace
 
-Nastaveni modulu DSA najdete v **WooCommerce > Nastaveni > Polski > DSA**.
+Nastavení modulu DSA najdete v **WooCommerce > Nastavení > Polski > DSA**.
 
-| Moznost | Popis | Vychozi hodnota |
+| Možnost | Popis | Výchozí hodnota |
 |-------|------|------------------|
-| Aktivovat formular DSA | Aktivuje modul | Ano |
-| Stranka formulare | Stranka WordPress se shortcodem | Zadna |
-| E-mail administratora | E-mailova adresa pro oznameni | E-mail administratora WordPress |
-| Lhuta pro vyrizeni | Pocet pracovnich dnu na vyrizeni | 7 |
-| Kategorie hlaseni | Seznam dostupnych kategorii | Vychozi seznam |
+| Zapnout formulář DSA | Aktivuje modul | Ano |
+| Stránka formuláře | Stránka WordPress se shortcode | Žádná |
+| E-mail administrátora | E-mailová adresa pro upozornění | E-mail administrátora WordPress |
+| Lhůta pro vyřízení | Počet pracovních dnů na vyřízení | 7 |
+| Kategorie hlášení | Seznam dostupných kategorií | Výchozí seznam |
 
-## Reseni problemu
+## Widget na stránce produktu (Polski 1.14.0+)
 
-**Formular se nezobrazuje na strance**
-Zkontrolujte, zda shortcode `[polski_dsa_report]` je na strance a modul DSA je aktivovan v nastaveni.
+Od verze 1.14.0 můžete zapnout volitelný widget pro nahlašování přímo na kartě produktu. Zákazník klikne na "Nahlásit nezákonný obsah (DSA)" a rozbalí formulář s **předvyplněnou URL produktu** a názvem, nemusí přepisovat odkaz.
 
-**E-mailova oznameni nedochazi**
-Zkontrolujte konfiguraci SMTP. Vychozi funkce `wp_mail()` nefunguje na vsech serverech. Nainstalujte SMTP plugin (napr. WP Mail SMTP).
+```php
+update_option('polski_dsa', array_merge(
+    (array) get_option('polski_dsa', []),
+    [
+        'product_widget_enabled' => true,
+        'product_widget_position' => 'after_summary', // lub 'product_meta'
+    ]
+));
+```
 
-**Hlaseni se nezobrazuji v panelu**
-Zkontrolujte opravneni. Pro spravu hlaseni DSA potrebujete roli `shop_manager` nebo `administrator`.
+Widget používá HTML element `<details>`, funguje bez JavaScriptu, je přístupný z klávesnice a čteček obrazovky. Formulář se odesílá do stejného handleru (`polski_dsa_report`), takže hlášení putují do stejné fronty v administračním panelu.
 
-## Dalsi kroky
+| Klíč v `polski_dsa` | Hodnota | Popis |
+|---|---|---|
+| `product_widget_enabled` | `false` (výchozí) | Zapíná widget na stránkách produktů |
+| `product_widget_position` | `after_summary` \| `product_meta` | Pozice na stránce produktu |
 
-- Hlaseni problemu: [GitHub Issues](https://github.com/wppoland/polski/issues)
-- Diskuse a otazky: [GitHub Discussions](https://github.com/wppoland/polski/discussions)
+Vývojářské filtry:
 
-<div class="disclaimer">Tato stránka slouží pouze k informačním účelům a nepředstavuje právní poradenství. Před implementací se poraďte s právníkem. Polski for WooCommerce je open source software (GPLv2) poskytovaný bez záruky.</div>
+| Filtr | Účel |
+|---|---|
+| `polski/dsa/product_widget_enabled` | Hlavní přepínač widgetu |
+
+## Řešení problémů
+
+**Formulář se nezobrazuje na stránce**
+Zkontrolujte, zda je shortcode `[polski_dsa_report]` na stránce a modul DSA je zapnutý v nastavení.
+
+**E-mailová upozornění nedoručují**
+Zkontrolujte konfiguraci SMTP. Výchozí funkce `wp_mail()` nefunguje na všech serverech. Nainstalujte SMTP plugin (např. WP Mail SMTP).
+
+**Hlášení se nezobrazují v panelu**
+Zkontrolujte oprávnění. Ke správě hlášení DSA potřebujete roli `shop_manager` nebo `administrator`.
+
+## Další kroky
+
+- Nahlašujte problémy: [GitHub Issues](https://github.com/wppoland/polski/issues)
+- Diskuse a dotazy: [GitHub Discussions](https://github.com/wppoland/polski/discussions)
+
+<div class="disclaimer">Tato stránka má pouze informativní charakter a nepředstavuje právní poradenství. Před nasazením se poraďte s právníkem. Polski for WooCommerce je open source software (GPLv2) poskytovaný bez záruky.</div>

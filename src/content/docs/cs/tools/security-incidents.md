@@ -1,108 +1,211 @@
 ---
-title: Registr bezpecnostnich incidentu
-description: Registr bezpecnostnich incidentu (CRA) v Polski for WooCommerce - zaznamenavani udalosti, CSV export a soulad s Cyber Resilience Act.
+title: Registr bezpečnostních incidentů
+description: Registr bezpečnostních incidentů (CRA) v Polski for WooCommerce - evidence událostí, export CSV a soulad s Cyber Resilience Act.
 ---
 
-Registr incidentu umoznuje dokumentovat bezpecnostni udalosti v obchode. Podporuje soulad s Cyber Resilience Act (CRA) - unijnim narizenim vyzadujicim registr incidentu pro produkty s digitalnimi elementy.
+Registr incidentů umožňuje dokumentovat bezpečnostní události v obchodě. Podporuje soulad s Cyber Resilience Act (CRA), nařízením EU vyžadujícím registr incidentů pro produkty s digitálními prvky.
 
 ## Co je CRA
 
-Cyber Resilience Act (CRA) je narizeni Evropske unie stanovujici pozadavky kyberneticke bezpecnosti pro produkty s digitalnimi elementy. Prodejci jsou povinni:
+CRA je nařízení EU týkající se kybernetické bezpečnosti produktů s digitálními prvky. Prodejci musí:
 
-- Vest registr bezpecnostnich incidentu
-- Hlasit incidenty dozorovym organum do 24 hodin
-- Informovat zakazniky o odhalanych bezpecnostnich mezerach
-- Dokumentovat napravna opatreni
+- Vést registr bezpečnostních incidentů
+- Hlásit incidenty dozorovým orgánům do 24 hodin
+- Informovat zákazníky o zjištěných zranitelnostech
+- Dokumentovat nápravná opatření
 
-## Pristup k registru
+## Přístup k registru
 
-Prejdete do **WooCommerce > Polski > Nastroje > Bezpecnostni incidenty**. Registr je dostupny pro uzivatele s opravnenim `manage_woocommerce`.
+Přejděte na **WooCommerce > Polski > Nástroje > Bezpečnostní incidenty**. Vyžaduje oprávnění `manage_woocommerce`.
 
-## Zaznamenavani incidentu
+## Evidence incidentu
 
-Kliknete **Pridat incident** a vyplnte formular:
+Klikněte na **Přidat incident** a vyplňte formulář:
 
-### Pole formulare
+### Pole formuláře
 
-| Pole | Typ | Povinne | Popis |
+| Pole                    | Typ       | Povinné | Popis                                   |
 | ----------------------- | --------- | -------- | --------------------------------------- |
-| Nazev | text | Ano | Kratky popis incidentu |
-| Datum detekce | datetime | Ano | Kdy byl incident odhalen |
-| Datum vyskytu | datetime | Ne | Kdy incident skutecne nastal |
-| Kategorie | select | Ano | Typ incidentu |
-| Priorita | select | Ano | Kriticka / Vysoka / Stredni / Nizka |
-| Popis | textarea | Ano | Podrobny popis udalosti |
-| Dotcene produkty | multiselect| Ne | Produkty WooCommerce dotcene incidentem |
-| Rozsah dopadu | select | Ano | Pocet dotcenych zakazniku |
-| Provedena opatreni | textarea | Ne | Popis napravnych opatreni |
-| Stav | select | Ano | Novy / Probiha / Vyresen / Uzavren |
-| Odpovedna osoba | select | Ne | Uzivatel WordPress odpovědny |
-| Nahlaseno organu | checkbox | Ne | Zda byl incident nahlasen dozoroveho organu |
-| Zakaznici informovani | checkbox | Ne | Zda byli zakaznici informovani |
+| Název                   | text      | Ano      | Krátký popis incidentu                  |
+| Datum zjištění           | datetime  | Ano      | Kdy byl incident zjištěn                |
+| Datum výskytu            | datetime  | Ne       | Kdy incident skutečně nastal            |
+| Kategorie               | select    | Ano      | Typ incidentu                           |
+| Priorita                | select    | Ano      | Kritická / Vysoká / Střední / Nízká     |
+| Popis                   | textarea  | Ano      | Podrobný popis události                 |
+| Dotčené produkty         | multiselect| Ne      | Produkty WooCommerce dotčené incidentem |
+| Rozsah dopadu           | select    | Ano      | Počet dotčených zákazníků               |
+| Provedená opatření      | textarea  | Ne       | Popis nápravných opatření               |
+| Stav                    | select    | Ano      | Nový / Probíhá / Vyřešen / Uzavřen      |
+| Odpovědná osoba         | select    | Ne       | Odpovědný uživatel WordPress            |
+| Nahlášeno orgánu        | checkbox  | Ne       | Zda byl incident nahlášen dozorovému orgánu|
+| Datum nahlášení          | datetime  | Ne       | Kdy byl nahlášen orgánu                 |
+| Zákazníci informováni   | checkbox  | Ne       | Zda byli zákazníci informováni          |
+| Datum informování      | datetime  | Ne       | Kdy byli zákazníci informováni          |
+| Přílohy                 | file      | Ne       | Logy, snímky obrazovky, zprávy          |
 
-### Kategorie incidentu
+### Kategorie incidentů
 
-| Kategorie | Popis |
+| Kategorie                | Popis                                        |
 | ------------------------ | -------------------------------------------- |
-| Unik dat | Neopravneny pristup k osobnim udajum |
-| Skodlivy software | Malware, skimmer, backdoor |
-| DDoS utok | Utok odmitnutim sluzby |
-| Neopravneny pristup | Prolomeni uctu admina nebo zakaznika |
-| Zranitelnost softwaru | Objevenena zranitelnost v pluginu nebo motivu |
-| Phishing | Phishingovy utok na zakazniky obchodu |
-| Manipulace s daty | Neopravnena zmena dat (ceny, objednavky) |
-| Jine | Jine bezpecnostni udalosti |
+| Únik dat                 | Neoprávněný přístup k osobním údajům          |
+| Škodlivý software        | Malware, skimmer, backdoor                   |
+| Útok DDoS                | Útok odepření služby                          |
+| Neoprávněný přístup      | Vniknutí na účet administrátora nebo zákazníka|
+| Zranitelnost softwaru    | Objevená zranitelnost v pluginu nebo šabloně |
+| Phishing                 | Phishingový útok na zákazníky obchodu         |
+| Manipulace s daty        | Neoprávněná změna dat (ceny, objednávky)     |
+| Jiné                     | Jiné bezpečnostní události                   |
 
-## CSV export
+### Škála dopadu
 
-Kliknete **Exportovat CSV** nad tabulkou incidentu. Export obsahuje vsechna pole vcetne ID, data, kategorie, priority, stavu, odpovědne osoby a dat nahlaseni.
+| Rozsah                  | Popis                                         |
+| ----------------------- | --------------------------------------------- |
+| Bez dopadu              | Incident zjištěn a zablokován                 |
+| Jeden zákazník          | Týká se 1 zákazníka                           |
+| Několik zákazníků       | Týká se 2-10 zákazníků                        |
+| Mnoho zákazníků         | Týká se 11-100 zákazníků                      |
+| Hromadný                | Týká se více než 100 zákazníků                |
 
-## Oznameni
+## Seznam incidentů
 
-System odesila automaticka oznameni:
+Tabulka všech incidentů se sloupci:
 
-| Udalost | Prijemci | Kanal |
-| ---------------------------------- | ----------------------- | ------ |
-| Novy kriticky incident | Vsichni administratori | E-mail |
-| Zmena stavu incidentu | Odpovedna osoba | E-mail |
-| Incident bez opatreni > 24h | Odpovedna osoba | E-mail |
-| Blizici se termin nahlaseni | Administratori | E-mail |
+- **ID** - číslo incidentu
+- **Datum** - datum zjištění
+- **Název** - krátký popis
+- **Kategorie** - typ incidentu
+- **Priorita** - barevný štítek (červený/oranžový/žlutý/šedý)
+- **Stav** - aktuální stav
+- **Odpovědný** - přiřazená osoba
+- **Nahlášení** - zda bylo nahlášeno dozorovému orgánu
 
-## Automaticka detekce
+### Filtrování a řazení
 
-Modul muze automaticky zaznamenavat nektere udalosti:
+Filtrujte incidenty podle:
+- Kategorie
+- Priority
+- Stavu
+- Data (rozsah dat)
+- Odpovědné osoby
 
-- **Neuspesne prihlaseni** - serie neuspesnych pokusu o prihlaseni (brute force)
-- **Zmena souboru jadra** - modifikace souboru WordPress core
-- **Novy admin uzivatel** - vytvoreni uctu s roli administratora
-- **Zmena opravneni** - zvyseni opravneni existujiciho uctu
+Řazení podle každého sloupce (vzestupně/sestupně).
+
+### Vyhledávání
+
+Vyhledávací pole prohledává název a popis incidentů.
+
+## Časová osa incidentu (timeline)
+
+Každý incident má časovou osu s chronologií akcí:
+
+```
+2025-06-15 08:30 - Incident zjištěn monitorovacím systémem
+2025-06-15 08:45 - Incident přiřazen Janu Kowalskému
+2025-06-15 09:00 - Zahájena analýza logů
+2025-06-15 10:30 - Identifikován zdroj - neoprávněný přístup přes zranitelnost v pluginu X
+2025-06-15 11:00 - Plugin X aktualizován na nejnovější verzi
+2025-06-15 11:30 - Hesla všech administrátorů změněna
+2025-06-15 12:00 - Incident nahlášen úřadu pro ochranu osobních údajů
+2025-06-15 14:00 - Oznámení odesláno dotčeným zákazníkům
+2025-06-15 15:00 - Stav změněn na "Vyřešen"
+```
+
+Záznamy se přidávají automaticky (změna stavu, přiřazení) nebo ručně (poznámky, akce).
+
+## Export CSV
+
+Klikněte na **Exportovat CSV** nad tabulkou. Export obsahuje:
+
+### Sloupce exportu
+
+| Sloupec                 | Popis                               |
+| ----------------------- | ----------------------------------- |
+| `incident_id`           | Číslo incidentu                     |
+| `title`                 | Název                               |
+| `detection_date`        | Datum zjištění                      |
+| `occurrence_date`       | Datum výskytu                       |
+| `category`              | Kategorie                           |
+| `priority`              | Priorita                            |
+| `description`           | Popis                               |
+| `affected_products`     | ID dotčených produktů               |
+| `impact_scope`          | Rozsah dopadu                       |
+| `actions_taken`         | Provedená opatření                  |
+| `status`                | Stav                                |
+| `responsible_person`    | Odpovědná osoba                     |
+| `reported_to_authority` | Zda bylo nahlášeno orgánu           |
+| `report_date`           | Datum nahlášení                     |
+| `customers_notified`    | Zda byli zákazníci informováni      |
+| `notification_date`     | Datum informování                   |
+| `resolution_date`       | Datum vyřešení                      |
+
+### Filtrování exportu
+
+Export lze omezit na:
+- Vybraný rozsah dat
+- Vybranou kategorii
+- Vybraný stav
 
 ```php
-// Deaktivace automaticke detekce
+// Hook pro úpravu dat exportu
+add_filter('polski/security_incidents/export_data', function (array $data): array {
+    // Přidání vlastního sloupce
+    foreach ($data as &$row) {
+        $row['custom_field'] = 'hodnota';
+    }
+    return $data;
+});
+```
+
+## Oznámení
+
+Automatická oznámení:
+
+| Událost                            | Příjemci                | Kanál  |
+| ---------------------------------- | ----------------------- | ------ |
+| Nový kritický incident             | Všichni administrátoři  | E-mail |
+| Změna stavu incidentu              | Odpovědná osoba         | E-mail |
+| Incident bez akcí > 24h            | Odpovědná osoba         | E-mail |
+| Blížící se termín nahlášení        | Administrátoři          | E-mail |
+
+Konfigurace oznámení: **WooCommerce > Polski > Nástroje > Incidenty > Oznámení**.
+
+## Automatická detekce
+
+Modul automaticky eviduje některé události:
+
+- **Neúspěšná přihlášení** - série neúspěšných pokusů o přihlášení (brute force)
+- **Změna souborů jádra** - úprava souborů WordPress core
+- **Nový admin uživatel** - vytvoření účtu s rolí administrátora
+- **Změna oprávnění** - povýšení oprávnění stávajícího účtu
+
+Zjištěné události mají přiřazenou kategorii a prioritu, ale vyžadují ruční ověření (stav "Nový").
+
+```php
+// Vypnutí automatické detekce
 add_filter('polski/security_incidents/auto_detect', '__return_false');
 ```
 
-## Programove pridavani incidentu
+## Programové přidávání incidentů
 
 ```php
 do_action('polski/security_incidents/create', [
-    'title'          => 'Wykryto próbę SQL injection',
+    'title'          => 'Zjištěn pokus o SQL injection',
     'category'       => 'unauthorized_access',
     'priority'       => 'high',
-    'description'    => 'Wykryto próbę SQL injection w parametrze product_id.',
+    'description'    => 'Zjištěn pokus o SQL injection v parametru product_id.',
     'detection_date' => current_time('mysql'),
     'status'         => 'new',
 ]);
 ```
 
-## Reseni problemu
+## Řešení problémů
 
-**Oznameni nedochazi** - zkontrolujte konfiguraci e-mailu WordPressu. Doporuceno je pouziti SMTP pluginu.
+**Oznámení nedorazí** - zkontrolujte konfiguraci e-mailu WordPressu. Použijte SMTP plugin (např. WP Mail SMTP) místo výchozího `wp_mail()`.
 
-**CSV export vraci prazdny soubor** - zkontrolujte filtrovani. Prilis restriktivni filtry mohou vracet prazdny vysledek.
+**Export CSV vrací prázdný soubor** - zkontrolujte filtry. Příliš restriktivní filtrování dává prázdný výsledek.
 
-**Automaticka detekce generuje prilis mnoho alertu** - prizpusobte prahy v nastaveních modulu.
+**Příliš mnoho upozornění** - upravte prahové hodnoty v nastavení. Výchozí práh neúspěšných přihlášení (5 za 15 minut) může být pro velké obchody příliš nízký.
 
-Hlaseni problemu: [github.com/wppoland/polski/issues](https://github.com/wppoland/polski/issues)
+Hlášení problémů: [github.com/wppoland/polski/issues](https://github.com/wppoland/polski/issues)
 
-<div class="disclaimer">Tato stránka slouží pouze k informačním účelům a nepředstavuje právní poradenství. Před implementací se poraďte s právníkem. Polski for WooCommerce je open source software (GPLv2) poskytovaný bez záruky.</div>
+<div class="disclaimer">Tato stránka má pouze informativní charakter a nepředstavuje právní poradenství. Před nasazením se poraďte s právníkem. Polski for WooCommerce je open source software (GPLv2) dodávaný bez záruky.</div>

@@ -1,25 +1,25 @@
 ---
 title: Predplatne
-description: Dokumentace modulu predplatneho Polski PRO for WooCommerce - cyklicke produkty, obnovy, e-mailove pripominky, cron a panel Muj ucet.
+description: Dokumentace modulu predplatneho Polski PRO for WooCommerce - cyklicke produkty, obnoveni, e-mailove pripominky, cron a panel Muj ucet.
 ---
 
-Modul predplatneho pridava podporu produktu s opakovanou platbou. Zakaznici nakupuji predplatne s automatickou nebo rucni obnovou. Administrator spravuje zivotni cyklus predplatneho ve WooCommerce.
+Modul predplatneho pridava produkty s cyklickou platbou. Zakaznici nakupuji predplatne s rucnim obnovenim a administrator je spravuje ve WooCommerce.
 
 ## Jak to funguje
 
 1. Administrator vytvori produkt typu "Predplatne" s cyklem a cenou
-2. Zakaznik zakoupi predplatne a zaplati prvni objednavku
-3. Plugin vytvori predplatne se statusem "Aktivni"
-4. Pred datem obnovy zakaznik obdrzi e-mailovou pripominku
-5. V den obnovy plugin vytvori objednavku obnovy
-6. Zakaznik zaplati objednavku obnovy (rucni obnova)
-7. Cyklus se opakuje do zruseni predplatneho
+2. Zakaznik koupi predplatne a uhradi prvni objednavku
+3. Plugin vytvori predplatne se stavem "Aktivni"
+4. Pred datem obnoveni zakaznik obdrzi e-mailovou pripominku
+5. V den obnoveni plugin vytvori objednavku obnoveni
+6. Zakaznik uhradi objednavku obnoveni (rucni obnoveni)
+7. Cyklus se opakuje az do zruseni predplatneho
 
 ## Konfigurace
 
 Prejdete do **WooCommerce > Nastaveni > Polski > Moduly PRO > Predplatne**.
 
-Modul je rizen moznosti:
+Modul je ovladan volbou:
 
 ```
 polski_subscriptions
@@ -28,39 +28,40 @@ polski_subscriptions
 ### Obecna nastaveni
 
 | Nastaveni | Popis |
-|-----------|-------|
+|------------|------|
 | Zapnout predplatne | Aktivuje modul |
-| Rezim obnovy | Rucni (zakaznik plati objednavku) |
-| Dny pripominky | Kolik dnu pred obnovov poslat pripominku (vychozi 3) |
-| Obdobi odkladu | Kolik dnu po terminu obnovy predplatne zustava aktivni (vychozi 7) |
-| Automaticke pozastaveni | Pozastavit predplatne po uplynutu obdobi odkladu |
+| Rezim obnoveni | Rucni (zakaznik hradi objednavku) |
+| Prvni pripominka | Kolik dni pred obnovenim odeslat prvni pripominku (vychozi 14) |
+| Druha pripominka | Kolik dni pred obnovenim odeslat druhou pripominku (vychozi 7) |
+| Ochranna lhuta | Kolik dni po terminu obnoveni zustava predplatne aktivni (vychozi 7) |
+| Automaticke pozastaveni | Pozastavit predplatne po uplynuti ochranne lhuty |
 
-### Vytvoreni produktu s predplatnym
+### Vytvoreni produktu predplatneho
 
 1. Prejdete do **Produkty > Pridat novy**
 2. Vyberte typ produktu: **Predplatne**
 3. Nakonfigurujte cenu a cyklus:
 
 | Pole | Popis |
-|------|-------|
+|------|------|
 | Cena predplatneho | Castka za zuctovaci obdobi |
 | Zuctovaci obdobi | Den / Tyden / Mesic / Rok |
 | Delka obdobi | Pocet obdobi (napr. 1 mesic, 3 mesice) |
-| Pocatecni cena | Volitelne - jina cena za prvni obdobi |
-| Aktivacni poplatek | Volitelne - jednorazovy poplatek u prvni objednavky |
-| Limit obnov | 0 = bez limitu, nebo pocet obnov |
+| Pocatecni cena | Volitelna - jina cena za prvni obdobi |
+| Aktivacni poplatek | Volitelny - jednorazovy poplatek pri prvni objednavce |
+| Limit obnoveni | 0 = bez limitu, nebo pocet obnoveni |
 
 4. Publikujte produkt
 
-### Pocatecni cena vs cena obnovy
+### Pocatecni cena vs cena obnoveni
 
-Plugin podporuje scenare, kdy se cena za prvni obdobi lisi od ceny za nasledujici obdobi. Typicka pouziti:
+Cena za prvni obdobi muze byt jina nez za nasledujici. Pouziti:
 
 - zkusebni obdobi zdarma nebo za snizenou cenu
 - promo cena na start
 - aktivacni poplatek + nizsi cyklicka cena
 
-Pocatecni cena se pouziva pouze pro prvni objednavku. Dalsi objednavky obnovy pouzivaji standardni cenu predplatneho.
+Pocatecni cena se tyka pouze prvni objednavky. Nasledujici obnoveni maji standardni cenu.
 
 ## Zivotni cyklus predplatneho
 
@@ -70,56 +71,61 @@ Pending → Active → On Hold → Active → ...
                   → Cancelled
 ```
 
-| Status | Popis |
-|--------|-------|
-| Pending | Cekajici na zaplaceni prvni objednavky |
+| Stav | Popis |
+|--------|------|
+| Pending | Cekajici na uhradu prvni objednavky |
 | Active | Aktivni - zakaznik ma pristup k produktu |
-| On Hold | Pozastaveno - objednavka obnovy ceka na zaplaceni |
-| Expired | Vyprelo - pocet obnov dosahl limitu nebo uplylo obdobi odkladu |
+| On Hold | Pozastavene - objednavka obnoveni ceka na uhradu |
+| Expired | Vyprsele - pocet obnoveni dosahl limitu nebo uplynula ochranna lhuta |
 | Cancelled | Zruseno zakaznikem nebo administratorem |
 
-## Obnovy
+## Obnoveni
 
-### Rucni obnova
+### Rucni obnoveni
 
-V aktualni verzi plugin podporuje rucni obnovy. To znamena, ze:
+Plugin podporuje rucni obnoveni:
 
-1. Plugin vytvori objednavku obnovy se statusem "Ceka na platbu"
-2. Zakaznik obdrzi e-mail s odkazem na zaplaceni objednavky
-3. Zakaznik zaplati objednavku zvolenym zpusobem platby
-4. Po zaplaceni je predplatne obnoveno na dalsi obdobi
+1. Plugin vytvori objednavku obnoveni se stavem "Cekajici na platbu"
+2. Zakaznik obdrzi e-mail s odkazem na uhradu objednavky
+3. Zakaznik uhradi objednavku zvolenou platebni metodou
+4. Po uhrade je predplatne obnoveno na dalsi obdobi
 
-### Proces obnovy
+### Proces obnoveni
 
-Plugin kontroluje predplatna k obnove denne pomoci WP cronu:
+Plugin kontroluje predplatne k obnoveni denne pres WP-Cron:
 
 ```
 polski_daily_maintenance
 ```
 
-Uloha cron se spousti jednou denne a provadi:
+Denni cron uloha:
 
-- kontrolu predplatnych, jejichz datum obnovy pripada na dnesek nebo drive
-- vytvoreni objednavek obnovy pro predplatna vyzadujici obnovu
-- pozastaveni predplatnych, ktera prekrocila obdobi odkladu
-- ukonceni predplatnych, ktera dosahla limitu obnov
+- kontroluje predplatne k obnoveni
+- vytvari objednavky obnoveni
+- pozastavuje predplatne po ochranne lhute
+- ukoncuje predplatne po dosazeni limitu obnoveni
 
 ### E-mailove pripominky
 
-Plugin odesila e-mailove pripominky pred datem obnovy:
+Plugin posila dve e-mailove pripominky pred datem obnoveni:
 
 | E-mail | Kdy | Obsah |
-|--------|-----|-------|
-| Pripominka obnovy | X dnu pred obnovov | Informace o blizici se obnove, castka, odkaz do panelu |
-| Objednavka obnovy | V den obnovy | Objednavka k zaplaceni s odkazem na platbu |
-| Predplatne pozastaveno | Po uplynutu terminu platby | Informace o pozastaveni, odkaz na zaplaceni |
-| Predplatne vyprselo | Po uplynutu obdobi odkladu | Informace o vyprseni, odkaz na opetovny nakup |
+|--------|-------|-------|
+| Prvni pripominka | 14 dni pred obnovenim (konfigurovatelne) | Informace o blizicim se obnoveni, castka, **odkaz na zruseni jednim kliknutim** |
+| Druha pripominka | 7 dni pred obnovenim (konfigurovatelne) | Posledni pripominka, castka, odkaz na zruseni a odkaz na panel |
+| Objednavka obnoveni | V den obnoveni | Objednavka k uhrade s odkazem na platbu |
+| Predplatne pozastaveno | Po uplynuti terminu platby | Informace o pozastaveni, odkaz na uhradu |
+| Predplatne vyprselo | Po uplynuti ochranne lhuty | Informace o vyprseni, odkaz na opakovany nakup |
+
+:::tip[Soulad s pravem EU]
+Obe pripominky obsahuji odkaz na zruseni predplatneho jednim kliknutim. To naplnuje evropske pozadavky tykajici se snadnosti odhlaseni z cyklickych sluzeb (mj. UOKiK, Smernice o pravech spotrebitele).
+:::
 
 Sablony e-mailu lze prizpusobit v **WooCommerce > Nastaveni > E-maily**.
 
 ## Panel Muj ucet
 
-Modul pridava endpoint `/polski-subscriptions` do panelu Muj ucet zakaznika. Endpoint je dostupny na adrese:
+Modul pridava sekci v Muj ucet na adrese:
 
 ```
 /moje-konto/polski-subscriptions/
@@ -130,41 +136,41 @@ Modul pridava endpoint `/polski-subscriptions` do panelu Muj ucet zakaznika. End
 Zakaznik vidi tabulku s predplatnymi:
 
 | Sloupec | Popis |
-|---------|-------|
-| Produkt | Nazev produktu s predplatnym |
-| Status | Aktualni status predplatneho |
+|---------|------|
+| Produkt | Nazev produktu predplatneho |
+| Stav | Aktualni stav predplatneho |
 | Cena | Castka za obdobi |
-| Dalsi obnova | Datum dalsi obnovy |
-| Akce | Zrusit / Zaplatit obnovu |
+| Dalsi obnoveni | Datum nasledujiciho obnoveni |
+| Akce | Zrusit / Uhradit obnoveni |
 
-### Detail predplatneho
+### Detaily predplatneho
 
 Po kliknuti na predplatne zakaznik vidi:
 
 - uplne udaje predplatneho (produkt, cena, cyklus, data)
-- historii obnov (seznam souvisejicich objednavek)
+- historii obnoveni (seznam souvisejicich objednavek)
 - tlacitko zruseni predplatneho
-- tlacitko zaplaceni cekajici obnovy (pokud se tyka)
+- tlacitko uhrady cekajiciho obnoveni (pokud se tyka)
 
 ### Zruseni predplatneho
 
-Zakaznik muze zrusit aktivni predplatne z panelu Muj ucet. Zruseni:
+Zakaznik muze zrusit aktivni predplatne v Muj ucet. Zruseni:
 
-- zmeni status predplatneho na "Cancelled"
-- predplatne zustava aktivni do konce aktualniho zaplaceneho obdobi
+- meni stav predplatneho na "Cancelled"
+- predplatne zustava aktivni do konce aktualniho uhrazeneho obdobi
 - zakaznik je informovan o datu ukonceni pristupu
 
 ## Hooky
 
 ### `polski_pro/subscription/status_changed`
 
-Akce volana po zmene statusu predplatneho.
+Akce volana po zmene stavu predplatneho.
 
 ```php
 /**
- * @param int    $subscription_id ID subskrypcji
- * @param string $new_status      Nowy status
- * @param string $old_status      Poprzedni status
+ * @param int    $subscription_id ID predplatneho
+ * @param string $new_status      Novy stav
+ * @param string $old_status      Predchozi stav
  */
 do_action('polski_pro/subscription/status_changed', int $subscription_id, string $new_status, string $old_status);
 ```
@@ -175,11 +181,11 @@ do_action('polski_pro/subscription/status_changed', int $subscription_id, string
 add_action('polski_pro/subscription/status_changed', function (int $subscription_id, string $new_status, string $old_status): void {
     if ($new_status === 'cancelled') {
         $subscription = polski_pro_get_subscription($subscription_id);
-        // Odeslání ankety o důvodu zrušení
+        // Odeslani dotazniku o duvod ukonceni
         wp_mail(
             $subscription->get_customer_email(),
-            'Szkoda, że odchodzisz',
-            'Powiedz nam, dlaczego anulujesz subskrypcję: https://example.com/ankieta'
+            'Skoda, ze odchazite',
+            'Reknete nam, proc rusite predplatne: https://example.com/ankieta'
         );
     }
 }, 10, 3);
@@ -187,12 +193,12 @@ add_action('polski_pro/subscription/status_changed', function (int $subscription
 
 ### `polski_pro/subscription/renewal_created`
 
-Akce volana po vytvoreni objednavky obnovy.
+Akce volana po vytvoreni objednavky obnoveni.
 
 ```php
 /**
- * @param int $order_id        ID zamówienia odnowienia
- * @param int $subscription_id ID subskrypcji
+ * @param int $order_id        ID objednavky obnoveni
+ * @param int $subscription_id ID predplatneho
  */
 do_action('polski_pro/subscription/renewal_created', int $order_id, int $subscription_id);
 ```
@@ -203,21 +209,68 @@ do_action('polski_pro/subscription/renewal_created', int $order_id, int $subscri
 add_action('polski_pro/subscription/renewal_created', function (int $order_id, int $subscription_id): void {
     $order = wc_get_order($order_id);
     $order->add_order_note(
-        sprintf('Zamówienie odnowienia dla subskrypcji #%d', $subscription_id)
+        sprintf('Objednavka obnoveni pro predplatne #%d', $subscription_id)
     );
 }, 10, 2);
 ```
 
 ### `polski_pro/subscription/renewal_paid`
 
-Akce volana po zaplaceni objednavky obnovy.
+Akce volana po uhrade objednavky obnoveni.
 
 ```php
 /**
- * @param int $order_id        ID zamówienia odnowienia
- * @param int $subscription_id ID subskrypcji
+ * @param int $order_id        ID objednavky obnoveni
+ * @param int $subscription_id ID predplatneho
  */
 do_action('polski_pro/subscription/renewal_paid', int $order_id, int $subscription_id);
+```
+
+### Hooky pripominek o obnoveni (1.8.2+)
+
+Engine pripominek (14 dni + 7 dni pred obnovenim) zpristupnuje filtry a akce pro plnou personalizaci:
+
+```php
+// Zmen okna pripominek (ve dnech)
+add_filter('polski_subscription_reminder_windows', fn ($w) => ['first' => 21, 'second' => 7, 'last' => 1]);
+
+// Zmen predmet e-mailu
+add_filter('polski_subscription_reminder_subject', fn ($subject, $sub, $type) => "[$type] $subject", 10, 3);
+
+// Zmen obsah e-mailu
+add_filter('polski_subscription_reminder_body', fn ($body, $sub, $type) => $body . "\n\nDekujeme!", 10, 3);
+
+// Dalsi hlavicky (napr. HTML mode)
+add_filter('polski_subscription_reminder_headers', fn () => ['Content-Type: text/html; charset=UTF-8']);
+
+// Preskoc pripominku pro konkretni predplatne
+add_filter('polski_subscription_skip_reminder', fn ($skip, $sub) => $sub->productId === 42, 10, 2);
+
+// Sleduj odeslani
+add_action('polski_subscription_reminder_sent', fn ($sub, $type, $days) => error_log("Sent $type to $sub->email"), 10, 3);
+add_action('polski_subscription_reminder_failed', fn ($sub, $type) => error_log("Failed $type"), 10, 2);
+```
+
+### Oznameni o zmene ceny (1.8.3+)
+
+`SubscriptionRepository::updateRecurringAmount()` detekuje zmenu castky a automaticky posila e-mail zakaznikovi s:
+- starou a novou castkou,
+- datem vstupu zmeny v platnost (nasledujici zuctovaci cyklus),
+- odkazem one-click cancel (pozadavky EU consumer protection).
+
+Hooky:
+
+```php
+// Sleduj zmenu castky
+add_action('polski_subscription_amount_changed', function (int $id, float $previous, float $next) {
+    error_log("Subscription $id: $previous -> $next");
+}, 10, 3);
+
+// Personalizuj obsah e-mailu
+add_filter('polski_subscription_amount_change_body', fn ($body, $sub, $prev, $next) => $body, 10, 4);
+
+// Sleduj vysledek odeslani
+add_action('polski_subscription_amount_change_notified', fn ($sub, $prev, $next, $sent) => null, 10, 4);
 ```
 
 ## Administracni panel
@@ -229,46 +282,46 @@ Prejdete do **WooCommerce > Predplatne**. Tabulka obsahuje:
 - ID predplatneho
 - zakaznik (jmeno, prijmeni, e-mail)
 - produkt
-- status
+- stav
 - cena a cyklus
-- datum dalsi obnovy
+- datum nasledujiciho obnoveni
 - datum vytvoreni
 
-Dostupne filtry: status, produkt, datum vytvoreni.
+Dostupne filtry: stav, produkt, datum vytvoreni.
 
-### Uprava predplatneho
+### Editace predplatneho
 
 Administrator muze:
 
-- zmenit status predplatneho
-- zmenit datum dalsi obnovy
-- zmenit cenu (ovlivni dalsi obnovy)
+- zmenit stav predplatneho
+- zmenit datum nasledujiciho obnoveni
+- zmenit cenu (ovlivni nasledujici obnoveni)
 - pridat poznamku
-- prohlizet historii statusu a souvisejici objednavky
+- prochazet historii stavu a souvisejici objednavky
 
 ## Nejcastejsi problemy
 
-### Objednavky obnovy se nevytvareji
+### Objednavky obnoveni se nevytvareji
 
-1. Zkontrolujte, ze WP-Cron funguje spravne (`wp_cron` je volany)
-2. Prejdete do **Nastroje > Scheduled Actions** a zkontrolujte, ze uloha `polski_daily_maintenance` je naplanowana
-3. Overite, ze predplatne ma status "Active" a spravne datum obnovy
+1. Zkontrolujte, zda WP-Cron funguje spravne (`wp_cron` je volan)
+2. Prejdete do **Nastroje > Scheduled Actions** a zkontrolujte, zda je uloha `polski_daily_maintenance` naplanovana
+3. Overte, zda ma predplatne stav "Active" a spravne datum obnoveni
 
 ### Zakaznik nedostava pripominky
 
 1. Zkontrolujte konfiguraci e-mailu WooCommerce
-2. Overite, ze sablona e-mailu pripominky je zapnuta
+2. Overte, zda je sablona e-mailu pripominky zapnuta
 3. Zkontrolujte nastaveni "Dny pripominky" - zda je vetsi nez 0
 
-### Predplatne nemeni status po zaplaceni
+### Predplatne nemeni stav po uhrade
 
-1. Zkontrolujte, ze objednavka obnovy ma spravne spojeni s predplatnym
-2. Overite logy WooCommerce na chyby
-3. Zkontrolujte, ze platebni brana spravne meni status objednavky
+1. Zkontrolujte, zda ma objednavka obnoveni spravne propojeni s predplatnym
+2. Overte logy WooCommerce, zda neobsahuji chyby
+3. Zkontrolujte, zda platebni brana spravne meni stav objednavky
 
 ## Souvisejici zdroje
 
 - [Prehled PRO](/pro/overview/)
 - [Nahlasit problem](https://github.com/wppoland/polski/issues)
 
-<div class="disclaimer">Tato stránka slouží pouze k informačním účelům a nepředstavuje právní poradenství. Před implementací se poraďte s právníkem. Polski for WooCommerce je open source software (GPLv2) poskytovaný bez záruky.</div>
+<div class="disclaimer">Tato stranka ma vyhradne informativni charakter a nepredstavuje pravni poradenstvi. Pred nasazenim se poradte s pravnikem. Polski for WooCommerce je open source software (GPLv2) poskytovany bez zaruky.</div>

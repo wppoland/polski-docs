@@ -1,141 +1,141 @@
 ---
-title: NIP na pokladne
-description: Validace cisla NIP s kontrolnim souctem, overeni v API GUS REGON a automaticke stahovani udaju firmy na strance pokladny WooCommerce.
+title: NIP v pokladně
+description: Validace čísla NIP kontrolním součtem, ověření v API GUS REGON a automatické načítání údajů o firmě na stránce pokladny WooCommerce.
 ---
 
-Firemni zakaznici potrebuji pole NIP na pokladne pro ziskani faktury s DPH. Plugin pridava pole NIP s validaci kontrolniho souctu a overenim v bazi GUS REGON. Udaje firmy se doplni automaticky.
+Firemní zákazníci potřebují v pokladně pole NIP, aby získali VAT fakturu. Zásuvný modul Polski for WooCommerce přidává pole NIP s validací kontrolního součtu a ověřením v databázi GUS REGON. Údaje o firmě se doplní automaticky.
 
 ## Funkce
 
-Modul NIP nabizi tri urovne overeni:
+Modul NIP ověřuje číslo na třech úrovních:
 
-1. **Validace formatu** - kontrola, zda cislo sestava z 10 cislic
-2. **Validace kontrolniho souctu** - algoritmus overeni kontrolni cislice NIP
-3. **Overeni GUS REGON** - kontrola v databazi Hlavniho statistickeho uradu s automatickym stazenim udaju firmy
+1. **Validace formátu** - kontrola, zda se číslo skládá z 10 číslic
+2. **Validace kontrolního součtu** - algoritmus ověření kontrolní číslice NIP
+3. **Ověření GUS REGON** - kontrola v databázi Hlavního statistického úřadu s automatickým načtením údajů o firmě
 
 ## Konfigurace
 
-Prejdete do **WooCommerce > Nastaveni > Polski > Pokladna** a nakonfigurujte sekci "NIP".
+Přejděte do **WooCommerce > Nastavení > Polski > Pokladna** a nakonfigurujte sekci "NIP".
 
-### Zakladni nastaveni
+### Základní nastavení
 
-| Nastaveni | Vychozi hodnota | Popis |
+| Nastavení | Výchozí hodnota | Popis |
 |------------|-----------------|------|
-| Aktivovat pole NIP | Ano | Pridava pole NIP na stranku pokladny |
-| Pole povinne | Ne | Zda je NIP povinny |
+| Zapnout pole NIP | Ano | Přidá pole NIP na stránku pokladny |
+| Pole povinné | Ne | Zda je NIP povinný |
 | Pozice pole | Za polem firmy | Kde zobrazit pole NIP |
-| Validace kontrolniho souctu | Ano | Kontroluje spravnost cisla NIP |
-| Overeni GUS REGON | Ne | Overuje NIP v databazi GUS |
-| Automaticke doplnovani | Ano | Stahuje udaje firmy z GUS |
+| Validace kontrolního součtu | Ano | Kontroluje správnost čísla NIP |
+| Ověření GUS REGON | Ne | Ověřuje NIP v databázi GUS |
+| Automatické doplňování | Ano | Načítá údaje o firmě z GUS |
 
-### Podminene zobrazeni
+### Podmíněné zobrazení
 
-Pole NIP muze byt zobrazeno:
+Pole NIP může být zobrazeno:
 
-- **Vzdy** - viditelne pro vsechny zakazniky
-- **Po zaznaceni checkboxu "Chci fakturu"** - objevi se po zaznaceni
-- **Po vyplneni nazvu firmy** - objevi se, kdyz pole "Firma" je vyplneno
+- **Vždy** - viditelné pro všechny zákazníky
+- **Po zaškrtnutí pole "Chci fakturu"** - objeví se po zaškrtnutí
+- **Po vyplnění názvu firmy** - objeví se, když je pole "Firma" vyplněno
 
-Doporucena moznost je zobrazeni po zaznaceni checkboxu "Chci fakturu" - je to nejprehlednejsi pro zakaznika.
+Doporučenou možností je zobrazení po zaškrtnutí pole "Chci fakturu" - je to pro zákazníka nejpřehlednější.
 
-## Validace kontrolniho souctu
+## Validace kontrolního součtu
 
-Algoritmus validace NIP je zalozen na systemu vah. Kontrolni cislice (posledni, desata cislice) je vypocitana na zaklade deviti predchozich cislic.
+NIP se validuje systémem vah. Poslední číslice (kontrolní) musí odpovídat výsledku výpočtu z devíti předchozích číslic.
 
 ### Algoritmus
 
-Vahy pro jednotlive cislice NIP: `6, 5, 7, 2, 3, 4, 5, 6, 7`
+Váhy pro jednotlivé číslice NIP: `6, 5, 7, 2, 3, 4, 5, 6, 7`
 
 ```
 NIP: 1234567890
 Suma = 1*6 + 2*5 + 3*7 + 4*2 + 5*3 + 6*4 + 7*5 + 8*6 + 9*7 = 214
 Zbytek = 214 mod 11
-Pokud zbytek == posledni cislice NIP → NIP spravny
+Pokud zbytek == poslední číslice NIP → NIP správný
 ```
 
-Plugin provadi tuto validaci jak na strane klienta (JavaScript), tak na strane serveru (PHP). Serverova validace je vzdy aktivni - nelze ji obejit deaktivaci JavaScriptu.
+Zásuvný modul validuje NIP na straně klienta (JavaScript) i serveru (PHP). Serverová validace je vždy aktivní - nelze ji obejít.
 
-### Obsluha vstupnich formatu
+### Zpracování vstupních formátů
 
-Plugin akceptuje NIP v ruznych formatech:
+Zásuvný modul akceptuje NIP v různých formátech:
 
-- `1234567890` - same cislice
-- `123-456-78-90` - s pomlckami
+- `1234567890` - jen číslice
+- `123-456-78-90` - s pomlčkami
 - `123 456 78 90` - s mezerami
-- `PL1234567890` - s prefixem zeme
+- `PL1234567890` - s prefixem země
 
-Vsechny formaty jsou normalizovany na 10 cislic pred validaci.
+Všechny formáty se před validací normalizují na 10 číslic.
 
-## Overeni GUS REGON
+## Ověření GUS REGON
 
 ### Konfigurace API
 
-API GUS REGON vyzaduje pristupovy klic. Plugin podporuje dve prostredi:
+API GUS REGON vyžaduje přístupový klíč. Zásuvný modul podporuje dvě prostředí:
 
-| Prostredi | URL | Klic | Pouziti |
+| Prostředí | URL | Klíč | Použití |
 |------------|-----|-------|-------------|
-| Testovaci | `https://wyszukiwarkaregontest.stat.gov.pl/wsBIR/UslugaBIRzewnwordbir.svc` | `abcde12345abcde12345` (verejny testovaci klic) | Vyvoj a testovani |
-| Produkcni | `https://wyszukiwarkaregon.stat.gov.pl/wsBIR/UslugaBIRzewnetrzny.svc` | Vlastni klic z GUS | Fungujici obchod |
+| Testovací | `https://wyszukiwarkaregontest.stat.gov.pl/wsBIR/UslugaBIRzewnwordbir.svc` | `abcde12345abcde12345` (veřejný testovací klíč) | Vývoj a testování |
+| Produkční | `https://wyszukiwarkaregon.stat.gov.pl/wsBIR/UslugaBIRzewnetrzny.svc` | Vlastní klíč z GUS | Fungující obchod |
 
-### Ziskani produkcniho klice
+### Získání produkčního klíče
 
-1. Prejdete na stranku: https://api.stat.gov.pl/Home/BirIndex
-2. Zaregistrujte se a prihlaste
-3. Podejte zadost o pristup k API REGON
-4. Klic bude zaslan na zadanou e-mailovou adresu (doba cekani: 1-3 pracovni dny)
+1. Přejděte na stránku: https://api.stat.gov.pl/Home/BirIndex
+2. Zaregistrujte se a přihlaste
+3. Podejte žádost o přístup k API REGON
+4. Klíč bude zaslán na zadanou e-mailovou adresu (čekací doba: 1-3 pracovní dny)
 
-### Konfigurace v pluginu
+### Konfigurace v zásuvném modulu
 
-1. Prejdete do **WooCommerce > Nastaveni > Polski > Pokladna > NIP**
-2. Aktivujte **Overeni GUS REGON**
-3. Zvolte prostredi: **Testovaci** nebo **Produkcni**
-4. Vlozte klic API (pro produkcni prostredi)
-5. Ulozte nastaveni
+1. Přejděte do **WooCommerce > Nastavení > Polski > Pokladna > NIP**
+2. Zapněte **Ověření GUS REGON**
+3. Vyberte prostředí: **Testovací** nebo **Produkční**
+4. Vložte API klíč (pro produkční prostředí)
+5. Uložte nastavení
 
-### Testovaci rezim
+### Testovací režim
 
-V testovacim rezimu plugin pouziva verejny testovaci klic GUS. Testovaci databaze obsahuje fiktivni data - neslouzi k overeni skutecnych cisel NIP. Pouzivejte jej vyhradne behem vyvoje a testovani integrace.
+Testovací režim používá veřejný klíč GUS. Testovací databáze obsahuje fiktivní data - neověřujete v ní skutečná NIP čísla. Používejte ho jen během tvorby a testování obchodu.
 
-## Automaticke stahovani udaju firmy
+## Automatické načítání údajů o firmě
 
-Po overeni NIP v GUS REGON plugin automaticky doplni pole formulare:
+Po ověření NIP zásuvný modul automaticky doplní pole formuláře:
 
 | Pole WooCommerce | Data z GUS |
 |-----------------|------------|
-| Firma (company) | Nazev firmy |
-| Adresa 1 | Ulice a cislo |
-| Mesto | Mesto |
-| PSC | PSC |
-| Kraj | Vojvodstvi |
+| Firma (company) | Název firmy |
+| Adresa 1 | Ulice a číslo |
+| Město | Obec |
+| PSČ | PSČ |
+| Vojvodství | Vojvodství |
 
-Zakaznik vidi doplnene udaje a muze je opravit pred slozenim objednavky.
+Zákazník vidí doplněná data a může je před objednávkou opravit.
 
-### Chovani pri automatickem doplnovani
+### Chování při automatickém doplňování
 
-- Pole jsou doplnovana pouze pokud jsou prazdna nebo obsahuji drive stazena data z GUS
-- Pokud zakaznik rucne zmenil udaje, plugin zmeny neprepisuje
-- Zakaznik je informovan zpravou o stazeni dat
+- Pole se doplní jen pokud jsou prázdná nebo obsahují dříve načtená data z GUS
+- Pokud zákazník data ručně změnil, zásuvný modul změny nepřepisuje
+- Zákazník je informován zprávou o načtení dat
 
-## Uchovavani NIP
+## Uchovávání NIP
 
-Cislo NIP je ukladano jako metadata objednavky:
+Číslo NIP se ukládá jako metadata objednávky:
 
-- klic: `_billing_nip`
-- viditelne v administracnim panelu objednavky
-- dostupne v sablonach e-mailu
-- exportovatelne v reportech
+- klíč: `_billing_nip`
+- viditelný v administraci objednávky
+- dostupný v šablonách e-mailů
+- exportovatelný v reportech
 
-### Zobrazeni NIP v objednavce
+### Zobrazení NIP v objednávce
 
-NIP je automaticky zobrazovan:
+NIP se automaticky zobrazuje:
 
-- v detailech objednavky (administracni panel)
-- v e-mailu potvrzeni objednavky
-- na strance "Muj ucet > Objednavky"
+- v podrobnostech objednávky (administrace)
+- v e-mailu potvrzení objednávky
+- na stránce "Můj účet > Objednávky"
 
-## Programaticky pristup
+## Programový přístup
 
-### Ziskani NIP z objednavky
+### Načtení NIP z objednávky
 
 ```php
 $order = wc_get_order($order_id);
@@ -167,7 +167,8 @@ function validate_nip(string $nip): bool {
 
 ```php
 add_filter('polski/checkout/validate_nip', function (bool $is_valid, string $nip): bool {
-    // Doplnkova logika validace
+    // Doplňková logika validace
+    // např. kontrola na seznamu blokovaných NIP čísel
     $blocked_nips = ['0000000000'];
 
     if (in_array($nip, $blocked_nips, true)) {
@@ -178,29 +179,29 @@ add_filter('polski/checkout/validate_nip', function (bool $is_valid, string $nip
 }, 10, 2);
 ```
 
-## Nejcastejsi problemy
+## Nejčastější problémy
 
-### Overeni GUS vraci chybu
+### Ověření GUS vrací chybu
 
-1. Zkontrolujte, zda klic API je spravny a aktivni
-2. Overite, zda server muze navazat HTTPS spojeni s api.stat.gov.pl
-3. API GUS byva nedostupne - plugin obsluhuje timeout a zobrazuje prislusnou zpravu
-4. Ujistete se, ze rozsireni PHP SOAP je nainstalovano na serveru
+1. Zkontrolujte, zda je API klíč správný a aktivní
+2. Ověřte, zda server může navázat HTTPS spojení s api.stat.gov.pl
+3. API GUS bývá nedostupné - zásuvný modul obsluhuje timeout a zobrazí odpovídající zprávu
+4. Ujistěte se, že je na serveru nainstalováno rozšíření PHP SOAP
 
 ### Pole NIP se nezobrazuje
 
-1. Zkontrolujte, zda je modul NIP aktivovan
-2. Overite nastaveni podmineného zobrazeni
-3. Vymažte cache (cachovaci pluginy mohou cachovat formular pokladny)
+1. Zkontrolujte, zda je modul NIP zapnutý
+2. Ověřte nastavení podmíněného zobrazení
+3. Vymažte cache (cache zásuvné moduly mohou cachovat formulář pokladny)
 
-### Udaje firmy se nedoplnuji automaticky
+### Údaje o firmě se nedoplní automaticky
 
-1. Zkontrolujte konzoli prohlizece na chyby AJAX
-2. Overite, zda endpoint REST API pluginu je dostupny
-3. Ujistete se, ze NIP je spravny a firma existuje v databazi GUS
+1. Zkontrolujte konzoli prohlížeče z hlediska chyb AJAX
+2. Ověřte, zda je endpoint REST API zásuvného modulu dostupný
+3. Ujistěte se, že je NIP správný a firma existuje v databázi GUS
 
-## Souvisejici zdroje
+## Související zdroje
 
-- [Nahlasit problem](https://github.com/wppoland/polski/issues)
+- [Nahlásit problém](https://github.com/wppoland/polski/issues)
 
-<div class="disclaimer">Tato stránka slouží pouze k informačním účelům a nepředstavuje právní poradenství. Před implementací se poraďte s právníkem. Polski for WooCommerce je open source software (GPLv2) poskytovaný bez záruky.</div>
+<div class="disclaimer">Tato stránka má výhradně informativní charakter a nepředstavuje právní poradenství. Před nasazením se poraďte s právníkem. Polski for WooCommerce je open source software (GPLv2) dodávaný bez záruky.</div>

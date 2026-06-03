@@ -1,22 +1,22 @@
 ---
 title: PRO REST API
-description: Dokumentace REST API Polski PRO for WooCommerce - endpointy faktur, nastaveni, generovani pravnich dokumentu a integrace s KSeF.
+description: Dokumentace REST API Polski PRO for WooCommerce - endpointy faktur, nastavení, generování právních dokumentů a integrace s KSeF.
 ---
 
-REST API v namespace `polski-pro/v1` pro spravu faktur, nastaveni a pravnich dokumentu. Vyzaduje autentizaci a opravneni `manage_woocommerce`.
+REST API v namespace `polski-pro/v1` pro správu faktur, nastavení a právních dokumentů. Vyžaduje autentizaci a oprávnění `manage_woocommerce`.
 
-:::note[Pozadavky]
-Polski PRO vyzaduje: Polski (free) v1.3.0+, WordPress 6.4+, WooCommerce 8.0+, PHP 8.1+
+:::note[Požadavky]
+Polski PRO vyžaduje: Polski (free) v1.3.0+, WordPress 6.4+, WooCommerce 8.0+, PHP 8.1+
 :::
 
 ## Autentizace
 
-API vyzaduje dva prvky autorizace:
+API vyžaduje dva prvky autorizace:
 
-1. **Nonce WordPress** - hlavicka `X-WP-Nonce` s hodnotou vygenerovanou pomoci `wp_create_nonce('wp_rest')`
-2. **Opravneni** - prihlaseny uzivatel musi mit capability `manage_woocommerce`
+1. **WordPress nonce** - záhlaví `X-WP-Nonce` s hodnotou vygenerovanou pomocí `wp_create_nonce('wp_rest')`
+2. **Oprávnění** - přihlášený uživatel musí mít capability `manage_woocommerce`
 
-### Priklad autentizace (JavaScript)
+### Příklad autentizace (JavaScript)
 
 ```javascript
 const response = await fetch('/wp-json/polski-pro/v1/invoices', {
@@ -27,7 +27,7 @@ const response = await fetch('/wp-json/polski-pro/v1/invoices', {
 });
 ```
 
-### Priklad autentizace (PHP / cURL)
+### Příklad autentizace (PHP / cURL)
 
 ```php
 $nonce = wp_create_nonce('wp_rest');
@@ -42,11 +42,11 @@ $response = wp_remote_get(
 );
 ```
 
-Neautentizovane pozadavky nebo pozadavky od uzivatelu bez pozadovaneho opravneni obdrzi odpoved `401 Unauthorized` nebo `403 Forbidden`.
+Bez autentizace nebo oprávnění API vrací `401 Unauthorized` nebo `403 Forbidden`.
 
 ## Endpointy faktur
 
-### Ziskani seznamu faktur
+### Získání seznamu faktur
 
 ```
 GET /wp-json/polski-pro/v1/invoices
@@ -54,17 +54,17 @@ GET /wp-json/polski-pro/v1/invoices
 
 **Parametry dotazu:**
 
-| Parametr | Typ | Vychozi | Popis |
-|----------|-----|---------|-------|
-| `page` | `int` | `1` | Cislo stranky |
-| `per_page` | `int` | `20` | Pocet vysledku na stranku (max 100) |
-| `status` | `string` | `any` | Filtr statusu: `draft`, `issued`, `sent`, `paid`, `cancelled` |
+| Parametr | Typ | Výchozí | Popis |
+|----------|-----|----------|------|
+| `page` | `int` | `1` | Číslo stránky |
+| `per_page` | `int` | `20` | Počet výsledků na stránku (max 100) |
+| `status` | `string` | `any` | Filtr stavu: `draft`, `issued`, `sent`, `paid`, `cancelled` |
 | `date_from` | `string` | `null` | Datum od (Y-m-d) |
 | `date_to` | `string` | `null` | Datum do (Y-m-d) |
-| `order_id` | `int` | `null` | Filtr podle ID objednavky WooCommerce |
-| `search` | `string` | `null` | Vyhledavani podle cisla faktury nebo nazvu odberatele |
+| `order_id` | `int` | `null` | Filtr podle ID objednávky WooCommerce |
+| `search` | `string` | `null` | Vyhledávání podle čísla faktury nebo názvu odběratele |
 
-**Odpoved (200 OK):**
+**Odpověď (200 OK):**
 
 ```json
 {
@@ -95,7 +95,7 @@ GET /wp-json/polski-pro/v1/invoices
 }
 ```
 
-### Vytvoreni faktury z objednavky
+### Vytvoření faktury z objednávky
 
 ```
 POST /wp-json/polski-pro/v1/invoices
@@ -103,28 +103,28 @@ POST /wp-json/polski-pro/v1/invoices
 
 **Parametry body (JSON):**
 
-| Parametr | Typ | Povinny | Popis |
-|----------|-----|---------|-------|
-| `order_id` | `int` | Ano | ID objednavky WooCommerce |
-| `type` | `string` | Ne | Typ: `vat` (vychozi), `proforma`, `receipt` |
-| `issue_date` | `string` | Ne | Datum vystaveni (Y-m-d), vychozi dnes |
-| `due_date` | `string` | Ne | Splatnost (Y-m-d) |
-| `notes` | `string` | Ne | Poznamky na fakture |
-| `send_to_provider` | `bool` | Ne | Odeslat do ucetniho systemu (vychozi `true`) |
+| Parametr | Typ | Povinný | Popis |
+|----------|-----|----------|------|
+| `order_id` | `int` | Ano | ID objednávky WooCommerce |
+| `type` | `string` | Ne | Typ: `vat` (výchozí), `proforma`, `receipt` |
+| `issue_date` | `string` | Ne | Datum vystavení (Y-m-d), výchozí dnes |
+| `due_date` | `string` | Ne | Termín splatnosti (Y-m-d) |
+| `notes` | `string` | Ne | Poznámky na faktuře |
+| `send_to_provider` | `bool` | Ne | Odeslat do účetního systému (výchozí `true`) |
 
-**Pozadavek:**
+**Požadavek:**
 
 ```json
 {
     "order_id": 567,
     "type": "vat",
     "due_date": "2026-04-15",
-    "notes": "Termin płatności 14 dni",
+    "notes": "Termín splatnosti 14 dní",
     "send_to_provider": true
 }
 ```
 
-**Odpoved (201 Created):**
+**Odpověď (201 Created):**
 
 ```json
 {
@@ -149,15 +149,15 @@ POST /wp-json/polski-pro/v1/invoices
 }
 ```
 
-### Ziskani detailu faktury
+### Získání detailů faktury
 
 ```
 GET /wp-json/polski-pro/v1/invoices/{id}
 ```
 
-Vraci kompletni data faktury vcetne polozek (items).
+Vrací kompletní data faktury včetně položek (items).
 
-**Odpoved (200 OK):**
+**Odpověď (200 OK):**
 
 ```json
 {
@@ -205,7 +205,7 @@ Vraci kompletni data faktury vcetne polozek (items).
     "payment_method": "transfer",
     "issued_at": "2026-04-05T14:00:00+02:00",
     "due_date": "2026-04-15",
-    "notes": "Termin płatności 14 dni",
+    "notes": "Termín splatnosti 14 dní",
     "external_id": "FV-12346",
     "provider": "fakturownia",
     "provider_status": "issued",
@@ -213,12 +213,12 @@ Vraci kompletni data faktury vcetne polozek (items).
 }
 ```
 
-**Odpoved (404 Not Found):**
+**Odpověď (404 Not Found):**
 
 ```json
 {
     "code": "invoice_not_found",
-    "message": "Faktura o podanym ID nie istnieje.",
+    "message": "Faktura se zadaným ID neexistuje.",
     "data": { "status": 404 }
 }
 ```
@@ -229,16 +229,16 @@ Vraci kompletni data faktury vcetne polozek (items).
 POST /wp-json/polski-pro/v1/invoices/{id}/pdf
 ```
 
-Regeneruje soubor PDF faktury a vraci URL ke stazeni.
+Regeneruje PDF soubor faktury a vrací URL ke stažení.
 
-**Parametry body (volitelne):**
+**Parametry body (volitelné):**
 
 | Parametr | Typ | Popis |
-|----------|-----|-------|
-| `template` | `string` | Sablona PDF: `default`, `minimal`, `detailed` |
+|----------|-----|------|
+| `template` | `string` | Šablona PDF: `default`, `minimal`, `detailed` |
 | `language` | `string` | Jazyk: `pl`, `en`, `de` |
 
-**Odpoved (200 OK):**
+**Odpověď (200 OK):**
 
 ```json
 {
@@ -249,21 +249,21 @@ Regeneruje soubor PDF faktury a vraci URL ke stazeni.
 }
 ```
 
-### Odeslani faktury do KSeF
+### Odeslání faktury do KSeF
 
 ```
 POST /wp-json/polski-pro/v1/invoices/{id}/ksef
 ```
 
-Odesle fakturu do Krajoweho systemu e-Faktur (KSeF).
+Odesílá fakturu do Krajowego Systemu e-Faktur (KSeF).
 
-**Parametry body (volitelne):**
+**Parametry body (volitelné):**
 
 | Parametr | Typ | Popis |
-|----------|-----|-------|
-| `test_mode` | `bool` | Odeslat do testovaciho prostredi KSeF (vychozi `false`) |
+|----------|-----|------|
+| `test_mode` | `bool` | Odeslat do testovacího prostředí KSeF (výchozí `false`) |
 
-**Odpoved (200 OK):**
+**Odpověď (200 OK):**
 
 ```json
 {
@@ -275,45 +275,45 @@ Odesle fakturu do Krajoweho systemu e-Faktur (KSeF).
 }
 ```
 
-**Odpoved (422 Unprocessable Entity):**
+**Odpověď (422 Unprocessable Entity):**
 
 ```json
 {
     "code": "ksef_validation_error",
-    "message": "Faktura nie spełnia wymagań schematu KSeF.",
+    "message": "Faktura nesplňuje požadavky schématu KSeF.",
     "data": {
         "status": 422,
         "errors": [
-            "Brak numeru NIP nabywcy",
-            "Nieprawidłowa stawka VAT dla pozycji 2"
+            "Chybí NIP kupujícího",
+            "Nesprávná sazba DPH pro položku 2"
         ]
     }
 }
 ```
 
-### Vytvoreni opravne faktury
+### Vytvoření opravné faktury
 
 ```
 POST /wp-json/polski-pro/v1/invoices/{id}/correction
 ```
 
-Vytvori opravnou fakturu spojenou se zdrojovou fakturou.
+Vytváří opravnou fakturu propojenou se zdrojovou fakturou.
 
 **Parametry body (JSON):**
 
-| Parametr | Typ | Povinny | Popis |
-|----------|-----|---------|-------|
-| `reason` | `string` | Ano | Duvod opravy |
-| `items` | `array` | Ano | Opravene polozky |
-| `items[].original_index` | `int` | Ano | Index polozky na zdrojove fakture (od 0) |
-| `items[].quantity` | `int` | Ne | Nove mnozstvi |
-| `items[].net_price` | `string` | Ne | Nova cena bez DPH |
+| Parametr | Typ | Povinný | Popis |
+|----------|-----|----------|------|
+| `reason` | `string` | Ano | Důvod opravy |
+| `items` | `array` | Ano | Opravené položky |
+| `items[].original_index` | `int` | Ano | Index položky na zdrojové faktuře (od 0) |
+| `items[].quantity` | `int` | Ne | Nové množství |
+| `items[].net_price` | `string` | Ne | Nová cena bez DPH |
 
-**Pozadavek:**
+**Požadavek:**
 
 ```json
 {
-    "reason": "Zwrot 1 sztuki produktu",
+    "reason": "Vrácení 1 kusu produktu",
     "items": [
         {
             "original_index": 0,
@@ -324,7 +324,7 @@ Vytvori opravnou fakturu spojenou se zdrojovou fakturou.
 }
 ```
 
-**Odpoved (201 Created):**
+**Odpověď (201 Created):**
 
 ```json
 {
@@ -333,7 +333,7 @@ Vytvori opravnou fakturu spojenou se zdrojovou fakturou.
     "type": "correction",
     "original_invoice_id": 43,
     "original_invoice_number": "FV/2026/04/002",
-    "reason": "Zwrot 1 sztuki produktu",
+    "reason": "Vrácení 1 kusu produktu",
     "items": [
         {
             "name": "Produkt testowy",
@@ -354,7 +354,7 @@ Vytvori opravnou fakturu spojenou se zdrojovou fakturou.
 
 ## Endpoint statistik
 
-### Ziskani statistik faktur
+### Získání statistik faktur
 
 ```
 GET /wp-json/polski-pro/v1/invoices/stats
@@ -362,12 +362,12 @@ GET /wp-json/polski-pro/v1/invoices/stats
 
 **Parametry dotazu:**
 
-| Parametr | Typ | Vychozi | Popis |
-|----------|-----|---------|-------|
-| `days` | `int` | `30` | Pocet dnu zpet |
-| `group_by` | `string` | `day` | Seskupeni: `day`, `week`, `month` |
+| Parametr | Typ | Výchozí | Popis |
+|----------|-----|----------|------|
+| `days` | `int` | `30` | Počet dní zpět |
+| `group_by` | `string` | `day` | Seskupení: `day`, `week`, `month` |
 
-**Odpoved (200 OK):**
+**Odpověď (200 OK):**
 
 ```json
 {
@@ -401,9 +401,9 @@ GET /wp-json/polski-pro/v1/invoices/stats
 }
 ```
 
-## Endpoint nastaveni
+## Endpoint nastavení
 
-### Aktualizace nastaveni PRO
+### Aktualizace nastavení PRO
 
 ```
 POST /wp-json/polski-pro/v1/settings
@@ -412,11 +412,11 @@ POST /wp-json/polski-pro/v1/settings
 **Parametry body (JSON):**
 
 | Parametr | Typ | Popis |
-|----------|-----|-------|
-| `section` | `string` | Sekce nastaveni: `invoices`, `catalog`, `quote`, `inpost`, `accounting` |
-| `settings` | `object` | Objekt s pary klic-hodnota nastaveni |
+|----------|-----|------|
+| `section` | `string` | Sekce nastavení: `invoices`, `catalog`, `quote`, `inpost`, `accounting` |
+| `settings` | `object` | Objekt s páry klíč-hodnota nastavení |
 
-**Pozadavek:**
+**Požadavek:**
 
 ```json
 {
@@ -431,7 +431,7 @@ POST /wp-json/polski-pro/v1/settings
 }
 ```
 
-**Odpoved (200 OK):**
+**Odpověď (200 OK):**
 
 ```json
 {
@@ -447,31 +447,31 @@ POST /wp-json/polski-pro/v1/settings
 }
 ```
 
-## Endpoint generovani pravnich dokumentu
+## Endpoint generování právních dokumentů
 
-### Generovani pravniho dokumentu
+### Generování právního dokumentu
 
 ```
 POST /wp-json/polski-pro/v1/legal/generate
 ```
 
-Generuje pravni dokumenty (obchodni podminky, zasady ochrany osobnich udaju) na zaklade dat obchodu.
+Generuje právní dokumenty na základě dat obchodu.
 
 **Parametry body (JSON):**
 
-| Parametr | Typ | Povinny | Popis |
-|----------|-----|---------|-------|
+| Parametr | Typ | Povinný | Popis |
+|----------|-----|----------|------|
 | `type` | `string` | Ano | Typ dokumentu: `terms`, `privacy`, `withdrawal`, `cookies` |
-| `company_data` | `object` | Ano | Data firmy |
-| `company_data.name` | `string` | Ano | Nazev firmy |
-| `company_data.nip` | `string` | Ano | DIC |
+| `company_data` | `object` | Ano | Údaje firmy |
+| `company_data.name` | `string` | Ano | Název firmy |
+| `company_data.nip` | `string` | Ano | NIP |
 | `company_data.address` | `string` | Ano | Adresa |
-| `company_data.email` | `string` | Ano | Kontaktni e-mail |
+| `company_data.email` | `string` | Ano | Kontaktní e-mail |
 | `company_data.phone` | `string` | Ne | Telefon |
-| `format` | `string` | Ne | Format: `html` (vychozi), `markdown`, `pdf` |
-| `language` | `string` | Ne | Jazyk: `pl` (vychozi) |
+| `format` | `string` | Ne | Formát: `html` (výchozí), `markdown`, `pdf` |
+| `language` | `string` | Ne | Jazyk: `pl` (výchozí) |
 
-**Pozadavek:**
+**Požadavek:**
 
 ```json
 {
@@ -487,7 +487,7 @@ Generuje pravni dokumenty (obchodni podminky, zasady ochrany osobnich udaju) na 
 }
 ```
 
-**Odpoved (200 OK):**
+**Odpověď (200 OK):**
 
 ```json
 {
@@ -509,33 +509,33 @@ Generuje pravni dokumenty (obchodni podminky, zasady ochrany osobnich udaju) na 
 }
 ```
 
-## Kody chyb
+## Kódy chyb
 
-Vsechny endpointy vraceji standardizovane kody chyb:
+Všechny endpointy vracejí standardizované kódy chyb:
 
-| Kod HTTP | Kod chyby | Popis |
-|----------|-----------|-------|
-| 400 | `invalid_params` | Neplatne parametry pozadavku |
-| 401 | `rest_not_logged_in` | Uzivatel neprihlasen |
-| 403 | `rest_forbidden` | Chybi opravneni `manage_woocommerce` |
+| HTTP kód | Kód chyby | Popis |
+|----------|-----------|------|
+| 400 | `invalid_params` | Nesprávné parametry požadavku |
+| 401 | `rest_not_logged_in` | Uživatel nepřihlášen |
+| 403 | `rest_forbidden` | Chybí oprávnění `manage_woocommerce` |
 | 404 | `invoice_not_found` | Faktura neexistuje |
-| 409 | `invoice_already_exists` | Faktura pro tuto objednavku jiz existuje |
+| 409 | `invoice_already_exists` | Faktura pro tuto objednávku již existuje |
 | 422 | `validation_error` | Chyba validace dat |
-| 429 | `rate_limit_exceeded` | Prekrocen limit pozadavku (60/min) |
-| 500 | `internal_error` | Interni chyba serveru |
+| 429 | `rate_limit_exceeded` | Překročen limit požadavků (60/min) |
+| 500 | `internal_error` | Vnitřní chyba serveru |
 
 ## Limity a throttling
 
-API pouziva rate limiting: maximalne 60 pozadavku za minutu na uzivatele. Po prekroceni limitu je vracena odpoved `429` s hlavickou `Retry-After`.
+Limit: 60 požadavků za minutu na uživatele. Po překročení API vrací `429` se záhlavím `Retry-After`.
 
 ```
 HTTP/1.1 429 Too Many Requests
 Retry-After: 30
 ```
 
-## Dalsi kroky
+## Další kroky
 
-- Hlaste problemy: [GitHub Issues](https://github.com/wppoland/polski/issues)
-- Souvisejici: [Ucetni integrace](/pro/accounting)
+- Hlaste problémy: [GitHub Issues](https://github.com/wppoland/polski/issues)
+- Související: [Účetní integrace](/pro/accounting)
 
-<div class="disclaimer">Tato stránka slouží pouze k informačním účelům a nepředstavuje právní poradenství. Před implementací se poraďte s právníkem. Polski for WooCommerce je open source software (GPLv2) poskytovaný bez záruky.</div>
+<div class="disclaimer">Tato stránka má pouze informativní charakter a nepředstavuje právní poradenství. Před nasazením se poraďte s právníkem. Polski for WooCommerce je open source software (GPLv2) poskytovaný bez záruky.</div>

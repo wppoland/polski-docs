@@ -1,72 +1,72 @@
 ---
-title: Smernice Omnibus - sledovani cen
-description: Implementace Smernice Omnibus v Polski for WooCommerce - automaticke sledovani nejnizsi ceny za 30 dni, konfigurace zobrazovani a shortcode.
+title: Směrnice Omnibus - sledování cen
+description: Implementace Směrnice Omnibus v Polski for WooCommerce - automatické sledování nejnižší ceny za 30 dnů, konfigurace zobrazování a shortcode.
 ---
 
-Smernice Omnibus (EU 2019/2161) plati v Polsku od 1. ledna 2023. Pri kazde sleve musite ukazat nejnizsi cenu za poslednich 30 dni. Plugin automaticky sleduje historii cen a zobrazuje tuto informaci u akci.
+Směrnice Omnibus (EU 2019/2161) platí v Polsku od 1. ledna 2023. Při každém zlevnění musíte ukázat nejnižší cenu za posledních 30 dnů. Plugin automaticky sleduje historii cen a zobrazuje tuto informaci u akcí.
 
-## Jak funguje sledovani cen
+## Jak funguje sledování cen
 
-Plugin zapisuje kazdou zmenu ceny produktu (vcetne variant) do databaze. Kdyz je produkt "v akci", plugin vypocita nejnizsi cenu za 30 dni a ukaze ji zakaznikum.
+Plugin zapisuje do databáze každou změnu ceny produktu (včetně variant). Když je produkt "v akci", plugin vypočítá nejnižší cenu za 30 dnů a ukáže ji zákazníkům.
 
-Sledovani zacina po aktivaci modulu. Pokud produkt jeste nema historii cen, zobrazi se nahradni zprava.
+Sledování začíná po zapnutí modulu. Pokud produkt ještě nemá historii cen, zobrazí se náhradní zpráva.
 
-![Stranka produktu se zobrazenou nejnizsi cenou Omnibus](../../../../assets/screenshots/screenshot-4-omnibus-lowest-price.png)
+![Stránka produktu se zobrazenou nejnižší cenou Omnibus](../../../../assets/screenshots/screenshot-4-omnibus-lowest-price.png)
 
 ## Konfigurace
 
-Prejdete do **WooCommerce > Nastaveni > Polski > Omnibus** a nakonfigurujte dostupne moznosti.
+Přejděte do **WooCommerce > Nastavení > Polski > Omnibus** a nakonfigurujte dostupné možnosti.
 
-### Obdobi sledovani
+### Období sledování
 
-| Moznost | Popis | Vychozi hodnota |
+| Možnost | Popis | Výchozí hodnota |
 |-------|------|------------------|
-| `days` | Pocet dnu zpet pro vypocet nejnizsi ceny | `30` |
-| `prune_after_days` | Po kolika dnech odstranit stare zaznamy z historie | `90` |
+| `days` | Počet dnů zpět pro výpočet nejnižší ceny | `30` |
+| `prune_after_days` | Po kolika dnech odstranit staré záznamy z historie | `90` |
 
-`prune_after_days` kontroluje velikost tabulky v databazi. Hodnota `90` znamena, ze data starsi nez 90 dni se automaticky mazou.
+`prune_after_days` kontroluje velikost tabulky v databázi. Hodnota `90` znamená, že data starší než 90 dnů se automaticky mažou.
 
-### Dane
+### Daně
 
-| Moznost | Popis | Vychozi hodnota |
+| Možnost | Popis | Výchozí hodnota |
 |-------|------|------------------|
-| `include_tax` | Zda zobrazovana cena Omnibus ma obsahovat DPH | `true` |
+| `include_tax` | Zda má zobrazovaná cena Omnibus obsahovat DPH | `true` |
 
-Nastavte v souladu s nastavenim cen ve WooCommerce. Pokud jsou ceny v obchode s DPH, nechte `true`.
+Nastavte v souladu s nastavením cen ve WooCommerce. Pokud jsou ceny v obchodě s DPH, nechte `true`.
 
-### Mista zobrazeni
+### Místa zobrazení
 
-| Moznost | Popis | Vychozi hodnota |
+| Možnost | Popis | Výchozí hodnota |
 |-------|------|------------------|
-| `display_on_sale_only` | Zobrazit pouze u produktu v akci | `true` |
-| `show_on_single` | Stranka jednotliveho produktu | `true` |
-| `show_on_loop` | Seznam produktu (kategorie, obchod) | `false` |
-| `show_on_related` | Souvisejici produkty | `false` |
-| `show_on_cart` | Kosik | `false` |
+| `display_on_sale_only` | Zobrazit pouze u produktů v akci | `true` |
+| `show_on_single` | Stránka jednotlivého produktu | `true` |
+| `show_on_loop` | Seznam produktů (kategorie, obchod) | `false` |
+| `show_on_related` | Související produkty | `false` |
+| `show_on_cart` | Košík | `false` |
 
-Aktivujte minimalne na strance produktu (`show_on_single`). Na seznamu produktu (`show_on_loop`) zabira vice mista, ale nektere interpretace predpisu to vyzaduji.
+Zapněte minimálně na stránce produktu (`show_on_single`). Na seznamu produktů (`show_on_loop`) zabírá více místa, ale některé interpretace předpisů to vyžadují.
 
-### Regularni cena
+### Regulérní cena
 
-| Moznost | Popis | Vychozi hodnota |
+| Možnost | Popis | Výchozí hodnota |
 |-------|------|------------------|
-| `show_regular_price` | Zobrazit take regularni cenu vedle ceny Omnibus | `false` |
+| `show_regular_price` | Zobrazit také regulérní cenu vedle ceny Omnibus | `false` |
 
-### Sablona textu
+### Šablona textu
 
-| Moznost | Popis | Vychozi hodnota |
+| Možnost | Popis | Výchozí hodnota |
 |-------|------|------------------|
-| `display_text` | Sablona zobrazovane zpravy | `Najniższa cena z {days} dni przed obniżką: {price}` |
-| `no_history_text` | Text kdyz neni historie cen | `Brak danych o wcześniejszej cenie` |
+| `display_text` | Šablona zobrazované zprávy | `Najniższa cena z {days} dni przed obniżką: {price}` |
+| `no_history_text` | Text, když není historie cen | `Brak danych o wcześniejszej cenie` |
 
-Dostupne promenne v sablone `display_text`:
+Dostupné proměnné v šabloně `display_text`:
 
-- `{price}` - nejnizsi cena za dane obdobi
-- `{days}` - pocet dnu (vychozi 30)
-- `{date}` - datum nejnizsi ceny
-- `{regular_price}` - regularni cena produktu (pred akci)
+- `{price}` - nejnižší cena za dané období
+- `{days}` - počet dnů (výchozí 30)
+- `{date}` - datum nejnižší ceny
+- `{regular_price}` - regulérní cena produktu (před akcí)
 
-#### Priklady sablon
+#### Příklady šablon
 
 ```
 Najniższa cena z {days} dni przed obniżką: {price}
@@ -80,41 +80,41 @@ Najniższa cena z ostatnich {days} dni: {price} (cena regularna: {regular_price}
 Omnibus: {price} (z dnia {date})
 ```
 
-### Zpusob pocitani ceny
+### Způsob počítání ceny
 
-| Moznost | Popis | Vychozi hodnota |
+| Možnost | Popis | Výchozí hodnota |
 |-------|------|------------------|
-| `price_count_from` | Od kdy pocitat 30 dni | `sale_start` |
+| `price_count_from` | Od kdy počítat 30 dnů | `sale_start` |
 
-Dostupne hodnoty:
+Dostupné hodnoty:
 
-- `sale_start` - od data zahajeni akce (doporuceno UOKiK)
-- `current_date` - od aktualniho data
+- `sale_start` - od data zahájení akce (doporučeno UOKiK)
+- `current_date` - od aktuálního data
 
-### Variantni produkty
+### Variantní produkty
 
-| Moznost | Popis | Vychozi hodnota |
+| Možnost | Popis | Výchozí hodnota |
 |-------|------|------------------|
-| `variable_tracking` | Zpusob sledovani variant | `per_variation` |
+| `variable_tracking` | Způsob sledování variant | `per_variation` |
 
-Dostupne hodnoty:
+Dostupné hodnoty:
 
-- `per_variation` - samostatne sledovani kazde varianty (doporuceno)
-- `parent_only` - sledovani pouze ceny hlavniho produktu
+- `per_variation` - samostatné sledování každé varianty (doporučeno)
+- `parent_only` - sledování pouze ceny nadřazeného produktu
 
-`per_variation` dava presnejsi data, protoze kazda varianta muze mit jinou cenu a historii slev.
+`per_variation` poskytuje přesnější data, protože každá varianta může mít jinou cenu a historii zlevnění.
 
 ## Shortcode
 
-Pouzijte shortcode `[polski_omnibus_price]` pro zobrazeni informace o nejnizsi cene na libovolnem miste webu.
+Použijte shortcode `[polski_omnibus_price]` pro zobrazení informace o nejnižší ceně na libovolném místě webu.
 
-### Zakladni pouziti
+### Základní použití
 
 ```
 [polski_omnibus_price]
 ```
 
-Zobrazi cenu Omnibus pro aktualni produkt.
+Zobrazí cenu Omnibus pro aktuální produkt.
 
 ### S parametry
 
@@ -124,52 +124,52 @@ Zobrazi cenu Omnibus pro aktualni produkt.
 
 ### Parametry shortcode
 
-| Parametr | Popis | Vychozi hodnota |
+| Parametr | Popis | Výchozí hodnota |
 |----------|------|------------------|
-| `product_id` | ID produktu | Aktualni produkt |
-| `days` | Pocet dnu | Hodnota z nastaveni |
+| `product_id` | ID produktu | Aktuální produkt |
+| `days` | Počet dnů | Hodnota z nastavení |
 
-### Priklad pouziti v sablone PHP
+### Příklad použití v šabloně PHP
 
 ```php
 echo do_shortcode('[polski_omnibus_price product_id="' . $product_id . '"]');
 ```
 
-## Automaticke cisteni historie
+## Automatické čištění historie
 
-WP-Cron denne maze zaznamy historie cen starsi nez `prune_after_days`. Tabulka v databazi neroste bez omezeni.
+WP-Cron denně maže záznamy historie cen starší než `prune_after_days`. Tabulka v databázi neroste bez omezení.
 
-Pro rucni vynuceni cisteni pouzijte WP-CLI:
+Pro ruční vynucení čištění můžete použít WP-CLI:
 
 ```bash
 wp cron event run polski_omnibus_prune
 ```
 
-## Soulad s predpisy UOKiK
+## Soulad s předpisy UOKiK
 
 Pokyny UOKiK:
 
-1. Informace o nejnizsi cene musi byt zobrazena **u kazdeho oznameni o sleve**
-2. Referencni obdobi je **30 dnu pred uplatnenim slevy**
-3. Pro produkty prodavane kratsi dobu nez 30 dnu - uvedte nejnizsi cenu od dne zavedeni do prodeje
-4. Pro produkty podlehajici rychle zkaze - mozne zkraceni obdobi
+1. Informace o nejnižší ceně musí být zobrazena **u každého oznámení o zlevnění**
+2. Referenční období je **30 dnů před uplatněním slevy**
+3. Pro produkty prodávané kratší dobu než 30 dnů uveďte nejnižší cenu od dne uvedení do prodeje
+4. Pro produkty podléhající rychlé zkáze je možné zkrácení období
 
-Plugin ve vychozim stavu dodrzuje tyto pokyny. Moznost `price_count_from` na `sale_start` pocita od data zahajeni akce v souladu s doporucenimi UOKiK.
+Plugin ve výchozím stavu dodržuje tyto pokyny. Možnost `price_count_from` nastavená na `sale_start` počítá od data zahájení akce, v souladu s doporučeními UOKiK.
 
-## Reseni problemu
+## Řešení problémů
 
 **Cena Omnibus se nezobrazuje**
-Zkontrolujte, zda ma produkt nastavenou akcni cenu ve WooCommerce. Pri aktivovane moznosti `display_on_sale_only` se zprava objevi pouze pri aktivni akci.
+Zkontrolujte, zda má produkt nastavenou akční cenu ve WooCommerce. Při zapnuté možnosti `display_on_sale_only` se zpráva objeví pouze při aktivní akci.
 
-**Zobrazuje se zprava o chybejici historii**
-Sledovani cen zacina po aktivaci modulu. Pockejte na zmenu ceny nebo ulozte produkt znovu pro pridani prvniho zaznamu do historie.
+**Zobrazuje se zpráva o chybějící historii**
+Sledování cen začíná po zapnutí modulu. Počkejte na změnu ceny nebo uložte produkt znovu, abyste přidali první záznam do historie.
 
-**Cena Omnibus je stejna jako akcni cena**
-Toto je spravne chovani, pokud produkt nemel nizsi cenu v poslednich 30 dnech.
+**Cena Omnibus je stejná jako akční cena**
+Toto je správné chování, pokud produkt neměl nižší cenu v posledních 30 dnech.
 
-## Dalsi kroky
+## Další kroky
 
-- Hlaseni problemu: [GitHub Issues](https://github.com/wppoland/polski/issues)
-- Diskuse a otazky: [GitHub Discussions](https://github.com/wppoland/polski/discussions)
+- Nahlašujte problémy: [GitHub Issues](https://github.com/wppoland/polski/issues)
+- Diskuse a dotazy: [GitHub Discussions](https://github.com/wppoland/polski/discussions)
 
-<div class="disclaimer">Tato stránka slouží pouze k informačním účelům a nepředstavuje právní poradenství. Před implementací se poraďte s právníkem. Polski for WooCommerce je open source software (GPLv2) poskytovaný bez záruky.</div>
+<div class="disclaimer">Tato stránka má pouze informativní charakter a nepředstavuje právní poradenství. Před nasazením se poraďte s právníkem. Polski for WooCommerce je open source software (GPLv2) poskytovaný bez záruky.</div>

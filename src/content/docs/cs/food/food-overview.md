@@ -1,127 +1,127 @@
 ---
-title: Modul potravinovych produktu
-description: Prehled modulu potravin - vyzivove hodnoty, alergeny, slozeni, Nutri-Score, alkohol a zeme puvodu ve WooCommerce.
+title: Modul potravinových produktů
+description: Přehled modulu potravin - výživové hodnoty, alergeny, složky, Nutri-Score, alkohol a země původu ve WooCommerce.
 ---
 
-Prodej potravin online vyzaduje uvadeni informaci o slozeni, vyzivovych hodnotach, alergenech a puvodu produktu (narizeni EU c. 1169/2011). Plugin dava kompletni modul pro spravu techto dat.
+Prodej potravin online vyžaduje uvádění informací o složení, výživových hodnotách, alergenech a původu produktu (nařízení EU č. 1169/2011). Plugin Polski for WooCommerce poskytuje kompletní modul pro správu těchto dat.
 
-## Pravni pozadavky
+## Právní požadavky
 
-Narizeni FIC uklada prodejcum potravin povinnost uvadeni nasledujicich informaci:
+Prodejce potravin musí uvést:
 
-| Informace | Vyzadovana | Pravni zaklad |
+| Informace | Vyžadovaná | Právní základ |
 |------------|----------|----------------|
-| Nazev potraviny | Ano | Cl. 9 odst. 1 pism. a |
-| Seznam slozek | Ano | Cl. 9 odst. 1 pism. b |
-| Alergeny | Ano | Cl. 9 odst. 1 pism. c |
-| Mnozstvi slozek | Podminecne | Cl. 9 odst. 1 pism. d |
-| Ciste mnozstvi | Ano | Cl. 9 odst. 1 pism. e |
-| Datum minimalni trvanlivosti | Ano | Cl. 9 odst. 1 pism. f |
-| Podminky uchovavani | Podminecne | Cl. 9 odst. 1 pism. g |
-| Udaje vyrobce | Ano | Cl. 9 odst. 1 pism. h |
-| Zeme puvodu | Podminecne | Cl. 9 odst. 1 pism. i |
-| Vyzivova hodnota | Ano | Cl. 9 odst. 1 pism. l |
+| Název potraviny | Ano | Čl. 9 odst. 1 písm. a |
+| Seznam složek | Ano | Čl. 9 odst. 1 písm. b |
+| Alergeny | Ano | Čl. 9 odst. 1 písm. c |
+| Množství složek | Podmíněně | Čl. 9 odst. 1 písm. d |
+| Čisté množství | Ano | Čl. 9 odst. 1 písm. e |
+| Datum minimální trvanlivosti | Ano | Čl. 9 odst. 1 písm. f |
+| Podmínky uchovávání | Podmíněně | Čl. 9 odst. 1 písm. g |
+| Údaje výrobce | Ano | Čl. 9 odst. 1 písm. h |
+| Země původu | Podmíněně | Čl. 9 odst. 1 písm. i |
+| Výživová hodnota | Ano | Čl. 9 odst. 1 písm. l |
 
-V pripade prodeje na dalku (internetovy obchod) musi byt vetsina techto informaci dostupna pred nakupem - s vyjimkou data minimalni trvanlivosti, ktere muze byt uvedeno pri doruceni.
+V internetovém obchodě musí být většina těchto informací dostupná před nákupem. Výjimkou je datum minimální trvanlivosti - to uvádíte při doručení.
 
 ## Komponenty modulu
 
-Modul potravin se sklada z nekolika podmodulu, ktere lze aktivovat nezavisle:
+Modul potravin má několik podmodulů. Každý zapínáte samostatně:
 
-### Vyzivove hodnoty
+### Výživové hodnoty
 
-Tabulka vyzivovych hodnot na 100 g nebo 100 ml produktu. Zahrnuje energii (kJ/kcal), tuky, sacharidy, bilkoviny, sul a dalsi zivy.
+Tabulka výživových hodnot na 100 g nebo 100 ml. Obsahuje energii (kJ/kcal), tuky, sacharidy, bílkoviny, sůl a další složky.
 
-Podrobnosti: [Vyzivove hodnoty](/cs/food/nutrients/)
+Podrobnosti: [Výživové hodnoty](food/nutrients/)
 
 ### Alergeny
 
-System deklarace alergenu zalozeny na taxonomii WordPress. 14 hlavnich alergenu podle prilohy II narizeni FIC.
+Deklarace 14 hlavních alergenů založená na taxonomii WordPress.
 
-Podrobnosti: [Alergeny](/cs/food/allergens/)
+Podrobnosti: [Alergeny](food/allergens/)
 
 ### Nutri-Score
 
-Zobrazovani oznaceni Nutri-Score (A-E) s prislusnymi barvami a CSS tridami.
+Zobrazení označení Nutri-Score (A-E) s příslušnými barvami a CSS třídami.
 
-Podrobnosti: [Nutri-Score](/cs/food/nutri-score/)
+Podrobnosti: [Nutri-Score](food/nutri-score/)
 
-### Slozeni (seznam)
+### Složky (seznam)
 
-Textove pole na uplny seznam slozek produktu. Alergeny v seznamu jsou automaticky zvyraznovany tucnym pismem v souladu s pozadavky FIC.
+Textové pole na seznam složek. Alergeny v seznamu jsou automaticky zvýrazněny tučně.
 
 ### Alkohol
 
-Pole pro spravu informaci o alkoholickych produktech:
+Pole pro správu informací o alkoholických produktech:
 
 | Pole | Popis |
 |------|------|
-| Obsah alkoholu (% obj.) | Procentualni obsah alkoholu |
-| Varovani | Zprava o zakazu prodeje nezletilym |
-| Overeni veku | Checkbox potvrzeni plnoletosti pri pridani do kosiku |
+| Obsah alkoholu (% obj.) | Procentuální obsah alkoholu |
+| Varování | Zpráva o zákazu prodeje nezletilým |
+| Ověření věku | Checkbox potvrzení zletilosti při přidání do košíku |
 
-Pro napoje s obsahem alkoholu nad 1,2 % obj. je vyzadovano uvedeni obsahu alkoholu na etikete (cl. 28 FIC).
+Nápoje s obsahem alkoholu nad 1,2 % obj. vyžadují uvedení obsahu alkoholu.
 
-### Zeme puvodu
+### Země původu
 
-Pole na informaci o zemi puvodu nebo miste provenience. Vyzadovano pro:
+Pole na informaci o zemi původu nebo místě provenience. Vyžadováno pro:
 
-- maso (hovetzi, vepřove, drubezi, jehneci)
+- maso (hovězí, vepřové, drůbeží, jehněčí)
 - ovoce a zeleninu
 - ryby
-- olivovy olej
+- olivový olej
 - med
-- produkty, kde chybejici informace by mohla uvest spotrebitele v omyl
+- produkty, kde by chybějící informace mohla uvést spotřebitele v omyl
 
 ## Konfigurace
 
-### Aktivace modulu
+### Zapnutí modulu
 
-Prejdete do **WooCommerce > Nastaveni > Polski > Potraviny** a aktivujte modul a vyberte potrebne podmoduly.
+Přejděte do **WooCommerce > Nastavení > Polski > Potraviny** a aktivujte modul a vyberte potřebné podmoduly.
 
-### Globalni nastaveni
+### Globální nastavení
 
-| Nastaveni | Popis |
+| Nastavení | Popis |
 |------------|------|
-| Referencni jednotka | Vychozi jednotka: na 100 g nebo na 100 ml |
-| Pozice na strance produktu | Kde zobrazit informace (zalozka, pod popisem, v bocnim panelu) |
-| Zobrazit na listingu | Zda zobrazovat zkracene informace na strankach kategorii |
-| Automaticke zvyraznovani alergenu | Tucne pismo nazvu alergenu v seznamu slozek |
+| Referenční jednotka | Výchozí jednotka: na 100 g nebo na 100 ml |
+| Pozice na stránce produktu | Kde zobrazovat informace (záložka, pod popisem, v bočním panelu) |
+| Zobrazit v listingu | Zda zobrazovat zkrácené informace na stránkách kategorií |
+| Automatické zvýrazňování alergenů | Tučné zvýraznění názvů alergenů v seznamu složek |
 
-### Pozice na strance produktu
+### Pozice na stránce produktu
 
-Informace o potravinovem produktu mohou byt zobrazeny na nekolika mistech:
+Data o potravinách zobrazujete na jednom z míst:
 
-1. **Nova zalozka** (doporuceno) - samostatna zalozka "Informace o potravine" vedle popisu a recenzi
-2. **Pod popisem** - primo pod popisem produktu
+1. **Nová záložka** (doporučeno) - samostatná záložka "Informace o potravině" vedle popisu a recenzí
+2. **Pod popisem** - přímo pod popisem produktu
 3. **V metadatech** - v sekci SKU/kategorie
-4. **Vlastni** - pomoci shortcodu na libovolnem miste
+4. **Vlastní** - pomocí shortcodů na libovolném místě
 
 ## Editor produktu
 
-Po aktivaci modulu potravin se v editoru produktu objevi nova zalozka "Potraviny" s nasledujicimi sekcemi:
+Po zapnutí modulu se v editoru produktu objeví záložka "Potraviny" se sekcemi:
 
-- **Vyzivove hodnoty** - tabulka s poli na vsechny slozky
-- **Slozeni** - textove pole (WYSIWYG) na seznam slozek
-- **Alergeny** - checkbox seznam alergenu
-- **Nutri-Score** - vyber urovne A-E
-- **Alkohol** - pole souvisejici s alkoholickymi napoji
-- **Puvod** - zeme puvodu a misto provenience
+- **Výživové hodnoty** - tabulka s poli na všechny složky
+- **Složky** - textové pole (WYSIWYG) na seznam složek
+- **Alergeny** - checkbox seznam alergenů
+- **Nutri-Score** - výběr úrovně A-E
+- **Alkohol** - pole související s alkoholickými nápoji
+- **Původ** - země původu a místo provenience
 
-## CSV import
+## Import CSV
 
-Vsechna potravinova data lze importovat hromadne pres CSV:
+Potravinová data importujete hromadně přes CSV:
 
-| Sloupec CSV | Popis | Format |
+| Sloupec CSV | Popis | Formát |
 |-------------|------|--------|
-| `polski_nutrients` | Vyzivove hodnoty | JSON |
-| `polski_ingredients` | Seznam slozek | Text |
-| `polski_allergens` | Alergeny | Slugy oddelene carkami |
-| `polski_nutri_score` | Nutri-Score | Pismeno A-E |
-| `polski_alcohol_content` | Obsah alkoholu | Cislo (napr. `5.0`) |
-| `polski_country_of_origin` | Zeme puvodu | Text |
+| `polski_nutrients` | Výživové hodnoty | JSON |
+| `polski_ingredients` | Seznam složek | Text |
+| `polski_allergens` | Alergeny | Slugy oddělené čárkami |
+| `polski_nutri_score` | Nutri-Score | Písmeno A-E |
+| `polski_alcohol_content` | Obsah alkoholu | Číslo (např. `5.0`) |
+| `polski_country_of_origin` | Země původu | Text |
 
-Priklad:
+Příklad:
 
 ```csv
 "Sok pomarańczowy 1L",'{"energy_kj":180,"energy_kcal":43,"fat":0.1,"carbohydrates":9.8,"sugars":8.4,"protein":0.7,"salt":0.01}',,"",B,,Hiszpania
@@ -129,7 +129,7 @@ Priklad:
 
 ## Kompatibilita se Schema.org
 
-Modul automaticky generuje strukturovana data v souladu se Schema.org:
+Modul automaticky vytváří strukturovaná data Schema.org:
 
 ```json
 {
@@ -149,9 +149,9 @@ Modul automaticky generuje strukturovana data v souladu se Schema.org:
 }
 ```
 
-## Programaticka rozsireni
+## Programatická rozšíření
 
-### Pridani vlastniho potravinoveho pole
+### Přidání vlastního potravinového pole
 
 ```php
 add_filter('polski/food/custom_fields', function (array $fields): array {
@@ -169,36 +169,36 @@ add_filter('polski/food/custom_fields', function (array $fields): array {
 });
 ```
 
-### Filtr zobrazeni potravinovych informaci
+### Filtr zobrazení potravinových informací
 
 ```php
 add_filter('polski/food/display_html', function (string $html, int $product_id): string {
-    // Uprava HTML pred zobrazenim
+    // Úprava HTML před zobrazením
     return $html;
 }, 10, 2);
 ```
 
-## Nejcastejsi problemy
+## Nejčastější problémy
 
-### Zalozka "Potraviny" se nezobrazuje v editoru produktu
+### Záložka "Potraviny" se neobjevuje v editoru produktu
 
-1. Zkontrolujte, zda je modul potravin aktivovan v nastaveních
-2. Overite, zda produkt neni typu "externi/afiliace" (modul nepodporuje tento typ)
-3. Vymažte cache prohlizece a znovu nactete administracni panel
+1. Zkontrolujte, zda je modul potravin zapnutý v nastavení
+2. Ověřte, zda produkt není typu "externí/afiliační" (modul tento typ nepodporuje)
+3. Vymažte cache prohlížeče a znovu načtěte administrační panel
 
-### Alergeny nejsou zvyrazneny v seznamu slozek
+### Alergeny nejsou zvýrazněny v seznamu složek
 
-Ujistete se, ze moznost "Automaticke zvyraznovani alergenu" je aktivovana a ze nazvy alergenu v seznamu odpovidaji nazvum v taxonomii.
+Ujistěte se, že je možnost "Automatické zvýrazňování alergenů" zapnutá a že názvy alergenů v seznamu odpovídají názvům v taxonomii.
 
-### Vyzivove hodnoty se zobrazuji nespravne
+### Výživové hodnoty se zobrazují nesprávně
 
-Zkontrolujte format dat - hodnoty musi byt cisla (s teckou jako oddelovacem desetinnych mist v databazi). Plugin automaticky formatuje zobrazeni v souladu s polskymi regionalnimi nastavenimi (carka).
+Zkontrolujte formát dat - v databázi používají hodnoty tečku jako oddělovač (např. 9.5). Plugin je automaticky zobrazuje s polskou čárkou (9,5).
 
-## Souvisejici zdroje
+## Související zdroje
 
-- [Vyzivove hodnoty](/cs/food/nutrients/)
-- [Alergeny](/cs/food/allergens/)
-- [Nutri-Score](/cs/food/nutri-score/)
-- [Nahlasit problem](https://github.com/wppoland/polski/issues)
+- [Výživové hodnoty](food/nutrients/)
+- [Alergeny](food/allergens/)
+- [Nutri-Score](food/nutri-score/)
+- [Nahlásit problém](https://github.com/wppoland/polski/issues)
 
-<div class="disclaimer">Tato stránka slouží pouze k informačním účelům a nepředstavuje právní poradenství. Před implementací se poraďte s právníkem. Polski for WooCommerce je open source software (GPLv2) poskytovaný bez záruky.</div>
+<div class="disclaimer">Tato stránka má pouze informativní charakter a nepředstavuje právní poradenství. Před nasazením se poraďte s právníkem. Polski for WooCommerce je open source software (GPLv2) poskytovaný bez záruky.</div>

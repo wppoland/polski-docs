@@ -1,382 +1,382 @@
 ---
-title: Pruvodce konfiguraci
-description: Pruvodce konfiguraci pluginu Polski for WooCommerce. Udaje firmy, pravni stranky, checkboxy a automaticka konfigurace obchodu krok za krokem.
+title: Průvodce konfigurací
+description: Průvodce konfigurací pluginu Polski for WooCommerce. Údaje firmy, právní stránky, checkboxy a automatická konfigurace obchodu krok za krokem.
 ---
 
-## Co je pruvodce konfiguraci?
+## Co je průvodce konfigurací?
 
-Pruvodce vas provede nejdulezitejsimi nastavenimi pluginu v nekolika krocich. Misto rucni konfigurace kazdeho modulu odpovidate na otazky - pruvodce nastavi vse za vas.
+Průvodce vás v několika krocích provede nejdůležitějšími nastaveními pluginu. Místo ručního konfigurování každého modulu odpovídáte na otázky - průvodce nastaví vše za vás.
 
-Pruvodce se objevi po prvni aktivaci pluginu. Pro opetovne spusteni prejdete do **WooCommerce > Polski > Nastaveni** a kliknete **Spustit pruvodce znovu**.
+Průvodce se objeví po první aktivaci pluginu. Pro opětovné spuštění přejděte do **WooCommerce > Polski > Nastavení** a klikněte na **Spustit průvodce znovu**.
 
-:::note[Pruvodce neprepisuje existujici data]
-Pokud spoustite pruvodce znovu, pole budou vyplnena drive ulozenymi daty. Pruvodce neodstrani ani neprepise data, ktera nezmenite.
+:::note[Průvodce nepřepisuje existující data]
+Pokud spouštíte průvodce znovu, pole budou vyplněna dříve uloženými daty. Průvodce nesmaže ani nepřepíše data, která nezměníte.
 :::
 
 ---
 
-## Krok 1: Udaje firmy
+## Krok 1: Údaje firmy
 
-Zadejte udaje sve firmy. Plugin je pouziva na pravnich strankach, v paticce, v datech GPSR a na fakturach.
+Zadejte údaje své firmy. Plugin je používá na právních stránkách, v patičce, v údajích GPSR a na fakturách.
 
-### Povinna pole
+### Povinná pole
 
-| Pole | Popis | Priklad |
+| Pole | Popis | Příklad |
 |------|------|---------|
-| Nazev firmy | Uplny nazev nebo obchodni firma | "Jan Kowalski Sklep Online" |
-| Pravni forma | Typ podnikani | JDG, sp. z o.o., sp.j., S.A. |
-| NIP | Danove identifikacni cislo | 1234567890 |
-| REGON | Cislo REGON | 123456789 |
-| KRS | Cislo KRS (pokud se tyka) | 0000123456 |
-| Adresa | Ulice, cislo, PSC, mesto | ul. Przykładowa 10, 00-001 Warszawa |
-| Kontaktni e-mail | Adresa pro korespondenci | kontakt@mojsklep.pl |
-| Telefon | Telefonni cislo | +48 123 456 789 |
+| Název firmy | Plný název nebo firma | "Jan Kowalski Sklep Online" |
+| Právní forma | Typ podnikání | JDG, sp. z o.o., sp.j., S.A. |
+| NIP | Daňové identifikační číslo | 1234567890 |
+| REGON | Číslo REGON | 123456789 |
+| KRS | Číslo KRS (pokud se týká) | 0000123456 |
+| Adresa | Ulice, číslo, PSČ, město | ul. Przykładowa 10, 00-001 Warszawa |
+| Kontaktní e-mail | Adresa pro korespondenci | kontakt@mojsklep.pl |
+| Telefon | Telefonní číslo | +48 123 456 789 |
 
-### Volitelna pole
+### Volitelná pole
 
-- **Cislo bankovniho uctu** - pro zobrazeni na fakturach a v obchodnich podminkach
-- **Registracni organ** - napr. "Sąd Rejonowy dla m.st. Warszawy"
-- **Zakladni kapital** - vyzadovano pro spolecnosti (napr. "5 000,00 PLN")
-- **Jmeno a prijmeni zastupce** - osoba opravnena k zastupovani
+- **Číslo bankovního účtu** - pro zobrazení na fakturách a v obchodních podmínkách
+- **Registrační orgán** - např. "Sąd Rejonowy dla m.st. Warszawy"
+- **Základní kapitál** - vyžadovaný pro společnosti (např. "5 000,00 zł")
+- **Jméno a příjmení zástupce** - osoba oprávněná k zastupování
 
 ### Validace NIP
 
-Pruvodce automaticky overuje spravnost cisla NIP:
+Průvodce automaticky kontroluje správnost NIP:
 
-- Kontroluje kontrolni soucet (vahovy algoritmus)
-- Volitelne stahuje data z API GUS (CEIDG/KRS) pro porovnani
+- Kontroluje kontrolní součet (váhový algoritmus)
+- Volitelně stahuje data z API GUS (CEIDG/KRS) k porovnání
 
-Pokud je NIP nespravny, uvidite varovnou zpravu. Muzete pokracovat, ale doporucujeme cislo opravit.
+Pokud je NIP nesprávný, uvidíte varovnou zprávu. Můžete pokračovat, ale doporučujeme číslo opravit.
 
-### Priklad konfigurace
+### Příklad konfigurace
 
-Pro zivnostnika:
+Pro fyzickou osobu podnikatele:
 
 ```
-Nazev firmy: Jan Kowalski E-Commerce
-Pravni forma: Jednoosobowa działalność gospodarcza
+Název firmy: Jan Kowalski E-Commerce
+Právní forma: Fyzická osoba podnikatel
 NIP: 1234567890
 REGON: 123456789
-KRS: (prazdne - netyka se zivnostniku)
+KRS: (prázdné - netýká se JDG)
 Adresa: ul. Handlowa 5/10, 31-001 Kraków
 E-mail: sklep@kowalski-ecommerce.pl
 Telefon: +48 500 600 700
 ```
 
-Pro spolecnost s rucenim omezenym:
+Pro společnost s ručením omezeným:
 
 ```
-Nazev firmy: SuperSklep sp. z o.o.
-Pravni forma: Spółka z ograniczoną odpowiedzialnością
+Název firmy: SuperSklep sp. z o.o.
+Právní forma: Společnost s ručením omezeným
 NIP: 9876543210
 REGON: 987654321
 KRS: 0000654321
 Adresa: ul. Biznesowa 22, 00-100 Warszawa
 E-mail: biuro@supersklep.pl
 Telefon: +48 22 123 45 67
-Zakladni kapital: 50 000,00 PLN
-Registracni organ: Sąd Rejonowy dla m.st. Warszawy, XII Wydział Gospodarczy KRS
+Základní kapitál: 50 000,00 zł
+Registrační orgán: Sąd Rejonowy dla m.st. Warszawy, XII Wydział Gospodarczy KRS
 ```
 
-Kliknete **Dalsi** pro prechod k dalsimu kroku.
+Klikněte na **Dále**, abyste přešli k dalšímu kroku.
 
 ---
 
-## Krok 2: Pravni stranky
+## Krok 2: Právní stránky
 
-Pruvodce vam pomuze vytvorit pozadovane pravni stranky. Kazdy polsky obchod by mel mit minimalne:
+Průvodce vám pomůže vytvořit vyžadované právní stránky. Každý polský obchod by měl mít alespoň:
 
-- **Obchodni podminky** - pravidla vyuzivani obchodu a uzavirani smluv
-- **Zasady ochrany osobnich udaju** - informace o zpracovani osobnich udaju (GDPR)
-- **Zasady vraceni zbozi** - postup a formular pro odstoupeni od smlouvy
+- **Obchodní podmínky** - pravidla používání obchodu a uzavírání smluv
+- **Zásady ochrany osobních údajů** - informace o zpracování osobních údajů (GDPR)
+- **Zásady vrácení zboží** - postup a formulář odstoupení od smlouvy
 
-### Generovani stranek
+### Generování stránek
 
-Pruvodce nabizi dva pristupy:
+Průvodce nabízí dva přístupy:
 
-**Moznost A - vygenerujte nove stranky (doporuceno pro nove obchody)**
+**Možnost A - vygenerovat nové stránky (doporučeno pro nové obchody)**
 
-1. Zaznacte stranky, ktere chcete vygenerovat
-2. Pruvodce vytvori stranky WordPress s vyplnenym obsahem na zaklade udaju firmy
-3. Obsah vychazi ze sablon v souladu s polskym pravem
+1. Zaškrtněte stránky, které chcete vygenerovat
+2. Průvodce vytvoří stránky WordPress s vyplněným obsahem na základě údajů firmy
+3. Obsah vychází ze šablon založených na polských předpisech
 
-**Moznost B - priradte existujici stranky**
+**Možnost B - přiřadit existující stránky**
 
-1. Pokud jiz mate vytvorene pravni stranky, vyberte je z rozbalovacieho seznamu
-2. Pruvodce je priradi k prislusnym nastavenim WooCommerce
+1. Pokud již máte vytvořené právní stránky, vyberte je z rozbalovacího seznamu
+2. Průvodce je přiřadí k odpovídajícím nastavením WooCommerce
 
-### Sablony pravnich stranek
+### Šablony právních stránek
 
-Generovane stranky obsahuji sekce vyzadovane polskym pravem. Priklad struktury obchodnich podminek:
+Generované stránky obsahují sekce vyžadované polským právem. Příklad struktury obchodních podmínek:
 
 ```
-1. Obecna ustanoveni
+1. Obecná ustanovení
 2. Definice
-3. Pravidla vyuzivani obchodu
-4. Postup skladani objednavek
-5. Ceny a platebni metody
-6. Doruceani
-7. Pravo na odstoupeni od smlouvy
-8. Reklamace a zaruka
-9. Osobni udaje
-10. Zaverecna ustanoveni
+3. Pravidla používání obchodu
+4. Postup podávání objednávek
+5. Ceny a metody platby
+6. Dodání
+7. Právo na odstoupení od smlouvy
+8. Reklamace a záruka
+9. Osobní údaje
+10. Závěrečná ustanovení
 ```
 
-:::caution[Sablony vyzaduji personalizaci]
-Vygenerovane stranky jsou vychozim bodem, nikoli hotovym pravnim dokumentem. Projdete obsah a prizpusobte jej specifickym okolnostem vaseho obchodu. V pripade pochybnosti konzultujte obsah s pravnikem specializujicim se na e-commerce.
+:::caution[Šablony vyžadují personalizaci]
+Vygenerované stránky jsou výchozím bodem, nikoli hotovým právním dokumentem. Projděte si obsah a přizpůsobte ho svému obchodu. V případě pochybností se poraďte s právníkem na e-commerce.
 :::
 
-### Shortcody na pravnich strankach
+### Shortcody na právních stránkách
 
-Pravni stranky pouzivaji shortcody, ktere automaticky vkladaji udaje firmy:
+Právní stránky používají shortcody, které automaticky vkládají údaje firmy:
 
 ```
-[polski_company_name]        - nazev firmy
+[polski_company_name]        - název firmy
 [polski_company_nip]         - NIP
 [polski_company_regon]       - REGON
 [polski_company_krs]         - KRS
 [polski_company_address]     - adresa firmy
-[polski_company_email]       - kontaktni e-mail
+[polski_company_email]       - kontaktní e-mail
 [polski_company_phone]       - telefon
-[polski_withdrawal_period]   - lhuta pro odstoupeni (vychozi 14 dni)
+[polski_withdrawal_period]   - lhůta na odstoupení (výchozí 14 dní)
 ```
 
-Kdyz zmenite udaje firmy v nastaveni, pravni stranky se aktualizuji automaticky.
+Když změníte údaje firmy v nastavení, právní stránky se automaticky aktualizují.
 
-Priklad pouziti v textu obchodnich podminek:
+Příklad použití v obsahu obchodních podmínek:
 
 ```
-Vlastnikem internetoveho obchodu je [polski_company_name],
+Vlastníkem internetového obchodu je [polski_company_name],
 NIP: [polski_company_nip], REGON: [polski_company_regon],
-se sidlem na adrese: [polski_company_address].
+se sídlem na adrese: [polski_company_address].
 
 Kontakt: [polski_company_email], tel. [polski_company_phone].
 ```
 
-Vysledek na strance:
+Výsledek na stránce:
 
 ```
-Vlastnikem internetoveho obchodu je Jan Kowalski E-Commerce,
+Vlastníkem internetového obchodu je Jan Kowalski E-Commerce,
 NIP: 1234567890, REGON: 123456789,
-se sidlem na adrese: ul. Handlowa 5/10, 31-001 Kraków.
+se sídlem na adrese: ul. Handlowa 5/10, 31-001 Kraków.
 
 Kontakt: sklep@kowalski-ecommerce.pl, tel. +48 500 600 700.
 ```
 
-Kliknete **Dalsi** pro prechod ke konfiguraci checkboxu.
+Klikněte na **Dále**, abyste přešli ke konfiguraci checkboxů.
 
 ---
 
-## Krok 3: Checkboxy na strance pokladny
+## Krok 3: Checkboxy na stránce pokladny
 
-Nakonfigurujte checkboxy na strance pokladny (checkout). Polske pravo vyzaduje, aby zakaznik souhlasil s obchodnimi podminkami pred slozenim objednavky.
+Nakonfigurujte checkboxy na stránce pokladny (checkout). Polské právo vyžaduje, aby zákazník před dokončením objednávky přijal obchodní podmínky.
 
-### Vychozi checkboxy
+### Výchozí checkboxy
 
-Pruvodce navrhuje sadu checkboxu odpovidajicich typickym pozadavkum:
+Průvodce navrhuje sadu checkboxů odpovídající typickým požadavkům:
 
-**Checkbox 1 - obchodni podminky (povinny)**
+**Checkbox 1 - obchodní podmínky (povinný)**
 
 ```
-Obsah: Precetl/a jsem a prijimam [obchodni podminky].
-Povinny: Ano
+Obsah: Přečetl/a jsem si a přijímám [obchodní podmínky obchodu].
+Vyžadováno: Ano
 Odkaz: /obchodni-podminky/
-Pozice: Pred tlacitkem objednavky
+Pozice: Před tlačítkem objednávky
 ```
 
-**Checkbox 2 - zasady ochrany osobnich udaju (povinny)**
+**Checkbox 2 - zásady ochrany osobních údajů (povinný)**
 
 ```
-Obsah: Seznamil/a jsem se se [zasadami ochrany osobnich udaju].
-Povinny: Ano
+Obsah: Seznámil/a jsem se se [zásadami ochrany osobních údajů].
+Vyžadováno: Ano
 Odkaz: /zasady-ochrany-osobnich-udaju/
-Pozice: Pred tlacitkem objednavky
+Pozice: Před tlačítkem objednávky
 ```
 
-**Checkbox 3 - pravo na odstoupeni (povinny)**
+**Checkbox 3 - právo na odstoupení (povinný)**
 
 ```
-Obsah: Seznamil/a jsem se s [poucenim o pravu na odstoupeni od smlouvy]
-         a [vzorem formulare odstoupeni].
-Povinny: Ano
-Odkaz: /zasady-vraceni/
-Pozice: Pred tlacitkem objednavky
+Obsah: Seznámil/a jsem se s [poučením o právu na odstoupení od smlouvy]
+         a [vzorem formuláře odstoupení].
+Vyžadováno: Ano
+Odkaz: /zasady-vraceni-zbozi/
+Pozice: Před tlačítkem objednávky
 ```
 
-**Checkbox 4 - newsletter (volitelny)**
+**Checkbox 4 - newsletter (volitelný)**
 
 ```
-Obsah: Chci dostavat informace o novinkach a akcich
-       na zadanou e-mailovou adresu.
-Povinny: Ne
-Pozice: Za povinnymi checkboxy
+Obsah: Chci dostávat informace o novinkách a akcích
+       na uvedenou e-mailovou adresu.
+Vyžadováno: Ne
+Pozice: Po povinných checkboxech
 ```
 
-### Editace checkboxu
+### Úprava checkboxů
 
-Kazdy checkbox muzete prizpusobit:
+Každý checkbox můžete přizpůsobit:
 
-- **Obsah** - text zobrazovany u checkboxu (podporuje HTML pro odkazy)
-- **Povinny** - zda je zaznaceni nutne pro slozeni objednavky
-- **Pozice** - kde na strance pokladny zobrazit checkbox
-- **Chybova zprava** - text zobrazovany, kdyz zakaznik nezaskrtne povinny checkbox
+- **Obsah** - text zobrazený vedle checkboxu (podporuje HTML pro odkazy)
+- **Vyžadováno** - zda je zaškrtnutí nutné k dokončení objednávky
+- **Pozice** - kde na stránce pokladny checkbox zobrazit
+- **Chybová zpráva** - text zobrazený, když zákazník nezaškrtne povinný checkbox
 
-### Pridani vlastnich checkboxu
+### Přidávání vlastních checkboxů
 
-Kliknete **Pridat checkbox** pro vytvoreni dalsiho. Uzitecne scenare:
+Klikněte na **Přidat checkbox**, abyste vytvořili další. Užitečné scénáře:
 
-- Souhlas se zpracovanim dat pro marketingove ucely
-- Prohlaseni o dovrseni 18 let (obchody s alkoholem)
-- Souhlas s telefonickym kontaktem
-- Potvrzeni seznameni se s kartou produktu (potraviny)
+- Souhlas se zpracováním dat pro marketingové účely
+- Prohlášení o dosažení 18 let (obchody s alkoholem)
+- Souhlas s telefonickým kontaktem
+- Potvrzení seznámení s kartou produktu (potravinové produkty)
 
-### Pozice checkboxu
+### Pozice checkboxů
 
-Dostupne pozice na strance pokladny:
+Dostupné pozice na stránce pokladny:
 
 | Pozice | Popis |
 |---------|------|
-| `before_order_button` | Pred tlacitkem "Objednavka se zavazkem platby" |
-| `after_order_button` | Za tlacitkem objednavky |
-| `after_billing_form` | Za formularem platebnich udaju |
-| `after_shipping_form` | Za formularem dodacich udaju |
-| `before_payment_methods` | Pred vyberem platebni metody |
+| `before_order_button` | Před tlačítkem "Objednávám s povinností platby" |
+| `after_order_button` | Po tlačítku objednávky |
+| `after_billing_form` | Po formuláři platebních údajů |
+| `after_shipping_form` | Po formuláři dodacích údajů |
+| `before_payment_methods` | Před výběrem metody platby |
 
-Kliknete **Dalsi** pro prechod k souhrnu.
+Klikněte na **Dále**, abyste přešli k souhrnu.
 
 ---
 
-## Krok 4: Aktivace modulu
+## Krok 4: Aktivace modulů
 
-Pruvodce navrhne moduly k aktivaci na zaklade vasich odpovedi:
+Průvodce navrhne moduly k zapnutí na základě vašich odpovědí:
 
-### Doporucene moduly (automaticky zaznacene)
+### Doporučené moduly (automaticky zaškrtnuté)
 
-- Omnibus - sledovani historie cen
-- Tlacitko objednavky - text v souladu s pravem
-- Pravni checkboxy - nakonfigurovane v predchozim kroku
-- Pravni stranky - vygenerovane v kroku 2
-- Pravo na odstoupeni - formular a pouceni
-- Doba dodani - informace na strance produktu
-- GPSR - udaje o bezpecnosti produktu
+- Omnibus - sledování historie cen
+- Tlačítko objednávky - text v souladu se zákonem
+- Právní checkboxy - nakonfigurované v předchozím kroku
+- Právní stránky - vygenerované v kroku 2
+- Právo na odstoupení - formulář a poučení
+- Doba dodání - informace na kartě produktu
+- GPSR - údaje o bezpečnosti produktu
 
-### Volitelne moduly (k rucnimu zaznaceni)
+### Volitelné moduly (k ručnímu zaškrtnutí)
 
-- Vyhledavani NIP - pokud prodavate firmam (B2B)
-- Vyzivove hodnoty - pokud prodavate potraviny
-- Alergeny - pokud prodavate potraviny
-- Wishlist - pokud chcete tuto funkci v obchode
-- Porovnavac - pokud mate produkty k porovnani
+- Vyhledávání NIP - pokud prodáváte firmám (B2B)
+- Výživové hodnoty - pokud prodáváte potraviny
+- Alergeny - pokud prodáváte potraviny
+- Seznam přání - pokud chcete tuto funkci v obchodě
+- Porovnávač - pokud máte produkty k porovnávání
 - DSA - pokud provozujete marketplace
 
-Zaznacte moduly, ktere chcete aktivovat, a kliknete **Dalsi**.
+Zaškrtněte moduly, které chcete zapnout, a klikněte na **Dále**.
 
 ---
 
-## Krok 5: Souhrn a pouziti
+## Krok 5: Souhrn a uplatnění
 
-Posledni krok zobrazuje souhrn vsech nastaveni:
+Poslední krok zobrazuje souhrn nastavení:
 
 ```
-Udaje firmy:
-  Nazev: Jan Kowalski E-Commerce
+Údaje firmy:
+  Název: Jan Kowalski E-Commerce
   NIP: 1234567890
   Adresa: ul. Handlowa 5/10, 31-001 Kraków
 
-Pravni stranky:
-  Obchodni podminky: Budou vytvoreny (nova stranka)
-  Zasady ochrany osobnich udaju: Budou vytvoreny (nova stranka)
-  Zasady vraceni: Budou vytvoreny (nova stranka)
+Právní stránky:
+  Obchodní podmínky: Budou vytvořeny (nová stránka)
+  Zásady ochrany osobních údajů: Budou vytvořeny (nová stránka)
+  Zásady vrácení zboží: Budou vytvořeny (nová stránka)
 
-Checkboxy: 4 (3 povinne, 1 volitelny)
+Checkboxy: 4 (3 povinné, 1 volitelný)
 
 Moduly k aktivaci: 7
   - Omnibus
-  - Tlacitko objednavky
-  - Pravni checkboxy
-  - Pravni stranky
-  - Pravo na odstoupeni
-  - Doba dodani
+  - Tlačítko objednávky
+  - Právní checkboxy
+  - Právní stránky
+  - Právo na odstoupení
+  - Doba dodání
   - GPSR
 ```
 
-Zkontrolujte souhrn a kliknete **Pouzit konfiguraci**. Pruvodce:
+Zkontrolujte souhrn a klikněte na **Uplatnit konfiguraci**. Průvodce:
 
-1. Ulozi udaje firmy v nastaveni pluginu
-2. Vytvori pravni stranky (pokud bylo zvoleno generovani)
-3. Priradi stranky k nastavenim WooCommerce
-4. Nakonfiguruje checkboxy na strance pokladny
-5. Aktivuje vybrane moduly
+1. Uloží údaje firmy v nastavení pluginu
+2. Vytvoří právní stránky (pokud bylo vybráno generování)
+3. Přiřadí stránky k nastavení WooCommerce
+4. Nakonfiguruje checkboxy na stránce pokladny
+5. Aktivuje vybrané moduly
 
-Po dokonceni uvidite potvrzujici zpravu a odkaz na dashboard souladu.
+Po dokončení uvidíte potvrzovací zprávu a odkaz na dashboard souladu.
 
 ---
 
-## Po dokonceni pruvodce
+## Po dokončení průvodce
 
-### Zkontrolujte stranku produktu
+### Zkontrolujte stránku produktu
 
-Otevrte libovolny produkt v obchode a zkontrolujte, zda se objevily nove elementy:
+Otevřete libovolný produkt ve svém obchodě a zkontrolujte, zda se objevily nové prvky:
 
-- Informace o nejnizsi cene (Omnibus) - viditelna u produktu ve sleve
-- Odhadovana doba dodani
-- Udaje GPSR (vyrobce, odpovedna osoba)
+- Informace o nejnižší ceně (Omnibus) - viditelná u produktů se zlevněním
+- Odhadovaná doba dodání
+- Údaje GPSR (výrobce, odpovědná osoba)
 
-### Zkontrolujte stranku pokladny
+### Zkontrolujte stránku pokladny
 
-Pridejte produkt do kosiku a prejdete k pokladne:
+Přidejte produkt do košíku a přejděte do pokladny:
 
-- Zkontrolujte, zda se checkboxy zobrazuji spravne
-- Zkontrolujte, zda ma tlacitko text "Zamawiam z obowiązkiem zapłaty"
-- Zkuste slozit objednavku bez zaznaceni checkboxu - mel by se objevit chybovy oznam
+- Zkontrolujte, zda se checkboxy zobrazují správně
+- Zkontrolujte, zda má tlačítko text "Objednávám s povinností platby"
+- Zkuste dokončit objednávku bez zaškrtnutí checkboxů - měla by se objevit chybová zpráva
 
-### Zkontrolujte pravni stranky
+### Zkontrolujte právní stránky
 
-Otevrte vygenerovane stranky a zkontrolujte jejich obsah:
+Otevřete vygenerované stránky a zkontrolujte jejich obsah:
 
-- Zda jsou udaje firmy spravne (shortcody by mely zobrazovat aktualni data)
-- Zda je struktura dokumentu kompletni
-- Zda funguji interni odkazy
+- Zda jsou údaje firmy správné (shortcody by měly zobrazovat aktuální data)
+- Zda je struktura dokumentu kompletní
+- Zda interní odkazy fungují
 
 ### Dashboard souladu
 
-Prejdete do **WooCommerce > Polski > Soulad** - po spravne konfiguraci by vetsina ukazatelu mela byt zelena. Elementy vyzadujici dalsi pozornost budou oznaceny zlutym stavem s instrukci, co je treba doplnit.
+Přejděte do **WooCommerce > Polski > Soulad** - po správné konfiguraci by většina indikátorů měla být zelená. Prvky vyžadující další pozornost budou označeny žlutým stavem s instrukcí, co je třeba doplnit.
 
 ---
 
-## Opetovne spusteni pruvodce
+## Opětovné spuštění průvodce
 
-Pruvodce lze spustit znovu kdykoli:
+Průvodce lze kdykoli spustit znovu:
 
-1. Prejdete do **WooCommerce > Polski > Nastaveni**
-2. Kliknete **Spustit pruvodce znovu**
-3. Pole budou vyplnena drive ulozenymi daty
-4. Zmente, co potrebujete, a kliknete **Pouzit konfiguraci**
+1. Přejděte do **WooCommerce > Polski > Nastavení**
+2. Klikněte na **Spustit průvodce znovu**
+3. Pole budou vyplněna dříve uloženými daty
+4. Změňte, co potřebujete, a klikněte na **Uplatnit konfiguraci**
 
-Pruvodce neodstrani pravni stranky ani neresetuje moduly, ktere jste jiz rucne nakonfigurovali.
+Průvodce nesmaže právní stránky ani neresetuje moduly nakonfigurované ručně.
 
 ---
 
-## Reseni problemu
+## Řešení problémů
 
-### Pravni stranky nebyly vytvoreny
+### Právní stránky nebyly vytvořeny
 
-- Zkontrolujte, zda ma vas ucet WordPress opravneni administratora
-- Zkontrolujte, zda je v **Nastaveni > Trvalé odkazy** nastaven format jiny nez "Jednoduchy"
-- Zkuste vytvorit stranky rucne a priradit je v **WooCommerce > Nastaveni > Pokrocile > Nastaveni stranky**
+- Zkontrolujte, zda má váš účet WordPress oprávnění administrátora
+- Zkontrolujte, zda je v **Nastavení > Trvalé odkazy** nastaven jiný formát než "Prostý"
+- Zkuste vytvořit stránky ručně a přiřadit je v **WooCommerce > Nastavení > Pokročilé > Nastavení stránek**
 
-### Checkboxy se nezobrazuji na pokladne
+### Checkboxy se nezobrazují v pokladně
 
-- Ujistete se, ze modul "Pravni checkboxy" je aktivni v **WooCommerce > Polski > Moduly**
-- Pokud pouzivate nestandardni sablonu pokladny, zkontrolujte zda podporuje hooky WooCommerce
-- Vymažte cache cachovacich pluginu (WP Super Cache, W3 Total Cache, LiteSpeed Cache)
+- Ujistěte se, že je modul "Právní checkboxy" aktivní v **WooCommerce > Polski > Moduly**
+- Pokud používáte vlastní šablonu pokladny, zkontrolujte, zda podporuje hooky WooCommerce
+- Vyčistěte cache cachovacích pluginů (WP Super Cache, W3 Total Cache, LiteSpeed Cache)
 
-### Pruvodce se nespousti
+### Průvodce se nespustí
 
-- Vymažte cache prohlizece a zkuste znovu
-- Zkontrolujte konzoli prohlizece (F12) na chyby JavaScriptu
-- Docasne deaktivujte jine pluginy, ktere mohou zpusobovat konflikt
+- Vyčistěte cache prohlížeče a zkuste to znovu
+- Zkontrolujte konzoli prohlížeče (F12) z hlediska chyb JavaScriptu
+- Dočasně deaktivujte jiné pluginy, které mohou způsobovat konflikt
 
-Problem nezmizi? Nahlaste jej na [GitHub Issues](https://github.com/wppoland/polski/issues) s popisem a snimkem obrazovky. Muzete se take zeptat na [GitHub Discussions](https://github.com/wppoland/polski/discussions).
+Problém nezmizí? Nahlaste ho na [GitHub Issues](https://github.com/wppoland/polski/issues) s popisem a snímkem obrazovky. Můžete se také zeptat na [GitHub Discussions](https://github.com/wppoland/polski/discussions).
 
-<div class="disclaimer">Tato stránka slouží pouze k informačním účelům a nepředstavuje právní poradenství. Před implementací se poraďte s právníkem. Polski for WooCommerce je open source software (GPLv2) poskytovaný bez záruky.</div>
+<div class="disclaimer">Tato stránka má výhradně informativní charakter a nepředstavuje právní poradenství. Před nasazením se poraďte s právníkem. Polski for WooCommerce je open source software (GPLv2) dodávaný bez záruky.</div>

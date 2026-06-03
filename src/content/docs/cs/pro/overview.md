@@ -1,88 +1,97 @@
 ---
-title: Polski PRO - prehled
-description: Prehled pluginu Polski PRO for WooCommerce - premium moduly, systemove pozadavky, instalace a aktivace licence.
+title: Polski PRO - přehled
+description: Přehled pluginu Polski PRO for WooCommerce - prémiové moduly, systémové požadavky, instalace a aktivace licence.
 ---
 
-Polski PRO for WooCommerce je platne rozsireni bezplatneho pluginu Polski for WooCommerce. Pridava premium moduly: fakturovani, KSeF, vicekrokovou pokladnu, darkove karty, predplatne a affiliate program.
+Polski PRO for WooCommerce je placené rozšíření bezplatného pluginu Polski for WooCommerce. Přidává prémiové moduly: fakturaci, KSeF, vícekrokovou pokladnu, dárkové karty, předplatné a affiliate program.
 
-## Co pridava verze PRO
+## Co přidává verze PRO
 
-Bezplatna verze Polski for WooCommerce pokryva zakladni pozadavky polskych obchodu: pole DIC, pravni checkboxy, jednotkove ceny, zobrazeni DPH a soulad s Omnibus. Verze PRO rozsiruje tyto moznosti o osm dalsich modulu:
+Bezplatná verze pokrývá základy: pole NIP, právní checkboxy, jednotkové ceny, DPH a Omnibus. Verze PRO přidává řadu modulů:
 
 | Modul | Popis |
-|-------|-------|
-| [Faktury](/pro/invoices/) | System faktur DPH, opravnych faktur, uctenek a dodacich listu s generovanim PDF |
-| [Integrace KSeF](/pro/ksef/) | Odesilani elektronickych faktur do Krajoveho systemu e-Faktur |
-| [Vicekrokova pokladna](/pro/multistep-checkout/) | Rozdeleni procesu objednavky na kroky: adresa, doruceni, platba, shruti |
-| [Sprava souhlasu](/pro/consent-management/) | Verzovani souhlasu, audit trail, export CSV/JSON, integrace GDPR |
-| [Darkove karty](/pro/gift-cards/) | Prodej darkovych karet, generovani kodu, uplatneni v kosiku |
-| [Predplatne](/pro/subscriptions/) | Produkty s opakovanou platbou, obnovy, e-mailove pripominky |
-| [Affiliate program](/pro/affiliates/) | Doporucujici odkazy, sledovani provizi, panel afiliata |
+|-------|------|
+| [Faktury](/pro/invoices/) | Systém faktur s DPH, opravných dokladů, účtenek a dokumentů WZ s generováním PDF |
+| [Integrace KSeF](/pro/ksef/) | Odesílání elektronických faktur do Krajowego Systemu e-Faktur |
+| [Vícekrokový košík](/pro/multistep-checkout/) | Rozdělení procesu objednávky na kroky: adresa, doprava, platba, souhrn |
+| [Správa souhlasů](/pro/consent-management/) | Verzování souhlasů, audit trail, export CSV/JSON, integrace GDPR |
+| [Vyřízení objednávek](/pro/fulfillment/) | Stavy Zabaleno/Odesláno/Doručeno, pole sledování, e-maily zákazníkovi |
+| [InPost](/pro/shipping-inpost/) | Paczkomaty, etikety, mapa výdejních míst, sledování |
+| [DPD](/pro/shipping-dpd/) | Etikety, sledování, výdejní místa DPD Pickup |
+| [DHL](/pro/shipping-dhl/) | Etikety, sledování, ServicePoint |
+| [Dárkové karty](/pro/gift-cards/) | Prodej dárkových karet, generování kódů, uplatnění v košíku |
+| [Předplatné](/pro/subscriptions/) | Opakované platby, obnovení, připomínky 14 a 7 dní předem, zrušení jedním kliknutím |
+| [Affiliate program](/pro/affiliates/) | Doporučující odkazy, sledování provizí, panel affiliate partnera |
+| [Bundles a Add-ons](/pro/bundles-addons/) | Balíčky produktů, doplňkové možnosti per produkt |
+| [Cenové poptávky](/pro/quotes/) | Poptávkový formulář, panel správy |
+| [Předprodeje](/pro/preorders/) | Prodej produktů před dostupností |
+| [Katalogový režim](/pro/catalog-mode/) | Skrytí cen a košíku (B2B) |
+| [Účetní integrace](/pro/accounting/) | wFirma, Fakturownia, iFirma |
 
-Kazdy modul lze zapnout nebo vypnout nezavisle v nastaveni pluginu.
+Každý modul lze zapnout nebo vypnout nezávisle v nastavení pluginu.
 
-## Systemove pozadavky
+## Systémové požadavky
 
-| Pozadavek | Minimalni verze |
+| Požadavek | Minimální verze |
 |-----------|-----------------|
 | Polski for WooCommerce (free) | 1.3.0 |
 | WordPress | 6.4 |
 | WooCommerce | 8.0 |
 | PHP | 8.1 |
 
-Plugin PRO funguje jako doplnek k bezplatne verzi - vyzaduje jeji pritomnost a aktivaci. Pred instalaci PRO se ujistete, ze bezplatna verze je nainstalovana a aktualizovana alespon na verzi 1.3.0.
+Plugin PRO vyžaduje aktivní bezplatnou verzi 1.3.0 nebo novější. Nainstalujte a aktualizujte ji před instalací PRO.
 
 ## Instalace
 
-### Krok 1 - stazeni souboru ZIP
+### Krok 1 - stáhněte soubor ZIP
 
-Po zakoupeni licence na [wppoland.com/en/polski-pro](https://wppoland.com/en/polski-pro/) stahnete soubor ZIP pluginu z klientskeho panelu.
+Po zakoupení licence na [wppoland.com/pl/polski-pro](https://wppoland.com/pl/polski-pro/) stáhněte soubor ZIP pluginu z klientského panelu.
 
-### Krok 2 - instalace pluginu
+### Krok 2 - nainstalujte plugin
 
-1. Prejdete do **Pluginy > Pridat novy > Nahrat plugin**
-2. Vyberte stazeny soubor ZIP
-3. Kliknete na **Nainstalovat**
-4. Po instalaci kliknete na **Aktivovat plugin**
+1. Přejděte do **Pluginy > Přidat nový > Nahrát plugin na server**
+2. Vyberte stažený soubor ZIP
+3. Klikněte na **Nainstalovat nyní**
+4. Po instalaci klikněte na **Aktivovat plugin**
 
-### Krok 3 - aktivace licence
+### Krok 3 - aktivujte licenci
 
-1. Prejdete do **WooCommerce > Nastaveni > Polski > Licence PRO**
-2. Zadejte licencni klic obdrzeny po zakoupeni
-3. Kliknete na **Aktivovat licenci**
-4. Po uspesne aktivaci se zobrazi zelena zprava s datem expirace licence
+1. Přejděte do **WooCommerce > Nastavení > Polski > Licence PRO**
+2. Zadejte licenční klíč obdržený po zakoupení
+3. Klikněte na **Aktivovat licenci**
+4. Po správné aktivaci se objeví zelená zpráva s datem vypršení licence
 
-Licencni klic je svazan s domenou obchodu. Pokud presouvate obchod na jinou domenu, nejprve deaktivujte licenci na stare domene a pote ji aktivujte na nove.
+Klíč je propojen s doménou. Při změně domény nejprve deaktivujte licenci na staré, poté aktivujte na nové.
 
-### Krok 4 - zapnuti modulu
+### Krok 4 - zapněte moduly
 
-Po aktivaci licence prejdete do **WooCommerce > Nastaveni > Polski > Moduly PRO** a zapnete vybrane moduly. Kazdy modul ma vlastni sekci konfigurace popsanou v prislusne dokumentaci.
+Po aktivaci licence přejděte do **WooCommerce > Nastavení > Polski > Moduly PRO** a zapněte vybrané moduly. Každý modul má vlastní sekci konfigurace popsanou v dedikované dokumentaci.
 
 ## Aktualizace
 
-Plugin PRO podporuje automaticke aktualizace pres administraci WordPressu. Po aktivaci licence jsou aktualizace dorucovany stejne jako u pluginu z repozitare WordPress.org:
+Po aktivaci licence se plugin aktualizuje jako každý jiný plugin WordPress:
 
-1. Oznameni o dostupne aktualizaci se zobrazi v panelu **Pluginy**
-2. Kliknete na **Aktualizovat**
-3. Plugin se automaticky aktualizuje
+1. Oznámení o dostupné aktualizaci se objeví v panelu **Pluginy**
+2. Klikněte na **Aktualizovat nyní**
+3. Plugin se aktualizuje automaticky
 
-Aktualizace vyzaduji aktivni licenci. Po vyprseni licence plugin stale funguje, ale neprijima aktualizace.
+Bez aktivní licence plugin funguje, ale nedostává aktualizace.
 
-## Aktualni verze
+## Aktuální verze
 
-Aktualni verze Polski PRO for WooCommerce: **1.1.0**
+Aktuální verze Polski PRO for WooCommerce: **1.1.0**
 
 ## Licence
 
-Licenci lze zakoupit na strance [wppoland.com/en/polski-pro](https://wppoland.com/en/polski-pro/). Zahrnuje:
+Kupte licenci na [wppoland.com/pl/polski-pro](https://wppoland.com/pl/polski-pro/). Licence zahrnuje:
 
-- pristup ke vsem modulum PRO
-- aktualizace po dobu licence
-- technickou podporu prostrednictvim e-mailu
+- přístup ke všem modulům PRO
+- aktualizace po dobu trvání licence
+- technickou podporu přes e-mail
 
-## Souvisejici zdroje
+## Související zdroje
 
-- [Zakoupit licenci PRO](https://wppoland.com/en/polski-pro/)
-- [Nahlasit problem](https://github.com/wppoland/polski/issues)
+- [Koupit licenci PRO](https://wppoland.com/pl/polski-pro/)
+- [Nahlásit problém](https://github.com/wppoland/polski/issues)
 
-<div class="disclaimer">Tato stránka slouží pouze k informačním účelům a nepředstavuje právní poradenství. Před implementací se poraďte s právníkem. Polski for WooCommerce je open source software (GPLv2) poskytovaný bez záruky.</div>
+<div class="disclaimer">Tato stránka má pouze informativní charakter a nepředstavuje právní poradenství. Před nasazením se poraďte s právníkem. Polski for WooCommerce je open source software (GPLv2) poskytovaný bez záruky.</div>

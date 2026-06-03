@@ -1,141 +1,141 @@
 ---
-title: Darkove karty
-description: Dokumentace darkovych karet Polski PRO for WooCommerce - prodej, generovani kodu, uplatneni v kosiku, sledovani zustatku a panel Muj ucet.
+title: Dárkové karty
+description: Dokumentace dárkových karet Polski PRO for WooCommerce - prodej, generování kódů, uplatnění v košíku, sledování zůstatku a panel Můj účet.
 ---
 
-Modul darkovych karet umoznuje prodej darkovych karet jako produktu WooCommerce. Zakaznik kupi kartu, obdrzi jedinecny kod a pouzije ho jako platbu u dalsich objednavek.
+Modul dárkových karet umožňuje prodávat karty jako produkty WooCommerce. Zákazník koupí kartu, obdrží kód a platí jím při dalších objednávkách.
 
 ## Jak to funguje
 
-1. Administrator vytvori produkt typu "Darkova karta"
-2. Zakaznik zakoupi darkovou kartu v obchode
-3. Po zaplaceni objednavky plugin vygeneruje jedinecny kod karty
-4. Kod je zaslan zakaznikovi (nebo obdarovanemu) e-mailem
-5. Obdarovany zada kod v kosiku a obdrzi slevu ve vysi hodnoty karty
-6. Zustatek karty se snizi o vyuzitou castku
+1. Administrátor vytvoří produkt typu "Dárková karta"
+2. Zákazník koupí dárkovou kartu v obchodě
+3. Po zaplacení objednávky plugin vygeneruje jedinečný kód karty
+4. Kód je odeslán zákazníkovi (nebo obdarovanému) e-mailem
+5. Obdarovaný zadá kód v košíku a obdrží slevu rovnou hodnotě karty
+6. Zůstatek karty se sníží o použitou částku
 
 ## Konfigurace
 
-Prejdete do **WooCommerce > Nastaveni > Polski > Moduly PRO > Darkove karty**.
+Přejděte do **WooCommerce > Nastavení > Polski > Moduly PRO > Dárkové karty**.
 
-Modul je rizen moznosti:
+Modul je řízen volbou:
 
 ```
 polski_gift_cards
 ```
 
-### Obecna nastaveni
+### Obecná nastavení
 
-| Nastaveni | Popis |
-|-----------|-------|
-| Zapnout darkove karty | Aktivuje modul |
-| Delka kodu | Pocet znaku kodu (vychozi 16) |
-| Format kodu | Vzor kodu (napr. `XXXX-XXXX-XXXX-XXXX`) |
-| Prefix kodu | Volitelny prefix (napr. `PL-`) |
-| Platnost karty | Pocet dnu platnosti (0 = bez limitu) |
-| Pole kodu v kosiku | Pozice pole pro zadani kodu |
+| Nastavení | Popis |
+|------------|------|
+| Zapnout dárkové karty | Aktivuje modul |
+| Délka kódu | Počet znaků kódu (výchozí 16) |
+| Formát kódu | Vzor kódu (např. `XXXX-XXXX-XXXX-XXXX`) |
+| Prefix kódu | Volitelný prefix (např. `PL-`) |
+| Platnost karty | Počet dní platnosti (0 = bez limitu) |
+| Pole kódu v košíku | Pozice pole pro zadání kódu |
 
-### Vytvoreni produktu darkove karty
+### Vytvoření produktu dárkové karty
 
-1. Prejdete do **Produkty > Pridat novy**
-2. Vyberte typ produktu: **Darkova karta**
-3. Nastavte cenu (nominalni hodnota karty)
-4. Volitelne: zapnete "Libovolna castka" - zakaznik sam zada hodnotu karty
-5. Volitelne: nastavte minimalni a maximalni castku pro libovolnou castku
+1. Přejděte do **Produkty > Přidat nový**
+2. Vyberte typ produktu: **Dárková karta**
+3. Nastavte cenu (nominální hodnota karty)
+4. Volitelně: zapněte "Libovolná částka" - zákazník sám zadá hodnotu karty
+5. Volitelně: nastavte minimální a maximální částku pro libovolnou částku
 6. Publikujte produkt
 
-Pro libovolnou castku zakaznik vidi pole pro zadani hodnoty karty namisto fixni ceny.
+U libovolné částky vidí zákazník pole pro zadání hodnoty karty namísto pevné ceny.
 
-## Generovani kodu
+## Generování kódů
 
-Kody darkovych karet jsou generovany automaticky po zaplaceni objednavky. Algoritmus:
+Kódy se generují automaticky po zaplacení objednávky. Vlastnosti kódů:
 
-- alfanumericke znaky (A-Z, 0-9)
-- vylouceni nejednoznacnych znaku (0, O, I, L, 1)
-- validace jedinecnosti v databazi
-- formatovani s oddelovaci (napr. `ABCD-EFGH-JKMN-PQRS`)
+- alfanumerické znaky (A-Z, 0-9)
+- vyloučení nejednoznačných znaků (0, O, I, L, 1)
+- validace jedinečnosti v databázi
+- formátování s oddělovači (např. `ABCD-EFGH-JKMN-PQRS`)
 
-Kazdy kod je jedinecny v ramci celeho obchodu. Plugin overuje jedinecnost pred ulozenim a v pripade kolize generuje novy kod.
+Každý kód je jedinečný. Při kolizi plugin vygeneruje nový kód.
 
-## Uplatneni v kosiku
+## Uplatnění v košíku
 
-### Pole kodu
+### Pole kódu
 
-Na strance kosiku (a volitelne na strance pokladny) se zobrazuje pole pro zadani kodu darkove karty:
+V košíku (a volitelně na pokladně) vidí zákazník pole pro zadání kódu:
 
 ```
-[Zadejte kod darkove karty] [Pouzit]
+[Zadejte kód dárkové karty] [Použít]
 ```
 
-Po zadani platneho kodu:
+Po zadání správného kódu:
 
-- zustatek karty je zobrazen
-- castka slevy je odectena od celkove castky objednavky
-- pokud je zustatek karty mensi nez hodnota objednavky - zbytek se plati jinymi zpusoby
-- pokud je zustatek karty vetsi - zbyvajici castka zustane na karte
+- zobrazí se zůstatek karty
+- částka slevy se odečte od součtu objednávky
+- pokud je zůstatek karty nižší než hodnota objednávky - zbytek se zaplatí jinými metodami
+- pokud je zůstatek karty vyšší - zbývající částka zůstane na kartě
 
-### Validace kodu
+### Validace kódu
 
-Plugin validuje kod karty pred pouzitim:
+Plugin kontroluje kód před použitím:
 
-- kontrola, zda kod existuje v databazi
-- kontrola, zda karta nevyprsela
-- kontrola, zda je zustatek vetsi nez nula
-- kontrola, zda karta nebyla zablokovana
+- kontrola, zda kód existuje v databázi
+- kontrola, zda karta nevypršela
+- kontrola, zda je zůstatek větší než nula
+- kontrola, zda karta nebyla zablokována
 
-Chybova zprava informuje zakaznika o duvodu odmitnuti kodu.
+Zákazník vidí zprávu s důvodem odmítnutí kódu.
 
-### Sledovani relace
+### Sledování relace
 
-Pouzity kod karty je uchovan v relaci WooCommerce zakaznika. To znamena, ze:
+Kód karty je uložen v relaci WooCommerce:
 
-- kod je zapamatovan i po obnoveni stranky
-- kod je odstranen po odeslani objednavky nebo odhlaseni
-- zakaznik muze pouzity kod rucne odstranit
+- kód je zapamatován i po obnovení stránky
+- kód je odstraněn po odeslání objednávky nebo odhlášení
+- zákazník může použitý kód odstranit ručně
 
-## Sledovani zustatku
+## Sledování zůstatku
 
-Kazda darkova karta ma zustatek, ktery se snizuje s kazdym pouzitim. Historie transakci karty obsahuje:
+Zůstatek karty se snižuje s každým použitím. Historie transakcí obsahuje:
 
 | Pole | Popis |
-|------|-------|
+|------|------|
 | Datum | Datum transakce |
-| Typ | Dobiti / Pouziti / Vraceni |
-| Castka | Castka operace |
-| Objednavka | ID objednavky (pro pouziti a vraceni) |
-| Zustatek po operaci | Aktualni zustatek po transakci |
+| Typ | Dobití / Použití / Vrácení |
+| Částka | Částka operace |
+| Objednávka | ID objednávky (pro použití a vrácení) |
+| Zůstatek po operaci | Aktuální zůstatek po transakci |
 
-### Administracni panel
+### Administrátorský panel
 
-V panelu **WooCommerce > Darkove karty** administrator muze:
+V panelu **WooCommerce > Dárkové karty** může administrátor:
 
-- prohlizet seznam vsech karet se zustatky
-- zkontrolovat historii transakci karty
-- rucne dobit kartu
+- prohlížet seznam všech karet se zůstatky
+- zkontrolovat historii transakcí karty
+- dobít kartu ručně
 - zablokovat kartu
 - exportovat seznam karet (CSV)
 
-## Panel Muj ucet
+## Panel Můj účet
 
-Modul pridava endpoint `/polski-gift-cards` do panelu Muj ucet zakaznika. Endpoint je dostupny na adrese:
+Modul přidává sekci v panelu Můj účet na adrese:
 
 ```
 /moje-konto/polski-gift-cards/
 ```
 
-V panelu zakaznik vidi:
+V panelu zákazník vidí:
 
-- seznam vlastnenych darkovych karet
-- aktualni zustatek kazde karty
-- historii pouziti
-- kod karty (s moznosti kopirovani)
-- datum platnosti (pokud je nastaveno)
+- seznam vlastněných dárkových karet
+- aktuální zůstatek každé karty
+- historii použití
+- kód karty (s možností kopírování)
+- datum platnosti (pokud nastaveno)
 
 ## Hooky
 
 ### `polski_pro/gift_card/validate`
 
-Filtruje vysledek validace kodu darkove karty v kosiku.
+Filtruje výsledek validace kódu dárkové karty v košíku.
 
 ```php
 /**
@@ -146,11 +146,11 @@ Filtruje vysledek validace kodu darkove karty v kosiku.
 apply_filters('polski_pro/gift_card/validate', bool $is_valid, string $code, float $cart_total): bool;
 ```
 
-**Priklad:**
+**Příklad:**
 
 ```php
 add_filter('polski_pro/gift_card/validate', function (bool $is_valid, string $code, float $cart_total): bool {
-    // Blokování dárkových karet pro objednávky pod 50 Kč
+    // Blokowanie kart podarunkowych dla zamówień poniżej 50 zł
     if ($cart_total < 50.00) {
         wc_add_notice('Karty podarunkowe można wykorzystać przy zamówieniach od 50 zł.', 'error');
         return false;
@@ -161,7 +161,7 @@ add_filter('polski_pro/gift_card/validate', function (bool $is_valid, string $co
 
 ### `polski_pro/gift_card/applied`
 
-Akce volana po pouziti darkove karty v kosiku.
+Akce volaná po uplatnění dárkové karty v košíku.
 
 ```php
 /**
@@ -172,11 +172,11 @@ Akce volana po pouziti darkove karty v kosiku.
 do_action('polski_pro/gift_card/applied', string $code, float $amount, float $balance);
 ```
 
-**Priklad:**
+**Příklad:**
 
 ```php
 add_action('polski_pro/gift_card/applied', function (string $code, float $amount, float $balance): void {
-    // Logování použití karty
+    // Logowanie użycia karty
     wc_get_logger()->info(
         "Karta {$code}: odliczono {$amount} zł, saldo: {$balance} zł",
         ['source' => 'polski-pro-gift-cards']
@@ -186,7 +186,7 @@ add_action('polski_pro/gift_card/applied', function (string $code, float $amount
 
 ### `polski_pro/gift_card/order_created`
 
-Akce volana po vytvoreni objednavky s pouzitim darkove karty.
+Akce volaná po vytvoření objednávky s použitím dárkové karty.
 
 ```php
 /**
@@ -197,7 +197,7 @@ Akce volana po vytvoreni objednavky s pouzitim darkove karty.
 do_action('polski_pro/gift_card/order_created', int $order_id, string $code, float $amount);
 ```
 
-**Priklad:**
+**Příklad:**
 
 ```php
 add_action('polski_pro/gift_card/order_created', function (int $order_id, string $code, float $amount): void {
@@ -210,7 +210,7 @@ add_action('polski_pro/gift_card/order_created', function (int $order_id, string
 
 ### `polski_pro/gift_card/calculate_totals`
 
-Filtruje castku k odecteni z darkove karty pri prepocitavani souctu kosiku.
+Filtruje částku k odečtení z dárkové karty při přepočtu součtů košíku.
 
 ```php
 /**
@@ -221,49 +221,49 @@ Filtruje castku k odecteni z darkove karty pri prepocitavani souctu kosiku.
 apply_filters('polski_pro/gift_card/calculate_totals', float $discount, string $code, float $cart_total): float;
 ```
 
-## E-mail s kodem
+## E-mail s kódem
 
-Po zaplaceni objednavky obsahujici darkovou kartu plugin odesle e-mail s kodem. E-mail obsahuje:
+Po zaplacení objednávky plugin odesílá e-mail s kódem karty. E-mail obsahuje:
 
-- kod karty (formatovany)
-- nominalni hodnotu
-- datum platnosti (pokud se tyka)
-- navod k pouziti
+- kód karty (formátovaný)
+- nominální hodnotu
+- datum platnosti (pokud se týká)
+- návod k použití
 
-Sablonu e-mailu lze prizpusobit v **WooCommerce > Nastaveni > E-maily > Darkova karta**.
+Šablonu e-mailu lze přizpůsobit v **WooCommerce > Nastavení > E-maily > Dárková karta**.
 
-### E-mail pro obdarovaneho
+### E-mail pro obdarovaného
 
-Pri nakupu karty zakaznik muze zadat e-mailovou adresu obdarovaneho. V takovem pripade:
+Zákazník může zadat e-mail obdarovaného. Pak:
 
-- kod je zaslan na adresu obdarovaneho
-- kupujici obdrzi potvrzeni nakupu (bez kodu)
-- volitelne: kupujici muze pridat zpravu pro obdarovaneho
+- kód je odeslán na adresu obdarovaného
+- kupující obdrží potvrzení nákupu (bez kódu)
+- volitelně: kupující může přidat zprávu pro obdarovaného
 
-## Nejcastejsi problemy
+## Nejčastější problémy
 
-### Kod neni akceptovan v kosiku
+### Kód není přijat v košíku
 
-1. Zkontrolujte, ze kod je zadan spravne (bez mezer na zacatku/konci)
-2. Overite, ze karta nevyprsela
-3. Zkontrolujte zustatek karty v administracnim panelu
-4. Ujistete se, ze karta neni zablokovana
+1. Zkontrolujte, zda je kód zadán správně (bez mezer na začátku/konci)
+2. Ověřte, zda karta nevypršela
+3. Zkontrolujte zůstatek karty v administrátorském panelu
+4. Ujistěte se, že karta není zablokována
 
-### Zakaznik neobdrzel kod e-mailem
+### Zákazník neobdržel kód e-mailem
 
-1. Zkontrolujte, ze objednavka je zaplacena (status "Processing" nebo "Completed")
-2. Overite konfiguraci e-mailu WooCommerce
-3. Zkontrolujte logy e-mailu na chyby odesilani
+1. Zkontrolujte, zda je objednávka zaplacena (stav "Processing" nebo "Completed")
+2. Ověřte konfiguraci e-mailů WooCommerce
+3. Zkontrolujte logy e-mailů z hlediska chyb odesílání
 
-### Zustatek se nesnizuje po objednavce
+### Zůstatek se nesnižuje po objednávce
 
-1. Zkontrolujte, ze objednavka byla uspesne vytvorena (ne zrusena)
-2. Overite historii transakci karty v administracnim panelu
-3. Zkontrolujte logy na chyby PHP
+1. Zkontrolujte, zda byla objednávka úspěšně odeslána (nezrušena)
+2. Ověřte historii transakcí karty v administrátorském panelu
+3. Zkontrolujte logy z hlediska chyb PHP
 
-## Souvisejici zdroje
+## Související zdroje
 
-- [Prehled PRO](/pro/overview/)
-- [Nahlasit problem](https://github.com/wppoland/polski/issues)
+- [Přehled PRO](/pro/overview/)
+- [Nahlásit problém](https://github.com/wppoland/polski/issues)
 
-<div class="disclaimer">Tato stránka slouží pouze k informačním účelům a nepředstavuje právní poradenství. Před implementací se poraďte s právníkem. Polski for WooCommerce je open source software (GPLv2) poskytovaný bez záruky.</div>
+<div class="disclaimer">Tato stránka má výhradně informativní charakter a nepředstavuje právní poradenství. Před nasazením se poraďte s právníkem. Polski for WooCommerce je open source software (GPLv2) dodávaný bez záruky.</div>

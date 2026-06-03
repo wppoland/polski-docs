@@ -1,50 +1,54 @@
 ---
-title: AJAX vyhledavac
-description: Modul AJAX vyhledavace v Polski for WooCommerce - vyhledavani podle SKU, vyrobce, GTIN, REST endpoint, Gutenberg blok, Elementor widget a shortcode.
+title: Vyhledávač AJAX
+description: Modul vyhledávače AJAX v Polski for WooCommerce - vyhledávání podle SKU, výrobce, GTIN, REST endpoint, blok Gutenberg, widget Elementor a shortcode.
 ---
 
-AJAX vyhledavac nahrazuje vychozi vyhledavani WooCommerce vyhledavacem s naseptavanim v realnem case. Vysledky se zobrazuji okamzite behem psani - bez znovunacteni stranky.
+Vyhledávač AJAX nahrazuje výchozí vyhledávání WooCommerce. Výsledky se zobrazují živě během psaní, bez znovunačtení stránky.
 
-## Aktivace modulu
+## Zapnutí modulu
 
-Prejdete do **WooCommerce > Polski > Moduly obchodu** a aktivujte moznost **AJAX vyhledavac**. Modul automaticky nahradi vychozi vyhledavaci widget WooCommerce.
+Přejděte do **WooCommerce > Polski > Moduly obchodu** a zapněte **Vyhledávač AJAX**. Modul automaticky nahradí výchozí widget vyhledávání.
 
-## Prohledavana pole
+![Vyhledávač AJAX s našeptáváním a filtry na stránce obchodu](../../../../assets/screenshots/screenshot-7-storefront-search-filters.png)
 
-Vyhledavac prohledava vice poli produktu soucasne:
+## Prohledávaná pole
 
-### SKU (katalogove cislo)
+Vyhledávač prohledává více polí produktu najednou:
 
-Zakaznik muze zadat cislo SKU produktu nebo jeho cast. Vyhledavani podle SKU je obzvlaste uzitecne v B2B obchodech.
+### SKU (katalogové číslo)
 
-### Vyrobce (manufacturer)
+Zákazník může zadat číslo SKU nebo jeho část. Užitečné v B2B obchodech, kde zákazníci objednávají podle katalogových čísel.
 
-Pokud je modul **Vyrobce** aktivni, vyhledavac zohlednuje nazev vyrobce ve vysledcich.
+### Výrobce (manufacturer)
+
+Když je aktivní modul **Výrobce**, vyhledávač zohledňuje název výrobce. Zadání "Samsung" zobrazí všechny produkty této značky.
 
 ### GTIN (EAN/UPC)
 
-Vyhledavani podle carovych kodu GTIN/EAN/UPC.
+Zákazník může zadat celý čárový kód GTIN/EAN/UPC nebo jeho část.
 
-### Doplnkova pole
+### Doplňková pole
 
-- Nazev produktu
-- Kratky popis
+- Název produktu
+- Krátký popis
 - Kategorie
-- Tagy
+- Štítky
 - Atributy (barva, velikost atd.)
 
-## Vysledky vyhledavani
+Konfigurace prohledávaných polí: **WooCommerce > Polski > Moduly obchodu > Vyhledávač AJAX > Pole vyhledávání**.
 
-Dropdown s vysledky zobrazuje:
+## Výsledky vyhledávání
+
+Rozbalovací nabídka s výsledky zobrazuje:
 
 - Miniaturu produktu
-- Nazev produktu (se zvyraznenim odpovidajicich fragmentu)
+- Název produktu (se zvýrazněním odpovídajících částí)
 - Cenu
 - Kategorii
-- Hodnoceni (hvezdicky)
+- Hodnocení (hvězdičky)
 - Stav dostupnosti
 
-Ve vychozim stavu se zobrazuje az **8 napovedi**. Limit lze zmenit:
+Ve výchozím nastavení se zobrazuje až **8 návrhů**. Limit lze změnit:
 
 ```php
 add_filter('polski/ajax_search/results_limit', function (): int {
@@ -52,93 +56,144 @@ add_filter('polski/ajax_search/results_limit', function (): int {
 });
 ```
 
+Minimální počet znaků pro zahájení vyhledávání je **3**. Změna:
+
+```php
+add_filter('polski/ajax_search/min_chars', function (): int {
+    return 2;
+});
+```
+
 ## REST API endpoint
+
+Vyhledávač používá vlastní REST API endpoint místo `admin-ajax.php`. Díky tomu funguje rychleji.
 
 **Endpoint:** `GET /wp-json/polski/v1/search`
 
 **Parametry:**
 
-| Parametr | Typ | Povinny | Popis |
+| Parametr | Typ    | Povinný | Popis                          |
 | -------- | ------ | -------- | ----------------------------- |
-| `q` | string | Ano | Faze vyhledavani |
-| `limit` | int | Ne | Limit vysledku (vychozi 8) |
-| `cat` | int | Ne | ID kategorie k filtrovani |
+| `q`      | string | Ano      | Hledaný výraz                 |
+| `limit`  | int    | Ne       | Limit výsledků (výchozí 8)    |
+| `cat`    | int    | Ne       | ID kategorie pro filtrování   |
 
-**Priklad odpovedi:**
+**Příklad požadavku:**
+
+```bash
+curl "https://vasobchod.cz/wp-json/polski/v1/search?q=tricko&limit=5"
+```
+
+**Příklad odpovědi:**
 
 ```json
 {
   "results": [
     {
       "id": 123,
-      "title": "Koszulka bawełniana",
-      "url": "https://twojsklep.pl/produkt/koszulka-bawelniana/",
-      "image": "https://twojsklep.pl/wp-content/uploads/koszulka.jpg",
-      "price_html": "<span class=\"amount\">49,00&nbsp;zł</span>",
-      "category": "Odzież",
+      "title": "Bavlněné tričko",
+      "url": "https://vasobchod.cz/produkt/bavlnene-tricko/",
+      "image": "https://vasobchod.cz/wp-content/uploads/tricko.jpg",
+      "price_html": "<span class=\"amount\">49,00&nbsp;Kč</span>",
+      "category": "Oblečení",
       "in_stock": true,
       "rating": 4.5
     }
   ],
   "total": 1,
-  "query": "koszulka"
+  "query": "tricko"
 }
 ```
 
-## Gutenberg blok
+## Blok Gutenberg
 
-Blok **Polski - AJAX vyhledavac** dostupny v editoru Gutenberg.
+Blok **Polski - Vyhledávač AJAX** je dostupný v editoru Gutenberg. Umístěte jej do libovolného příspěvku, stránky nebo widgetu.
+
+Možnosti bloku:
+
+- **Placeholder** - zástupný text v poli vyhledávání
+- **Šířka** - šířka pole (auto, plná, vlastní v px)
+- **Ikona** - zobrazit/skrýt ikonu lupy
+- **Filtr kategorií** - zobrazit rozbalovací filtr podle kategorie vedle pole vyhledávání
+- **Styl** - zaoblené rohy, ohraničení, stín
+
+V editoru klikněte na **+** a vyhledejte **Polski** nebo **Vyhledávač AJAX**.
+
+## Widget Elementor
+
+Widget **Polski AJAX Search** je dostupný v kategorii **Polski for WooCommerce** v panelu Elementoru.
+
+Kromě možností bloku Gutenberg widget nabízí:
+
+- Kontrola typografie (rodina fontu, velikost, tloušťka)
+- Barvy (pozadí, text, ohraničení, hover)
+- Okraje a paddingy
+- Animace zobrazení výsledků
+- Responzivita (nastavení pro každý breakpoint)
 
 ## Shortcode `[polski_ajax_search]`
 
 ### Parametry
 
-| Parametr | Typ | Vychozi | Popis |
+| Parametr      | Typ    | Výchozí             | Popis                              |
 | ------------- | ------ | ------------------- | ---------------------------------- |
-| `placeholder` | string | `Szukaj produktów…` | Zastupny text |
-| `width` | string | `100%` | Sirka pole |
-| `show_icon` | string | `yes` | Zobrazit ikonu lupy |
-| `show_cat` | string | `no` | Zobrazit filtr kategorie |
-| `limit` | int | `8` | Maximalni pocet napovedi |
+| `placeholder` | string | `Szukaj produktów…` | Zástupný text                      |
+| `width`       | string | `100%`              | Šířka pole                         |
+| `show_icon`   | string | `yes`               | Zobrazit ikonu lupy                |
+| `show_cat`    | string | `no`                | Zobrazit filtr kategorií           |
+| `limit`       | int    | `8`                 | Maximální počet návrhů             |
 
-### Priklad pouziti
+### Příklad použití
 
 ```html
-[polski_ajax_search placeholder="Czego szukasz?" show_cat="yes" limit="10"]
+[polski_ajax_search placeholder="Co hledáte?" show_cat="yes" limit="10"]
 ```
 
-## Debouncing a vykon
-
-Vyhledavac pouziva debouncing 300 ms - pozadavek na server je odeslan teprve po 300 ms od posledniho stisknuti klavesy. Vysledky jsou cachovany na strane klienta v sezeni prohlizece.
-
-Na strane serveru jsou vysledky cachovany v transient API WordPressu (vychozi 1 hodina).
+### Vložení do hlavičky šablony
 
 ```php
-// Zmena doby cache
-add_filter('polski/ajax_search/cache_ttl', function (): int {
-    return 1800; // 30 minut v sekundach
+// V functions.php šablony
+add_action('wp_body_open', function (): void {
+    echo do_shortcode('[polski_ajax_search placeholder="Hledat..." width="400px"]');
 });
 ```
 
-## Stylovani CSS
+## Debouncing a výkon
 
-- `.polski-ajax-search` - kontejner vyhledavace
-- `.polski-ajax-search__input` - textove pole
-- `.polski-ajax-search__results` - dropdown s vysledky
-- `.polski-ajax-search__item` - jednotlivy vysledek
-- `.polski-ajax-search__item--active` - zvyrazneny vysledek (klavesova navigace)
-- `.polski-ajax-search__highlight` - zvyrazneni odpovidajiciho fragmentu
-- `.polski-ajax-search__loading` - spinner nacitani
+Vyhledávač používá debouncing 300 ms, požadavek se odešle teprve 300 ms po posledním stisknutí klávesy. Tím se zabrání příliš velkému počtu dotazů při rychlém psaní.
 
-## Pristupnost
+Výsledky se ukládají do mezipaměti prohlížeče. Opětovné zadání stejného výrazu neodešle dotaz na server.
 
-Vyhledavac podporuje uplnou klavesovou navigaci:
+Na serveru se výsledky ukládají do transient API (výchozí 1 hodina). Mezipaměť se automaticky vymaže po uložení, přidání nebo odstranění produktu.
 
-- **Sipka dolu/nahoru** - navigace po vysledcich
-- **Enter** - prechod k vybranemu produktu
-- **Escape** - zavreni dropdown
+```php
+// Změna doby mezipaměti
+add_filter('polski/ajax_search/cache_ttl', function (): int {
+    return 1800; // 30 minut v sekundách
+});
+```
+
+## Stylování CSS
+
+CSS třídy modulu:
+
+- `.polski-ajax-search` - kontejner vyhledávače
+- `.polski-ajax-search__input` - textové pole
+- `.polski-ajax-search__results` - rozbalovací nabídka s výsledky
+- `.polski-ajax-search__item` - jednotlivý výsledek
+- `.polski-ajax-search__item--active` - zvýrazněný výsledek (navigace klávesnicí)
+- `.polski-ajax-search__highlight` - zvýraznění odpovídající části
+- `.polski-ajax-search__loading` - spinner načítání
+
+## Přístupnost
+
+Vyhledávač podporuje navigaci klávesnicí:
+
+- **Šipka dolů/nahoru** - navigace mezi výsledky
+- **Enter** - přechod na vybraný produkt
+- **Escape** - zavření rozbalovací nabídky
 - ARIA atributy: `role="combobox"`, `aria-expanded`, `aria-activedescendant`
 
-Hlaseni problemu: [github.com/wppoland/polski/issues](https://github.com/wppoland/polski/issues)
+Hlášení problémů: [github.com/wppoland/polski/issues](https://github.com/wppoland/polski/issues)
 
-<div class="disclaimer">Tato stránka slouží pouze k informačním účelům a nepředstavuje právní poradenství. Před implementací se poraďte s právníkem. Polski for WooCommerce je open source software (GPLv2) poskytovaný bez záruky.</div>
+<div class="disclaimer">Tato stránka má pouze informativní charakter a nepředstavuje právní poradenství. Před nasazením se poraďte s právníkem. Polski for WooCommerce je software s otevřeným zdrojovým kódem (GPLv2) poskytovaný bez záruky.</div>

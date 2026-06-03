@@ -1,69 +1,69 @@
 ---
 title: Integrace InPost (Paczkomaty)
-description: Modul integrace InPost ShipX API v Polski PRO for WooCommerce - Paczkomaty, generovani stitku, mapa odbernich mist a sledovani zasilek.
+description: Modul integrace InPost ShipX API v Polski PRO for WooCommerce - Paczkomaty, generovani stitku, mapa vydejnich mist a sledovani zasilek.
 ---
 
-Modul InPost integruje WooCommerce s API ShipX. Generujte stitky, umoznete zakaznikum vybrat Paczkomat na mape a sledujte zasilky z panelu admina.
+Modul InPost propojuje WooCommerce s API ShipX. Generujte stitky, umoznete zakaznikum vybrat Paczkomat na mape a sledujte zasilky z administracniho panelu.
 
 :::note[Pozadavky]
-Polski PRO vyzaduje: Polski (free) v1.3.0+, WordPress 6.4+, WooCommerce 8.0+, PHP 8.1+. Navic je vyzadovan aktivni token API InPost ShipX (ziskavany z panelu managera InPost).
+Polski PRO vyzaduje: Polski (free) v1.3.0+, WordPress 6.4+, WooCommerce 8.0+, PHP 8.1+. Navic je vyzadovan aktivni API token InPost ShipX (ziskany z manazerskeho panelu InPost).
 :::
 
 ## Konfigurace
 
 Prejdete do **WooCommerce > Nastaveni > Polski PRO > InPost**.
 
-### Autentizace API
+### Overeni API
 
 | Nastaveni | Popis |
-|-----------|-------|
+|------------|------|
 | API token | Autorizacni token z panelu InPost Manager |
 | ID organizace | Identifikator organizace v systemu InPost |
 | Rezim sandbox | Pouziva testovaci prostredi ShipX API |
 
-API token je predavan v hlavicce `Authorization: Bearer {token}` ke kazdemu pozadavku ShipX API. Token by mel mit opravneni pro vytvareni zasilek a generovani stitku.
+Token se odesila v hlavicce `Authorization: Bearer {token}`. Musi mit opravneni k vytvareni zasilek a stitku.
 
-### Nastaveni metody doruceni
+### Nastaveni prepravni metody
 
-Po konfiguraci API vytvorte novou metodu doruceni:
+Po nakonfigurovani API vytvorte novou prepravni metodu:
 
-1. Prejdete do **WooCommerce > Nastaveni > Doruceni > Zony doruceni**
+1. Prejdete do **WooCommerce > Nastaveni > Doprava > Prepravni zony**
 2. Upravte zonu "Polsko"
-3. Kliknete "Pridat metodu doruceni"
+3. Kliknete na "Pridat prepravni metodu"
 4. Vyberte "InPost Paczkomat" nebo "InPost Kurier"
 
 | Nastaveni metody | Vychozi hodnota | Popis |
-|------------------|-----------------|-------|
+|-------------------|------------------|------|
 | Nazev metody | "InPost Paczkomat" | Nazev zobrazeny zakaznikovi |
-| Naklady | 0 | Naklady na doruceni (0 = zdarma) |
-| Doruceni zdarma od | "" | Castka objednavky, od ktere je doruceni zdarma |
-| Vychozi velikost baliku | A | Velikost: `A`, `B`, `C` |
+| Naklady | 0 | Naklady na dopravu (0 = zdarma) |
+| Doprava zdarma od | "" | Castka objednavky, od ktere je doprava zdarma |
+| Vychozi velikost balicku | A | Velikost: `A`, `B`, `C` |
 | Pojisteni | Ne | Pridat pojisteni k zasilce |
 
-## Mapa odbernich mist
+## Mapa vydejnich mist
 
 ### Widget mapy
 
-Na strance pokladny, po vyberu metody doruceni "InPost Paczkomat", se zobrazuje interaktivni widget mapy umoznujici vyber Paczkomatou.
+Po vyberu "InPost Paczkomat" v pokladne se zobrazi interaktivni widget mapy.
 
 Widget nabizi:
 
-- **Mapu** s pinezkami Paczkomatou
+- **Mapu** s pinezkami Paczkomatu
 - **Vyhledavani podle mesta** - zadejte nazev mesta pro vycentrovani mapy
 - **Vyhledavani podle souradnic** - automaticka geolokalizace (se souhlasem uzivatele)
-- **Vyhledavani podle PSC** - najde nejblizsi Paczkomaty
-- **Seznam Paczkomatou** - serazeny od nejblizsiho
-- **Detail mista** - adresa, oteviraci doba, dostupne velikosti schranek
+- **Vyhledavani podle PSC** - najdete nejblizsi Paczkomaty
+- **Seznam Paczkomatu** - serazeny od nejblizsiho
+- **Detaily mista** - adresa, oteviraci doba, dostupne velikosti schranek
 
 ### Vyhledavani podle mesta
 
-Widget odesila dotaz na endpoint ShipX API:
+Widget posila dotaz na endpoint ShipX API:
 
 ```
 GET /v1/points?type=parcel_locker&city={city}&per_page=25
 ```
 
-Vysledky jsou cachovany po dobu 24 hodin v transients WordPressu, aby se minimalizoval pocet dotazu na API.
+Vysledky se kesuji na 24 hodin v transients WordPress.
 
 ### Vyhledavani podle souradnic
 
@@ -77,11 +77,11 @@ GET /v1/points?type=parcel_locker&relative_point={lat},{lng}&per_page=10
 
 ```php
 /**
- * Filtruje listę punktów odbioru InPost.
+ * Filtruje seznam vydejnich mist InPost.
  *
- * @param array  $points  Tablica punktów odbioru z API
- * @param string $city    Wyszukiwane miasto
- * @param array  $coords  Współrzędne [lat, lng] lub pusta tablica
+ * @param array  $points  Pole vydejnich mist z API
+ * @param string $city    Hledane mesto
+ * @param array  $coords  Souradnice [lat, lng] nebo prazdne pole
  */
 apply_filters('polski_pro/inpost/points', array $points, string $city, array $coords): array;
 ```
@@ -90,7 +90,7 @@ apply_filters('polski_pro/inpost/points', array $points, string $city, array $co
 
 ```php
 add_filter('polski_pro/inpost/points', function (array $points, string $city, array $coords): array {
-    $excluded_points = ['KRA123', 'WAW456']; // Dočasně vyřazené
+    $excluded_points = ['KRA123', 'WAW456']; // Docasne vypnute
     return array_filter($points, function (array $point) use ($excluded_points): bool {
         return ! in_array($point['name'], $excluded_points, true);
     });
@@ -101,36 +101,36 @@ add_filter('polski_pro/inpost/points', function (array $points, string $city, ar
 
 ### Z panelu objednavky
 
-Na strance upravy objednavky v panelu **InPost** jsou dostupne moznosti:
+V panelu **InPost** na strance objednavky:
 
-1. **Vygenerovat stitek** - vytvori zasilku v API ShipX a vygeneruje stitek PDF
+1. **Generovat stitek** - vytvori zasilku v API ShipX a vygeneruje stitek PDF
 2. **Stahnout stitek** - stahne vygenerovany stitek
-3. **Tisknout stitek** - otevre nahled tisku
+3. **Tisk stitku** - otevre nahled tisku
 
 ### Hromadne generovani
 
-Na seznamu objednavek zaznacte vice objednavek a vyberte hromadnou akci "Vygenerovat stitky InPost". Stitky jsou generovany asynchronne - po dokonceni se objevi oznameni s odkazem na stazeni souboru ZIP.
+Oznacte vice objednavek v seznamu a vyberte "Generovat stitky InPost". Stitky se generuji na pozadi. Po dokonceni stahnete soubor ZIP.
 
-### Data zasilky
+### Udaje zasilky
 
 Stitek je generovan na zaklade:
 
 | Pole | Zdroj | Popis |
-|------|-------|-------|
+|------|--------|------|
 | Odesilatel | Nastaveni obchodu | Adresa a udaje firmy z WooCommerce |
-| Prijemce | Data objednavky | Jmeno, prijmeni, telefon, e-mail |
-| Odberne misto | Vyber zakaznika | ID Paczkomatou vybraneho na pokladne |
-| Velikost baliku | Nastaveni metody | Nebo prepis v objednavce |
-| Castka dobirek | Objednavka COD | Pouze pro objednavky na dobirek |
+| Prijemce | Udaje objednavky | Jmeno, prijmeni, telefon, e-mail |
+| Vydejni misto | Vyber zakaznika | ID Paczkomatu vybraneho v pokladne |
+| Velikost balicku | Nastaveni metody | Nebo prepsani v objednavce |
+| Castka dobirky | Objednavka COD | Pouze pro objednavky na dobirku |
 
 ### Hook generovani stitku
 
 ```php
 /**
- * Filtruje dane przesyłki przed wysłaniem do API ShipX.
+ * Filtruje data zasilky pred odeslanim do API ShipX.
  *
- * @param array     $shipment_data Dane przesyłki
- * @param \WC_Order $order         Zamówienie WooCommerce
+ * @param array     $shipment_data Data zasilky
+ * @param \WC_Order $order         Objednavka WooCommerce
  */
 apply_filters('polski_pro/inpost/shipment_data', array $shipment_data, \WC_Order $order): array;
 ```
@@ -148,35 +148,35 @@ add_filter('polski_pro/inpost/shipment_data', function (array $shipment_data, \W
 
 ### Automaticke sledovani
 
-Po vygenerovani stitku modul automaticky kontroluje status zasilky kazdych 2 hodiny (WP-Cron). Statusy jsou mapovany na statusy objednavek WooCommerce:
+Po vygenerovani stitku modul kontroluje stav zasilky kazde 2 hodiny (WP-Cron). Stavy se mapuji na stavy WooCommerce:
 
-| Status InPost | Status WooCommerce | Popis |
-|---------------|-------------------|-------|
+| Stav InPost | Stav WooCommerce | Popis |
+|---------------|-------------------|------|
 | `created` | `processing` | Zasilka vytvorena |
 | `dispatched_by_sender` | `processing` | Podana odesilatelem |
 | `collected_from_sender` | `shipped` | Vyzvednuta od odesilatele |
-| `out_for_delivery` | `shipped` | Na doruceni |
-| `ready_to_pickup` | `shipped` | Pripravena k vyzvednuti v Paczkomatou |
+| `out_for_delivery` | `shipped` | V doruceni |
+| `ready_to_pickup` | `shipped` | Pripravena k vyzvednuti v Paczkomatu |
 | `delivered` | `completed` | Dorucena / vyzvednuta |
 
 ### Oznameni zakaznikovi
 
-Zakaznik obdrzi e-mail s odkazem na sledovani zasilky na strance InPost. Odkaz sledovani je pridan do:
+Zakaznik dostane e-mail s odkazem na sledovani na strance InPost. Odkaz je pridan do:
 
-- E-mailu "Objednavka v realizaci"
-- Stranky "Muj ucet > Objednavky > Detail"
+- E-mailu "Objednavka se zpracovava"
+- Stranky "Muj ucet > Objednavky > Detaily"
 - Poznamek objednavky (viditelnych pro zakaznika)
 
 ### Hook sledovani
 
 ```php
 /**
- * Akcja wywoływana po aktualizacji statusu przesyłki.
+ * Akce volana po aktualizaci stavu zasilky.
  *
- * @param int      $order_id      ID zamówienia
- * @param string   $tracking_number Numer śledzenia
- * @param string   $old_status    Poprzedni status InPost
- * @param string   $new_status    Nowy status InPost
+ * @param int      $order_id      ID objednavky
+ * @param string   $tracking_number Sledovaci cislo
+ * @param string   $old_status    Predchozi stav InPost
+ * @param string   $new_status    Novy stav InPost
  */
 do_action('polski_pro/inpost/status_updated', int $order_id, string $tracking_number, string $old_status, string $new_status);
 ```
@@ -194,37 +194,37 @@ add_action('polski_pro/inpost/status_updated', function (
         $order = wc_get_order($order_id);
         $phone = $order->get_billing_phone();
         send_sms($phone, sprintf(
-            'Twoja paczka %s czeka w Paczkomacie. Kod odbioru w e-mailu.',
+            'Vase zasilka %s ceka v Paczkomatu. Kod pro vyzvednuti je v e-mailu.',
             $tracking_number
         ));
     }
 }, 10, 4);
 ```
 
-## Velikosti baliku
+## Velikosti balicku
 
 | Velikost | Rozmery (cm) | Max hmotnost |
-|----------|-------------|--------------|
+|---------|-------------|----------|
 | A | 8 x 38 x 64 | 25 kg |
 | B | 19 x 38 x 64 | 25 kg |
 | C | 41 x 38 x 64 | 25 kg |
 
-Velikost baliku lze nastavit globalne, na metodu doruceni nebo prepsat rucne v objednavce.
+Velikost balicku lze nastavit globalne, per prepravni metoda nebo rucne prepsat v objednavce.
 
 ## Reseni problemu
 
-**Mapa Paczkomatou se nenacita**
-Zkontrolujte, ze API token je spravny a aktivni. Zkontrolujte konzoli prohlizece na chyby CORS nebo JavaScriptu. Ujistete se, ze skript `polski-pro-inpost-map.js` je nacten.
+**Mapa Paczkomatu se nenacita**
+Zkontrolujte, zda je API token spravny a aktivni. Zkontrolujte konzoli prohlizece, zda neobsahuje chyby CORS nebo JavaScript. Ujistete se, ze je nacten skript `polski-pro-inpost-map.js`.
 
 **Chyba generovani stitku "Unauthorized"**
-API token vyprsel nebo nema opravneni pro vytvareni zasilek. Vygenerujte novy token v panelu InPost Manager.
+API token vyprsel nebo nema opravneni k vytvareni zasilek. Vygenerujte novy token v panelu InPost Manager.
 
-**Status zasilky se neaktualizuje**
-Zkontrolujte, ze WP-Cron funguje spravne. Spustte rucne: `wp cron event run polski_pro_inpost_tracking`.
+**Stav zasilky se neaktualizuje**
+Zkontrolujte, zda WP-Cron funguje spravne. Spustte rucne: `wp cron event run polski_pro_inpost_tracking`.
 
 ## Dalsi kroky
 
 - Hlaste problemy: [GitHub Issues](https://github.com/wppoland/polski/issues)
 - Dokumentace API ShipX: [https://docs.inpost24.com/](https://docs.inpost24.com/)
 
-<div class="disclaimer">Tato stránka slouží pouze k informačním účelům a nepředstavuje právní poradenství. Před implementací se poraďte s právníkem. Polski for WooCommerce je open source software (GPLv2) poskytovaný bez záruky.</div>
+<div class="disclaimer">Tato stranka ma vyhradne informativni charakter a nepredstavuje pravni poradenstvi. Pred nasazenim se poradte s pravnikem. Polski for WooCommerce je open source software (GPLv2) poskytovany bez zaruky.</div>

@@ -1,80 +1,80 @@
 ---
-title: Balicky, doplnky a "casto kupovano spolecne"
-description: Moduly produktovych balicku, doplnku k produktu a doporuceni "casto kupovano spolecne" v Polski PRO for WooCommerce.
+title: Balíčky, doplňky a "často kupováno společně"
+description: Moduly produktových balíčků, doplňků k produktu a doporučení "často kupováno společně" v Polski PRO for WooCommerce.
 ---
 
-Tri prodejni moduly: produktove balicky (bundles), doplnky k produktu (add-ons) a "casto kupovano spolecne" (FBT). Kazdy funguje nezavisle.
+Tři prodejní moduly: balíčky (bundles), doplňky k produktu (add-ons) a "často kupováno společně" (FBT). Každý funguje nezávisle.
 
-:::note[Pozadavky]
-Polski PRO vyzaduje: Polski (free) v1.3.0+, WordPress 6.4+, WooCommerce 8.0+, PHP 8.1+
+:::note[Požadavky]
+Polski PRO vyžaduje: Polski (free) v1.3.0+, WordPress 6.4+, WooCommerce 8.0+, PHP 8.1+
 :::
 
-## Produktove balicky (bundles)
+## Produktové balíčky (bundles)
 
-Modul balicku umoznuje vytvaret konfigurovatelne sady produktu se spolecnou slevou. Zakaznik kupuje balicek jako jeden produkt a jednotlive slozky jsou viditelne v detailech objednavky.
+Vytvářejte sady produktů se společnou slevou. Zákazník kupuje balíček jako jeden produkt. Komponenty jsou viditelné v detailech objednávky.
 
 ### Konfigurace
 
-Prejdete do **WooCommerce > Nastaveni > Polski PRO > Balicky** a zapnete modul (moznost `polski_bundles`).
+Přejděte na **WooCommerce > Nastavení > Polski PRO > Balíčky** a zapněte modul (možnost `polski_bundles`).
 
-| Nastaveni | Vychozi hodnota | Popis |
-|-----------|-----------------|-------|
-| Zapnout balicky | Ne | Aktivuje funkcionalitu balicku |
-| Zpusob slevy | Procento | `percent` (procentualni) nebo `fixed` (pevna castka) |
-| Vychozi sleva | 10 % | Sleva pouzivana na nove balicky |
-| Zobrazovat usporou | Ano | Zobrazuje castku uspory zakaznikovi |
+| Nastavení | Výchozí hodnota | Popis |
+|------------|------------------|------|
+| Zapnout balíčky | Ne | Aktivuje funkcionalitu balíčků |
+| Způsob slevy | Procento | `percent` (procentní) nebo `fixed` (částková) |
+| Výchozí sleva | 10 % | Sleva aplikovaná na nové balíčky |
+| Zobrazovat úsporu | Ano | Zobrazuje zákazníkovi výši úspory |
 
-### Vytvoreni balicku
+### Vytvoření balíčku
 
-1. Prejdete do **Produkty > Pridat novy**
-2. V sekci **Data produktu** vyberte typ "Balicek Polski PRO"
-3. V zalozce **Slozky balicku** pridejte produkty
-4. Nastavte mnozstvi kazde slozky
-5. Nakonfigurujte slevu (prepise vychozi)
+1. Přejděte na **Produkty > Přidat nový**
+2. V sekci **Data produktu** vyberte typ "Balíček Polski PRO"
+3. V záložce **Komponenty balíčku** přidejte produkty
+4. Nastavte množství každé komponenty
+5. Nakonfigurujte slevu (přepisuje výchozí)
 
-### Vypocet slevy
+### Výpočet slevy
 
-Cena balicku je vypocitana automaticky:
+Cena balíčku se počítá automaticky:
 
 ```
-Cena pakietu = Suma cen składników - Rabat
+Cena balíčku = Součet cen komponent - Sleva
 
-Przykład (rabat 15%):
+Příklad (sleva 15 %):
 Produkt A: 100 zł x 1 = 100 zł
 Produkt B:  50 zł x 2 = 100 zł
-Suma:                    200 zł
-Rabat (15%):              30 zł
-Cena pakietu:            170 zł
+Součet:                  200 zł
+Sleva (15 %):             30 zł
+Cena balíčku:            170 zł
 ```
 
-Pokud je slozka balicku v akci, pro vypocty se pouziva akcni cena.
+Pokud je komponenta balíčku v akci, k výpočtu se použije akční cena.
 
-### Shortcode balicku
+### Shortcode balíčku
 
 ```
 [polski_bundle product_id="456" show_savings="yes" layout="grid"]
 ```
 
-| Parametr | Povinny | Popis |
-|----------|---------|-------|
-| `product_id` | Ano | ID produktu-balicku |
-| `show_savings` | Ne | Zobrazit castku uspory (`yes`/`no`) |
-| `layout` | Ne | Rozlozeni: `grid`, `list`, `compact` |
+| Parametr | Povinný | Popis |
+|----------|----------|------|
+| `product_id` | Ano | ID produktu-balíčku |
+| `show_savings` | Ne | Zobrazit výši úspory (`yes`/`no`) |
+| `layout` | Ne | Rozložení: `grid`, `list`, `compact` |
 
-### Hooky balicku
+### Hooky balíčků
 
 ```php
 /**
- * Filtruje obliczoną cenę pakietu.
+ * Filtruje vypočtenou cenu balíčku.
  *
- * @param float $bundle_price Obliczona cena pakietu
- * @param array $items        Składniki pakietu z cenami
- * @param float $discount     Wartość rabatu
+ * @param float $bundle_price Vypočtená cena balíčku
+ * @param array $items        Komponenty balíčku s cenami
+ * @param float $discount     Hodnota slevy
  */
 apply_filters('polski_pro/bundles/price', float $bundle_price, array $items, float $discount): float;
 ```
 
-**Priklad - minimalni cena balicku:**
+**Příklad - minimální cena balíčku:**
 
 ```php
 add_filter('polski_pro/bundles/price', function (float $bundle_price, array $items, float $discount): float {
@@ -85,114 +85,114 @@ add_filter('polski_pro/bundles/price', function (float $bundle_price, array $ite
 
 ```php
 /**
- * Akcja wywoływana po dodaniu pakietu do koszyka.
+ * Akce volaná po přidání balíčku do košíku.
  *
- * @param string $cart_item_key Klucz pozycji w koszyku
- * @param int    $bundle_id    ID produktu-pakietu
- * @param array  $items        Składniki pakietu
+ * @param string $cart_item_key Klíč položky v košíku
+ * @param int    $bundle_id    ID produktu-balíčku
+ * @param array  $items        Komponenty balíčku
  */
 do_action('polski_pro/bundles/added_to_cart', string $cart_item_key, int $bundle_id, array $items);
 ```
 
-## Doplnky k produktu (add-ons)
+## Doplňky k produktu (add-ons)
 
-Modul doplnku umoznuje zobrazovat volitelne upsellove produkty primo na strance produktu. Zakaznik muze vybrat doplnkove produkty a zakoupit je jednim kliknutim spolecne s hlavnim produktem.
+Zobrazujte volitelné upsellové produkty na stránce produktu. Zákazník vybere doplňky a koupí je jedním kliknutím spolu s hlavním produktem.
 
 ### Konfigurace
 
-Prejdete do **WooCommerce > Nastaveni > Polski PRO > Doplnky** a zapnete modul (moznost `polski_addons`).
+Přejděte na **WooCommerce > Nastavení > Polski PRO > Doplňky** a zapněte modul (možnost `polski_addons`).
 
-| Nastaveni | Vychozi hodnota | Popis |
-|-----------|-----------------|-------|
-| Zapnout doplnky | Ne | Aktivuje funkcionalitu doplnku |
-| Pozice zobrazeni | Za tlacitkem kosiku | Kde zobrazit sekci doplnku |
-| Nadpis sekce | "Dodaj do zamówienia" | Text nadpisu nad seznamem doplnku |
-| Maximalni pocet | 5 | Limit zobrazovanych doplnku na produktu |
+| Nastavení | Výchozí hodnota | Popis |
+|------------|------------------|------|
+| Zapnout doplňky | Ne | Aktivuje funkcionalitu doplňků |
+| Pozice zobrazení | Po tlačítku košíku | Kde zobrazit sekci doplňků |
+| Nadpis sekce | "Přidat k objednávce" | Text nadpisu nad seznamem doplňků |
+| Maximální počet | 5 | Limit zobrazených doplňků na produktu |
 
-### Prirazovani doplnku
+### Přiřazování doplňků
 
-Doplnky se konfiguraji v uprave produktu, v zalozce **Doplnky Polski PRO**:
+Doplňky se konfigurují v editaci produktu, v záložce **Doplňky Polski PRO**:
 
-1. Kliknete "Pridat doplnek"
+1. Klikněte na "Přidat doplněk"
 2. Vyberte produkt z katalogu
-3. Nastavte cenu doplnku (vychozi cena produktu)
-4. Volitelne nastavte akcni cenu doplnku
-5. Urcete poradi zobrazeni
+3. Nastavte cenu doplňku (výchozí cena produktu)
+4. Volitelně nastavte akční cenu doplňku
+5. Určete pořadí zobrazení
 
-Doplnky mohou mit jinou cenu nez zdrojovy produkt - to umoznuje nabizet specialni ceny "spolecne s produktem".
+Doplňky mohou mít jinou cenu než zdrojový produkt - můžete nabízet speciální ceny "spolu s produktem".
 
-### Validace vyberu
+### Validace výběru
 
 Modul validuje:
 
-- Skladovou dostupnost kazdeho vybraneho doplnku
-- Spravnost cen (zda nebyly modifikovany na strane klienta)
-- Mnozstevni limity
+- Skladovou dostupnost každého vybraného doplňku
+- Správnost cen (zda nebyly modifikovány na straně klienta)
+- Množstevní limity
 
-### Hooky doplnku
+### Hooky doplňků
 
 ```php
 /**
- * Filtruje listę dodatków dla produktu.
+ * Filtruje seznam doplňků pro produkt.
  *
- * @param array       $addons  Tablica dodatków z cenami
- * @param \WC_Product $product Produkt główny
+ * @param array       $addons  Pole doplňků s cenami
+ * @param \WC_Product $product Hlavní produkt
  */
 apply_filters('polski_pro/addons/items', array $addons, \WC_Product $product): array;
 ```
 
-**Priklad - filtrovani doplnku na zaklade role uzivatele:**
+**Příklad - filtrování doplňků na základě role uživatele:**
 
 ```php
 add_filter('polski_pro/addons/items', function (array $addons, \WC_Product $product): array {
     if (current_user_can('wholesale_customer')) {
         foreach ($addons as &$addon) {
-            $addon['price'] = $addon['price'] * 0.8; // 20% velkoobchodni sleva
+            $addon['price'] = $addon['price'] * 0.8; // 20% velkoobchodní sleva
         }
     }
     return $addons;
 }, 10, 2);
 ```
 
-## Casto kupovano spolecne (frequently bought together)
+## Často kupováno společně (frequently bought together)
 
-Modul doporuceni zobrazuje produkty nejcasteji kupovane spolecne s prohlizenym produktem, s moznosti pridani vice produktu do kosiku jednim kliknutim.
+Zobrazuje produkty nejčastěji kupované společně s prohlíženým produktem. Zákazník přidá více produktů do košíku jedním kliknutím.
 
 ### Konfigurace
 
-Prejdete do **WooCommerce > Nastaveni > Polski PRO > Casto kupovano spolecne** a zapnete modul (moznost `polski_fbt`).
+Přejděte na **WooCommerce > Nastavení > Polski PRO > Často kupováno společně** a zapněte modul (možnost `polski_fbt`).
 
-| Nastaveni | Vychozi hodnota | Popis |
-|-----------|-----------------|-------|
-| Zapnout modul | Ne | Aktivuje doporuceni |
-| Zdroj dat | Rucni | `manual` (rucni) nebo `auto` (na zaklade objednavek) |
-| Limit produktu | 3 | Maximalni pocet doporucovanych produktu |
-| Nadpis sekce | "Często kupowane razem" | Text nadpisu sekce |
-| Pozice | Pod kratkym popisem | Kde zobrazit sekci |
+| Nastavení | Výchozí hodnota | Popis |
+|------------|------------------|------|
+| Zapnout modul | Ne | Aktivuje doporučení |
+| Zdroj dat | Ruční | `manual` (ruční) nebo `auto` (na základě objednávek) |
+| Limit produktů | 3 | Maximální počet doporučených produktů |
+| Nadpis sekce | "Často kupováno společně" | Text nadpisu sekce |
+| Pozice | Pod krátkým popisem | Kde zobrazit sekci |
 
-### Rucni prirazovani
+### Ruční přiřazování
 
-V uprave produktu, zalozka **Casto kupovano spolecne**:
+V editaci produktu, záložka **Často kupováno společně**:
 
-1. Vyhledejte a pridejte souvisejici produkty
-2. Nastavte poradi zobrazeni
-3. Volitelne nastavte slevu za nakup spolecne
+1. Vyhledejte a přidejte související produkty
+2. Nastavte pořadí zobrazení
+3. Volitelně nastavte slevu za nákup společně
 
-### Automaticka doporuceni
+### Automatická doporučení
 
-Kdyz je zdroj dat nastaven na `auto`, modul analyzuje historii objednavek a identifikuje produkty nejcasteji kupovane spolecne. Analyza je spoustena jednou denne pres WP-Cron.
+V režimu `auto` modul analyzuje historii objednávek a najde produkty nejčastěji kupované společně. Analýza se spouští jednou denně přes WP-Cron.
 
-### Pridavani do kosiku
+### Přidávání do košíku
 
-Sekce "Casto kupovano spolecne" zobrazuje:
+Sekce "Často kupováno společně" zobrazuje:
 
-- Checkboxy u kazdeho doporucovaneho produktu
-- Miniatury a nazvy produktu
-- Ceny jednotlivych produktu
-- Celkovou cenu vybranych produktu
-- Tlacitko "Pridat vse do kosiku"
+- Zaškrtávací políčka u každého doporučeného produktu
+- Miniatury a názvy produktů
+- Ceny jednotlivých produktů
+- Celkovou cenu vybraných produktů
+- Tlačítko "Přidat vše do košíku"
 
-Zakaznik zaskrtne vybrane produkty a prida je jednim kliknutim. Vsechny produkty se objevi v kosiku jako samostatne polozky.
+Zákazník zaškrtne produkty a přidá je jedním kliknutím. Putují do košíku jako samostatné položky.
 
 ### Shortcode
 
@@ -200,26 +200,26 @@ Zakaznik zaskrtne vybrane produkty a prida je jednim kliknutim. Vsechny produkty
 [polski_fbt product_id="789" limit="4" show_prices="yes"]
 ```
 
-| Parametr | Povinny | Popis |
-|----------|---------|-------|
-| `product_id` | Ne | ID hlavniho produktu (vychozi aktualni) |
-| `limit` | Ne | Maximalni pocet doporuceni |
+| Parametr | Povinný | Popis |
+|----------|----------|------|
+| `product_id` | Ne | ID hlavního produktu (výchozí aktuální) |
+| `limit` | Ne | Maximální počet doporučení |
 | `show_prices` | Ne | Zobrazovat ceny (`yes`/`no`) |
 
 ### Hooky FBT
 
 ```php
 /**
- * Filtruje listę rekomendowanych produktów.
+ * Filtruje seznam doporučených produktů.
  *
- * @param array $product_ids Tablica ID rekomendowanych produktów
- * @param int   $product_id  ID produktu głównego
- * @param string $source     Źródło: 'manual' lub 'auto'
+ * @param array $product_ids Pole ID doporučených produktů
+ * @param int   $product_id  ID hlavního produktu
+ * @param string $source     Zdroj: 'manual' nebo 'auto'
  */
 apply_filters('polski_pro/fbt/products', array $product_ids, int $product_id, string $source): array;
 ```
 
-**Priklad - vylouceni produktu z vybrane kategorie:**
+**Příklad - vyloučení produktů z vybrané kategorie:**
 
 ```php
 add_filter('polski_pro/fbt/products', function (array $product_ids, int $product_id, string $source): array {
@@ -230,30 +230,30 @@ add_filter('polski_pro/fbt/products', function (array $product_ids, int $product
 }, 10, 3);
 ```
 
-## Soucinnost modulu
+## Souhra modulů
 
-Vsechny tri moduly mohou fungovat soucasne na stejnem produktu:
+Všechny tři moduly mohou fungovat současně na stejném produktu:
 
-- **Balicek** s prirazenymi **doplnky** a sekci **casto kupovano spolecne**
-- Slozky balicku mohou mit vlastni doplnky
-- Doporuceni FBT mohou odkazovat na balicky
+- **Balíček** s přiřazenými **doplňky** a sekcí **často kupováno společně**
+- Komponenty balíčku mohou mít vlastní doplňky
+- Doporučení FBT mohou odkazovat na balíčky
 
-Poradi zobrazeni na strance produktu je konfigurovatelne pomoci priority hooku WooCommerce.
+Pořadí zobrazení nastavte prioritou hooků WooCommerce.
 
-## Reseni problemu
+## Řešení problémů
 
-**Cena balicku se neaktualizuje po zmene cen slozek**
-Cena balicku je vypocitavana dynamicky. Vycistete Object Cache a transients WooCommerce.
+**Cena balíčku se neaktualizuje po změně cen komponent**
+Cena balíčku se počítá dynamicky. Vyprázdněte cache objektů (Object Cache) a transients WooCommerce.
 
-**Doplnky se nezobrazuji na strance produktu**
-Zkontrolujte, ze motiv podporuje hook `woocommerce_after_add_to_cart_button`. Nektere nestandardni motivy vynechavaji standardni hooky WooCommerce.
+**Doplňky se nezobrazují na stránce produktu**
+Zkontrolujte, zda šablona podporuje hook `woocommerce_after_add_to_cart_button`. Některé vlastní šablony vynechávají standardní hooky WooCommerce.
 
-**Automaticka doporuceni jsou prazdna**
-Modul potrebuje historicka data - automaticka doporuceni se objevi po shromazdeni dostatecneho poctu objednavek. Zkontrolujte, ze uloha WP-Cron `polski_pro_fbt_analyze` je naplanowana.
+**Automatická doporučení jsou prázdná**
+Modul potřebuje historická data - automatická doporučení se objevují po nasbírání dostatečného počtu objednávek. Zkontrolujte, zda je úloha WP-Cron `polski_pro_fbt_analyze` naplánována.
 
-## Dalsi kroky
+## Další kroky
 
-- Hlaste problemy: [GitHub Issues](https://github.com/wppoland/polski/issues)
-- Souvisejici moduly: [Predprodej](/pro/preorders), [Katalogovy rezim](/pro/catalog-mode)
+- Nahlašte problémy: [GitHub Issues](https://github.com/wppoland/polski/issues)
+- Související moduly: [Předprodej](/pro/preorders), [Katalogový režim](/pro/catalog-mode)
 
-<div class="disclaimer">Tato stránka slouží pouze k informačním účelům a nepředstavuje právní poradenství. Před implementací se poraďte s právníkem. Polski for WooCommerce je open source software (GPLv2) poskytovaný bez záruky.</div>
+<div class="disclaimer">Tato stránka má pouze informativní charakter a nepředstavuje právní poradenství. Před nasazením se poraďte s právníkem. Polski for WooCommerce je open source software (GPLv2) poskytovaný bez záruky.</div>

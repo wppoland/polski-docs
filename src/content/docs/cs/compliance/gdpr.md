@@ -1,181 +1,181 @@
 ---
-title: GDPR - ochrana osobnich udaju
-description: Konfigurace souhlasu GDPR v Polski for WooCommerce - 7 checkboxu, logovani souhlasu, API shortcode a soulad s Narizenim o ochrane osobnich udaju.
+title: GDPR - ochrana osobních údajů
+description: Konfigurace souhlasů GDPR v Polski for WooCommerce - 7 zaškrtávacích políček, logování souhlasů, API shortcode a soulad s Nařízením o ochraně osobních údajů.
 ---
 
-GDPR vyzaduje od obchodu ziskani vyrazneho souhlasu se zpracovanim osobnich udaju. Plugin pridava 7 konfigurovatelnych checkboxu na strance objednavky, logovani souhlasu a nastroje pro spravu souhlasu.
+GDPR vyžaduje od obchodů získání výslovného souhlasu se zpracováním osobních údajů. Plugin přidává 7 konfigurovatelných zaškrtávacích políček na stránce objednávky, logování souhlasů a nástroje pro správu souhlasů.
 
-## Vyzadovane souhlasy v polskem e-commerce
+## Vyžadované souhlasy v polském e-commerce
 
-Internetovy obchod by mel ziskavat souhlasy na:
+Internetový obchod by měl získávat souhlasy s:
 
-1. Prijeti obchodnich podminek obchodu
-2. Seznameni se zasadami ochrany osobnich udaju
-3. Pravo na odstoupeni od smlouvy (potvrzeni seznameni)
-4. Souhlas s dodanim digitalniho obsahu pred uplynutim lhuty pro odstoupeni
-5. Oznameni o dodani (SMS/e-mail)
-6. Pripominka recenze
-7. Marketing (newsletter, obchodni nabidky)
+1. Přijetím obchodních podmínek obchodu
+2. Seznámením se zásadami ochrany osobních údajů
+3. Právem na odstoupení od smlouvy (potvrzení seznámení)
+4. Dodáním digitálního obsahu před uplynutím lhůty pro odstoupení
+5. Oznámeními o dodání (SMS/e-mail)
+6. Připomínkou recenze
+7. Marketingem (newsletter, obchodní nabídky)
 
-## Konfigurace checkboxu
+## Konfigurace zaškrtávacích políček
 
-Prejdete do **WooCommerce > Nastaveni > Polski > GDPR** a nakonfigurujte souhlasy.
+Přejděte do **WooCommerce > Nastavení > Polski > GDPR** a nakonfigurujte souhlasy.
 
-### 1. Obchodni podminky
+### 1. Obchodní podmínky
 
-Povinny checkbox odkazujici na stranku obchodnich podminek.
+Povinné zaškrtávací políčko odkazující na stránku obchodních podmínek.
 
-| Nastaveni | Popis |
+| Nastavení | Popis |
 |------------|------|
-| Text | Konfigurovatelny, vychozi: "Seznamil/a jsem se s [obchodnimi podminkami] a prijimam jejich podminky" |
-| Povinny | Ano (vzdy) |
-| Stranka podminek | Vyberte ze stranek WordPress |
+| Text | Konfigurovatelný, výchozí: "Seznámil/a jsem se s [obchodními podmínkami] a přijímám jejich podmínky" |
+| Povinný | Ano (vždy) |
+| Stránka podmínek | Vyberte ze stránek WordPress |
 
-### 2. Zasady ochrany osobnich udaju
+### 2. Zásady ochrany osobních údajů
 
-Povinny checkbox odkazujici na zasady ochrany osobnich udaju.
+Povinné zaškrtávací políčko odkazující na zásady ochrany osobních údajů.
 
-| Nastaveni | Popis |
+| Nastavení | Popis |
 |------------|------|
-| Text | Vychozi: "Seznamil/a jsem se se [zasadami ochrany osobnich udaju]" |
-| Povinny | Ano (vzdy) |
-| Stranka zasad | Vyberte ze stranek WordPress |
+| Text | Výchozí: "Seznámil/a jsem se se [zásadami ochrany osobních údajů]" |
+| Povinný | Ano (vždy) |
+| Stránka zásad | Vyberte ze stránek WordPress |
 
-### 3. Pravo na odstoupeni od smlouvy
+### 3. Právo na odstoupení od smlouvy
 
-Informace o seznameni s podminkami odstoupeni.
+Informace o seznámení s podmínkami odstoupení.
 
-| Nastaveni | Popis |
+| Nastavení | Popis |
 |------------|------|
-| Text | Vychozi: "Seznamil/a jsem se s podminkami [odstoupeni od smlouvy]" |
-| Povinny | Ano |
-| Stranka odstoupeni | Vyberte ze stranek WordPress |
+| Text | Výchozí: "Seznámil/a jsem se s podmínkami [odstoupení od smlouvy]" |
+| Povinný | Ano |
+| Stránka odstoupení | Vyberte ze stránek WordPress |
 
-### 4. Digitalni obsah
+### 4. Digitální obsah
 
-Souhlas vyzadovany pri prodeji digitalniho obsahu (napr. e-knihy, soubory ke stazeni).
+Souhlas vyžadovaný při prodeji digitálního obsahu (např. e-knihy, soubory ke stažení).
 
-| Nastaveni | Popis |
+| Nastavení | Popis |
 |------------|------|
-| Text | Vychozi: "Souhlasim s dodanim digitalniho obsahu pred uplynutim lhuty pro odstoupeni od smlouvy a beru na vedomi ztratu prava na odstoupeni" |
-| Povinny | Ano (kdyz kosik obsahuje digitalni produkty) |
-| Podminka | Zobrazit pouze kdyz kosik obsahuje virtualni produkty nebo produkty ke stazeni |
+| Text | Výchozí: "Souhlasím s dodáním digitálního obsahu před uplynutím lhůty pro odstoupení od smlouvy a beru na vědomí ztrátu práva na odstoupení" |
+| Povinný | Ano (když košík obsahuje digitální produkty) |
+| Podmínka | Zobrazit pouze když košík obsahuje virtuální produkty nebo produkty ke stažení |
 
-### 5. Oznameni o dodani
+### 5. Oznámení o dodání
 
-Souhlas s odesilanim oznameni SMS/e-mail o stavu zasilky.
+Souhlas s odesíláním oznámení SMS/e-mail o stavu zásilky.
 
-| Nastaveni | Popis |
+| Nastavení | Popis |
 |------------|------|
-| Text | Vychozi: "Souhlasim s prijimanim oznameni o stavu dodani" |
-| Povinny | Ne |
-| Kanal | E-mail, SMS nebo oba |
+| Text | Výchozí: "Souhlasím s přijímáním oznámení o stavu dodání" |
+| Povinný | Ne |
+| Kanál | E-mail, SMS nebo oba |
 
-### 6. Pripominka recenze
+### 6. Připomínka recenze
 
-Souhlas s odesilanim e-mailu s zadosti o napsani recenze po nakupu.
+Souhlas s odesláním e-mailu s žádostí o napsání recenze po nákupu.
 
-| Nastaveni | Popis |
+| Nastavení | Popis |
 |------------|------|
-| Text | Vychozi: "Souhlasim s prijimanim e-mailu s zadosti o napsani recenze na zakoupeny produkt" |
-| Povinny | Ne |
-| Zpozdeni | Pocet dnu po dodani (vychozi 7) |
+| Text | Výchozí: "Souhlasím s přijetím e-mailu s žádostí o napsání recenze na zakoupený produkt" |
+| Povinný | Ne |
+| Zpoždění | Počet dnů po dodání (výchozí 7) |
 
 ### 7. Marketing
 
-Souhlas s marketingovou komunikaci.
+Souhlas s marketingovou komunikací.
 
-| Nastaveni | Popis |
+| Nastavení | Popis |
 |------------|------|
-| Text | Vychozi: "Souhlasim s prijimanim obchodnich informaci elektronickou cestou" |
-| Povinny | Ne |
-| Rozsah | Newsletter, nabidky, akce |
+| Text | Výchozí: "Souhlasím s přijímáním obchodních informací elektronickou cestou" |
+| Povinný | Ne |
+| Rozsah | Newsletter, nabídky, akce |
 
-## Logovani souhlasu
+## Logování souhlasů
 
-Kazdy souhlas se zapisuje do databaze s udaji:
+Každý souhlas se zapisuje do databáze s údaji:
 
 | Pole | Popis |
 |------|------|
-| ID uzivatele | ID zakaznika WordPress (nebo 0 pro hosty) |
-| ID objednavky | Cislo objednavky WooCommerce |
-| Typ souhlasu | Identifikator checkboxu (napr. `terms`, `privacy`, `marketing`) |
+| ID uživatele | ID zákazníka WordPress (nebo 0 pro hosty) |
+| ID objednávky | Číslo objednávky WooCommerce |
+| Typ souhlasu | Identifikátor políčka (např. `terms`, `privacy`, `marketing`) |
 | Hodnota | `granted` nebo `denied` |
-| IP adresa | Anonymizovana IP adresa zakaznika |
-| User Agent | Prohlizec a operacni system |
-| Casove razitko | Datum a cas udeleni souhlasu (UTC) |
-| Verze dokumentu | Hash verze podminek/zasad v okamziku udeleni souhlasu |
+| IP adresa | Anonymizovaná IP adresa zákazníka |
+| User Agent | Prohlížeč a operační systém |
+| Časové razítko | Datum a čas udělení souhlasu (UTC) |
+| Verze dokumentu | Hash verze podmínek/zásad v okamžiku udělení souhlasu |
 
-### Prohlizeni logu souhlasu
+### Prohlížení logů souhlasů
 
-Logy souhlasu jsou dostupne v:
+Logy souhlasů jsou dostupné v:
 
-- **Objednavka WooCommerce** - zalozka "Souhlasy GDPR" v bocnim panelu objednavky
-- **Profil uzivatele** - sekce "Historie souhlasu" v profilu zakaznika v administracnim panelu
-- **Export** - moznost exportu logu do CSV (**WooCommerce > Nastaveni > Polski > GDPR > Exportovat logy**)
+- **Objednávka WooCommerce** - záložka "Souhlasy GDPR" v bočním panelu objednávky
+- **Profil uživatele** - sekce "Historie souhlasů" v profilu zákazníka v administračním panelu
+- **Export** - možnost exportu logů do CSV (**WooCommerce > Nastavení > Polski > GDPR > Exportovat logy**)
 
 ### Anonymizace IP
 
-Plugin anonymizuje posledni oktet adresy IPv4 (napr. `192.168.1.xxx`) a posledni skupinu IPv6. To zajistuje soulad s GDPR a zachovava zakladni pouzitelnost logu.
+Plugin anonymizuje poslední oktet adresy IPv4 (např. `192.168.1.xxx`) a poslední skupinu IPv6. To zajišťuje soulad s GDPR a zachovává základní použitelnost logů.
 
 ## Shortcode API
 
-### Zobrazeni stavu souhlasu zakaznika
+### Zobrazení stavu souhlasů zákazníka
 
 ```
 [polski_consent_status]
 ```
 
-Ukaze prihlasemu zakaznikovi seznam souhlasu s moznosti jejich odvolani (napr. marketingovy souhlas).
+Ukáže přihlášenému zákazníkovi seznam souhlasů s možností jejich odvolání (např. marketingový souhlas).
 
-### Formular odvolani marketingoveho souhlasu
+### Formulář odvolání marketingového souhlasu
 
 ```
 [polski_consent_withdraw type="marketing"]
 ```
 
-Formular pro odvolani marketingoveho souhlasu. Po odvolani plugin automaticky aktualizuje stav souhlasu v databazi.
+Formulář pro odvolání marketingového souhlasu. Po odvolání plugin automaticky aktualizuje stav souhlasu v databázi.
 
 ### Parametry shortcode
 
-| Parametr | Popis | Dostupne hodnoty |
+| Parametr | Popis | Dostupné hodnoty |
 |----------|------|-------------------|
 | `type` | Typ souhlasu | `terms`, `privacy`, `withdrawal_right`, `digital_content`, `delivery_notifications`, `review_reminder`, `marketing` |
 
 ## Integrace s WooCommerce Blocks
 
-Checkboxy souhlasu funguji take s blokovym formularem objednavky (WooCommerce Blocks Checkout). Neni treba nic konfigurovat.
+Zaškrtávací políčka souhlasů fungují také s blokovým formulářem objednávky (WooCommerce Blocks Checkout). Není třeba nic konfigurovat.
 
-## Pravo byt zapomenut
+## Právo být zapomenut
 
-Plugin spolupracuje s nastrojem WordPress **Nastroje > Odstranit osobni udaje**. Po schvaleni zadosti o odstraneni plugin automaticky:
+Plugin spolupracuje s nástrojem WordPress **Nástroje > Odstranit osobní údaje**. Po schválení žádosti o odstranění plugin automaticky:
 
-1. Anonymizuje data v logach souhlasu
-2. Odstrani osobni udaje z formularu odstoupeni
-3. Zachova anonymizovane zaznamy pro ucely zodpovednosti
+1. Anonymizuje data v logách souhlasů
+2. Odstraní osobní údaje z formulářů odstoupení
+3. Zachová anonymizované záznamy pro účely odpovědnosti
 
-## Pravo na prenositelnost dat
+## Právo na přenositelnost dat
 
-Plugin spolupracuje s **Nastroje > Exportovat osobni udaje**. Export obsahuje:
+Plugin spolupracuje s **Nástroje > Exportovat osobní údaje**. Export obsahuje:
 
-- Historii udelenych souhlasu
-- Data z formularu (anonymizovana)
-- Komunikacni preference
+- Historii udělených souhlasů
+- Data z formulářů (anonymizovaná)
+- Komunikační preference
 
-## Reseni problemu
+## Řešení problémů
 
-**Checkboxy se nezobrazuji na strance objednavky**
-Zkontrolujte, zda je modul GDPR aktivovan v **WooCommerce > Nastaveni > Polski > Moduly**. Pri blokovem formulari objednavky potrebujete WooCommerce 8.0+.
+**Zaškrtávací políčka se nezobrazují na stránce objednávky**
+Zkontrolujte, zda je modul GDPR zapnutý v **WooCommerce > Nastavení > Polski > Moduly**. Při blokovém formuláři objednávky potřebujete WooCommerce 8.0+.
 
-**Zakaznik hlasi nemoznost slozit objednavku**
-Zkontrolujte, zda jiny plugin (napr. Germanized, WPML) nepridava stejne checkboxy. Deaktivujte souhlasy z jinych pluginu a pouzivejte pouze modul Polski for WooCommerce.
+**Zákazník hlásí, že nemůže odeslat objednávku**
+Zkontrolujte, zda jiný plugin (např. Germanized, WPML) nepřidává stejná zaškrtávací políčka. Vypněte souhlasy z jiných pluginů a používejte pouze modul Polski for WooCommerce.
 
-**Logy souhlasu neukladaji IP adresu**
-Zkontrolujte, zda server predava IP adresu. Za reverse proxy (napr. Cloudflare) nakonfigurujte hlavicku `X-Forwarded-For` ve WordPress.
+**Logy souhlasů neukládají IP adresu**
+Zkontrolujte, zda server předává IP adresu. Za reverse proxy (např. Cloudflare) nakonfigurujte hlavičku `X-Forwarded-For` ve WordPress.
 
-## Dalsi kroky
+## Další kroky
 
-- Hlaseni problemu: [GitHub Issues](https://github.com/wppoland/polski/issues)
-- Diskuse a otazky: [GitHub Discussions](https://github.com/wppoland/polski/discussions)
+- Nahlašujte problémy: [GitHub Issues](https://github.com/wppoland/polski/issues)
+- Diskuse a dotazy: [GitHub Discussions](https://github.com/wppoland/polski/discussions)
 
-<div class="disclaimer">Tato stránka slouží pouze k informačním účelům a nepředstavuje právní poradenství. Před implementací se poraďte s právníkem. Polski for WooCommerce je open source software (GPLv2) poskytovaný bez záruky.</div>
+<div class="disclaimer">Tato stránka má pouze informativní charakter a nepředstavuje právní poradenství. Před nasazením se poraďte s právníkem. Polski for WooCommerce je open source software (GPLv2) poskytovaný bez záruky.</div>

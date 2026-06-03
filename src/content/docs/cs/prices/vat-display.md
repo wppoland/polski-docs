@@ -1,95 +1,95 @@
 ---
-title: Zobrazovani DPH
-description: Konfigurace zobrazovani cen s DPH a bez DPH, sazby DPH a osvobozeni podle cl. 113 zakona o DPH ve WooCommerce.
+title: Zobrazení DPH
+description: Konfigurace zobrazení cen s DPH a bez DPH, sazby DPH a osvobození podle čl. 113 polského zákona o DPH ve WooCommerce.
 ---
 
-Polske pravo vyzaduje, aby obchod jasne informoval, zda cena obsahuje DPH. Plugin umoznuje zobrazovat informaci o DPH - od jednoducheho oznaceni "s DPH/bez DPH" po sazbu dane a zaklad osvobozeni.
+Polské právo vyžaduje, aby obchod jasně informoval, zda cena obsahuje DPH. Plugin Polski for WooCommerce umožňuje zobrazit informaci o DPH, od jednoduchého označení "s DPH / bez DPH" až po sazbu daně a důvod osvobození.
 
-## Pravni pozadavky
+## Právní požadavky
 
-Internetovy obchod musi:
+Internetový obchod musí:
 
-- zretelne informovat, zda cena obsahuje DPH
-- uvadel sazbu DPH, pokud prodava jak individualnm zakaznikum, tak firmam
-- v pripade osvobozeni od DPH - ukazat na pravni zaklad osvobozeni
+- jasně informovat, zda cena obsahuje DPH
+- uvádět sazbu DPH, pokud prodává jak soukromým osobám, tak firmám
+- v případě osvobození od DPH uvést právní základ osvobození
 
-Prodejci vyuzivajici subjektove osvobozeni (cl. 113 zakona o DPH) musi informovat zakaznika, ze cena neobsahuje DPH z duvodu osvobozeni.
+Pokud využíváte osvobození od DPH (čl. 113), informujte zákazníka, že cena neobsahuje DPH.
 
 ## Konfigurace
 
-Prejdete do **WooCommerce > Nastaveni > Polski > Ceny** a nakonfigurujte sekci "Zobrazovani DPH".
+Přejděte na **WooCommerce > Nastavení > Polski > Ceny** a nakonfigurujte sekci "Zobrazení DPH".
 
-### Rezimy zobrazeni
+### Režimy zobrazení
 
-| Rezim | Popis | Priklad |
+| Režim | Popis | Příklad |
 |------|------|---------|
-| S DPH (brutto) | Cena obsahuje dan | 123,00 PLN s DPH |
-| Bez DPH (netto) | Cena bez dane | 100,00 PLN bez DPH |
-| Oba | Obe ceny soucasne | 100,00 PLN bez DPH (123,00 PLN s DPH) |
+| S DPH | Cena obsahuje daň | 123,00 zł s DPH |
+| Bez DPH | Cena bez daně | 100,00 zł bez DPH |
+| Obě | Obě ceny současně | 100,00 zł bez DPH (123,00 zł s DPH) |
 
-### Podrobna nastaveni
+### Podrobná nastavení
 
-- **Zobrazit sazbu DPH** - zobrazuje procentualni sazbu dane vedle ceny (napr. "vcetne 23 % DPH")
-- **Zobrazit informaci o DPH na listingu** - ovlada viditelnost na strankach kategorii a vysledcich vyhledavani
-- **Zobrazit informaci o DPH v kosiku** - ovlada viditelnost v kosiku a souhrnu objednavky
-- **Vlastni text** - umoznuje prepsat vychozi text informace o DPH
+- **Zobrazit sazbu DPH** - zobrazí procentní sazbu daně vedle ceny (např. "v tom 23 % DPH")
+- **Zobrazit informaci o DPH ve výpisu** - řídí viditelnost na stránkách kategorií a ve výsledcích vyhledávání
+- **Zobrazit informaci o DPH v košíku** - řídí viditelnost v košíku a souhrnu objednávky
+- **Vlastní text** - umožňuje přepsat výchozí text informace o DPH
 
-## Osvobozeni od DPH (cl. 113)
+## Osvobození od DPH (čl. 113)
 
-Prodejci osvobozeni od DPH na zaklade cl. 113 odst. 1 nebo odst. 9 zakona o dani ze zbozi a sluzeb mohou nakonfigurovat prislusnou zpravu.
+Pokud jste osvobozeni od DPH na základě čl. 113 odst. 1 nebo odst. 9, nakonfigurujte odpovídající zprávu.
 
-### Konfigurace osvobozeni
+### Konfigurace osvobození
 
-1. Prejdete do **WooCommerce > Nastaveni > Polski > Ceny**
-2. Zaznacte moznost **Osvobozeni od DPH (cl. 113)**
-3. Vyberte zaklad osvobozeni:
-   - **Cl. 113 odst. 1** - osvobozeni pro prodej do 200 000 PLN rocne
-   - **Cl. 113 odst. 9** - osvobozeni pro danovych poplatniku zahajujicich cinnost v prubehu roku
-4. Volitelne prizpusobte obsah zpravy
+1. Přejděte na **WooCommerce > Nastavení > Polski > Ceny**
+2. Zaškrtněte možnost **Osvobození od DPH (čl. 113)**
+3. Vyberte základ osvobození:
+   - **Čl. 113 odst. 1** - osvobození pro prodej do 200 000 zł ročně
+   - **Čl. 113 odst. 9** - osvobození pro poplatníky zahajující činnost během roku
+4. Volitelně upravte text zprávy
 
-Vychozi zprava: "Cena nie zawiera podatku VAT - sprzedawca korzysta ze zwolnienia na podstawie art. 113 ust. 1 ustawy o VAT."
+Výchozí zpráva: "Cena neobsahuje DPH - prodejce využívá osvobození na základě čl. 113 odst. 1 zákona o DPH."
 
-### Deaktivace DPH ve WooCommerce
+### Vypnutí DPH ve WooCommerce
 
-Pri osvobozeni od DPH nastavte ve WooCommerce:
+Při osvobození od DPH nastavte ve WooCommerce:
 
-1. **WooCommerce > Nastaveni > Dane** - deaktivujte vypocet dani NEBO nastavte sazbu 0 %
-2. Plugin automaticky prida prislusnou poznamku k cenam
+1. **WooCommerce > Nastavení > Daně** - vypněte výpočet daní NEBO nastavte sazbu 0 %
+2. Plugin automaticky přidá příslušnou poznámku k cenám
 
 ## Shortcode
 
-Pouzijte shortcode `[polski_tax_notice]` pro zobrazeni informace o DPH na libovolnem miste.
+Použijte shortcode `[polski_tax_notice]` k zobrazení informace o DPH na libovolném místě.
 
 ### Parametry
 
-| Parametr | Typ | Vychozi | Popis |
+| Parametr | Typ | Výchozí | Popis |
 |----------|-----|----------|------|
-| `product_id` | int | aktualni | ID produktu |
+| `product_id` | int | aktuální | ID produktu |
 | `type` | string | `auto` | Typ informace: `auto`, `gross`, `net`, `exempt` |
-| `show_rate` | bool | `true` | Zda zobrazit procentualni sazbu |
-| `wrapper` | string | `span` | Obalujici HTML element |
+| `show_rate` | bool | `true` | Zda zobrazovat procentní sazbu |
+| `wrapper` | string | `span` | Obalující HTML element |
 
-### Priklady pouziti
+### Příklady použití
 
-Automaticka detekce na strance produktu:
+Automatická detekce na stránce produktu:
 
 ```html
 [polski_tax_notice]
 ```
 
-Vynuceni informace o osvobozeni:
+Vynucení informace o osvobození:
 
 ```html
 [polski_tax_notice type="exempt"]
 ```
 
-Bez procentualni sazby:
+Bez procentní sazby:
 
 ```html
 [polski_tax_notice show_rate="false"]
 ```
 
-V sablone PHP:
+V PHP šabloně:
 
 ```php
 echo do_shortcode('[polski_tax_notice product_id="' . $product->get_id() . '"]');
@@ -97,53 +97,53 @@ echo do_shortcode('[polski_tax_notice product_id="' . $product->get_id() . '"]')
 
 ## Konfigurace pro obchody B2B a B2C
 
-Obchody obsluhujici jak individualni zakazniky (B2C), tak firemni (B2B) mohou nakonfigurovat ruzne zobrazeni cen v zavislosti na roli uzivatele.
+Pokud obsluhujete soukromé zákazníky (B2C) i firemní (B2B), nakonfigurujte samostatné zobrazení cen pro každou roli.
 
 ### Ceny bez DPH pro firmy
 
-Plugin spolupraucje se systemem roli WooCommerce. Pro zobrazeni cen bez DPH pro firemni zakazniky:
+Plugin využívá systém rolí WooCommerce. Chcete-li zobrazovat ceny bez DPH firmám:
 
-1. Vytvorte vyhrazenou roli (napr. "firemni_zakaznik") nebo pouzijte existujici
-2. V nastaveni pluginu priradte zobrazeni bez DPH ke zvolene roli
-3. Firemni zakaznici uvidi ceny bez DPH, individualni - s DPH
+1. Vytvořte dedikovanou roli (např. "firemni_zakaznik") nebo použijte existující
+2. V nastavení pluginu přiřaďte zobrazení bez DPH vybrané roli
+3. Firemní zákazníci uvidí ceny bez DPH a soukromí s DPH
 
-### Dvojite ceny na strance produktu
+### Dvojí ceny na stránce produktu
 
-Aktivace rezimu "Oba" zobrazuje cenu bez DPH i s DPH soucasne. Format prezentace:
+Režim "Obě" zobrazuje cenu bez DPH i s DPH současně. Formát:
 
 ```
-100,00 PLN bez DPH
-123,00 PLN s DPH (vcetne 23 % DPH)
+100,00 zł bez DPH
+123,00 zł s DPH (v tom 23 % DPH)
 ```
 
-Poradi a format lze prizpusobit v nastaveních.
+Pořadí a formát lze upravit v nastavení.
 
-## Sazby DPH pro ruzne kategorie produktu
+## Sazby DPH pro různé kategorie produktů
 
-V Polsku plati ctyri sazby DPH:
+V Polsku platí čtyři sazby DPH:
 
-| Sazba | Pouziti |
+| Sazba | Použití |
 |--------|-------------|
-| 23 % | Zakladni sazba - vetsina zbozi a sluzeb |
-| 8 % | Snizena sazba - bytova vystavba, gastronomicke sluzby |
-| 5 % | Snizena sazba - potraviny, knihy, casopisy |
-| 0 % | Nulova sazba - export, dodani uvnitr Spolecenstvi |
+| 23 % | Základní sazba - většina zboží a služeb |
+| 8 % | Snížená sazba - bytová výstavba, gastronomické služby |
+| 5 % | Snížená sazba - potraviny, knihy, časopisy |
+| 0 % | Nulová sazba - vývoz, dodání zboží uvnitř Společenství |
 
-Plugin automaticky rozpozna sazbu prirazenou k produktu ve WooCommerce a zobrazi prislusnou informaci.
+Plugin automaticky načte sazbu přiřazenou k produktu a zobrazí správnou informaci.
 
 ## Informace o DPH v e-mailech
 
-Plugin pridava informaci o DPH take do transakcnich e-mailu WooCommerce:
+Plugin přidává informaci o DPH do e-mailů WooCommerce:
 
-- potvrzeni objednavky
+- potvrzení objednávky
 - faktura
-- zmena stavu objednavky
+- změna stavu objednávky
 
-Obsah zpravy je v souladu s nastavenimi obchodu.
+Text zprávy odpovídá nastavení obchodu.
 
-## Stylovani CSS
+## Stylování CSS
 
-Informace o DPH je obalena do elementu s vyhrazenymi tridami CSS:
+Informace o DPH je obalena v elementech s CSS třídami:
 
 ```css
 .polski-tax-notice {
@@ -161,18 +161,18 @@ Informace o DPH je obalena do elementu s vyhrazenymi tridami CSS:
 }
 ```
 
-## Nejcastejsi problemy
+## Nejčastější problémy
 
-### Informace o DPH se zobrazuje dvakrat
+### Informace o DPH se zobrazuje dvakrát
 
-Zkontrolujte, zda motiv nepridava vlastni informaci o DPH. Nektere motivy urcene pro polsky trh maji vestavenu obsluhu DPH - v takovem pripade deaktivujte jednu z implementaci.
+Zkontrolujte, zda šablona nepřidává vlastní informaci o DPH. Některé polské šablony mají vestavěnou podporu DPH, jednu z nich vypněte.
 
-### Sazba DPH se zobrazuje nespravne
+### Sazba DPH se zobrazuje nesprávně
 
-Ujistete se, ze danove tridy v **WooCommerce > Nastaveni > Dane > Standardni sazby** jsou spravne nakonfigurovany. Plugin nacita sazbu primo z konfigurace WooCommerce.
+Zkontrolujte, zda jsou daňové třídy v **WooCommerce > Nastavení > Daně > Standardní sazby** správně nastaveny. Plugin načítá sazbu z konfigurace WooCommerce.
 
-## Souvisejici zdroje
+## Související zdroje
 
-- [Nahlasit problem](https://github.com/wppoland/polski/issues)
+- [Nahlásit problém](https://github.com/wppoland/polski/issues)
 
-<div class="disclaimer">Tato stránka slouží pouze k informačním účelům a nepředstavuje právní poradenství. Před implementací se poraďte s právníkem. Polski for WooCommerce je open source software (GPLv2) poskytovaný bez záruky.</div>
+<div class="disclaimer">Tato stránka má pouze informativní charakter a nepředstavuje právní poradenství. Před nasazením se poraďte s právníkem. Polski for WooCommerce je open source software (GPLv2) poskytovaný bez záruky.</div>

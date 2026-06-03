@@ -1,98 +1,98 @@
 ---
-title: Vyzivove hodnoty
-description: Tabulka vyzivovych hodnot ve formatu JSON na 100 g nebo 100 ml se shortcodem pro zobrazeni na strance produktu WooCommerce.
+title: Výživové hodnoty
+description: Tabulka výživových hodnot ve formátu JSON na 100 g nebo 100 ml se shortcodem pro zobrazení na stránce produktu WooCommerce.
 ---
 
-Obchod s potravinami musi zobrazovat tabulku vyzivovych hodnot (narizeni EU c. 1169/2011). Plugin umoznuje pridat tabulku ke kazdemu produktu ve formatu v souladu s predpisy.
+Obchod s potravinami musí zobrazovat tabulku výživových hodnot (nařízení EU č. 1169/2011). Plugin Polski for WooCommerce umožňuje přidat tabulku ke každému produktu ve formátu v souladu s předpisy.
 
-## Povinne zivy
+## Povinné živiny
 
-Podle cl. 30 narizeni FIC musi tabulka vyzivovych hodnot obsahovat alespon:
+Tabulka výživových hodnot musí obsahovat alespoň:
 
-| Slozka | Jednotka | Klic JSON |
+| Složka | Jednotka | Klíč JSON |
 |----------|-----------|------------|
-| Energeticka hodnota | kJ / kcal | `energy_kj`, `energy_kcal` |
+| Energetická hodnota | kJ / kcal | `energy_kj`, `energy_kcal` |
 | Tuky | g | `fat` |
-| z toho nasycene mastne kyseliny | g | `saturated_fat` |
+| z toho nasycené mastné kyseliny | g | `saturated_fat` |
 | Sacharidy | g | `carbohydrates` |
 | z toho cukry | g | `sugars` |
-| Bilkoviny | g | `protein` |
-| Sul | g | `salt` |
+| Bílkoviny | g | `protein` |
+| Sůl | g | `salt` |
 
-## Volitelne zivy
+## Volitelné živiny
 
-Doplnkove lze uvest (cl. 30 odst. 2 FIC):
+Dodatečně můžete uvést:
 
-| Slozka | Jednotka | Klic JSON |
+| Složka | Jednotka | Klíč JSON |
 |----------|-----------|------------|
-| Mononenasycene mastne kyseliny | g | `monounsaturated_fat` |
-| Polynenasycene mastne kyseliny | g | `polyunsaturated_fat` |
-| Polyoly | g | `polyols` |
-| Skrob | g | `starch` |
-| Vlaknina | g | `fibre` |
-| Vitamin A | ug | `vitamin_a` |
-| Vitamin D | ug | `vitamin_d` |
+| Mononenasycené mastné kyseliny | g | `monounsaturated_fat` |
+| Polynenasycené mastné kyseliny | g | `polyunsaturated_fat` |
+| Polyalkoholy (polyoly) | g | `polyols` |
+| Škrob | g | `starch` |
+| Vláknina | g | `fibre` |
+| Vitamin A | µg | `vitamin_a` |
+| Vitamin D | µg | `vitamin_d` |
 | Vitamin E | mg | `vitamin_e` |
-| Vitamin K | ug | `vitamin_k` |
+| Vitamin K | µg | `vitamin_k` |
 | Vitamin C | mg | `vitamin_c` |
 | Thiamin (B1) | mg | `thiamine` |
 | Riboflavin (B2) | mg | `riboflavin` |
 | Niacin (B3) | mg | `niacin` |
 | Vitamin B6 | mg | `vitamin_b6` |
-| Kyselina listova | ug | `folic_acid` |
-| Vitamin B12 | ug | `vitamin_b12` |
-| Biotin | ug | `biotin` |
-| Kyselina pantothenova | mg | `pantothenic_acid` |
-| Draslk | mg | `potassium` |
+| Kyselina listová | µg | `folic_acid` |
+| Vitamin B12 | µg | `vitamin_b12` |
+| Biotin | µg | `biotin` |
+| Kyselina pantothenová | mg | `pantothenic_acid` |
+| Draslík | mg | `potassium` |
 | Chlor | mg | `chloride` |
-| Vapnik | mg | `calcium` |
+| Vápník | mg | `calcium` |
 | Fosfor | mg | `phosphorus` |
-| Horczk | mg | `magnesium` |
-| Zelezo | mg | `iron` |
+| Hořčík | mg | `magnesium` |
+| Železo | mg | `iron` |
 | Zinek | mg | `zinc` |
-| Med | mg | `copper` |
+| Měď | mg | `copper` |
 | Mangan | mg | `manganese` |
 | Fluorid | mg | `fluoride` |
-| Selen | ug | `selenium` |
-| Chrom | ug | `chromium` |
-| Molybden | ug | `molybdenum` |
-| Jod | ug | `iodine` |
+| Selen | µg | `selenium` |
+| Chrom | µg | `chromium` |
+| Molybden | µg | `molybdenum` |
+| Jod | µg | `iodine` |
 
 ## Konfigurace
 
-### Aktivace modulu
+### Zapnutí modulu
 
-Prejdete do **WooCommerce > Nastaveni > Polski > Potraviny** a aktivujte podmodul "Vyzivove hodnoty".
+Přejděte do **WooCommerce > Nastavení > Polski > Potraviny** a aktivujte podmodul "Výživové hodnoty".
 
-### Nastaveni
+### Nastavení
 
-| Nastaveni | Vychozi | Popis |
+| Nastavení | Výchozí | Popis |
 |------------|----------|------|
-| Referencni jednotka | na 100 g | Vychozi jednotka: na 100 g nebo na 100 ml |
-| Zobrazit % RHP | Ano | Referencni hodnota prijmu (% denniho doporuceneho prijmu) |
-| Pozice tabulky | Zalozka | Kde zobrazit tabulku na strance produktu |
-| Volitelne slozky | Vlaknina, vitaminy | Ktere volitelne slozky zobrazovat |
+| Referenční jednotka | na 100 g | Výchozí jednotka: na 100 g nebo na 100 ml |
+| Zobrazit % RHP | Ano | Referenční hodnota příjmu (% denní potřeby) |
+| Pozice tabulky | Záložka | Kde zobrazovat tabulku na stránce produktu |
+| Volitelné složky | Vláknina, vitaminy | Které volitelné složky zobrazovat |
 
-## Zadavani dat v editoru produktu
+## Zadávání dat v editoru produktu
 
-V zalozce "Potraviny" v editoru produktu je formular vyzivovych hodnot. Vyplnte pole ciselnymi hodnotami na 100 g nebo 100 ml.
+V záložce "Potraviny" editoru produktu vyplňte formulář výživových hodnot. Zadávejte číselné hodnoty na 100 g nebo 100 ml.
 
-### Referencni jednotka na produkt
+### Referenční jednotka na produkt
 
-Kazdy produkt muze mit individualni referencni jednotku. Napoje by mely mit nastaveno "na 100 ml", tuhe produkty - "na 100 g". Pokud nenastavite, bude pouzita vychozi hodnota z nastaveni.
+Každý produkt může mít vlastní jednotku. Nápoje nastavte na "na 100 ml", tuhé produkty na "na 100 g". Bez nastavení plugin použije výchozí hodnotu.
 
 ### Porce
 
-Volitelne muzete uvest take velikost porce a vyzivove hodnoty na porci:
+Volitelně uveďte velikost porce a hodnoty na porci:
 
 | Pole | Popis |
 |------|------|
-| Velikost porce | napr. "30 g", "250 ml", "1 platek (25 g)" |
-| Pocet porci v baleni | napr. "10" |
+| Velikost porce | např. "30 g", "250 ml", "1 plátek (25 g)" |
+| Počet porcí v balení | např. "10" |
 
-## Format JSON
+## Formát JSON
 
-Vyzivove hodnoty jsou uchovavany v databazi jako JSON v meta poli `_polski_nutrients`. Format:
+Výživové hodnoty jsou uloženy v databázi jako JSON v meta poli `_polski_nutrients`. Formát:
 
 ```json
 {
@@ -113,30 +113,30 @@ Vyzivove hodnoty jsou uchovavany v databazi jako JSON v meta poli `_polski_nutri
 
 ### Pravidla validace
 
-- Hodnoty musi byt cisla (int nebo float)
-- Oddelovac desetinnych mist v JSON: tecka (napr. `9.5`)
-- Hodnoty nesmi byt zaporne
-- `energy_kj` a `energy_kcal` by mely byt konzistentni (1 kcal = 4.184 kJ)
-- Podslozky nesmi prekrocit nadrazenou slozku (napr. `saturated_fat` <= `fat`)
+- Hodnoty musí být čísla (int nebo float)
+- Oddělovač desetinných míst v JSON: tečka (např. `9.5`)
+- Hodnoty nesmí být záporné
+- `energy_kj` a `energy_kcal` by měly být konzistentní (1 kcal = 4.184 kJ)
+- Podsložky nesmí překročit nadřazenou složku (např. `saturated_fat` <= `fat`)
 
 ## Shortcode
 
-Pouzijte shortcode `[polski_nutrients]` pro zobrazeni tabulky vyzivovych hodnot.
+Použijte shortcode `[polski_nutrients]` pro zobrazení tabulky výživových hodnot.
 
 ### Parametry
 
-| Parametr | Typ | Vychozi | Popis |
+| Parametr | Typ | Výchozí | Popis |
 |----------|-----|----------|------|
-| `product_id` | int | aktualni | ID produktu |
+| `product_id` | int | aktuální | ID produktu |
 | `show_rws` | bool | `true` | Zda zobrazit % RHP |
 | `show_serving` | bool | `false` | Zda zobrazit sloupec na porci |
-| `fields` | string | `all` | Slozky k zobrazeni (oddelene carkami) |
-| `layout` | string | `table` | Rozlozeni: `table`, `list`, `compact` |
-| `wrapper` | string | `div` | Obalujici HTML element |
+| `fields` | string | `all` | Složky k zobrazení (oddělené čárkami) |
+| `layout` | string | `table` | Rozložení: `table`, `list`, `compact` |
+| `wrapper` | string | `div` | Obalující HTML element |
 
-### Priklady pouziti
+### Příklady použití
 
-Uplna tabulka vyzivovych hodnot:
+Úplná tabulka výživových hodnot:
 
 ```html
 [polski_nutrients]
@@ -148,31 +148,31 @@ S hodnotami na porci:
 [polski_nutrients show_serving="true"]
 ```
 
-Pouze zakladni slozky:
+Pouze základní složky:
 
 ```html
 [polski_nutrients fields="energy_kcal,fat,carbohydrates,protein,salt"]
 ```
 
-Kompaktni rozlozeni (bez tabulky):
+Kompaktní rozložení (bez tabulky):
 
 ```html
 [polski_nutrients layout="compact"]
 ```
 
-Pro konkretni produkt:
+Pro konkrétní produkt:
 
 ```html
 [polski_nutrients product_id="123" show_rws="true" show_serving="true"]
 ```
 
-V sablone PHP:
+V šabloně PHP:
 
 ```php
 echo do_shortcode('[polski_nutrients product_id="' . $product->get_id() . '"]');
 ```
 
-## Vygenerovana tabulka HTML
+## Vygenerovaná tabulka HTML
 
 Shortcode generuje tabulku v souladu se standardem EU:
 
@@ -215,24 +215,24 @@ Shortcode generuje tabulku v souladu se standardem EU:
 </div>
 ```
 
-## Referencni hodnota prijmu (RHP)
+## Referenční hodnota příjmu (RHP)
 
-Plugin pocita % RHP automaticky na zaklade referencnich hodnot z prilohy XIII narizeni FIC:
+Plugin počítá % RHP automaticky na základě těchto referenčních hodnot:
 
-| Slozka | Referencni hodnota |
+| Složka | Referenční hodnota |
 |----------|---------------------|
 | Energie | 8400 kJ / 2000 kcal |
 | Tuky | 70 g |
-| Nasycene mastne kyseliny | 20 g |
+| Nasycené mastné kyseliny | 20 g |
 | Sacharidy | 260 g |
 | Cukry | 90 g |
-| Bilkoviny | 50 g |
-| Sul | 6 g |
-| Vlaknina | 25 g |
+| Bílkoviny | 50 g |
+| Sůl | 6 g |
+| Vláknina | 25 g |
 
-## Programaticky pristup
+## Programatický přístup
 
-### Ziskani vyzivovych hodnot
+### Získání výživových hodnot
 
 ```php
 $nutrients_json = get_post_meta($product_id, '_polski_nutrients', true);
@@ -244,7 +244,7 @@ if ($nutrients) {
 }
 ```
 
-### Ukladani vyzivovych hodnot
+### Ukládání výživových hodnot
 
 ```php
 $nutrients = [
@@ -262,17 +262,30 @@ $nutrients = [
 update_post_meta($product_id, '_polski_nutrients', wp_json_encode($nutrients));
 ```
 
-## CSV import
+### Filtr hodnot před zobrazením
 
-Sloupec `polski_nutrients` v CSV by mel obsahovat hodnoty ve formatu JSON:
+```php
+add_filter('polski/nutrients/values', function (array $nutrients, int $product_id): array {
+    // Zaokrouhlení hodnot v souladu s pokyny EU
+    if (isset($nutrients['energy_kcal'])) {
+        $nutrients['energy_kcal'] = round($nutrients['energy_kcal']);
+    }
+
+    return $nutrients;
+}, 10, 2);
+```
+
+## Import CSV
+
+Sloupec `polski_nutrients` v CSV obsahuje hodnoty jako JSON:
 
 ```csv
 "Musli owocowe","{""energy_kj"":1590,""energy_kcal"":380,""fat"":8.2,""saturated_fat"":1.5,""carbohydrates"":64.0,""sugars"":22.0,""fibre"":7.5,""protein"":9.8,""salt"":0.05,""ref_unit"":""100g""}"
 ```
 
-Uvozovky uvnitr JSON musi byt zdvojene (`""`) v souboru CSV.
+Uvozovky uvnitř JSON musí být zdvojené (`""`) v souboru CSV.
 
-## Stylovani CSS
+## Stylování CSS
 
 ```css
 .polski-nutrients__table {
@@ -300,26 +313,26 @@ Uvozovky uvnitr JSON musi byt zdvojene (`""`) v souboru CSV.
 }
 ```
 
-## Nejcastejsi problemy
+## Nejčastější problémy
 
-### Tabulka vyzivovych hodnot se nezobrazuje
+### Tabulka výživových hodnot se nezobrazuje
 
-1. Zkontrolujte, zda je podmodul vyzivovych hodnot aktivovan
-2. Ujistete se, ze produkt ma vyplnene pole `_polski_nutrients` se spravnym JSON
-3. Overite format JSON - pouzijte validator (napr. jsonlint.com)
+1. Zkontrolujte, zda je podmodul výživových hodnot zapnutý
+2. Ujistěte se, že produkt má vyplněné pole `_polski_nutrients` se správným JSON
+3. Ověřte formát JSON - použijte validátor (např. jsonlint.com)
 
-### Hodnoty se zobrazuji s teckou misto carky
+### Hodnoty se zobrazují s tečkou místo čárky
 
-Plugin automaticky formatuje cisla v souladu s polskymi regionalnmi nastavenimi (desetinna carka). Pokud vidite tecku, zkontrolujte, zda locale WordPress je nastaven na `pl_PL`.
+Plugin automaticky formátuje čísla s polskou čárkou. Pokud vidíte tečku, zkontrolujte, zda je locale WordPress nastaveno na `pl_PL`.
 
 ### % RHP se nezobrazuje
 
-Zkontrolujte, zda moznost "Zobrazit % RHP" je aktivovana v nastaveních a zda parametr `show_rws` v shortcode neni nastaven na `false`.
+Zkontrolujte, zda je možnost "Zobrazit % RHP" zapnutá v nastavení a zda parametr `show_rws` v shortcode není nastaven na `false`.
 
-## Souvisejici zdroje
+## Související zdroje
 
-- [Modul potravinovych produktu](/cs/food/food-overview/)
-- [Alergeny](/cs/food/allergens/)
-- [Nahlasit problem](https://github.com/wppoland/polski/issues)
+- [Modul potravinových produktů](food/food-overview/)
+- [Alergeny](food/allergens/)
+- [Nahlásit problém](https://github.com/wppoland/polski/issues)
 
-<div class="disclaimer">Tato stránka slouží pouze k informačním účelům a nepředstavuje právní poradenství. Před implementací se poraďte s právníkem. Polski for WooCommerce je open source software (GPLv2) poskytovaný bez záruky.</div>
+<div class="disclaimer">Tato stránka má pouze informativní charakter a nepředstavuje právní poradenství. Před nasazením se poraďte s právníkem. Polski for WooCommerce je open source software (GPLv2) poskytovaný bez záruky.</div>
