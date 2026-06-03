@@ -1,43 +1,98 @@
 ---
-title: Gutenberg-Bloecke
-description: Gutenberg-Bloecke in Polski for WooCommerce - AJAX-Suche, AJAX-Filter und Produktslider mit Vorschau im Editor.
+title: Gutenberg-Blöcke
+description: Gutenberg-Blöcke in Polski for WooCommerce - AJAX-Suche, AJAX-Filter und Produkt-Slider mit Vorschau im Editor.
 ---
 
-Drei Gutenberg-Bloecke fuer Shop-Module. Jeder Block hat eine Vorschau im Editor (Server-Side Render) und Konfiguration im Seitenpanel.
+Drei Gutenberg-Blöcke zum Einfügen von Shop-Modulen. Jeder Block hat eine Vorschau im Editor (server-side render) und eine Konfiguration im Seitenpanel.
 
 ## Anforderungen
 
 - WordPress 6.0 oder neuer
-- Block-Editor Gutenberg (nicht der klassische Editor)
+- Gutenberg-Blockeditor (nicht der klassische Editor)
 - Aktives entsprechendes Modul in den Einstellungen von Polski for WooCommerce
 
-## Bloecke einfuegen
+## Blöcke einfügen
 
-Die Bloecke von Polski for WooCommerce finden Sie im Block-Inserter (Button **+**) in der Kategorie **Polski for WooCommerce**. Sie koennen sie auch nach Namen suchen, indem Sie "Polski" oder den Modulnamen eingeben.
+Finden Sie die Blöcke im Inserter (Schaltfläche **+**) in der Kategorie **Polski for WooCommerce**. Oder suchen Sie, indem Sie "Polski" eingeben.
 
 ## Block: AJAX-Suche
 
 **Blockname:** `polski/ajax-search`
 
-Fuegt ein Suchfeld mit AJAX-Vorschlaegen ein. Ergebnisse erscheinen waehrend der Eingabe in einem Dropdown.
+Suchfeld mit AJAX-Vorschlägen. Die Ergebnisse erscheinen während der Eingabe in einem Dropdown.
 
-### Block-Attribute
+### Blockattribute
 
 | Attribut        | Typ    | Standard          | Beschreibung                          |
 | -------------- | ------ | ------------------- | ----------------------------- |
-| `placeholder`  | string | `Produkte suchen...` | Platzhaltertext im Feld        |
-| `width`        | string | `100%`              | Feldbreite                |
+| `placeholder`  | string | `Produkte suchen…` | Platzhaltertext im Feld        |
+| `width`        | string | `100%`              | Breite des Feldes                |
 | `showIcon`     | bool   | `true`              | Lupensymbol                    |
-| `showCategory` | bool   | `false`             | Kategoriefilter-Dropdown |
-| `limit`        | number | `8`                 | Vorschlagslimit             |
-| `minChars`     | number | `3`                 | Min. Zeichen zum Suchen     |
+| `showCategory` | bool   | `false`             | Dropdown zum Filtern nach Kategorie |
+| `limit`        | number | `8`                 | Limit der Vorschläge             |
+| `minChars`     | number | `3`                 | Min. Zeichen für die Suche     |
 | `style`        | string | `default`           | Stil: default, rounded, flat  |
+
+### Seitenpanel (Inspector Controls)
+
+Das Seitenpanel des Blocks enthält Abschnitte:
+
+**Sucheinstellungen:**
+- Platzhaltertext (placeholder)
+- Minimale Zeichenanzahl
+- Ergebnislimit
+- Kategoriefilter (ja/nein)
+
+**Aussehen:**
+- Breite des Feldes
+- Stil (Standard, abgerundet, flach)
+- Lupensymbol (ja/nein)
+- Rahmen (ja/nein)
+- Schatten (ja/nein)
+
+**Erweitert:**
+- Zusätzliche CSS-Klassen
+- HTML-Anchor (Anker)
+
+### Beispiel für die Blockregistrierung (interne Implementierung)
+
+```php
+register_block_type('polski/ajax-search', [
+    'api_version'     => 3,
+    'editor_script'   => 'polski-blocks-editor',
+    'editor_style'    => 'polski-blocks-editor-style',
+    'style'           => 'polski-blocks-style',
+    'render_callback' => [AjaxSearchBlock::class, 'render'],
+    'attributes'      => [
+        'placeholder' => [
+            'type'    => 'string',
+            'default' => __('Produkte suchen…', 'polski'),
+        ],
+        'width' => [
+            'type'    => 'string',
+            'default' => '100%',
+        ],
+        'showIcon' => [
+            'type'    => 'boolean',
+            'default' => true,
+        ],
+        'showCategory' => [
+            'type'    => 'boolean',
+            'default' => false,
+        ],
+        'limit' => [
+            'type'    => 'number',
+            'default' => 8,
+        ],
+    ],
+]);
+```
 
 ### Render-Filter
 
 ```php
 add_filter('polski/blocks/ajax_search/output', function (string $html, array $attributes): string {
-    // Block-HTML aendern
+    // Modifikation des Block-HTML
     return $html;
 }, 10, 2);
 ```
@@ -46,48 +101,113 @@ add_filter('polski/blocks/ajax_search/output', function (string $html, array $at
 
 **Blockname:** `polski/ajax-filters`
 
-Fuegt einen Satz AJAX-Filter zum Filtern der Produktliste ohne Seitenneuladung ein.
+AJAX-Filter zum Filtern von Produkten ohne Neuladen der Seite.
 
-### Block-Attribute
+### Blockattribute
 
 | Attribut      | Typ    | Standard  | Beschreibung                          |
 | ------------ | ------ | ---------- | ----------------------------- |
 | `filters`    | array  | `['category', 'price', 'stock']` | Aktive Filter |
 | `style`      | string | `expanded` | Stil: expanded, compact, accordion |
-| `showCount`  | bool   | `true`     | Produktzaehler            |
-| `showReset`  | bool   | `true`     | Reset-Button          |
+| `showCount`  | bool   | `true`     | Produktzähler            |
+| `showReset`  | bool   | `true`     | Reset-Schaltfläche          |
 | `columns`    | number | `1`        | Filterspalten               |
-| `collapsible`| bool   | `true`     | Zuklappbare Abschnitte                |
+| `collapsible`| bool   | `true`     | Einklappbare Abschnitte                |
 
-### Platzierung in der Seitenleiste
+### Seitenpanel
 
-Der AJAX-Filterblock eignet sich am besten in der Seitenleiste der Shopseite. In einem Block-Theme (FSE) fuegen Sie ihn zum Template **Archiv: Produkt** in der Seitenspalte hinzu.
+**Filterauswahl:**
+- Checkboxen für jeden Filtertyp
+- Drag & Drop zum Sortieren der Filterreihenfolge
+- Konfiguration pro Filter (z. B. Preisbereiche)
 
-## Block: Produktslider
+**Aussehen:**
+- Anzeigestil (ausgeklappt, kompakt, Akkordeon)
+- Anzahl der Spalten
+- Zähler (ja/nein)
+- Reset-Schaltfläche (ja/nein)
+- Standardmäßig eingeklappt/ausgeklappt
+
+**Erweitert:**
+- AJAX-Modus / GET-Fallback
+- Zusätzliche CSS-Klassen
+
+### Verfügbare Filter
+
+Der Block erkennt die verfügbaren Filter automatisch anhand der Produktdaten:
+
+| Filter       | Typ          | Beschreibung                          |
+| ----------- | ------------ | ----------------------------- |
+| `category`  | Hierarchie   | Produktkategorien           |
+| `price`     | Range-Slider | Preisbereich                 |
+| `stock`     | Checkbox     | Lagerstatus             |
+| `sale`      | Checkbox     | Nur im Angebot              |
+| `brand`     | Liste        | Hersteller/Marke               |
+| `pa_*`      | Liste/Swatch | Produktattribute            |
+| `rating`    | Sterne       | Kundenbewertung                 |
+
+### Render-Filter
+
+```php
+add_filter('polski/blocks/ajax_filters/output', function (string $html, array $attributes): string {
+    return $html;
+}, 10, 2);
+```
+
+### Platzierung in der Sidebar
+
+Funktioniert am besten in der Sidebar. In einem Block-Theme (FSE) fügen Sie ihn dem Template **Archive: Product** hinzu. In klassischen Themes verwenden Sie ihn in den Widgets der **Shop-Sidebar**.
+
+## Block: Produkt-Slider
 
 **Blockname:** `polski/product-slider`
 
-Fuegt ein Produktkarussell mit Pfeilnavigation und optionalen Paginierungspunkten ein.
+Produktkarussell mit Pfeilnavigation und optionalen Paginierungspunkten.
 
-### Block-Attribute
+### Blockattribute
 
 | Attribut         | Typ    | Standard | Beschreibung                          |
 | --------------- | ------ | --------- | ----------------------------- |
 | `type`          | string | `latest`  | Typ: related, sale, featured, bestsellers, latest, category, ids |
 | `limit`         | number | `8`       | Produktlimit               |
-| `columns`       | number | `4`       | Desktop-Spalten               |
-| `columnsTablet` | number | `2`       | Tablet-Spalten                |
-| `columnsMobile` | number | `1`       | Mobile-Spalten                |
+| `columns`       | number | `4`       | Spalten Desktop               |
+| `columnsTablet` | number | `2`       | Spalten Tablet                |
+| `columnsMobile` | number | `1`       | Spalten Mobil                |
+| `category`      | string | ``        | Kategorie-Slug                |
+| `productIds`    | array  | `[]`      | Produkt-IDs                  |
 | `showArrows`    | bool   | `true`    | Navigationspfeile            |
-| `showDots`      | bool   | `false`   | Paginierungspunkte              |
+| `showDots`      | bool   | `false`   | Paginierungspunkte             |
 | `autoplay`      | bool   | `false`   | Automatisches Scrollen      |
-| `autoplaySpeed` | number | `5000`    | Pause zwischen Slides (ms)  |
-| `gap`           | string | `16px`    | Abstand zwischen Karten         |
-| `title`         | string | ``        | Ueberschrift                      |
+| `autoplaySpeed` | number | `5000`    | Pause zwischen den Slides (ms)  |
+| `gap`           | string | `16px`    | Abstand zwischen den Karten         |
+| `title`         | string | ``        | Überschrift                      |
+| `orderby`       | string | `date`    | Sortierung                    |
+| `order`         | string | `DESC`    | Richtung                      |
+
+### Seitenpanel
+
+**Produktquelle:**
+- Slider-Typ (Dropdown mit Optionen)
+- Kategorieauswahl (für type=category)
+- Produktauswahl (für type=ids) - Suche mit Autovervollständigung
+- Produktlimit
+- Sortierung
+
+**Anzeige:**
+- Spalten (Desktop / Tablet / Mobil)
+- Abstand (gap)
+- Pfeile (ja/nein)
+- Punkte (ja/nein)
+- Überschrift
+
+**Animation:**
+- Autoplay (ja/nein)
+- Autoplay-Geschwindigkeit (Slider 1000-10000 ms)
+- Pause bei Hover
 
 ### Vorschau im Editor
 
-Der Block rendert eine Slider-Vorschau direkt im Gutenberg-Editor (Server-Side Render). Die Vorschau zeigt echte Produkte aus der Datenbank.
+Die Vorschau im Editor zeigt echte Produkte aus der Datenbank. Ohne passende Produkte zeigt der Block einen Platzhalter an.
 
 ### Render-Filter
 
@@ -96,9 +216,9 @@ add_filter('polski/blocks/product_slider/output', function (string $html, array 
     return $html;
 }, 10, 2);
 
-// Produktabfrage aendern
+// Modifikation der Produktabfrage
 add_filter('polski/blocks/product_slider/query_args', function (array $args, array $attributes): array {
-    // Produkte aus der Kategorie "versteckt" ausschliessen
+    // Produkte aus der Kategorie "versteckt" ausschließen
     $args['tax_query'][] = [
         'taxonomy' => 'product_cat',
         'field'    => 'slug',
@@ -109,23 +229,32 @@ add_filter('polski/blocks/product_slider/query_args', function (array $args, arr
 }, 10, 2);
 ```
 
-## Kompatibilitaet mit Block-Themes (FSE)
+## Kompatibilität mit Block-Themes (FSE)
 
-Die Bloecke von Polski for WooCommerce funktionieren vollstaendig mit Block-Themes (Full Site Editing). Sie koennen eingefuegt werden in:
+Die Blöcke unterstützen Block-Themes (FSE) vollständig. Fügen Sie sie ein in:
 
 - Seitenvorlagen (Page Templates)
-- Produktarchiv-Vorlagen
-- Vorlagenteilen (Template Parts) - Header, Footer, Sidebar
+- Vorlagen für Produktarchive
+- Vorlagenteilen (Template Parts) - Kopfzeile, Fußzeile, Sidebar
 - Mustern (Patterns)
+
+## Styling der Blöcke
+
+CSS-Klassen gemäß BEM-Konvention. Die Blöcke unterstützen die nativen Stileinstellungen von Gutenberg:
+
+- Farben (Text, Hintergrund)
+- Typografie (Größe, Stärke, Schriftfamilie)
+- Außen- und Innenabstände (spacing)
+- Rahmen (border)
 
 ## Fehlerbehebung
 
-**Bloecke erscheinen nicht im Inserter** - stellen Sie sicher, dass das entsprechende Modul unter **WooCommerce > Polski > Shop-Module** aktiv ist.
+**Die Blöcke erscheinen nicht im Inserter** - stellen Sie sicher, dass das entsprechende Modul unter **WooCommerce > Polski > Shop-Module** aktiv ist. Die Blöcke erfordern die Aktivierung des entsprechenden Moduls.
 
-**Block-Vorschau ist leer** - pruefen Sie, ob der Shop Produkte hat, die zum gewaehlten Typ passen.
+**Die Blockvorschau ist leer** - prüfen Sie, ob der Shop Produkte hat, die zum gewählten Typ passen. Eine leere Produktdatenbank erzeugt keine Vorschau.
 
-**Bloecke funktionieren nicht in Elementor** - diese Bloecke sind fuer den Gutenberg-Editor gedacht. Fuer Elementor verwenden Sie Shortcodes oder dedizierte Elementor-Widgets.
+**Die Blöcke funktionieren nicht in Elementor** - diese Blöcke sind für den Gutenberg-Editor bestimmt. Für Elementor verwenden Sie Shortcodes oder dedizierte Elementor-Widgets (verfügbar für die AJAX-Suche).
 
 Probleme melden: [github.com/wppoland/polski/issues](https://github.com/wppoland/polski/issues)
 
-<div class="disclaimer">Diese Seite dient ausschließlich zu Informationszwecken und stellt keine Rechtsberatung dar. Konsultieren Sie vor der Umsetzung einen Anwalt. Polski for WooCommerce ist Open-Source-Software (GPLv2) ohne Garantie.</div>
+<div class="disclaimer">Diese Seite dient ausschließlich Informationszwecken und stellt keine Rechtsberatung dar. Konsultieren Sie vor der Umsetzung einen Anwalt. Polski for WooCommerce ist Open-Source-Software (GPLv2), die ohne Gewährleistung bereitgestellt wird.</div>

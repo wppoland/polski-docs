@@ -1,11 +1,11 @@
 ---
 title: AI Feed fuer Rechnungen
-description: REST-Endpunkt, der eine einzelne Rechnung als Markdown ausliefert - fuer Buchhaltungsagenten und Kundenservice-KI auf LLM-Basis.
+description: REST-Endpoint, der eine Rechnung im Markdown-Format bereitstellt, zur Nutzung durch LLM-basierte Buchhaltungs- und Kundenservice-Agenten.
 ---
 
-Polski Pro 1.10.0 bringt einen REST-Endpunkt, der eine einzelne Rechnung als **Markdown** zurueckgibt. KI-Agenten (Buchhaltungs-Bots, Kundenservice, Einkaufsassistenten) erhalten strukturierte Rechnungsdaten ohne PDF-Parsing.
+Polski Pro 1.10.0 fuegt einen REST-Endpoint hinzu, der eine Rechnung im **Markdown**-Format ausliefert. KI-Agenten (Buchhaltung, Kundenservice, Kaeuferassistenten) erhalten strukturierte Rechnungsdaten, ohne PDF parsen zu muessen.
 
-## Endpunkt
+## Endpoint
 
 ```
 GET /wp-json/polski-pro/v1/invoices/{id}/markdown
@@ -19,21 +19,21 @@ Content-Type: text/markdown; charset=UTF-8
 Cache-Control: private, no-store
 ```
 
-Body ist Markdown mit YAML-Front-Matter, einem Block fuer Parteien (NIP), einer Markdown-Tabelle der Positionen und einem Summenblock.
+Der Body ist Markdown mit YAML-Front-Matter, einem Parteienblock (NIP), einer Positionstabelle und einem Zusammenfassungsblock.
 
 ## Authentifizierung
 
 | Rolle | Zugriff |
 |---|---|
-| Administrator / `manage_woocommerce` | jede Rechnung |
+| Administrator / `manage_woocommerce` | beliebige Rechnung |
 | Angemeldeter Bestellinhaber | nur eigene Rechnungen |
-| Anonym / andere Nutzer | 401 / 403 |
+| Anonym / anderer Benutzer | 401 / 403 |
 
-Rechnungen enthalten persoenliche und steuerliche Daten, deshalb ist der Endpunkt fuer anonyme Aufrufe bewusst geschlossen. Authentifizierung per WordPress-Session-Cookie oder Application Password (REST application password).
+Rechnungen enthalten personenbezogene und steuerliche Daten, daher ist der Endpoint bewusst fuer anonyme Kunden gesperrt. Die Anmeldung ist ueber ein WordPress-Cookie oder ein Anwendungspasswort (REST Application Password) erforderlich.
 
 ## Was die Antwort enthaelt
 
-**YAML Front Matter**
+**YAML-Front-Matter**
 
 ```yaml
 ---
@@ -53,62 +53,62 @@ ksef_status: "sent"
 ---
 ```
 
-**Parteien-Block**
+**Parteienabschnitt**
 
 - Seller NIP / Buyer NIP
 
-**Positionen-Tabelle** (Markdown)
+**Positionstabelle** (Markdown)
 
-| # | Beschreibung | Menge | Einheit | Nettopreis | USt. % | USt.-Betrag | Bruttopreis |
+| # | Beschreibung | Menge | Einh. | Nettopreis | VAT % | VAT-Betrag | Bruttopreis |
 
-**Summen**
+**Zusammenfassung**
 
 - Net total / VAT total / Gross total mit Waehrung
 
-**Zusatzfelder** (falls vorhanden)
+**Zusaetzliche Felder** (falls vorhanden)
 
 - KSeF reference / status
-- Korrekturgrund (fuer Korrekturrechnungen)
+- Korrekturgrund (bei Korrekturrechnungen)
 
 ## Entwickler-Filter
 
 ```php
 add_filter('polski-pro/ai_feed/invoice_markdown', static function (string $document, \Polski\Pro\Invoice\Model\Invoice $invoice): string {
     if ($invoice->type === \Polski\Pro\Invoice\Model\InvoiceType::FakturaVAT) {
-        $document .= "\n\n## Interne Notiz\n\n- Automatisch nach Zahlung erstellt.\n";
+        $document .= "\n\n## Notatka wewnętrzna\n\n- Wystawiono automatycznie po opłaceniu zamówienia.\n";
     }
     return $document;
 }, 10, 2);
 ```
 
-## Beispiel mit curl (authentifizierter Admin)
+## Anwendungsbeispiel mit curl (angemeldeter Admin)
 
 ```bash
 curl -u admin:apppassword \
   -H "Accept: text/markdown" \
-  https://shop.test/wp-json/polski-pro/v1/invoices/42/markdown
+  https://sklep.pl/wp-json/polski-pro/v1/invoices/42/markdown
 ```
 
 ## Verwandt
 
-- [AI Feed (FREE)](/de/tools/ai-feed/) - Modul, das Beitraege, Seiten und WooCommerce-Produkte als Markdown ausliefert
-- [PDF-Rechnungen](/de/pro/invoices/) - Erstellung und Versand von Rechnungen als PDF
-- [KSeF](/de/pro/ksef/) - Anbindung an das polnische nationale E-Rechnungssystem
+- [AI Feed (FREE)](/pl/tools/ai-feed/) - Modul, das WooCommerce-Beitraege, -Seiten und -Produkte in Markdown ausliefert
+- [PDF-Rechnungen](/pl/pro/invoices/) - Generierung und Versand von Rechnungen als PDF
+- [KSeF](/pl/pro/ksef/) - Integration mit dem Krajowy System e-Faktur
 
 ## FAQ
 
-**Funktioniert der Endpunkt ohne Authentifizierung?**
+**Funktioniert der Endpoint ohne Anmeldung?**
 
-Nein. Rechnungen enthalten personenbezogene Daten und Steuer-IDs. Anonyme Aufrufe erhalten 401.
+Nein. Rechnungen enthalten personenbezogene Daten und NIP. Ein anonymer Kunde erhaelt 401.
 
-**Kann ich ein REST application password nutzen?**
+**Kann ich ein REST Application Password verwenden?**
 
-Ja. WordPress 5.6+ unterstuetzt Application Passwords. Generiere eines unter **Benutzer > Bearbeiten > Application Passwords** und uebergib es via `Authorization: Basic`.
+Ja. WordPress 5.6+ unterstuetzt Anwendungspasswoerter. Erstelle eines unter **Benutzer > Bearbeiten > Anwendungspasswoerter** und uebergib es in `Authorization: Basic`.
 
-**Kann ich das Markdown einer Rechnung aus wp-admin herunterladen?**
+**Kann man das Markdown einer Rechnung aus dem wp-admin herunterladen?**
 
-Es gibt keinen eigenen Button. Die URL ist stabil - `/wp-json/polski-pro/v1/invoices/<id>/markdown` - du kannst sie als Lesezeichen speichern oder in Buchhaltungstools einbinden.
+Es gibt keine separate Schaltflaeche. Die URL ist stabil - `/wp-json/polski-pro/v1/invoices/<id>/markdown` - sie kann also als Lesezeichen gespeichert oder in Buchhaltungstools eingebettet werden.
 
 **Was ist mit Korrekturrechnungen?**
 
-Korrekturrechnungen werden ebenfalls unterstuetzt. Das Front Matter enthaelt `original_invoice_id`, der "Additional details"-Block enthaelt `correction_reason`.
+Korrekturen werden ebenfalls unterstuetzt. Das Front-Matter enthaelt `original_invoice_id` und der Abschnitt "Additional details" enthaelt `correction_reason`.

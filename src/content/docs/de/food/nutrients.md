@@ -1,34 +1,34 @@
 ---
-title: Naehrwerte
-description: Naehrwerttabelle im JSON-Format pro 100 g oder 100 ml mit Shortcode zur Anzeige auf der WooCommerce-Produktseite.
+title: Nährwerte
+description: Nährwerttabelle im JSON-Format pro 100 g oder 100 ml mit Shortcode zur Anzeige auf der WooCommerce-Produktseite.
 ---
 
-Lebensmittelshops muessen eine Naehrwerttabelle anzeigen (Verordnung EU Nr. 1169/2011). Polski for WooCommerce ermoeglicht die Eingabe einer Tabelle pro Produkt im verordnungskonformen Format.
+Ein Lebensmittelshop muss eine Nährwerttabelle anzeigen (EU-Verordnung Nr. 1169/2011). Das Plugin Polski for WooCommerce ermöglicht es, jedem Produkt eine Tabelle in einem vorschriftskonformen Format hinzuzufügen.
 
-## Obligatorische Naehrstoffe
+## Verpflichtende Nährstoffe
 
-Gemaess Art. 30 der LMIV muss die Naehrwerttabelle mindestens enthalten:
+Die Nährwerttabelle muss mindestens enthalten:
 
-| Naehrstoff | Einheit | JSON-Schluessel |
-|----------|-----------|------------|
+| Nährstoff | Einheit | JSON-Schlüssel |
+|-----------|---------|----------------|
 | Energiewert | kJ / kcal | `energy_kj`, `energy_kcal` |
 | Fett | g | `fat` |
-| davon gesaettigte Fettsaeuren | g | `saturated_fat` |
+| davon gesättigte Fettsäuren | g | `saturated_fat` |
 | Kohlenhydrate | g | `carbohydrates` |
 | davon Zucker | g | `sugars` |
-| Protein | g | `protein` |
+| Eiweiß | g | `protein` |
 | Salz | g | `salt` |
 
-## Optionale Naehrstoffe
+## Optionale Nährstoffe
 
-Zusaetzlich koennen angegeben werden (Art. 30 Abs. 2 LMIV):
+Zusätzlich kannst du angeben:
 
-| Naehrstoff | Einheit | JSON-Schluessel |
-|----------|-----------|------------|
-| Einfach ungesaettigte Fettsaeuren | g | `monounsaturated_fat` |
-| Mehrfach ungesaettigte Fettsaeuren | g | `polyunsaturated_fat` |
+| Nährstoff | Einheit | JSON-Schlüssel |
+|-----------|---------|----------------|
+| Einfach ungesättigte Fettsäuren | g | `monounsaturated_fat` |
+| Mehrfach ungesättigte Fettsäuren | g | `polyunsaturated_fat` |
 | Mehrwertige Alkohole (Polyole) | g | `polyols` |
-| Staerke | g | `starch` |
+| Stärke | g | `starch` |
 | Ballaststoffe | g | `fibre` |
 | Vitamin A | µg | `vitamin_a` |
 | Vitamin D | µg | `vitamin_d` |
@@ -39,10 +39,10 @@ Zusaetzlich koennen angegeben werden (Art. 30 Abs. 2 LMIV):
 | Riboflavin (B2) | mg | `riboflavin` |
 | Niacin (B3) | mg | `niacin` |
 | Vitamin B6 | mg | `vitamin_b6` |
-| Folsaeure | µg | `folic_acid` |
+| Folsäure | µg | `folic_acid` |
 | Vitamin B12 | µg | `vitamin_b12` |
 | Biotin | µg | `biotin` |
-| Pantothensaeure | mg | `pantothenic_acid` |
+| Pantothensäure | mg | `pantothenic_acid` |
 | Kalium | mg | `potassium` |
 | Chlorid | mg | `chloride` |
 | Calcium | mg | `calcium` |
@@ -55,44 +55,44 @@ Zusaetzlich koennen angegeben werden (Art. 30 Abs. 2 LMIV):
 | Fluorid | mg | `fluoride` |
 | Selen | µg | `selenium` |
 | Chrom | µg | `chromium` |
-| Molybdaen | µg | `molybdenum` |
+| Molybdän | µg | `molybdenum` |
 | Jod | µg | `iodine` |
 
 ## Konfiguration
 
-### Modul aktivieren
+### Aktivierung des Moduls
 
-Gehen Sie zu **WooCommerce > Einstellungen > Polski > Lebensmittel** und aktivieren Sie das Untermodul "Naehrwerte".
+Gehe zu **WooCommerce > Einstellungen > Polski > Lebensmittel** und aktiviere das Submodul "Nährwerte".
 
 ### Einstellungen
 
 | Einstellung | Standard | Beschreibung |
-|------------|----------|------|
+|-------------|----------|--------------|
 | Referenzeinheit | pro 100 g | Standardeinheit: pro 100 g oder pro 100 ml |
-| % NRV anzeigen | Ja | Naehrstoffbezugswert (% Tagesbedarf) |
-| Tabellenposition | Tab | Wo die Tabelle auf der Produktseite angezeigt wird |
-| Optionale Naehrstoffe | Ballaststoffe, Vitamine | Welche optionalen Naehrstoffe angezeigt werden |
+| % RM anzeigen | Ja | Referenzmenge (% des Tagesbedarfs) |
+| Position der Tabelle | Reiter | Wo die Tabelle auf der Produktseite angezeigt wird |
+| Optionale Nährstoffe | Ballaststoffe, Vitamine | Welche optionalen Nährstoffe angezeigt werden |
 
 ## Dateneingabe im Produkteditor
 
-Im Tab "Lebensmittel" im Produkteditor finden Sie das Naehrwertformular. Fuellen Sie die Felder mit Zahlenwerten pro 100 g oder 100 ml aus.
+Fülle im Reiter "Lebensmittel" des Produkteditors das Nährwertformular aus. Trage die Zahlenwerte pro 100 g oder 100 ml ein.
 
 ### Referenzeinheit pro Produkt
 
-Jedes Produkt kann eine individuelle Referenzeinheit haben. Getraenke sollten "pro 100 ml" eingestellt haben, feste Produkte "pro 100 g". Wenn nicht gesetzt, wird der Standardwert aus den Einstellungen verwendet.
+Jedes Produkt kann eine eigene Einheit haben. Stelle Getränke auf "pro 100 ml" und feste Produkte auf "pro 100 g" ein. Ohne Einstellung verwendet das Plugin den Standardwert.
 
 ### Portion
 
-Optional koennen Sie auch die Portionsgroesse und Naehrwerte pro Portion angeben:
+Optional gibst du die Portionsgröße und die Werte pro Portion an:
 
 | Feld | Beschreibung |
-|------|------|
-| Portionsgroesse | z.B. "30 g", "250 ml", "1 Scheibe (25 g)" |
-| Portionen pro Verpackung | z.B. "10" |
+|------|--------------|
+| Portionsgröße | z. B. "30 g", "250 ml", "1 Scheibe (25 g)" |
+| Anzahl der Portionen pro Verpackung | z. B. "10" |
 
 ## JSON-Format
 
-Naehrwerte werden in der Datenbank als JSON im Meta-Feld `_polski_nutrients` gespeichert. Format:
+Die Nährwerte werden in der Datenbank als JSON im Meta-Feld `_polski_nutrients` gespeichert. Format:
 
 ```json
 {
@@ -113,30 +113,30 @@ Naehrwerte werden in der Datenbank als JSON im Meta-Feld `_polski_nutrients` ges
 
 ### Validierungsregeln
 
-- Werte muessen Zahlen sein (int oder float)
-- Dezimaltrennzeichen in JSON: Punkt (z.B. `9.5`)
-- Werte duerfen nicht negativ sein
-- `energy_kj` und `energy_kcal` sollten konsistent sein (1 kcal = 4,184 kJ)
-- Unter-Naehrstoffe duerfen den uebergeordneten nicht uebersteigen (z.B. `saturated_fat` <= `fat`)
+- Die Werte müssen Zahlen sein (int oder float)
+- Dezimaltrennzeichen im JSON: Punkt (z. B. `9.5`)
+- Die Werte dürfen nicht negativ sein
+- `energy_kj` und `energy_kcal` sollten konsistent sein (1 kcal = 4.184 kJ)
+- Unterbestandteile dürfen den übergeordneten Bestandteil nicht überschreiten (z. B. `saturated_fat` <= `fat`)
 
 ## Shortcode
 
-Verwenden Sie den Shortcode `[polski_nutrients]`, um die Naehrwerttabelle anzuzeigen.
+Verwende den Shortcode `[polski_nutrients]`, um die Nährwerttabelle anzuzeigen.
 
 ### Parameter
 
 | Parameter | Typ | Standard | Beschreibung |
-|----------|-----|----------|------|
+|-----------|-----|----------|--------------|
 | `product_id` | int | aktuell | Produkt-ID |
-| `show_rws` | bool | `true` | Ob % NRV angezeigt wird |
+| `show_rws` | bool | `true` | Ob % RM angezeigt wird |
 | `show_serving` | bool | `false` | Ob die Spalte pro Portion angezeigt wird |
-| `fields` | string | `all` | Anzuzeigende Naehrstoffe (durch Komma getrennt) |
+| `fields` | string | `all` | Anzuzeigende Nährstoffe (durch Kommas getrennt) |
 | `layout` | string | `table` | Layout: `table`, `list`, `compact` |
-| `wrapper` | string | `div` | Umschliessendes HTML-Element |
+| `wrapper` | string | `div` | Umschließendes HTML-Element |
 
 ### Verwendungsbeispiele
 
-Vollstaendige Naehrwerttabelle:
+Vollständige Nährwerttabelle:
 
 ```html
 [polski_nutrients]
@@ -148,10 +148,22 @@ Mit Werten pro Portion:
 [polski_nutrients show_serving="true"]
 ```
 
-Nur grundlegende Naehrstoffe:
+Nur die grundlegenden Nährstoffe:
 
 ```html
 [polski_nutrients fields="energy_kcal,fat,carbohydrates,protein,salt"]
+```
+
+Kompaktes Layout (ohne Tabelle):
+
+```html
+[polski_nutrients layout="compact"]
+```
+
+Für ein bestimmtes Produkt:
+
+```html
+[polski_nutrients product_id="123" show_rws="true" show_serving="true"]
 ```
 
 Im PHP-Template:
@@ -160,24 +172,67 @@ Im PHP-Template:
 echo do_shortcode('[polski_nutrients product_id="' . $product->get_id() . '"]');
 ```
 
-## Naehrstoffbezugswerte (NRV)
+## Generierte HTML-Tabelle
 
-Das Plugin berechnet den % NRV automatisch basierend auf den Referenzwerten aus Anhang XIII der LMIV:
+Der Shortcode generiert eine dem EU-Standard entsprechende Tabelle:
 
-| Naehrstoff | Referenzwert |
-|----------|---------------------|
+```html
+<div class="polski-nutrients">
+    <table class="polski-nutrients__table">
+        <thead>
+            <tr>
+                <th>Nährstoff</th>
+                <th>pro 100 g</th>
+                <th>% RM*</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Energiewert</td>
+                <td>1046 kJ / 250 kcal</td>
+                <td>13%</td>
+            </tr>
+            <tr>
+                <td>Fett</td>
+                <td>9,5 g</td>
+                <td>14%</td>
+            </tr>
+            <tr class="polski-nutrients__sub">
+                <td>davon gesättigte Fettsäuren</td>
+                <td>3,2 g</td>
+                <td>16%</td>
+            </tr>
+            <!-- ... -->
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="3">
+                    * Referenzmenge für einen durchschnittlichen Erwachsenen (8400 kJ / 2000 kcal)
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+```
+
+## Referenzmenge (RM)
+
+Das Plugin berechnet die % RM automatisch auf Basis dieser Referenzwerte:
+
+| Nährstoff | Referenzwert |
+|-----------|--------------|
 | Energie | 8400 kJ / 2000 kcal |
 | Fett | 70 g |
-| Gesaettigte Fettsaeuren | 20 g |
+| Gesättigte Fettsäuren | 20 g |
 | Kohlenhydrate | 260 g |
 | Zucker | 90 g |
-| Protein | 50 g |
+| Eiweiß | 50 g |
 | Salz | 6 g |
 | Ballaststoffe | 25 g |
 
 ## Programmatischer Zugriff
 
-### Naehrwerte abrufen
+### Nährwerte abrufen
 
 ```php
 $nutrients_json = get_post_meta($product_id, '_polski_nutrients', true);
@@ -189,7 +244,7 @@ if ($nutrients) {
 }
 ```
 
-### Naehrwerte speichern
+### Nährwerte speichern
 
 ```php
 $nutrients = [
@@ -207,15 +262,28 @@ $nutrients = [
 update_post_meta($product_id, '_polski_nutrients', wp_json_encode($nutrients));
 ```
 
-## CSV-Import
+### Filter für die Werte vor der Anzeige
 
-Die Spalte `polski_nutrients` in der CSV-Datei sollte Werte im JSON-Format enthalten:
+```php
+add_filter('polski/nutrients/values', function (array $nutrients, int $product_id): array {
+    // Rundung der Werte gemäß den EU-Richtlinien
+    if (isset($nutrients['energy_kcal'])) {
+        $nutrients['energy_kcal'] = round($nutrients['energy_kcal']);
+    }
 
-```csv
-"Fruechtemuesli","{""energy_kj"":1590,""energy_kcal"":380,""fat"":8.2,""saturated_fat"":1.5,""carbohydrates"":64.0,""sugars"":22.0,""fibre"":7.5,""protein"":9.8,""salt"":0.05,""ref_unit"":""100g""}"
+    return $nutrients;
+}, 10, 2);
 ```
 
-Anfuehrungszeichen innerhalb von JSON muessen in der CSV-Datei verdoppelt werden (`""`).
+## CSV-Import
+
+Die Spalte `polski_nutrients` im CSV enthält die Werte als JSON:
+
+```csv
+"Früchtemüsli","{""energy_kj"":1590,""energy_kcal"":380,""fat"":8.2,""saturated_fat"":1.5,""carbohydrates"":64.0,""sugars"":22.0,""fibre"":7.5,""protein"":9.8,""salt"":0.05,""ref_unit"":""100g""}"
+```
+
+Anführungszeichen innerhalb des JSON müssen in der CSV-Datei verdoppelt werden (`""`).
 
 ## CSS-Styling
 
@@ -245,26 +313,26 @@ Anfuehrungszeichen innerhalb von JSON muessen in der CSV-Datei verdoppelt werden
 }
 ```
 
-## Haeufige Probleme
+## Häufige Probleme
 
-### Naehrwerttabelle wird nicht angezeigt
+### Die Nährwerttabelle wird nicht angezeigt
 
-1. Pruefen Sie, ob das Naehrwertmodul aktiviert ist
-2. Stellen Sie sicher, dass das Produkt ein ausgefuelltes Feld `_polski_nutrients` mit gueltigem JSON hat
-3. Ueberpruefen Sie das JSON-Format - verwenden Sie einen Validator (z.B. jsonlint.com)
+1. Prüfe, ob das Submodul Nährwerte aktiviert ist
+2. Stelle sicher, dass das Produkt ein ausgefülltes Feld `_polski_nutrients` mit korrektem JSON hat
+3. Überprüfe das JSON-Format - verwende einen Validator (z. B. jsonlint.com)
 
-### Werte werden mit Punkt statt Komma angezeigt
+### Die Werte werden mit Punkt statt Komma angezeigt
 
-Das Plugin formatiert Zahlen automatisch gemaess polnischen Einstellungen (Dezimalkomma). Wenn Sie einen Punkt sehen, pruefen Sie, ob die WordPress-Locale auf `pl_PL` eingestellt ist.
+Das Plugin formatiert die Zahlen automatisch mit dem polnischen Komma. Wenn du einen Punkt siehst, prüfe, ob das WordPress-Locale auf `pl_PL` eingestellt ist.
 
-### % NRV wird nicht angezeigt
+### % RM wird nicht angezeigt
 
-Pruefen Sie, ob die Option "% NRV anzeigen" in den Einstellungen aktiviert ist und der Parameter `show_rws` im Shortcode nicht auf `false` gesetzt ist.
+Prüfe, ob die Option "% RM anzeigen" in den Einstellungen aktiviert ist und ob der Parameter `show_rws` im Shortcode nicht auf `false` gesetzt ist.
 
 ## Verwandte Ressourcen
 
-- [Lebensmittelmodul](/de/food/food-overview/)
-- [Allergene](/de/food/allergens/)
+- [Lebensmittelmodul](food/food-overview/)
+- [Allergene](food/allergens/)
 - [Problem melden](https://github.com/wppoland/polski/issues)
 
-<div class="disclaimer">Diese Seite dient ausschließlich zu Informationszwecken und stellt keine Rechtsberatung dar. Konsultieren Sie vor der Umsetzung einen Anwalt. Polski for WooCommerce ist Open-Source-Software (GPLv2) ohne Garantie.</div>
+<div class="disclaimer">Diese Seite dient ausschließlich zu Informationszwecken und stellt keine Rechtsberatung dar. Konsultiere vor der Umsetzung einen Anwalt. Polski for WooCommerce ist Open-Source-Software (GPLv2), die ohne Gewährleistung bereitgestellt wird.</div>

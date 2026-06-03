@@ -3,93 +3,91 @@ title: Mehrstufiger Checkout
 description: Dokumentation des mehrstufigen Checkouts von Polski PRO for WooCommerce - Aufteilung des Bestellvorgangs in Schritte, Konfiguration, React Checkout Blocks und klassischer Fallback.
 ---
 
-Das Modul teilt die Kasse in vier Schritte: Adresse, Versand, Zahlung und Zusammenfassung. Der Kunde sieht einen Fortschrittsbalken und durchlaeuft jeden Schritt nacheinander.
+Das Modul teilt die Kasse in vier Schritte auf: Adresse, Versand, Zahlung und Zusammenfassung. Der Kunde sieht eine Fortschrittsleiste und durchläuft die Schritte nacheinander.
 
-## Checkout-Schritte
+## Kassenschritte
 
 Der mehrstufige Checkout besteht aus vier Schritten:
 
 | Schritt | Standardname | Inhalt |
 |------|----------------|-----------|
-| 1 | Adresse | Formular fuer Rechnungsdaten und Lieferadresse |
+| 1 | Adresse | Formular mit Rechnungsdaten und Lieferadresse |
 | 2 | Versand | Auswahl der Versandmethode und Versandoptionen |
 | 3 | Zahlung | Auswahl der Zahlungsmethode und Zahlungsdaten |
-| 4 | Zusammenfassung | Bestelluebersicht, rechtliche Checkboxen, Schaltflaeche "Kaufen und bezahlen" |
+| 4 | Zusammenfassung | Bestellübersicht, rechtliche Checkboxen, Button "Kaufen und bezahlen" |
 
-Der Kunde kann zu vorherigen Schritten zurueckkehren, ohne eingegebene Daten zu verlieren. Der Wechsel zum naechsten Schritt erfordert das korrekte Ausfuellen des aktuellen Formulars.
+Der Kunde kann ohne Datenverlust zurückgehen. Der Übergang zum nächsten Schritt erfordert das korrekte Ausfüllen des aktuellen Formulars.
 
 ## Konfiguration
 
-Gehen Sie zu **WooCommerce > Einstellungen > Polski > PRO-Module > Checkout**.
+Gehen Sie zu **WooCommerce > Einstellungen > Polski > PRO-Module > Kasse**.
 
 ### Modul aktivieren
 
-Der mehrstufige Checkout wird ueber folgende Option gesteuert:
+Der mehrstufige Checkout wird über folgende Option gesteuert:
 
 ```
 polski_pro_checkout[multistep_enabled]
 ```
 
-Der Wert `1` aktiviert das mehrstufige Layout, `0` stellt den Standard-WooCommerce-Checkout wieder her.
+Der Wert `1` aktiviert das mehrstufige Layout, `0` stellt die Standard-Kasse von WooCommerce wieder her.
 
 ### Schrittnamen
 
-Die Standardnamen der Schritte koennen in den Einstellungen geaendert werden:
+Die Standardnamen der Schritte lassen sich in den Einstellungen ändern:
 
 | Einstellung | Standardwert |
 |------------|-----------------|
-| Titel Schritt 1 | Adresse |
-| Titel Schritt 2 | Versand |
-| Titel Schritt 3 | Zahlung |
-| Titel Schritt 4 | Zusammenfassung |
+| Titel von Schritt 1 | Adresse |
+| Titel von Schritt 2 | Versand |
+| Titel von Schritt 3 | Zahlung |
+| Titel von Schritt 4 | Zusammenfassung |
 
-Die Schrittnamen werden im Fortschrittsbalken ueber dem Checkout-Formular angezeigt.
+Die Schrittnamen werden in der Fortschrittsleiste über dem Kassenformular angezeigt.
 
-### Validierung zwischen Schritten
+### Validierung zwischen den Schritten
 
-Das Plugin validiert die Daten nach jedem Schritt, bevor der Wechsel zum naechsten erlaubt wird:
+Das Plugin prüft die Daten nach jedem Schritt vor dem Übergang zum nächsten:
 
-- **Schritt 1 (Adresse)** - erforderliche Felder: Vorname, Nachname, Adresse, Stadt, Postleitzahl, Telefon, E-Mail
-- **Schritt 2 (Versand)** - Auswahl einer Versandmethode erforderlich
-- **Schritt 3 (Zahlung)** - Auswahl einer Zahlungsmethode erforderlich
-- **Schritt 4 (Zusammenfassung)** - Pflicht-Checkboxen fuer rechtliche Einwilligungen muessen aktiviert sein
+- **Schritt 1 (Adresse)** - Pflichtfelder: Vorname, Nachname, Adresse, Stadt, Postleitzahl, Telefon, E-Mail
+- **Schritt 2 (Versand)** - Auswahl der Versandmethode erforderlich
+- **Schritt 3 (Zahlung)** - Auswahl der Zahlungsmethode erforderlich
+- **Schritt 4 (Zusammenfassung)** - Aktivierung der verpflichtenden rechtlichen Checkboxen erforderlich
 
-Validierungsmeldungen erscheinen inline unter dem entsprechenden Feld.
+Fehlermeldungen erscheinen unter den Feldern.
 
-## Technische Implementierung
+## Technische Umsetzung
 
 ### WooCommerce Checkout Blocks (React)
 
-Fuer Shops, die WooCommerce Checkout Blocks (Block-Editor) verwenden, nutzt das Modul React zum Rendern der Schritte. Die Komponenten integrieren sich mit der WooCommerce Store API und sind vollstaendig kompatibel mit Checkout-Blocks-Erweiterungen.
-
-Das Rendering erfolgt clientseitig. Das Plugin registriert sich als Checkout-Blocks-Erweiterung und modifiziert das Formularlayout, ohne in die WooCommerce-Logik einzugreifen.
+Für Shops mit WooCommerce Checkout Blocks nutzt das Modul React. Es integriert sich in die WooCommerce Store API und greift nicht in die WooCommerce-Logik ein.
 
 ### Klassischer Fallback (Shortcode)
 
-Fuer Shops, die den klassischen Checkout (Shortcode `[woocommerce_checkout]`) verwenden, bietet das Modul einen JavaScript-Fallback. Das Skript teilt das vorhandene Formular in Abschnitte auf und fuegt eine Navigation zwischen ihnen hinzu.
+Für die klassische Kasse (Shortcode `[woocommerce_checkout]`) nutzt das Modul einen JavaScript-Fallback - es teilt das Formular in Abschnitte auf und ergänzt eine Navigation.
 
 Der klassische Fallback:
 
 - erfordert kein React
-- funktioniert mit bestehenden Themes und Checkout-Anpassungen
-- unterstuetzt dieselben vier Schritte wie die Blocks-Version
-- verwendet jQuery zur DOM-Manipulation
+- funktioniert mit bestehenden Themes und Kassen-Anpassungen
+- unterstützt dieselben vier Schritte wie die Blocks-Version
+- nutzt jQuery zur DOM-Manipulation
 
 ### Modus-Erkennung
 
-Das Plugin erkennt automatisch, ob der Checkout Checkout Blocks oder den klassischen Shortcode verwendet, und laedt die entsprechende Implementierung. Eine manuelle Konfiguration des Modus ist nicht erforderlich.
+Das Plugin erkennt den Kassentyp (Blocks oder Shortcode) selbst und lädt die passende Version. Es muss nichts manuell eingestellt werden.
 
-## Styling
+## Gestaltung
 
 ### CSS-Klasse am Body
 
-Wenn der mehrstufige Checkout aktiv ist, wird dem `<body>`-Element die Klasse hinzugefuegt:
+Wenn der mehrstufige Checkout aktiv ist, erhält `<body>` die Klasse:
 
 ```
 polski-multistep-checkout
 ```
 
-Dies ermoeglicht das gezielte Anwenden von CSS-Stilen nur auf Seiten mit dem mehrstufigen Checkout:
+Dadurch zielt CSS nur auf Seiten mit mehrstufiger Kasse ab:
 
 ```css
 body.polski-multistep-checkout .woocommerce-checkout {
@@ -100,42 +98,42 @@ body.polski-multistep-checkout .woocommerce-checkout {
 
 ### Schritt-Klassen
 
-Jeder Schritt erhaelt eigene CSS-Klassen:
+Jeder Schritt erhält eine eigene CSS-Klasse:
 
 ```css
-.polski-checkout-step { /* gemeinsame Schritt-Stile */ }
-.polski-checkout-step--active { /* aktiver Schritt */ }
-.polski-checkout-step--completed { /* abgeschlossener Schritt */ }
-.polski-checkout-step--address { /* Adressschritt */ }
-.polski-checkout-step--shipping { /* Versandschritt */ }
-.polski-checkout-step--payment { /* Zahlungsschritt */ }
-.polski-checkout-step--review { /* Zusammenfassungsschritt */ }
+.polski-checkout-step { /* wspólne style kroków */ }
+.polski-checkout-step--active { /* aktywny krok */ }
+.polski-checkout-step--completed { /* ukończony krok */ }
+.polski-checkout-step--address { /* krok adresowy */ }
+.polski-checkout-step--shipping { /* krok dostawy */ }
+.polski-checkout-step--payment { /* krok płatności */ }
+.polski-checkout-step--review { /* krok podsumowania */ }
 ```
 
-### Fortschrittsbalken
+### Fortschrittsleiste
 
-Der Fortschrittsbalken wird als `<ol>`-Element mit der Klasse `.polski-checkout-progress` gerendert. Jedes Listenelement entspricht einem Schritt:
+Die Fortschrittsleiste ist ein `<ol>`-Element mit der Klasse `.polski-checkout-progress`:
 
 ```css
-.polski-checkout-progress { /* Container des Balkens */ }
-.polski-checkout-progress__step { /* einzelner Schritt im Balken */ }
-.polski-checkout-progress__step--active { /* aktiver Schritt im Balken */ }
-.polski-checkout-progress__step--done { /* abgeschlossener Schritt im Balken */ }
+.polski-checkout-progress { /* kontener paska */ }
+.polski-checkout-progress__step { /* pojedynczy krok w pasku */ }
+.polski-checkout-progress__step--active { /* aktywny krok w pasku */ }
+.polski-checkout-progress__step--done { /* ukończony krok w pasku */ }
 ```
 
-## Kompatibilitaet mit anderen Modulen
+## Kompatibilität mit anderen Modulen
 
 ### Rechtliche Checkboxen
 
-Rechtliche Checkboxen aus der kostenlosen Version von Polski for WooCommerce werden automatisch in Schritt 4 (Zusammenfassung) verschoben. Der Kunde muss sie vor der Bestellaufgabe aktivieren.
+Die rechtlichen Checkboxen aus der kostenlosen Version landen in Schritt 4 (Zusammenfassung). Der Kunde aktiviert sie vor der Bestellaufgabe.
 
 ### NIP-Feld
 
-Das NIP-Feld wird in Schritt 1 (Adresse) angezeigt, gemaess der Konfiguration der bedingten Anzeige aus dem NIP-Modul.
+Das NIP-Feld wird in Schritt 1 (Adresse) angezeigt, gemäß den Einstellungen des NIP-Moduls.
 
 ### Benutzerdefinierte Felder
 
-Felder, die von anderen Plugins hinzugefuegt werden (z. B. ueber den Hook `woocommerce_checkout_fields`), werden automatisch dem entsprechenden Schritt basierend auf ihrer Sektion zugewiesen:
+Von anderen Plugins hinzugefügte Felder (z. B. über den Hook `woocommerce_checkout_fields`) werden anhand des Abschnitts den Schritten zugeordnet:
 
 - `billing_*` - Schritt 1
 - `shipping_*` - Schritt 2
@@ -143,42 +141,42 @@ Felder, die von anderen Plugins hinzugefuegt werden (z. B. ueber den Hook `wooco
 
 ## Barrierefreiheit (a11y)
 
-Der mehrstufige Checkout unterstuetzt:
+Der mehrstufige Checkout unterstützt:
 
 - Tastaturnavigation (Tab, Enter, Escape)
 - ARIA-Attribute (`aria-current`, `aria-label`, `role="tablist"`)
-- Ankuendigung von Schrittwechseln durch Screenreader
-- Sichtbaren Fokus auf interaktiven Elementen
+- Ansage von Schrittwechseln durch Screenreader
+- sichtbaren Fokus auf interaktiven Elementen
 
-## Leistung
+## Performance
 
-Das Modul laedt Skripte und Stile nur auf der Checkout-Seite. Auf anderen Shopseiten werden keine zusaetzlichen Ressourcen hinzugefuegt. Skripte werden mit dem Attribut `defer` geladen, um das Rendern der Seite nicht zu blockieren.
+Skripte und Styles werden nur auf der Kassenseite geladen. Auf anderen Seiten fügt das Modul keine Ressourcen hinzu. Die Skripte haben das Attribut `defer` und blockieren das Rendering nicht.
 
-## Haeufige Probleme
+## Häufige Probleme
 
-### Checkout wird nicht in Schritte aufgeteilt
+### Die Kasse wird nicht in Schritte aufgeteilt
 
-1. Pruefen Sie, ob die Option `polski_pro_checkout[multistep_enabled]` auf `1` gesetzt ist
+1. Prüfen Sie, ob die Option `polski_pro_checkout[multistep_enabled]` auf `1` gesetzt ist
 2. Leeren Sie den Cache (Cache-Plugins, CDN, Browser-Cache)
-3. Pruefen Sie die Browserkonsole auf JavaScript-Fehler
-4. Ueberpruefen Sie, ob kein Konflikt mit anderen Plugins besteht, die den Checkout modifizieren
+3. Prüfen Sie die Browser-Konsole auf JavaScript-Fehler
+4. Überprüfen Sie, ob kein Konflikt mit anderen Plugins besteht, die die Kasse verändern
 
-### Formular wechselt nicht zum naechsten Schritt
+### Das Formular geht nicht zum nächsten Schritt über
 
-1. Pruefen Sie, ob alle erforderlichen Felder ausgefuellt sind
-2. Ueberpruefen Sie die Validierungsmeldungen unter den Feldern
-3. Pruefen Sie die Browserkonsole - AJAX-Fehler koennen die Validierung blockieren
+1. Prüfen Sie, ob alle Pflichtfelder ausgefüllt sind
+2. Überprüfen Sie die Validierungsmeldungen unter den Feldern
+3. Prüfen Sie die Browser-Konsole, AJAX-Fehler können die Validierung blockieren
 
-### Stile funktionieren nicht korrekt
+### Styles funktionieren nicht korrekt
 
-1. Pruefen Sie, ob die Klasse `polski-multistep-checkout` auf dem `<body>`-Element vorhanden ist
-2. Ueberpruefen Sie, ob Plugin-Stile nicht vom Theme ueberschrieben werden (verwenden Sie den Inspektor)
-3. Fuegen Sie eigene Stile mit hoeherer Selektor-Spezifizitaet hinzu
+1. Prüfen Sie, ob die Klasse `polski-multistep-checkout` am `<body>`-Element vorhanden ist
+2. Überprüfen Sie, ob die Plugin-Styles nicht vom Theme überschrieben werden (nutzen Sie den Inspektor)
+3. Fügen Sie eigene Styles mit höherer Selektor-Spezifität hinzu
 
 ## Verwandte Ressourcen
 
 - [Rechtliche Checkboxen](/checkout/legal-checkboxes/)
-- [NIP im Checkout](/checkout/nip-lookup/)
+- [NIP an der Kasse](/checkout/nip-lookup/)
 - [Problem melden](https://github.com/wppoland/polski/issues)
 
-<div class="disclaimer">Diese Seite dient ausschließlich zu Informationszwecken und stellt keine Rechtsberatung dar. Konsultieren Sie vor der Umsetzung einen Anwalt. Polski for WooCommerce ist Open-Source-Software (GPLv2) ohne Garantie.</div>
+<div class="disclaimer">Diese Seite dient ausschließlich Informationszwecken und stellt keine Rechtsberatung dar. Konsultieren Sie vor der Umsetzung einen Anwalt. Polski for WooCommerce ist Open-Source-Software (GPLv2), die ohne Gewährleistung bereitgestellt wird.</div>

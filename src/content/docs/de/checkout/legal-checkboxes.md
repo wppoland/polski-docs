@@ -1,107 +1,109 @@
 ---
 title: Rechtliche Checkboxen
-description: Konfiguration, Validierung und Personalisierung der obligatorischen rechtlichen Checkboxen auf der WooCommerce-Kassenseite.
+description: Konfiguration, Validierung und Anpassung der obligatorischen rechtlichen Checkboxen auf der WooCommerce-Checkout-Seite.
 ---
 
-Vor der Bestellung muss der Kunde die AGB und die Datenschutzerklaerung akzeptieren. Polski for WooCommerce fuegt rechtliche Checkboxen mit konfigurierbarem Inhalt, Validierung und Fehlermeldungen hinzu.
+Vor der Bestellaufgabe muss der Kunde die AGB und die Datenschutzerklärung akzeptieren. Das Plugin Polski for WooCommerce fügt rechtliche Checkboxen mit konfigurierbaren Inhalten, Validierung und Fehlermeldungen hinzu.
 
 ## Rechtliche Anforderungen
 
-Der Shop muss eine ausdrueckliche Einwilligung des Kunden einholen zu:
+Der Shop muss die ausdrückliche Zustimmung des Kunden einholen zu:
 
-- AGB (Kaufvertragsbedingungen)
-- Datenschutzerklaerung (Verarbeitung personenbezogener Daten)
-- Widerrufsrecht (Information ueber die 14-Tage-Frist)
+- den AGB des Shops (Bedingungen des Kaufvertrags)
+- der Datenschutzerklärung (Verarbeitung personenbezogener Daten)
+- dem Widerrufsrecht (Information über die 14-Tage-Frist)
 
-Die Einwilligungen muessen aktiv erteilt werden (Checkbox darf nicht vorausgewaehlt sein) und fuer jeden Zweck einzeln erfolgen.
+Jede Zustimmung erfordert eine eigene Checkbox. Die Checkbox darf nicht standardmäßig angehakt sein.
+
+![Rechtliche Checkboxen auf der WooCommerce-Checkout-Seite](../../../../assets/screenshots/screenshot-3-checkout-checkboxes.png)
 
 ## Konfiguration
 
-Gehen Sie zu **WooCommerce > Einstellungen > Polski > Kasse** und konfigurieren Sie den Abschnitt "Rechtliche Checkboxen".
+Gehe zu **WooCommerce > Einstellungen > Polski > Checkout** und konfiguriere den Bereich "Rechtliche Checkboxen".
 
 ### Standard-Checkboxen
 
-Das Plugin fuegt folgende Checkboxen hinzu:
+Das Plugin fügt diese Checkboxen hinzu:
 
-| Checkbox | Erforderlich | Standard-Text |
+| Checkbox | Erforderlich | Standardinhalt |
 |----------|----------|----------------|
 | AGB | Ja | Ich habe die [AGB] gelesen und akzeptiere deren Bestimmungen. |
-| Datenschutzerklaerung | Ja | Ich habe die [Datenschutzerklaerung] gelesen und stimme der Verarbeitung meiner personenbezogenen Daten zu. |
-| Widerrufsrecht | Ja | Ich wurde ueber das Widerrufsrecht innerhalb von 14 Tagen informiert. |
-| Marketing-Einwilligung | Nein | Ich stimme dem Erhalt kommerzieller Informationen auf elektronischem Wege zu. |
+| Datenschutzerklärung | Ja | Ich habe die [Datenschutzerklärung] gelesen und stimme der Verarbeitung meiner personenbezogenen Daten zu. |
+| Widerrufsrecht | Ja | Ich wurde über das Recht informiert, vom Vertrag innerhalb von 14 Tagen zurückzutreten. |
+| Marketing-Einwilligung | Nein | Ich willige ein, kommerzielle Informationen auf elektronischem Weg zu erhalten. |
 
-### Benutzerdefinierte Checkbox hinzufuegen
+### Hinzufügen einer benutzerdefinierten Checkbox
 
-Klicken Sie im Konfigurationspanel auf **Checkbox hinzufuegen** und fuellen Sie das Formular aus:
+Klicke im Konfigurationspanel auf **Checkbox hinzufügen** und fülle das Formular aus:
 
 | Feld | Beschreibung |
 |------|------|
-| Name | Interne Kennung (z.B. `newsletter_consent`) |
-| Label | Neben der Checkbox angezeigter Text |
-| Erforderlich | Ob die Checkbox fuer die Bestellung angekreuzt werden muss |
+| Name | Interner Bezeichner (z. B. `newsletter_consent`) |
+| Beschriftung | Der neben der Checkbox angezeigte Text |
+| Erforderlich | Ob die Checkbox zur Bestellaufgabe angehakt sein muss |
 | Position | Anzeigereihenfolge (Zahl) |
-| Beschreibung | Zusaetzlicher Text unter der Checkbox (optional) |
-| Fehlermeldung | Text bei nicht angekreuzter Pflicht-Checkbox |
+| Beschreibung | Zusätzlicher Text unter der Checkbox (optional) |
+| Fehlermeldung | Text, der angezeigt wird, wenn eine erforderliche Checkbox nicht angehakt ist |
 
-### Label-Formatierung
+### Formatierung der Beschriftungen
 
-Im Label-Text koennen Sie verwenden:
+Im Beschriftungstext kannst du Folgendes verwenden:
 
 - `[regulamin]` - automatischer Link zur AGB-Seite
-- `[polityka-prywatnosci]` - automatischer Link zur Datenschutzerklaerung
-- `[odstapienie]` - Link zur Widerrufsseite
+- `[polityka-prywatnosci]` - automatischer Link zur Datenschutzerklärung
+- `[odstapienie]` - Link zur Seite über das Widerrufsrecht
 - `<a href="URL">Text</a>` - benutzerdefinierter Link
 - `<strong>Text</strong>` - Fettschrift
 
-AGB- und Datenschutzseiten werden aus den WooCommerce-Einstellungen geladen (**WooCommerce > Einstellungen > Erweitert > Seiteneinstellungen**).
+Die Seiten der AGB und der Datenschutzerklärung werden aus **WooCommerce > Einstellungen > Erweitert > Seiten-Konfiguration** bezogen.
 
 ## Validierung
 
-### Serverseitige Validierung
+### Validierung serverseitig
 
-Das Plugin validiert Checkboxen serverseitig ueber den Hook `woocommerce_checkout_process`. Wenn eine Pflicht-Checkbox nicht angekreuzt ist, wird die Bestellung nicht aufgegeben und der Kunde sieht eine Fehlermeldung.
+Das Plugin prüft die Checkboxen serverseitig über den Hook `woocommerce_checkout_process`. Wenn eine erforderliche Checkbox nicht angehakt ist, wird die Bestellung nicht durchgeführt und der Kunde sieht einen Fehler.
 
-### Clientseitige Validierung
+### Validierung clientseitig
 
-Optionale JavaScript-Validierung zeigt die Fehlermeldung sofort nach Klick auf den Bestellbutton an, ohne Seitenneuladung. Aktivieren Sie sie in den Einstellungen:
+Eine optionale JavaScript-Validierung zeigt den Fehler sofort nach dem Klick auf den Button an, ohne die Seite neu zu laden. Aktiviere sie unter:
 
-**WooCommerce > Einstellungen > Polski > Kasse > JS-Checkbox-Validierung**
+**WooCommerce > Einstellungen > Polski > Checkout > JS-Validierung der Checkboxen**
 
 ### Fehlermeldungen
 
-Jede Checkbox hat eine konfigurierbare Fehlermeldung. Standard-Meldungen:
+Jede Checkbox hat eine konfigurierbare Fehlermeldung. Standardmeldungen:
 
 | Checkbox | Fehlermeldung |
 |----------|----------------|
-| AGB | Um eine Bestellung aufzugeben, muessen Sie die AGB akzeptieren. |
-| Datenschutzerklaerung | Um eine Bestellung aufzugeben, muessen Sie die Datenschutzerklaerung akzeptieren. |
-| Widerrufsrecht | Sie muessen die Kenntnisnahme der Widerrufsbelehrung bestaetigen. |
+| AGB | Um die Bestellung aufzugeben, musst du die AGB des Shops akzeptieren. |
+| Datenschutzerklärung | Um die Bestellung aufzugeben, musst du die Datenschutzerklärung akzeptieren. |
+| Widerrufsrecht | Du musst bestätigen, dass du die Information über das Widerrufsrecht gelesen hast. |
 
-## Einwilligungsspeicherung
+## Speicherung der Zustimmungen
 
-Das Plugin speichert Informationen ueber erteilte Einwilligungen:
+Das Plugin speichert Informationen über die Zustimmungen:
 
 - als Bestellmetadaten (`_polski_consent_*`)
-- mit Datum und Uhrzeit der Einwilligung
-- mit der Version der AGB/Datenschutzerklaerung (bei aktivierter Versionsverfolgung)
+- mit Datum und Uhrzeit der Zustimmungserteilung
+- mit der Version der AGB/Datenschutzerklärung (falls Versionsverfolgung aktiviert ist)
 
-Diese Informationen sind im Administrationspanel der Bestellung sichtbar und koennen auf Anfrage exportiert werden (DSGVO).
+Diese Daten sind im Admin-Panel der Bestellung sichtbar. Sie können für DSGVO-Zwecke exportiert werden.
 
-### Einwilligungsansicht in der Bestellung
+### Anzeige der Zustimmungen in der Bestellung
 
-In der Bestellansicht im Administrationspanel, im Abschnitt "Rechtliche Einwilligungen", finden Sie die Liste der erteilten Einwilligungen mit Daten.
+In der Bestellansicht im Administrationspanel findest du im Bereich "Rechtliche Zustimmungen" eine Liste der erteilten Zustimmungen mit Daten.
 
-## Programmatische Checkbox-Verwaltung
+## Programmatische Verwaltung der Checkboxen
 
-### Checkbox programmatisch hinzufuegen
+### Checkbox programmatisch hinzufügen
 
 ```php
 add_filter('polski/checkout/legal_checkboxes', function (array $checkboxes): array {
     $checkboxes['custom_consent'] = [
-        'label'         => 'Ich stimme der Datenverarbeitung zum Zweck der Reklamationsbearbeitung zu.',
+        'label'         => 'Ich willige in die Verarbeitung der Daten zur Bearbeitung von Reklamationen ein.',
         'required'      => true,
         'position'      => 50,
-        'error_message' => 'Sie muessen der Datenverarbeitung zustimmen.',
+        'error_message' => 'Du musst der Datenverarbeitung zustimmen.',
         'description'   => '',
     ];
 
@@ -119,19 +121,19 @@ add_filter('polski/checkout/legal_checkboxes', function (array $checkboxes): arr
 });
 ```
 
-### Vorhandene Checkbox aendern
+### Bestehende Checkbox ändern
 
 ```php
 add_filter('polski/checkout/legal_checkboxes', function (array $checkboxes): array {
     if (isset($checkboxes['terms'])) {
-        $checkboxes['terms']['label'] = 'Ich akzeptiere die <a href="/agb">AGB</a> des Shops.';
+        $checkboxes['terms']['label'] = 'Ich akzeptiere die <a href="/regulamin">AGB</a> des Shops.';
     }
 
     return $checkboxes;
 });
 ```
 
-### Bedingte Checkbox-Anzeige
+### Bedingte Anzeige einer Checkbox
 
 ```php
 add_filter('polski/checkout/legal_checkboxes', function (array $checkboxes): array {
@@ -139,10 +141,10 @@ add_filter('polski/checkout/legal_checkboxes', function (array $checkboxes): arr
 
     if ($cart_total > 500) {
         $checkboxes['high_value_consent'] = [
-            'label'         => 'Ich bestatige die Bestellung im Wert von ueber 500 PLN.',
+            'label'         => 'Ich bestätige eine Bestellung im Wert von über 500 zł.',
             'required'      => true,
             'position'      => 60,
-            'error_message' => 'Sie muessen die Bestellung mit hohem Wert bestaetigen.',
+            'error_message' => 'Du musst die hochwertige Bestellung bestätigen.',
         ];
     }
 
@@ -182,28 +184,28 @@ add_filter('polski/checkout/legal_checkboxes', function (array $checkboxes): arr
 }
 ```
 
-## Kompatibilitaet mit Block Checkout
+## Kompatibilität mit dem Block-Checkout
 
-Das Plugin unterstuetzt rechtliche Checkboxen sowohl im klassischen Checkout als auch im Block Checkout. Beim Block Checkout werden Checkboxen ueber den Block `woocommerce/checkout-terms-block` gerendert.
+Das Plugin unterstützt Checkboxen im klassischen Checkout und im Block-Checkout. Im Block-Checkout funktionieren die Checkboxen über den Block `woocommerce/checkout-terms-block`.
 
-## Haeufige Probleme
+## Häufige Probleme
 
-### Checkboxen werden nicht angezeigt
+### Die Checkboxen werden nicht angezeigt
 
-1. Pruefen Sie, ob das Modul in den Einstellungen aktiviert ist
-2. Stellen Sie sicher, dass AGB- und Datenschutzseiten in WooCommerce eingestellt sind
-3. Ueberpruefen Sie, ob ein anderes Plugin die Checkboxen entfernt
+1. Prüfe, ob das Modul in den Einstellungen aktiviert ist
+2. Stelle sicher, dass die Seiten für AGB und Datenschutzerklärung in WooCommerce gesetzt sind
+3. Verifiziere, ob ein anderes Plugin die Checkboxen nicht entfernt
 
-### Link im Label funktioniert nicht
+### Der Link in der Beschriftung funktioniert nicht
 
-Pruefen Sie, ob die Zielseite veroeffentlicht ist (nicht im Entwurfsmodus) und ob der Shortcut (z.B. `[regulamin]`) korrekt eingegeben ist.
+Prüfe, ob die Zielseite veröffentlicht ist (nicht im Entwurfsstatus) und ob das Kürzel (z. B. `[regulamin]`) korrekt eingegeben wurde.
 
-### Bestellung geht trotz nicht angekreuzter Checkbox durch
+### Die Bestellung wird trotz nicht angehakter Checkbox durchgeführt
 
-Pruefen Sie, ob die Checkbox als "Erforderlich" markiert ist. Ueberpruefen Sie die Browser-Konsole auf JavaScript-Fehler, die die clientseitige Validierung blockieren koennten.
+Prüfe, ob die Checkbox als "Erforderlich" markiert ist. Verifiziere die Browser-Konsole auf JavaScript-Fehler, die die clientseitige Validierung blockieren könnten.
 
 ## Verwandte Ressourcen
 
 - [Problem melden](https://github.com/wppoland/polski/issues)
 
-<div class="disclaimer">Diese Seite dient ausschließlich zu Informationszwecken und stellt keine Rechtsberatung dar. Konsultieren Sie vor der Umsetzung einen Anwalt. Polski for WooCommerce ist Open-Source-Software (GPLv2) ohne Garantie.</div>
+<div class="disclaimer">Diese Seite dient ausschließlich Informationszwecken und stellt keine Rechtsberatung dar. Konsultiere vor der Umsetzung einen Anwalt. Polski for WooCommerce ist Open-Source-Software (GPLv2), bereitgestellt ohne Gewährleistung.</div>

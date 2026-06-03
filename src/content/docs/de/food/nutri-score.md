@@ -3,64 +3,64 @@ title: Nutri-Score
 description: Anzeige der Nutri-Score-Bewertung A-E mit CSS-Klassen pro Stufe auf der WooCommerce-Produktseite.
 ---
 
-Nutri-Score bewertet die Naehrwertqualitaet auf einer Skala von A (beste) bis E (schlechteste). In Polen freiwillig, aber immer beliebter. Polski for WooCommerce zeigt das Nutri-Score-Badge auf der Produktseite an.
+Der Nutri-Score bewertet die Nährwertqualität eines Produkts auf einer Skala von A (am besten) bis E (am schlechtesten). In Polen ist er freiwillig, wird aber immer beliebter. Das Plugin Polski for WooCommerce zeigt das Nutri-Score-Abzeichen auf der Produktseite an.
 
-## Was ist Nutri-Score
+## Was ist der Nutri-Score
 
-Das Nutri-Score-System klassifiziert Lebensmittel anhand eines Algorithmus, der beruecksichtigt:
+Der Nutri-Score klassifiziert Produkte auf Basis von:
 
 **Negative Bestandteile (Minuspunkte):**
 - Energiewert
 - Zucker
-- Gesaettigte Fettsaeuren
+- gesättigte Fettsäuren
 - Salz (Natrium)
 
 **Positive Bestandteile (Pluspunkte):**
-- Obst, Gemuese, Nuesse, Oele (Raps-, Walnuss-, Olivenoel)
+- Obst, Gemüse, Nüsse, Öle (Raps-, Nuss-, Olivenöl)
 - Ballaststoffe
-- Protein
+- Eiweiß
 
-Basierend auf der Punktebilanz erhaelt das Produkt eine Bewertung:
+Auf Basis der Punktebilanz erhält das Produkt eine Bewertung:
 
-| Stufe | Farbe | Punktebereich (feste Nahrung) | Beschreibung |
-|--------|-------|-------------------------------|------|
-| A | Dunkelgruen (#038141) | -15 bis -1 | Hoechste Naehrwertqualitaet |
-| B | Hellgruen (#85BB2F) | 0 bis 2 | Gute Naehrwertqualitaet |
-| C | Gelb (#FECB02) | 3 bis 10 | Mittlere Naehrwertqualitaet |
-| D | Orange (#EE8100) | 11 bis 18 | Niedrige Naehrwertqualitaet |
-| E | Rot (#E63E11) | 19 bis 40 | Niedrigste Naehrwertqualitaet |
+| Stufe | Farbe | Punktebereich (feste Lebensmittel) | Beschreibung |
+|-------|-------|------------------------------------|--------------|
+| A | Dunkelgrün (#038141) | von -15 bis -1 | Höchste Nährwertqualität |
+| B | Hellgrün (#85BB2F) | von 0 bis 2 | Gute Nährwertqualität |
+| C | Gelb (#FECB02) | von 3 bis 10 | Mittlere Nährwertqualität |
+| D | Orange (#EE8100) | von 11 bis 18 | Geringe Nährwertqualität |
+| E | Rot (#E63E11) | von 19 bis 40 | Niedrigste Nährwertqualität |
 
 ## Konfiguration
 
-### Modul aktivieren
+### Aktivierung des Moduls
 
-Gehen Sie zu **WooCommerce > Einstellungen > Polski > Lebensmittel** und aktivieren Sie das Untermodul "Nutri-Score".
+Gehe zu **WooCommerce > Einstellungen > Polski > Lebensmittel** und aktiviere das Submodul "Nutri-Score".
 
 ### Einstellungen
 
 | Einstellung | Standard | Beschreibung |
-|------------|----------|------|
-| Nutri-Score aktivieren | Nein | Aktiviert die Badge-Anzeige |
-| Position auf der Produktseite | Unter dem Preis | Wo das Badge angezeigt wird |
-| Im Listing anzeigen | Ja | Ob auf Kategorieseiten angezeigt |
-| Badge-Groesse | Normal | `klein`, `normal`, `gross` |
-| Badge-Stil | Voll | `voll` (alle Buchstaben), `kompakt` (nur aktiver Buchstabe) |
+|-------------|----------|--------------|
+| Nutri-Score aktivieren | Nein | Aktiviert die Anzeige des Abzeichens |
+| Position auf der Produktseite | Unter dem Preis | Wo das Abzeichen angezeigt wird |
+| Im Listing anzeigen | Ja | Ob auf den Kategorieseiten angezeigt wird |
+| Größe des Abzeichens | Normal | `klein`, `normal`, `groß` |
+| Stil des Abzeichens | Voll | `voll` (alle Buchstaben), `kompakt` (nur der aktive Buchstabe) |
 
-### Nutri-Score zum Produkt zuweisen
+### Nutri-Score einem Produkt zuweisen
 
-Im Produkteditor, im Tab "Lebensmittel", waehlen Sie die Nutri-Score-Stufe aus der Dropdown-Liste:
+Wähle im Produkteditor, im Reiter "Lebensmittel", die Nutri-Score-Stufe aus der Dropdown-Liste:
 
-- A - Hoechste Naehrwertqualitaet
-- B - Gute Naehrwertqualitaet
-- C - Mittlere Naehrwertqualitaet
-- D - Niedrige Naehrwertqualitaet
-- E - Niedrigste Naehrwertqualitaet
+- A - Höchste Nährwertqualität
+- B - Gute Nährwertqualität
+- C - Mittlere Nährwertqualität
+- D - Geringe Nährwertqualität
+- E - Niedrigste Nährwertqualität
 
-Das Plugin berechnet den Nutri-Score nicht automatisch - Sie muessen die Bewertung Ihres Produkts kennen. Zur Berechnung koennen Sie den offiziellen Rechner oder Herstellerangaben verwenden.
+Das Plugin berechnet den Nutri-Score nicht automatisch. Verwende den offiziellen Rechner oder die Daten des Herstellers.
 
 ## Generiertes HTML
 
-Das Nutri-Score-Badge wird als Satz von HTML-Elementen mit dedizierten CSS-Klassen gerendert:
+Das Nutri-Score-Abzeichen besteht aus einer Reihe von HTML-Elementen mit CSS-Klassen:
 
 ```html
 <div class="polski-nutri-score polski-nutri-score--active-c">
@@ -77,25 +77,37 @@ Das Nutri-Score-Badge wird als Satz von HTML-Elementen mit dedizierten CSS-Klass
 
 ## CSS-Klassen pro Stufe
 
-Das Plugin generiert CSS-Klassen fuer jede Stufe, was volle Kontrolle ueber das Styling ermoeglicht:
+Das Plugin generiert CSS-Klassen für jede Stufe, was die volle Kontrolle über das Styling ermöglicht:
 
-### Klassen auf dem Container
+### Klassen am Container
 
 | Klasse | Beschreibung |
-|-------|------|
+|--------|--------------|
 | `.polski-nutri-score` | Hauptcontainer |
 | `.polski-nutri-score--active-a` | Aktive Stufe A |
 | `.polski-nutri-score--active-b` | Aktive Stufe B |
 | `.polski-nutri-score--active-c` | Aktive Stufe C |
 | `.polski-nutri-score--active-d` | Aktive Stufe D |
 | `.polski-nutri-score--active-e` | Aktive Stufe E |
-| `.polski-nutri-score--small` | Kleine Groesse |
-| `.polski-nutri-score--normal` | Normale Groesse |
-| `.polski-nutri-score--large` | Grosse Groesse |
+| `.polski-nutri-score--small` | Kleine Größe |
+| `.polski-nutri-score--normal` | Normale Größe |
+| `.polski-nutri-score--large` | Große Größe |
 
-### Standard-CSS-Stile
+### Klassen an den Abzeichen
 
-Das Plugin enthaelt integrierte CSS-Stile fuer das Nutri-Score-Badge:
+| Klasse | Beschreibung |
+|--------|--------------|
+| `.polski-nutri-score__badge` | Jedes Abzeichen (Buchstabe) |
+| `.polski-nutri-score__badge--a` | Abzeichen A |
+| `.polski-nutri-score__badge--b` | Abzeichen B |
+| `.polski-nutri-score__badge--c` | Abzeichen C |
+| `.polski-nutri-score__badge--d` | Abzeichen D |
+| `.polski-nutri-score__badge--e` | Abzeichen E |
+| `.polski-nutri-score__badge--active` | Aktives (ausgewähltes) Abzeichen |
+
+## Standard-CSS-Stile
+
+Das Plugin enthält integrierte CSS-Stile:
 
 ```css
 .polski-nutri-score {
@@ -103,6 +115,15 @@ Das Plugin enthaelt integrierte CSS-Stile fuer das Nutri-Score-Badge:
     flex-direction: column;
     align-items: flex-start;
     margin: 0.5em 0;
+}
+
+.polski-nutri-score__label {
+    font-size: 0.75em;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #666;
+    margin-bottom: 0.3em;
 }
 
 .polski-nutri-score__badges {
@@ -133,20 +154,75 @@ Das Plugin enthaelt integrierte CSS-Stile fuer das Nutri-Score-Badge:
 }
 
 /* Farben pro Stufe */
-.polski-nutri-score__badge--a { background-color: #038141; }
-.polski-nutri-score__badge--b { background-color: #85BB2F; }
-.polski-nutri-score__badge--c { background-color: #FECB02; color: #333; }
-.polski-nutri-score__badge--d { background-color: #EE8100; }
-.polski-nutri-score__badge--e { background-color: #E63E11; }
+.polski-nutri-score__badge--a {
+    background-color: #038141;
+}
+
+.polski-nutri-score__badge--b {
+    background-color: #85BB2F;
+}
+
+.polski-nutri-score__badge--c {
+    background-color: #FECB02;
+    color: #333;
+}
+
+.polski-nutri-score__badge--d {
+    background-color: #EE8100;
+}
+
+.polski-nutri-score__badge--e {
+    background-color: #E63E11;
+}
+
+/* Größen */
+.polski-nutri-score--small .polski-nutri-score__badge {
+    width: 1.5em;
+    height: 1.5em;
+    font-size: 0.7em;
+}
+
+.polski-nutri-score--large .polski-nutri-score__badge {
+    width: 2.5em;
+    height: 2.5em;
+    font-size: 1em;
+}
+```
+
+### Überschreiben der Stile
+
+Überschreibe die CSS-Klassen in der `style.css` deines Themes:
+
+```css
+/* Beispiel: quadratische Abzeichen mit abgerundeten Ecken */
+.polski-nutri-score__badges {
+    gap: 4px;
+    border-radius: 0;
+}
+
+.polski-nutri-score__badge {
+    border-radius: 6px;
+    width: 2.2em;
+    height: 2.2em;
+}
+
+/* Beispiel: dunkles Theme */
+.polski-nutri-score__label {
+    color: #ccc;
+}
+
+.polski-nutri-score__badge {
+    opacity: 0.25;
+}
 ```
 
 ## Programmatischer Zugriff
 
-### Nutri-Score des Produkts abrufen
+### Nutri-Score eines Produkts abrufen
 
 ```php
 $nutri_score = get_post_meta($product_id, '_polski_nutri_score', true);
-// Gibt zurueck: 'a', 'b', 'c', 'd', 'e' oder '' (leer)
+// Gibt zurück: 'a', 'b', 'c', 'd', 'e' oder '' (leer)
 ```
 
 ### Nutri-Score setzen
@@ -155,15 +231,48 @@ $nutri_score = get_post_meta($product_id, '_polski_nutri_score', true);
 update_post_meta($product_id, '_polski_nutri_score', 'b');
 ```
 
+### Filter für das HTML des Abzeichens
+
+```php
+add_filter('polski/nutri_score/html', function (string $html, string $score, int $product_id): string {
+    // Anpassung des HTML des Abzeichens
+    return $html;
+}, 10, 3);
+```
+
+### Bedingte Anzeige
+
+```php
+add_filter('polski/nutri_score/display', function (bool $display, int $product_id): bool {
+    // Nutri-Score für Produkte ohne ausgefüllte Nährwerte ausblenden
+    $nutrients = get_post_meta($product_id, '_polski_nutrients', true);
+
+    if (empty($nutrients)) {
+        return false;
+    }
+
+    return $display;
+}, 10, 2);
+```
+
 ## CSV-Import
 
 | CSV-Spalte | Beschreibung | Werte |
-|-------------|------|---------|
+|------------|--------------|-------|
 | `polski_nutri_score` | Nutri-Score-Stufe | `a`, `b`, `c`, `d`, `e` |
+
+Beispiel:
+
+```csv
+"Apfel",a
+"Kartoffelchips",d
+"Cola",e
+"Naturjoghurt",b
+```
 
 ## Schema.org
 
-Das Plugin fuegt den Nutri-Score zu den strukturierten Produktdaten hinzu:
+Das Plugin fügt den Nutri-Score den strukturierten Daten des Produkts hinzu:
 
 ```json
 {
@@ -180,16 +289,40 @@ Das Plugin fuegt den Nutri-Score zu den strukturierten Produktdaten hinzu:
 
 ## Barrierefreiheit (a11y)
 
-Das Nutri-Score-Badge enthaelt ARIA-Attribute fuer Screenreader:
+Das Abzeichen enthält ARIA-Attribute für Screenreader:
 
 ```html
-<div class="polski-nutri-score" role="img" aria-label="Nutri-Score: C - mittlere Naehrwertqualitaet">
+<div class="polski-nutri-score" role="img" aria-label="Nutri-Score: C - mittlere Nährwertqualität">
 ```
+
+Jedes inaktive Abzeichen hat `aria-hidden="true"`, und das aktive enthält `aria-current="true"`.
+
+## Häufige Probleme
+
+### Das Abzeichen wird nicht angezeigt
+
+1. Prüfe, ob das Submodul Nutri-Score aktiviert ist
+2. Stelle sicher, dass dem Produkt eine Nutri-Score-Stufe zugewiesen ist
+3. Überprüfe, ob das CSS des Plugins geladen ist (kein Konflikt mit Optimierungs-Plugins)
+
+### Die Farben des Abzeichens sind anders als erwartet
+
+Das Theme kann die Farben überschreiben. Verwende spezifischere CSS-Selektoren oder füge `!important` hinzu:
+
+```css
+.polski-nutri-score__badge--a {
+    background-color: #038141 !important;
+}
+```
+
+### Das Abzeichen ist zu groß oder zu klein
+
+Ändere die Größe in den Einstellungen (**WooCommerce > Einstellungen > Polski > Lebensmittel > Nutri-Score > Größe des Abzeichens**) oder überschreibe die CSS-Klasse der Größe.
 
 ## Verwandte Ressourcen
 
-- [Lebensmittelmodul](/de/food/food-overview/)
-- [Naehrwerte](/de/food/nutrients/)
+- [Lebensmittelmodul](food/food-overview/)
+- [Nährwerte](food/nutrients/)
 - [Problem melden](https://github.com/wppoland/polski/issues)
 
-<div class="disclaimer">Diese Seite dient ausschließlich zu Informationszwecken und stellt keine Rechtsberatung dar. Konsultieren Sie vor der Umsetzung einen Anwalt. Polski for WooCommerce ist Open-Source-Software (GPLv2) ohne Garantie.</div>
+<div class="disclaimer">Diese Seite dient ausschließlich zu Informationszwecken und stellt keine Rechtsberatung dar. Konsultiere vor der Umsetzung einen Anwalt. Polski for WooCommerce ist Open-Source-Software (GPLv2), die ohne Gewährleistung bereitgestellt wird.</div>

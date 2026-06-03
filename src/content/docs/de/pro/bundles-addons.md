@@ -1,53 +1,53 @@
 ---
-title: Pakete, Add-ons und "Haeufig zusammen gekauft"
-description: Module fuer Produktpakete, Produkt-Add-ons und Empfehlungen "Haeufig zusammen gekauft" in Polski PRO for WooCommerce.
+title: Pakete, Add-ons und "Häufig zusammen gekauft"
+description: Module für Produktpakete, Produkt-Add-ons und "Häufig zusammen gekauft"-Empfehlungen in Polski PRO for WooCommerce.
 ---
 
-Drei Verkaufsmodule: Pakete (Bundles), Produkt-Add-ons und "Haeufig zusammen gekauft" (FBT). Jedes arbeitet unabhaengig.
+Drei Verkaufsmodule: Pakete (Bundles), Produkt-Add-ons und "Häufig zusammen gekauft" (FBT). Jedes funktioniert unabhängig.
 
-:::note[Wymagania]
-Polski PRO wymaga: Polski (free) v1.3.0+, WordPress 6.4+, WooCommerce 8.0+, PHP 8.1+
+:::note[Anforderungen]
+Polski PRO erfordert: Polski (free) v1.3.0+, WordPress 6.4+, WooCommerce 8.0+, PHP 8.1+
 :::
 
 ## Produktpakete (Bundles)
 
-Das Paketmodul ermoeglicht die Erstellung konfigurierbarer Produktsets mit einem gemeinsamen Rabatt. Der Kunde kauft das Paket als ein Produkt, wobei die einzelnen Bestandteile in den Bestelldetails sichtbar sind.
+Erstellen Sie Produktsets mit einem gemeinsamen Rabatt. Der Kunde kauft das Paket als ein Produkt. Die Bestandteile sind in den Bestelldetails sichtbar.
 
 ### Konfiguration
 
-Gehen Sie zu **WooCommerce > Ustawienia > Polski PRO > Pakiety** und aktivieren Sie das Modul (Option `polski_bundles`).
+Gehen Sie zu **WooCommerce > Einstellungen > Polski PRO > Pakete** und aktivieren Sie das Modul (Option `polski_bundles`).
 
 | Einstellung | Standardwert | Beschreibung |
 |------------|------------------|------|
-| Pakete aktivieren | Nein | Aktiviert die Paketfunktionalitaet |
-| Rabattart | Prozent | `percent` (prozentual) oder `fixed` (Festbetrag) |
-| Standardrabatt | 10% | Rabatt fuer neue Pakete |
-| Ersparnis anzeigen | Ja | Zeigt dem Kunden den Sparbetrag |
+| Pakete aktivieren | Nein | Aktiviert die Paketfunktion |
+| Rabattmethode | Prozent | `percent` (prozentual) oder `fixed` (Festbetrag) |
+| Standardrabatt | 10% | Auf neue Pakete angewendeter Rabatt |
+| Ersparnis anzeigen | Ja | Zeigt dem Kunden den Ersparnisbetrag |
 
 ### Paket erstellen
 
-1. Gehen Sie zu **Produkte > Neu hinzufuegen**
-2. Waehlen Sie im Abschnitt **Produktdaten** den Typ "Paket Polski PRO"
-3. Fuegen Sie im Tab **Paketbestandteile** Produkte hinzu
+1. Gehen Sie zu **Produkte > Neu hinzufügen**
+2. Wählen Sie im Abschnitt **Produktdaten** den Typ "Polski PRO Paket"
+3. Fügen Sie im Tab **Paketbestandteile** Produkte hinzu
 4. Legen Sie die Menge jedes Bestandteils fest
-5. Konfigurieren Sie den Rabatt (ueberschreibt den Standardwert)
+5. Konfigurieren Sie den Rabatt (überschreibt den Standard)
 
 ### Rabattberechnung
 
 Der Paketpreis wird automatisch berechnet:
 
 ```
-Cena pakietu = Suma cen składników - Rabat
+Paketpreis = Summe der Bestandteilpreise - Rabatt
 
-Przykład (rabat 15%):
+Beispiel (Rabatt 15%):
 Produkt A: 100 zł x 1 = 100 zł
 Produkt B:  50 zł x 2 = 100 zł
-Suma:                    200 zł
-Rabat (15%):              30 zł
-Cena pakietu:            170 zł
+Summe:                   200 zł
+Rabatt (15%):             30 zł
+Paketpreis:              170 zł
 ```
 
-Wenn ein Paketbestandteil im Angebot ist, wird der Aktionspreis fuer die Berechnung verwendet.
+Ist ein Paketbestandteil im Angebot, wird für die Berechnung der Aktionspreis verwendet.
 
 ### Paket-Shortcode
 
@@ -58,23 +58,23 @@ Wenn ein Paketbestandteil im Angebot ist, wird der Aktionspreis fuer die Berechn
 | Parameter | Erforderlich | Beschreibung |
 |----------|----------|------|
 | `product_id` | Ja | ID des Paketprodukts |
-| `show_savings` | Nein | Sparbetrag anzeigen (`yes`/`no`) |
+| `show_savings` | Nein | Ersparnisbetrag anzeigen (`yes`/`no`) |
 | `layout` | Nein | Layout: `grid`, `list`, `compact` |
 
 ### Paket-Hooks
 
 ```php
 /**
- * Filtruje obliczoną cenę pakietu.
+ * Filtert den berechneten Paketpreis.
  *
- * @param float $bundle_price Obliczona cena pakietu
- * @param array $items        Składniki pakietu z cenami
- * @param float $discount     Wartość rabatu
+ * @param float $bundle_price Berechneter Paketpreis
+ * @param array $items        Paketbestandteile mit Preisen
+ * @param float $discount     Rabattwert
  */
 apply_filters('polski_pro/bundles/price', float $bundle_price, array $items, float $discount): float;
 ```
 
-**Beispiel - Mindestpreis fuer Pakete:**
+**Beispiel - Mindestpaketpreis:**
 
 ```php
 add_filter('polski_pro/bundles/price', function (float $bundle_price, array $items, float $discount): float {
@@ -85,114 +85,114 @@ add_filter('polski_pro/bundles/price', function (float $bundle_price, array $ite
 
 ```php
 /**
- * Akcja wywoływana po dodaniu pakietu do koszyka.
+ * Aktion, die nach Hinzufügen eines Pakets zum Warenkorb ausgelöst wird.
  *
- * @param string $cart_item_key Klucz pozycji w koszyku
- * @param int    $bundle_id    ID produktu-pakietu
- * @param array  $items        Składniki pakietu
+ * @param string $cart_item_key Schlüssel der Position im Warenkorb
+ * @param int    $bundle_id    ID des Paketprodukts
+ * @param array  $items        Paketbestandteile
  */
 do_action('polski_pro/bundles/added_to_cart', string $cart_item_key, int $bundle_id, array $items);
 ```
 
 ## Produkt-Add-ons
 
-Das Add-on-Modul ermoeglicht die Anzeige optionaler Upsell-Produkte direkt auf der Produktseite. Der Kunde kann zusaetzliche Produkte auswaehlen und sie mit einem Klick zusammen mit dem Hauptprodukt kaufen.
+Zeigen Sie optionale Upsell-Produkte auf der Produktseite an. Der Kunde wählt Add-ons und kauft sie mit einem Klick zusammen mit dem Hauptprodukt.
 
 ### Konfiguration
 
-Gehen Sie zu **WooCommerce > Ustawienia > Polski PRO > Dodatki** und aktivieren Sie das Modul (Option `polski_addons`).
+Gehen Sie zu **WooCommerce > Einstellungen > Polski PRO > Add-ons** und aktivieren Sie das Modul (Option `polski_addons`).
 
 | Einstellung | Standardwert | Beschreibung |
 |------------|------------------|------|
-| Add-ons aktivieren | Nein | Aktiviert die Add-on-Funktionalitaet |
-| Anzeigeposition | Nach der Warenkorb-Schaltflaeche | Position der Add-on-Sektion |
-| Sektionsueberschrift | "Dodaj do zamówienia" | Ueberschriftstext ueber der Add-on-Liste |
+| Add-ons aktivieren | Nein | Aktiviert die Add-on-Funktion |
+| Anzeigeposition | Nach dem Warenkorb-Button | Wo der Add-on-Abschnitt angezeigt wird |
+| Abschnittsüberschrift | "Zur Bestellung hinzufügen" | Text der Überschrift über der Add-on-Liste |
 | Maximale Anzahl | 5 | Limit der angezeigten Add-ons pro Produkt |
 
 ### Add-ons zuweisen
 
-Add-ons werden in der Produktbearbeitung im Tab **Dodatki Polski PRO** konfiguriert:
+Add-ons werden in der Produktbearbeitung im Tab **Polski PRO Add-ons** konfiguriert:
 
-1. Klicken Sie auf "Dodatek hinzufuegen"
-2. Waehlen Sie ein Produkt aus dem Katalog
+1. Klicken Sie auf "Add-on hinzufügen"
+2. Wählen Sie ein Produkt aus dem Katalog
 3. Legen Sie den Add-on-Preis fest (Standard: Produktpreis)
-4. Optional: Legen Sie einen Aktionspreis fuer das Add-on fest
+4. Legen Sie optional einen Aktionspreis für das Add-on fest
 5. Bestimmen Sie die Anzeigereihenfolge
 
-Add-ons koennen einen anderen Preis als das Quellprodukt haben - dies ermoeglicht spezielle "Zusammen mit Produkt"-Preise.
+Add-ons können einen anderen Preis als das Quellprodukt haben, Sie können spezielle "zusammen mit dem Produkt"-Preise anbieten.
 
 ### Auswahlvalidierung
 
 Das Modul validiert:
 
-- Lagerverfuegbarkeit jedes gewaehlten Add-ons
-- Preiskorrektheit (ob Preise nicht clientseitig manipuliert wurden)
+- Die Lagerverfügbarkeit jedes ausgewählten Add-ons
+- Die Korrektheit der Preise (ob sie nicht clientseitig geändert wurden)
 - Mengenlimits
 
 ### Add-on-Hooks
 
 ```php
 /**
- * Filtruje listę dodatków dla produktu.
+ * Filtert die Liste der Add-ons für ein Produkt.
  *
- * @param array       $addons  Tablica dodatków z cenami
- * @param \WC_Product $product Produkt główny
+ * @param array       $addons  Array der Add-ons mit Preisen
+ * @param \WC_Product $product Hauptprodukt
  */
 apply_filters('polski_pro/addons/items', array $addons, \WC_Product $product): array;
 ```
 
-**Beispiel - Add-ons basierend auf Benutzerrolle filtern:**
+**Beispiel - Filterung der Add-ons anhand der Benutzerrolle:**
 
 ```php
 add_filter('polski_pro/addons/items', function (array $addons, \WC_Product $product): array {
     if (current_user_can('wholesale_customer')) {
         foreach ($addons as &$addon) {
-            $addon['price'] = $addon['price'] * 0.8; // 20% rabatu hurtowego
+            $addon['price'] = $addon['price'] * 0.8; // 20% Großhandelsrabatt
         }
     }
     return $addons;
 }, 10, 2);
 ```
 
-## Haeufig zusammen gekauft (Frequently Bought Together)
+## Häufig zusammen gekauft (Frequently Bought Together)
 
-Das Empfehlungsmodul zeigt Produkte an, die am haeufigsten zusammen mit dem angesehenen Produkt gekauft werden, mit der Moeglichkeit, mehrere Produkte mit einem Klick in den Warenkorb zu legen.
+Zeigt die Produkte an, die am häufigsten zusammen mit dem angesehenen Produkt gekauft werden. Der Kunde fügt mehrere Produkte mit einem Klick in den Warenkorb.
 
 ### Konfiguration
 
-Gehen Sie zu **WooCommerce > Ustawienia > Polski PRO > Często kupowane razem** und aktivieren Sie das Modul (Option `polski_fbt`).
+Gehen Sie zu **WooCommerce > Einstellungen > Polski PRO > Häufig zusammen gekauft** und aktivieren Sie das Modul (Option `polski_fbt`).
 
 | Einstellung | Standardwert | Beschreibung |
 |------------|------------------|------|
 | Modul aktivieren | Nein | Aktiviert die Empfehlungen |
-| Datenquelle | Manuell | `manual` (manuell) oder `auto` (basierend auf Bestellungen) |
+| Datenquelle | Manuell | `manual` (manuell) oder `auto` (auf Basis der Bestellungen) |
 | Produktlimit | 3 | Maximale Anzahl empfohlener Produkte |
-| Sektionsueberschrift | "Często kupowane razem" | Ueberschriftstext der Sektion |
-| Position | Unter der Kurzbeschreibung | Position der Sektion |
+| Abschnittsüberschrift | "Häufig zusammen gekauft" | Text der Abschnittsüberschrift |
+| Position | Unter der Kurzbeschreibung | Wo der Abschnitt angezeigt wird |
 
 ### Manuelle Zuweisung
 
-In der Produktbearbeitung, Tab **Często kupowane razem**:
+In der Produktbearbeitung, Tab **Häufig zusammen gekauft**:
 
-1. Suchen und fuegen Sie verwandte Produkte hinzu
+1. Suchen und fügen Sie verwandte Produkte hinzu
 2. Legen Sie die Anzeigereihenfolge fest
-3. Optional: Legen Sie einen Rabatt fuer den gemeinsamen Kauf fest
+3. Legen Sie optional einen Rabatt für den gemeinsamen Kauf fest
 
 ### Automatische Empfehlungen
 
-Wenn die Datenquelle auf `auto` eingestellt ist, analysiert das Modul die Bestellhistorie und identifiziert haeufig zusammen gekaufte Produkte. Die Analyse wird einmal taeglich ueber WP-Cron ausgefuehrt.
+Im Modus `auto` analysiert das Modul die Bestellhistorie und findet die am häufigsten zusammen gekauften Produkte. Die Analyse läuft einmal täglich über WP-Cron.
 
-### In den Warenkorb legen
+### Hinzufügen zum Warenkorb
 
-Die Sektion "Haeufig zusammen gekauft" zeigt:
+Der Abschnitt "Häufig zusammen gekauft" zeigt:
 
 - Checkboxen bei jedem empfohlenen Produkt
 - Miniaturbilder und Produktnamen
 - Preise der einzelnen Produkte
-- Gesamtpreis der ausgewaehlten Produkte
-- Schaltflaeche "Alle in den Warenkorb"
+- Gesamtpreis der ausgewählten Produkte
+- Schaltfläche "Alle in den Warenkorb"
 
-Der Kunde waehlt die gewuenschten Produkte und fuegt sie mit einem Klick hinzu. Alle Produkte landen als separate Positionen im Warenkorb.
+Der Kunde markiert Produkte und fügt sie mit einem Klick hinzu. Sie gelangen als separate Positionen in den Warenkorb.
 
 ### Shortcode
 
@@ -202,7 +202,7 @@ Der Kunde waehlt die gewuenschten Produkte und fuegt sie mit einem Klick hinzu. 
 
 | Parameter | Erforderlich | Beschreibung |
 |----------|----------|------|
-| `product_id` | Nein | ID des Hauptprodukts (Standard: aktuelles Produkt) |
+| `product_id` | Nein | ID des Hauptprodukts (Standard: aktuelles) |
 | `limit` | Nein | Maximale Anzahl der Empfehlungen |
 | `show_prices` | Nein | Preise anzeigen (`yes`/`no`) |
 
@@ -210,16 +210,16 @@ Der Kunde waehlt die gewuenschten Produkte und fuegt sie mit einem Klick hinzu. 
 
 ```php
 /**
- * Filtruje listę rekomendowanych produktów.
+ * Filtert die Liste der empfohlenen Produkte.
  *
- * @param array $product_ids Tablica ID rekomendowanych produktów
- * @param int   $product_id  ID produktu głównego
- * @param string $source     Źródło: 'manual' lub 'auto'
+ * @param array $product_ids Array der IDs empfohlener Produkte
+ * @param int   $product_id  ID des Hauptprodukts
+ * @param string $source     Quelle: 'manual' oder 'auto'
  */
 apply_filters('polski_pro/fbt/products', array $product_ids, int $product_id, string $source): array;
 ```
 
-**Beispiel - Produkte einer bestimmten Kategorie ausschliessen:**
+**Beispiel - Ausschluss von Produkten einer bestimmten Kategorie:**
 
 ```php
 add_filter('polski_pro/fbt/products', function (array $product_ids, int $product_id, string $source): array {
@@ -230,30 +230,30 @@ add_filter('polski_pro/fbt/products', function (array $product_ids, int $product
 }, 10, 3);
 ```
 
-## Zusammenspiel der Module
+## Zusammenwirken der Module
 
-Alle drei Module koennen gleichzeitig auf demselben Produkt arbeiten:
+Alle drei Module können gleichzeitig auf demselben Produkt arbeiten:
 
-- **Paket** mit zugewiesenen **Add-ons** und Sektion **Haeufig zusammen gekauft**
-- Paketbestandteile koennen eigene Add-ons haben
-- FBT-Empfehlungen koennen auf Pakete verweisen
+- **Paket** mit zugewiesenen **Add-ons** und einem Abschnitt **Häufig zusammen gekauft**
+- Paketbestandteile können eigene Add-ons haben
+- FBT-Empfehlungen können auf Pakete verweisen
 
-Die Anzeigereihenfolge auf der Produktseite ist ueber die Prioritaet der WooCommerce-Hooks konfigurierbar.
+Die Anzeigereihenfolge stellen Sie über die Priorität der WooCommerce-Hooks ein.
 
 ## Fehlerbehebung
 
-**Paketpreis aktualisiert sich nach Preisaenderung der Bestandteile nicht**
-Der Paketpreis wird dynamisch berechnet. Leeren Sie den Object-Cache und WooCommerce-Transients.
+**Der Paketpreis aktualisiert sich nach Änderung der Bestandteilpreise nicht**
+Der Paketpreis wird dynamisch berechnet. Leeren Sie den Objekt-Cache (Object Cache) und die WooCommerce-Transients.
 
 **Add-ons werden auf der Produktseite nicht angezeigt**
-Pruefen Sie, ob das Theme den Hook `woocommerce_after_add_to_cart_button` unterstuetzt. Einige benutzerdefinierte Themes ueberspringen Standard-WooCommerce-Hooks.
+Prüfen Sie, ob das Theme den Hook `woocommerce_after_add_to_cart_button` unterstützt. Einige benutzerdefinierte Themes überspringen die Standard-WooCommerce-Hooks.
 
 **Automatische Empfehlungen sind leer**
-Das Modul benoetigt historische Daten - automatische Empfehlungen erscheinen nach Sammlung einer ausreichenden Anzahl von Bestellungen. Pruefen Sie, ob die WP-Cron-Aufgabe `polski_pro_fbt_analyze` geplant ist.
+Das Modul benötigt historische Daten, automatische Empfehlungen erscheinen nach dem Sammeln einer ausreichenden Anzahl von Bestellungen. Prüfen Sie, ob die WP-Cron-Aufgabe `polski_pro_fbt_analyze` geplant ist.
 
-## Naechste Schritte
+## Nächste Schritte
 
 - Probleme melden: [GitHub Issues](https://github.com/wppoland/polski/issues)
-- Verwandte Module: [Vorbestellungen](/pro/preorders), [Katalogmodus](/pro/catalog-mode)
+- Verwandte Module: [Vorbestellung](/pro/preorders), [Katalogmodus](/pro/catalog-mode)
 
-<div class="disclaimer">Diese Seite dient ausschließlich zu Informationszwecken und stellt keine Rechtsberatung dar. Konsultieren Sie vor der Umsetzung einen Anwalt. Polski for WooCommerce ist Open-Source-Software (GPLv2) ohne Garantie.</div>
+<div class="disclaimer">Diese Seite dient ausschließlich Informationszwecken und stellt keine Rechtsberatung dar. Konsultieren Sie vor der Umsetzung einen Anwalt. Polski for WooCommerce ist Open-Source-Software (GPLv2), die ohne Gewährleistung bereitgestellt wird.</div>

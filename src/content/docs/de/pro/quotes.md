@@ -1,52 +1,52 @@
 ---
 title: Angebotsanfragen (RFQ)
-description: Modul fuer Angebotsanfragen in Polski PRO for WooCommerce - Ersetzung der Warenkorb-Schaltflaeche durch ein Angebotsformular, Einwilligungsprotokollierung, Administrationsbereich und E-Mail-Benachrichtigungen.
+description: Modul für Angebotsanfragen von Polski PRO for WooCommerce - Ersetzen des Warenkorb-Buttons durch ein Angebotsformular, Protokollierung von Einwilligungen, Verwaltungspanel und E-Mail-Benachrichtigungen.
 ---
 
-Das RFQ-Modul ersetzt "In den Warenkorb" durch "Preis anfragen". Kunden stellen Angebotsanfragen statt direkt zu kaufen. Nuetzlich in B2B-Shops und bei Produkten mit individueller Preisgestaltung.
+Das Modul für Angebotsanfragen (RFQ) ersetzt den Button "In den Warenkorb" durch "Preis anfragen". Kunden stellen Anfragen, anstatt direkt zu kaufen. Nützlich in B2B-Shops und bei Produkten mit individueller Preisgestaltung.
 
-:::note[Wymagania]
-Polski PRO wymaga: Polski (free) v1.3.0+, WordPress 6.4+, WooCommerce 8.0+, PHP 8.1+
+:::note[Voraussetzungen]
+Polski PRO erfordert: Polski (free) v1.3.0+, WordPress 6.4+, WooCommerce 8.0+, PHP 8.1+
 :::
 
 ## Konfiguration
 
-Gehen Sie zu **WooCommerce > Ustawienia > Polski PRO > Zapytania ofertowe** und aktivieren Sie das Modul.
+Gehen Sie zu **WooCommerce > Einstellungen > Polski PRO > Angebotsanfragen** und aktivieren Sie das Modul.
 
 ### Grundeinstellungen
 
 | Einstellung | Option in der Datenbank | Standardwert | Beschreibung |
 |------------|---------------|------------------|------|
-| Modul aktivieren | `polski_quote` | Nein | Aktiviert die Angebotsanfrage-Funktionalitaet |
-| Schaltflaechentext | `polski_quote_button_text` | "Zapytaj o cenę" | Text, der auf der Schaltflaeche angezeigt wird |
-| Auf Listen anzeigen | `polski_quote_show_on_loops` | Nein | Zeigt die Anfrageschaltflaeche auf Archiv- und Kategorieseiten |
-| Anmeldung erforderlich | `polski_quote_require_login` | Nein | Erfordert Anmeldung vor dem Absenden einer Anfrage |
-| Einwilligung zur Verarbeitung | `polski_quote_consent` | Ja | Fuegt dem Formular eine DSGVO-Einwilligungscheckbox hinzu |
+| Modul aktivieren | `polski_quote` | Nein | Aktiviert die Funktion der Angebotsanfragen |
+| Button-Text | `polski_quote_button_text` | "Preis anfragen" | Auf dem Button angezeigter Text |
+| Auf Listen anzeigen | `polski_quote_show_on_loops` | Nein | Zeigt den Anfrage-Button auf Archiv- und Kategorieseiten an |
+| Anmeldung erforderlich | `polski_quote_require_login` | Nein | Erfordert die Anmeldung vor dem Absenden einer Anfrage |
+| Einwilligung zur Verarbeitung | `polski_quote_consent` | Ja | Fügt dem Formular eine DSGVO-Einwilligungs-Checkbox hinzu |
 
 ### Formularfelder
 
-Das Angebotsformular enthaelt standardmaessig:
+Das Formular der Angebotsanfrage enthält standardmäßig:
 
 - **Vor- und Nachname** - erforderlich
 - **E-Mail-Adresse** - erforderlich, Formatvalidierung
 - **Telefon** - optional
 - **Menge** - erforderlich, numerische Validierung
-- **Nachricht** - optional, Textarea
-- **DSGVO-Einwilligung** - Checkbox, erforderlich wenn aktiviert
+- **Nachricht** - optional, textarea
+- **DSGVO-Einwilligung** - Checkbox, erforderlich, wenn aktiviert
 
-## Frontend-Verhalten
+## Verhalten im Frontend
 
-### Schaltflaechen-Ersetzung
+### Ersetzen des Buttons
 
-Nach Aktivierung des Moduls wird die Schaltflaeche "In den Warenkorb" durch die Angebotsschaltflaeche ersetzt. Dies betrifft:
+Nach der Aktivierung ersetzt das Modul den Button "In den Warenkorb" durch den Anfrage-Button. Das betrifft:
 
-- Einzelne Produktseiten
+- die Einzelproduktseite
 - Archiv- und Kategorieseiten (wenn die Option `polski_quote_show_on_loops` aktiviert ist)
-- Produkt-Widgets und Shortcodes
+- Produkt-Widgets und -Shortcodes
 
 ### Shortcode
 
-Die Angebotsschaltflaeche kann an beliebiger Stelle per Shortcode eingefuegt werden:
+Platzieren Sie den Anfrage-Button per Shortcode an beliebiger Stelle:
 
 ```
 [polski_quote_button product_id="123" text="Zapytaj o cenę" class="custom-class"]
@@ -56,13 +56,13 @@ Die Angebotsschaltflaeche kann an beliebiger Stelle per Shortcode eingefuegt wer
 
 | Parameter | Erforderlich | Beschreibung |
 |----------|----------|------|
-| `product_id` | Nein | Produkt-ID (Standard: aktuelles Produkt) |
-| `text` | Nein | Schaltflaechentext |
-| `class` | Nein | Zusaetzliche CSS-Klassen |
+| `product_id` | Nein | Produkt-ID (standardmäßig das aktuelle Produkt) |
+| `text` | Nein | Button-Text |
+| `class` | Nein | Zusätzliche CSS-Klassen |
 
 ### Formularversand (AJAX)
 
-Das Formular wird asynchron (AJAX) ohne Seitenneuladen gesendet. Nach dem Absenden sieht der Kunde eine Bestaetigungsmeldung mit der Anfragenummer.
+Das Formular wird per AJAX gesendet, ohne Neuladen der Seite. Der Kunde sieht eine Bestätigung mit der Anfragenummer.
 
 ```php
 /**
@@ -75,7 +75,7 @@ Das Formular wird asynchron (AJAX) ohne Seitenneuladen gesendet. Nach dem Absend
 apply_filters('polski_pro/quote/before_save', array $quote_data, int $product_id, $user): array;
 ```
 
-**Beispiel - benutzerdefiniertes Feld hinzufuegen:**
+**Beispiel - benutzerdefiniertes Feld hinzufügen:**
 
 ```php
 add_filter('polski_pro/quote/before_save', function (array $quote_data, int $product_id, $user): array {
@@ -84,16 +84,16 @@ add_filter('polski_pro/quote/before_save', function (array $quote_data, int $pro
 }, 10, 3);
 ```
 
-## Einwilligungsprotokollierung
+## Protokollierung von Einwilligungen
 
-Jede Angebotsanfrage speichert Informationen ueber erteilte Einwilligungen:
+Jede Anfrage speichert Daten über die erteilten Einwilligungen:
 
-- Zeitstempel (Timestamp) der Einwilligungserteilung
-- IP-Adresse des Kunden (SHA-256-gehasht)
-- Einwilligungstext zum Zeitpunkt der Erteilung
-- Formularversion
+- Zeitstempel (Timestamp) der Einwilligung
+- IP-Adresse des Kunden (gehasht, SHA-256)
+- Inhalt der Einwilligung zum Zeitpunkt der Erteilung
+- Version des Formulars
 
-Diese Daten werden in der Tabelle `{prefix}_polski_quote_consents` gespeichert und koennen zu DSGVO-Auditzwecken exportiert werden.
+Die Daten landen in der Tabelle `{prefix}_polski_quote_consents` und können für ein DSGVO-Audit exportiert werden.
 
 ```php
 /**
@@ -106,51 +106,51 @@ Diese Daten werden in der Tabelle `{prefix}_polski_quote_consents` gespeichert u
 do_action('polski_pro/quote/consent_logged', int $quote_id, array $consent, string $ip_hash);
 ```
 
-## Administrationsbereich
+## Verwaltungspanel
 
-### Anfragenliste
+### Liste der Anfragen
 
-Angebotsanfragen sind im Menue **WooCommerce > Zapytania ofertowe** verfuegbar. Die Liste enthaelt:
+Gehen Sie zu **WooCommerce > Angebotsanfragen**. Die Liste enthält:
 
 - Anfragenummer
 - Kundendaten (Name, E-Mail, Telefon)
 - Produkt und Menge
 - Status (neu, in Bearbeitung, beantwortet, geschlossen)
-- Eingangsdatum
+- Einreichungsdatum
 
 ### Anfragestatus
 
 | Status | Beschreibung |
 |--------|------|
-| `new` | Neue Anfrage, unbearbeitet |
+| `new` | Neue Anfrage, nicht bearbeitet |
 | `in_progress` | Angebot wird vorbereitet |
 | `replied` | Angebot an den Kunden gesendet |
 | `accepted` | Kunde hat das Angebot angenommen |
 | `rejected` | Kunde hat das Angebot abgelehnt |
 | `closed` | Anfrage geschlossen |
 
-### Anfrage beantworten
+### Auf eine Anfrage antworten
 
-Im Administrationsbereich kann der Administrator:
+Der Administrator kann:
 
-1. Anfragedetails pruefen
-2. Interne Notiz hinzufuegen
-3. Angebotspreis festlegen
-4. Antwort-E-Mail an den Kunden senden
-5. Anfrage in eine WooCommerce-Bestellung umwandeln
+1. die Anfragedetails einsehen
+2. eine interne Notiz hinzufügen
+3. einen Angebotspreis festlegen
+4. eine E-Mail-Antwort an den Kunden senden
+5. die Anfrage in eine WooCommerce-Bestellung umwandeln
 
 ## E-Mail-Benachrichtigungen
 
-Das Modul registriert folgende E-Mail-Vorlagen in WooCommerce:
+E-Mail-Vorlagen des Moduls:
 
-| E-Mail | Empfaenger | Ausloeser |
+| E-Mail | Empfänger | Auslöser |
 |--------|----------|-----------|
 | Neue Angebotsanfrage | Administrator | Einreichung einer Anfrage durch den Kunden |
-| Anfragebestaetigung | Kunde | Einreichung einer Anfrage |
-| Antwort auf Anfrage | Kunde | Angebotsversand durch den Administrator |
-| Statusaenderung der Anfrage | Kunde | Statusaenderung der Anfrage |
+| Anfragebestätigung | Kunde | Einreichung der Anfrage |
+| Antwort auf die Anfrage | Kunde | Versand des Angebots durch den Administrator |
+| Statusänderung der Anfrage | Kunde | Statusänderung der Anfrage |
 
-E-Mail-Vorlagen koennen im Theme im Verzeichnis `woocommerce/emails/` ueberschrieben werden:
+Die E-Mail-Vorlagen lassen sich im Theme im Verzeichnis `woocommerce/emails/` überschreiben:
 
 - `polski-pro-quote-new.php`
 - `polski-pro-quote-confirmation.php`
@@ -171,7 +171,7 @@ E-Mail-Vorlagen koennen im Theme im Verzeichnis `woocommerce/emails/` ueberschri
 apply_filters('polski_pro/quote/form_fields', array $fields, int $product_id): array;
 ```
 
-**Beispiel - NIP-Feld hinzufuegen:**
+**Beispiel - NIP-Feld hinzufügen:**
 
 ```php
 add_filter('polski_pro/quote/form_fields', function (array $fields, int $product_id): array {
@@ -185,7 +185,7 @@ add_filter('polski_pro/quote/form_fields', function (array $fields, int $product
 }, 10, 2);
 ```
 
-### Aktion nach dem Absenden
+### Aktion nach dem Versand
 
 ```php
 /**
@@ -197,7 +197,7 @@ add_filter('polski_pro/quote/form_fields', function (array $fields, int $product
 do_action('polski_pro/quote/submitted', int $quote_id, array $quote_data);
 ```
 
-**Beispiel - Versand an CRM:**
+**Beispiel - Versand an ein CRM:**
 
 ```php
 add_action('polski_pro/quote/submitted', function (int $quote_id, array $quote_data): void {
@@ -213,18 +213,18 @@ add_action('polski_pro/quote/submitted', function (int $quote_id, array $quote_d
 
 ## Fehlerbehebung
 
-**Schaltflaeche "In den Warenkorb" wird weiterhin angezeigt**
-Pruefen Sie, ob die Option `polski_quote` aktiviert ist. Leeren Sie den Cache der Cache-Plugins (WP Super Cache, W3 Total Cache, LiteSpeed Cache).
+**Der Button "In den Warenkorb" wird weiterhin angezeigt**
+Prüfen Sie, ob die Option `polski_quote` aktiviert ist. Leeren Sie den Cache von Cache-Plugins (WP Super Cache, W3 Total Cache, LiteSpeed Cache).
 
-**Formular wird nicht gesendet (AJAX-Fehler)**
-Pruefen Sie die Browserkonsole auf JavaScript-Fehler. Stellen Sie sicher, dass das Skript `polski-pro-quote.js` geladen ist. Konflikte mit anderen Plugins koennen AJAX blockieren - deaktivieren Sie andere Plugins, um den Konflikt zu identifizieren.
+**Das Formular wird nicht gesendet (AJAX-Fehler)**
+Prüfen Sie die Browser-Konsole auf JavaScript-Fehler. Stellen Sie sicher, dass das Skript `polski-pro-quote.js` geladen ist. Konflikte mit anderen Plugins können AJAX blockieren, deaktivieren Sie die übrigen Plugins, um den Konflikt zu identifizieren.
 
-**E-Mails werden nicht gesendet**
-Pruefen Sie die E-Mail-Konfiguration unter **WooCommerce > Ustawienia > E-maile**. Stellen Sie sicher, dass die Polski-PRO-Vorlagen aktiviert sind.
+**E-Mails werden nicht versendet**
+Prüfen Sie die E-Mail-Konfiguration unter **WooCommerce > Einstellungen > E-Mails**. Stellen Sie sicher, dass die Polski-PRO-Vorlagen aktiviert sind.
 
-## Naechste Schritte
+## Nächste Schritte
 
 - Probleme melden: [GitHub Issues](https://github.com/wppoland/polski/issues)
-- Integration mit Katalogmodus: [B2B-Katalogmodus](/pro/catalog-mode)
+- Integration mit dem Katalogmodus: [Katalogmodus B2B](/pro/catalog-mode)
 
-<div class="disclaimer">Diese Seite dient ausschließlich zu Informationszwecken und stellt keine Rechtsberatung dar. Konsultieren Sie vor der Umsetzung einen Anwalt. Polski for WooCommerce ist Open-Source-Software (GPLv2) ohne Garantie.</div>
+<div class="disclaimer">Diese Seite dient ausschließlich Informationszwecken und stellt keine Rechtsberatung dar. Konsultieren Sie vor der Umsetzung einen Anwalt. Polski for WooCommerce ist Open-Source-Software (GPLv2), die ohne Gewährleistung bereitgestellt wird.</div>

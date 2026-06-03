@@ -3,103 +3,103 @@ title: Allergene
 description: Allergendeklaration mittels Taxonomie polski_allergen, automatische Hervorhebung in den Zutaten und Anzeige-Shortcode in WooCommerce.
 ---
 
-EU-Vorschriften verlangen die Kennzeichnung von 14 Allergenen auf Lebensmitteletiketten. Im Onlineshop muss die Allergeninformation vor dem Kauf sichtbar sein. Polski for WooCommerce verwaltet Allergene ueber eine WordPress-Taxonomie.
+EU-Vorschriften verlangen die Kennzeichnung von 14 Allergenen auf dem Etikett eines Lebensmittelprodukts. Im Onlineshop muss die Allergeninformation vor dem Kauf sichtbar sein. Das Plugin Polski for WooCommerce verwaltet Allergene über eine WordPress-Taxonomie.
 
-## 14 Hauptallergene
+## Die 14 Hauptallergene
 
-Gemaess Anhang II der LMIV umfasst die obligatorische Deklaration:
+Die verpflichtende Deklaration umfasst:
 
 | Nr | Allergen | Taxonomie-Slug | Symbol |
-|----|---------|----------------|-------|
+|----|----------|----------------|--------|
 | 1 | Glutenhaltiges Getreide | `gluten` | gluten |
-| 2 | Krebstiere | `crustaceans` | Krebstiere |
-| 3 | Eier | `eggs` | Eier |
-| 4 | Fisch | `fish` | Fisch |
-| 5 | Erdnuesse | `peanuts` | Erdnuesse |
-| 6 | Soja | `soy` | Soja |
-| 7 | Milch (Laktose) | `milk` | Milch |
-| 8 | Schalenfruechte | `nuts` | Nuesse |
-| 9 | Sellerie | `celery` | Sellerie |
-| 10 | Senf | `mustard` | Senf |
-| 11 | Sesamsamen | `sesame` | Sesam |
-| 12 | Schwefeldioxid und Sulfite | `sulphites` | Sulfite |
-| 13 | Lupine | `lupin` | Lupine |
-| 14 | Weichtiere | `molluscs` | Weichtiere |
+| 2 | Krebstiere | `crustaceans` | krebstiere |
+| 3 | Eier | `eggs` | eier |
+| 4 | Fisch | `fish` | fisch |
+| 5 | Erdnüsse | `peanuts` | erdnuesse |
+| 6 | Soja | `soy` | soja |
+| 7 | Milch (Laktose) | `milk` | milch |
+| 8 | Schalenfrüchte (Nüsse) | `nuts` | nuesse |
+| 9 | Sellerie | `celery` | sellerie |
+| 10 | Senf | `mustard` | senf |
+| 11 | Sesamsamen | `sesame` | sesam |
+| 12 | Schwefeldioxid und Sulfite | `sulphites` | sulfite |
+| 13 | Lupinen | `lupin` | lupinen |
+| 14 | Weichtiere | `molluscs` | weichtiere |
 
 ## Taxonomie polski_allergen
 
-Das Plugin registriert die Taxonomie `polski_allergen`, die mit dem Post-Typ `product` verknuepft ist. Bei der Plugin-Aktivierung wird die Taxonomie automatisch mit den 14 Hauptallergenen gefuellt.
+Das Plugin erstellt die mit Produkten verknüpfte Taxonomie `polski_allergen`. Bei der Aktivierung fügt es automatisch die 14 Hauptallergene hinzu.
 
-### Allergenverwaltung
+### Verwaltung der Allergene
 
-Gehen Sie zu **Produkte > Allergene**, um die Allergenliste zu verwalten. Die 14 Standardallergene werden automatisch erstellt. Sie koennen eigene Allergene hinzufuegen, die spezifisch fuer Ihr Sortiment sind.
+Gehe zu **Produkte > Allergene**, um die Liste zu verwalten. Die 14 Allergene werden automatisch erstellt. Du kannst eigene, für dein Sortiment spezifische Allergene hinzufügen.
 
-Jedes Allergen enthaelt:
+Jedes Allergen enthält:
 
 | Feld | Beschreibung |
-|------|------|
-| Name | Angezeigter Allergenname (z.B. "Milch und Milcherzeugnisse") |
-| Slug | URL-Kennung (z.B. `milk`) |
-| Beschreibung | Zusaetzliche Allergeninformationen |
-| Symbol | Optionales Symbol (Taxonomie-Thumbnail) |
+|------|--------------|
+| Name | Angezeigter Name des Allergens (z. B. "Milch und daraus gewonnene Erzeugnisse") |
+| Slug | URL-Kennung (z. B. `milk`) |
+| Beschreibung | Zusätzliche Informationen zum Allergen |
+| Symbol | Optionales Symbol (Miniaturbild der Taxonomie) |
 
-### Allergene zum Produkt zuweisen
+### Allergene einem Produkt zuweisen
 
-Im Produkteditor, im Tab "Lebensmittel" oder im Seitenpanel "Allergene", kreuzen Sie die entsprechenden Allergene aus der Checkbox-Liste an.
+Markiere im Produkteditor, im Reiter "Lebensmittel" oder in der Seitenleiste "Allergene", die entsprechenden Allergene aus der Checkbox-Liste.
 
-Drei Deklarationsmodi sind verfuegbar:
+Es stehen drei Deklarationsmodi zur Verfügung:
 
 | Modus | Beschreibung | Beispiel |
-|------|------|---------|
-| Enthaelt | Produkt enthaelt das Allergen | "Enthaelt: Milch, Eier" |
-| Kann enthalten | Kreuzkontaminationsrisiko | "Kann enthalten: Nuesse" |
-| Enthaelt nicht | Ausdrueckliche Deklaration des Fehlens (optional) | "Enthaelt nicht: Gluten" |
+|-------|--------------|----------|
+| Enthält | Das Produkt enthält das jeweilige Allergen | "Enthält: Milch, Eier" |
+| Kann enthalten | Risiko einer Kreuzkontamination | "Kann enthalten: Nüsse" |
+| Enthält nicht | Ausdrückliche Deklaration des Nichtvorhandenseins (optional) | "Enthält nicht: Gluten" |
 
 ### Modus "Kann enthalten"
 
-Der Modus "Kann enthalten" (may contain) dient zur Kennzeichnung des Risikos von Allergenspuren, die aus Produktionsprozessen resultieren. Im Produkteditor kann jedes Allergen markiert werden als:
+Der Modus "Kann enthalten" kennzeichnet das Risiko von Spuren eines Allergens aus dem Produktionsprozess. Jedes Allergen markierst du als:
 
-- **Enthaelt** - Allergen ist Produktbestandteil
+- **Enthält** - das Allergen ist ein Bestandteil des Produkts
 - **Kann enthalten** - Risiko von Spuren
 
 ## Konfiguration
 
-Gehen Sie zu **WooCommerce > Einstellungen > Polski > Lebensmittel** und konfigurieren Sie den Abschnitt "Allergene".
+Gehe zu **WooCommerce > Einstellungen > Polski > Lebensmittel** und konfiguriere den Abschnitt "Allergene".
 
 | Einstellung | Standard | Beschreibung |
-|------------|----------|------|
+|-------------|----------|--------------|
 | Allergendeklaration aktivieren | Ja | Aktiviert das Allergensystem |
-| In Zutaten hervorheben | Ja | Automatische Fettschrift der Allergene im Zutatenverzeichnis |
+| In den Zutaten hervorheben | Ja | Automatische Fettschrift der Allergene im Zutatenverzeichnis |
 | Symbole anzeigen | Nein | Zeigt Allergensymbole an |
-| Position auf der Seite | Lebensmittel-Tab | Wo Allergene angezeigt werden |
-| Modus "Kann enthalten" | Ja | Aktiviert die Spurendeklarationsoption |
+| Position auf der Seite | Reiter Lebensmittel | Wo die Allergene angezeigt werden |
+| Modus "Kann enthalten" | Ja | Aktiviert die Option zur Deklaration von Spuren |
 | Anzeigeformat | Liste | `liste`, `symbole`, `inline` |
 
-## Automatische Hervorhebung in Zutaten
+## Automatische Hervorhebung in den Zutaten
 
-Gemaess Art. 21 der LMIV muessen Allergene im Zutatenverzeichnis hervorgehoben werden - ueblicherweise durch Fettschrift oder Grossbuchstaben. Das Plugin sucht automatisch nach Allergennamen im Feld "Zutaten" und umschliesst sie mit dem Tag `<strong>`.
+Allergene im Zutatenverzeichnis müssen hervorgehoben werden - meist durch Fettschrift. Das Plugin sucht automatisch die Allergennamen im Feld "Zutaten" und schließt sie in `<strong>` ein.
 
 Beispiel:
 
 Eingegebener Text:
 ```
-Weizenmehl, Zucker, Butter, Huehnereier, Magermilchpulver, Salz
+Weizenmehl, Zucker, Butter, Hühnereier, Magermilchpulver, Salz
 ```
 
 Angezeigter Text:
 ```
-Weizenmehl (Gluten), Zucker, Butter (Milch), Huehnereier, Magermilchpulver, Salz
+Weizenmehl (Gluten), Zucker, Butter (Milch), Hühnereier, Magermilchpulver, Salz
 ```
 
 Mit HTML-Hervorhebung:
 ```html
-Mehl <strong>Weizen (Gluten)</strong>, Zucker, Butter (<strong>Milch</strong>), 
-<strong>Eier</strong>, <strong>Milch</strong>pulver, Salz
+<strong>Weizen</strong>mehl (Gluten), Zucker, Butter (<strong>Milch</strong>), 
+Hühner<strong>eier</strong>, Mager<strong>milch</strong>pulver, Salz
 ```
 
-### Hervorhebung konfigurieren
+### Konfiguration der Hervorhebung
 
-Das Plugin durchsucht das Zutatenverzeichnis nach Allergen-Synonymen. Die Synonym-Liste ist konfigurierbar:
+Das Plugin sucht nach Synonymen der Allergene im Zutatenverzeichnis. Die Synonymliste änderst du mit einem Filter:
 
 ```php
 add_filter('polski/allergens/synonyms', function (array $synonyms): array {
@@ -113,18 +113,18 @@ add_filter('polski/allergens/synonyms', function (array $synonyms): array {
 
 ## Shortcode
 
-Verwenden Sie den Shortcode `[polski_allergens]`, um die Allergendeklaration anzuzeigen.
+Verwende den Shortcode `[polski_allergens]`, um die Allergendeklaration anzuzeigen.
 
 ### Parameter
 
 | Parameter | Typ | Standard | Beschreibung |
-|----------|-----|----------|------|
+|-----------|-----|----------|--------------|
 | `product_id` | int | aktuell | Produkt-ID |
 | `format` | string | `list` | Format: `list`, `icons`, `inline`, `table` |
 | `show_may_contain` | bool | `true` | Ob der Abschnitt "Kann enthalten" angezeigt wird |
 | `show_icons` | bool | `false` | Ob Allergensymbole angezeigt werden |
 | `label` | string | `"Allergene: "` | Label vor der Liste |
-| `wrapper` | string | `div` | Umschliessendes HTML-Element |
+| `wrapper` | string | `div` | Umschließendes HTML-Element |
 
 ### Verwendungsbeispiele
 
@@ -137,7 +137,7 @@ Grundlegende Allergenliste:
 Ergebnis:
 ```
 Allergene: Milch, Eier, Gluten
-Kann enthalten: Nuesse
+Kann enthalten: Nüsse
 ```
 
 Inline-Format mit Symbolen:
@@ -146,10 +146,22 @@ Inline-Format mit Symbolen:
 [polski_allergens format="inline" show_icons="true"]
 ```
 
-Ohne "Kann enthalten"-Abschnitt:
+Ohne Abschnitt "Kann enthalten":
 
 ```html
 [polski_allergens show_may_contain="false"]
+```
+
+Tabellenformat:
+
+```html
+[polski_allergens format="table"]
+```
+
+Für ein bestimmtes Produkt:
+
+```html
+[polski_allergens product_id="456"]
 ```
 
 Im PHP-Template:
@@ -160,14 +172,14 @@ echo do_shortcode('[polski_allergens product_id="' . $product->get_id() . '"]');
 
 ## Programmatischer Zugriff
 
-### Produktallergene abrufen
+### Allergene eines Produkts abrufen
 
 ```php
-// Allergene "Enthaelt"
+// Allergene "Enthält"
 $allergens = wp_get_object_terms($product_id, 'polski_allergen');
 
 foreach ($allergens as $allergen) {
-    echo $allergen->name; // z.B. "Milch und Milcherzeugnisse"
+    echo $allergen->name; // z. B. "Milch und daraus gewonnene Erzeugnisse"
 }
 
 // Allergene "Kann enthalten"
@@ -183,21 +195,29 @@ if ($may_contain) {
 ### Allergene programmatisch zuweisen
 
 ```php
-// Allergene "Enthaelt" setzen
+// Allergene "Enthält" setzen
 wp_set_object_terms($product_id, ['gluten', 'milk', 'eggs'], 'polski_allergen');
 
 // Allergene "Kann enthalten" setzen
 update_post_meta($product_id, '_polski_may_contain_allergens', ['nuts', 'soy']);
 ```
 
+### Prüfen, ob ein Produkt ein Allergen enthält
+
+```php
+if (has_term('gluten', 'polski_allergen', $product_id)) {
+    // Das Produkt enthält Gluten
+}
+```
+
 ## CSV-Import
 
-Allergene koennen per CSV importiert werden:
+Allergene importierst du per CSV:
 
 | CSV-Spalte | Beschreibung | Format |
-|-------------|------|--------|
-| `polski_allergens` | Allergene "Enthaelt" | Slugs durch Komma getrennt |
-| `polski_may_contain` | Allergene "Kann enthalten" | Slugs durch Komma getrennt |
+|------------|--------------|--------|
+| `polski_allergens` | Allergene "Enthält" | Durch Kommas getrennte Slugs |
+| `polski_may_contain` | Allergene "Kann enthalten" | Durch Kommas getrennte Slugs |
 
 Beispiel:
 
@@ -253,28 +273,28 @@ Beispiel:
 }
 ```
 
-## Haeufige Probleme
+## Häufige Probleme
 
 ### Allergene werden auf der Produktseite nicht angezeigt
 
-1. Pruefen Sie, ob das Allergenmodul aktiviert ist
-2. Stellen Sie sicher, dass dem Produkt Allergene im Editor zugewiesen sind
-3. Ueberpruefen Sie, ob die Taxonomie `polski_allergen` korrekt registriert ist (Produkte > Allergene)
+1. Prüfe, ob das Allergenmodul aktiviert ist
+2. Stelle sicher, dass dem Produkt im Editor Allergene zugewiesen sind
+3. Überprüfe, ob die Taxonomie `polski_allergen` korrekt registriert ist (Produkte > Allergene)
 
-### Automatische Hervorhebung funktioniert nicht
+### Die automatische Hervorhebung funktioniert nicht
 
-1. Pruefen Sie, ob die Option "In Zutaten hervorheben" aktiviert ist
-2. Stellen Sie sicher, dass Allergennamen oder deren Synonyme dem Text im Zutatenverzeichnis entsprechen
-3. Erweitern Sie die Synonymliste mit dem Filter `polski/allergens/synonyms`
+1. Prüfe, ob die Option "In den Zutaten hervorheben" aktiviert ist
+2. Stelle sicher, dass die Allergennamen oder ihre Synonyme dem Text im Zutatenverzeichnis entsprechen
+3. Erweitere die Synonymliste mit dem Filter `polski/allergens/synonyms`
 
-### Standardallergene fehlen nach der Aktivierung
+### Keine Standardallergene nach der Aktivierung
 
-Wenn die Liste der 14 Allergene nicht automatisch erstellt wurde, gehen Sie zu **WooCommerce > Einstellungen > Polski > Lebensmittel** und klicken Sie auf "Standardallergene erstellen".
+Wenn die 14 Allergene nicht automatisch erschienen sind, gehe zu **WooCommerce > Einstellungen > Polski > Lebensmittel** und klicke auf "Standardallergene erstellen".
 
 ## Verwandte Ressourcen
 
-- [Lebensmittelmodul](/de/food/food-overview/)
-- [Naehrwerte](/de/food/nutrients/)
+- [Lebensmittelmodul](food/food-overview/)
+- [Nährwerte](food/nutrients/)
 - [Problem melden](https://github.com/wppoland/polski/issues)
 
-<div class="disclaimer">Diese Seite dient ausschließlich zu Informationszwecken und stellt keine Rechtsberatung dar. Konsultieren Sie vor der Umsetzung einen Anwalt. Polski for WooCommerce ist Open-Source-Software (GPLv2) ohne Garantie.</div>
+<div class="disclaimer">Diese Seite dient ausschließlich zu Informationszwecken und stellt keine Rechtsberatung dar. Konsultiere vor der Umsetzung einen Anwalt. Polski for WooCommerce ist Open-Source-Software (GPLv2), die ohne Gewährleistung bereitgestellt wird.</div>

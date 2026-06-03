@@ -1,111 +1,160 @@
 ---
-title: Compliance-Panel
-description: Panel zur Kontrolle rechtlicher Anforderungen in Polski for WooCommerce - Checkliste mit farbigem Status fuer jede Anforderung.
+title: Compliance-Panel (compliance dashboard)
+description: Panel zur Kontrolle rechtlicher Anforderungen in Polski for WooCommerce - Checkliste mit farbigem Status für jede Anforderung.
 ---
 
-Das Compliance-Panel ist der zentrale Ort zur Pruefung der rechtlichen Anforderungen des Shops. Es zeigt eine Checkliste mit Status fuer jede Anforderung - von den AGB bis GPSR und DSA.
+Das Compliance-Panel ist der zentrale Ort zur Prüfung der rechtlichen Anforderungen des Shops. Es zeigt eine Checkliste mit dem Status jeder Anforderung an, von den AGB bis hin zu GPSR und DSA.
 
 ## Zugang zum Panel
 
-Gehen Sie zu **WooCommerce > Polski > Compliance-Panel**. Das Panel ist fuer Benutzer mit der Berechtigung `manage_woocommerce` (Rollen Administrator und Shop-Manager) zugaenglich.
+Gehen Sie zu **WooCommerce > Polski > Compliance-Panel**. Erfordert die Berechtigung `manage_woocommerce` (Administrator oder Shop-Manager).
 
 ## Checkliste
 
-Das Panel zeigt eine Liste rechtlicher Anforderungen, gruppiert nach Kategorien. Jede Anforderung hat einen visuellen Status:
+Rechtliche Anforderungen, gruppiert nach Kategorien. Jede hat einen visuellen Status:
 
 ### Status
 
-| Status | Farbe   | Symbol | Beschreibung                                      |
+| Status | Farbe   | Symbol | Beschreibung                              |
 | ------ | ------- | ----- | ----------------------------------------- |
-| OK     | Gruen | Haken     | Anforderung erfuellt                       |
-| WARN   | Gelb   | !     | Teilweise erfuellt, erfordert Aufmerksamkeit         |
-| FAIL   | Rot| X     | Nicht erfuellt, erfordert sofortige Massnahme |
-| OFF    | Grau   | -     | Modul deaktiviert                           |
+| OK     | Grün    | ✓     | Anforderung erfüllt                       |
+| WARN   | Gelb    | !     | Teilweise erfüllt, erfordert Aufmerksamkeit |
+| FAIL   | Rot     | ✗     | Nicht erfüllt, erfordert sofortige Maßnahme |
+| OFF    | Grau    | -     | Modul deaktiviert                         |
 
 ### Kategorie: Rechtsseiten
 
-| Pruefung                          | Gruen wenn                      |
+| Prüfung                              | Grüner Status wenn                      |
 | ------------------------------------ | --------------------------------------- |
-| AGB                     | Seite veroeffentlicht und zugewiesen        |
-| Datenschutzerklaerung                 | Seite veroeffentlicht und zugewiesen        |
-| Widerrufsbelehrung    | Seite veroeffentlicht mit Formular       |
-| Cookie-Richtlinie                     | Seite veroeffentlicht                     |
-| Liefer- und Zahlungsinformation | Seite veroeffentlicht                     |
+| AGB des Shops                        | Seite veröffentlicht und zugewiesen     |
+| Datenschutzerklärung                 | Seite veröffentlicht und zugewiesen     |
+| Widerrufsbelehrung                   | Seite veröffentlicht mit Formular       |
+| Cookie-Richtlinie                    | Seite veröffentlicht                     |
+| Liefer- und Zahlungsinformationen    | Seite veröffentlicht                     |
 
 ### Kategorie: Rechtliche Checkboxen
 
-| Pruefung                          | Gruen wenn                      |
+| Prüfung                              | Grüner Status wenn                      |
 | ------------------------------------ | --------------------------------------- |
-| AGB-Akzeptanz (Kasse)         | Checkbox aktiv und erforderlich             |
-| Datenschutzerklaerung (Kasse)          | Checkbox aktiv und erforderlich             |
-| AGB-Akzeptanz (Registrierung)  | Checkbox aktiv und erforderlich             |
-| Marketing-Einwilligung                   | Checkbox aktiv (optional)           |
+| AGB-Akzeptanz (Kasse)                | Checkbox aktiv und erforderlich         |
+| Datenschutzerklärung (Kasse)         | Checkbox aktiv und erforderlich         |
+| AGB-Akzeptanz (Registrierung)        | Checkbox aktiv und erforderlich         |
+| Marketing-Einwilligung               | Checkbox aktiv (optional)               |
 
 ### Kategorie: Omnibus-Richtlinie
 
-| Pruefung                          | Gruen wenn                      |
+| Prüfung                              | Grüner Status wenn                      |
 | ------------------------------------ | --------------------------------------- |
-| Omnibus-Modul aktiv               | Modul in Einstellungen aktiviert           |
-| Preishistorie wird gespeichert              | Preishistorietabelle existiert und funktioniert   |
-| Niedrigster Preis wird angezeigt           | Preis bei Produkten im Angebot sichtbar  |
-| 30-Tage-Zeitraum                         | Zeitraum auf mindestens 30 Tage eingestellt      |
+| Omnibus-Modul aktiv                  | Modul in den Einstellungen aktiviert    |
+| Preishistorie wird gespeichert       | Preishistorietabelle existiert und funktioniert |
+| Niedrigster Preis wird angezeigt     | Preis bei Produkten im Angebot sichtbar |
+| 30-Tage-Zeitraum                     | Zeitraum auf mindestens 30 Tage eingestellt |
 
 ### Kategorie: GPSR
 
-| Pruefung                          | Gruen wenn                      |
+| Prüfung                              | Grüner Status wenn                      |
 | ------------------------------------ | --------------------------------------- |
-| GPSR-Modul aktiv                  | Modul aktiviert                          |
-| Herstellerdaten ergaenzt          | Mindestens 80% der Produkte haben GPSR-Daten  |
-| Vertreterdaten                 | Fuer Produkte von ausserhalb der EU ergaenzt      |
-| Sicherheitsinformationen         | Fuer erforderliche Produkte ergaenzt  |
+| GPSR-Modul aktiv                     | Modul aktiviert                         |
+| Herstellerdaten ergänzt              | Mindestens 80% der Produkte haben GPSR-Daten |
+| Vertreterdaten                       | Für Produkte von außerhalb der EU ergänzt |
+| Sicherheitsinformationen             | Für erforderliche Produkte ergänzt      |
 
-### Kategorie: DSA
+### Kategorie: DSA (Digital Services Act)
 
-| Pruefung                          | Gruen wenn                      |
+| Prüfung                              | Grüner Status wenn                      |
 | ------------------------------------ | --------------------------------------- |
-| DSA-Meldeformular              | Formular auf einer Seite verfuegbar           |
-| DSA-Kontaktstelle                 | Kontakt-E-Mail eingestellt             |
-| Meldungsregister                     | Meldungstabelle existiert                |
+| DSA-Meldeformular                    | Formular auf einer Seite verfügbar      |
+| DSA-Kontaktstelle                    | Kontakt-E-Mail eingestellt              |
+| Meldungsregister                     | Meldungstabelle existiert               |
+
+### Kategorie: Kasse
+
+| Prüfung                              | Grüner Status wenn                      |
+| ------------------------------------ | --------------------------------------- |
+| Beschriftung der Bestellschaltfläche | Text konform mit EU-Richtlinie          |
+| Bestellzusammenfassung               | Vor der Zahlungsschaltfläche sichtbar   |
+| Information zu MwSt. und Versand     | Bei den Produktpreisen angezeigt        |
+
+### Kategorie: KSeF
+
+| Prüfung                              | Grüner Status wenn                      |
+| ------------------------------------ | --------------------------------------- |
+| KSeF-Modul aktiv                     | Modul aktiviert                         |
+| Firmen-NIP eingestellt               | NIP in den Einstellungen konfiguriert   |
+| Verbindung mit KSeF                  | Verbindungstest erfolgreich abgeschlossen |
+
+### Kategorie: Greenwashing
+
+| Prüfung                              | Grüner Status wenn                      |
+| ------------------------------------ | --------------------------------------- |
+| Anti-Greenwashing-Modul aktiv        | Modul aktiviert                         |
+| Aussagen mit Nachweisen              | Alle Aussagen sind belegt               |
+| Zertifikate mit Links                | Zertifikate haben Nummern und URLs      |
 
 ## Zusammenfassung
 
 Oben im Panel wird eine Zusammenfassung angezeigt:
 
-- **Gesamtergebnis** - Prozentsatz erfuellter Anforderungen (z.B. 85%)
+- **Gesamtergebnis** - Prozentsatz der erfüllten Anforderungen (z. B. 85%)
 - **Fortschrittsbalken** - visuelle Darstellung des Ergebnisses
-- **Kritische Anforderungen** - Anzahl nicht erfuellter FAIL-Anforderungen
-- **Warnungen** - Anzahl teilweise erfuellter WARN-Anforderungen
-- **Datum der letzten Pruefung** - wann das Panel zuletzt aktualisiert wurde
+- **Kritische Anforderungen** - Anzahl der nicht erfüllten FAIL-Anforderungen
+- **Warnungen** - Anzahl der teilweise erfüllten WARN-Anforderungen
+- **Datum der letzten Prüfung** - wann das Panel zuletzt aktualisiert wurde
+
+## Details einer Anforderung
+
+Klicken Sie auf eine Anforderung, um Details zu sehen:
+
+- **Beschreibung** - was genau geprüft wird
+- **Rechtsgrundlage** - Verweis auf die Vorschrift
+- **Status** - detaillierte Beschreibung des Zustands
+- **Empfohlene Maßnahme** - was zu tun ist, um die Anforderung zu erfüllen
+- **Link zu den Einstellungen** - direkter Link zur passenden Einstellungsseite
+
+## Aktualisierung der Status
+
+Das Panel prüft die Status live bei jedem Öffnen. Die Prüfungen umfassen:
+
+- Existenz und Status der Seiten (veröffentlicht / Entwurf / gelöscht)
+- Existenz und Konfiguration der Checkboxen
+- Korrektheit der Daten in den Produkt-Metadaten (Sampling - zufällige Stichprobe von 100 Produkten)
+- Funktion der Module (Aktivität, korrekte Konfiguration)
+- Verbindungstests mit externen APIs (KSeF)
 
 ## Berichtsexport
 
-Das Panel ermoeglicht den Export des Konformitaetsberichts:
+Exportieren Sie den Compliance-Bericht:
 
 - **PDF** - Bericht zum Herunterladen oder Drucken
-- **JSON** - maschinenlesbare Daten (z.B. fuer Monitoring-Systeme)
+- **JSON** - maschinenlesbare Daten (z. B. für ein Monitoring-System)
 
 ```php
-// Hook nach Berichtsgenerierung
+// Hook nach Generierung des Berichts
 add_action('polski/compliance/report_generated', function (array $results, string $format): void {
+    // Protokollierung des Generierungsdatums des Berichts
     update_option('polski_last_compliance_report', current_time('mysql'));
 }, 10, 2);
 ```
 
 ## Benachrichtigungen
 
-Das Panel kann E-Mail-Benachrichtigungen an den Administrator senden:
+Das Panel sendet E-Mail-Benachrichtigungen an den Administrator:
 
-- **Wochenbericht** - Statuszusammenfassung einmal pro Woche
-- **Kritischer Alarm** - sofortige Benachrichtigung bei Statuswechsel auf FAIL
+- **Wochenbericht** - Statuszusammenfassung, einmal pro Woche versendet
+- **Kritischer Alarm** - sofortige Benachrichtigung, wenn ein Status auf FAIL wechselt
+
+Konfiguration der Benachrichtigungen: **WooCommerce > Polski > Compliance-Panel > Benachrichtigungen**.
 
 ```php
-// Berichtshaeufigkeit aendern
+// Häufigkeit des Berichts ändern
 add_filter('polski/compliance/report_frequency', function (): string {
     return 'daily'; // 'daily', 'weekly', 'monthly'
 });
 ```
 
-## Eigene Pruefungen hinzufuegen
+## Filter für Anforderungen
+
+Sie können eigene Prüfungen zum Panel hinzufügen:
 
 ```php
 add_filter('polski/compliance/checks', function (array $checks): array {
@@ -127,9 +176,9 @@ add_filter('polski/compliance/checks', function (array $checks): array {
 
 ## Fehlerbehebung
 
-**Panel zeigt veraltete Daten** - klicken Sie auf den Button **Aktualisieren** oben im Panel.
+**Das Panel zeigt veraltete Daten** - klicken Sie oben im Panel auf **Aktualisieren**. Einige Daten (z. B. GPSR-Sampling) können zwischengespeichert sein.
 
-**FAIL-Status fuer Rechtsseite** - pruefen Sie, ob die Seite veroeffentlicht ist (nicht im Entwurf) und ob sie unter **WooCommerce > Einstellungen > Erweitert > Seiteneinstellungen** zugewiesen ist.
+**FAIL-Status für eine Rechtsseite** - prüfen Sie, ob die Seite veröffentlicht ist (nicht Entwurf) und unter **WooCommerce > Einstellungen > Erweitert > Seiteneinstellungen** zugewiesen ist.
 
 Probleme melden: [github.com/wppoland/polski/issues](https://github.com/wppoland/polski/issues)
 

@@ -1,22 +1,22 @@
 ---
 title: PRO REST API
-description: Dokumentation der REST API von Polski PRO for WooCommerce - Endpunkte fuer Rechnungen, Einstellungen, Generierung von Rechtsdokumenten und KSeF-Integration.
+description: Dokumentation der REST API von Polski PRO for WooCommerce - Endpunkte für Rechnungen, Einstellungen, Erzeugung rechtlicher Dokumente und KSeF-Integration.
 ---
 
-REST API im Namespace `polski-pro/v1` zur Verwaltung von Rechnungen, Einstellungen und Rechtsdokumenten. Erfordert Authentifizierung und die Berechtigung `manage_woocommerce`.
+REST API im Namespace `polski-pro/v1` zur Verwaltung von Rechnungen, Einstellungen und rechtlichen Dokumenten. Erfordert Authentifizierung und die Berechtigung `manage_woocommerce`.
 
-:::note[Wymagania]
-Polski PRO wymaga: Polski (free) v1.3.0+, WordPress 6.4+, WooCommerce 8.0+, PHP 8.1+
+:::note[Voraussetzungen]
+Polski PRO erfordert: Polski (free) v1.3.0+, WordPress 6.4+, WooCommerce 8.0+, PHP 8.1+
 :::
 
 ## Authentifizierung
 
 Die API erfordert zwei Autorisierungselemente:
 
-1. **WordPress-Nonce** - Header `X-WP-Nonce` mit einem durch `wp_create_nonce('wp_rest')` generierten Wert
+1. **WordPress-Nonce** - Header `X-WP-Nonce` mit dem von `wp_create_nonce('wp_rest')` erzeugten Wert
 2. **Berechtigung** - der angemeldete Benutzer muss die Capability `manage_woocommerce` besitzen
 
-### Authentifizierungsbeispiel (JavaScript)
+### Beispiel für die Authentifizierung (JavaScript)
 
 ```javascript
 const response = await fetch('/wp-json/polski-pro/v1/invoices', {
@@ -27,7 +27,7 @@ const response = await fetch('/wp-json/polski-pro/v1/invoices', {
 });
 ```
 
-### Authentifizierungsbeispiel (PHP / cURL)
+### Beispiel für die Authentifizierung (PHP / cURL)
 
 ```php
 $nonce = wp_create_nonce('wp_rest');
@@ -42,11 +42,11 @@ $response = wp_remote_get(
 );
 ```
 
-Nicht authentifizierte Anfragen oder Anfragen von Benutzern ohne erforderliche Berechtigung erhalten die Antwort `401 Unauthorized` oder `403 Forbidden`.
+Ohne Authentifizierung oder Berechtigung gibt die API `401 Unauthorized` oder `403 Forbidden` zurück.
 
-## Rechnungsendpunkte
+## Rechnungs-Endpunkte
 
-### Rechnungsliste abrufen
+### Liste der Rechnungen abrufen
 
 ```
 GET /wp-json/polski-pro/v1/invoices
@@ -57,12 +57,12 @@ GET /wp-json/polski-pro/v1/invoices
 | Parameter | Typ | Standard | Beschreibung |
 |----------|-----|----------|------|
 | `page` | `int` | `1` | Seitennummer |
-| `per_page` | `int` | `20` | Anzahl der Ergebnisse pro Seite (max 100) |
+| `per_page` | `int` | `20` | Anzahl der Ergebnisse pro Seite (max. 100) |
 | `status` | `string` | `any` | Statusfilter: `draft`, `issued`, `sent`, `paid`, `cancelled` |
 | `date_from` | `string` | `null` | Datum von (Y-m-d) |
 | `date_to` | `string` | `null` | Datum bis (Y-m-d) |
-| `order_id` | `int` | `null` | Nach WooCommerce-Bestell-ID filtern |
-| `search` | `string` | `null` | Suche nach Rechnungsnummer oder Kundenname |
+| `order_id` | `int` | `null` | Filter nach WooCommerce-Bestell-ID |
+| `search` | `string` | `null` | Suche nach Rechnungsnummer oder Name des Kontrahenten |
 
 **Antwort (200 OK):**
 
@@ -95,7 +95,7 @@ GET /wp-json/polski-pro/v1/invoices
 }
 ```
 
-### Rechnung aus Bestellung erstellen
+### Rechnung aus einer Bestellung erstellen
 
 ```
 POST /wp-json/polski-pro/v1/invoices
@@ -107,10 +107,10 @@ POST /wp-json/polski-pro/v1/invoices
 |----------|-----|----------|------|
 | `order_id` | `int` | Ja | WooCommerce-Bestell-ID |
 | `type` | `string` | Nein | Typ: `vat` (Standard), `proforma`, `receipt` |
-| `issue_date` | `string` | Nein | Ausstellungsdatum (Y-m-d), Standard heute |
-| `due_date` | `string` | Nein | Zahlungsfrist (Y-m-d) |
+| `issue_date` | `string` | Nein | Ausstellungsdatum (Y-m-d), Standard ist heute |
+| `due_date` | `string` | Nein | Zahlungsziel (Y-m-d) |
 | `notes` | `string` | Nein | Anmerkungen auf der Rechnung |
-| `send_to_provider` | `bool` | Nein | An Buchhaltungssystem senden (Standard `true`) |
+| `send_to_provider` | `bool` | Nein | An das Buchhaltungssystem senden (Standard `true`) |
 
 **Anfrage:**
 
@@ -155,7 +155,7 @@ POST /wp-json/polski-pro/v1/invoices
 GET /wp-json/polski-pro/v1/invoices/{id}
 ```
 
-Gibt vollstaendige Rechnungsdaten einschliesslich Positionen (Items) zurueck.
+Gibt die vollständigen Rechnungsdaten samt Positionen (items) zurück.
 
 **Antwort (200 OK):**
 
@@ -223,13 +223,13 @@ Gibt vollstaendige Rechnungsdaten einschliesslich Positionen (Items) zurueck.
 }
 ```
 
-### Rechnungs-PDF regenerieren
+### PDF der Rechnung neu erzeugen
 
 ```
 POST /wp-json/polski-pro/v1/invoices/{id}/pdf
 ```
 
-Regeneriert die PDF-Datei der Rechnung und gibt die Download-URL zurueck.
+Erzeugt die PDF-Datei der Rechnung neu und gibt die Download-URL zurück.
 
 **Body-Parameter (optional):**
 
@@ -255,13 +255,13 @@ Regeneriert die PDF-Datei der Rechnung und gibt die Download-URL zurueck.
 POST /wp-json/polski-pro/v1/invoices/{id}/ksef
 ```
 
-Sendet die Rechnung an das Nationale e-Rechnungssystem (KSeF).
+Sendet die Rechnung an das nationale e-Rechnungssystem KSeF.
 
 **Body-Parameter (optional):**
 
 | Parameter | Typ | Beschreibung |
 |----------|-----|------|
-| `test_mode` | `bool` | An KSeF-Testumgebung senden (Standard `false`) |
+| `test_mode` | `bool` | An die KSeF-Testumgebung senden (Standard `false`) |
 
 **Antwort (200 OK):**
 
@@ -297,15 +297,15 @@ Sendet die Rechnung an das Nationale e-Rechnungssystem (KSeF).
 POST /wp-json/polski-pro/v1/invoices/{id}/correction
 ```
 
-Erstellt eine Korrekturrechnung, die mit der Quellrechnung verknuepft ist.
+Erstellt eine Korrekturrechnung, die mit der Ausgangsrechnung verknüpft ist.
 
 **Body-Parameter (JSON):**
 
 | Parameter | Typ | Erforderlich | Beschreibung |
 |----------|-----|----------|------|
-| `reason` | `string` | Ja | Korrekturgrund |
+| `reason` | `string` | Ja | Grund der Korrektur |
 | `items` | `array` | Ja | Korrigierte Positionen |
-| `items[].original_index` | `int` | Ja | Index der Position auf der Quellrechnung (ab 0) |
+| `items[].original_index` | `int` | Ja | Index der Position auf der Ausgangsrechnung (ab 0) |
 | `items[].quantity` | `int` | Nein | Neue Menge |
 | `items[].net_price` | `string` | Nein | Neuer Nettopreis |
 
@@ -364,7 +364,7 @@ GET /wp-json/polski-pro/v1/invoices/stats
 
 | Parameter | Typ | Standard | Beschreibung |
 |----------|-----|----------|------|
-| `days` | `int` | `30` | Anzahl der Tage zurueck |
+| `days` | `int` | `30` | Anzahl der Tage rückwärts |
 | `group_by` | `string` | `day` | Gruppierung: `day`, `week`, `month` |
 
 **Antwort (200 OK):**
@@ -413,8 +413,8 @@ POST /wp-json/polski-pro/v1/settings
 
 | Parameter | Typ | Beschreibung |
 |----------|-----|------|
-| `section` | `string` | Einstellungssektion: `invoices`, `catalog`, `quote`, `inpost`, `accounting` |
-| `settings` | `object` | Objekt mit Schluessel-Wert-Paaren der Einstellungen |
+| `section` | `string` | Einstellungsbereich: `invoices`, `catalog`, `quote`, `inpost`, `accounting` |
+| `settings` | `object` | Objekt mit Schlüssel-Wert-Paaren der Einstellungen |
 
 **Anfrage:**
 
@@ -447,15 +447,15 @@ POST /wp-json/polski-pro/v1/settings
 }
 ```
 
-## Endpunkt fuer Rechtsdokument-Generierung
+## Endpunkt zur Erzeugung rechtlicher Dokumente
 
-### Rechtsdokument generieren
+### Rechtliches Dokument erzeugen
 
 ```
 POST /wp-json/polski-pro/v1/legal/generate
 ```
 
-Generiert Rechtsdokumente (AGB, Datenschutzerklaerung) basierend auf Shop-Daten.
+Erzeugt rechtliche Dokumente auf Basis der Shop-Daten.
 
 **Body-Parameter (JSON):**
 
@@ -511,31 +511,31 @@ Generiert Rechtsdokumente (AGB, Datenschutzerklaerung) basierend auf Shop-Daten.
 
 ## Fehlercodes
 
-Alle Endpunkte geben standardisierte Fehlercodes zurueck:
+Alle Endpunkte geben standardisierte Fehlercodes zurück:
 
 | HTTP-Code | Fehlercode | Beschreibung |
 |----------|-----------|------|
-| 400 | `invalid_params` | Ungueltige Anfrageparameter |
+| 400 | `invalid_params` | Ungültige Anfrageparameter |
 | 401 | `rest_not_logged_in` | Benutzer nicht angemeldet |
-| 403 | `rest_forbidden` | Berechtigung `manage_woocommerce` fehlt |
+| 403 | `rest_forbidden` | Fehlende Berechtigung `manage_woocommerce` |
 | 404 | `invoice_not_found` | Rechnung existiert nicht |
-| 409 | `invoice_already_exists` | Rechnung fuer diese Bestellung existiert bereits |
+| 409 | `invoice_already_exists` | Für diese Bestellung existiert bereits eine Rechnung |
 | 422 | `validation_error` | Datenvalidierungsfehler |
-| 429 | `rate_limit_exceeded` | Anfragelimit ueberschritten (60/min) |
+| 429 | `rate_limit_exceeded` | Anfragelimit überschritten (60/min) |
 | 500 | `internal_error` | Interner Serverfehler |
 
 ## Limits und Throttling
 
-Die API verwendet Rate-Limiting: maximal 60 Anfragen pro Minute pro Benutzer. Nach Ueberschreiten des Limits wird die Antwort `429` mit dem Header `Retry-After` zurueckgegeben.
+Limit: 60 Anfragen pro Minute und Benutzer. Bei Überschreitung gibt die API `429` mit dem Header `Retry-After` zurück.
 
 ```
 HTTP/1.1 429 Too Many Requests
 Retry-After: 30
 ```
 
-## Naechste Schritte
+## Nächste Schritte
 
 - Probleme melden: [GitHub Issues](https://github.com/wppoland/polski/issues)
-- Verwandt: [Buchhaltungsintegrationen](/pro/accounting)
+- Verwandt: [Buchhaltungs-Integrationen](/pro/accounting)
 
-<div class="disclaimer">Diese Seite dient ausschließlich zu Informationszwecken und stellt keine Rechtsberatung dar. Konsultieren Sie vor der Umsetzung einen Anwalt. Polski for WooCommerce ist Open-Source-Software (GPLv2) ohne Garantie.</div>
+<div class="disclaimer">Diese Seite dient ausschließlich Informationszwecken und stellt keine Rechtsberatung dar. Konsultieren Sie vor der Umsetzung einen Anwalt. Polski for WooCommerce ist Open-Source-Software (GPLv2), die ohne Gewährleistung bereitgestellt wird.</div>

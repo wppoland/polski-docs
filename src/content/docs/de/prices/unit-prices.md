@@ -1,59 +1,59 @@
 ---
 title: Grundpreis
-description: Anzeige des Preises pro Kilogramm, Liter, Meter oder Stueck in WooCommerce gemaess polnischem Verbraucherrecht.
+description: Anzeige des Preises pro Kilogramm, Liter, Meter oder Stueck in WooCommerce gemaess dem polnischen Verbraucherrecht.
 ---
 
-Polnisches Recht verlangt die Anzeige des Grundpreises - z.B. Preis pro Kilogramm, Liter oder Meter. Polski for WooCommerce fuegt diese Information automatisch auf der Produktseite, in Listings und im Warenkorb hinzu.
+Das polnische Recht verlangt, dass der Onlineshop den Grundpreis eines Produkts anzeigt - z. B. den Preis pro Kilogramm, Liter oder Meter. Das Plugin Polski for WooCommerce fuegt diese Information automatisch auf der Produktseite, im Listing und im Warenkorb hinzu.
 
-## Wann ist der Grundpreis erforderlich
+## Wann ein Grundpreis erforderlich ist
 
-Die Pflicht zur Angabe des Grundpreises gilt fuer Produkte, die nach Gewicht, Volumen oder Laenge verkauft werden. In der Praxis umfasst dies:
+Den Grundpreis gibst du fuer Produkte an, die nach Gewicht, Volumen oder Laenge verkauft werden. Das betrifft u. a.:
 
-- Lebensmittel (Preis pro kg oder Liter)
+- Lebensmittelprodukte (Preis pro kg oder Liter)
 - Kosmetika und Reinigungsmittel (Preis pro 100 ml oder Liter)
-- Baumaterialien (Preis pro Laufmeter oder Quadratmeter)
-- Schuettgueter (Preis pro kg)
+- Baumaterialien (Preis pro laufenden Meter oder Quadratmeter)
+- Schuettgut (Preis pro kg)
 
-Der Grundpreis muss ueberall sichtbar sein, wo der Produktpreis angezeigt wird - auf der Produktseite, in Suchergebnissen, in Preisvergleichsportalen und im Warenkorb.
+Der Grundpreis muss ueberall sichtbar sein, wo du den Produktpreis anzeigst - auf der Produktseite, in den Suchergebnissen, in Vergleichen und im Warenkorb.
 
 ## Konfiguration
 
-Gehen Sie zu **WooCommerce > Einstellungen > Polski > Preise** und aktivieren Sie das Grundpreismodul. Nach der Aktivierung erscheint ein neuer Abschnitt im Tab "Allgemein" des Produkteditors.
+Gehe zu **WooCommerce > Einstellungen > Polski > Preise** und aktiviere das Grundpreis-Modul. Nach der Aktivierung erscheint im Produkteditor ein neuer Bereich im Reiter "Allgemein".
 
 ### Felder im Produkteditor
 
 | Feld | Beschreibung | Beispiel |
 |------|------|---------|
 | Basismenge | Produktmenge in der Verpackung | `500` |
-| Basiseinheit | Mengeneinheit des Produkts | `g` |
+| Basiseinheit | Masseinheit des Produkts | `g` |
 | Referenzmenge | Referenzmenge fuer den Grundpreis | `1` |
 | Referenzeinheit | Einheit, fuer die der Preis angegeben wird | `kg` |
 
-Fuer ein Produkt mit 500 g Gewicht und einem Preis von 12,99 PLN berechnet das Plugin den Grundpreis automatisch als 25,98 PLN/kg.
+Fuer ein Produkt mit einem Gewicht von 500 g und einem Preis von 12,99 zl berechnet das Plugin automatisch den Grundpreis als 25,98 zl/kg.
 
 ### Unterstuetzte Einheiten
 
-Das Plugin unterstuetzt folgende Mengeneinheiten:
+Das Plugin unterstuetzt diese Masseinheiten:
 
 - **Gewicht:** g, kg, mg
 - **Volumen:** ml, l, cl
 - **Laenge:** mm, cm, m
-- **Stueck:** Stk. (piece)
+- **Stueck:** szt (piece)
 
-Die Umrechnung zwischen Einheiten erfolgt automatisch. Wenn das Produkt ein Gewicht in Gramm hat und die Referenzeinheit Kilogramm ist, rechnet das Plugin den Wert selbst um.
+Das Plugin rechnet die Einheiten automatisch um. Wenn ein Produkt ein Gewicht in Gramm hat und die Referenzeinheit Kilogramm ist - wird der Wert umgerechnet.
 
 ## Produktvarianten
 
-Fuer variable Produkte kann der Grundpreis auf zwei Ebenen festgelegt werden:
+Bei variablen Produkten legst du den Grundpreis auf zwei Ebenen fest:
 
-1. **Auf Hauptproduktebene** - Wert wird von allen Varianten geerbt
-2. **Auf Variantenebene** - ueberschreibt die Einstellungen des Hauptprodukts
+1. **Auf der Ebene des Hauptprodukts** - der Wert wird von allen Varianten geerbt
+2. **Auf der Ebene der Variante** - ueberschreibt die Einstellungen des Hauptprodukts
 
-Bei Varianten mit unterschiedlichem Gewicht (z.B. 250 g und 500 g Verpackung) setzen Sie den Grundpreis fuer jede Variante separat. Das Plugin aktualisiert den angezeigten Preis automatisch bei Variantenauswahl durch den Kunden (AJAX).
+Wenn die Varianten ein unterschiedliches Gewicht haben (z. B. 250 g und 500 g), lege den Grundpreis fuer jede Variante separat fest. Das Plugin aktualisiert den Preis automatisch, wenn der Kunde die Variante wechselt (AJAX).
 
 ## Shortcode
 
-Verwenden Sie den Shortcode `[polski_unit_price]`, um den Grundpreis an einer beliebigen Stelle anzuzeigen.
+Verwende den Shortcode `[polski_unit_price]`, um den Grundpreis an beliebiger Stelle anzuzeigen.
 
 ### Parameter
 
@@ -64,7 +64,7 @@ Verwenden Sie den Shortcode `[polski_unit_price]`, um den Grundpreis an einer be
 | `after` | string | `""` | Text nach dem Preis |
 | `wrapper` | string | `span` | Umschliessendes HTML-Element |
 
-### Verwendungsbeispiele
+### Anwendungsbeispiele
 
 Grundlegende Verwendung auf der Produktseite:
 
@@ -86,7 +86,7 @@ echo do_shortcode('[polski_unit_price product_id="' . $product->get_id() . '"]')
 
 ## Hook: polski/price/unit_price_html
 
-Dieser Filter ermoeglicht die Aenderung des Grundpreis-HTML vor der Anzeige.
+Der Filter ermoeglicht es, das HTML des Grundpreises vor der Anzeige zu aendern.
 
 ### Signatur
 
@@ -101,9 +101,9 @@ apply_filters('polski/price/unit_price_html', string $html, float $unit_price, W
 | `$html` | string | Generiertes HTML des Grundpreises |
 | `$unit_price` | float | Berechneter Grundpreis |
 | `$product` | WC_Product | WooCommerce-Produktobjekt |
-| `$args` | array | Array mit Schluesseln: `base_qty`, `base_unit`, `ref_qty`, `ref_unit` |
+| `$args` | array | Array mit den Schluesseln: `base_qty`, `base_unit`, `ref_qty`, `ref_unit` |
 
-### Beispiel: CSS-Klasse hinzufuegen
+### Beispiel: Hinzufuegen einer CSS-Klasse
 
 ```php
 add_filter('polski/price/unit_price_html', function (string $html, float $unit_price, WC_Product $product, array $args): string {
@@ -121,7 +121,7 @@ add_filter('polski/price/unit_price_html', function (string $html, float $unit_p
 }, 10, 4);
 ```
 
-### Beispiel: Grundpreis fuer bestimmte Kategorien ausblenden
+### Beispiel: Ausblenden des Grundpreises fuer ausgewaehlte Kategorien
 
 ```php
 add_filter('polski/price/unit_price_html', function (string $html, float $unit_price, WC_Product $product): string {
@@ -135,7 +135,7 @@ add_filter('polski/price/unit_price_html', function (string $html, float $unit_p
 
 ## CSV-Import
 
-Der Grundpreis kann ueber den Standard-WooCommerce-Importer importiert werden. Fuegen Sie folgende Spalten zur CSV-Datei hinzu:
+Den Grundpreis importierst du ueber den standardmaessigen WooCommerce-Importer. Fuege diese Spalten zur CSV-Datei hinzu:
 
 | CSV-Spalte | Beschreibung |
 |-------------|------|
@@ -144,28 +144,28 @@ Der Grundpreis kann ueber den Standard-WooCommerce-Importer importiert werden. F
 | `polski_unit_ref_qty` | Referenzmenge |
 | `polski_unit_ref_unit` | Referenzeinheit |
 
-Beispiel-CSV-Zeile:
+Beispielhafte CSV-Zeile:
 
 ```csv
-"Gemahlener Kaffee 500g",29.99,500,g,1,kg
+"Kawa mielona 500g",29.99,500,g,1,kg
 ```
 
 ## Haeufige Probleme
 
-### Grundpreis wird nicht angezeigt
+### Der Grundpreis wird nicht angezeigt
 
-Pruefen Sie, ob:
+Pruefe, ob:
 
-1. Das Grundpreismodul in den Einstellungen aktiviert ist
-2. Das Produkt die Felder Basismenge und Einheit ausgefuellt hat
-3. Das Theme den Hook `woocommerce_after_shop_loop_item_title` (Listing) und `woocommerce_single_product_summary` (Produktseite) unterstuetzt
+1. Das Grundpreis-Modul in den Einstellungen aktiviert ist
+2. Das Produkt ausgefuellte Felder fuer Basismenge und Einheit hat
+3. Das Theme die Hooks `woocommerce_after_shop_loop_item_title` (Listing) sowie `woocommerce_single_product_summary` (Produktseite) unterstuetzt
 
-### Falsche Umrechnung
+### Fehlerhafte Umrechnung
 
-Stellen Sie sicher, dass Basiseinheit und Referenzeinheit zur gleichen Kategorie gehoeren (z.B. beide Gewicht oder beide Volumen). Das Plugin rechnet nicht zwischen Kategorien um - Gramm koennen nicht in Liter umgerechnet werden.
+Pruefe, ob die Basis- und die Referenzeinheit aus derselben Kategorie stammen (z. B. beide Gewicht oder beide Volumen). Das Plugin rechnet keine Gramm in Liter um.
 
 ## Verwandte Ressourcen
 
 - [Problem melden](https://github.com/wppoland/polski/issues)
 
-<div class="disclaimer">Diese Seite dient ausschließlich zu Informationszwecken und stellt keine Rechtsberatung dar. Konsultieren Sie vor der Umsetzung einen Anwalt. Polski for WooCommerce ist Open-Source-Software (GPLv2) ohne Garantie.</div>
+<div class="disclaimer">Diese Seite dient ausschliesslich Informationszwecken und stellt keine Rechtsberatung dar. Konsultiere vor der Umsetzung einen Anwalt. Polski for WooCommerce ist eine Open-Source-Software (GPLv2), die ohne Gewaehrleistung bereitgestellt wird.</div>

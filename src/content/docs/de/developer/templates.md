@@ -1,20 +1,20 @@
 ---
-title: Template-Ueberschreibung
-description: Ueberschreiben von Templates in Polski for WooCommerce im Theme - Dateiliste, Verzeichnisstruktur und Beispiele.
+title: Template-Überschreibung
+description: Überschreiben von Templates in Polski for WooCommerce im Theme - Dateiliste, Verzeichnisstruktur und Beispiele.
 ---
 
-Template-System nach WooCommerce-Vorbild. Ueberschreiben Sie jedes Template durch Kopieren nach `yourtheme/polski/` in Ihrem Theme.
+Ein an WooCommerce angelehntes Template-System. Überschreibe ein beliebiges Template, indem du es nach `yourtheme/polski/` in deinem Theme kopierst.
 
-## Wie ein Template ueberschrieben wird
+## So überschreibst du ein Template
 
-1. Suchen Sie das Original-Template im Plugin-Verzeichnis: `wp-content/plugins/polski/templates/`
-2. Kopieren Sie die Datei in das Theme-Verzeichnis: `wp-content/themes/ihr-theme/polski/`
-3. Behalten Sie die Unterverzeichnisstruktur bei
-4. Aendern Sie die kopierte Datei
+1. Finde das Original-Template im Plugin-Verzeichnis: `wp-content/plugins/polski/templates/`
+2. Kopiere die Datei in das Theme-Verzeichnis: `wp-content/themes/dein-theme/polski/`
+3. Behalte die Struktur der Unterverzeichnisse bei
+4. Bearbeite die kopierte Datei
 
-Das Plugin erkennt automatisch das Template im Theme und verwendet es anstelle des Standards.
+Das Plugin verwendet automatisch das Template aus dem Theme anstelle des Standards.
 
-**Beispiel:** Um das Omnibus-Preistemplate zu ueberschreiben, kopieren Sie:
+**Beispiel:** Um das Template des Omnibus-Preises zu überschreiben, kopiere:
 
 ```
 wp-content/plugins/polski/templates/omnibus/price-display.php
@@ -23,89 +23,116 @@ wp-content/plugins/polski/templates/omnibus/price-display.php
 nach:
 
 ```
-wp-content/themes/ihr-theme/polski/omnibus/price-display.php
+wp-content/themes/dein-theme/polski/omnibus/price-display.php
 ```
 
-## Child Theme
+## Child-Theme
 
-Bei einem Child Theme platzieren Sie Templates im Child-Theme-Verzeichnis. Das Plugin sucht Templates in folgender Reihenfolge:
+Bei einem Child-Theme platzierst du die Templates im Verzeichnis des Child-Themes. Suchreihenfolge:
 
 1. `wp-content/themes/child-theme/polski/`
 2. `wp-content/themes/parent-theme/polski/`
 3. `wp-content/plugins/polski/templates/`
 
-## Template-Liste
+## Liste der Templates
 
 ### Rechtliche Anforderungen
 
-| Template-Datei | Beschreibung |
+| Template-Datei                           | Beschreibung                            |
 | ---------------------------------------- | --------------------------------------- |
-| `omnibus/price-display.php` | Omnibus-Preisanzeige |
-| `omnibus/price-history.php` | Preishistorie (Tabelle) |
-| `gpsr/product-info.php` | GPSR-Informationen auf der Produktseite |
-| `gpsr/safety-sheet.php` | Produktsicherheitsdatenblatt |
-| `withdrawal/form.php` | Widerrufsformular |
-| `withdrawal/confirmation.php` | Widerrufsbestaetigung |
-| `withdrawal/email.php` | E-Mail-Vorlage fuer Bestaetigung |
-| `dsa/report-form.php` | DSA-Meldeformular |
-| `gdpr/consent-checkboxes.php` | DSGVO-Einwilligungs-Checkboxen |
-| `legal-pages/terms-template.php` | AGB-Vorlage |
-| `legal-pages/privacy-template.php` | Datenschutzvorlage |
+| `omnibus/price-display.php`              | Anzeige des Omnibus-Preises             |
+| `omnibus/price-history.php`              | Preishistorie (Tabelle)                 |
+| `gpsr/product-info.php`                  | GPSR-Informationen auf der Produktseite |
+| `gpsr/safety-sheet.php`                  | Sicherheitsdatenblatt des Produkts      |
+| `withdrawal/form.php`                    | Widerrufsformular                       |
+| `withdrawal/confirmation.php`            | Bestätigung des eingereichten Widerrufs |
+| `withdrawal/email.php`                   | E-Mail-Vorlage der Bestätigung          |
+| `dsa/report-form.php`                    | DSA-Meldeformular                       |
+| `dsa/report-confirmation.php`            | Bestätigung der DSA-Meldung             |
+| `gdpr/consent-checkboxes.php`            | DSGVO-Einwilligungs-Checkboxen          |
+| `ksef/invoice-template.php`              | KSeF-Rechnungsvorlage                   |
+| `greenwashing/product-claims.php`        | Umweltaussagen des Produkts             |
+| `legal-pages/terms-template.php`         | Vorlage der Shop-AGB                    |
+| `legal-pages/privacy-template.php`       | Vorlage der Datenschutzerklärung        |
+| `legal-pages/withdrawal-template.php`    | Vorlage der Widerrufsbelehrung          |
 
 ### Preise und Produktinformationen
 
-| Template-Datei | Beschreibung |
+| Template-Datei                           | Beschreibung                            |
 | ---------------------------------------- | --------------------------------------- |
-| `prices/unit-price.php` | Grundpreis |
-| `prices/vat-notice.php` | MwSt.- und Lieferinfo |
-| `prices/delivery-time.php` | Geschaetzte Lieferzeit |
-| `manufacturer/info.php` | Herstellerinformationen |
+| `prices/unit-price.php`                  | Grundpreis                              |
+| `prices/vat-notice.php`                  | Hinweis zu MwSt. und Versand            |
+| `prices/delivery-time.php`               | Geschätzte Lieferzeit                   |
+| `manufacturer/info.php`                  | Informationen über den Hersteller       |
+| `manufacturer/logo.php`                  | Logo des Herstellers                    |
 
-### Lebensmittel
+### Lebensmittelprodukte
 
-| Template-Datei | Beschreibung |
+| Template-Datei                           | Beschreibung                            |
 | ---------------------------------------- | --------------------------------------- |
-| `food/nutrients-table.php` | Naehrwerttabelle |
-| `food/allergens-list.php` | Allergenliste |
-| `food/nutri-score.php` | Nutri-Score-Kennzeichnung |
+| `food/nutrients-table.php`               | Nährwerttabelle                         |
+| `food/allergens-list.php`                | Allergenliste                           |
+| `food/nutri-score.php`                   | Nutri-Score-Kennzeichnung               |
 
 ### Kasse und Bestellungen
 
-| Template-Datei | Beschreibung |
+| Template-Datei                           | Beschreibung                            |
 | ---------------------------------------- | --------------------------------------- |
-| `checkout/button-label.php` | Bestellbutton-Label |
-| `checkout/legal-checkboxes.php` | Rechtliche Checkboxen an der Kasse |
-| `checkout/nip-field.php` | NIP-Feld mit Auto-Vervollstaendigung |
+| `checkout/button-label.php`              | Label des Bestellbuttons                |
+| `checkout/legal-checkboxes.php`          | Rechtliche Checkboxen an der Kasse      |
+| `checkout/nip-field.php`                 | NIP-Feld mit automatischem Ausfüllen    |
+| `checkout/doi-notice.php`                | Double-Opt-in-Hinweis                   |
 
 ### Shop-Module
 
-| Template-Datei | Beschreibung |
+| Template-Datei                           | Beschreibung                            |
 | ---------------------------------------- | --------------------------------------- |
-| `wishlist/table.php` | Wunschlistentabelle |
-| `wishlist/button.php` | Hinzufuegen-Button |
-| `compare/table.php` | Vergleichstabelle |
-| `compare/button.php` | Vergleichsbutton |
-| `quick-view/modal.php` | Schnellansicht-Lightbox |
-| `ajax-search/form.php` | AJAX-Suchfeld |
-| `ajax-search/results.php` | Ergebnis-Dropdown |
-| `ajax-filters/container.php` | AJAX-Filtercontainer |
-| `product-slider/slider.php` | Slider-Container |
-| `badges/badge.php` | Einzelnes Label |
+| `wishlist/table.php`                     | Wunschlisten-Tabelle                    |
+| `wishlist/button.php`                    | Button zum Hinzufügen zur Liste         |
+| `wishlist/header-icon.php`               | Symbol im Header                        |
+| `compare/table.php`                      | Vergleichstabelle                       |
+| `compare/button.php`                     | Vergleichsbutton                        |
+| `compare/floating-bar.php`               | Vergleichsleiste (unten am Bildschirm)  |
+| `quick-view/modal.php`                   | Lightbox-Fenster der Schnellansicht     |
+| `quick-view/button.php`                  | Button der Schnellansicht               |
+| `ajax-search/form.php`                   | Feld der AJAX-Suche                     |
+| `ajax-search/results.php`               | Dropdown mit Suchergebnissen            |
+| `ajax-search/result-item.php`           | Einzelnes Suchergebnis                  |
+| `ajax-filters/container.php`            | Container der AJAX-Filter               |
+| `ajax-filters/filter-category.php`      | Kategoriefilter                         |
+| `ajax-filters/filter-price.php`         | Preisfilter (Schieberegler)             |
+| `ajax-filters/filter-attribute.php`     | Attributfilter                          |
+| `ajax-filters/active-filters.php`       | Leiste der aktiven Filter               |
+| `product-slider/slider.php`             | Container des Sliders                   |
+| `product-slider/item.php`               | Produktkarte im Slider                  |
+| `badges/badge.php`                       | Einzelnes Abzeichen                     |
+| `badges/container.php`                   | Container der Abzeichen auf dem Produkt |
+| `waitlist/form.php`                      | Formular der Warteliste                 |
+| `waitlist/email.php`                     | E-Mail zur Verfügbarkeitsbenachrichtigung |
 
-## Verfuegbare Variablen in Templates
+### Werkzeuge
 
-Jedes Template erhaelt einen Satz von Variablen. Beispiel fuer `omnibus/price-display.php`:
+| Template-Datei                           | Beschreibung                            |
+| ---------------------------------------- | --------------------------------------- |
+| `tools/compliance-checklist.php`         | Compliance-Checkliste                   |
+| `tools/audit-report.php`                | Audit-Bericht                           |
+| `tools/security-incident-form.php`      | Formular für Sicherheitsvorfälle        |
+| `tools/verified-review-badge.php`       | Abzeichen der verifizierten Bewertung   |
+
+## Verfügbare Variablen in den Templates
+
+Jedes Template erhält einen Satz von Variablen. Beispiel für `omnibus/price-display.php`:
 
 ```php
 <?php
 /**
- * Template fuer die Omnibus-Preisanzeige
+ * Template zur Anzeige des Omnibus-Preises
  *
- * Verfuegbare Variablen:
+ * Verfügbare Variablen:
  * @var float  $lowest_price  Niedrigster Preis des Zeitraums
  * @var int    $days          Anzahl der Tage
  * @var int    $product_id    Produkt-ID
- * @var string $price_html    Formatiertes Preis-HTML
+ * @var string $price_html    Formatierter Preis HTML
  * @var string $date          Datum des niedrigsten Preises
  *
  * @package Polski
@@ -117,7 +144,7 @@ defined('ABSPATH') || exit;
 <div class="polski-omnibus-price">
     <span class="polski-omnibus-label">
         <?php printf(
-            esc_html__('Niedrigster Preis der letzten %d Tage vor der Senkung:', 'polski'),
+            esc_html__('Niedrigster Preis der %d Tage vor der Preissenkung:', 'polski'),
             $days
         ); ?>
     </span>
@@ -127,17 +154,33 @@ defined('ABSPATH') || exit;
 </div>
 ```
 
-## Hook zur Aenderung des Template-Pfads
+## Überprüfen der Template-Version
+
+Jedes Template hat einen `@version`-Kommentar. Prüfe nach einem Plugin-Update, ob die überschriebenen Templates aktualisiert werden müssen.
+
+Eine Warnung vor veralteten Templates erscheint unter **WooCommerce > Status > Polski**.
+
+```php
+/**
+ * @version 1.5.0
+ */
+```
+
+## Hook zur Änderung des Template-Pfads
+
+Wenn du den Standardspeicherort der Templates im Theme ändern möchtest:
 
 ```php
 add_filter('polski/template/path', function (string $path): string {
-    return 'custom-polski-templates/'; // statt 'polski/'
+    return 'custom-polski-templates/'; // anstelle von 'polski/'
 });
 ```
 
-## Template-Debugging
+Dann werden die Templates gesucht in: `wp-content/themes/dein-theme/custom-polski-templates/`
 
-Um zu pruefen, welches Template aktuell geladen wird, aktivieren Sie den Debug-Modus:
+## Templates debuggen
+
+Prüfe, welches Template geladen wird, indem du den Debug-Modus aktivierst:
 
 ```php
 // In wp-config.php
@@ -147,11 +190,11 @@ define('POLSKI_TEMPLATE_DEBUG', true);
 Im Debug-Modus wird jedes Template von HTML-Kommentaren mit dem Pfad umschlossen:
 
 ```html
-<!-- polski template: /themes/ihr-theme/polski/omnibus/price-display.php -->
+<!-- polski template: /themes/dein-theme/polski/omnibus/price-display.php -->
 ...
 <!-- /polski template -->
 ```
 
 Probleme melden: [github.com/wppoland/polski/issues](https://github.com/wppoland/polski/issues)
 
-<div class="disclaimer">Diese Seite dient ausschließlich zu Informationszwecken und stellt keine Rechtsberatung dar. Konsultieren Sie vor der Umsetzung einen Anwalt. Polski for WooCommerce ist Open-Source-Software (GPLv2) ohne Garantie.</div>
+<div class="disclaimer">Diese Seite dient ausschließlich zu Informationszwecken und stellt keine Rechtsberatung dar. Konsultiere vor der Umsetzung einen Anwalt. Polski for WooCommerce ist Open-Source-Software (GPLv2), die ohne Gewährleistung bereitgestellt wird.</div>

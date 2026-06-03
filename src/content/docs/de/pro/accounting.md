@@ -3,36 +3,36 @@ title: Buchhaltungsintegrationen
 description: Integrationen mit den Buchhaltungssystemen wFirma, Fakturownia und iFirma in Polski PRO for WooCommerce - Rechnungssynchronisation, Retry-Logik und Konfiguration pro Anbieter.
 ---
 
-Das Modul verbindet WooCommerce mit polnischen Fakturierungssystemen: wFirma, Fakturownia und iFirma. Rechnungen werden automatisch gesendet, mit Retry bei API-Fehlern.
+Das Modul verbindet WooCommerce mit polnischen Fakturierungssystemen: wFirma, Fakturownia und iFirma. Rechnungen werden automatisch gesendet, mit erneutem Versuch bei API-Fehlern.
 
-:::note[Wymagania]
-Polski PRO wymaga: Polski (free) v1.3.0+, WordPress 6.4+, WooCommerce 8.0+, PHP 8.1+. Dodatkowo wymagane jest aktywne konto w wybranym systemie księgowym z dostępem API.
+:::note[Anforderungen]
+Polski PRO erfordert: Polski (free) v1.3.0+, WordPress 6.4+, WooCommerce 8.0+, PHP 8.1+. Zusätzlich ist ein aktives Konto im gewählten Buchhaltungssystem mit API-Zugang erforderlich.
 :::
 
-## Unterstuetzte Systeme
+## Unterstützte Systeme
 
 | System | API-Format | API-Version | Authentifizierung |
 |--------|-----------|------------|-------------------|
 | wFirma | XML | v2 | API key + API secret |
 | Fakturownia | JSON | v3 | API token |
-| iFirma | JSON | v1 | Login + API key (klucz faktur) |
+| iFirma | JSON | v1 | Login + API key (Rechnungsschlüssel) |
 
-Es kann jeweils nur eine Buchhaltungsintegration aktiv sein.
+Es kann jeweils nur eine Integration aktiv sein.
 
 ## Konfiguration
 
-Gehen Sie zu **WooCommerce > Ustawienia > Polski PRO > Księgowość**.
+Gehen Sie zu **WooCommerce > Einstellungen > Polski PRO > Buchhaltung**.
 
-### Anbieter waehlen
+### Anbieter wählen
 
-Waehlen Sie das Buchhaltungssystem und geben Sie die Authentifizierungsdaten ein.
+Wählen Sie das Buchhaltungssystem und geben Sie die Anmeldedaten ein.
 
 #### wFirma
 
 | Einstellung | Beschreibung |
 |------------|------|
-| API key | API-Schluessel aus dem wFirma-Panel |
-| API secret | API-Geheimschluessel |
+| API key | API-Schlüssel aus dem wFirma-Panel |
+| API secret | API-Geheimnis |
 | Firmen-ID | Firmenkennung in wFirma |
 | Rechnungsserie | Nummerierungsserie (z. B. "FV", "FVS") |
 
@@ -50,33 +50,33 @@ Waehlen Sie das Buchhaltungssystem und geben Sie die Authentifizierungsdaten ein
 | Einstellung | Beschreibung |
 |------------|------|
 | Login | Login zum iFirma-Konto |
-| Rechnungs-API-Schluessel | API-Schluessel zum Ausstellen von Rechnungen |
-| Abonnenten-API-Schluessel | Abonnenten-API-Schluessel (zum Abrufen von Daten) |
+| Rechnungs-API-Schlüssel | API-Schlüssel zum Ausstellen von Rechnungen |
+| Abonnenten-API-Schlüssel | Abonnenten-API-Schlüssel (zum Abrufen von Daten) |
 
 ### Gemeinsame Einstellungen
 
 | Einstellung | Standardwert | Beschreibung |
 |------------|------------------|------|
-| Automatisches Ausstellen | Ja | Rechnung automatisch nach Bestellbezahlung ausstellen |
-| Ausloesender Status | `processing` | Bestellstatus, der die Rechnungserstellung ausloest |
+| Automatisches Ausstellen | Ja | Rechnung automatisch nach Bezahlung der Bestellung ausstellen |
+| Auslösender Status | `processing` | Bestellstatus, der die Rechnungserstellung auslöst |
 | Dokumenttyp | MwSt.-Rechnung | MwSt.-Rechnung, Proforma-Rechnung, Quittung |
-| Zur E-Mail hinzufuegen | Ja | PDF-Rechnung an die Bestell-E-Mail anhaengen |
+| Zur E-Mail hinzufügen | Ja | PDF-Rechnung an die Bestell-E-Mail anhängen |
 | Retry bei Fehler | Ja | Bei API-Fehler erneut versuchen |
-| Maximale Versuche | 5 | Limit fuer Wiederholungsversuche |
+| Maximale Anzahl Versuche | 5 | Limit für Wiederholungsversuche |
 
 ## Rechnungssynchronisation
 
 ### Automatischer Ablauf
 
-1. WooCommerce-Bestellung wechselt in den Status `processing` (oder einen anderen konfigurierten)
+1. Die WooCommerce-Bestellung wechselt in den Status `processing` (oder einen anderen konfigurierten)
 2. Das Modul sammelt Bestelldaten und mappt sie auf das Anbieterformat
-3. Daten werden asynchron an die API des Buchhaltungssystems gesendet
-4. Nach erfolgreicher Erstellung wird die Rechnungs-ID in den Bestellmeta gespeichert
-5. Die PDF-Rechnung wird heruntergeladen und an die Kunden-E-Mail angehaengt
+3. Die Daten werden asynchron an die API des Buchhaltungssystems gesendet
+4. Nach erfolgreicher Erstellung wird die Rechnungs-ID in den Bestell-Metadaten gespeichert
+5. Die PDF-Rechnung wird heruntergeladen und an die Kunden-E-Mail angehängt
 
 ### Datenmapping
 
-Das Modul mappt WooCommerce-Bestelldaten automatisch auf das erforderliche API-Format:
+Das Modul rechnet die Bestelldaten automatisch in das API-Format um:
 
 | WooCommerce-Daten | wFirma (XML) | Fakturownia (JSON) | iFirma (JSON) |
 |------------------|-------------|-------------------|---------------|
@@ -146,9 +146,9 @@ Das Modul mappt WooCommerce-Bestelldaten automatisch auf das erforderliche API-F
 
 ### Exponentieller Backoff
 
-Wenn die API einen Fehler zurueckgibt (HTTP 5xx, Timeout, Verbindungsfehler), plant das Modul automatisch einen erneuten Versuch mit exponentiellem Backoff:
+Bei Serverfehlern (HTTP 5xx, Timeout) wiederholt das Modul den Versuch mit zunehmender Verzögerung:
 
-| Versuch | Verzoegerung | Zeit seit erstem Versuch |
+| Versuch | Verzögerung | Zeit seit dem ersten Versuch |
 |-------|------------|------------------------|
 | 1 | Sofort | 0 s |
 | 2 | 30 s | 30 s |
@@ -156,30 +156,30 @@ Wenn die API einen Fehler zurueckgibt (HTTP 5xx, Timeout, Verbindungsfehler), pl
 | 4 | 8 min | 10 min 30 s |
 | 5 | 32 min | 42 min 30 s |
 
-Die Verzoegerung wird nach der Formel berechnet: `delay = base_delay * 2^(attempt - 1)`, wobei `base_delay = 30 Sekunden`.
+Die Verzögerung wird nach der Formel berechnet: `delay = base_delay * 2^(attempt - 1)`, wobei `base_delay = 30 Sekunden`.
 
 ### Fehler ohne Retry
 
-Client-Fehler (HTTP 4xx) werden nicht automatisch wiederholt, da sie auf ein Datenproblem und nicht auf ein API-Problem hinweisen:
+Client-Fehler (HTTP 4xx) werden nicht wiederholt, da sie auf ein Datenproblem hinweisen:
 
-- `400 Bad Request` - ungueltige Daten
+- `400 Bad Request` - ungültige Daten
 - `401 Unauthorized` - fehlerhafter API-Token
 - `403 Forbidden` - fehlende Berechtigungen
 - `422 Unprocessable Entity` - Datenvalidierung
 
-Diese Fehler werden protokolliert und erfordern Eingriff des Administrators.
+Diese Fehler erfordern eine manuelle Korrektur.
 
 ### Asynchroner Versand
 
-Rechnungen werden asynchron ueber `WC_Action_Scheduler` gesendet, was bedeutet, dass der Bestellvorgang nicht blockiert wird. Der Kunde sieht die Bestellbestaetigung sofort, und die Rechnung wird im Hintergrund generiert.
+Rechnungen werden im Hintergrund über `WC_Action_Scheduler` gesendet. Der Kunde sieht die Bestellbestätigung sofort, und die Rechnung wird im Hintergrund generiert.
 
 ```php
 /**
- * Akcja wywoływana po pomyślnym wystawieniu faktury.
+ * Aktion, die nach erfolgreichem Ausstellen einer Rechnung ausgelöst wird.
  *
- * @param int    $order_id   ID zamówienia
- * @param string $invoice_id ID faktury w systemie księgowym
- * @param string $provider   Nazwa dostawcy ('wfirma', 'fakturownia', 'ifirma')
+ * @param int    $order_id   Bestell-ID
+ * @param string $invoice_id Rechnungs-ID im Buchhaltungssystem
+ * @param string $provider   Anbietername ('wfirma', 'fakturownia', 'ifirma')
  */
 do_action('polski_pro/accounting/invoice_created', int $order_id, string $invoice_id, string $provider);
 ```
@@ -193,7 +193,7 @@ add_action('polski_pro/accounting/invoice_created', function (
     string $provider
 ): void {
     error_log(sprintf(
-        '[Polski PRO] Faktura %s wystawiona w %s dla zamówienia #%d',
+        '[Polski PRO] Rechnung %s ausgestellt in %s für Bestellung #%d',
         $invoice_id,
         $provider,
         $order_id
@@ -205,12 +205,12 @@ add_action('polski_pro/accounting/invoice_created', function (
 
 ```php
 /**
- * Akcja wywoływana po wyczerpaniu prób wysłania faktury.
+ * Aktion, die nach Ausschöpfung der Versandversuche ausgelöst wird.
  *
- * @param int    $order_id   ID zamówienia
- * @param string $provider   Nazwa dostawcy
- * @param string $error      Komunikat błędu
- * @param int    $attempts   Liczba wykonanych prób
+ * @param int    $order_id   Bestell-ID
+ * @param string $provider   Anbietername
+ * @param string $error      Fehlermeldung
+ * @param int    $attempts   Anzahl der durchgeführten Versuche
  */
 do_action('polski_pro/accounting/invoice_failed', int $order_id, string $provider, string $error, int $attempts);
 ```
@@ -227,9 +227,9 @@ add_action('polski_pro/accounting/invoice_failed', function (
     $admin_email = get_option('admin_email');
     wp_mail(
         $admin_email,
-        sprintf('Błąd wystawienia faktury - zamówienie #%d', $order_id),
+        sprintf('Fehler beim Ausstellen der Rechnung - Bestellung #%d', $order_id),
         sprintf(
-            "Nie udało się wystawić faktury w %s po %d próbach.\n\nBłąd: %s\n\nSprawdź zamówienie: %s",
+            "Die Rechnung konnte in %s nach %d Versuchen nicht ausgestellt werden.\n\nFehler: %s\n\nBestellung prüfen: %s",
             $provider,
             $attempts,
             $error,
@@ -243,16 +243,16 @@ add_action('polski_pro/accounting/invoice_failed', function (
 
 ```php
 /**
- * Filtruje dane faktury przed wysłaniem do API.
+ * Filtert die Rechnungsdaten vor dem Senden an die API.
  *
- * @param array     $invoice_data Dane faktury w formacie dostawcy
- * @param \WC_Order $order        Zamówienie WooCommerce
- * @param string    $provider     Nazwa dostawcy
+ * @param array     $invoice_data Rechnungsdaten im Anbieterformat
+ * @param \WC_Order $order        WooCommerce-Bestellung
+ * @param string    $provider     Anbietername
  */
 apply_filters('polski_pro/accounting/invoice_data', array $invoice_data, \WC_Order $order, string $provider): array;
 ```
 
-**Beispiel - Anmerkungen zur Rechnung hinzufuegen:**
+**Beispiel - Anmerkungen zur Rechnung hinzufügen:**
 
 ```php
 add_filter('polski_pro/accounting/invoice_data', function (
@@ -262,7 +262,7 @@ add_filter('polski_pro/accounting/invoice_data', function (
 ): array {
     if ($provider === 'fakturownia') {
         $invoice_data['invoice']['description'] = sprintf(
-            'Zamówienie internetowe #%s',
+            'Onlinebestellung #%s',
             $order->get_order_number()
         );
     }
@@ -274,16 +274,16 @@ add_filter('polski_pro/accounting/invoice_data', function (
 
 ### Synchronisationsstatus
 
-Auf der WooCommerce-Bestellliste wird eine Spalte "Rechnung" hinzugefuegt, die Folgendes anzeigt:
+In der Bestellliste zeigt die Spalte "Rechnung" Folgendes an:
 
-- Gruenes Symbol - Rechnung erfolgreich ausgestellt
+- Grünes Symbol - Rechnung erfolgreich ausgestellt
 - Gelbes Symbol - wird gesendet / Retry
-- Rotes Symbol - Fehler (klicken fuer Details)
+- Rotes Symbol - Fehler (klicken Sie, um Details anzuzeigen)
 - Graues Symbol - nicht zutreffend (kein automatisches Ausstellen)
 
 ### Manuelles Ausstellen
 
-Auf der Bestellbearbeitungsseite kann der Administrator im Panel **Rechnung**:
+Im Panel **Rechnung** auf der Bestellseite kann der Administrator:
 
 1. Rechnung manuell ausstellen (wenn das automatische Ausstellen fehlgeschlagen ist)
 2. PDF-Rechnung herunterladen
@@ -292,18 +292,18 @@ Auf der Bestellbearbeitungsseite kann der Administrator im Panel **Rechnung**:
 
 ## Fehlerbehebung
 
-**Rechnung wird nicht automatisch ausgestellt**
-Pruefen Sie, ob der ausloesende Status korrekt ist. Stellen Sie sicher, dass der Action Scheduler funktioniert (WooCommerce > Status > Geplante Aktionen). Pruefen Sie das Fehlerprotokoll unter **WooCommerce > Status > Logs**.
+**Die Rechnung wird nicht automatisch ausgestellt**
+Prüfen Sie, ob der auslösende Status korrekt ist. Stellen Sie sicher, dass der Action Scheduler funktioniert (WooCommerce > Status > Geplante Aktionen). Prüfen Sie das Fehlerprotokoll unter **WooCommerce > Status > Logs**.
 
-**Fehler "Unauthorized" bei API-Verbindung**
-Ueberpruefen Sie die Authentifizierungsdaten. Bei wFirma pruefen Sie, ob API key und secret vom Hauptkonto (nicht Unterkonto) stammen. Bei Fakturownia stellen Sie sicher, dass die Subdomain korrekt ist.
+**Fehler "Unauthorized" bei der Verbindung zur API**
+Überprüfen Sie die Authentifizierungsdaten. Prüfen Sie bei wFirma, ob API key und secret vom Hauptkonto (nicht vom Unterkonto) stammen. Stellen Sie bei Fakturownia sicher, dass die Subdomain korrekt ist.
 
 **Doppelte Rechnungen**
-Das Modul schuetzt vor Duplikaten durch Pruefung des Meta `_polski_pro_invoice_id` vor dem Ausstellen. Wenn Duplikate auftreten, pruefen Sie, ob ein anderes Plugin denselben Bestell-Hook ausloest.
+Das Modul prüft vor dem Ausstellen das Meta `_polski_pro_invoice_id`, um Duplikate zu vermeiden. Wenn Duplikate auftreten, prüfen Sie, ob ein anderes Plugin denselben Hook auslöst.
 
-## Naechste Schritte
+## Nächste Schritte
 
 - Probleme melden: [GitHub Issues](https://github.com/wppoland/polski/issues)
 - Verwandt: [PRO REST API](/pro/pro-api)
 
-<div class="disclaimer">Diese Seite dient ausschließlich zu Informationszwecken und stellt keine Rechtsberatung dar. Konsultieren Sie vor der Umsetzung einen Anwalt. Polski for WooCommerce ist Open-Source-Software (GPLv2) ohne Garantie.</div>
+<div class="disclaimer">Diese Seite dient ausschließlich Informationszwecken und stellt keine Rechtsberatung dar. Konsultieren Sie vor der Umsetzung einen Anwalt. Polski for WooCommerce ist Open-Source-Software (GPLv2), die ohne Gewährleistung bereitgestellt wird.</div>

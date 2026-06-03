@@ -1,69 +1,69 @@
 ---
 title: Rechnungssystem
-description: Dokumentation des Rechnungssystems von Polski PRO for WooCommerce - MwSt.-Rechnung, Korrekturrechnung, Quittung, Lieferschein, PDF-Generierung, Nummerierung und REST API.
+description: Dokumentation des Rechnungssystems von Polski PRO for WooCommerce - VAT-Rechnung, Korrekturrechnung, Quittung, Lieferschein (WZ), PDF-Generierung, Nummerierung und REST API.
 ---
 
-Das Rechnungsmodul generiert Verkaufsdokumente direkt in WooCommerce. Unterstuetzt vier Dokumenttypen, automatische Nummerierung und PDF.
+Das Rechnungsmodul generiert Verkaufsdokumente direkt in WooCommerce. Es unterstuetzt vier Dokumenttypen, automatische Nummerierung und PDF.
 
 ## Dokumenttypen
 
-### MwSt.-Rechnung
+### VAT-Rechnung
 
-Standard-MwSt.-Rechnung mit folgenden Angaben:
+Standard-VAT-Rechnung mit folgenden Daten:
 
-- Daten des Verkaeufers und Kaeufers (einschliesslich NIP beider Seiten)
-- Positionen mit Bezeichnung, Menge, Nettopreis, MwSt.-Satz, MwSt.-Betrag und Bruttopreis
-- Zusammenfassung mit Aufschluesselung nach MwSt.-Saetzen
+- Daten von Verkaeufer und Kaeufer (einschliesslich NIP beider Parteien)
+- Positionen mit Name, Menge, Nettopreis, VAT-Satz, VAT-Betrag und Bruttopreis
+- Zusammenfassung mit Aufschluesselung nach VAT-Saetzen
 - Rechnungsnummer, Ausstellungsdatum und Verkaufsdatum
-- Zahlungsfrist und Zahlungsart
+- Zahlungsfrist und Zahlungsweise
 
 ### Korrekturrechnung
 
-Korrekturdokument zu einer zuvor ausgestellten Rechnung. Enthaelt:
+Korrektur einer frueheren Rechnung. Enthaelt:
 
 - Nummer und Datum der korrigierten Rechnung
 - Positionen vor und nach der Korrektur
 - Wertdifferenz
 - Korrekturgrund
 
-Eine Korrekturrechnung kann ueber das Bestellpanel oder die REST API ausgestellt werden.
+Stelle die Korrektur aus dem Bestellbereich oder ueber die REST API aus.
 
 ### Quittung
 
-Vereinfachtes Verkaufsdokument fuer Privatkunden (ohne Kaeufer-NIP). Enthaelt Positionen mit Bruttopreisen und eine Zusammenfassung.
+Vereinfachtes Dokument fuer Kunden ohne NIP. Enthaelt Positionen mit Bruttopreisen und eine Zusammenfassung.
 
-### Lieferschein (packing slip)
+### Lieferschein (WZ, Packing Slip)
 
-Lieferdokument, das der Sendung beigefuegt wird. Enthaelt Produktliste, Mengen und eventuelle Bestellhinweise. Enthaelt keine Preise.
+Dokument, das der Sendung beigelegt wird. Enthaelt eine Liste der Produkte und Mengen, ohne Preise.
 
 ## Konfiguration
 
-Gehen Sie zu **WooCommerce > Einstellungen > Polski > PRO-Module > Rechnungen**.
+Gehe zu **WooCommerce > Einstellungen > Polski > PRO-Module > Rechnungen**.
 
 ### Verkaeuferdaten
 
 | Feld | Beschreibung |
 |------|------|
-| Firmenname | Vollstaendiger Firmenname des Verkaeufers |
+| Firmenname | Vollstaendiger Name des Verkaeuferunternehmens |
 | NIP | Steueridentifikationsnummer des Verkaeufers |
 | Adresse | Strasse, Hausnummer, Postleitzahl, Stadt |
 | Bankkontonummer | Kontonummer fuer Ueberweisungen |
-| Kontakt-E-Mail | Auf der Rechnung angezeigte E-Mail-Adresse |
+| Kontakt-E-Mail | Auf der Rechnung sichtbare E-Mail-Adresse |
 
 ### Nummerierung
 
-Das Plugin bietet mehrere Strategien zur Rechnungsnummerierung:
+Verfuegbare Nummerierungsstrategien:
 
 | Strategie | Format | Beispiel |
 |-----------|--------|---------|
 | Jaehrlich | `FV/{numer}/{rok}` | FV/1/2026 |
 | Monatlich | `FV/{numer}/{miesiąc}/{rok}` | FV/1/04/2026 |
 | Fortlaufend | `FV/{numer}` | FV/1 |
-| Eigenes Muster | Benutzerdefiniert | FV/2026/04/001 |
+| Eigenes Muster | Vom Benutzer definiert | FV/2026/04/001 |
 
-Verfuegbare Tokens im benutzerdefinierten Format:
+Verfuegbare Tokens im eigenen Format:
 
-- `{numer}` - fortlaufende Rechnungsnummer (Zuruecksetzung gemaess Strategie)
+- `{numer}` - fortlaufende Rechnungsnummer (mit Zuruecksetzen je nach Strategie)
 - `{rok}` - vierstelliges Jahr
 - `{miesiac}` - zweistelliger Monat
 - `{dzien}` - zweistelliger Tag
@@ -71,66 +71,66 @@ Verfuegbare Tokens im benutzerdefinierten Format:
 
 ### Automatische Generierung
 
-Das Plugin kann automatisch eine Rechnung erstellen, wenn sich der Bestellstatus auf "Abgeschlossen" (completed) aendert. Aktivieren Sie die Option **Automatische Rechnungsgenerierung** in den Moduleinstellungen.
+Aktiviere die Option **Automatische Rechnungserstellung**, damit das Plugin eine Rechnung erstellt, sobald der Status auf "Abgeschlossen" geaendert wird.
 
-Sie koennen auch den automatischen Versand der PDF-Rechnung als Anhang der WooCommerce-E-Mail "Bestellung abgeschlossen" konfigurieren.
+Du kannst auch das automatische Anhaengen der PDF-Rechnung an die E-Mail "Bestellung abgeschlossen" aktivieren.
 
 ## PDF-Generierung
 
-Rechnungs-PDFs werden mit der TCPDF-Bibliothek generiert. Die PDF-Vorlage enthaelt:
+Das PDF wird mit der TCPDF-Bibliothek generiert. Das Template enthaelt:
 
-- Firmenlogo (optional, konfigurierbar in den Einstellungen)
-- Verkaeufer- und Kaeuferdaten
-- Positionstabelle mit MwSt.-Spalten
-- Zusammenfassung mit Aufschluesselung nach MwSt.-Saetzen
+- Firmenlogo (optional, in den Einstellungen konfigurierbar)
+- Daten von Verkaeufer und Kaeufer
+- Positionstabelle mit VAT-Spalten
+- Zusammenfassung mit Aufschluesselung nach VAT-Saetzen
 - Fusszeile mit Firmendaten
 
 ### Schriftarten
 
-Das Plugin verwendet die Schriftart DejaVu Sans, die polnische diakritische Zeichen unterstuetzt. Es ist keine zusaetzliche Konfiguration erforderlich.
+Das Plugin verwendet die Schriftart DejaVu Sans mit Unterstuetzung polnischer Zeichen. Eine zusaetzliche Konfiguration ist nicht erforderlich.
 
 ## Rechnungsstatus
 
-Jede Rechnung durchlaeuft einen Statuszyklus:
+Statuszyklus einer Rechnung:
 
 ```
-Draft (Szkic) → Issued (Wystawiona) → Sent (Wysłana) → Paid (Opłacona)
-                                                      → Cancelled (Anulowana)
+Draft (Entwurf) → Issued (Ausgestellt) → Sent (Versendet) → Paid (Bezahlt)
+                                                           → Cancelled (Storniert)
 ```
 
 | Status | Beschreibung |
 |--------|------|
-| Draft | Rechnung erstellt, aber noch nicht ausgestellt. Kann bearbeitet werden |
-| Issued | Rechnung ausgestellt mit zugewiesener Nummer. Kann nicht bearbeitet werden |
-| Sent | Rechnung an den Kunden gesendet (E-Mail oder KSeF) |
+| Draft | Rechnung erstellt, aber noch nicht ausgestellt. Bearbeitbar |
+| Issued | Rechnung mit vergebener Nummer ausgestellt. Nicht bearbeitbar |
+| Sent | Rechnung an den Kunden versendet (E-Mail oder KSeF) |
 | Paid | Rechnung bezahlt |
-| Cancelled | Rechnung storniert. Erfordert eine Korrektur |
+| Cancelled | Rechnung storniert. Erfordert die Ausstellung einer Korrektur |
 
-## Bestellpanel
+## Bestellbereich
 
-Im WooCommerce-Bestellverwaltungsbereich fuegt das Modul eine Meta-Box "Rechnungen" mit folgenden Funktionen hinzu:
+Im Bestellbereich fuegt das Modul eine Meta-Box "Rechnungen" mit folgenden Funktionen hinzu:
 
-- **Rechnung ausstellen** - erstellt eine Rechnung auf Basis der Bestelldaten
+- **Rechnung ausstellen** - generiert eine Rechnung auf Basis der Bestelldaten
 - **PDF herunterladen** - laedt die Rechnung im PDF-Format herunter
 - **An Kunden senden** - sendet die Rechnung per E-Mail
 - **Korrektur ausstellen** - erstellt eine Korrekturrechnung
-- **Verlauf** - Liste aller mit der Bestellung verknuepften Dokumente
+- **Historie** - Liste aller mit der Bestellung verknuepften Dokumente
 
-## MwSt. auf Positionen
+## VAT auf Positionen
 
-Jede Rechnungsposition enthaelt detaillierte MwSt.-Daten:
+Jede Rechnungsposition enthaelt detaillierte VAT-Daten:
 
-- Netto-Stueckpreis
-- MwSt.-Satz (23%, 8%, 5%, 0%, befreit, nicht anwendbar, nicht steuerbar)
-- MwSt.-Betrag pro Stueck
+- Netto-Einzelpreis
+- VAT-Satz (23%, 8%, 5%, 0%, zw., np., oo.)
+- VAT-Betrag je Einheit
 - Nettowert
 - Bruttowert
 
-Das Plugin erkennt den MwSt.-Satz automatisch aus der WooCommerce-Tax-Konfiguration. Es unterstuetzt mehrere MwSt.-Saetze auf einer Rechnung mit korrekter Zusammenfassung.
+Das Plugin bezieht die VAT-Saetze aus der Konfiguration von WooCommerce Tax. Es unterstuetzt mehrere Saetze auf einer Rechnung.
 
 ## REST API
 
-Das Modul stellt REST-API-Endpunkte zur programmatischen Rechnungsverwaltung bereit.
+REST-API-Endpoints zur Verwaltung von Rechnungen:
 
 ### Rechnungsliste
 
@@ -170,7 +170,7 @@ POST /wp-json/polski-pro/v1/invoices
 GET /wp-json/polski-pro/v1/invoices/{id}/pdf
 ```
 
-Gibt eine PDF-Datei als `application/pdf` mit dem Header `Content-Disposition: attachment` zurueck.
+Gibt die PDF-Datei als `application/pdf` mit dem Header `Content-Disposition: attachment` zurueck.
 
 ### Korrektur ausstellen
 
@@ -204,7 +204,7 @@ Gibt Rechnungsstatistiken zurueck: Gesamtanzahl, Netto-/Bruttowerte, Aufschluess
 
 ### `polski_pro/invoices/before_generate`
 
-Aktion, die vor der Rechnungsgenerierung ausgefuehrt wird.
+Aktion, die vor der Generierung einer Rechnung ausgeloest wird.
 
 ```php
 /**
@@ -227,7 +227,7 @@ add_action('polski_pro/invoices/before_generate', function (int $order_id, strin
 
 ### `polski_pro/invoices/number_format`
 
-Filtert das Rechnungsnummernformat.
+Filtert das Format der Rechnungsnummer.
 
 ```php
 /**
@@ -251,7 +251,7 @@ add_filter('polski_pro/invoices/number_format', function (string $number, string
 
 ### `polski_pro/invoices/pdf_content`
 
-Filtert die an die PDF-Vorlage uebergebenen Daten.
+Filtert die an das PDF-Template uebergebenen Daten.
 
 ```php
 /**
@@ -272,23 +272,23 @@ add_filter('polski_pro/invoices/pdf_content', function (array $data, int $invoic
 
 ## Haeufige Probleme
 
-### PDF generiert leere Seiten
+### PDF erzeugt leere Seiten
 
-1. Pruefen Sie, ob die PHP-Erweiterung `mbstring` installiert ist
-2. Stellen Sie sicher, dass das Verzeichnis `wp-content/uploads/polski-pro/invoices/` Schreibrechte hat (755)
-3. Ueberpruefen Sie, ob die Verkaeuferdaten in den Einstellungen vollstaendig ausgefuellt sind
+1. Pruefe, ob die PHP-Erweiterung `mbstring` installiert ist
+2. Stelle sicher, dass das Verzeichnis `wp-content/uploads/polski-pro/invoices/` Schreibrechte hat (755)
+3. Verifiziere, ob die Verkaeuferdaten in den Einstellungen ausgefuellt sind
 
-### Nummerierung setzt sich zurueck
+### Die Nummerierung wird zurueckgesetzt
 
-Die Nummerierung setzt sich gemaess der gewaehlten Strategie zurueck - jaehrlich am 1. Januar, monatlich am 1. jedes Monats. Wenn Sie eine fortlaufende Nummerierung wuenschen, waehlen Sie die Strategie "Fortlaufend".
+Die Nummerierung wird gemaess der Strategie zurueckgesetzt: jaehrlich - am 1. Januar, monatlich - am 1. Tag des Monats. Du moechtest eine fortlaufende Nummerierung? Waehle die Strategie "Fortlaufend".
 
-### Keine MwSt. auf Positionen
+### Kein VAT auf den Positionen
 
-Pruefen Sie die WooCommerce-Tax-Konfiguration. Das Plugin bezieht die MwSt.-Saetze aus den WooCommerce-Steuereinstellungen. Stellen Sie sicher, dass die Saetze fuer Polen korrekt konfiguriert sind.
+Pruefe die Konfiguration von WooCommerce Tax. Stelle sicher, dass die VAT-Saetze fuer Polen korrekt eingestellt sind.
 
 ## Verwandte Ressourcen
 
 - [KSeF-Integration](/pro/ksef/)
 - [Problem melden](https://github.com/wppoland/polski/issues)
 
-<div class="disclaimer">Diese Seite dient ausschließlich zu Informationszwecken und stellt keine Rechtsberatung dar. Konsultieren Sie vor der Umsetzung einen Anwalt. Polski for WooCommerce ist Open-Source-Software (GPLv2) ohne Garantie.</div>
+<div class="disclaimer">Diese Seite dient ausschliesslich zu Informationszwecken und stellt keine Rechtsberatung dar. Konsultiere vor der Umsetzung einen Anwalt. Polski for WooCommerce ist Open-Source-Software (GPLv2), die ohne Gewaehrleistung bereitgestellt wird.</div>

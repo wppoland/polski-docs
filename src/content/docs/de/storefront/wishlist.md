@@ -1,69 +1,69 @@
 ---
-title: Wunschliste
-description: Wunschlistenmodul in Polski for WooCommerce - Unterstuetzung fuer Gaeste und angemeldete Benutzer, Kundenkonto, AJAX und Shortcode.
+title: Wunschliste (wishlist)
+description: Wunschlistenmodul in Polski for WooCommerce - Unterstützung für Gäste und angemeldete Nutzer, Kundenkonto, AJAX und Shortcode.
 ---
 
-Die Wunschliste ermoeglicht es Kunden, Produkte fuer spaeter zu speichern. Funktioniert fuer angemeldete Kunden und Gaeste.
+Mit der Wunschliste können Kunden Produkte für später speichern. Sie funktioniert sowohl für angemeldete Kunden als auch für Gäste.
 
-![Wunschliste, Produktvergleich und Schnellansicht auf der Shop-Seite](../../../../assets/screenshots/screenshot-8-wishlist-compare-quick-view.png)
+![Wunschliste, Vergleich und Schnellansicht auf der Shopseite](../../../../assets/screenshots/screenshot-8-wishlist-compare-quick-view.png)
 
 ## Modul aktivieren
 
-Gehen Sie zu **WooCommerce > Polski > Shop-Module** und aktivieren Sie **Wunschliste**. Auf jedem Produkt erscheint ein Herzsymbol.
+Gehen Sie zu **WooCommerce > Polski > Shop-Module** und aktivieren Sie **Wunschliste**. Bei jedem Produkt erscheint ein Herz-Symbol.
 
-## Unterstuetzung fuer Gaeste und angemeldete Benutzer
+## Unterstützung für Gäste und angemeldete Nutzer
 
-### Gaeste (nicht angemeldet)
+### Gäste (nicht angemeldet)
 
-Fuer Gaeste wird die Wunschliste im `localStorage` des Browsers gespeichert. Daten sind sofort ohne Serveranfragen verfuegbar. Nach dem Anmelden wird die Liste aus dem `localStorage` automatisch mit der Datenbank synchronisiert - Produkte gehen nicht verloren.
+Die Liste wird im `localStorage` des Browsers gespeichert. Die Daten sind sofort verfügbar, ohne Serveranfragen. Nach der Anmeldung synchronisiert sich die Liste automatisch mit der Datenbank - die Produkte verschwinden nicht.
 
-### Angemeldete Benutzer
+### Angemeldete Nutzer
 
-Fuer angemeldete Kunden werden Daten in der Tabelle `wp_usermeta` mit dem Schluessel `_polski_wishlist` gespeichert. Dadurch ist die Liste nach dem Anmelden auf jedem Geraet verfuegbar.
+Die Daten werden in der Tabelle `wp_usermeta` mit dem Schlüssel `_polski_wishlist` gespeichert. Die Liste ist nach der Anmeldung auf jedem Gerät verfügbar.
 
 ## Kundenkonto
 
-Das Modul fuegt einen Tab **Wunschliste** in **Mein Konto** hinzu. Der Kunde sieht dort:
+Das Modul fügt unter **Mein Konto** einen Tab **Wunschliste** hinzu. Dort sieht der Kunde:
 
-- Produktminiatur
-- Name mit Link zur Produktseite
-- Preis (aktuell, unter Beruecksichtigung von Aktionen)
-- Verfuegbarkeitsstatus (auf Lager / nicht verfuegbar)
-- Button **In den Warenkorb**
-- Button **Von der Liste entfernen**
+- Eine Produktminiatur
+- Den Namen mit Link zur Produktseite
+- Den Preis (aktuell, unter Berücksichtigung von Aktionen)
+- Den Verfügbarkeitsstatus (auf Lager / nicht verfügbar)
+- Die Schaltfläche **In den Warenkorb**
+- Die Schaltfläche **Von der Liste entfernen**
 
-Der Tab ist nur sichtbar, wenn das Modul aktiv ist. Endpoint in der URL: `wishlist` - z.B. `ihrshop.pl/mein-konto/wishlist/`.
+Der Tab ist nur sichtbar, wenn das Modul aktiv ist. Endpunkt in der URL: `wishlist` - z. B. `ihrshop.de/mein-konto/wishlist/`.
 
 ## AJAX-Funktionsweise
 
-Hinzufuegen und Entfernen funktioniert per AJAX - die Seite wird nicht neu geladen. Nach Klick auf das Herzsymbol:
+Das Hinzufügen und Entfernen von Produkten läuft per AJAX - die Seite wird nicht neu geladen. Nach Klick auf das Herz-Symbol:
 
-1. Symbol wechselt den Zustand (leer/gefuellt) mit CSS-Animation
-2. AJAX-Anfrage wird an `admin-ajax.php` gesendet
-3. Zaehler am Symbol im Header aktualisiert sich in Echtzeit
+1. ändert das Symbol seinen Zustand (leer/gefüllt) mit einer CSS-Animation
+2. wird eine AJAX-Anfrage an `admin-ajax.php` gesendet
+3. aktualisiert sich der Zähler am Symbol im Header in Echtzeit
 
-Vom Modul verarbeitete AJAX-Aktionen:
+Vom Modul unterstützte AJAX-Aktionen:
 
-| Aktion                          | Beschreibung                        |
+| Aktion                          | Beschreibung                |
 | ------------------------------ | --------------------------- |
-| `polski_wishlist_add`          | Produkt zur Liste hinzufuegen   |
+| `polski_wishlist_add`          | Produkt zur Liste hinzufügen   |
 | `polski_wishlist_remove`       | Produkt von der Liste entfernen  |
 | `polski_wishlist_get`          | Gesamte Liste abrufen        |
 | `polski_wishlist_clear`        | Gesamte Liste leeren   |
 
 ## Shortcode `[polski_wishlist]`
 
-Der Shortcode zeigt die Wunschlistentabelle an einer beliebigen Stelle im Shop an.
+Zeigt die Tabelle der Wunschliste an beliebiger Stelle im Shop an.
 
 ### Parameter
 
-| Parameter    | Typ    | Standard | Beschreibung                                        |
+| Parameter   | Typ    | Standard  | Beschreibung                                 |
 | ----------- | ------ | --------- | -------------------------------------------- |
-| `columns`   | string | `all`     | Anzuzeigende Spalten (durch Komma getrennt) |
-| `max_items` | int    | `50`      | Maximale Produktanzahl auf der Liste        |
-| `show_empty`| string | `yes`     | Meldung bei leerer Liste anzeigen |
+| `columns`   | string | `all`     | Anzuzeigende Spalten (durch Komma getrennt)  |
+| `max_items` | int    | `50`      | Maximale Anzahl der Produkte auf der Liste   |
+| `show_empty`| string | `yes`     | Ob eine Meldung angezeigt wird, wenn die Liste leer ist |
 
-### Verwendungsbeispiel
+### Anwendungsbeispiel
 
 ```html
 [polski_wishlist columns="image,name,price,add_to_cart" max_items="20"]
@@ -75,19 +75,19 @@ Der Shortcode zeigt die Wunschlistentabelle an einer beliebigen Stelle im Shop a
 echo do_shortcode('[polski_wishlist columns="image,name,price,add_to_cart"]');
 ```
 
-### Verfuegbare Spalten
+### Verfügbare Spalten
 
 - `image` - Produktminiatur
 - `name` - Produktname mit Link
 - `price` - Preis
 - `stock` - Lagerstatus
-- `add_to_cart` - Button zum Hinzufuegen in den Warenkorb
-- `remove` - Button zum Entfernen von der Liste
-- `date_added` - Hinzufuegedatum
+- `add_to_cart` - Schaltfläche zum Hinzufügen in den Warenkorb
+- `remove` - Schaltfläche zum Entfernen von der Liste
+- `date_added` - Datum des Hinzufügens
 
-## Button auf der Produktseite
+## Schaltfläche auf der Produktseite
 
-Der Wunschlistenbutton wird standardmaessig unter dem Button **In den Warenkorb** auf der Produktseite angezeigt. Die Position kann per Filter geaendert werden:
+Die Schaltfläche wird standardmäßig unter **In den Warenkorb** angezeigt. Ändern Sie die Position per Filter:
 
 ```php
 add_filter('polski/wishlist/button_position', function (): string {
@@ -95,13 +95,13 @@ add_filter('polski/wishlist/button_position', function (): string {
 });
 ```
 
-## Button auf der Produktliste
+## Schaltfläche in der Produktliste
 
-Auf Kategorie- und Archivseiten erscheint der Herzbutton in der Ecke des Miniaturbilds. Deaktivieren Sie ihn in den Moduleinstellungen.
+Auf Kategorie- und Archivseiten erscheint das Herz-Symbol in der Ecke der Miniatur. Deaktivieren Sie es in den Moduleinstellungen.
 
-## Header-Symbol
+## Shop-Header
 
-Das Modul fuegt ein Herzsymbol mit Zaehler zum Header hinzu (neben dem Warenkorb). Klick oeffnet ein Dropdown mit gespeicherten Produkten. Position per Hook aendern:
+Das Modul fügt dem Header ein Herz-Symbol mit Zähler hinzu (neben dem Warenkorb). Ein Klick öffnet ein Dropdown mit den gespeicherten Produkten. Ändern Sie die Position des Symbols per Hook:
 
 ```php
 add_action('polski/wishlist/header_icon', function (): void {
@@ -109,26 +109,28 @@ add_action('polski/wishlist/header_icon', function (): void {
 });
 ```
 
-## CSS-Styling
+## CSS-Gestaltung
 
-- `.polski-wishlist-button` - Hinzufuegen-/Entfernen-Button
-- `.polski-wishlist-button--active` - Aktiver Zustand (Produkt auf der Liste)
-- `.polski-wishlist-table` - Listentabelle
-- `.polski-wishlist-count` - Zaehler im Header
+Die CSS-Klassen tragen das Präfix `.polski-wishlist-`. Wichtige Klassen:
+
+- `.polski-wishlist-button` - Schaltfläche zum Hinzufügen/Entfernen
+- `.polski-wishlist-button--active` - aktiver Zustand (Produkt auf der Liste)
+- `.polski-wishlist-table` - Tabelle der Liste
+- `.polski-wishlist-count` - Zähler im Header
 - `.polski-wishlist-empty` - Meldung bei leerer Liste
 
 ## Leistung
 
-Listendaten fuer angemeldete Kunden werden im Object Cache gecacht (falls verfuegbar). Der Button-HTML wird per `wp_cache_set()` mit der Gruppe `polski_wishlist` gecacht. Der Cache leert sich automatisch beim Hinzufuegen oder Entfernen eines Produkts.
+Die Listendaten für angemeldete Kunden werden im Object Cache zwischengespeichert (sofern verfügbar). Das HTML der Schaltfläche wird über `wp_cache_set()` mit der Gruppe `polski_wishlist` zwischengespeichert. Der Cache wird nach dem Hinzufügen oder Entfernen eines Produkts automatisch geleert.
 
 ## Fehlerbehebung
 
-**Button erscheint nicht am Produkt** - stellen Sie sicher, dass das Theme den Hook `woocommerce_single_product_summary` unterstuetzt.
+**Die Schaltfläche erscheint nicht beim Produkt** - prüfen Sie, ob Ihr Theme den Hook `woocommerce_single_product_summary` unterstützt. Manche Themes überschreiben die WooCommerce-Templates.
 
-**Liste synchronisiert sich nach dem Anmelden nicht** - pruefen Sie, ob kein Caching-Plugin die Anmeldeseite aggressiv puffert. Deaktivieren Sie den Cache fuer die Seite "Mein Konto".
+**Die Liste synchronisiert sich nach der Anmeldung nicht** - prüfen Sie, ob ein Cache-Plugin die Login-Seite zwischenspeichert. Deaktivieren Sie den Cache für die Seite `mein-konto`.
 
-**Symbol im Header wird nicht angezeigt** - das Theme muss den Hook `wp_nav_menu_items` oder `storefront_header` unterstuetzen.
+**Das Symbol im Header wird nicht angezeigt** - das Theme muss den Hook `wp_nav_menu_items` oder `storefront_header` unterstützen. Fügen Sie das Symbol in einem benutzerdefinierten Theme manuell im Template hinzu.
 
 Probleme melden: [github.com/wppoland/polski/issues](https://github.com/wppoland/polski/issues)
 
-<div class="disclaimer">Diese Seite dient ausschließlich zu Informationszwecken und stellt keine Rechtsberatung dar. Konsultieren Sie vor der Umsetzung einen Anwalt. Polski for WooCommerce ist Open-Source-Software (GPLv2) ohne Garantie.</div>
+<div class="disclaimer">Diese Seite dient ausschließlich Informationszwecken und stellt keine Rechtsberatung dar. Konsultieren Sie vor der Umsetzung einen Anwalt. Polski for WooCommerce ist Open-Source-Software (GPLv2), die ohne Gewährleistung bereitgestellt wird.</div>

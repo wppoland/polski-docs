@@ -1,69 +1,69 @@
 ---
-title: InPost-Integration (Paczkomaty)
-description: Modul fuer die InPost-ShipX-API-Integration in Polski PRO for WooCommerce - Paczkomaty, Etikettengenerierung, Abholpunktkarte und Sendungsverfolgung.
+title: InPost Integration (Paketautomaten)
+description: InPost ShipX API Integrationsmodul in Polski PRO for WooCommerce - Paketautomaten, Erstellung von Etiketten, Karte der Abholpunkte und Sendungsverfolgung.
 ---
 
-Das InPost-Modul integriert WooCommerce mit der ShipX-API. Generieren Sie Etiketten, lassen Sie Kunden einen Paczkomat auf der Karte waehlen und verfolgen Sie Sendungen aus dem Admin-Panel.
+Das InPost Modul integriert WooCommerce mit der ShipX API. Erstelle Etiketten, lass Kunden einen Paketautomaten auf der Karte auswaehlen und verfolge Sendungen direkt aus dem Admin-Panel.
 
-:::note[Wymagania]
-Polski PRO wymaga: Polski (free) v1.3.0+, WordPress 6.4+, WooCommerce 8.0+, PHP 8.1+. Dodatkowo wymagany jest aktywny token API InPost ShipX (uzyskiwany z panelu managera InPost).
+:::note[Voraussetzungen]
+Polski PRO erfordert: Polski (free) v1.3.0+, WordPress 6.4+, WooCommerce 8.0+, PHP 8.1+. Zusaetzlich wird ein aktives InPost ShipX API-Token benoetigt (erhaeltlich im InPost Manager Panel).
 :::
 
 ## Konfiguration
 
-Gehen Sie zu **WooCommerce > Ustawienia > Polski PRO > InPost**.
+Gehe zu **WooCommerce > Einstellungen > Polski PRO > InPost**.
 
-### API-Authentifizierung
+### API Authentifizierung
 
 | Einstellung | Beschreibung |
 |------------|------|
-| API-Token | Autorisierungstoken aus dem InPost-Manager-Panel |
-| Organisations-ID | Organisationskennung im InPost-System |
-| Sandbox-Modus | Verwendet die ShipX-API-Testumgebung |
+| API-Token | Autorisierungstoken aus dem InPost Manager Panel |
+| Organisations-ID | Kennung der Organisation im InPost System |
+| Sandbox-Modus | Nutzt die Testumgebung der ShipX API |
 
-Der API-Token wird im Header `Authorization: Bearer {token}` an jede ShipX-API-Anfrage uebergeben. Der Token sollte Berechtigungen zum Erstellen von Sendungen und Generieren von Etiketten haben.
+Das Token wird im Header `Authorization: Bearer {token}` uebertragen. Es muss die Berechtigung zum Erstellen von Sendungen und Etiketten haben.
 
-### Versandmethoden-Einstellungen
+### Einstellungen der Versandmethode
 
-Nach der API-Konfiguration erstellen Sie eine neue Versandmethode:
+Nach der Konfiguration der API erstelle eine neue Versandmethode:
 
-1. Gehen Sie zu **WooCommerce > Ustawienia > Wysyłka > Strefy wysyłki**
-2. Bearbeiten Sie die Zone "Polska"
-3. Klicken Sie auf "Versandmethode hinzufuegen"
-4. Waehlen Sie "InPost Paczkomat" oder "InPost Kurier"
+1. Gehe zu **WooCommerce > Einstellungen > Versand > Versandzonen**
+2. Bearbeite die Zone "Polen"
+3. Klicke auf "Versandmethode hinzufuegen"
+4. Waehle "InPost Paketautomat" oder "InPost Kurier"
 
-| Methodeneinstellung | Standardwert | Beschreibung |
+| Einstellung der Methode | Standardwert | Beschreibung |
 |-------------------|------------------|------|
-| Methodentitel | "InPost Paczkomat" | Dem Kunden angezeigter Name |
+| Titel der Methode | "InPost Paketautomat" | Name, der dem Kunden angezeigt wird |
 | Kosten | 0 | Versandkosten (0 = kostenlos) |
-| Kostenloser Versand ab | "" | Bestellwert, ab dem der Versand kostenlos ist |
+| Kostenloser Versand ab | "" | Bestellbetrag, ab dem der Versand kostenlos ist |
 | Standard-Paketgroesse | A | Groesse: `A`, `B`, `C` |
 | Versicherung | Nein | Versicherung zur Sendung hinzufuegen |
 
-## Abholpunktkarte
+## Karte der Abholpunkte
 
 ### Karten-Widget
 
-Auf der Checkout-Seite wird nach Auswahl der Versandmethode "InPost Paczkomat" ein interaktives Karten-Widget zur Auswahl eines Paczkomat-Standorts angezeigt.
+Nach der Auswahl von "InPost Paketautomat" an der Kasse wird ein interaktives Karten-Widget angezeigt.
 
 Das Widget bietet:
 
-- **Karte** mit Paczkomat-Pins
-- **Suche nach Stadt** - Stadtname eingeben, um die Karte zu zentrieren
-- **Suche nach Koordinaten** - automatische Geolokalisierung (mit Benutzereinwilligung)
-- **Suche nach Postleitzahl** - naechstgelegene Paczkomaty finden
-- **Paczkomat-Liste** - sortiert nach Naehe
+- **Karte** mit Pins der Paketautomaten
+- **Suche nach Stadt** - gib den Stadtnamen ein, um die Karte zu zentrieren
+- **Suche nach Koordinaten** - automatische Geolokalisierung (mit Zustimmung des Nutzers)
+- **Suche nach Postleitzahl** - finde die naechstgelegenen Paketautomaten
+- **Liste der Paketautomaten** - sortiert vom naechstgelegenen aus
 - **Punktdetails** - Adresse, Oeffnungszeiten, verfuegbare Fachgroessen
 
 ### Suche nach Stadt
 
-Das Widget sendet eine Anfrage an den ShipX-API-Endpunkt:
+Das Widget sendet eine Anfrage an den ShipX API Endpoint:
 
 ```
 GET /v1/points?type=parcel_locker&city={city}&per_page=25
 ```
 
-Ergebnisse werden fuer 24 Stunden in WordPress-Transients gecacht, um die Anzahl der API-Anfragen zu minimieren.
+Die Ergebnisse werden 24 Stunden lang in WordPress Transients zwischengespeichert.
 
 ### Suche nach Koordinaten
 
@@ -73,69 +73,69 @@ Wenn der Kunde der Geolokalisierung zustimmt:
 GET /v1/points?type=parcel_locker&relative_point={lat},{lng}&per_page=10
 ```
 
-### Punkte filtern
+### Filterung der Punkte
 
 ```php
 /**
- * Filtruje listę punktów odbioru InPost.
+ * Filtert die Liste der InPost Abholpunkte.
  *
- * @param array  $points  Tablica punktów odbioru z API
- * @param string $city    Wyszukiwane miasto
- * @param array  $coords  Współrzędne [lat, lng] lub pusta tablica
+ * @param array  $points  Array der Abholpunkte aus der API
+ * @param string $city    Gesuchte Stadt
+ * @param array  $coords  Koordinaten [lat, lng] oder leeres Array
  */
 apply_filters('polski_pro/inpost/points', array $points, string $city, array $coords): array;
 ```
 
-**Beispiel - voruebergehend nicht verfuegbare Punkte ausschliessen:**
+**Beispiel - Ausschluss voruebergehend nicht verfuegbarer Punkte:**
 
 ```php
 add_filter('polski_pro/inpost/points', function (array $points, string $city, array $coords): array {
-    $excluded_points = ['KRA123', 'WAW456']; // Tymczasowo wyłączone
+    $excluded_points = ['KRA123', 'WAW456']; // Voruebergehend deaktiviert
     return array_filter($points, function (array $point) use ($excluded_points): bool {
         return ! in_array($point['name'], $excluded_points, true);
     });
 }, 10, 3);
 ```
 
-## Etikettengenerierung
+## Erstellung von Etiketten
 
 ### Aus dem Bestellpanel
 
-Auf der Bestellbearbeitungsseite im Panel **InPost** stehen folgende Optionen zur Verfuegung:
+Im Panel **InPost** auf der Bestellseite:
 
-1. **Etikett generieren** - erstellt eine Sendung in der ShipX-API und generiert ein PDF-Etikett
-2. **Etikett herunterladen** - laedt das generierte Etikett herunter
+1. **Etikett erstellen** - erstellt die Sendung in der ShipX API und generiert ein PDF-Etikett
+2. **Etikett herunterladen** - laedt das erstellte Etikett herunter
 3. **Etikett drucken** - oeffnet die Druckvorschau
 
-### Massengenerierung
+### Massenerstellung
 
-Markieren Sie auf der Bestellliste mehrere Bestellungen und waehlen Sie die Massenaktion "InPost-Etiketten generieren". Etiketten werden asynchron generiert - nach Abschluss erscheint eine Benachrichtigung mit einem Link zum Herunterladen der ZIP-Datei.
+Markiere mehrere Bestellungen in der Liste und waehle "InPost Etiketten erstellen". Die Etiketten werden im Hintergrund erstellt. Nach Abschluss lade die ZIP-Datei herunter.
 
 ### Sendungsdaten
 
-Das Etikett wird basierend auf folgenden Daten generiert:
+Das Etikett wird erstellt auf Basis von:
 
 | Feld | Quelle | Beschreibung |
 |------|--------|------|
 | Absender | Shop-Einstellungen | Adresse und Firmendaten aus WooCommerce |
 | Empfaenger | Bestelldaten | Vorname, Nachname, Telefon, E-Mail |
-| Abholpunkt | Kundenauswahl | ID des im Checkout gewaehlten Paczkomat |
-| Paketgroesse | Methodeneinstellung | Oder Ueberschreibung in der Bestellung |
-| Nachnahmebetrag | COD-Bestellung | Nur fuer Nachnahmebestellungen |
+| Abholpunkt | Kundenauswahl | ID des an der Kasse gewaehlten Paketautomaten |
+| Paketgroesse | Einstellung der Methode | Oder Ueberschreibung in der Bestellung |
+| Nachnahmebetrag | COD-Bestellung | Nur bei Nachnahmebestellungen |
 
-### Hook fuer Etikettengenerierung
+### Hook zur Etikettenerstellung
 
 ```php
 /**
- * Filtruje dane przesyłki przed wysłaniem do API ShipX.
+ * Filtert die Sendungsdaten vor dem Senden an die ShipX API.
  *
- * @param array     $shipment_data Dane przesyłki
- * @param \WC_Order $order         Zamówienie WooCommerce
+ * @param array     $shipment_data Sendungsdaten
+ * @param \WC_Order $order         WooCommerce Bestellung
  */
 apply_filters('polski_pro/inpost/shipment_data', array $shipment_data, \WC_Order $order): array;
 ```
 
-**Beispiel - Bestellreferenz hinzufuegen:**
+**Beispiel - Hinzufuegen einer Bestellreferenz:**
 
 ```php
 add_filter('polski_pro/inpost/shipment_data', function (array $shipment_data, \WC_Order $order): array {
@@ -148,35 +148,35 @@ add_filter('polski_pro/inpost/shipment_data', function (array $shipment_data, \W
 
 ### Automatische Verfolgung
 
-Nach der Etikettengenerierung prueft das Modul automatisch den Sendungsstatus alle 2 Stunden (WP-Cron). Status werden auf WooCommerce-Bestellstatus gemappt:
+Nach der Erstellung des Etiketts prueft das Modul den Sendungsstatus alle 2 Stunden (WP-Cron). Die Status werden auf WooCommerce-Status abgebildet:
 
-| InPost-Status | WooCommerce-Status | Beschreibung |
+| InPost Status | WooCommerce Status | Beschreibung |
 |---------------|-------------------|------|
 | `created` | `processing` | Sendung erstellt |
-| `dispatched_by_sender` | `processing` | Vom Absender versandt |
+| `dispatched_by_sender` | `processing` | Vom Absender aufgegeben |
 | `collected_from_sender` | `shipped` | Vom Absender abgeholt |
 | `out_for_delivery` | `shipped` | In Zustellung |
-| `ready_to_pickup` | `shipped` | Abholbereit im Paczkomat |
+| `ready_to_pickup` | `shipped` | Abholbereit im Paketautomaten |
 | `delivered` | `completed` | Zugestellt / abgeholt |
 
 ### Kundenbenachrichtigungen
 
-Der Kunde erhaelt eine E-Mail mit einem Tracking-Link zur InPost-Seite. Der Tracking-Link wird hinzugefuegt zu:
+Der Kunde erhaelt eine E-Mail mit einem Tracking-Link auf der InPost Seite. Der Link wird hinzugefuegt zu:
 
-- E-Mail "Bestellung in Bearbeitung"
-- Seite "Mein Konto > Bestellungen > Details"
-- Bestellnotizen (fuer den Kunden sichtbar)
+- der E-Mail "Bestellung in Bearbeitung"
+- der Seite "Mein Konto > Bestellungen > Details"
+- den Bestellnotizen (fuer den Kunden sichtbar)
 
-### Verfolgungs-Hook
+### Tracking-Hook
 
 ```php
 /**
- * Akcja wywoływana po aktualizacji statusu przesyłki.
+ * Aktion, die nach der Aktualisierung des Sendungsstatus ausgeloest wird.
  *
- * @param int      $order_id      ID zamówienia
- * @param string   $tracking_number Numer śledzenia
- * @param string   $old_status    Poprzedni status InPost
- * @param string   $new_status    Nowy status InPost
+ * @param int      $order_id      Bestell-ID
+ * @param string   $tracking_number Sendungsnummer
+ * @param string   $old_status    Vorheriger InPost Status
+ * @param string   $new_status    Neuer InPost Status
  */
 do_action('polski_pro/inpost/status_updated', int $order_id, string $tracking_number, string $old_status, string $new_status);
 ```
@@ -194,7 +194,7 @@ add_action('polski_pro/inpost/status_updated', function (
         $order = wc_get_order($order_id);
         $phone = $order->get_billing_phone();
         send_sms($phone, sprintf(
-            'Twoja paczka %s czeka w Paczkomacie. Kod odbioru w e-mailu.',
+            'Dein Paket %s wartet im Paketautomaten. Der Abholcode steht in der E-Mail.',
             $tracking_number
         ));
     }
@@ -209,22 +209,22 @@ add_action('polski_pro/inpost/status_updated', function (
 | B | 19 x 38 x 64 | 25 kg |
 | C | 41 x 38 x 64 | 25 kg |
 
-Die Paketgroesse kann global, pro Versandmethode oder manuell in der Bestellung festgelegt werden.
+Die Paketgroesse kann global, pro Versandmethode oder manuell in der Bestellung ueberschrieben werden.
 
 ## Fehlerbehebung
 
-**Paczkomat-Karte laedt nicht**
-Pruefen Sie, ob der API-Token korrekt und aktiv ist. Pruefen Sie die Browserkonsole auf CORS- oder JavaScript-Fehler. Stellen Sie sicher, dass das Skript `polski-pro-inpost-map.js` geladen ist.
+**Die Karte der Paketautomaten laedt nicht**
+Pruefe, ob das API-Token korrekt und aktiv ist. Pruefe die Browser-Konsole auf CORS- oder JavaScript-Fehler. Stelle sicher, dass das Skript `polski-pro-inpost-map.js` geladen ist.
 
-**Fehler bei der Etikettengenerierung "Unauthorized"**
-Der API-Token ist abgelaufen oder hat keine Berechtigungen zum Erstellen von Sendungen. Generieren Sie einen neuen Token im InPost-Manager-Panel.
+**Fehler bei der Etikettenerstellung "Unauthorized"**
+Das API-Token ist abgelaufen oder hat keine Berechtigung zum Erstellen von Sendungen. Erstelle ein neues Token im InPost Manager Panel.
 
-**Sendungsstatus aktualisiert sich nicht**
-Pruefen Sie, ob WP-Cron korrekt funktioniert. Fuehren Sie manuell aus: `wp cron event run polski_pro_inpost_tracking`.
+**Der Sendungsstatus aktualisiert sich nicht**
+Pruefe, ob WP-Cron korrekt funktioniert. Manuell ausfuehren: `wp cron event run polski_pro_inpost_tracking`.
 
-## Naechste Schritte
+## Weitere Schritte
 
 - Probleme melden: [GitHub Issues](https://github.com/wppoland/polski/issues)
-- ShipX-API-Dokumentation: [https://docs.inpost24.com/](https://docs.inpost24.com/)
+- ShipX API Dokumentation: [https://docs.inpost24.com/](https://docs.inpost24.com/)
 
-<div class="disclaimer">Diese Seite dient ausschließlich zu Informationszwecken und stellt keine Rechtsberatung dar. Konsultieren Sie vor der Umsetzung einen Anwalt. Polski for WooCommerce ist Open-Source-Software (GPLv2) ohne Garantie.</div>
+<div class="disclaimer">Diese Seite dient ausschliesslich Informationszwecken und stellt keine Rechtsberatung dar. Konsultiere vor der Umsetzung einen Anwalt. Polski for WooCommerce ist Open-Source-Software (GPLv2), die ohne Gewaehrleistung bereitgestellt wird.</div>

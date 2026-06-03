@@ -1,94 +1,94 @@
 ---
 title: Rechtsseiten
-description: Automatische Generierung von Rechtsseiten in Polski for WooCommerce - AGB, Datenschutzerklaerung, Widerrufsbelehrung, Reklamationen, E-Mail-Anhaenge und ODR-Information.
+description: Automatische Generierung von Rechtsseiten in Polski for WooCommerce - AGB, Datenschutzerklärung, Rückgaberichtlinie, Reklamationen, E-Mail-Anhänge und ODR-Information.
 ---
 
-Jeder Onlineshop in Polen braucht Rechtsdokumente. Das Plugin generiert vier Rechtsseiten, haengt sie an E-Mails an und zeigt die ODR-Information an.
+Jeder Online-Shop in Polen muss Rechtsdokumente haben. Das Plugin generiert vier Rechtsseiten, fügt sie E-Mails als Anhang bei und zeigt eine Information über die ODR-Plattform an.
 
 ## Generierte Rechtsseiten
 
-### 1. AGB
+### 1. Shop-AGB
 
-Die generierten AGB enthalten die vom Verbraucherrechtegesetz geforderten Elemente:
+Die AGB enthalten die vom Verbraucherrechtegesetz geforderten Elemente:
 
-- Identifikationsdaten des Verkaeufers (Name, Adresse, NIP, REGON, KRS)
-- Bestellverfahren
-- Zahlungsmethoden
-- Kosten und Lieferarten
+- Identifikationsdaten des Verkäufers (Name, Adresse, NIP, REGON, KRS)
+- Verfahren zur Bestellaufgabe
+- Zahlungsarten
+- Kosten und Versandarten
 - Widerrufsrecht (14 Tage)
 - Reklamationsverfahren
-- Aussergerichtliche Streitbeilegung und Anspruchsdurchsetzung
+- Außergerichtliche Wege zur Bearbeitung von Reklamationen und zur Durchsetzung von Ansprüchen
 - Schlussbestimmungen
 
-### 2. Datenschutzerklaerung
+### 2. Datenschutzerklärung
 
-Die generierte DSGVO-konforme Datenschutzerklaerung enthaelt:
+Die DSGVO-konforme Datenschutzerklärung enthält:
 
-- Daten des Verantwortlichen fuer die Datenverarbeitung
-- Zwecke und Rechtsgrundlagen der Verarbeitung
-- Kategorien verarbeiteter Daten
-- Datenempfaenger (Kuriere, Zahlungsanbieter, Hosting)
-- Aufbewahrungsfristen
+- Daten des Verantwortlichen für die personenbezogenen Daten
+- Zwecke und Rechtsgrundlagen der Datenverarbeitung
+- Kategorien der verarbeiteten Daten
+- Empfänger der Daten (Kuriere, Zahlungsanbieter, Hosting)
+- Aufbewahrungsdauer der Daten
 - Rechte der betroffenen Personen
-- Cookie-Information
-- Information zum Profiling (falls zutreffend)
+- Information über Cookies
+- Information über Profiling (falls zutreffend)
 
-### 3. Widerrufsbelehrung
+### 3. Rückgaberichtlinie
 
-Die generierte Widerrufsbelehrung umfasst:
+Die Rückgaberichtlinie umfasst:
 
-- Frist fuer den Widerruf (14 Tage)
+- Frist für den Widerruf des Vertrags (14 Tage)
 - Muster-Widerrufsformular
-- Verfahren der Warenrueckgabe
-- Ruecksendekosten (wer sie traegt)
-- Frist fuer die Erstattung
+- Verfahren zur Warenrückgabe
+- Rückgabekosten (wer sie trägt)
+- Frist für die Rückerstattung der Zahlung
 - Ausnahmen vom Widerrufsrecht
-- Zustand der zurueckgesandten Ware
+- Zustand der zurückgegebenen Ware
 
-### 4. Reklamationsbelehrung
+### 4. Reklamationsrichtlinie
 
-Die generierte Reklamationsbelehrung enthaelt:
+Die Reklamationsrichtlinie enthält:
 
-- Rechtsgrundlage (Gewaehrleistung, Garantie)
+- Rechtsgrundlage (Gewährleistung, Garantie)
 - Wege zur Einreichung einer Reklamation
-- Bearbeitungsfrist (14 Tage)
-- Verbraucherrechte (Reparatur, Austausch, Preisminderung, Ruecktritt)
+- Frist für die Bearbeitung einer Reklamation (14 Tage)
+- Rechte des Verbrauchers (Reparatur, Austausch, Preisminderung, Rücktritt)
 - Reklamationsformular
-- Kontaktdaten fuer Reklamationen
+- Kontaktdaten zur Einreichung von Reklamationen
 
-## Generator-Konfiguration
+## Konfiguration des Generators
 
 Gehen Sie zu **WooCommerce > Einstellungen > Polski > Rechtsseiten**, um die Seiten zu generieren oder zu aktualisieren.
 
-### Verkaeufer-Daten
+### Verkäuferdaten
 
-Fuellen Sie vor der Generierung die Firmendaten aus:
+Füllen Sie zuerst die Firmendaten aus:
 
 | Feld | Beschreibung | Beispiel |
 |------|------|---------|
-| Firmenname | Vollstaendiger Name oder Firma | Sklep XYZ Jan Kowalski |
-| Adresse | Strasse, Nummer | ul. Przykladowa 1/2 |
-| PLZ und Stadt | - | 00-001 Warszawa |
+| Firmenname | Vollständiger Name oder Firma | Shop XYZ Jan Kowalski |
+| Adresse | Straße, Nummer | ul. Przykładowa 1/2 |
+| Postleitzahl und Stadt | - | 00-001 Warszawa |
 | NIP | Steueridentifikationsnummer | 1234567890 |
 | REGON | - | 123456789 |
 | KRS | Falls zutreffend | 0000123456 |
 | Kontakt-E-Mail | - | kontakt@sklep.pl |
 | Telefon | - | +48 123 456 789 |
-| Bankkontonummer | Fuer Rueckerstattungen | PL 12 3456 7890 1234 5678 9012 3456 |
+| Bankkontonummer | Für Rückerstattungen | PL 12 3456 7890 1234 5678 9012 3456 |
 
-### Seiten generieren
+### Generierung der Seiten
 
-1. Fuellen Sie die Verkaeufer-Daten aus
-2. Klicken Sie auf "Rechtsseiten generieren"
+1. Verkäuferdaten ausfüllen
+2. Auf "Rechtsseiten generieren" klicken
 3. Das System erstellt 4 WordPress-Seiten im Status "Entwurf"
-4. Ueberpruefen Sie den Inhalt jeder Seite
-5. Veroeffentlichen Sie die Seiten nach der Ueberpruefung
+4. Den Inhalt jeder Seite durchsehen
+5. Die Seiten nach der Prüfung veröffentlichen
 
-Die Seiten werden als Entwuerfe erstellt, da es empfohlen wird, den Inhalt vor der Veroeffentlichung mit einem Anwalt zu konsultieren.
+Die Seiten werden als Entwürfe erstellt, prüfen Sie sie und konsultieren Sie vor der Veröffentlichung einen Anwalt.
 
-### Seiten aktualisieren
+### Aktualisierung der Seiten
 
-Wenn Sie die Firmendaten aendern, klicken Sie auf "Rechtsseiten aktualisieren". Das System aktualisiert die generierten Abschnitte und bewahrt Ihre manuellen Aenderungen in den markierten Bloecken.
+Nach einer Änderung der Firmendaten klicken Sie auf "Rechtsseiten aktualisieren". Das Plugin aktualisiert die generierten Abschnitte und behält Ihre manuellen Änderungen bei.
 
 Struktur der generierten Seite:
 
@@ -97,100 +97,100 @@ Struktur der generierten Seite:
 Automatisch generierter Inhalt - diesen Block nicht bearbeiten
 <!-- POLSKI-AUTO-END -->
 
-Ihr zusaetzlicher Inhalt - sicher unterhalb bearbeiten
+Ihr zusätzlicher Inhalt - sicher unterhalb bearbeiten
 ```
 
-Bei der Aktualisierung ueberschreibt das System nur den Inhalt zwischen den Markierungen `POLSKI-AUTO-START` und `POLSKI-AUTO-END`. Ausserhalb dieser Markierungen hinzugefuegter Inhalt bleibt erhalten.
+Bei einer Aktualisierung überschreibt das Plugin nur den Inhalt zwischen `POLSKI-AUTO-START` und `POLSKI-AUTO-END`. Inhalt außerhalb dieser Markierungen bleibt erhalten.
 
-## E-Mail-Anhaenge
+## E-Mail-Anhänge
 
-Das Plugin ermoeglicht das Anhaengen von Rechtsseiten als PDF-Anhaenge an WooCommerce-Transaktions-E-Mails.
+Das Plugin fügt die Rechtsseiten als PDF an die transaktionalen E-Mails von WooCommerce an.
 
 ### Konfiguration
 
-Unter **WooCommerce > Einstellungen > Polski > Rechtsseiten > E-Mail-Anhaenge** konfigurieren Sie, welche Dokumente an welche E-Mail-Typen angehaengt werden:
+Unter **WooCommerce > Einstellungen > Polski > Rechtsseiten > E-Mail-Anhänge** konfigurieren Sie, welche Dokumente den einzelnen E-Mail-Typen beigefügt werden:
 
-| E-Mail | Empfohlene Anhaenge |
+| E-Mail | Empfohlene Anhänge |
 |--------|---------------------|
-| Neue Bestellung (Kunde) | AGB, Datenschutzerklaerung, Widerrufsbelehrung |
-| Bestellung abgeschlossen | Widerrufsbelehrung |
+| Neue Bestellung (Kunde) | AGB, Datenschutzerklärung, Rückgaberichtlinie |
+| Bestellung abgeschlossen | Rückgaberichtlinie |
 | Rechnung | AGB |
-| Gutschrift | Widerrufsbelehrung, Reklamationsbelehrung |
+| Rückgabebeleg | Rückgaberichtlinie, Reklamationsrichtlinie |
 
-### Anhangsformat
+### Format der Anhänge
 
-Dokumente werden automatisch in das PDF-Format konvertiert, mit einem Header, der das Shop-Logo und das Generierungsdatum enthaelt. Die Dateigroesse wird optimiert, um den Mailserver nicht zu belasten.
+Die Dokumente werden in PDF mit dem Shop-Logo und Datum konvertiert. Die Dateigröße ist optimiert.
 
 | Option | Beschreibung | Standardwert |
 |-------|------|------------------|
 | Format | Anhangstyp | PDF |
-| Logo im Header | Ob das Shop-Logo eingefuegt werden soll | Ja |
+| Logo im Kopf | Ob das Shop-Logo beigefügt wird | Ja |
 | Papierformat | - | A4 |
-| Seitenrand | Dokumentenrand | 20mm |
+| Rand | Dokumentrand | 20mm |
 
 ## ODR-Information
 
-Die EU-Verordnung 524/2013 verpflichtet Online-Verkaeufer, einen Link zur ODR-Plattform (Online Dispute Resolution) - der Plattform zur aussergerichtlichen Streitbeilegung - anzugeben.
+Die EU-Verordnung 524/2013 verlangt von Online-Shops einen Link zur ODR-Plattform (Online Dispute Resolution) zur außergerichtlichen Beilegung von Streitigkeiten.
 
 ### Automatische Anzeige
 
-Das Plugin fuegt die ODR-Information automatisch hinzu in:
+Das Plugin fügt die ODR-Information automatisch hinzu in:
 
-- **Shop-Fusszeile** - Link zur ODR-Plattform
-- **AGB** - Abschnitt zur aussergerichtlichen Streitbeilegung
-- **Transaktions-E-Mails** - Fusszeile mit ODR-Link
+- **Shop-Fußzeile** - Link zur ODR-Plattform
+- **AGB** - Abschnitt über die außergerichtliche Streitbeilegung
+- **Transaktionalen E-Mails** - Fußzeile mit ODR-Link
 
 ### Inhalt der ODR-Information
 
-Standard-Text des Plugins:
+Standardinhalt, der vom Plugin angezeigt wird:
 
-> Die ODR-Plattform (Online Dispute Resolution) ist unter folgender Adresse verfuegbar: https://ec.europa.eu/consumers/odr/. Die Plattform dient der Beilegung von Streitigkeiten zwischen Verbrauchern und Unternehmern auf EU-Ebene.
+> Die ODR-Plattform (Online Dispute Resolution) ist unter folgender Adresse verfügbar: https://ec.europa.eu/consumers/odr/. Die Plattform dient der Beilegung von Streitigkeiten zwischen Verbrauchern und Unternehmern auf EU-Ebene.
 
 ### ODR-Konfiguration
 
 | Option | Beschreibung | Standardwert |
 |-------|------|------------------|
-| In Fusszeile anzeigen | ODR-Information zur Shop-Fusszeile hinzufuegen | Ja |
-| In E-Mails anzeigen | ODR-Information zu Transaktions-E-Mails hinzufuegen | Ja |
-| ODR-Text | Konfigurierbarer Informationstext | Standard-Text |
-| Position in der Fusszeile | Anzeigeort | Vor der Copyright-Information |
+| In der Fußzeile anzeigen | ODR-Information zur Shop-Fußzeile hinzufügen | Ja |
+| In E-Mails anzeigen | ODR-Information zu transaktionalen E-Mails hinzufügen | Ja |
+| ODR-Text | Konfigurierbarer Informationstext | Standardinhalt |
+| Position in der Fußzeile | Anzeigeort | Vor dem Copyright-Hinweis |
 
-## Dokumentenversionierung
+## Versionierung der Dokumente
 
-Das Plugin registriert automatisch Versionen der Rechtsseiten:
+Das Plugin protokolliert Versionen der Rechtsseiten:
 
-- Jede Inhaltsaenderung erstellt eine neue Version
+- Jede Inhaltsänderung erstellt eine neue Version
 - Das Datum der letzten Aktualisierung wird auf der Seite angezeigt
-- DSGVO-Einwilligungsprotokolle enthalten den Hash der Dokumentversion zum Zeitpunkt der Einwilligung
-- Die Versionshistorie ist ueber **Revisionen** der WordPress-Seite verfuegbar
+- Die DSGVO-Einwilligungsprotokolle enthalten den Hash der Dokumentversion zum Zeitpunkt der Einwilligung
+- Die Versionshistorie ist in den **Revisionen** der WordPress-Seite verfügbar
 
 ## Mehrsprachigkeit
 
-Generierte Seiten sind standardmaessig auf Polnisch. Bei Verwendung von WPML oder Polylang generiert das Plugin separate Seiten fuer jede aktive Sprache. Uebersetzungen werden bereitgestellt fuer:
+Die Seiten werden auf Polnisch generiert. Mit WPML oder Polylang erstellt das Plugin separate Seiten für jede Sprache. Fertige Übersetzungen:
 
 - Polnisch (Standard)
 - Englisch
 - Deutsch
 
-Fuer andere Sprachen wird die polnische Version mit der Moeglichkeit zur manuellen Uebersetzung generiert.
+Für andere Sprachen wird eine polnische Version zum manuellen Übersetzen erstellt.
 
 ## Fehlerbehebung
 
-**Seiten werden nicht generiert**
-Pruefen Sie, ob alle erforderlichen Verkaeufer-Datenfelder ausgefuellt sind. Die Felder Firmenname, Adresse, NIP und E-Mail sind obligatorisch.
+**Die Seiten werden nicht generiert**
+Prüfen Sie, ob Sie alle erforderlichen Felder ausgefüllt haben: Firmenname, Adresse, NIP und E-Mail.
 
-**PDF-Anhaenge werden nicht an E-Mails angehaengt**
-Pruefen Sie, ob auf dem Server die Bibliothek zur PDF-Generierung installiert ist. Das Plugin erfordert die PHP-Erweiterungen `mbstring` und `dom`. Pruefen Sie die PHP-Logs auf Fehler.
+**Die PDF-Anhänge werden nicht an E-Mails angehängt**
+Prüfen Sie, ob der Server die PHP-Erweiterungen `mbstring` und `dom` hat. Prüfen Sie die PHP-Logs auf Fehler.
 
-**ODR-Information wird nicht in der Fusszeile angezeigt**
-Pruefen Sie, ob das Theme die WooCommerce-Fusszeilen-Hooks unterstuetzt (`wp_footer` oder `woocommerce_after_footer`). Einige Themes erfordern das manuelle Hinzufuegen eines Widgets.
+**Die ODR-Information wird nicht in der Fußzeile angezeigt**
+Prüfen Sie, ob das Theme Fußzeilen-Hooks unterstützt (`wp_footer` oder `woocommerce_after_footer`). Einige Themes erfordern, dass das Widget manuell hinzugefügt wird.
 
-**Aktualisierung hat meine Aenderungen ueberschrieben**
-Bearbeiten Sie Inhalte nur ausserhalb der Markierungen `POLSKI-AUTO-START` / `POLSKI-AUTO-END`. Der Inhalt zwischen diesen Markierungen wird bei jeder Aktualisierung ueberschrieben.
+**Die Aktualisierung hat meine Änderungen überschrieben**
+Bearbeiten Sie den Inhalt nur außerhalb der Markierungen `POLSKI-AUTO-START` / `POLSKI-AUTO-END`. Inhalt zwischen diesen Markierungen wird bei jeder Aktualisierung überschrieben.
 
-## Weitere Schritte
+## Nächste Schritte
 
 - Probleme melden: [GitHub Issues](https://github.com/wppoland/polski/issues)
 - Diskussionen und Fragen: [GitHub Discussions](https://github.com/wppoland/polski/discussions)
 
-<div class="disclaimer">Diese Seite dient ausschließlich zu Informationszwecken und stellt keine Rechtsberatung dar. Konsultieren Sie vor der Umsetzung einen Anwalt. Polski for WooCommerce ist Open-Source-Software (GPLv2) ohne Garantie.</div>
+<div class="disclaimer">Diese Seite dient ausschließlich Informationszwecken und stellt keine Rechtsberatung dar. Konsultieren Sie vor der Umsetzung einen Anwalt. Polski for WooCommerce ist Open-Source-Software (GPLv2), die ohne Gewährleistung bereitgestellt wird.</div>

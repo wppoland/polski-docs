@@ -1,21 +1,21 @@
 ---
-title: B2B-Checkout-Felder
-description: Optionaler "Kauf als Unternehmen"-Schalter sowie NIP-, REGON- und IBAN-Felder im WooCommerce-Checkout. Polnische NIP-Pruefsummenvalidierung, gespeichert in Standard-Bestell-Meta, die von KSeF und dem Rechnungsmodul gelesen werden.
+title: B2B-Felder im Checkout
+description: 'Optionaler Umschalter "Ich kaufe als Unternehmen" sowie die Felder NIP, REGON und IBAN im WooCommerce-Checkout. NIP-Validierung per Prüfsummenalgorithmus, Speicherung in den von KSeF und dem Rechnungsmodul genutzten Standard-Bestellmetadaten.'
 ---
 
-Polski 1.13.0 ergaenzt den WooCommerce-Checkout um einen optionalen Satz B2B-Felder: einen "Kauf als Unternehmen"-Schalter sowie Felder fuer NIP, REGON und IBAN. Die Felder erscheinen im klassischen WooCommerce-Checkout (Filter `woocommerce_billing_fields`), werden in Standard-Bestell-Metadaten gespeichert und ohne weitere Konfiguration vom KSeF-Modul und vom Pro-Rechnungsmodul gelesen.
+Polski 1.13.0 fügt dem WooCommerce-Checkout einen optionalen Satz von B2B-Feldern hinzu: den Umschalter "Ich kaufe als Unternehmen" sowie die Felder NIP, REGON und IBAN. Die Felder erscheinen im klassischen WooCommerce-Checkout (Filter `woocommerce_billing_fields`), werden in den Standard-Bestellmetadaten gespeichert und vom KSeF-Modul sowie der Rechnungsstellung in PRO ohne zusätzliche Konfiguration ausgelesen.
 
-## Schalter "Kauf als Unternehmen"
+## Umschalter "Ich kaufe als Unternehmen"
 
-Checkbox `polski_buying_as_company` am Anfang des Billing-Abschnitts. Standardmaessig nicht ausgewaehlt - die Zeilen fuer NIP, REGON und IBAN sind ausgeblendet, bis der Kunde aktiviert. Der Zustand wird in der Bestell-Meta `_polski_buying_as_company` (`yes` / `no`) gespeichert.
+Die Checkbox `polski_buying_as_company` am Anfang des Billing-Bereichs. Standardmäßig nicht angehakt - die Felder NIP, REGON und IBAN sind verborgen, bis sie angehakt wird. Der Zustand wird im Bestellmeta `_polski_buying_as_company` gespeichert (`yes` / `no`).
 
-Die Anzeige-Logik ist als Inline-JavaScript implementiert - keine Build-Pipeline noetig. Das Skript hoert auch auf das jQuery-Event `updated_checkout`, damit es nach asynchronen Fragment-Aktualisierungen des Checkout-Blocks weiterhin funktioniert.
+Die Logik zum Ein- und Ausblenden wird per Inline-JavaScript umgesetzt - sie benötigt keinen Build-Prozess und keine zusätzlichen Frontend-Abhängigkeiten. Das Skript verarbeitet auch das jQuery-Ereignis `updated_checkout`, sodass es auch nach dem asynchronen Neuladen eines Checkout-Fragments funktioniert.
 
 ## NIP
 
-Feld `billing_nip` mit Validierung gegen den polnischen NIP-Pruefsummenalgorithmus (10 Ziffern, Gewichte 6, 5, 7, 2, 3, 4, 5, 6, 7, Modulo 11). Akzeptierte Eingabeformate: `1234567890`, `123-456-78-90`, `123 456 78 90` und `PL1234567890` (Praefix wird vor der Validierung entfernt). Der Wert wird in normalisierter Form (10 Ziffern) unter der Bestell-Meta `_billing_nip` gespeichert.
+Das Feld `billing_nip` mit Validierung per Prüfsummenalgorithmus des polnischen NIP (10 Ziffern, Gewichte 6, 5, 7, 2, 3, 4, 5, 6, 7, modulo 11). Zulässige Eingabeformate: `1234567890`, `123-456-78-90`, `123 456 78 90` sowie mit Präfix `PL1234567890` (Präfix wird vor der Validierung entfernt). Der Wert wird in normalisierter Form (10 Ziffern) im Meta `_billing_nip` gespeichert.
 
-Die Validierung in PHP nutzt die neue statische Utility-Klasse `Polski\Util\NipValidator`:
+Die Validierung in PHP nutzt die neue statische Klasse `Polski\Util\NipValidator`:
 
 ```php
 use Polski\Util\NipValidator;
@@ -26,27 +26,27 @@ NipValidator::normalize('PL 526-025-02-74');   // '5260250274'
 NipValidator::format('5260250274');            // '526-025-02-74'
 ```
 
-Wenn `Polski\Pro\Validation\NipValidator` aus polski-pro aktiv ist, ueberspringt FREE die eigene NIP-Registrierung, um doppelte billing_nip-Felder zu vermeiden. REGON und IBAN werden immer von FREE hinzugefuegt.
+Wenn das Modul `Polski\Pro\Validation\NipValidator` aus polski-pro aktiv ist, überspringt FREE die eigene Registrierung des NIP-Felds, um das Feld im Checkout nicht zu duplizieren. REGON und IBAN werden immer von FREE hinzugefügt.
 
 ## REGON
 
-Optionales Feld `billing_regon` (standardmaessig deaktiviert). Akzeptiert 9 oder 14 Ziffern (kurzer / langer REGON). Regex-Pruefung: `/^\d{9}$|^\d{14}$/`. Gespeichert in `_billing_regon`.
+Optionales Feld `billing_regon` (standardmäßig deaktiviert). Akzeptiert 9 oder 14 Ziffern (kurzer REGON / langer REGON). Regex-Validierung: `/^\d{9}$|^\d{14}$/`. Wird im Bestellmeta `_billing_regon` gespeichert.
 
 ## IBAN
 
-Optionales Feld `billing_iban` (standardmaessig deaktiviert). Strukturelle Pruefung: 2-stelliger Laenderpraefix + 2 Pruefziffern + 11-30 alphanumerische Zeichen, Gesamtlaenge 15-34. Strikte Mod-97-Verifikation ist absichtlich Integratoren ueberlassen (z.B. einem Zahlungs-Gateway-Plugin). Gespeichert in `_billing_iban`.
+Optionales Feld `billing_iban` (standardmäßig deaktiviert). Strukturelle Validierung: 2 Buchstaben Länderpräfix + 2 Prüfziffern + 11-30 alphanumerische Zeichen, Gesamtlänge 15-34. Eine strikte mod-97-Prüfung wird bewusst den Integratoren überlassen (z. B. einem Plugin für das Zahlungsgateway). Wird im Meta `_billing_iban` gespeichert.
 
 ## Einstellungen (`polski_b2b`)
 
-| Schluessel | Standard | Beschreibung |
+| Schlüssel | Standardwert | Beschreibung |
 |---|---|---|
-| `enabled` | `true` | Hauptschalter fuer das Modul |
-| `show_company_toggle` | `true` | Ob die Checkbox "Kauf als Unternehmen" angezeigt wird |
-| `nip` | `true` | Ob das NIP-Feld registriert wird (uebersprungen, wenn polski-pro NipValidator aktiv) |
-| `regon` | `false` | Ob das REGON-Feld registriert wird |
-| `iban` | `false` | Ob das IBAN-Feld registriert wird |
+| `enabled` | `true` | Hauptschalter des Moduls |
+| `show_company_toggle` | `true` | Ob die Checkbox "Ich kaufe als Unternehmen" angezeigt wird |
+| `nip` | `true` | Ob das NIP-Feld hinzugefügt wird (übersprungen, wenn polski-pro NipValidator aktiv ist) |
+| `regon` | `false` | Ob das REGON-Feld hinzugefügt wird |
+| `iban` | `false` | Ob das IBAN-Feld hinzugefügt wird |
 
-REGON und IBAN per `update_option` aktivieren:
+Aktivierung von REGON und IBAN per `update_option`:
 
 ```php
 update_option('polski_b2b', array_merge(
@@ -57,18 +57,18 @@ update_option('polski_b2b', array_merge(
 
 ## Integration mit anderen Modulen
 
-- **KSeF-Modul (FREE)** liest `_billing_nip` aus der Bestellung und erkennt automatisch Bestellungen, die eine E-Rechnung erfordern.
-- **Rechnungsmodul (PRO)** liest `_billing_nip` als `nipBuyer` beim Erstellen von Faktura VAT und Korrekturrechnungen.
-- **AI Feed fuer Rechnungen (PRO)** liefert Rechnungen als Markdown inklusive NIP-Felder im Block "Parties".
+- **KSeF-Modul (FREE)** liest `_billing_nip` aus der Bestellung und erkennt automatisch Bestellungen, die eine elektronische Rechnung benötigen.
+- **Rechnungsmodul (PRO)** liest `_billing_nip` als `nipBuyer` bei der Erstellung der Umsatzsteuerrechnung und der Korrekturrechnung.
+- **AI-Feed für Rechnungen (PRO)** stellt Rechnungen als Markdown bereit, inklusive der NIP-Felder im Bereich "Parties".
 
-## Anzeige im Admin
+## Anzeige im Admin-Panel
 
-NIP, REGON und IBAN werden dem "Billing details"-Block in der Bestelluebersicht hinzugefuegt (`woocommerce_admin_billing_fields`). Sie werden an derselben Stelle bearbeitet wie die Rechnungsadresse des Kunden.
+Die Felder NIP / REGON / IBAN werden dem Block "Billing details" in der Bestellansicht im Panel hinzugefügt (`woocommerce_admin_billing_fields`). Du bearbeitest sie an derselben Stelle wie die Rechnungsadresse des Kunden.
 
-## Kompatibilitaet mit Block-Checkout
+## Kompatibilität mit dem Block-Checkout
 
-Ab Polski 1.14.0 werden NIP / REGON / IBAN ueber die WooCommerce-API `woocommerce_register_additional_checkout_field` (WC 8.6+) registriert. Eine einzige Registrierung deckt sowohl den **klassischen Checkout** als auch den **Block-Checkout (Cart & Checkout Blocks)** ab. Die Validierung laeuft auf beiden Seiten.
+Seit Polski 1.14.0 werden die Felder NIP / REGON / IBAN über die WooCommerce-API `woocommerce_register_additional_checkout_field` (WC 8.6+) registriert. Eine einzige Registrierung deckt sowohl den **klassischen Checkout** als auch den **Block-Checkout (Cart & Checkout Blocks)** ab. Die Validierung funktioniert auf beiden Seiten.
 
-Die WC-API speichert Werte standardmaessig unter `_wc_billing/polski/nip`, `_wc_billing/polski/regon`, `_wc_billing/polski/iban`. Polski spiegelt sie automatisch in die **alten** Schluessel `_billing_nip`, `_billing_regon`, `_billing_iban` (Action `woocommerce_set_additional_field_value`), damit die Module KSeF und Pro-Rechnungen die Daten ohne Anpassung lesen.
+Die über diese API gespeicherten Werte landen standardmäßig unter den Meta-Schlüsseln `_wc_billing/polski/nip`, `_wc_billing/polski/regon`, `_wc_billing/polski/iban`. Polski kopiert sie automatisch in die **älteren** Schlüssel `_billing_nip`, `_billing_regon`, `_billing_iban` (Aktion `woocommerce_set_additional_field_value`), wodurch die Module KSeF und Rechnungen in PRO die Daten ohne jegliche Änderung auslesen.
 
-Shops mit WooCommerce aelter als 8.6 nutzen weiterhin den klassischen Registrierungsweg (`woocommerce_billing_fields`) mit dem "Kauf als Unternehmen"-Schalter und Inline-JavaScript.
+Shops mit WooCommerce älter als 8.6 nutzen weiterhin den klassischen Registrierungsweg der Felder (`woocommerce_billing_fields`) mit dem Umschalter "Ich kaufe als Unternehmen" und Inline-JavaScript.

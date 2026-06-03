@@ -1,38 +1,38 @@
 ---
-title: Vorbestellungen (Pre-Orders)
-description: Modul fuer Vorbestellungen in Polski PRO for WooCommerce - Produkte als Pre-Order kennzeichnen, Erscheinungsdatum, benutzerdefinierter Schaltflaechentext und Warenkorb-Validierung.
+title: Vorbestellung (Pre-Orders)
+description: Vorbestellungsmodul von Polski PRO for WooCommerce - Produkte als Pre-Order kennzeichnen, Erscheinungsdatum, benutzerdefinierter Button-Text und Warenkorb-Validierung.
 ---
 
-Das Modul ermoeglicht die Kennzeichnung von Produkten als Pre-Order, die Anzeige des Erscheinungsdatums und die Aenderung des Button-Texts. Nuetzlich in Shops fuer Elektronik, Buecher, Spiele und andere Produkte vor der Premiere.
+Das Vorbestellungsmodul erlaubt es, Produkte als Pre-Order zu kennzeichnen, das Erscheinungsdatum anzuzeigen und den Button-Text zu ändern. Nützlich in Shops mit Elektronik, Büchern, Spielen und anderen Produkten, die vor dem Erscheinen angeboten werden.
 
-:::note[Wymagania]
-Polski PRO wymaga: Polski (free) v1.3.0+, WordPress 6.4+, WooCommerce 8.0+, PHP 8.1+
+:::note[Voraussetzungen]
+Polski PRO erfordert: Polski (free) v1.3.0+, WordPress 6.4+, WooCommerce 8.0+, PHP 8.1+
 :::
 
 ## Globale Konfiguration
 
-Gehen Sie zu **WooCommerce > Ustawienia > Polski PRO > Przedsprzedaż**.
+Gehen Sie zu **WooCommerce > Einstellungen > Polski PRO > Vorbestellung**.
 
 | Einstellung | Standardwert | Beschreibung |
 |------------|------------------|------|
-| Schaltflaechentext | "Zamów w przedsprzedaży" | Globaler Schaltflaechentext fuer Pre-Order-Produkte |
-| Verfuegbarkeitstext | "Dostępne od {date}" | Textvorlage, die anstelle des Lagerstatus angezeigt wird |
-| Datumsformat | `d.m.Y` | Format zur Anzeige des Erscheinungsdatums |
-| Mischung im Warenkorb blockieren | Ja | Verbietet das Hinzufuegen von Standardprodukten zum Warenkorb mit Pre-Order |
-| Sperrmeldung | "Produkty w przedsprzedaży muszą być zamawiane osobno." | Meldung bei Versuch der Mischung |
+| Button-Text | "Vorbestellen" | Globaler Button-Text für Pre-Order-Produkte |
+| Verfügbarkeitstext | "Verfügbar ab {date}" | Textvorlage, die anstelle des Lagerbestands angezeigt wird |
+| Datumsformat | `d.m.Y` | Anzeigeformat des Erscheinungsdatums |
+| Warenkorb-Mischung blockieren | Ja | Verhindert das Hinzufügen normaler Produkte zum Warenkorb mit Pre-Order |
+| Sperr-Meldung | "Vorbestellte Produkte müssen separat bestellt werden." | Meldung beim Versuch der Mischung |
 
 ## Produktkonfiguration
 
-### Metafelder
+### Meta-Felder
 
-Die Vorbestellungseinstellungen befinden sich in der Produktbearbeitung, im Tab **Allgemein** im Produktdatenbereich.
+Die Einstellungen finden Sie in der Produktbearbeitung, Reiter **Allgemein**.
 
-| Metafeld | Schluessel | Typ | Beschreibung |
+| Meta-Feld | Schlüssel | Typ | Beschreibung |
 |-----------|-------|-----|------|
 | Vorbestellung aktivieren | `_polski_preorder_enabled` | `bool` | Kennzeichnet das Produkt als Pre-Order |
-| Erscheinungsdatum | `_polski_preorder_release_date` | `string` (Y-m-d) | Datum, ab dem das Produkt standardmaessig verfuegbar ist |
-| Schaltflaechentext | `_polski_preorder_button_text` | `string` | Ueberschreibt den globalen Schaltflaechentext fuer dieses Produkt |
-| Verfuegbarkeitstext | `_polski_preorder_availability_text` | `string` | Ueberschreibt den globalen Verfuegbarkeitstext |
+| Erscheinungsdatum | `_polski_preorder_release_date` | `string` (Y-m-d) | Datum, ab dem das Produkt regulär verfügbar ist |
+| Button-Text | `_polski_preorder_button_text` | `string` | Überschreibt den globalen Button-Text für dieses Produkt |
+| Verfügbarkeitstext | `_polski_preorder_availability_text` | `string` | Überschreibt den globalen Verfügbarkeitstext |
 
 ### Einstellung per WP-CLI
 
@@ -49,28 +49,28 @@ update_post_meta($product_id, '_polski_preorder_enabled', 'yes');
 update_post_meta($product_id, '_polski_preorder_release_date', '2026-06-15');
 ```
 
-## Frontend-Anzeige
+## Anzeige im Frontend
 
-### Kaufschaltflaeche
+### Kauf-Button
 
-Wenn ein Produkt als Pre-Order gekennzeichnet ist, aendert sich der Text der Schaltflaeche "In den Warenkorb" zum konfigurierten Vorbestellungstext. Dies betrifft:
+Der Button "In den Warenkorb" wechselt zum Vorbestellungstext. Das betrifft:
 
-- Einzelne Produktseiten
+- die Einzelproduktseite
 - Archiv-, Kategorie- und Tag-Seiten
 - Suchergebnisse
-- WooCommerce-Bloecke (Product Grid, Product Collection)
+- WooCommerce-Blöcke (Product Grid, Product Collection)
 
-### Verfuegbarkeitstext
+### Verfügbarkeitstext
 
-Anstelle des Standard-Lagerstatus ("Auf Lager", "Nicht vorraetig") wird der Verfuegbarkeitstext mit Erscheinungsdatum angezeigt. Der Platzhalter `{date}` wird durch das formatierte Datum ersetzt.
+Anstelle des Lagerbestands wird der Text mit dem Erscheinungsdatum angezeigt. Der Platzhalter `{date}` wird durch das Datum ersetzt.
 
 **Anzeigebeispiel:**
 
-> Dostępne od 15.06.2026
+> Verfügbar ab 15.06.2026
 
 ### Automatische Deaktivierung
 
-Nach Ueberschreiten des Erscheinungsdatums kehrt das Produkt automatisch in den Standardmodus zurueck. Die Deaktivierung erfolgt durch eine taeglich um 00:01 Uhr ausgefuehrte WP-Cron-Aufgabe.
+Nach dem Erscheinungsdatum kehrt das Produkt automatisch in den Standardmodus zurück. WP-Cron prüft dies täglich um 00:01 Uhr.
 
 ```php
 /**
@@ -82,7 +82,7 @@ Nach Ueberschreiten des Erscheinungsdatums kehrt das Produkt automatisch in den 
 do_action('polski_pro/preorder/deactivated', int $product_id, string $release_date);
 ```
 
-**Beispiel - Kunden ueber Verfuegbarkeit benachrichtigen:**
+**Beispiel - Kunden über Verfügbarkeit benachrichtigen:**
 
 ```php
 add_action('polski_pro/preorder/deactivated', function (int $product_id, string $release_date): void {
@@ -101,14 +101,14 @@ add_action('polski_pro/preorder/deactivated', function (int $product_id, string 
 
 ## Warenkorb-Validierung
 
-### Produktmischung blockieren
+### Sperre für gemischte Produkte
 
-Wenn die Option "Mischung im Warenkorb blockieren" aktiviert ist, kann der Kunde nicht gleichzeitig folgendes in den Warenkorb legen:
+Wenn "Warenkorb-Mischung blockieren" aktiviert ist, kann der Kunde nicht gleichzeitig hinzufügen:
 
-- Vorbestellungsprodukte und Standardprodukte
+- vorbestellte Produkte und Standardprodukte
 - Pre-Order-Produkte mit unterschiedlichen Erscheinungsdaten (optional)
 
-Beim Versuch, einen anderen Produkttyp hinzuzufuegen, wird die Sperrmeldung angezeigt und das Produkt wird nicht hinzugefuegt.
+Beim Versuch der Mischung wird die Sperr-Meldung angezeigt.
 
 ### Validierungs-Hook
 
@@ -123,7 +123,7 @@ Beim Versuch, einen anderen Produkttyp hinzuzufuegen, wird die Sperrmeldung ange
 apply_filters('polski_pro/preorder/allow_mixed_cart', bool $allow, int $product_id, array $cart_items): bool;
 ```
 
-**Beispiel - Mischung fuer VIP-Kunden erlauben:**
+**Beispiel - Mischung für VIP erlauben:**
 
 ```php
 add_filter('polski_pro/preorder/allow_mixed_cart', function (bool $allow, int $product_id, array $cart_items): bool {
@@ -136,7 +136,7 @@ add_filter('polski_pro/preorder/allow_mixed_cart', function (bool $allow, int $p
 
 ## Shortcode
 
-Countdown bis zum Erscheinungsdatum anzeigen:
+Anzeige eines Countdowns bis zum Erscheinungsdatum:
 
 ```
 [polski_preorder_countdown product_id="123" format="days" label="Do premiery pozostało:"]
@@ -144,13 +144,13 @@ Countdown bis zum Erscheinungsdatum anzeigen:
 
 | Parameter | Erforderlich | Beschreibung |
 |----------|----------|------|
-| `product_id` | Nein | Produkt-ID (Standard: aktuelles Produkt) |
+| `product_id` | Nein | Produkt-ID (standardmäßig das aktuelle) |
 | `format` | Nein | Format: `days`, `full` (Tage, Stunden, Minuten) |
-| `label` | Nein | Labeltext vor dem Countdown |
+| `label` | Nein | Beschriftungstext vor dem Countdown |
 
 ## Hooks
 
-### Schaltflaechentext-Filter
+### Filter für den Button-Text
 
 ```php
 /**
@@ -170,7 +170,7 @@ add_filter('polski_pro/preorder/button_text', function (string $text, \WC_Produc
 }, 10, 2);
 ```
 
-### Verfuegbarkeitstext-Filter
+### Filter für den Verfügbarkeitstext
 
 ```php
 /**
@@ -183,29 +183,29 @@ add_filter('polski_pro/preorder/button_text', function (string $text, \WC_Produc
 apply_filters('polski_pro/preorder/availability_text', string $text, string $release_date, \WC_Product $product): string;
 ```
 
-## Kompatibilitaet mit Varianten
+## Kompatibilität mit Varianten
 
-Das Vorbestellungsmodul funktioniert mit variablen Produkten. Jede Variante kann unabhaengige Pre-Order-Einstellungen haben:
+Das Modul funktioniert mit variablen Produkten. Jede Variante hat unabhängige Pre-Order-Einstellungen:
 
-- Variante A - Standard (sofort verfuegbar)
+- Variante A - Standard (sofort verfügbar)
 - Variante B - Pre-Order (Erscheinung in 2 Wochen)
 
-Die Mischung von Pre-Order- und Standard-Varianten innerhalb eines Produkts ist erlaubt - die Warenkorb-Validierung betrifft nur die Mischung verschiedener Produkte.
+Das Mischen von Pre-Order- und Standardvarianten innerhalb eines Produkts ist erlaubt. Die Sperre betrifft nur das Mischen unterschiedlicher Produkte.
 
 ## Fehlerbehebung
 
-**Produkt wechselt nach dem Erscheinungsdatum nicht automatisch**
-Pruefen Sie, ob WP-Cron korrekt funktioniert. Wenn Sie einen externen CRON verwenden, stellen Sie sicher, dass `wp-cron.php` regelmaessig aufgerufen wird. Alternativ fuehren Sie manuell aus: `wp cron event run polski_pro_preorder_check`.
+**Das Produkt wechselt nach dem Erscheinungsdatum nicht automatisch um**
+Prüfen Sie, ob WP-Cron korrekt funktioniert. Wenn Sie einen externen CRON nutzen, stellen Sie sicher, dass `wp-cron.php` regelmäßig aufgerufen wird. Alternativ manuell ausführen: `wp cron event run polski_pro_preorder_check`.
 
-**Kunde hat Pre-Order- und Standardprodukte in den Warenkorb gelegt**
-Pruefen Sie, ob die Option "Mischung im Warenkorb blockieren" aktiviert ist. Leeren Sie den Cache, wenn Sie Cache-Plugins verwenden, die Warenkorb-Fragmente cachen.
+**Der Kunde hat Pre-Order- und reguläre Produkte zum Warenkorb hinzugefügt**
+Prüfen Sie, ob die Option "Warenkorb-Mischung blockieren" aktiviert ist. Leeren Sie den Cache, wenn Sie Plugins nutzen, die Warenkorb-Fragmente cachen.
 
-**Erscheinungsdatum wird im falschen Format angezeigt**
-Pruefen Sie die Einstellung "Datumsformat" in der Modulkonfiguration. Das Format verwendet Standard-PHP-`date()`-Platzhalter.
+**Das Erscheinungsdatum wird im falschen Format angezeigt**
+Prüfen Sie die Einstellung "Datumsformat" in der Modulkonfiguration. Das Format nutzt die Standard-Platzhalter von PHP `date()`.
 
-## Naechste Schritte
+## Nächste Schritte
 
 - Probleme melden: [GitHub Issues](https://github.com/wppoland/polski/issues)
-- Verwandte Module: [Pakete und Add-ons](/pro/bundles-addons)
+- Verwandte Module: [Bundles und Add-ons](/pro/bundles-addons)
 
-<div class="disclaimer">Diese Seite dient ausschließlich zu Informationszwecken und stellt keine Rechtsberatung dar. Konsultieren Sie vor der Umsetzung einen Anwalt. Polski for WooCommerce ist Open-Source-Software (GPLv2) ohne Garantie.</div>
+<div class="disclaimer">Diese Seite dient ausschließlich Informationszwecken und stellt keine Rechtsberatung dar. Konsultieren Sie vor der Umsetzung einen Anwalt. Polski for WooCommerce ist Open-Source-Software (GPLv2), die ohne Gewährleistung bereitgestellt wird.</div>

@@ -3,124 +3,124 @@ title: Einwilligungsverwaltung
 description: Dokumentation der erweiterten Einwilligungsverwaltung in Polski PRO for WooCommerce - Versionierung, Audit-Trail, DSGVO-Export, Integration mit Mein Konto.
 ---
 
-Das Modul fuegt Einwilligungsversionierung, Audit-Trail, Datenexport und DSGVO-Integration hinzu. Verfolgt die Einwilligungshistorie der Kunden und reagiert auf Aenderungen der Regulierungstexte.
+Das Modul zur Einwilligungsverwaltung fügt Versionierung von Einwilligungen, einen Audit-Trail, Datenexport und DSGVO-Integration hinzu. Es verfolgt die Einwilligungshistorie der Kunden und reagiert auf Änderungen am Inhalt der Bedingungen.
 
 ## Versionierung von Einwilligungen
 
-### Automatische Aenderungserkennung
+### Automatische Erkennung von Änderungen
 
-Das Plugin ueberwacht den Inhalt der Checkbox-Labels. Bei jedem Speichern der Einstellungen berechnet es einen Hash (SHA-256) des Label-Textes. Wenn sich der Hash geaendert hat, erstellt das Plugin automatisch eine neue Version der Einwilligung.
+Das Plugin verfolgt den Inhalt der Checkboxen. Bei jedem Speichern der Einstellungen vergleicht es den Hash (SHA-256) des Inhalts. Ändert sich der Inhalt, erstellt es automatisch eine neue Einwilligungsversion.
 
-Jede Einwilligungsversion enthaelt:
+Jede Einwilligungsversion enthält:
 
-- Versionsnummer (Auto-Inkrement)
-- Hash des Label-Textes
-- Vollstaendigen Label-Text
+- Versionsnummer (automatische Inkrementierung)
+- Hash des Etiketteninhalts
+- vollständigen Inhalt des Etiketts
 - Erstellungsdatum der Version
-- Benutzer-ID desjenigen, der die Aenderung vorgenommen hat
+- ID des Benutzers, der die Änderung vorgenommen hat
 
-### Versionsverlauf
+### Versionshistorie
 
-In den Einstellungen der rechtlichen Checkboxen steht bei jedem Checkbox die Schaltflaeche **Versionsverlauf** zur Verfuegung. Sie zeigt eine Liste aller Versionen mit Daten und Textvorschau.
+Klicken Sie bei der Checkbox auf **Versionshistorie**, um alle Versionen mit Daten und Inhalten anzuzeigen.
 
 ### Erneute Einwilligung
 
-Wenn sich der Einwilligungstext aendert (neue Version), kann das Plugin die erneute Einwilligung durch Kunden verlangen. Konfiguration:
+Ändert sich der Inhalt einer Einwilligung, kann das Plugin eine erneute Einwilligung verlangen. Einstellungen:
 
 | Einstellung | Beschreibung |
 |------------|------|
-| Erneute Einwilligung verlangen | Aktiviert die Aufforderung zur erneuten Einwilligung nach Textaenderung |
-| Aufforderung anzeigen | Auf der Checkout-Seite / Im Mein-Konto-Bereich / Beides |
-| Meldungstext | Text, der den Kunden ueber die AGB-Aenderung informiert |
+| Erneute Einwilligung verlangen | Aktiviert die Aufforderung zur erneuten Einwilligung nach einer Inhaltsänderung |
+| Aufforderung anzeigen | Auf der Kassenseite / Im Mein-Konto-Bereich / Beides |
+| Inhalt der Mitteilung | Text, der den Kunden über die Änderung der Bedingungen informiert |
 
-Der Kunde sieht eine Meldung ueber die Textaenderung und muss den Checkbox erneut aktivieren. Die fruehere Einwilligung bleibt in der Historie mit Versionsmarkierung erhalten.
+Der Kunde sieht eine Mitteilung über die Änderung und muss die Checkbox erneut markieren. Die frühere Einwilligung bleibt in der Historie.
 
 ## Audit-Trail
 
 ### Aufgezeichnete Ereignisse
 
-Das Plugin zeichnet alle einwilligungsbezogenen Operationen auf:
+Das Plugin protokolliert alle Operationen an Einwilligungen:
 
 | Ereignis | Daten |
 |-----------|------|
 | Einwilligung erteilt | Benutzer-ID, Einwilligungs-ID, Version, Datum, IP, User Agent |
 | Einwilligung widerrufen | Benutzer-ID, Einwilligungs-ID, Datum, Quelle (Kunde/Admin) |
-| Einwilligungstext geaendert | Einwilligungs-ID, alte Version, neue Version, Datum, Admin-ID |
+| Änderung des Einwilligungsinhalts | Einwilligungs-ID, alte Version, neue Version, Datum, Admin-ID |
 | Aufforderung zur erneuten Einwilligung | Benutzer-ID, Einwilligungs-ID, Datum |
 | Erneute Einwilligung | Benutzer-ID, Einwilligungs-ID, neue Version, Datum |
 
-### Verlauf anzeigen
+### Historie ansehen
 
-Gehen Sie zu **WooCommerce > Einstellungen > Polski > PRO-Module > Einwilligungen > Audit-Trail**. Die Tabelle zeigt alle Ereignisse mit Filtern:
+Gehen Sie zu **WooCommerce > Einstellungen > Polski > PRO-Module > Einwilligungen > Audit-Trail**. Filtern Sie Ereignisse nach:
 
 - Benutzer-ID oder E-Mail
 - Ereignistyp
 - Datumsbereich
-- Bestimmte Einwilligung
+- bestimmte Einwilligung
 
 ### Datenexport
 
-Der Audit-Trail kann in zwei Formaten exportiert werden:
+Exportieren Sie den Audit-Trail im Format:
 
-- **CSV** - zum Oeffnen in Tabellenkalkulationsprogrammen
-- **JSON** - zur programmatischen Verarbeitung oder zum Import in andere Systeme
+- **CSV** - für Tabellenkalkulationen
+- **JSON** - für die programmatische Verarbeitung
 
-Der Export ist aus dem Audit-Trail-Bereich verfuegbar. Sie koennen den vollstaendigen Verlauf oder gefilterte Ergebnisse exportieren.
+Exportieren Sie die vollständige Historie oder gefilterte Ergebnisse aus dem Audit-Trail-Panel.
 
 ## Integration mit dem Mein-Konto-Bereich
 
 ### Einwilligung widerrufen
 
-Im **Mein-Konto**-Bereich des Kunden erscheint der Abschnitt "Meine Einwilligungen" mit einer Liste der erteilten Einwilligungen. Der Kunde kann:
+Unter **Mein Konto** sieht der Kunde den Abschnitt "Meine Einwilligungen". Er kann:
 
-- aktuell erteilte Einwilligungen einsehen
+- aktuell erteilte Einwilligungen ansehen
 - das Datum der Erteilung jeder Einwilligung sehen
-- eine Einwilligung mit der Schaltflaeche "Widerrufen" zurueckziehen
+- eine Einwilligung mit der Schaltfläche "Widerrufen" widerrufen
 
-Der Widerruf der Einwilligung wird im Audit-Trail aufgezeichnet. Der Administrator erhaelt eine E-Mail-Benachrichtigung ueber den Widerruf (konfigurierbar).
+Der Widerruf wird im Audit-Trail gespeichert. Der Administrator erhält eine E-Mail-Benachrichtigung (konfigurierbar).
 
 ### Aufforderung zur erneuten Einwilligung
 
-Wenn sich der Einwilligungstext geaendert hat, sieht der Kunde im Mein-Konto-Bereich eine Meldung mit der Bitte, sich mit der neuen Version vertraut zu machen und die Einwilligung erneut zu erteilen.
+Ändert sich der Inhalt einer Einwilligung, sieht der Kunde in Mein Konto die Aufforderung, die neue Version zur Kenntnis zu nehmen und erneut einzuwilligen.
 
 ## DSGVO-Integration
 
 ### Export personenbezogener Daten
 
-Das Plugin integriert sich mit dem WordPress-Mechanismus zum Export personenbezogener Daten (`wp_privacy_personal_data_exporters`). Bei einer Exportanfrage der Kundendaten fuegt das Plugin hinzu:
+Das Plugin integriert sich in den Datenexport von WordPress (`wp_privacy_personal_data_exporters`). Beim Export der Kundendaten fügt es hinzu:
 
-- Liste der erteilten Einwilligungen mit Daten und Versionen
-- Vollstaendige Historie der Einwilligungsaenderungen (Erteilungen, Widerrufe, erneute Einwilligungen)
-- IP-Adressen und Daten, die mit jeder Einwilligung verknuepft sind
+- die Liste der erteilten Einwilligungen mit Daten und Versionen
+- die vollständige Historie der Einwilligungsänderungen (Erteilungen, Widerrufe, erneute Einwilligungen)
+- die mit jeder Einwilligung verknüpften IP-Adressen und Daten
 
 ```php
 /**
- * Rejestracja eksportera danych osobowych.
+ * Registrierung des Exporters für personenbezogene Daten.
  */
 add_filter('wp_privacy_personal_data_exporters', function (array $exporters): array {
     $exporters['polski-pro-consents'] = [
-        'exporter_friendly_name' => 'Polski PRO - Zgody',
+        'exporter_friendly_name' => 'Polski PRO - Einwilligungen',
         'callback'               => [PolskiPro\Privacy\Exporter::class, 'export'],
     ];
     return $exporters;
 });
 ```
 
-### Loeschung personenbezogener Daten
+### Löschung personenbezogener Daten
 
-Das Plugin integriert sich mit dem WordPress-Mechanismus zur Datenloeschung (`wp_privacy_personal_data_erasers`). Bei einer Loeschanfrage:
+Das Plugin integriert sich in die Datenlöschung von WordPress (`wp_privacy_personal_data_erasers`). Beim Löschen von Daten:
 
-- werden personenbezogene Daten im Audit-Trail anonymisiert (IP, User Agent)
-- werden Einwilligungseintraege als geloescht markiert
-- bleibt die Tatsache der Erteilung/des Widerrufs (ohne identifizierende Daten) zu Nachweiszwecken erhalten
+- werden die personenbezogenen Daten im Audit-Trail anonymisiert (IP, User Agent)
+- werden die Einwilligungseinträge als gelöscht markiert
+- bleibt die Tatsache der Erteilung/des Widerrufs einer Einwilligung (ohne identifizierende Daten) zu Nachweiszwecken erhalten
 
 ```php
 /**
- * Rejestracja erasera danych osobowych.
+ * Registrierung des Erasers für personenbezogene Daten.
  */
 add_filter('wp_privacy_personal_data_erasers', function (array $erasers): array {
     $erasers['polski-pro-consents'] = [
-        'eraser_friendly_name' => 'Polski PRO - Zgody',
+        'eraser_friendly_name' => 'Polski PRO - Einwilligungen',
         'callback'             => [PolskiPro\Privacy\Eraser::class, 'erase'],
     ];
     return $erasers;
@@ -129,17 +129,17 @@ add_filter('wp_privacy_personal_data_erasers', function (array $erasers): array 
 
 ## REST API
 
-Das Modul stellt einen REST-API-Endpunkt zum Anzeigen von Einwilligungen bereit (verfuegbar fuer Administratoren):
+Das Modul stellt einen REST-API-Endpunkt zum Ansehen der Einwilligungen bereit (für Administratoren verfügbar):
 
-### Benutzereinwilligungen auflisten
+### Liste der Einwilligungen eines Benutzers
 
 ```
 GET /wp-json/polski-pro/v1/consents?user_id={id}
 ```
 
-Gibt eine Liste der Benutzereinwilligungen mit aktuellem Status und Version zurueck.
+Gibt die Liste der Einwilligungen des Benutzers mit aktuellem Status und Version zurück.
 
-### Aenderungshistorie
+### Änderungshistorie
 
 ```
 GET /wp-json/polski-pro/v1/consents/audit?user_id={id}
@@ -162,19 +162,19 @@ Query-Parameter:
 GET /wp-json/polski-pro/v1/consents/export?format={csv|json}
 ```
 
-Gibt den vollstaendigen Audit-Trail-Export im gewaehlten Format zurueck.
+Gibt den vollständigen Export des Audit-Trails im gewählten Format zurück.
 
 ## Hooks
 
 ### `polski_pro/consent/granted`
 
-Aktion, die nach Erteilung einer Einwilligung ausgefuehrt wird.
+Aktion, die nach Erteilung einer Einwilligung ausgelöst wird.
 
 ```php
 /**
- * @param int    $user_id    ID użytkownika
- * @param string $consent_id ID zgody
- * @param int    $version    Numer wersji zgody
+ * @param int    $user_id    Benutzer-ID
+ * @param string $consent_id Einwilligungs-ID
+ * @param int    $version    Versionsnummer der Einwilligung
  */
 do_action('polski_pro/consent/granted', int $user_id, string $consent_id, int $version);
 ```
@@ -183,7 +183,7 @@ do_action('polski_pro/consent/granted', int $user_id, string $consent_id, int $v
 
 ```php
 add_action('polski_pro/consent/granted', function (int $user_id, string $consent_id, int $version): void {
-    // Synchronizacja z zewnętrznym CRM
+    // Synchronisation mit externem CRM
     if ($consent_id === 'marketing') {
         wp_remote_post('https://crm.example.com/api/consent', [
             'body' => wp_json_encode([
@@ -200,13 +200,13 @@ add_action('polski_pro/consent/granted', function (int $user_id, string $consent
 
 ### `polski_pro/consent/revoked`
 
-Aktion, die nach dem Widerruf einer Einwilligung ausgefuehrt wird.
+Aktion, die nach Widerruf einer Einwilligung ausgelöst wird.
 
 ```php
 /**
- * @param int    $user_id    ID użytkownika
- * @param string $consent_id ID zgody
- * @param string $source     Źródło wycofania (customer, admin)
+ * @param int    $user_id    Benutzer-ID
+ * @param string $consent_id Einwilligungs-ID
+ * @param string $source     Quelle des Widerrufs (customer, admin)
  */
 do_action('polski_pro/consent/revoked', int $user_id, string $consent_id, string $source);
 ```
@@ -216,32 +216,32 @@ do_action('polski_pro/consent/revoked', int $user_id, string $consent_id, string
 ```php
 add_action('polski_pro/consent/revoked', function (int $user_id, string $consent_id, string $source): void {
     if ($consent_id === 'newsletter' && $source === 'customer') {
-        // Wypisanie z newslettera
+        // Abmeldung vom Newsletter
         do_action('newsletter_unsubscribe', get_userdata($user_id)->user_email);
     }
 }, 10, 3);
 ```
 
-## Haeufige Probleme
+## Häufige Probleme
 
-### Aufforderung zur erneuten Einwilligung wird nicht angezeigt
+### Die Aufforderung zur erneuten Einwilligung wird nicht angezeigt
 
-1. Pruefen Sie, ob die Option "Erneute Einwilligung verlangen" aktiviert ist
-2. Ueberpruefen Sie, ob sich der Einwilligungstext tatsaechlich geaendert hat (pruefen Sie den Versionsverlauf)
-3. Leeren Sie den Cache der Checkout-Seite und des Mein-Konto-Bereichs
+1. Prüfen Sie, ob die Option "Erneute Einwilligung verlangen" aktiviert ist
+2. Überprüfen Sie, ob sich der Inhalt der Einwilligung tatsächlich geändert hat (prüfen Sie die Versionshistorie)
+3. Leeren Sie den Cache der Kassenseite und des Mein-Konto-Bereichs
 
-### DSGVO-Export enthaelt keine Einwilligungsdaten
+### Der DSGVO-Export enthält keine Einwilligungsdaten
 
 1. Stellen Sie sicher, dass das Modul zur Einwilligungsverwaltung aktiv ist
-2. Pruefen Sie, ob der Exporter `polski-pro-consents` unter **Werkzeuge > Personenbezogene Daten exportieren** registriert ist
-3. Ueberpruefen Sie die Logs auf PHP-Fehler
+2. Prüfen Sie, ob der Exporter `polski-pro-consents` unter **Werkzeuge > Export personenbezogener Daten** registriert ist
+3. Überprüfen Sie die Logs auf PHP-Fehler
 
-### Audit-Trail waechst zu schnell
+### Der Audit-Trail wächst zu schnell
 
-Das Plugin speichert die Einwilligungshistorie in einer separaten Datenbanktabelle. Bei einer grossen Kundenanzahl kann die Tabelle wachsen. Erwaegen Sie:
+Die Einwilligungshistorie befindet sich in einer separaten Tabelle. Bei vielen Kunden kann sie wachsen. Erwägen Sie:
 
-- regelmaessigen Export und Archivierung aelterer Eintraege
-- Einrichtung einer automatischen Bereinigung von Eintraegen, die aelter als eine bestimmte Anzahl von Monaten sind (Option in den Einstellungen)
+- regelmäßiges Exportieren und Archivieren älterer Einträge
+- das Einrichten einer automatischen Bereinigung von Einträgen, die älter als eine bestimmte Anzahl von Monaten sind (Option in den Einstellungen)
 
 ## Verwandte Ressourcen
 
@@ -249,4 +249,4 @@ Das Plugin speichert die Einwilligungshistorie in einer separaten Datenbanktabel
 - [DSGVO](/compliance/gdpr/)
 - [Problem melden](https://github.com/wppoland/polski/issues)
 
-<div class="disclaimer">Diese Seite dient ausschließlich zu Informationszwecken und stellt keine Rechtsberatung dar. Konsultieren Sie vor der Umsetzung einen Anwalt. Polski for WooCommerce ist Open-Source-Software (GPLv2) ohne Garantie.</div>
+<div class="disclaimer">Diese Seite dient ausschließlich Informationszwecken und stellt keine Rechtsberatung dar. Konsultieren Sie vor der Umsetzung einen Anwalt. Polski for WooCommerce ist Open-Source-Software (GPLv2), die ohne Gewährleistung bereitgestellt wird.</div>

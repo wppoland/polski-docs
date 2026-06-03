@@ -1,13 +1,13 @@
 ---
 title: KSeF-Integration
-description: Dokumentation der Integration von Polski PRO for WooCommerce mit dem Nationalen e-Rechnungssystem (KSeF) - Rechnungsversand, Statusverfolgung, API-Konfiguration und Fehlerbehandlung.
+description: Dokumentation der Integration von Polski PRO for WooCommerce mit dem nationalen e-Rechnungssystem KSeF - Versand von Rechnungen, Statusverfolgung, API-Konfiguration und Fehlerbehandlung.
 ---
 
-Das KSeF-Modul sendet elektronische Rechnungen an das Nationale e-Rechnungssystem (Finanzministerium). Rechnungen werden im Hintergrund gesendet, mit automatischer Wiederholung bei Fehlern.
+Das KSeF-Modul sendet elektronische Rechnungen an das nationale e-Rechnungssystem KSeF (polnisches Finanzministerium). Rechnungen werden im Hintergrund versendet, mit automatischer Wiederholung bei Fehlern.
 
 ## Was ist KSeF
 
-Das Nationale e-Rechnungssystem (KSeF) ist eine Plattform des Finanzministeriums zum Ausstellen, Speichern und Empfangen strukturierter Rechnungen im XML-Format. Das Plugin stellt Werkzeuge zur Integration von WooCommerce mit KSeF bereit - es generiert Rechnungen im erforderlichen XML-Format und uebermittelt sie an das System.
+KSeF ist die Plattform des polnischen Finanzministeriums zur Verarbeitung von Rechnungen im XML-Format. Das Plugin erzeugt Rechnungen im erforderlichen Format und überträgt sie an KSeF.
 
 ## Konfiguration
 
@@ -18,101 +18,101 @@ Gehen Sie zu **WooCommerce > Einstellungen > Polski > PRO-Module > KSeF**.
 | Einstellung | Beschreibung |
 |------------|------|
 | KSeF-Integration aktivieren | Aktiviert das Modul |
-| Umgebung | Test (Sandbox) oder Produktion |
-| API-Schluessel (Token) | Autorisierungstoken, generiert im KSeF-Portal |
-| NIP des Ausstellers | NIP, der mit dem KSeF-Konto verknuepft ist |
+| Umgebung | Test (Sandbox) oder Produktiv |
+| API-Schlüssel (Token) | Im KSeF-Portal erzeugter Autorisierungstoken |
+| NIP des Ausstellers | Mit dem KSeF-Konto verknüpfte NIP |
 
 ### Testumgebung
 
-KSeF bietet eine Testumgebung (Sandbox) zur Ueberpruefung der Integration. Die Testumgebung:
+KSeF verfügt über eine Testumgebung (Sandbox) zur Überprüfung der Integration. Die Sandbox:
 
-- erfordert keinen echten Autorisierungsschluessel
-- akzeptiert Rechnungen im gleichen Format wie die Produktionsumgebung
-- uebermittelt keine Daten an das Finanzamt
-- wird fuer erste Integrationstests empfohlen
+- erfordert keinen echten Autorisierungsschlüssel
+- nimmt Rechnungen im identischen Format wie die Produktivumgebung an
+- überträgt keine Daten an das Finanzamt
+- wird für erste Integrationstests empfohlen
 
-Nach erfolgreicher Ueberpruefung in der Testumgebung wechseln Sie zur Produktionsumgebung und geben den richtigen API-Schluessel ein.
+Nach erfolgreichen Tests wechseln Sie in die Produktivumgebung und tragen den korrekten API-Schlüssel ein.
 
 ### API-Token erhalten
 
 1. Melden Sie sich im KSeF-Portal an: https://ksef.mf.gov.pl/
-2. Gehen Sie zum Bereich Token-Verwaltung
-3. Generieren Sie einen neuen Token mit Berechtigungen zum Ausstellen von Rechnungen
-4. Kopieren Sie den Token und fuegen Sie ihn in den Plugin-Einstellungen ein
+2. Wechseln Sie in den Bereich für die Token-Verwaltung
+3. Erzeugen Sie einen neuen Token mit Berechtigungen zur Rechnungsausstellung
+4. Kopieren Sie den Token und fügen Sie ihn in den Plugin-Einstellungen ein
 
-## Rechnungsversand
+## Versand von Rechnungen
 
 ### Automatischer Versand
 
-Nach Aktivierung der Option **Automatischer Versand an KSeF** sendet das Plugin die Rechnung automatisch an KSeF, wenn sich ihr Status auf "Ausgestellt" (Issued) aendert. Der Versand erfolgt asynchron ueber den Action Scheduler.
+Aktivieren Sie **Automatischer Versand an KSeF**, damit das Plugin die Rechnung an KSeF sendet, sobald der Status auf "Ausgestellt" wechselt. Der Versand läuft im Hintergrund über Action Scheduler.
 
 ### Manueller Versand
 
-Im Bestellpanel in der Meta-Box "Rechnungen" steht die Schaltflaeche **An KSeF senden** zur Verfuegung. Ein Klick fuegt die Versandaufgabe zur Action-Scheduler-Warteschlange hinzu.
+Klicken Sie in der Meta-Box "Rechnungen" auf **An KSeF senden**. Die Aufgabe wird in die Action-Scheduler-Warteschlange eingereiht.
 
 ### Asynchrone Verarbeitung
 
-Das Plugin nutzt den Action Scheduler (in WooCommerce integriert) fuer den asynchronen Rechnungsversand. Das bedeutet:
+Das Plugin nutzt Action Scheduler (in WooCommerce integriert) für den Versand im Hintergrund:
 
-- der Versand blockiert nicht die Bestellbearbeitung
-- Rechnungen werden nacheinander in der Warteschlange versendet
-- bei einer grossen Anzahl von Rechnungen verarbeitet das System sie schrittweise
+- der Versand blockiert die Bestellabwicklung nicht
+- Rechnungen werden nacheinander versendet
+- große Rechnungsmengen werden schrittweise verarbeitet
 
-## XML-Generierung
+## XML-Erzeugung
 
-Das Plugin generiert die Rechnung im XML-Format gemaess dem KSeF-Schema (FA(2)). Das XML-Dokument enthaelt:
+Das Plugin erzeugt die Rechnung im XML-Format gemäß dem KSeF-Schema (FA(2)). Das XML-Dokument enthält:
 
-- Header mit Datum und Rechnungstyp
-- Verkaeuferdaten (NIP, Name, Adresse)
-- Kaeuferdaten (NIP, Name, Adresse)
-- Rechnungspositionen (Bezeichnung, Menge, Nettopreis, MwSt.-Satz, Wert)
-- Zusammenfassung mit Aufschluesselung nach MwSt.-Saetzen
+- Kopfzeile mit Datum und Rechnungstyp
+- Verkäuferdaten (NIP, Name, Adresse)
+- Käuferdaten (NIP, Name, Adresse)
+- Rechnungspositionen (Bezeichnung, Menge, Nettopreis, USt-Satz, Wert)
+- Zusammenfassung mit Aufschlüsselung nach USt-Sätzen
 - Zahlungsinformationen
 
-Das XML wird vor dem Versand validiert. Wenn die Validierung Fehler erkennt, wird die Rechnung nicht gesendet und im Log erscheint eine detaillierte Meldung.
+Das XML wird vor dem Versand validiert. Bei Validierungsfehlern wird die Rechnung nicht versendet und im Protokoll erscheint eine Meldung.
 
 ## Statusverfolgung
 
-Nach dem Senden der Rechnung an KSeF verfolgt das Plugin deren Status:
+Nach dem Versand der Rechnung an KSeF verfolgt das Plugin deren Status:
 
 | Status | Beschreibung |
 |--------|------|
-| Queued | Rechnung zur Versandwarteschlange hinzugefuegt |
-| Submitted | Rechnung an KSeF uebermittelt, wartet auf Verarbeitung |
-| Accepted | Rechnung von KSeF akzeptiert, KSeF-Nummer zugewiesen |
-| Rejected | Rechnung abgelehnt - pruefen Sie die Fehlermeldung |
+| Queued | Rechnung der Versandwarteschlange hinzugefügt |
+| Submitted | Rechnung an KSeF übermittelt, wartet auf Verarbeitung |
+| Accepted | Rechnung von KSeF akzeptiert, KSeF-Nummer vergeben |
+| Rejected | Rechnung abgelehnt, prüfen Sie die Fehlermeldung |
 | Error | Kommunikationsfehler mit der KSeF-API |
 
-Nach der Akzeptanz speichert das Plugin die KSeF-Referenznummer in den Rechnungsmetadaten. Diese Nummer ist im Bestellpanel und auf dem PDF-Ausdruck sichtbar.
+Nach der Annahme speichert das Plugin die KSeF-Nummer. Sie ist im Bestellpanel und auf dem PDF sichtbar.
 
 ### Status-Polling
 
-Das Plugin prueft automatisch den Status gesendeter Rechnungen. Nach der Uebermittlung einer Rechnung an KSeF fragt das Plugin die API alle paar Minuten (ueber den Action Scheduler) nach dem Status ab, bis die Antwort "Accepted" oder "Rejected" erhalten wird.
+Das Plugin prüft den Status versendeter Rechnungen automatisch alle paar Minuten (über Action Scheduler), bis es eine Antwort "Accepted" oder "Rejected" erhält.
 
 ## Fehlerbehandlung und Wiederholung
 
-Bei einem Kommunikationsfehler mit der KSeF-API wendet das Plugin einen Exponential-Backoff-Mechanismus an:
+Bei API-Fehlern wiederholt das Plugin die Versuche mit steigender Verzögerung (Exponential Backoff):
 
-| Versuch | Verzoegerung |
+| Versuch | Verzögerung |
 |-------|-----------|
 | 1. Wiederholung | 5 Minuten |
 | 2. Wiederholung | 25 Minuten |
 | 3. Wiederholung | 125 Minuten |
 
-Nach drei fehlgeschlagenen Versuchen erhaelt die Rechnung den Status "Error" und erfordert manuelles Eingreifen. Der Administrator erhaelt eine E-Mail-Benachrichtigung ueber den fehlgeschlagenen Versand.
+Nach drei fehlgeschlagenen Versuchen erhält die Rechnung den Status "Error". Der Administrator erhält eine E-Mail über den fehlgeschlagenen Versand.
 
 Typische Fehlerursachen:
 
-- ungueltiger oder abgelaufener API-Token
-- XML-Validierungsfehler (z. B. fehlende Kaeuferdaten)
-- voruebergehende Nichtverfuegbarkeit der KSeF-API
-- Nichtueberinstimmung des Aussteller-NIP mit dem Token
+- ungültiger oder abgelaufener API-Token
+- XML-Validierungsfehler (z. B. fehlende Käuferdaten)
+- vorübergehende Nichtverfügbarkeit der KSeF-API
+- Nichtübereinstimmung der NIP des Ausstellers mit dem Token
 
 ## Hooks
 
 ### `polski_pro_ksef_submit`
 
-Aktion, die vor dem Senden der Rechnung an KSeF ausgefuehrt wird.
+Aktion, die vor dem Versand der Rechnung an KSeF ausgelöst wird.
 
 ```php
 /**
@@ -143,7 +143,7 @@ add_action('polski_pro_ksef_submit', function (int $invoice_id, string $xml): vo
 
 ### `polski_pro_ksef_check_status`
 
-Aktion, die nach der Statuspruefung der Rechnung bei KSeF ausgefuehrt wird.
+Aktion, die nach der Statusprüfung der Rechnung in KSeF ausgelöst wird.
 
 ```php
 /**
@@ -173,45 +173,45 @@ add_action('polski_pro_ksef_check_status', function (int $invoice_id, string $st
 
 ## Diagnose
 
-### Logs
+### Protokolle
 
-Das Plugin protokolliert alle KSeF-Operationen im WooCommerce-Log. Gehen Sie zu **WooCommerce > Status > Logs** und waehlen Sie die Quelle `polski-pro-ksef`.
+Alle KSeF-Vorgänge werden im WooCommerce-Protokoll erfasst. Gehen Sie zu **WooCommerce > Status > Protokolle** und wählen Sie `polski-pro-ksef`.
 
 Protokollierte Ereignisse:
 
-- Rechnungsversand (Request/Response)
-- Statuspruefung
+- Versand der Rechnung (Request/Response)
+- Statusprüfung
 - XML-Validierungsfehler
-- API-Kommunikationsfehler
+- Kommunikationsfehler mit der API
 - Versandwiederholungen
 
-### Verbindung testen
+### Verbindungstest
 
-In den KSeF-Moduleinstellungen steht die Schaltflaeche **Verbindung testen** zur Verfuegung. Sie sendet eine Testanfrage an die KSeF-API und ueberprueft:
+Klicken Sie in den KSeF-Einstellungen auf **Verbindung testen**. Der Test prüft:
 
-- Korrektheit des Tokens
-- Verbindung zum KSeF-Server
-- Uebereinstimmung des NIP mit dem Token
+- die Korrektheit des Tokens
+- die Verbindung zum KSeF-Server
+- die Übereinstimmung der NIP mit dem Token
 
-## Haeufige Probleme
+## Häufige Probleme
 
 ### Rechnung von KSeF abgelehnt
 
-1. Pruefen Sie die Fehlermeldung im WooCommerce-Log
-2. Haeufigste Ursachen: fehlender Kaeufer-NIP, ungueltiger MwSt.-Satz, unvollstaendige Adressdaten
+1. Prüfen Sie die Fehlermeldung im WooCommerce-Protokoll
+2. Häufigste Ursachen: fehlende NIP des Käufers, ungültiger USt-Satz, unvollständige Adressdaten
 3. Korrigieren Sie die Daten und senden Sie erneut
 
 ### API-Token funktioniert nicht
 
 1. Stellen Sie sicher, dass der Token nicht abgelaufen ist
-2. Pruefen Sie, ob der Token Berechtigungen zum Ausstellen von Rechnungen hat
-3. Ueberpruefen Sie die Uebereinstimmung des NIP in den Plugin-Einstellungen mit dem NIP, der mit dem Token verknuepft ist
+2. Prüfen Sie, ob der Token Berechtigungen zur Rechnungsausstellung hat
+3. Überprüfen Sie die Übereinstimmung der NIP in den Plugin-Einstellungen mit der mit dem Token verknüpften NIP
 
 ### Action Scheduler verarbeitet die Warteschlange nicht
 
-1. Pruefen Sie, ob WP-Cron korrekt funktioniert
-2. Gehen Sie zu **Werkzeuge > Scheduled Actions** und pruefen Sie den Warteschlangenstatus
-3. Ueberpruefen Sie, ob keine blockierten Aufgaben vorhanden sind
+1. Prüfen Sie, ob WP-Cron korrekt funktioniert
+2. Gehen Sie zu **Werkzeuge > Scheduled Actions** und prüfen Sie den Zustand der Warteschlange
+3. Überprüfen Sie, ob keine blockierten Aufgaben vorliegen
 
 ## Verwandte Ressourcen
 
@@ -219,4 +219,4 @@ In den KSeF-Moduleinstellungen steht die Schaltflaeche **Verbindung testen** zur
 - [Informationen zu KSeF](/compliance/ksef/)
 - [Problem melden](https://github.com/wppoland/polski/issues)
 
-<div class="disclaimer">Diese Seite dient ausschließlich zu Informationszwecken und stellt keine Rechtsberatung dar. Konsultieren Sie vor der Umsetzung einen Anwalt. Polski for WooCommerce ist Open-Source-Software (GPLv2) ohne Garantie.</div>
+<div class="disclaimer">Diese Seite dient ausschließlich Informationszwecken und stellt keine Rechtsberatung dar. Konsultieren Sie vor der Umsetzung einen Anwalt. Polski for WooCommerce ist Open-Source-Software (GPLv2), die ohne Gewährleistung bereitgestellt wird.</div>

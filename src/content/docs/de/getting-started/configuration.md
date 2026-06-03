@@ -1,81 +1,81 @@
 ---
 title: Plugin-Konfiguration
-description: Erste Schritte nach der Installation des Plugins Polski for WooCommerce. Module aktivieren, Compliance-Dashboard, Einstellungsuebersicht und Anpassung an die Shop-Beduerfnisse.
+description: Erste Schritte nach der Installation des Plugins Polski for WooCommerce. Module aktivieren, Compliance-Dashboard, Einstellungsuebersicht und Anpassung an die Beduerfnisse des Shops.
 ---
 
 ## Hauptpanel des Plugins
 
-Nach der Aktivierung gehen Sie zu **WooCommerce > Polski**. Sie sehen das Hauptpanel mit den Bereichen:
+Nach der Aktivierung des Plugins gehe zu **WooCommerce > Polski**. Du siehst ein Hauptpanel mit folgenden Bereichen:
 
-- **Konformitaetsstatus** - schnelle Uebersicht, welche rechtlichen Anforderungen erfuellt sind
+- **Compliance-Status** - schneller Ueberblick, welche rechtlichen Anforderungen erfuellt sind
 - **Aktive Module** - Liste der aktivierten Module mit Links zu ihren Einstellungen
-- **Erforderliche Massnahmen** - Benachrichtigungen ueber fehlende Konfigurationen
-- **Schnelllinks** - Verweise auf die wichtigsten Einstellungen
+- **Erforderliche Massnahmen** - Hinweise auf fehlende Konfigurationen
+- **Schnelllinks** - Verweise zu den wichtigsten Einstellungen
 
 ![Modul-Dashboard von Polski for WooCommerce](../../../../assets/screenshots/screenshot-1-modules-dashboard.png)
 
 :::tip[Konfigurationsassistent]
-Nutzen Sie den [Konfigurationsassistenten](/de/getting-started/wizard/) fuer den Einstieg. Er fuehrt Sie Schritt fuer Schritt durch die wichtigsten Einstellungen. Sie koennen ihn jederzeit erneut starten.
+Wenn du gerade erst anfaengst, nutze den [Konfigurationsassistenten](getting-started/wizard/). Er fuehrt dich Schritt fuer Schritt durch die wichtigsten Einstellungen. Du kannst ihn jederzeit erneut starten.
 :::
 
 ---
 
 ## Module aktivieren und deaktivieren
 
-Das Plugin arbeitet modular - standardmaessig ist nach der Installation kein Modul aktiv. Dadurch beeinflusst das Plugin die Shop-Leistung nicht, bis Sie bestimmte Funktionen aktivieren.
+Das Plugin arbeitet modular - nach der Installation sind alle Module deaktiviert. Du aktivierst nur die, die du brauchst.
 
-### Modul aktivieren
+### So aktivierst du ein Modul
 
-1. Gehen Sie zu **WooCommerce > Polski > Module**
-2. Suchen Sie das gewuenschte Modul in der Liste
-3. Klicken Sie auf den Schalter neben dem Modulnamen, um es zu aktivieren
-4. Klicken Sie unten auf der Seite auf **Aenderungen speichern**
+1. Gehe zu **WooCommerce > Polski > Module**
+2. Finde das gewuenschte Modul in der Liste
+3. Klicke auf den Schalter neben dem Modulnamen, um es zu aktivieren
+4. Klicke unten auf der Seite auf **Aenderungen speichern**
 
-### Modul deaktivieren
+### So deaktivierst du ein Modul
 
-Das Verfahren ist identisch - klicken Sie auf den Schalter bei einem aktiven Modul, um es zu deaktivieren. Das Deaktivieren eines Moduls loescht keine gespeicherten Daten, sodass Sie es ohne Konfigurationsverlust erneut aktivieren koennen.
+Klicke auf den Schalter bei einem aktiven Modul, um es zu deaktivieren. Das Deaktivieren loescht keine Daten - du kannst das Modul ohne Verlust der Einstellungen wieder aktivieren.
 
 ### Empfohlene Module fuer den Start
 
-Fuer einen typischen polnischen Onlineshop empfehlen wir die Aktivierung folgender Module als Minimum:
+Fuer einen typischen polnischen Shop aktiviere mindestens diese Module:
 
 | Modul | Warum es wichtig ist |
 |-------|-------------------|
 | Omnibus | Gesetzlich vorgeschrieben - Anzeige der Preishistorie |
 | Bestellbutton | Gesetzlich vorgeschrieben - "Zahlungspflichtig bestellen" |
-| Rechtliche Checkboxen | Gesetzlich vorgeschrieben - Zustimmungen bei der Bestellung |
-| Rechtsseiten | AGB und Datenschutzerklaerung |
-| Widerrufsrecht | Gesetzlich vorgeschrieben - Widerrufsformular und -belehrung |
+| Rechtliche Checkboxen | Gesetzlich vorgeschrieben - Einwilligungen bei der Bestellung |
+| Rechtliche Seiten | AGB und Datenschutzerklaerung |
+| Widerrufsrecht | Gesetzlich vorgeschrieben - Formular und Widerrufsbelehrung |
 | Lieferzeit | Empfohlen - geschaetzte Lieferzeit auf der Produktseite |
-| GPSR | Vorgeschrieben seit 13.12.2024 - Produktsicherheitsdaten |
+| GPSR | Vorgeschrieben ab 13.12.2024 - Produktsicherheitsdaten |
 
 ---
 
 ## Compliance-Dashboard
 
-Das Compliance-Dashboard ist der zentrale Ort, an dem Sie den rechtlichen Status Ihres Shops pruefen koennen. Gehen Sie zu **WooCommerce > Polski > Konformitaet**, um zu sehen:
+Hier pruefst du, ob dein Shop die rechtlichen Anforderungen erfuellt. Gehe zu **WooCommerce > Polski > Compliance**.
 
-### Statusanzeigen
+### Statusindikatoren
 
 Jede rechtliche Anforderung hat einen von drei Status:
 
 - **Konform** (gruen) - Anforderung erfuellt, Konfiguration vollstaendig
-- **Erfordert Aufmerksamkeit** (gelb) - Modul ist aktiviert, aber ein Teil der Konfiguration fehlt
-- **Nicht konform** (rot) - Modul ist deaktiviert oder Konfiguration unvollstaendig
+- **Erfordert Aufmerksamkeit** (gelb) - Modul aktiviert, aber es fehlen Teile der Einstellungen
+- **Nicht konform** (rot) - Modul deaktiviert oder Konfiguration unvollstaendig
 
 ### Checkliste
 
-Das Dashboard zeigt eine Checkliste mit konkreten auszufuehrenden Schritten:
+Das Dashboard zeigt eine Checkliste mit den auszufuehrenden Schritten:
 
 ```
-[x] Bestellbutton - gesetzeskonformer Text
+[x] Bestellbutton - rechtskonformer Text
 [x] Omnibus - Anzeige der Preishistorie aktiviert
-[ ] AGB - AGB-Seite nicht zugewiesen
-[ ] Datenschutzerklaerung - Seite nicht zugewiesen
-[ ] GPSR - Herstellerdaten bei 12 Produkten fehlen
+[ ] AGB - AGB-Seite ist nicht zugewiesen
+[ ] Datenschutzerklaerung - Seite ist nicht zugewiesen
+[ ] GPSR - fehlende Herstellerdaten bei 12 Produkten
 ```
 
-Klicken Sie auf ein beliebiges Listenelement, um direkt zu den entsprechenden Einstellungen zu gelangen.
+Klicke auf ein beliebiges Listenelement, um direkt zu den entsprechenden Einstellungen zu gelangen.
 
 ---
 
@@ -83,78 +83,78 @@ Klicken Sie auf ein beliebiges Listenelement, um direkt zu den entsprechenden Ei
 
 ### Rechtliche Anforderungen
 
-Gehen Sie zu **WooCommerce > Polski > Rechtskonformitaet**, um zu konfigurieren:
+Gehe zu **WooCommerce > Polski > Rechtliche Konformitaet**, um Folgendes zu konfigurieren:
 
-**Omnibus (Preisrichtlinie)**
+**Omnibus (Preisangabenrichtlinie)**
 
-1. Aktivieren Sie das Omnibus-Modul
-2. Stellen Sie den Preisverfolgungszeitraum ein (Standard 30 Tage)
-3. Waehlen Sie das Anzeigeformat fuer den niedrigsten Preis
-4. Speichern Sie die Aenderungen
+1. Aktiviere das Modul Omnibus
+2. Lege den Zeitraum fuer die Preisverfolgung fest (standardmaessig 30 Tage)
+3. Waehle das Anzeigeformat des niedrigsten Preises
+4. Speichere die Aenderungen
 
-Das Plugin beginnt automatisch mit der Aufzeichnung der Preishistorie ab dem Moment der Modulaktivierung.
+Das Plugin beginnt, die Preishistorie ab dem Moment der Aktivierung des Moduls zu erfassen.
 
 **GPSR (Produktsicherheit)**
 
-1. Aktivieren Sie das GPSR-Modul
-2. Ergaenzen Sie die Standard-Herstellerdaten in den globalen Einstellungen
-3. Fuer einzelne Produkte - bearbeiten Sie die Daten im Tab "GPSR" auf der Produktbearbeitungsseite
+1. Aktiviere das Modul GPSR
+2. Trage die Daten des Standardherstellers in den globalen Einstellungen ein
+3. Fuer einzelne Produkte - bearbeite die Daten im Reiter "GPSR" auf der Produktbearbeitungsseite
 
-**Rechtsseiten**
+**Rechtliche Seiten**
 
-1. Aktivieren Sie das Rechtsseiten-Modul
-2. Verwenden Sie den Generator zum Erstellen von AGB, Datenschutzerklaerung und Widerrufsbelehrung
-3. Weisen Sie die generierten Seiten unter **WooCommerce > Einstellungen > Erweitert > Seiteneinstellungen** zu
+1. Aktiviere das Modul fuer rechtliche Seiten
+2. Nutze den Generator zur Erstellung von AGB, Datenschutzerklaerung und Ruecksendungsrichtlinie
+3. Weise die generierten Seiten in **WooCommerce > Einstellungen > Erweitert > Seiteneinstellungen** zu
 
 ### Preise und Produktinformationen
 
-Gehen Sie zu **WooCommerce > Polski > Preise**, um zu konfigurieren:
+Gehe zu **WooCommerce > Polski > Preise**, um Folgendes zu konfigurieren:
 
 **Grundpreise**
 
-1. Aktivieren Sie das Grundpreismodul
-2. Waehlen Sie die Standard-Mengeneinheit (kg, l, m, Stk.)
-3. Fuellen Sie auf der Produktseite das Feld "Basismenge" und "Mengeneinheit" aus
+1. Aktiviere das Modul Grundpreise
+2. Waehle die Standardmasseinheit (kg, l, m, Stk.)
+3. Trage auf der Produktseite die Felder "Basismenge" und "Masseinheit" ein
 
-Konfigurationsbeispiel im Produkteditor:
+Beispielkonfiguration im Produkteditor:
 
 ```
-Produktpreis: 15,99 PLN
+Produktpreis: 15,99 zl
 Basismenge: 500
-Mengeneinheit: g
+Masseinheit: g
 Referenzeinheit: kg
 
-Ergebnis: 15,99 PLN / 500g (31,98 PLN/kg)
+Ergebnis: 15,99 zl / 500g (31,98 zl/kg)
 ```
 
 **Lieferzeit**
 
-1. Aktivieren Sie das Lieferzeitmodul
-2. Stellen Sie die Standard-Lieferzeit ein (z.B. "1-3 Werktage")
-3. Optional - stellen Sie individuelle Zeiten fuer einzelne Produkte ein
+1. Aktiviere das Modul Lieferzeit
+2. Lege die Standardlieferzeit fest (z. B. "1-3 Werktage")
+3. Optional - lege eine individuelle Zeit fuer einzelne Produkte fest
 
 ### Kasse und Bestellungen
 
-Gehen Sie zu **WooCommerce > Polski > Kasse**, um zu konfigurieren:
+Gehe zu **WooCommerce > Polski > Kasse**, um Folgendes zu konfigurieren:
 
 **Bestellbutton**
 
-1. Aktivieren Sie das Modul
-2. Der Standardtext lautet "Zamawiam z obowiazkiem zaplaty" (Zahlungspflichtig bestellen)
-3. Sie koennen den Text anpassen, er muss jedoch die Anforderungen des Art. 17 des Verbraucherrechtegesetzes erfuellen
+1. Aktiviere das Modul
+2. Der Standardtext lautet "Zahlungspflichtig bestellen"
+3. Du kannst den Text anpassen, er muss jedoch die Anforderungen von Art. 17 des Verbraucherrechtegesetzes erfuellen
 
 **Rechtliche Checkboxen**
 
-1. Aktivieren Sie das Checkbox-Modul
-2. Fuegen Sie die erforderlichen Zustimmungen hinzu (AGB, Datenschutzerklaerung)
-3. Konfigurieren Sie den Inhalt jeder Checkbox, einschliesslich Links zu Rechtsseiten
-4. Markieren Sie, welche Checkboxen obligatorisch sind
+1. Aktiviere das Modul Checkboxen
+2. Fuege die erforderlichen Einwilligungen hinzu (AGB, Datenschutzerklaerung)
+3. Konfiguriere den Inhalt jeder Checkbox, einschliesslich der Links zu den rechtlichen Seiten
+4. Markiere, welche Checkboxen verpflichtend sind
 
-Konfigurationsbeispiel fuer eine Checkbox:
+Beispielkonfiguration einer Checkbox:
 
 ```
-Label: agb
-Inhalt: Ich habe die [AGB] gelesen und akzeptiere deren Bestimmungen.
+Bezeichnung: AGB
+Inhalt: Ich habe die [AGB] gelesen und akzeptiere ihre Bestimmungen.
 Erforderlich: Ja
 Link: /agb/
 Position: Vor dem Bestellbutton
@@ -162,81 +162,81 @@ Position: Vor dem Bestellbutton
 
 **NIP-Suche**
 
-1. Aktivieren Sie das NIP-Modul
-2. Das NIP-Feld erscheint automatisch auf der Kassenseite
-3. Nach Eingabe der Steuernummer und Klick auf "Pruefen" werden die Firmendaten automatisch aus der GUS-Datenbank ergaenzt
+1. Aktiviere das Modul NIP
+2. Das Feld NIP erscheint automatisch auf der Kassenseite
+3. Nach Eingabe der NIP und Klick auf "Pruefen" werden die Firmendaten automatisch aus der GUS-Datenbank ergaenzt
 
-### Lebensmittel
+### Lebensmittelprodukte
 
-Diese Module sind fuer Shops gedacht, die Lebensmittel verkaufen. Gehen Sie zu **WooCommerce > Polski > Lebensmittel**.
+Module fuer Shops mit Lebensmitteln. Gehe zu **WooCommerce > Polski > Lebensmittel**.
 
-1. Aktivieren Sie die benoetigten Module (Naehrwerte, Allergene, Nutri-Score)
-2. Auf der Produktbearbeitungsseite erscheinen neue Tabs zum Ergaenzen der Daten
-3. Die Daten werden automatisch auf der Produktseite im Shop angezeigt
+1. Aktiviere die benoetigten Module (Naehrwerte, Allergene, Nutri-Score)
+2. In der Produktbearbeitung erscheinen neue auszufuellende Reiter
+3. Die Daten werden automatisch auf der Produktseite angezeigt
 
 ### Shop-Module
 
-Gehen Sie zu **WooCommerce > Polski > Shop**, um zusaetzliche Funktionen zu aktivieren:
+Gehe zu **WooCommerce > Polski > Shop**, um zusaetzliche Funktionen zu aktivieren:
 
-- Wunschliste, Produktvergleich, Schnellansicht - aktivieren und Aussehen anpassen
-- AJAX-Suche - aktivieren und Anzahl der angezeigten Ergebnisse konfigurieren
-- AJAX-Filter - aktivieren und Filterattribute auswaehlen
-- Slider und Labels - Stil und Verhalten konfigurieren
+- Wunschliste, Vergleich, Schnellansicht - aktiviere und passe das Aussehen an
+- AJAX-Suche - aktiviere und konfiguriere die Anzahl der angezeigten Ergebnisse
+- AJAX-Filter - aktiviere und waehle die Attribute zum Filtern aus
+- Slider und Badges - konfiguriere Stil und Verhalten
 
 ---
 
 ## Globale Einstellungen
 
-Im Tab **WooCommerce > Polski > Einstellungen** finden Sie globale Optionen:
+Im Reiter **WooCommerce > Polski > Einstellungen** findest du globale Optionen:
 
 ### Firmendaten
 
-Ergaenzen Sie die Grunddaten Ihres Unternehmens:
+Trage die grundlegenden Daten deines Unternehmens ein:
 
 - Firmenname
-- Steuernummer (NIP)
-- REGON-Nummer
-- Sitzadresse
+- NIP
+- REGON
+- Adresse des Firmensitzes
 - Kontakt-E-Mail-Adresse
 - Telefonnummer
 
-Diese Daten werden von verschiedenen Modulen verwendet (Rechtsseiten, GPSR, DSA).
+Diese Daten werden von verschiedenen Modulen verwendet (rechtliche Seiten, GPSR, DSA).
 
 ### Leistung
 
-- **Ressourcenladen** - CSS und JS werden nur auf Seiten geladen, wo sie benoetigt werden
-- **Cache** - das Plugin nutzt die WordPress Transients API zum Cachen von Daten
-- **Minifizierung** - Frontend-Ressourcen sind minifiziert
+- **Laden von Ressourcen** - CSS und JS werden nur auf den Seiten geladen, auf denen sie benoetigt werden
+- **Cache** - das Plugin nutzt die Transients API von WordPress zum Cachen von Daten
+- **Minifizierung** - Frontend-Ressourcen werden minifiziert
 
 ### Kompatibilitaet
 
-Wenn Sie ein nicht-standardmaessiges Theme oder Plugins verwenden, die Konflikte verursachen:
+Wenn das Theme oder ein anderes Plugin einen Konflikt verursacht:
 
-1. Gehen Sie zu **WooCommerce > Polski > Einstellungen > Kompatibilitaet**
-2. Aktivieren Sie den Kompatibilitaetsmodus fuer problematische Module
-3. Passen Sie die Hook-Prioritaeten an, wenn Elemente in der falschen Reihenfolge angezeigt werden
+1. Gehe zu **WooCommerce > Polski > Einstellungen > Kompatibilitaet**
+2. Aktiviere den Kompatibilitaetsmodus fuer die problematischen Module
+3. Passe die Hook-Prioritaeten an, falls Elemente in falscher Reihenfolge angezeigt werden
 
 ---
 
-## Konfigurationsverifizierung
+## Ueberpruefung der Konfiguration
 
-Pruefen Sie nach der Modulkonfiguration, ob alles funktioniert:
+Pruefe nach der Konfiguration, ob alles funktioniert:
 
-1. **Compliance-Dashboard** - gehen Sie zu **WooCommerce > Polski > Konformitaet** und pruefen Sie, ob alle Indikatoren gruen sind
-2. **Produktseite** - oeffnen Sie ein beliebiges Produkt im Shop und pruefen Sie, ob neue Elemente angezeigt werden (Omnibus-Preis, Lieferzeit, GPSR-Daten)
-3. **Kassenseite** - geben Sie eine Testbestellung auf und pruefen Sie, ob Checkboxen und Button korrekt sind
-4. **Rechtsseiten** - oeffnen Sie AGB und Datenschutzerklaerung und pruefen Sie deren Inhalt
+1. **Compliance-Dashboard** - gehe zu **WooCommerce > Polski > Compliance** und pruefe, ob alle Indikatoren gruen sind
+2. **Produktseite** - oeffne ein beliebiges Produkt im Shop und pruefe, ob die neuen Elemente angezeigt werden (Omnibus-Preis, Lieferzeit, GPSR-Daten)
+3. **Kassenseite** - gib eine Testbestellung auf und pruefe, ob Checkboxen und Button korrekt sind
+4. **Rechtliche Seiten** - oeffne die AGB und die Datenschutzerklaerung und pruefe ihren Inhalt
 
-Sie koennen auch ein automatisches Audit starten: **WooCommerce > Polski > Werkzeuge > Shop-Audit**.
+Du kannst auch ein automatisches Audit durchfuehren: **WooCommerce > Polski > Werkzeuge > Site-Audit**.
 
 ---
 
 ## Naechste Schritte
 
-- [Konfigurationsassistent](/de/getting-started/wizard/) - automatische Konfiguration der wichtigsten Einstellungen
-- [Compliance-Dashboard](/de/tools/compliance-dashboard/) - Ueberwachung des Status rechtlicher Anforderungen
-- [Shop-Audit](/de/tools/site-audit/) - automatische Konfigurationspruefung
+- [Konfigurationsassistent](getting-started/wizard/) - automatische Konfiguration der wichtigsten Einstellungen
+- [Compliance-Dashboard](tools/compliance-dashboard/) - Ueberwachung des Status der rechtlichen Anforderungen
+- [Site-Audit](tools/site-audit/) - automatische Ueberpruefung der Konfiguration
 
-Haben Sie eine Frage? Schreiben Sie auf [GitHub Discussions](https://github.com/wppoland/polski/discussions). Haben Sie einen Fehler gefunden? Melden Sie ihn auf [GitHub Issues](https://github.com/wppoland/polski/issues).
+Hast du eine Frage? Schreib uns auf [GitHub Discussions](https://github.com/wppoland/polski/discussions). Hast du einen Fehler gefunden? Melde ihn auf [GitHub Issues](https://github.com/wppoland/polski/issues).
 
-<div class="disclaimer">Diese Seite dient ausschließlich zu Informationszwecken und stellt keine Rechtsberatung dar. Konsultieren Sie vor der Umsetzung einen Anwalt. Polski for WooCommerce ist Open-Source-Software (GPLv2) ohne Garantie.</div>
+<div class="disclaimer">Diese Seite dient ausschliesslich Informationszwecken und stellt keine Rechtsberatung dar. Konsultiere vor der Umsetzung einen Anwalt. Polski for WooCommerce ist eine Open-Source-Software (GPLv2), die ohne Gewaehrleistung bereitgestellt wird.</div>

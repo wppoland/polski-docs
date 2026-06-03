@@ -1,33 +1,51 @@
 ---
-title: Produktslider
-description: Produktslider-Modul in Polski for WooCommerce - scroll-snap, verwandte, Sale- und empfohlene Produkte, Gutenberg-Block und Shortcode.
+title: Produkt-Slider
+description: Produkt-Slider-Modul in Polski for WooCommerce - Scroll-Snap, ähnliche, reduzierte und empfohlene Produkte, Gutenberg-Block und Shortcode.
 ---
 
-Der Produktslider zeigt ein Produktkarussell mit fluessigem, CSS-scroll-snap-basiertem Scrollen an. Das Modul benoetigt keine externen JavaScript-Bibliotheken (Slick, Swiper) - es nutzt ausschliesslich native Browser-Mechanismen.
+Der Slider zeigt ein Produktkarussell mit flüssigem Scrollen auf Basis von CSS Scroll-Snap. Er benötigt keine externen JS-Bibliotheken (Slick, Swiper) und nutzt die nativen Mechanismen des Browsers.
 
 ## Modul aktivieren
 
-Gehen Sie zu **WooCommerce > Polski > Shop-Module** und aktivieren Sie die Option **Produktslider**.
+Gehen Sie zu **WooCommerce > Polski > Shop-Module** und aktivieren Sie **Produkt-Slider**.
 
-## Scroll-snap-Technologie
+## Scroll-Snap-Technologie
 
-Der Slider nutzt CSS `scroll-snap-type: x mandatory` statt traditioneller Karussell-Bibliotheken. Vorteile:
+Der Slider nutzt CSS `scroll-snap-type: x mandatory` anstelle von Karussell-Bibliotheken. Vorteile:
 
-- **Null JavaScript fuer das Scrollen** - fluessiges natives Scrollen
-- **Keine Abhaengigkeiten** - kein Laden von Slick, Swiper oder Owl Carousel
-- **Volle Responsivitaet** - automatische Anpassung an die Bildschirmbreite
-- **Touch und Maus** - nativer Swipe-Support auf Touchgeraeten
+- **Kein JavaScript zum Scrollen** - flüssiges natives Scrollen
+- **Keine Abhängigkeiten** - kein Laden von Slick, Swiper oder Owl Carousel nötig
+- **Vollständig responsiv** - automatische Anpassung an die Bildschirmbreite
+- **Touch und Maus** - native Unterstützung für Swipe auf Touch-Geräten
 - **Leistung** - kein Reflow/Repaint beim Scrollen, 60 FPS
+
+Snap-Konfiguration:
+
+```css
+/* Der Slider verwendet standardmäßig diese Werte */
+.polski-slider {
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+}
+
+.polski-slider__item {
+    scroll-snap-align: start;
+}
+```
 
 ## Slider-Typen
 
-### Verwandte Produkte (related)
+### Ähnliche Produkte (related)
+
+Produkte, die mit dem aktuell betrachteten verwandt sind, ausgewählt anhand von Kategorien und Tags.
 
 ```html
 [polski_product_slider type="related" product_id="123"]
 ```
 
-### Produkte im Angebot (sale)
+### Reduzierte Produkte (sale)
+
+Produkte mit aktivem Aktionspreis.
 
 ```html
 [polski_product_slider type="sale" limit="12"]
@@ -35,11 +53,15 @@ Der Slider nutzt CSS `scroll-snap-type: x mandatory` statt traditioneller Karuss
 
 ### Empfohlene Produkte (featured)
 
+Produkte, die als empfohlen markiert sind (Stern im WooCommerce-Panel).
+
 ```html
 [polski_product_slider type="featured" limit="8"]
 ```
 
 ### Bestseller
+
+Produkte sortiert nach Verkaufszahl.
 
 ```html
 [polski_product_slider type="bestsellers" limit="10"]
@@ -47,17 +69,23 @@ Der Slider nutzt CSS `scroll-snap-type: x mandatory` statt traditioneller Karuss
 
 ### Neueste
 
+Produkte sortiert nach Hinzufügedatum.
+
 ```html
 [polski_product_slider type="latest" limit="10"]
 ```
 
-### Aus gewaehlter Kategorie
+### Aus einer ausgewählten Kategorie
+
+Produkte aus einer bestimmten Kategorie.
 
 ```html
-[polski_product_slider type="category" category="elektronik" limit="12"]
+[polski_product_slider type="category" category="elektronika" limit="12"]
 ```
 
-### Ausgewaehlte Produkte
+### Ausgewählte Produkte
+
+Bestimmte Produkte, angegeben über ID.
 
 ```html
 [polski_product_slider type="ids" ids="12,34,56,78,90"]
@@ -65,57 +93,58 @@ Der Slider nutzt CSS `scroll-snap-type: x mandatory` statt traditioneller Karuss
 
 ## Gutenberg-Block
 
-Der Block **Polski - Produktslider** ist im Gutenberg-Editor verfuegbar. Die Vorschau ist direkt im Editor sichtbar.
+Der Block **Polski - Produkt-Slider** ist im Gutenberg-Editor verfügbar. Die Vorschau ist sofort im Editor sichtbar.
 
-Blockoptionen:
+Block-Optionen:
 
-| Option              | Beschreibung                                     | Standard     |
+| Option              | Beschreibung                                     | Standard      |
 | ------------------- | ---------------------------------------- | ------------- |
 | Typ                 | Produktquelle (related/sale/featured/usw.) | latest    |
-| Limit               | Maximale Produktanzahl              | 8             |
-| Spalten             | Sichtbare Produkte (Desktop)    | 4             |
+| Limit               | Maximale Anzahl an Produkten              | 8             |
+| Spalten             | Anzahl der sichtbaren Produkte (Desktop)    | 4             |
 | Spalten Tablet      | Sichtbare Produkte auf dem Tablet            | 2             |
-| Spalten Mobile      | Sichtbare Produkte auf dem Telefon           | 1             |
-| Pfeile            | Navigationspfeile anzeigen                 | Ja           |
+| Spalten Mobil       | Sichtbare Produkte auf dem Telefon           | 1             |
+| Pfeile              | Navigationspfeile anzeigen                 | Ja           |
 | Punkte              | Paginierungspunkte anzeigen                   | Nein           |
 | Automatisches Scrollen | Automatisches Scrollen                 | Nein           |
-| Abstand (Gap)       | Abstand zwischen Produkten                 | 16px          |
-| Ueberschrift            | Titel ueber dem Slider                       | (leer)       |
+| Abstand (gap)       | Abstand zwischen Produkten                 | 16px          |
+| Überschrift            | Titel über dem Slider                       | (leer)       |
 
 ## Shortcode `[polski_product_slider]`
 
 ### Parameter
 
-| Parameter        | Typ    | Standard  | Beschreibung                                      |
+| Parameter       | Typ    | Standard   | Beschreibung                              |
 | --------------- | ------ | ---------- | ----------------------------------------- |
 | `type`          | string | `latest`   | Typ: related, sale, featured, bestsellers, latest, category, ids |
-| `limit`         | int    | `8`        | Maximale Produktanzahl               |
-| `columns`       | int    | `4`        | Spalten auf Desktop                      |
-| `columns_tablet`| int    | `2`        | Spalten auf Tablet                       |
-| `columns_mobile`| int    | `1`        | Spalten auf Telefon                      |
-| `category`      | string | (leer)    | Kategorie-Slug (fuer type=category)        |
-| `ids`           | string | (leer)    | Produkt-IDs (fuer type=ids)               |
-| `arrows`        | string | `yes`      | Navigationspfeile anzeigen                            |
-| `dots`          | string | `no`       | Paginierungspunkte anzeigen                    |
-| `autoplay`      | string | `no`       | Automatisches Scrollen                       |
-| `autoplay_speed`| int    | `5000`     | Pause zwischen Slides (ms)              |
-| `gap`           | string | `16px`     | Abstand zwischen Produktkarten           |
-| `title`         | string | (leer)    | Ueberschrift ueber dem Slider                     |
+| `limit`         | int    | `8`        | Maximale Anzahl an Produkten              |
+| `columns`       | int    | `4`        | Spalten auf dem Desktop                   |
+| `columns_tablet`| int    | `2`        | Spalten auf dem Tablet                    |
+| `columns_mobile`| int    | `1`        | Spalten auf dem Telefon                   |
+| `category`      | string | (leer)     | Kategorie-Slug (für type=category)        |
+| `ids`           | string | (leer)     | Produkt-IDs (für type=ids)                |
+| `product_id`    | int    | (aktuell)  | Produkt-ID (für type=related)             |
+| `arrows`        | string | `yes`      | Pfeile anzeigen                           |
+| `dots`          | string | `no`       | Paginierungspunkte anzeigen               |
+| `autoplay`      | string | `no`       | Automatisches Scrollen                    |
+| `autoplay_speed`| int    | `5000`     | Pause zwischen Folien (ms)                |
+| `gap`           | string | `16px`     | Abstand zwischen Produktkarten            |
+| `title`         | string | (leer)     | Überschrift über dem Slider               |
 | `orderby`       | string | `date`     | Sortierung: date, price, rating, rand     |
-| `order`         | string | `DESC`     | Richtung: ASC oder DESC                    |
+| `order`         | string | `DESC`     | Richtung: ASC oder DESC                   |
 
 ### Beispiele
 
-Slider mit Sale-Produkten und Ueberschrift:
+Slider mit reduzierten Produkten und Überschrift:
 
 ```html
-[polski_product_slider type="sale" limit="12" columns="4" title="Aktuelle Angebote" arrows="yes"]
+[polski_product_slider type="sale" limit="12" columns="4" title="Aktualne promocje" arrows="yes"]
 ```
 
-Kategorie-Slider auf der Startseite:
+Slider mit Produkten aus einer Kategorie auf der Startseite:
 
 ```html
-[polski_product_slider type="category" category="neuheiten" limit="8" columns="3" dots="yes"]
+[polski_product_slider type="category" category="nowosci" limit="8" columns="3" dots="yes"]
 ```
 
 Automatisch scrollender Bestseller-Slider:
@@ -126,10 +155,10 @@ Automatisch scrollender Bestseller-Slider:
 
 ## Automatisches Scrollen
 
-Bei `autoplay="yes"` scrollt der Slider automatisch. Das Scrollen stoppt beim Ueberfahren mit der Maus oder bei Beruehrung auf dem Mobilgeraet. Nach Verlassen des Sliders wird es fortgesetzt.
+Bei `autoplay="yes"` scrollt der Slider die Produkte automatisch. Das Scrollen stoppt beim Überfahren mit dem Mauszeiger oder bei Berührung auf dem Mobilgerät. Nach Verlassen des Sliders wird es fortgesetzt.
 
 ```php
-// Standard-Autoplay-Zeit global aendern
+// Standard-Autoplay-Zeit global ändern
 add_filter('polski/product_slider/autoplay_speed', function (): int {
     return 3000; // 3 Sekunden
 });
@@ -137,19 +166,19 @@ add_filter('polski/product_slider/autoplay_speed', function (): int {
 
 ## Integration mit Modulen
 
-Produktkarten im Slider enthalten Elemente aus anderen Modulen:
+Die Produktkarten im Slider enthalten Elemente anderer Module:
 
-- **Labels** - Sale-, Neuheits-, Bestseller-Badges
+- **Etiketten** - Abzeichen für Ausverkauf, Neuheit, Bestseller
 - **Wunschliste** - Herz-Symbol
-- **Produktvergleich** - Vergleichsbutton
+- **Vergleich** - Vergleichsschaltfläche
 - **Schnellansicht** - Augen-Symbol
 - **Omnibus-Preis** - niedrigster Preis der letzten 30 Tage
 
-## Lazy Loading der Bilder
+## Lazy Loading von Bildern
 
-Bilder werden lazy geladen - Bilder ausserhalb des sichtbaren Bereichs werden erst beim Scrollen geladen. Es wird natives `loading="lazy"` und `Intersection Observer` fuer aeltere Browser verwendet.
+Bilder werden verzögert geladen - Bilder außerhalb des sichtbaren Bereichs werden erst beim Scrollen abgerufen. Es kommen natives `loading="lazy"` und der `Intersection Observer` für ältere Browser zum Einsatz.
 
-## CSS-Styling
+## CSS-Gestaltung
 
 - `.polski-slider` - Slider-Container
 - `.polski-slider__track` - Scroll-Track
@@ -157,19 +186,19 @@ Bilder werden lazy geladen - Bilder ausserhalb des sichtbaren Bereichs werden er
 - `.polski-slider__arrow` - Navigationspfeil
 - `.polski-slider__arrow--prev` - Pfeil nach links
 - `.polski-slider__arrow--next` - Pfeil nach rechts
-- `.polski-slider__dots` - Paginierungspunkte-Container
-- `.polski-slider__dot` - Einzelner Punkt
-- `.polski-slider__dot--active` - Aktiver Punkt
-- `.polski-slider__title` - Ueberschrift
+- `.polski-slider__dots` - Container der Paginierungspunkte
+- `.polski-slider__dot` - einzelner Punkt
+- `.polski-slider__dot--active` - aktiver Punkt
+- `.polski-slider__title` - Überschrift
 
 ## Fehlerbehebung
 
-**Slider scrollt nicht fluessig** - stellen Sie sicher, dass der Browser `scroll-snap-type` unterstuetzt. Alle modernen Browser (Chrome 69+, Firefox 68+, Safari 11+) unterstuetzen diese Eigenschaft.
+**Der Slider scrollt nicht flüssig** - prüfen Sie die Browser-Unterstützung für `scroll-snap-type` (Chrome 69+, Firefox 68+, Safari 11+).
 
-**Pfeile funktionieren nicht** - pruefen Sie, ob auf der Seite kein CSS-Konflikt mit einem anderen Slider besteht.
+**Die Pfeile funktionieren nicht** - möglicher CSS-Konflikt mit einem anderen Slider. Theme-Styles können die Klassen `.polski-slider__arrow` überschreiben.
 
-**Autoplay stoppt nicht** - stellen Sie sicher, dass JavaScript nicht von einem Optimierungs-Plugin blockiert wird.
+**Autoplay stoppt nicht** - prüfen Sie, ob ein Optimierungs-Plugin JavaScript blockiert. Das Slider-Skript muss geladen sein.
 
 Probleme melden: [github.com/wppoland/polski/issues](https://github.com/wppoland/polski/issues)
 
-<div class="disclaimer">Diese Seite dient ausschließlich zu Informationszwecken und stellt keine Rechtsberatung dar. Konsultieren Sie vor der Umsetzung einen Anwalt. Polski for WooCommerce ist Open-Source-Software (GPLv2) ohne Garantie.</div>
+<div class="disclaimer">Diese Seite dient ausschließlich Informationszwecken und stellt keine Rechtsberatung dar. Konsultieren Sie vor der Umsetzung einen Anwalt. Polski for WooCommerce ist Open-Source-Software (GPLv2), die ohne Gewährleistung bereitgestellt wird.</div>

@@ -1,17 +1,17 @@
 ---
-title: AI Feed - Sichtbarkeit fuer KI-Agenten
-description: Das AI-Feed-Modul liefert einzelne Beitraege, Seiten und WooCommerce-Produkte als Markdown ueber Content Negotiation, sodass KI-Agenten und LLM-Crawler Shop-Inhalte ohne HTML-Parsing lesen koennen.
+title: AI Feed - Sichtbarkeit für KI-Agenten
+description: Das AI-Feed-Modul liefert einzelne Beiträge, Seiten und WooCommerce-Produkte im Markdown-Format über Content Negotiation, sodass KI-Agenten und LLMs Shop-Inhalte ohne HTML-Parsing lesen können.
 ---
 
-AI Feed stellt Shop-Inhalte als **Markdown** bereit, optimiert fuer Sprachmodelle und Shopping-Agenten. Ein HTTP-Client sendet `Accept: text/markdown` (oder haengt `?output_format=md` an die URL) und erhaelt anstelle der gerenderten HTML-Seite reines Markdown mit YAML-Metadaten.
+AI Feed stellt die Shop-Inhalte im **Markdown**-Format bereit, optimiert für Sprachmodelle und Einkaufsagenten. Ein HTTP-Client sendet den Header `Accept: text/markdown` (oder fügt der URL `?output_format=md` hinzu) und erhält statt der gerenderten HTML-Seite reines Markdown mit YAML-Metadaten.
 
-## Wozu das gut ist
+## Wofür das gut ist
 
-KI-Agenten (ChatGPT shopping, Perplexity, Gemini, eigene LLM-Crawler) ueberspringen zunehmend HTML und fragen direkt nach einer "sauberen" Version der Seite. Klassisches HTML-Scraping ist fragil, teuer und verliert strukturierte Daten. AI Feed dreht das Verhaeltnis um: Der Shop publiziert eine maschinenlesbare Version unter derselben URL wie die Version fuer Menschen.
+KI-Agenten (ChatGPT Shopping, Perplexity, Gemini, eigene LLM-Crawler) überspringen zunehmend HTML und fragen direkt nach der "sauberen" Version der Seite. Klassisches HTML-Scraping ist unzuverlässig, kostspielig und verlor strukturierte Daten. AI Feed dreht das Verhältnis um: Der Shop veröffentlicht selbst eine maschinenlesbare Version unter derselben URL wie die Version für Menschen.
 
 ## Modul aktivieren
 
-Das Modul ist nach dem Update auf 1.11.0 standardmaessig aktiv. Zum Deaktivieren:
+Das Modul ist nach dem Update auf Version 1.11.0 standardmäßig aktiv. Sie können es per Filter deaktivieren:
 
 ```php
 add_filter('polski/ai_feed/enabled', '__return_false');
@@ -19,51 +19,51 @@ add_filter('polski/ai_feed/enabled', '__return_false');
 
 Einstellungen in der Option `polski_ai_feed`:
 
-| Schluessel | Standard | Beschreibung |
+| Schlüssel | Standardwert | Beschreibung |
 |---|---|---|
-| `enabled` | `true` | Hauptschalter |
+| `enabled` | `true` | Globaler Schalter |
 | `post_types` | `['post', 'page', 'product']` | Inhaltstypen, die als Markdown ausgeliefert werden |
 
-## So funktioniert die Content Negotiation
+## Wie Content Negotiation funktioniert
 
-Markdown wird in zwei Faellen zurueckgegeben:
+Markdown wird in zwei Fällen zurückgegeben:
 
-1. Der `Accept`-Header enthaelt `text/markdown` (mit Ausschluss von explizitem `q=0`).
-2. Die URL enthaelt das Query-Argument `?output_format=md`.
+1. Der **Header `Accept`** enthält `text/markdown` (mit Ausnahme eines expliziten `q=0`).
+2. Der **URL-Parameter** `?output_format=md` ist in der Anfrage vorhanden.
 
-In beiden Faellen liefert die Antwort:
+In beiden Fällen hat die Antwort die Header:
 
 ```
 Content-Type: text/markdown; charset=UTF-8
 Vary: Accept
 ```
 
-Normale Besucher erhalten weiterhin Standard-HTML. Berechtigungsregeln (`read_post`, Passwortschutz, Entwuerfe) bleiben erhalten.
+Normale Besucher erhalten weiterhin Standard-HTML. Die Berechtigungslogik (`read_post`, Passwortschutz, Entwürfe) bleibt erhalten.
 
-## Auffindbarkeit
+## Erkennung der Markdown-Version
 
-Einzelseiten enthalten im `<head>`:
+Auf der HTML-Seite eines einzelnen Beitrags fügen wir im `<head>` hinzu:
 
 ```html
-<link rel="alternate" type="text/markdown" href="https://shop.test/produkt/t-shirt/?output_format=md" />
+<link rel="alternate" type="text/markdown" href="https://sklep.pl/produkt/koszulka/?output_format=md" />
 ```
 
-Crawler und KI-Agenten finden so die Markdown-Version, ohne die URL-Konvention zu kennen.
+Crawler und KI-Agenten können die Markdown-Version finden, ohne die URL-Konvention kennen zu müssen.
 
-## Admin-Verknuepfung
+## Verknüpfung im Admin-Panel
 
-In den Listen Beitraege, Seiten und Produkte erscheint neben "Anzeigen" die Aktion **"View AI Version"** und oeffnet dasselbe Markdown, das auch ein KI-Agent sehen wuerde - praktisch zum Testen und Vorschau.
+In der Liste der Beiträge, Seiten und Produkte erscheint neben der Aktion "Anzeigen" ein Link **"View AI Version"**. Er öffnet dieselbe Markdown-Version, die ein KI-Agent sieht - praktisch zum Testen und zur Vorschau.
 
-## Was eine Produkt-Markdown-Antwort enthaelt
+## Was die Markdown-Version eines Produkts enthält
 
-Fuer ein WooCommerce-Produkt enthaelt die Antwort:
+Für ein WooCommerce-Produkt enthält die Antwort:
 
-**YAML Front Matter**
+**YAML-Kopf (Front Matter)**
 
 ```yaml
 ---
-title: "Basic T-Shirt"
-permalink: "https://shop.test/produkt/t-shirt/"
+title: "Koszulka basic"
+permalink: "https://sklep.pl/produkt/koszulka/"
 sku: "TS-001"
 gtin: "5901234567890"
 product_type: "simple"
@@ -74,38 +74,38 @@ sale_price: "49,99 zł"
 in_stock: "true"
 on_sale: "true"
 modified: "2026-04-30T12:00:00+02:00"
-categories: ["T-Shirts"]
+categories: ["Koszulki"]
 ---
 ```
 
-**Bullet-Liste "Product details"**
+**Abschnitt "Product details"** mit einer Aufzählung:
 
 - SKU und GTIN/EAN
-- Bruttopreis, regulaerer Preis, Aktionspreis
-- Steuerklasse (USt.)
+- Bruttopreis, regulärer Preis, Aktionspreis
+- Steuerklasse VAT
 - Niedrigster Preis der letzten 30 Tage (Omnibus)
 - Lieferzeit
-- Lagerbestand und Verfuegbarkeit
+- Lagerbestand und Verfügbarkeit
 - Gewicht und Abmessungen
 - Marke, Hersteller
 - Verantwortliche Person (GPSR)
 
-**Vollstaendige Produktbeschreibung** in Markdown konvertiert.
+**Vollständige Produktbeschreibung**, in Markdown konvertiert.
 
-## Vollstaendiges Antwortbeispiel
+## Beispiel einer vollständigen Antwort
 
 ```markdown
 ---
-title: "Basic T-Shirt"
-permalink: "https://shop.test/produkt/t-shirt/"
+title: "Koszulka basic"
+permalink: "https://sklep.pl/produkt/koszulka/"
 sku: "TS-001"
 price: "49,99 zł"
 in_stock: "true"
 ---
 
-# Basic T-Shirt
+# Koszulka basic
 
-Baumwoll-T-Shirt im klassischen Schnitt.
+Bawełniana koszulka klasycznego kroju.
 
 ## Product details
 
@@ -114,92 +114,92 @@ Baumwoll-T-Shirt im klassischen Schnitt.
 - **Price:** 49,99 zł
 - **Tax class:** Standard
 - **Lowest price (last 30 days):** 45,00 zł
-- **Delivery time:** 1-2 Tage
+- **Delivery time:** 1-2 dni
 - **Availability:** In stock
 - **Weight:** 0.2 kg
 
 ## Description
 
-Vollstaendige Produktbeschreibung aus Gutenberg-Bloecken, einschliesslich Listen, Tabellen und Ueberschriften.
+Pełny opis produktu z bloków Gutenberga, w tym listy, tabele i nagłówki.
 ```
 
-## /llms.txt Manifest
+## Manifest /llms.txt
 
-Nach dem Standard von [llmstxt.org](https://llmstxt.org) liefert der Shop eine Datei `/llms.txt` an der Wurzel der Domain aus. KI-Agenten schauen dort zuerst nach, um die Struktur der Website ohne Kenntnis der URL-Konventionen zu erkunden.
+Gemäß dem Standard [llmstxt.org](https://llmstxt.org) stellt der Shop im Wurzelverzeichnis der Domain die Datei `/llms.txt` bereit. KI-Agenten schauen zuerst dort, um die Struktur der Website zu erkunden, ohne die URL-Konvention zu kennen.
 
 ```bash
-curl https://shop.test/llms.txt
+curl https://sklep.pl/llms.txt
 ```
 
 Antwort (Markdown):
 
 ```markdown
-# Dein Shop
+# Twój sklep
 
-> Online-Shop fuer polnische Produkte.
+> Sklep z polskimi pamiątkami online.
 
 ## Legal
 
-- [Terms](https://shop.test/agb/?output_format=md): Terms and conditions
-- [Privacy](https://shop.test/datenschutz/?output_format=md): Privacy policy
-- [Returns](https://shop.test/rueckgabe/?output_format=md): Returns and withdrawal policy
+- [Regulamin](https://sklep.pl/regulamin/?output_format=md): Terms and conditions
+- [Polityka prywatności](https://sklep.pl/polityka/?output_format=md): Privacy policy
+- [Zwroty](https://sklep.pl/zwroty/?output_format=md): Returns and withdrawal policy
 
 ## Shop
 
-- [Shop](https://shop.test/shop/): Storefront
+- [Sklep](https://sklep.pl/sklep/): Storefront
 
 ## Product categories
 
-- [T-Shirts](https://shop.test/kategorie/t-shirts/)
-- [Hoodies](https://shop.test/kategorie/hoodies/)
+- [Koszulki](https://sklep.pl/kategoria/koszulki/)
+- [Bluzy](https://sklep.pl/kategoria/bluzy/)
 ```
 
-**Standardinhalt**
+**Was sich standardmäßig im Manifest befindet:**
 
-- Shop-Titel und -Beschreibung (`get_bloginfo('name')`, `get_bloginfo('description')`)
-- Abschnitt "Legal" mit `?output_format=md`-Links zu den Rechtstexten (AGB, Datenschutz, Rueckgabe, Reklamationen) - nur wenn diese Seiten existieren
-- Abschnitt "Shop" mit der WooCommerce-Shop-Seite
-- Abschnitt "Product categories" mit den 20 meistbestueckten Kategorien (sortiert nach Produktanzahl)
+- Titel und Beschreibung des Shops (`get_bloginfo('name')`, `get_bloginfo('description')`)
+- Abschnitt "Legal" mit `?output_format=md`-Links zu den Rechtsseiten (AGB, Datenschutzerklärung, Rückgabe, Reklamationen) - nur wenn die Seiten angelegt sind
+- Abschnitt "Shop" mit einem Link zur WooCommerce-Shopseite
+- Abschnitt "Product categories" mit den 20 beliebtesten Produktkategorien (sortiert nach Produktanzahl)
 
-**Deaktivieren**
+**Deaktivierung**
 
 ```php
 add_filter('polski/ai_feed/llms_txt_enabled', '__return_false');
 ```
 
-**Sektionen anpassen**
+**Abschnitte anpassen**
 
 ```php
 add_filter('polski/ai_feed/llms_txt_sections', static function (array $sections): array {
     $sections['Resources'] = [
-        ['Blog', home_url('/blog/'), 'Aktuelle Beitraege'],
+        ['Blog', home_url('/blog/'), 'Najnowsze wpisy'],
         ['FAQ', home_url('/faq/')],
     ];
     return $sections;
 });
 ```
 
-**Kategorienlimit**
+**Kategorielimit**
 
 ```php
 add_filter('polski/ai_feed/llms_txt_category_limit', static fn () => 50);
 ```
 
-## Entwickler-Filter
+## Entwicklerfilter
 
 | Filter | Zweck |
 |---|---|
-| `polski/ai_feed/enabled` | Hauptschalter (bool) |
+| `polski/ai_feed/enabled` | Globaler Schalter (bool) |
 | `polski/ai_feed/post_types` | Liste der Inhaltstypen (string[]) |
-| `polski/ai_feed/post_markdown` | Endgueltiges Markdown fuer Beitrag/Seite |
-| `polski/ai_feed/product_markdown` | Endgueltiges Markdown fuer Produkt |
-| `polski/ai_feed/product_facts` | Liste der `[Label, Wert]`-Paare im Abschnitt "Product details" |
-| `polski/ai_feed/password_required` | Markdown bei passwortgeschuetzten Inhalten |
-| `polski/ai_feed/llms_txt_enabled` | Kill-Switch fuer `/llms.txt` (bool) |
-| `polski/ai_feed/llms_txt_sections` | Map `[Ueberschrift => Liste]` fuer das Manifest |
-| `polski/ai_feed/llms_txt_category_limit` | Maximale Anzahl der gelisteten Produktkategorien (int) |
+| `polski/ai_feed/post_markdown` | Finales Markdown eines Beitrags/einer Seite |
+| `polski/ai_feed/product_markdown` | Finales Markdown eines Produkts |
+| `polski/ai_feed/product_facts` | Liste der Paare `[Bezeichnung, Wert]` im Abschnitt "Product details" |
+| `polski/ai_feed/password_required` | Markdown-Inhalt bei Passwortschutz |
+| `polski/ai_feed/llms_txt_enabled` | Schalter für `/llms.txt` (bool) |
+| `polski/ai_feed/llms_txt_sections` | Abschnittszuordnung `[heading => list]` im Manifest |
+| `polski/ai_feed/llms_txt_category_limit` | Maximale Anzahl der Produktkategorien (int) |
 
-### Beispiel - eigenen CPT registrieren
+### Beispiel - Hinzufügen eines eigenen CPT
 
 ```php
 add_filter('polski/ai_feed/post_types', static function (array $types): array {
@@ -208,13 +208,13 @@ add_filter('polski/ai_feed/post_types', static function (array $types): array {
 });
 ```
 
-### Beispiel - eigenes Feld im Produkt ausgeben
+### Beispiel - Hinzufügen eines eigenen Feldes zum Produkt
 
 ```php
 add_filter('polski/ai_feed/product_facts', static function (array $facts, WC_Product $product): array {
-    $color = $product->get_attribute('pa_farbe');
+    $color = $product->get_attribute('pa_kolor');
     if ($color !== '') {
-        $facts[] = ['Farbe', $color];
+        $facts[] = ['Kolor', $color];
     }
     return $facts;
 }, 10, 2);
@@ -222,22 +222,22 @@ add_filter('polski/ai_feed/product_facts', static function (array $facts, WC_Pro
 
 ## FAQ
 
-**Ersetzt das Modul mein Theme fuer normale Besucher?**
+**Ersetzt das das Theme für normale Nutzer?**
 
-Nein. HTML wird standardmaessig zurueckgegeben. Markdown wird nur an Clients geliefert, die es ueber `Accept` oder den URL-Parameter anfordern.
+Nein. HTML wird standardmäßig zurückgegeben. Markdown gelangt nur zu Clients, die es über `Accept` oder den URL-Parameter anfordern.
 
-**Werden passwortgeschuetzte Seiten preisgegeben?**
+**Werden passwortgeschützte Inhalte preisgegeben?**
 
-Nein. Bei einer passwortgeschuetzten Seite gibt AI Feed eine kurze Markdown-Notiz statt der vollstaendigen Inhalte zurueck.
+Nein. Wenn eine Seite ein Passwort verlangt, gibt AI Feed statt des vollständigen Inhalts ein kurzes Markdown mit einem Hinweis auf den Schutz zurück.
 
-**Werden Entwuerfe unterstuetzt?**
+**Werden Entwürfe unterstützt?**
 
-Ja, fuer Nutzer mit Bearbeitungsrechten. Die Admin-Aktion "View AI Version" verwendet Vorschau-URLs fuer Entwuerfe und geplante Beitraege.
+Ja, für Nutzer mit Bearbeitungsrechten. Die Aktion "View AI Version" im Admin-Panel verwendet für Entwürfe und geplante Beiträge die Vorschau-URL.
 
-**Kann ich eigene Inhaltstypen hinzufuegen?**
+**Kann ich eigene Inhaltstypen hinzufügen?**
 
-Ja, ueber den Filter `polski/ai_feed/post_types`. Standardmaessig werden `post`, `page` und `product` unterstuetzt.
+Ja, über den Filter `polski/ai_feed/post_types`. Standardmäßig werden `post`, `page` und `product` unterstützt.
 
-**Funktioniert das mit HPOS und Block Checkout?**
+**Funktioniert es mit HPOS und Block Checkout?**
 
-Ja. Das Modul arbeitet auf der Produktansichtsebene, unabhaengig von der Bestellspeicherung (HPOS) und dem Checkout (Blocks).
+Ja. Das Modul arbeitet auf der Ebene der Produktansicht, unabhängig vom Bestellspeicher (HPOS) und vom Checkout (Blocks).

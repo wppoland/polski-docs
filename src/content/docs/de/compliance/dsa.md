@@ -1,27 +1,27 @@
 ---
-title: DSA - Gesetz ueber digitale Dienste
-description: DSA-Werkzeuge (Digital Services Act) in Polski for WooCommerce - Meldeformular, Administrationspanel, Statusverfolgung und E-Mail-Benachrichtigungen.
+title: DSA - Gesetz über digitale Dienste
+description: DSA-Werkzeuge (Digital Services Act) in Polski for WooCommerce - Meldeformular, Verwaltungsbereich, Statusverfolgung und E-Mail-Benachrichtigungen.
 ---
 
-Der Digital Services Act (EU 2022/2065) verlangt, dass Plattformen die Meldung illegaler Inhalte ermoeglichen. Das Plugin fuegt ein Meldeformular, ein Verwaltungspanel, Statusverfolgung und automatische E-Mail-Benachrichtigungen hinzu.
+Das Gesetz über digitale Dienste (Digital Services Act, EU 2022/2065) verlangt, dass Online-Plattformen das Melden illegaler Inhalte ermöglichen. Das Plugin fügt ein Meldeformular, einen Bereich zur Verwaltung der Meldungen, eine Statusverfolgung und automatische E-Mail-Benachrichtigungen hinzu.
 
-## DSA-Anforderungen fuer Onlineshops
+## DSA-Anforderungen für Online-Shops
 
-Seit dem 17. Februar 2024 muessen Onlineshops, die Nutzern das Veroeffentlichen von Inhalten ermoeglichen (Rezensionen, Kommentare, Fotos):
+Seit dem 17. Februar 2024 müssen Shops mit nutzergenerierten Inhalten (Bewertungen, Kommentare, Fotos):
 
-1. Einen Mechanismus zur Meldung illegaler Inhalte bereitstellen
-2. Den Eingang der Meldung bestaetigen
+1. Einen Mechanismus zum Melden illegaler Inhalte bereitstellen
+2. Den Eingang der Meldung bestätigen
 3. Die Meldung innerhalb einer angemessenen Frist bearbeiten
-4. Den Meldenden ueber die Entscheidung informieren
-5. Einen Widerspruch gegen die Entscheidung ermoeglichen
+4. Die meldende Person über die Entscheidung informieren
+5. Einen Widerspruch gegen die Entscheidung ermöglichen
 
-Die Pflicht betrifft Shops, die Nutzern das Veroeffentlichen von Inhalten ermoeglichen - insbesondere Produktbewertungen.
+Betrifft Shops, in denen Nutzer Inhalte veröffentlichen können, vor allem Produktbewertungen.
 
 ## Meldeformular
 
 ### Shortcode
 
-Betten Sie das DSA-Meldeformular auf einer beliebigen Seite mit dem Shortcode ein:
+Binden Sie das DSA-Meldeformular auf einer beliebigen Seite mit dem Shortcode ein:
 
 ```
 [polski_dsa_report]
@@ -37,37 +37,37 @@ Betten Sie das DSA-Meldeformular auf einer beliebigen Seite mit dem Shortcode ei
 
 | Parameter | Beschreibung | Standardwert |
 |----------|------|------------------|
-| `product_id` | ID des Produkts, auf das sich die Meldung bezieht | Keiner (Nutzer waehlt) |
-| `category` | Vorausgewaehlte Meldekategorie | Keiner |
+| `product_id` | ID des Produkts, auf das sich die Meldung bezieht | Keiner (Nutzer wählt) |
+| `category` | Vorausgewählte Meldekategorie | Keine |
 
 ![DSA-Meldeformular auf der Shop-Seite](../../../../assets/screenshots/screenshot-6-dsa-report-form.png)
 
 ### Formularfelder
 
-Das Formular enthaelt folgende Felder:
+Das Formular enthält folgende Felder:
 
-- **Meldekategorie** - Auswahl aus einer Liste (illegaler Inhalt, Urheberrechtsverletzung, gefaelschte Rezension, Hassrede, personenbezogene Daten, Sonstige)
-- **URL oder Inhalts-ID** - Link zum gemeldeten Inhalt oder Rezensions-ID
-- **Beschreibung** - detaillierte Problembeschreibung
+- **Meldekategorie** - Auswahl aus einer Liste (illegaler Inhalt, Urheberrechtsverletzung, gefälschte Bewertung, Hassrede, personenbezogene Daten, Sonstiges)
+- **URL oder Inhaltskennung** - Link zum gemeldeten Inhalt oder Bewertungs-ID
+- **Beschreibung** - ausführliche Beschreibung des Problems
 - **Rechtsgrundlage** - optionale Angabe der Vorschrift
-- **Kontaktdaten** - Name, E-Mail-Adresse des Meldenden
-- **Erklaerung** - Checkbox zur Bestaetigung, dass die Meldung in gutem Glauben erfolgt
+- **Kontaktdaten** - Name, E-Mail-Adresse der meldenden Person
+- **Erklärung** - Checkbox zur Bestätigung, dass die Meldung in gutem Glauben erfolgt
 
-### Einbettungsbeispiel
+### Beispiel für die Einbindung
 
-Erstellen Sie eine Seite "Inhalt melden" und fuegen Sie den Shortcode hinzu:
+Erstellen Sie eine Seite "Inhalt melden" und fügen Sie den Shortcode hinzu:
 
 ```
 [polski_dsa_report]
 ```
 
-Fuegen Sie dann einen Link zu dieser Seite in der Shop-Fusszeile hinzu, damit sie fuer Nutzer leicht zugaenglich ist.
+Fügen Sie einen Link zu dieser Seite in der Shop-Fußzeile hinzu, damit sie leicht zugänglich ist.
 
-## Administrationspanel
+## Verwaltungsbereich
 
-DSA-Meldungen werden im WordPress-Panel unter **WooCommerce > DSA-Meldungen** verwaltet.
+DSA-Meldungen verwalten Sie unter **WooCommerce > DSA-Meldungen**.
 
-### Meldungsliste
+### Liste der Meldungen
 
 Die Liste zeigt alle Meldungen mit folgenden Spalten:
 
@@ -75,41 +75,41 @@ Die Liste zeigt alle Meldungen mit folgenden Spalten:
 - Eingangsdatum
 - Kategorie
 - Status (neu, in Bearbeitung, bearbeitet, abgelehnt)
-- Meldender (Name, E-Mail)
+- Meldende Person (Name, E-Mail)
 - Link zum Inhalt
 
-### Meldungsdetails
+### Details der Meldung
 
-Beim Klick auf eine Meldung sieht der Administrator:
+Nach dem Anklicken einer Meldung sehen Sie:
 
-- Vollstaendige Formulardaten
-- Vorschau des gemeldeten Inhalts (bei Rezensionen - direkter Link)
-- Statusaenderungshistorie
-- Feld fuer interne Notiz
-- Aktionsbuttons (Status aendern, Inhalt entfernen, ablehnen)
+- Vollständige Formulardaten
+- Vorschau des gemeldeten Inhalts (bei einer Bewertung ein direkter Link)
+- Verlauf der Statusänderungen
+- Feld für eine interne Notiz
+- Aktionsschaltflächen (Status ändern, Inhalt entfernen, ablehnen)
 
-### Meldungsstatus
+### Status der Meldungen
 
 | Status | Beschreibung |
 |--------|------|
 | `new` | Neue Meldung, wartet auf Bearbeitung |
 | `in_progress` | Meldung wird analysiert |
-| `resolved` | Meldung bearbeitet, Inhalt entfernt oder andere Massnahme ergriffen |
-| `rejected` | Meldung als unberechtigt abgelehnt |
-| `appealed` | Meldender hat Widerspruch gegen die Entscheidung eingelegt |
+| `resolved` | Meldung bearbeitet, Inhalt entfernt oder andere Maßnahme ergriffen |
+| `rejected` | Meldung als unbegründet abgelehnt |
+| `appealed` | Die meldende Person hat Widerspruch gegen die Entscheidung eingelegt |
 
 ## E-Mail-Benachrichtigungen
 
-Das System sendet automatische E-Mail-Benachrichtigungen in folgenden Situationen:
+Das Plugin versendet in diesen Situationen automatische E-Mails:
 
-| Ereignis | Empfaenger | Inhalt |
+| Ereignis | Empfänger | Inhalt |
 |-----------|----------|-------|
-| Neue Meldung | Administrator | Information ueber neue Meldung mit Daten |
-| Bestaetigung | Meldender | Bestaetigung des Meldungseingangs mit ID-Nummer |
-| Statusaenderung | Meldender | Information ueber Statusaenderung mit Begruendung |
-| Bearbeitung | Meldender | Entscheidung mit Begruendung und Information ueber Widerspruchsrecht |
+| Neue Meldung | Administrator | Information über eine neue Meldung mit Daten |
+| Bestätigung | Meldende Person | Bestätigung des Eingangs der Meldung mit ID-Nummer |
+| Statusänderung | Meldende Person | Information über die Statusänderung mit Begründung |
+| Bearbeitung | Meldende Person | Entscheidung mit Begründung und Hinweis auf das Widerspruchsrecht |
 
-E-Mail-Vorlagen koennen unter **WooCommerce > Einstellungen > E-Mails** angepasst werden.
+Die E-Mail-Vorlagen lassen sich unter **WooCommerce > Einstellungen > E-Mails** anpassen.
 
 ## Hook
 
@@ -120,11 +120,11 @@ Wird nach dem Erstellen einer neuen DSA-Meldung aufgerufen.
 ```php
 /**
  * @param int    $report_id   ID der DSA-Meldung.
- * @param array  $report_data Meldungsdaten.
- * @param string $category    Meldungskategorie.
+ * @param array  $report_data Daten der Meldung.
+ * @param string $category    Meldekategorie.
  */
 add_action('polski/dsa/report_created', function (int $report_id, array $report_data, string $category): void {
-    // Beispiel: Benachrichtigung an das Rechtsteam ueber Slack senden
+    // Beispiel: Benachrichtigung an das Rechtsteam über Slack senden
     $webhook_url = 'https://hooks.slack.com/services/XXXX/YYYY/ZZZZ';
     
     wp_remote_post($webhook_url, [
@@ -141,11 +141,11 @@ add_action('polski/dsa/report_created', function (int $report_id, array $report_
 }, 10, 3);
 ```
 
-### Beispiel - automatisches Ausblenden von Rezensionen einer bestimmten Kategorie
+### Beispiel - automatisches Entfernen von Bewertungen einer bestimmten Kategorie
 
 ```php
 add_action('polski/dsa/report_created', function (int $report_id, array $report_data, string $category): void {
-    // Automatisch Rezensionen ausblenden, die als Hassrede gemeldet wurden
+    // Bewertungen, die als Hassrede gemeldet wurden, automatisch ausblenden
     if ($category !== 'hate_speech') {
         return;
     }
@@ -160,32 +160,32 @@ add_action('polski/dsa/report_created', function (int $report_id, array $report_
 }, 10, 3);
 ```
 
-## Berichtswesen
+## Berichterstattung
 
-Die DSA erfordert die Fuehrung eines Meldungsregisters. Das Plugin ermoeglicht den Export aller Meldungen als CSV (**WooCommerce > DSA-Meldungen > Exportieren**). Der Export enthaelt:
+Der DSA verlangt das Führen eines Meldungsregisters. Exportieren Sie alle Meldungen als CSV über **WooCommerce > DSA-Meldungen > Exportieren**. Der Export enthält:
 
 - Meldungs-ID
 - Datum und Uhrzeit der Einreichung
 - Kategorie
 - Status und Bearbeitungsdatum
 - Bearbeitungszeit (in Stunden)
-- Ergriffene Massnahme
+- Ergriffene Maßnahme
 
 ## Konfiguration
 
-Moduleinstellungen finden Sie unter **WooCommerce > Einstellungen > Polski > DSA**.
+Die Einstellungen des DSA-Moduls finden Sie unter **WooCommerce > Einstellungen > Polski > DSA**.
 
 | Option | Beschreibung | Standardwert |
 |-------|------|------------------|
 | DSA-Formular aktivieren | Aktiviert das Modul | Ja |
-| Formularseite | WordPress-Seite mit Shortcode | Keine |
-| Administrator-E-Mail | E-Mail-Adresse fuer Benachrichtigungen | WordPress-Administrator-E-Mail |
-| Bearbeitungsfrist | Anzahl Werktage fuer die Bearbeitung | 7 |
-| Meldekategorien | Liste verfuegbarer Kategorien | Standardliste |
+| Formularseite | WordPress-Seite mit dem Shortcode | Keine |
+| Administrator-E-Mail | E-Mail-Adresse für Benachrichtigungen | E-Mail des WordPress-Administrators |
+| Bearbeitungsfrist | Anzahl der Werktage für die Bearbeitung | 7 |
+| Meldekategorien | Liste der verfügbaren Kategorien | Standardliste |
 
 ## Widget auf der Produktseite (Polski 1.14.0+)
 
-Ab Version 1.14.0 koennen Sie ein optionales Meldungs-Widget direkt auf der Produktseite aktivieren. Der Kunde klickt auf "Zgłoś nielegalne treści (DSA)" und klappt ein Formular mit **vorausgefuellter Produkt-URL und -Name** auf - kein manuelles Kopieren des Links.
+Ab Version 1.14.0 können Sie ein optionales Melde-Widget direkt auf der Produktseite aktivieren. Der Kunde klickt auf "Illegale Inhalte melden (DSA)" und klappt ein Formular mit **vorausgefüllter Produkt-URL** und Namen auf, ohne den Link abtippen zu müssen.
 
 ```php
 update_option('polski_dsa', array_merge(
@@ -197,9 +197,9 @@ update_option('polski_dsa', array_merge(
 ));
 ```
 
-Das Widget nutzt das HTML-Element `<details>` - funktioniert ohne JavaScript, ist tastatur- und screenreader-tauglich. Das Formular wird an denselben Handler (`polski_dsa_report`) gesendet, sodass Meldungen in derselben Admin-Warteschlange landen wie Shortcode-Einreichungen.
+Das Widget nutzt das HTML-Element `<details>`, funktioniert ohne JavaScript und ist über Tastatur sowie Screenreader zugänglich. Das Formular wird an denselben Handler (`polski_dsa_report`) gesendet, sodass die Meldungen in derselben Warteschlange im Admin-Bereich landen.
 
-| Schluessel in `polski_dsa` | Wert | Beschreibung |
+| Schlüssel in `polski_dsa` | Wert | Beschreibung |
 |---|---|---|
 | `product_widget_enabled` | `false` (Standard) | Aktiviert das Widget auf Produktseiten |
 | `product_widget_position` | `after_summary` \| `product_meta` | Position auf der Produktseite |
@@ -208,22 +208,22 @@ Entwicklerfilter:
 
 | Filter | Zweck |
 |---|---|
-| `polski/dsa/product_widget_enabled` | Hauptschalter fuer das Widget |
+| `polski/dsa/product_widget_enabled` | Hauptschalter des Widgets |
 
 ## Fehlerbehebung
 
-**Formular wird auf der Seite nicht angezeigt**
-Stellen Sie sicher, dass der Shortcode `[polski_dsa_report]` korrekt auf der Seite eingebettet ist und das DSA-Modul in den Einstellungen aktiviert ist.
+**Das Formular wird auf der Seite nicht angezeigt**
+Prüfen Sie, ob der Shortcode `[polski_dsa_report]` auf der Seite steht und das DSA-Modul in den Einstellungen aktiviert ist.
 
 **E-Mail-Benachrichtigungen kommen nicht an**
-Pruefen Sie die WordPress-SMTP-Konfiguration. Die Standard-Funktion `wp_mail()` funktioniert moeglicherweise nicht auf allen Servern. Erwaegen Sie die Installation eines SMTP-Plugins (z.B. WP Mail SMTP).
+Prüfen Sie die SMTP-Konfiguration. Die Standardfunktion `wp_mail()` funktioniert nicht auf allen Servern. Installieren Sie ein SMTP-Plugin (z. B. WP Mail SMTP).
 
-**Meldungen erscheinen nicht im Panel**
-Pruefen Sie die Benutzerberechtigungen. Die Verwaltung von DSA-Meldungen erfordert die Rolle `shop_manager` oder `administrator`.
+**Meldungen erscheinen nicht im Bereich**
+Prüfen Sie die Berechtigungen. Zur Verwaltung von DSA-Meldungen benötigen Sie die Rolle `shop_manager` oder `administrator`.
 
-## Weitere Schritte
+## Nächste Schritte
 
 - Probleme melden: [GitHub Issues](https://github.com/wppoland/polski/issues)
 - Diskussionen und Fragen: [GitHub Discussions](https://github.com/wppoland/polski/discussions)
 
-<div class="disclaimer">Diese Seite dient ausschließlich zu Informationszwecken und stellt keine Rechtsberatung dar. Konsultieren Sie vor der Umsetzung einen Anwalt. Polski for WooCommerce ist Open-Source-Software (GPLv2) ohne Garantie.</div>
+<div class="disclaimer">Diese Seite dient ausschließlich Informationszwecken und stellt keine Rechtsberatung dar. Konsultieren Sie vor der Umsetzung einen Anwalt. Polski for WooCommerce ist Open-Source-Software (GPLv2), die ohne Gewährleistung bereitgestellt wird.</div>

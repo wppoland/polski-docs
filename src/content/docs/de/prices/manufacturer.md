@@ -1,76 +1,76 @@
 ---
 title: Hersteller und Marke
-description: Herstellerdaten (GPSR), Markentaxonomie, GTIN/EAN-Nummern sowie Shortcode zur Anzeige von Herstellerinformationen in WooCommerce.
+description: Herstellerdaten (GPSR), Marken-Taxonomie, GTIN/EAN-Nummern sowie Shortcode zur Anzeige von Herstellerinformationen in WooCommerce.
 ---
 
-Seit dem 13. Dezember 2024 verlangt die GPSR-Verordnung die Angabe von Herstellerdaten auf der Produktseite. Polski for WooCommerce ermoeglicht das Hinzufuegen von Herstellerdaten, Marke und GTIN/EAN-Nummer zu jedem Produkt.
+Seit dem 13. Dezember 2024 verlangt die GPSR-Verordnung die Angabe der Herstellerdaten auf der Produktseite. Das Plugin Polski for WooCommerce ermoeglicht es, Herstellerdaten, Marke und GTIN/EAN-Nummer zu jedem Produkt hinzuzufuegen.
 
 ## GPSR-Anforderungen
 
-Gemaess Verordnung (EU) 2023/988 (GPSR) muessen auf der Produktseite angegeben werden:
+Auf der Produktseite musst du angeben:
 
 - Name des Herstellers oder Importeurs
-- Postadresse des Herstellers
-- E-Mail-Adresse oder Website fuer den Kontakt
-- bei Produkten von ausserhalb der EU - Daten der verantwortlichen Person in der EU
+- Postanschrift des Herstellers
+- E-Mail-Adresse oder Webseite zur Kontaktaufnahme
+- bei Produkten aus Nicht-EU-Laendern - Daten der verantwortlichen Person im EU-Gebiet
 
-Diese Informationen muessen dem Verbraucher vor dem Kauf leicht zugaenglich sein.
+Der Kunde muss vor dem Kauf Zugang zu diesen Daten haben.
 
 ## Konfiguration
 
-### Modul aktivieren
+### Aktivierung des Moduls
 
-Gehen Sie zu **WooCommerce > Einstellungen > Polski > Hersteller** und aktivieren Sie das Modul. Nach der Aktivierung erscheinen neue Felder im Produkteditor.
+Gehe zu **WooCommerce > Einstellungen > Polski > Hersteller** und aktiviere das Modul. Nach der Aktivierung erscheinen im Produkteditor neue Felder.
 
 ### Herstellerdaten (GPSR)
 
-Im Produkteditor, im Tab "Polski" oder im Seitenpanel, finden Sie den Abschnitt "Hersteller (GPSR)":
+Im Produkteditor, im Reiter "Polski" oder im Seitenpanel, findest du den Bereich "Hersteller (GPSR)":
 
 | Feld | Erforderlich | Beschreibung |
 |------|----------|------|
-| Herstellername | Ja | Vollstaendiger Firmenname des Herstellers |
+| Name des Herstellers | Ja | Vollstaendiger Firmenname des Herstellers |
 | Adresse | Ja | Strasse, Nummer, PLZ, Stadt, Land |
 | E-Mail | Ja* | Kontakt-E-Mail-Adresse |
-| Website | Ja* | URL der Herstellerseite |
-| Verantwortliche Person in der EU | Bedingt | Erforderlich fuer Produkte von ausserhalb der EU |
+| Webseite | Ja* | URL der Herstellerseite |
+| Verantwortliche Person in der EU | Bedingt | Erforderlich fuer Produkte aus Nicht-EU-Laendern |
 | Adresse der verantwortlichen Person | Bedingt | Vollstaendige Adresse der verantwortlichen Person |
 
-*Es ist mindestens eine elektronische Kontaktmoeglichkeit erforderlich (E-Mail oder Website).
+*Erforderlich ist mindestens eine elektronische Kontaktmoeglichkeit (E-Mail oder Webseite).
 
 ### Globale Herstellerdaten
 
-Wenn Sie hauptsaechlich Produkte der eigenen Marke verkaufen, koennen Sie Standard-Herstellerdaten unter **WooCommerce > Einstellungen > Polski > Hersteller** festlegen. Diese Daten werden automatisch auf alle Produkte angewendet, die keine individuellen Herstellerdaten zugewiesen haben.
+Wenn du hauptsaechlich eigene Produkte verkaufst, lege die Standard-Herstellerdaten in **WooCommerce > Einstellungen > Polski > Hersteller** fest. Diese Daten erscheinen bei Produkten ohne eigene Herstellerdaten.
 
-## Markentaxonomie
+## Marken-Taxonomie
 
-Das Plugin registriert die Taxonomie `polski_brand`, die die Verwaltung von Produktmarken ermoeglicht.
+Das Plugin erstellt die Taxonomie `polski_brand` zur Verwaltung der Produktmarken.
 
-### Markenverwaltung
+### Verwaltung der Marken
 
-Gehen Sie zu **Produkte > Marken**, um Marken zu erstellen und zu bearbeiten. Jede Marke kann enthalten:
+Gehe zu **Produkte > Marken**, um Marken zu erstellen und zu bearbeiten. Jede Marke kann enthalten:
 
 - Name
-- Slug (URL-Kennung)
+- Slug (URL-Identifikator)
 - Beschreibung
-- Logo (Taxonomie-Thumbnail)
+- Logo (Vorschaubild der Taxonomie)
 
-### Marke zum Produkt zuweisen
+### Zuweisung einer Marke zu einem Produkt
 
-Im Produkteditor, im Seitenpanel, finden Sie die Metabox "Marke" - waehlen Sie eine Marke aus der Liste oder fuegen Sie eine neue hinzu.
+Im Produkteditor, im Seitenpanel, findest du die Metabox "Marke" - waehle eine Marke aus der Liste oder fuege eine neue hinzu.
 
 ### Markenseiten
 
-Das Plugin generiert automatisch Archivseiten fuer jede Marke. Kunden koennen alle Produkte einer Marke unter folgender Adresse ansehen:
+Das Plugin erstellt eine Archivseite fuer jede Marke. Kunden durchsuchen die Produkte einer Marke unter der Adresse:
 
 ```
-/marka/markenname/
+/marka/nazwa-marki/
 ```
 
-Der Archiv-Slug kann in den Plugin-Einstellungen geaendert werden.
+Den Archiv-Slug aenderst du in den Plugin-Einstellungen.
 
 ## GTIN/EAN
 
-Das Plugin fuegt ein Feld fuer die Produktidentifikationsnummer gemaess GS1-Standards hinzu.
+Das Plugin fuegt ein Feld fuer die Produktidentifikationsnummer hinzu (GS1-Standard).
 
 ### Unterstuetzte Formate
 
@@ -84,11 +84,11 @@ Das Plugin fuegt ein Feld fuer die Produktidentifikationsnummer gemaess GS1-Stan
 
 ### Validierung
 
-Das Plugin validiert automatisch die Korrektheit der GTIN/EAN-Nummer (Pruefziffer). Eine ungueltige Nummer wird mit einer Fehlermeldung abgelehnt.
+Das Plugin prueft die Korrektheit der GTIN/EAN-Nummer (Pruefziffer). Eine ungueltige Nummer wird mit einer Fehlermeldung abgelehnt.
 
-### Strukturierte Daten (Schema.org)
+### Structured Data (Schema.org)
 
-Die GTIN-Nummer wird automatisch zu den strukturierten Produktdaten (JSON-LD) hinzugefuegt, was die Sichtbarkeit in den Google-Suchergebnissen verbessert:
+Die GTIN-Nummer gelangt automatisch in die strukturierten Daten (JSON-LD), was die Sichtbarkeit in Google verbessert:
 
 ```json
 {
@@ -96,11 +96,11 @@ Die GTIN-Nummer wird automatisch zu den strukturierten Produktdaten (JSON-LD) hi
     "gtin13": "5901234123457",
     "brand": {
         "@type": "Brand",
-        "name": "Markenname"
+        "name": "Nazwa marki"
     },
     "manufacturer": {
         "@type": "Organization",
-        "name": "Herstellername",
+        "name": "Nazwa producenta",
         "address": "ul. Przykladowa 1, 00-001 Warszawa"
     }
 }
@@ -108,7 +108,7 @@ Die GTIN-Nummer wird automatisch zu den strukturierten Produktdaten (JSON-LD) hi
 
 ## Shortcode
 
-Verwenden Sie den Shortcode `[polski_manufacturer]`, um Herstellerdaten an einer beliebigen Stelle anzuzeigen.
+Verwende den Shortcode `[polski_manufacturer]`, um die Herstellerdaten an beliebiger Stelle anzuzeigen.
 
 ### Parameter
 
@@ -117,10 +117,10 @@ Verwenden Sie den Shortcode `[polski_manufacturer]`, um Herstellerdaten an einer
 | `product_id` | int | aktuell | Produkt-ID |
 | `fields` | string | `all` | Anzuzeigende Felder: `all`, `name`, `address`, `email`, `url`, `gtin`, `brand` |
 | `layout` | string | `list` | Layout: `list`, `inline`, `table` |
-| `show_label` | bool | `true` | Ob Feldlabels angezeigt werden sollen |
+| `show_label` | bool | `true` | Ob die Feldbezeichnungen angezeigt werden |
 | `wrapper` | string | `div` | Umschliessendes HTML-Element |
 
-### Verwendungsbeispiele
+### Anwendungsbeispiele
 
 Vollstaendige Herstellerdaten:
 
@@ -134,7 +134,7 @@ Ergebnis (Layout list):
 Hersteller: ABC Sp. z o.o.
 Adresse: ul. Fabryczna 10, 00-001 Warszawa
 E-Mail: kontakt@abc.pl
-Website: https://abc.pl
+Webseite: https://abc.pl
 ```
 
 Nur Name und GTIN:
@@ -161,9 +161,9 @@ Im PHP-Template:
 echo do_shortcode('[polski_manufacturer product_id="' . $product->get_id() . '" fields="name,gtin"]');
 ```
 
-## Programmatischer Datenzugriff
+## Programmatischer Zugriff auf die Daten
 
-### Herstellerdaten abrufen
+### Abrufen der Herstellerdaten
 
 ```php
 $manufacturer_name = get_post_meta($product_id, '_polski_manufacturer_name', true);
@@ -173,7 +173,7 @@ $manufacturer_url = get_post_meta($product_id, '_polski_manufacturer_url', true)
 $gtin = get_post_meta($product_id, '_polski_gtin', true);
 ```
 
-### Marke abrufen
+### Abrufen der Marke
 
 ```php
 $brands = wp_get_object_terms($product_id, 'polski_brand');
@@ -185,41 +185,41 @@ if (!empty($brands) && !is_wp_error($brands)) {
 
 ## CSV-Import
 
-Herstellerdaten und GTIN koennen per CSV importiert werden:
+Herstellerdaten und GTIN importierst du per CSV:
 
 | CSV-Spalte | Beschreibung |
 |-------------|------|
-| `polski_manufacturer_name` | Herstellername |
-| `polski_manufacturer_address` | Herstelleradresse |
-| `polski_manufacturer_email` | Hersteller-E-Mail |
-| `polski_manufacturer_url` | Hersteller-Website |
+| `polski_manufacturer_name` | Name des Herstellers |
+| `polski_manufacturer_address` | Adresse des Herstellers |
+| `polski_manufacturer_email` | E-Mail des Herstellers |
+| `polski_manufacturer_url` | Webseite des Herstellers |
 | `polski_gtin` | GTIN/EAN-Nummer |
-| `polski_brand` | Markenname |
+| `polski_brand` | Name der Marke |
 
 Beispiel:
 
 ```csv
-"Feuchtigkeitscreme","ABC Kosmetyki Sp. z o.o.","ul. Kwiatowa 5, 00-100 Warszawa","info@abc.pl","https://abc.pl","5901234123457","ABC Kosmetyki"
+"Krem nawilzajacy","ABC Kosmetyki Sp. z o.o.","ul. Kwiatowa 5, 00-100 Warszawa","info@abc.pl","https://abc.pl","5901234123457","ABC Kosmetyki"
 ```
 
 ## Haeufige Probleme
 
-### Herstellerdaten werden auf der Produktseite nicht angezeigt
+### Die Herstellerdaten werden auf der Produktseite nicht angezeigt
 
-1. Pruefen Sie, ob das Herstellermodul aktiviert ist
-2. Stellen Sie sicher, dass das Produkt ausgefuellte Daten oder konfigurierte Standarddaten hat
-3. Ueberpruefen Sie, ob das Theme den Hook `woocommerce_single_product_summary` oder `woocommerce_product_meta_end` unterstuetzt
+1. Pruefe, ob das Hersteller-Modul aktiviert ist
+2. Stelle sicher, dass das Produkt ausgefuellte Daten hat oder Standarddaten konfiguriert sind
+3. Pruefe, ob das Theme den Hook `woocommerce_single_product_summary` oder `woocommerce_product_meta_end` unterstuetzt
 
 ### GTIN wird als ungueltig abgelehnt
 
-Pruefen Sie die Pruefziffer der GTIN-Nummer. Verwenden Sie den GS1-Rechner zur Verifizierung: https://www.gs1.org/services/check-digit-calculator
+Pruefe die Pruefziffer der GTIN-Nummer. Verwende den GS1-Rechner zur Pruefung: https://www.gs1.org/services/check-digit-calculator
 
-### Marke erscheint nicht in Schema.org
+### Die Marke erscheint nicht in Schema.org
 
-Stellen Sie sicher, dass die Marke dem Produkt ueber die Taxonomie `polski_brand` zugewiesen ist und nicht nur im Hersteller-Textfeld eingegeben wurde.
+Stelle sicher, dass die Marke dem Produkt ueber die Taxonomie `polski_brand` zugewiesen ist und nicht nur im Textfeld des Herstellers eingetragen wurde.
 
 ## Verwandte Ressourcen
 
 - [Problem melden](https://github.com/wppoland/polski/issues)
 
-<div class="disclaimer">Diese Seite dient ausschließlich zu Informationszwecken und stellt keine Rechtsberatung dar. Konsultieren Sie vor der Umsetzung einen Anwalt. Polski for WooCommerce ist Open-Source-Software (GPLv2) ohne Garantie.</div>
+<div class="disclaimer">Diese Seite dient ausschliesslich Informationszwecken und stellt keine Rechtsberatung dar. Konsultiere vor der Umsetzung einen Anwalt. Polski for WooCommerce ist eine Open-Source-Software (GPLv2), die ohne Gewaehrleistung bereitgestellt wird.</div>

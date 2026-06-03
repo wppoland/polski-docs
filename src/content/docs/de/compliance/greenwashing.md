@@ -1,63 +1,63 @@
 ---
 title: Schutz vor Greenwashing
-description: Anti-Greenwashing-Produktfelder in Polski for WooCommerce - Grundlage der Umwelterklaerung, Zertifikat und Ablaufdatum gemaess Richtlinie 2024/825.
+description: Anti-Greenwashing-Produktfelder in Polski for WooCommerce - Grundlage der Umweltaussage, Zertifikat und Gültigkeitsdatum gemäß Richtlinie 2024/825.
 ---
 
-Die EU-Richtlinie 2024/825 verbietet unbegruendete Umweltaussagen. Ab dem 27. September 2026 duerfen allgemeine oekologische Behauptungen (z.B. "oeko", "gruen") nicht ohne Begruendung und Zertifikat verwendet werden. Das Plugin fuegt Produktfelder zur Dokumentation von Umweltaussagen hinzu.
+Die EU-Richtlinie 2024/825 verbietet unbegründete Umweltaussagen. Ab dem 27. September 2026 dürfen Sie keine allgemeinen ökologischen Aussagen (z. B. "öko", "grün") ohne konkrete Begründung und Zertifikat verwenden. Das Plugin fügt Produktfelder zur Dokumentation von Umweltaussagen hinzu.
 
 ## Was ist Greenwashing
 
-Greenwashing ist die Praxis, Verbraucher ueber Umwelteigenschaften eines Produkts oder einer Unternehmenstaetigkeit in die Irre zu fuehren. Beispiele verbotener Praktiken:
+Greenwashing ist die Irreführung von Kunden über die ökologischen Eigenschaften eines Produkts. Beispiele für verbotene Praktiken:
 
-- Verwendung allgemeiner Aussagen ("oeko", "bio", "gruen") ohne Zertifizierung
-- Behauptungen zur Klimaneutralitaet, die ausschliesslich auf Emissionskompensation basieren
-- Suggerierung von Umweltvorteilen ohne wissenschaftliche Belege
+- Verwendung pauschaler Aussagen ("öko", "bio", "grün") ohne Zertifizierung
+- Behauptungen über Klimaneutralität, die ausschließlich auf Emissionskompensation beruhen
+- Suggerieren von Umweltvorteilen ohne wissenschaftliche Belege
 - Anzeige inoffizieller Umweltzeichen
-- Behauptungen zur Produkthaltbarkeit ohne Begruendung
+- Behauptungen über die Haltbarkeit eines Produkts ohne Begründung
 
 ## Produktfelder
 
-In der WooCommerce-Produktbearbeitung, im Tab **Polski - Umwelt**, stehen drei Felder zur Dokumentation von Umweltaussagen zur Verfuegung.
+In der Produktbearbeitung, im Reiter **Polski - Umwelt**, finden Sie drei Felder zur Dokumentation von Umweltaussagen.
 
-### Grundlage der Erklaerung
+### Grundlage der Aussage
 
-Textfeld fuer die Beschreibung der wissenschaftlichen oder technischen Grundlage der Umweltaussage.
+Feld für die Beschreibung der wissenschaftlichen oder technischen Grundlage der Umweltaussage.
 
-**Was einzutragen ist:**
+**Was eintragen:**
 
-- Konkreter Umweltaspekt, auf den sich die Erklaerung bezieht (z.B. "Produkt zu 80% aus Recyclingmaterialien hergestellt")
-- Methodik der Studie oder Analyse (z.B. "Lebenszyklusanalyse (LCA) gemaess ISO 14040")
-- Mess- oder Studienergebnisse (z.B. "CO2-Fussabdruck 2,3 kg CO2e pro Einheit - Bericht der Firma XYZ vom 15.01.2025")
-- Vergleich mit Referenzprodukt (bei vergleichenden Aussagen)
+- Der konkrete Umweltaspekt, auf den sich die Aussage bezieht (z. B. "Produkt zu 80 % aus recycelten Materialien hergestellt")
+- Untersuchungs- oder Analysemethodik (z. B. "Ökobilanz des Produkts (LCA) gemäß ISO 14040")
+- Mess- oder Untersuchungsergebnisse (z. B. "CO2-Fußabdruck 2,3 kg CO2e pro Einheit - Bericht der Firma XYZ vom 2025-01-15")
+- Vergleich mit einem Referenzprodukt (wenn die Aussage vergleichend ist)
 
-**Beispiel eines korrekten Eintrags:**
+**Beispiel für einen korrekten Eintrag:**
 
 ```
-Aussage: "Verpackung zu 100% aus Recyclingmaterialien"
-Grundlage: Rohstoff stammt vollstaendig aus Post-Consumer-PET-Recycling.
-Rohstofflieferant: RecyPET GmbH, EuCertPlast-Zertifikat Nr. 2025/0123.
-Produktionsprozess bestaetigt durch internes Audit vom 01.03.2025.
+Aussage: "Verpackung zu 100 % aus recycelten Materialien"
+Grundlage: Der Rohstoff stammt vollständig aus Post-Consumer-PET-Recycling.
+Rohstofflieferant: RecyPET Sp. z o.o., Zertifikat EuCertPlast Nr. 2025/0123.
+Produktionsprozess durch interne Prüfung vom 2025-03-01 bestätigt.
 ```
 
 ### Zertifikat
 
-Feld fuer Informationen zum offiziellen Zertifikat, das die Umweltaussage bestaetigt.
+Feld für Informationen über das Zertifikat, das die Umweltaussage bestätigt.
 
 **Akzeptierte Zertifikate:**
 
-- Zertifikate gemaess Verordnung (EG) Nr. 66/2010 (EU Ecolabel)
-- Von der Europaeischen Kommission anerkannte nationale Zertifikate
-- Von akkreditierten Zertifizierungsstellen ausgestellte Branchenzertifikate
-- FSC-, PEFC-Zertifikate (fuer Holz-/Papierprodukte)
-- GOTS-, OEKO-TEX-Zertifikate (fuer Textilien)
-- EuCertPlast-, RecyClass-Zertifikate (fuer Kunststoffe)
+- Zertifikate gemäß Verordnung (EG) Nr. 66/2010 (EU Ecolabel)
+- Nationale Zertifikate, die von der Europäischen Kommission anerkannt sind
+- Branchenzertifikate, ausgestellt von akkreditierten Zertifizierungsstellen
+- FSC-, PEFC-Zertifikate (für Holz-/Papierprodukte)
+- GOTS-, OEKO-TEX-Zertifikate (für Textilien)
+- EuCertPlast-, RecyClass-Zertifikate (für Kunststoffe)
 
-**Was einzutragen ist:**
+**Was eintragen:**
 
 - Name des Zertifikats
 - Zertifikatsnummer
 - Zertifizierungsstelle
-- Verifizierungslink (falls verfuegbar)
+- Link zur Verifizierung (falls verfügbar)
 
 **Beispiel:**
 
@@ -67,28 +67,28 @@ Zertifizierungsstelle: PCBC S.A.
 Verifizierung: https://environment.ec.europa.eu/ecolabel_en
 ```
 
-### Ablaufdatum
+### Gültigkeitsdatum
 
-Datumsfeld, das angibt, bis wann das Zertifikat oder die Umweltaussage gueltig ist.
+Datum, bis zu dem das Zertifikat oder die Aussage gültig ist.
 
-Nach Ablauf des Datums:
+Nach Ablauf des Gültigkeitsdatums:
 
-- Die Umweltaussage wird automatisch auf der Produktseite ausgeblendet
-- Der Administrator erhaelt eine E-Mail-Benachrichtigung ueber das abgelaufene Zertifikat
-- Das Produkt wird in der Produktliste mit einem Warnsymbol gekennzeichnet
+- Wird die Umweltaussage automatisch auf der Produktseite ausgeblendet
+- Erhält der Administrator eine E-Mail-Benachrichtigung über das abgelaufene Zertifikat
+- Wird das Produkt in der Produktliste mit einem Warnsymbol gekennzeichnet
 
-Diese Sicherung schuetzt vor der Situation, dass ein abgelaufenes Zertifikat weiterhin den Kunden angezeigt wird.
+Das schützt vor der Situation, dass ein abgelaufenes Zertifikat weiterhin für Kunden sichtbar ist.
 
 ## Anzeige auf der Produktseite
 
-Wenn die Umweltfelder ausgefuellt sind, zeigt das Plugin einen Abschnitt "Umweltinformation" auf der Produktseite an. Der Abschnitt enthaelt:
+Nach dem Ausfüllen der Felder zeigt das Plugin den Abschnitt "Umweltinformation" auf der Produktseite mit folgenden Daten an:
 
 - Inhalt der Umweltaussage
 - Name und Nummer des Zertifikats
-- Ablaufdatum des Zertifikats
-- Zertifikatssymbol (wenn erkannt - z.B. EU Ecolabel)
+- Gültigkeitsdatum des Zertifikats
+- Zertifikatssymbol (wenn es erkannt wird, z. B. EU Ecolabel)
 
-Der Abschnitt wird im Tab "Zusaetzliche Informationen" auf der Produktseite oder als separater Tab angezeigt (konfigurierbar in den Einstellungen).
+Der Abschnitt erscheint im Reiter "Zusätzliche Informationen" oder als separater Reiter (in der Konfiguration einstellbar).
 
 ## Konfiguration
 
@@ -96,56 +96,56 @@ Moduleinstellungen: **WooCommerce > Einstellungen > Polski > Umwelt**.
 
 | Option | Beschreibung | Standardwert |
 |-------|------|------------------|
-| Modul aktivieren | Aktiviert Umweltfelder | Nein |
-| Anzeigeposition | Wo die Information auf der Produktseite anzeigen | Tab "Zusaetzliche Informationen" |
-| Ablaufbenachrichtigung | Tage vor Ablauf fuer Benachrichtigung | 30 |
-| Automatisches Ausblenden | Aussage nach Zertifikatsablauf ausblenden | Ja |
+| Modul aktivieren | Aktiviert die Umweltfelder | Nein |
+| Anzeigeposition | Wo die Information auf der Produktseite angezeigt wird | Reiter "Zusätzliche Informationen" |
+| Benachrichtigung über Ablauf | Wie viele Tage vor Ablauf eine Benachrichtigung senden | 30 |
+| Automatisches Ausblenden | Aussage nach Ablauf des Zertifikats ausblenden | Ja |
 
 ## Massenverwaltung
 
 ### CSV-Export
 
-Umweltdaten sind im WooCommerce-Produktexport enthalten. Zusaetzliche Spalten:
+Die Umweltdaten sind im WooCommerce-Produktexport enthalten. Zusätzliche Spalten:
 
-- `env_claim_basis` - Grundlage der Erklaerung
+- `env_claim_basis` - Grundlage der Aussage
 - `env_certificate` - Zertifikat
-- `env_expiry_date` - Ablaufdatum (Format YYYY-MM-DD)
+- `env_expiry_date` - Gültigkeitsdatum (Format YYYY-MM-DD)
 
 ### CSV-Import
 
-Bereiten Sie eine CSV-Datei mit den entsprechenden Spaltenkoepfen vor und importieren Sie sie ueber den Standard-WooCommerce-Pfad.
+Bereiten Sie eine CSV-Datei mit den entsprechenden Kopfzeilen vor und importieren Sie sie über den Standardweg von WooCommerce.
 
-### Produktfilterung
+### Produkte filtern
 
-In der Produktliste im Administrationspanel koennen Sie Produkte nach Umwelterklaerungsstatus filtern:
+In der Produktliste können Sie nach dem Status der Aussage filtern:
 
-- Alle Produkte mit Erklaerung
+- Alle Produkte mit einer Aussage
 - Produkte mit abgelaufenem Zertifikat
-- Produkte mit Zertifikat, das innerhalb von 30 Tagen ablaeuft
-- Produkte ohne Zertifikat (aber mit Erklaerung)
+- Produkte mit einem innerhalb von 30 Tagen ablaufenden Zertifikat
+- Produkte ohne Zertifikat (aber mit Aussage)
 
-## Best Practices
+## Bewährte Praktiken
 
-1. **Seien Sie konkret** - statt "oeko Verpackung" schreiben Sie "Verpackung zu 100% aus Recycling-Karton, FSC-Zertifikat Nr. XXXX"
-2. **Geben Sie Quellen an** - beziehen Sie sich auf konkrete Studien, Berichte, Zertifikate
-3. **Daten aktualisieren** - richten Sie Ablaufbenachrichtigungen ein und erneuern Sie Zertifikate rechtzeitig
-4. **Verallgemeinerungen vermeiden** - die Richtlinie verbietet Behauptungen, die nicht ueberpreuft werden koennen
-5. **Vergleiche muessen fair sein** - vergleichen Sie dieselben Produktkategorien mit derselben Methodik
+1. **Seien Sie konkret** - statt "Öko-Verpackung" schreiben Sie "Verpackung zu 100 % aus recyceltem Karton, FSC-Zertifikat Nr. XXXX"
+2. **Geben Sie Quellen an** - verweisen Sie auf konkrete Untersuchungen, Berichte, Zertifikate
+3. **Aktualisieren Sie die Daten** - richten Sie Benachrichtigungen über den Ablauf von Zertifikaten ein und erneuern Sie sie rechtzeitig
+4. **Vermeiden Sie Pauschalaussagen** - die Richtlinie verbietet Behauptungen, die nicht überprüfbar sind
+5. **Vergleiche müssen fair sein** - vergleichen Sie dieselben Produktkategorien und verwenden Sie dieselbe Methodik
 
 ## Fehlerbehebung
 
-**Umweltfelder werden in der Produktbearbeitung nicht angezeigt**
-Aktivieren Sie das Modul unter **WooCommerce > Einstellungen > Polski > Module** und stellen Sie sicher, dass die Option "Modul aktivieren" in den Umwelteinstellungen aktiviert ist.
+**Die Umweltfelder werden in der Produktbearbeitung nicht angezeigt**
+Aktivieren Sie das Modul unter **WooCommerce > Einstellungen > Polski > Module** und prüfen Sie, ob die Option "Modul aktivieren" in den Umwelteinstellungen markiert ist.
 
-**Erklaerung ist von der Produktseite verschwunden**
-Pruefen Sie das Ablaufdatum des Zertifikats. Wenn das Zertifikat abgelaufen ist, wird die Erklaerung automatisch ausgeblendet. Erneuern Sie das Zertifikat und aktualisieren Sie das Ablaufdatum.
+**Die Aussage ist von der Produktseite verschwunden**
+Prüfen Sie das Gültigkeitsdatum des Zertifikats. Nach Ablauf wird die Aussage automatisch ausgeblendet. Erneuern Sie das Zertifikat und aktualisieren Sie das Datum.
 
-**Ich erhalte keine Benachrichtigungen ueber ablaufende Zertifikate**
-Pruefen Sie, ob WP-Cron korrekt funktioniert. Benachrichtigungen werden ueber einen geplanten Cron-Job gesendet. Auf Servern mit deaktiviertem WP-Cron konfigurieren Sie einen System-Cron.
+**Ich erhalte keine Benachrichtigungen über ablaufende Zertifikate**
+Prüfen Sie, ob WP-Cron funktioniert. Die Benachrichtigungen werden durch einen Cron-Job versendet. Auf Servern mit deaktiviertem WP-Cron konfigurieren Sie einen System-Cron.
 
-## Weitere Schritte
+## Nächste Schritte
 
 - Probleme melden: [GitHub Issues](https://github.com/wppoland/polski/issues)
 - Diskussionen und Fragen: [GitHub Discussions](https://github.com/wppoland/polski/discussions)
 
-<div class="disclaimer">Diese Seite dient ausschließlich zu Informationszwecken und stellt keine Rechtsberatung dar. Konsultieren Sie vor der Umsetzung einen Anwalt. Polski for WooCommerce ist Open-Source-Software (GPLv2) ohne Garantie.</div>
+<div class="disclaimer">Diese Seite dient ausschließlich Informationszwecken und stellt keine Rechtsberatung dar. Konsultieren Sie vor der Umsetzung einen Anwalt. Polski for WooCommerce ist Open-Source-Software (GPLv2), die ohne Gewährleistung bereitgestellt wird.</div>

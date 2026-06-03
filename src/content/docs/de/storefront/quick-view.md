@@ -1,58 +1,58 @@
 ---
-title: Schnellansicht
-description: Schnellansicht-Modul in Polski for WooCommerce - Lightbox, Varianten, Galerie bis zu 4 Bilder.
+title: Produkt-Schnellansicht
+description: Modul der Produkt-Schnellansicht in Polski for WooCommerce - Lightbox, Varianten, Galerie mit bis zu 4 Bildern.
 ---
 
-Die Schnellansicht (Quick View) ermoeglicht es Kunden, Produktdetails zu sehen, ohne die Kategorie- oder Suchergebnisseite zu verlassen. Das Produkt oeffnet sich in einem Lightbox-Fenster mit der Moeglichkeit, es in den Warenkorb zu legen.
+Die Schnellansicht öffnet die Produktdetails in einem Lightbox-Fenster, ohne die Kategorieseite oder die Suchergebnisse zu verlassen. Der Kunde kann das Produkt direkt in den Warenkorb legen.
 
 ## Modul aktivieren
 
-Gehen Sie zu **WooCommerce > Polski > Shop-Module** und aktivieren Sie die Option **Schnellansicht**. Auf den Produktkarten erscheint ein Augensymbol oder ein Button **Schnellansicht**.
+Gehen Sie zu **WooCommerce > Polski > Shop-Module** und aktivieren Sie **Schnellansicht**. Auf den Produktkarten erscheint ein Augen-Symbol oder eine Schaltfläche **Schnellansicht**.
 
 ## Lightbox
 
-Die Schnellansicht oeffnet sich in einem modalen Fenster (Lightbox) mit abgedunkeltem Hintergrund. Das Fenster ist responsiv - auf dem Desktop nimmt es ca. 70% der Bildschirmbreite ein, auf mobilen Geraeten erstreckt es sich auf die volle Breite.
+Das Fenster öffnet sich mit abgedunkeltem Hintergrund. Auf dem Desktop nimmt es etwa 70 % der Bildschirmbreite ein, auf dem Mobilgerät die volle Breite.
 
-Lightbox-Inhalt:
+Inhalt der Lightbox:
 
 - Bildergalerie (linke Seite)
 - Produktname
-- Preis (unter Beruecksichtigung von Omnibus-Aktionen)
+- Preis (unter Berücksichtigung der Omnibus-Aktion)
 - Kurzbeschreibung
-- Variantenauswahl (fuer variable Produkte)
+- Variantenauswahl (für variable Produkte)
 - Mengenfeld
-- Button **In den Warenkorb**
-- Link **Vollstaendige Details ansehen** zur Produktseite
+- Schaltfläche **In den Warenkorb**
+- Link **Vollständige Details ansehen**, der zur Produktseite führt
 
-Lightbox schliesst sich durch:
-- Klick auf den X-Button
-- Klick ausserhalb des Fensters (auf den Overlay)
-- Druecken der Escape-Taste
-- Zurueck-Button im Browser (History API)
+Die Lightbox schließt sich durch:
+- Klick auf die Schaltfläche X
+- Klick außerhalb des Fensters (auf das Overlay)
+- Drücken der Escape-Taste
+- Zurück-Schaltfläche im Browser (History API)
 
-## Variantenunterstuetzung
+## Variantenunterstützung
 
-Fuer variable Produkte zeigt die Schnellansicht Dropdowns mit Attributen an, genau wie auf der Produktseite. Nach Auswahl einer Variante:
+Bei variablen Produkten zeigt die Schnellansicht Dropdowns mit den Attributen an. Nach Auswahl einer Variante:
 
-- Preis aktualisiert sich auf den Variantenpreis
-- Bild wechselt zum der Variante zugewiesenen Bild
-- Verfuegbarkeitsstatus aktualisiert sich
-- Button **In den Warenkorb** wird erst nach Auswahl aller erforderlichen Attribute aktiv
+- aktualisiert sich der Preis auf den Preis der Variante
+- wechselt das Bild zum der Variante zugewiesenen Bild
+- aktualisiert sich der Verfügbarkeitsstatus
+- aktiviert sich die Schaltfläche **In den Warenkorb**, sobald alle Attribute ausgewählt sind
 
-Variantendaten werden einmalig zusammen mit dem Lightbox geladen - Variantenwechsel erzeugen keine zusaetzlichen Serveranfragen.
+Die Variantendaten werden zusammen mit der Lightbox geladen - ein Variantenwechsel erfordert keine weiteren Serveranfragen.
 
 ## Bildergalerie (bis zu 4 Bilder)
 
-Der Lightbox zeigt bis zu **4 Bilder** des Produkts - Hauptbild und bis zu 3 Galeriebilder. Dieses Limit stellt schnelles Laden und eine uebersichtliche Oberflaeche im Vorschaufenster sicher.
+Die Lightbox zeigt bis zu **4 Bilder** - das Hauptbild und bis zu 3 aus der Galerie. Dadurch lädt das Fenster schnell.
 
-Galerienavigation:
+Navigation durch die Galerie:
 
-- Klick auf die Miniatur unter dem Hauptbild
-- Links-/Rechts-Pfeile auf dem Hauptbild
-- Swipe auf Touchgeraeten
+- Klick auf eine Miniatur unter dem Hauptbild
+- Pfeile links/rechts auf dem Hauptbild
+- Swipe auf Touch-Geräten
 - Pfeiltasten auf der Tastatur
 
-Das Galerie-Bildlimit kann per Filter geaendert werden:
+Das Bildlimit der Galerie lässt sich per Filter ändern:
 
 ```php
 add_filter('polski/quick_view/gallery_limit', function (): int {
@@ -62,22 +62,24 @@ add_filter('polski/quick_view/gallery_limit', function (): int {
 
 ## Konfiguration
 
-| Option               | Beschreibung                                            | Standard   |
+In den Moduleinstellungen verfügbare Optionen:
+
+| Option               | Beschreibung                                    | Standard    |
 | -------------------- | ----------------------------------------------- | ----------- |
-| Button-Position    | Wo der Button auf der Produktkarte angezeigt wird    | Auf der Miniatur |
-| Button-Typ        | Augensymbol oder Text **Schnellansicht**          | Symbol       |
-| Galerie              | Wie viele Bilder im Lightbox angezeigt werden                | 4           |
-| Beschreibung                 | Ob die Kurzbeschreibung angezeigt wird                       | Ja         |
-| Bewertungen                | Ob Bewertungssterne angezeigt werden                    | Ja         |
-| Lieferzeit         | Ob die geschaetzte Lieferzeit angezeigt wird            | Ja         |
-| Animation             | Oeffnungsanimationstyp (fade/slide/zoom)         | fade        |
+| Position der Schaltfläche | Wo die Schaltfläche auf der Produktkarte angezeigt wird | Auf der Miniatur |
+| Schaltflächentyp     | Augen-Symbol oder Text **Schnellansicht**       | Symbol      |
+| Galerie              | Wie viele Bilder in der Lightbox angezeigt werden | 4         |
+| Beschreibung         | Ob die Kurzbeschreibung angezeigt wird          | Ja          |
+| Bewertungen          | Ob Bewertungssterne angezeigt werden            | Ja          |
+| Lieferzeit           | Ob die geschätzte Lieferzeit angezeigt wird     | Ja          |
+| Animation            | Art der Öffnungsanimation (fade/slide/zoom)     | fade        |
 
-## Laden von Inhalten per AJAX
+## Laden der Inhalte per AJAX
 
-Der Inhalt wird per AJAX nach Klick auf den Button geladen. Waehrend des Ladens wird ein Spinner angezeigt. Produktdaten werden im Browser gecacht - erneutes Oeffnen desselben Produkts sendet keine neue Anfrage.
+Der Inhalt wird nach Klick auf die Schaltfläche per AJAX geladen. Während des Ladens ist ein Spinner zu sehen. Die Produktdaten werden im Browser zwischengespeichert - ein erneutes Öffnen desselben Produkts sendet keine neue Anfrage.
 
 ```php
-// Lightbox-Template aendern
+// Lightbox-Template ändern
 add_filter('polski/quick_view/template', function (string $template): string {
     return get_stylesheet_directory() . '/polski/quick-view-custom.php';
 });
@@ -85,44 +87,46 @@ add_filter('polski/quick_view/template', function (string $template): string {
 
 ## Integration mit anderen Modulen
 
-Die Schnellansicht integriert sich mit anderen Modulen von Polski for WooCommerce:
+Die Schnellansicht arbeitet mit anderen Modulen zusammen:
 
-- **Wunschliste** - Herz-Button im Lightbox sichtbar
-- **Produktvergleich** - Vergleichsbutton im Lightbox sichtbar
-- **Labels** - Badges (Sale, Neu, Bestseller) auf dem Bild angezeigt
-- **Omnibus-Preis** - niedrigster Preis der letzten 30 Tage beim Aktionspreis sichtbar
+- **Wunschliste** - Herz-Schaltfläche in der Lightbox sichtbar
+- **Vergleich** - Vergleichsschaltfläche in der Lightbox sichtbar
+- **Etiketten** - Abzeichen (Ausverkauf, Neuheit, Bestseller) auf dem Bild angezeigt
+- **Omnibus-Preis** - niedrigster Preis der letzten 30 Tage neben dem Aktionspreis sichtbar
 
-## Barrierefreiheit
+## Barrierefreiheit (accessibility)
 
-Der Lightbox unterstuetzt vollstaendige Tastaturnavigation:
+Die Lightbox unterstützt die Tastaturnavigation:
 
 - **Tab** - Wechsel zwischen interaktiven Elementen
-- **Escape** - Fenster schliessen
-- **Pfeile** - Galerienavigation
-- Focus Trap - Fokus verlaesst den Lightbox nicht waehrend er geoeffnet ist
+- **Escape** - Fenster schließen
+- **Pfeile** - Navigation durch die Galerie
+- Focus-Trap - der Fokus verlässt die Lightbox nicht, solange sie geöffnet ist
 - ARIA-Attribute: `role="dialog"`, `aria-modal="true"`, `aria-label`
 
-## CSS-Styling
+## CSS-Gestaltung
 
-- `.polski-quick-view-overlay` - Hintergrundabdunklung
+CSS-Klassen des Moduls:
+
+- `.polski-quick-view-overlay` - Abdunkelung des Hintergrunds
 - `.polski-quick-view-modal` - Lightbox-Fenster
 - `.polski-quick-view-gallery` - Bildergalerie
 - `.polski-quick-view-content` - Produktinhalt
-- `.polski-quick-view-close` - Schliessen-Button
-- `.polski-quick-view-trigger` - Oeffnungsbutton auf der Produktkarte
+- `.polski-quick-view-close` - Schließen-Schaltfläche
+- `.polski-quick-view-trigger` - öffnende Schaltfläche auf der Produktkarte
 
 ## Leistung
 
-Skript und Styles werden lazy geladen - nur wenn auf der Seite ein Produkt mit Schnellansicht-Button vorhanden ist. Das JavaScript wiegt ca. 8 KB (gzip) und blockiert das Rendering nicht.
+Skript und Styles werden verzögert geladen - nur wenn sich auf der Seite ein Produkt mit Schnellansicht-Schaltfläche befindet. Das JavaScript wiegt etwa 8 KB (gzip) und blockiert das Rendern nicht.
 
 ## Fehlerbehebung
 
-**Lightbox oeffnet sich nicht** - pruefen Sie die Browser-Konsole. Haeufigste Ursache ist ein Konflikt mit einem anderen Lightbox-Plugin (z.B. WooCommerce Lightbox, FancyBox). Deaktivieren Sie den Standard-WooCommerce-Lightbox.
+**Die Lightbox öffnet sich nicht** - prüfen Sie die Browser-Konsole. Eine häufige Ursache ist ein Konflikt mit einem anderen Lightbox-Plugin (z. B. FancyBox). Deaktivieren Sie die Standard-Lightbox von WooCommerce.
 
-**Varianten laden nicht** - stellen Sie sicher, dass das variable Produkt korrekt konfigurierte Varianten mit Preisen hat.
+**Die Varianten laden nicht** - prüfen Sie, ob das variable Produkt Varianten mit Preisen konfiguriert hat. Leere Varianten werden übersprungen.
 
-**Galerie zeigt nur 1 Bild** - fuegen Sie Bilder zur Produktgalerie im WooCommerce-Editor hinzu (Abschnitt **Produktgalerie**, nicht nur **Produktbild**).
+**Die Galerie zeigt nur 1 Bild** - fügen Sie Bilder im Bereich **Produktgalerie** im WooCommerce-Editor hinzu (nicht nur **Produktbild**).
 
 Probleme melden: [github.com/wppoland/polski/issues](https://github.com/wppoland/polski/issues)
 
-<div class="disclaimer">Diese Seite dient ausschließlich zu Informationszwecken und stellt keine Rechtsberatung dar. Konsultieren Sie vor der Umsetzung einen Anwalt. Polski for WooCommerce ist Open-Source-Software (GPLv2) ohne Garantie.</div>
+<div class="disclaimer">Diese Seite dient ausschließlich Informationszwecken und stellt keine Rechtsberatung dar. Konsultieren Sie vor der Umsetzung einen Anwalt. Polski for WooCommerce ist Open-Source-Software (GPLv2), die ohne Gewährleistung bereitgestellt wird.</div>

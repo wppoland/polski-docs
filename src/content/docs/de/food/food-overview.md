@@ -1,124 +1,124 @@
 ---
 title: Lebensmittelmodul
-description: Ueberblick ueber das Lebensmittelmodul - Naehrwerte, Allergene, Zutaten, Nutri-Score, Alkohol und Herkunftsland in WooCommerce.
+description: Überblick über das Lebensmittelmodul - Nährwerte, Allergene, Zutaten, Nutri-Score, Alkohol und Herkunftsland in WooCommerce.
 ---
 
-Der Online-Verkauf von Lebensmitteln erfordert Angaben zu Zusammensetzung, Naehrwerten, Allergenen und Herkunft (Verordnung EU Nr. 1169/2011). Polski for WooCommerce bietet ein vollstaendiges Modul zur Verwaltung dieser Daten.
+Der Verkauf von Lebensmitteln im Internet erfordert die Angabe von Informationen zur Zusammensetzung, zu Nährwerten, Allergenen und zur Herkunft des Produkts (EU-Verordnung Nr. 1169/2011). Das Plugin Polski for WooCommerce bietet ein vollständiges Modul zur Verwaltung dieser Daten.
 
 ## Rechtliche Anforderungen
 
-Die LMIV verpflichtet Lebensmittelverkaeufer zur Angabe folgender Informationen:
+Ein Lebensmittelverkäufer muss angeben:
 
 | Information | Erforderlich | Rechtsgrundlage |
-|------------|----------|----------------|
+|-------------|--------------|-----------------|
 | Bezeichnung des Lebensmittels | Ja | Art. 9 Abs. 1 lit. a |
 | Zutatenverzeichnis | Ja | Art. 9 Abs. 1 lit. b |
 | Allergene | Ja | Art. 9 Abs. 1 lit. c |
 | Menge bestimmter Zutaten | Bedingt | Art. 9 Abs. 1 lit. d |
-| Nettofuellmenge | Ja | Art. 9 Abs. 1 lit. e |
+| Nettofüllmenge | Ja | Art. 9 Abs. 1 lit. e |
 | Mindesthaltbarkeitsdatum | Ja | Art. 9 Abs. 1 lit. f |
 | Aufbewahrungsbedingungen | Bedingt | Art. 9 Abs. 1 lit. g |
-| Herstellerdaten | Ja | Art. 9 Abs. 1 lit. h |
+| Angaben zum Hersteller | Ja | Art. 9 Abs. 1 lit. h |
 | Herkunftsland | Bedingt | Art. 9 Abs. 1 lit. i |
-| Naehrwertdeklaration | Ja | Art. 9 Abs. 1 lit. l |
+| Nährwertdeklaration | Ja | Art. 9 Abs. 1 lit. l |
 
-Beim Fernabsatz (Onlineshop) muessen die meisten dieser Informationen vor dem Kauf verfuegbar sein - mit Ausnahme des Mindesthaltbarkeitsdatums, das bei der Lieferung angegeben werden kann.
+Im Onlineshop müssen die meisten dieser Informationen vor dem Kauf verfügbar sein. Eine Ausnahme bildet das Mindesthaltbarkeitsdatum - dieses gibst du bei der Lieferung an.
 
-## Modulkomponenten
+## Bestandteile des Moduls
 
-Das Lebensmittelmodul besteht aus mehreren Untermodulen, die unabhaengig aktiviert werden koennen:
+Das Lebensmittelmodul besteht aus mehreren Submodulen. Jedes aktivierst du einzeln:
 
-### Naehrwerte
+### Nährwerte
 
-Naehrwerttabelle pro 100 g oder 100 ml des Produkts. Umfasst Energie (kJ/kcal), Fett, Kohlenhydrate, Protein, Salz und andere Naehrstoffe.
+Nährwerttabelle pro 100 g oder 100 ml. Enthält Energie (kJ/kcal), Fette, Kohlenhydrate, Eiweiß, Salz und weitere Bestandteile.
 
-Details: [Naehrwerte](/de/food/nutrients/)
+Details: [Nährwerte](food/nutrients/)
 
 ### Allergene
 
-Allergendeklarationssystem basierend auf der WordPress-Taxonomie. 14 Hauptallergene gemaess Anhang II der LMIV.
+Deklaration der 14 Hauptallergene auf Basis einer WordPress-Taxonomie.
 
-Details: [Allergene](/de/food/allergens/)
+Details: [Allergene](food/allergens/)
 
 ### Nutri-Score
 
-Anzeige der Nutri-Score-Kennzeichnung (A-E) mit entsprechenden Farben und CSS-Klassen.
+Anzeige der Nutri-Score-Kennzeichnung (A-E) mit den entsprechenden Farben und CSS-Klassen.
 
-Details: [Nutri-Score](/de/food/nutri-score/)
+Details: [Nutri-Score](food/nutri-score/)
 
 ### Zutaten (Verzeichnis)
 
-Textfeld fuer das vollstaendige Zutatenverzeichnis des Produkts. Allergene im Verzeichnis werden automatisch durch Fettschrift gemaess LMIV-Anforderungen hervorgehoben.
+Textfeld für das Zutatenverzeichnis. Allergene im Verzeichnis werden automatisch fett dargestellt.
 
 ### Alkohol
 
-Felder zur Verwaltung von Informationen ueber alkoholische Produkte:
+Felder zur Verwaltung von Informationen über alkoholische Produkte:
 
 | Feld | Beschreibung |
-|------|------|
+|------|--------------|
 | Alkoholgehalt (% vol.) | Prozentualer Alkoholgehalt |
-| Warnung | Meldung ueber das Verkaufsverbot an Minderjaehrige |
-| Altersverifizierung | Volljaehrigkeitsbestaetigung beim Hinzufuegen zum Warenkorb |
+| Warnhinweis | Hinweis auf das Verkaufsverbot an Minderjährige |
+| Altersverifizierung | Checkbox zur Bestätigung der Volljährigkeit beim Hinzufügen zum Warenkorb |
 
-Fuer Getraenke mit einem Alkoholgehalt ueber 1,2% vol. ist die Angabe des Alkoholgehalts auf dem Etikett erforderlich (Art. 28 LMIV).
+Getränke mit einem Alkoholgehalt über 1,2 % vol. erfordern die Angabe des Alkoholgehalts.
 
 ### Herkunftsland
 
-Feld fuer die Information zum Herkunftsland oder Herkunftsort. Erforderlich fuer:
+Feld für die Angabe des Herkunftslands oder des Herkunftsorts. Erforderlich für:
 
-- Fleisch (Rind, Schwein, Gefluegel, Lamm)
-- Obst und Gemuese
+- Fleisch (Rind, Schwein, Geflügel, Lamm)
+- Obst und Gemüse
 - Fisch
-- Olivenoel
+- Olivenöl
 - Honig
-- Produkte, bei denen fehlende Information den Verbraucher irrefuehren koennte
+- Produkte, bei denen das Fehlen der Information den Verbraucher irreführen könnte
 
 ## Konfiguration
 
-### Modul aktivieren
+### Aktivierung des Moduls
 
-Gehen Sie zu **WooCommerce > Einstellungen > Polski > Lebensmittel** und aktivieren Sie das Modul sowie die benoetigten Untermodule.
+Gehe zu **WooCommerce > Einstellungen > Polski > Lebensmittel** und aktiviere das Modul sowie die benötigten Submodule.
 
 ### Globale Einstellungen
 
 | Einstellung | Beschreibung |
-|------------|------|
+|-------------|--------------|
 | Referenzeinheit | Standardeinheit: pro 100 g oder pro 100 ml |
-| Position auf der Produktseite | Wo die Informationen anzeigen (Tab, unter Beschreibung, im Seitenpanel) |
-| Im Listing anzeigen | Ob Kurzinformationen auf Kategorieseiten angezeigt werden |
-| Automatische Allergenhervorhebung | Fettschrift der Allergennamen im Zutatenverzeichnis |
+| Position auf der Produktseite | Wo die Informationen angezeigt werden (Reiter, unter der Beschreibung, in der Seitenleiste) |
+| Im Listing anzeigen | Ob auf den Kategorieseiten Kurzinformationen angezeigt werden |
+| Automatische Hervorhebung der Allergene | Fettschrift der Allergennamen im Zutatenverzeichnis |
 
 ### Position auf der Produktseite
 
-Lebensmittelinformationen koennen an mehreren Stellen angezeigt werden:
+Die Lebensmitteldaten zeigst du an einem der folgenden Orte an:
 
-1. **Neuer Tab** (empfohlen) - separater Tab "Lebensmittelinformationen" neben Beschreibung und Bewertungen
+1. **Neuer Reiter** (empfohlen) - ein separater Reiter "Lebensmittelinformationen" neben Beschreibung und Bewertungen
 2. **Unter der Beschreibung** - direkt unter der Produktbeschreibung
-3. **In den Metadaten** - im Bereich SKU/Kategorien
-4. **Benutzerdefiniert** - per Shortcodes an beliebiger Stelle
+3. **In den Metadaten** - im Abschnitt SKU/Kategorien
+4. **Benutzerdefiniert** - mittels Shortcodes an beliebiger Stelle
 
 ## Produkteditor
 
-Nach Aktivierung des Lebensmittelmoduls erscheint im Produkteditor ein neuer Tab "Lebensmittel" mit folgenden Abschnitten:
+Nach der Aktivierung des Moduls erscheint im Produkteditor ein Reiter "Lebensmittel" mit folgenden Abschnitten:
 
-- **Naehrwerte** - Tabelle mit Feldern fuer alle Naehrstoffe
-- **Zutaten** - Textfeld (WYSIWYG) fuer das Zutatenverzeichnis
+- **Nährwerte** - Tabelle mit Feldern für alle Bestandteile
+- **Zutaten** - Textfeld (WYSIWYG) für das Zutatenverzeichnis
 - **Allergene** - Checkbox-Liste der Allergene
 - **Nutri-Score** - Auswahl der Stufe A-E
-- **Alkohol** - Felder fuer alkoholische Getraenke
+- **Alkohol** - Felder im Zusammenhang mit alkoholischen Getränken
 - **Herkunft** - Herkunftsland und Herkunftsort
 
 ## CSV-Import
 
-Alle Lebensmitteldaten koennen per CSV massenimportiert werden:
+Lebensmitteldaten importierst du massenweise per CSV:
 
 | CSV-Spalte | Beschreibung | Format |
-|-------------|------|--------|
-| `polski_nutrients` | Naehrwerte | JSON |
+|------------|--------------|--------|
+| `polski_nutrients` | Nährwerte | JSON |
 | `polski_ingredients` | Zutatenverzeichnis | Text |
-| `polski_allergens` | Allergene | Slugs durch Komma getrennt |
+| `polski_allergens` | Allergene | Durch Kommas getrennte Slugs |
 | `polski_nutri_score` | Nutri-Score | Buchstabe A-E |
-| `polski_alcohol_content` | Alkoholgehalt | Zahl (z.B. `5.0`) |
+| `polski_alcohol_content` | Alkoholgehalt | Zahl (z. B. `5.0`) |
 | `polski_country_of_origin` | Herkunftsland | Text |
 
 Beispiel:
@@ -127,9 +127,9 @@ Beispiel:
 "Orangensaft 1L",'{"energy_kj":180,"energy_kcal":43,"fat":0.1,"carbohydrates":9.8,"sugars":8.4,"protein":0.7,"salt":0.01}',,"",B,,Spanien
 ```
 
-## Schema.org-Kompatibilitaet
+## Kompatibilität mit Schema.org
 
-Das Modul generiert automatisch Schema.org-konforme strukturierte Daten:
+Das Modul erstellt automatisch strukturierte Daten nach Schema.org:
 
 ```json
 {
@@ -151,7 +151,7 @@ Das Modul generiert automatisch Schema.org-konforme strukturierte Daten:
 
 ## Programmatische Erweiterungen
 
-### Benutzerdefiniertes Lebensmittelfeld hinzufuegen
+### Hinzufügen eines benutzerdefinierten Lebensmittelfeldes
 
 ```php
 add_filter('polski/food/custom_fields', function (array $fields): array {
@@ -169,36 +169,36 @@ add_filter('polski/food/custom_fields', function (array $fields): array {
 });
 ```
 
-### Filter fuer Lebensmittelinformationsanzeige
+### Filter zur Anzeige der Lebensmittelinformationen
 
 ```php
 add_filter('polski/food/display_html', function (string $html, int $product_id): string {
-    // HTML vor der Anzeige aendern
+    // Anpassung des HTML vor der Anzeige
     return $html;
 }, 10, 2);
 ```
 
-## Haeufige Probleme
+## Häufige Probleme
 
-### Tab "Lebensmittel" erscheint nicht im Produkteditor
+### Der Reiter "Lebensmittel" erscheint nicht im Produkteditor
 
-1. Pruefen Sie, ob das Lebensmittelmodul in den Einstellungen aktiviert ist
-2. Ueberpruefen Sie, ob das Produkt nicht vom Typ "extern/Affiliate" ist (das Modul unterstuetzt diesen Typ nicht)
-3. Leeren Sie den Browser-Cache und laden Sie das Administrationspanel neu
+1. Prüfe, ob das Lebensmittelmodul in den Einstellungen aktiviert ist
+2. Überprüfe, ob das Produkt nicht vom Typ "extern/affiliate" ist (das Modul unterstützt diesen Typ nicht)
+3. Leere den Browser-Cache und lade das Admin-Panel neu
 
-### Allergene werden im Zutatenverzeichnis nicht fett hervorgehoben
+### Allergene werden im Zutatenverzeichnis nicht fett dargestellt
 
-Stellen Sie sicher, dass die Option "Automatische Allergenhervorhebung" aktiviert ist und die Allergennamen oder deren Synonyme dem Text im Zutatenverzeichnis entsprechen.
+Stelle sicher, dass die Option "Automatische Hervorhebung der Allergene" aktiviert ist und dass die Allergennamen im Verzeichnis den Namen in der Taxonomie entsprechen.
 
-### Naehrwerte werden falsch angezeigt
+### Nährwerte werden falsch angezeigt
 
-Pruefen Sie das Datenformat - Werte muessen Zahlen sein (mit Punkt als Dezimaltrennzeichen in der Datenbank). Das Plugin formatiert die Anzeige automatisch gemaess polnischen Regionaleinstellungen (Komma).
+Prüfe das Datenformat - in der Datenbank verwenden die Werte den Punkt als Trennzeichen (z. B. 9.5). Das Plugin zeigt sie automatisch mit dem polnischen Komma an (9,5).
 
 ## Verwandte Ressourcen
 
-- [Naehrwerte](/de/food/nutrients/)
-- [Allergene](/de/food/allergens/)
-- [Nutri-Score](/de/food/nutri-score/)
+- [Nährwerte](food/nutrients/)
+- [Allergene](food/allergens/)
+- [Nutri-Score](food/nutri-score/)
 - [Problem melden](https://github.com/wppoland/polski/issues)
 
-<div class="disclaimer">Diese Seite dient ausschließlich zu Informationszwecken und stellt keine Rechtsberatung dar. Konsultieren Sie vor der Umsetzung einen Anwalt. Polski for WooCommerce ist Open-Source-Software (GPLv2) ohne Garantie.</div>
+<div class="disclaimer">Diese Seite dient ausschließlich zu Informationszwecken und stellt keine Rechtsberatung dar. Konsultiere vor der Umsetzung einen Anwalt. Polski for WooCommerce ist Open-Source-Software (GPLv2), die ohne Gewährleistung bereitgestellt wird.</div>

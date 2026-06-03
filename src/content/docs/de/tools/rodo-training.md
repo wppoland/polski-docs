@@ -1,101 +1,127 @@
 ---
-title: RODO / DSGVO-Schulungsunterlagen
-description: Druckfertige Schulungsvorlagen fuer Shop-Mitarbeiter. Enthaelt ein Schulungsverzeichnis, eine einseitige RODO-Prinzipienuebersicht und ein Incident-Response-Playbook mit der 72-Stunden-Frist fuer UODO-Meldungen.
+title: RODO-Schulungsunterlagen
+description: Drei druckfertige HTML-Vorlagen - Schulungsverzeichnis, Zusammenfassung der RODO-Prinzipien und ein Playbook zur Reaktion auf Verletzungen mit der 72-Stunden-Frist für die Meldung an UODO.
 ---
 
-Das Modul **RODO-Schulungsunterlagen** erzeugt drei druckfertige HTML-Dokumente, die Sie neuen Shop-Mitarbeitern im Rahmen des DSGVO-Onboardings aushaendigen koennen. Alle Dokumente sind mit den Unternehmensdaten des Shops (Name, NIP) vorgebrandet und mit einem druckfreundlichen Stylesheet gerendert.
+Das Modul **RODO-Schulungsunterlagen** erzeugt drei druckfertige HTML-Dokumente, die beim Onboarding neuer Shop-Mitarbeiter helfen. Alle sind mit den Firmendaten aus dem Konfigurationsassistenten vorgebrandet (`polski_general.company_name` + NIP).
 
 :::caution
-Dies sind allgemeine Startvorlagen. Passen Sie sie an Ihre tatsaechlichen Datenverarbeitungsablaeufe, DSFA-Ergebnisse und internen Vorfallsverfahren an, bevor Sie sie an das Personal weitergeben.
+Dies sind generische Startvorlagen. Passen Sie sie an die tatsächlichen Datenverarbeitungsprozesse in Ihrem Shop an, sie ersetzen weder den Datenschutzbeauftragten (IOD) noch eine rechtliche Beratung.
 :::
 
 ## Drei Dokumente
 
-| Schluessel        | Titel                             | Zweck                                                             |
-| ----------------- | --------------------------------- | ----------------------------------------------------------------- |
-| `logbook`         | Schulungsverzeichnis              | Tabelle: Datum, Mitarbeiter, Rolle, Themen, Trainer, Unterschrift |
-| `principles`      | RODO-Prinzipienuebersicht         | Einseiter: 7 Verarbeitungsprinzipien + 8 Betroffenenrechte        |
-| `breach_playbook` | Incident-Response-Playbook        | 8-Schritte-Checkliste + Vorfallslog-Vorlage + UODO-Kontakt        |
+| Schlüssel         | Titel                          | Inhalt                                                             |
+| ----------------- | ------------------------------ | ------------------------------------------------------------------ |
+| `logbook`         | Training logbook               | 6-spaltige Tabelle (Datum, Mitarbeiter, Rolle, Themen, Trainer, Unterschrift), 10 leere Zeilen |
+| `principles`      | RODO principles summary        | 7 Verarbeitungsprinzipien (Art. 5) + 8 Betroffenenrechte (Kap. III) + operative Erinnerungen |
+| `breach_playbook` | Data breach response playbook  | 8-stufige Checkliste + Vorfallslog-Tabelle mit Link zu uodo.gov.pl |
 
-## Admin-Seite
+## Herunterladen
 
-Gehen Sie zu **Polski > RODO-Schulungsunterlagen**. Fuer jedes Dokument gibt es die Schaltflaeche "Download HTML". Die Datei wird ausgeliefert mit:
+Gehen Sie zu **Polski > RODO training docs**. Bei jedem der drei Dokumente befindet sich eine Schaltfläche **Download HTML**.
 
-```
-Content-Type: text/html; charset=utf-8
-Content-Disposition: attachment; filename="polski-rodo-<key>-<YYYYMMDD>.html"
-```
+Die heruntergeladene Datei:
 
-HTML im Browser oeffnen und per **Drucken > Als PDF speichern** ein PDF erzeugen oder direkt drucken.
+- Name: `polski-rodo-<klucz>-<YYYYMMDD>.html`
+- Content-Type: `text/html; charset=utf-8`
+- Eigenständiges `<!doctype html>` mit eingebettetem Druck-CSS
+- Schutz: Nonce `polski_rodo_training_download`, Capability `manage_woocommerce`
 
-## Schulungsverzeichnis
+## Dokumentenkopf
 
-Das Verzeichnis rendert eine leere Tabelle mit 10 Zeilen und den Spalten:
+Jede heruntergeladene Datei beginnt mit einem Abschnitt mit den Firmendaten:
 
-- Datum
-- Mitarbeiter
-- Rolle
-- Behandelte Themen
-- Trainer
-- Unterschrift
-
-Die Teilnehmer unterschreiben zur Bestaetigung von Teilnahme und Verstaendnis. Fuehren Sie ein Verzeichnis pro Kalenderjahr - es ist ein praktisches Artefakt fuer den Rechenschaftsgrundsatz (Art. 5 Abs. 2 DSGVO).
-
-## RODO-Prinzipienuebersicht
-
-Inhalt des Einseiters:
-
-1. **Sieben Prinzipien (Art. 5)**: Rechtmaessigkeit, Zweckbindung, Datenminimierung, Richtigkeit, Speicherbegrenzung, Integritaet und Vertraulichkeit, Rechenschaft.
-2. **Acht Betroffenenrechte (Kapitel III)**: Auskunft (Art. 15), Berichtigung (Art. 16), Loeschung (Art. 17), Einschraenkung (Art. 18), Mitteilungspflicht (Art. 19), Datenuebertragbarkeit (Art. 20), Widerspruch (Art. 21), automatisierte Entscheidung (Art. 22).
-3. **Operative Erinnerungen**: Keine Tabellen mit personenbezogenen Daten per E-Mail versenden, Anfragesteller vor dem Handeln verifizieren, jede Weitergabe an Dritte protokollieren, vermutete Vorfaelle intern innerhalb von 24h melden.
-
-## Incident-Response-Playbook
-
-Schritt-fuer-Schritt-Prozess:
-
-1. **Entdeckung** - Zeitstempel, Entdecker, betroffene Systeme erfassen.
-2. **Eindaemmung** - betroffene Konten / Systeme innerhalb 1 Stunde isolieren.
-3. **Interne Meldung** - Datenschutzbeauftragter und Management innerhalb 24 Stunden.
-4. **Bewertung** - Datenkategorien, betroffene Personen, voraussichtliche Auswirkungen dokumentieren.
-5. **UODO-Meldung** - innerhalb 72 Stunden erforderlich, wenn ein Risiko fuer die Betroffenen nicht unwahrscheinlich ist.
-6. **Benachrichtigung der Betroffenen** - "unverzueglich" bei hohem Risiko.
-7. **Behebung** - patchen, Zugangsdaten rotieren, Logs pruefen.
-8. **Post-Mortem** - Lessons Learned dokumentieren und Schulungen aktualisieren.
-
-Eine Vorfallslog-Vorlage ist enthalten:
-- Vorfalls-ID
-- Erkannt am (UTC)
-- Erkannt von
-- Betroffene Systeme
-- Betroffene Datenkategorien
-- Ungefaehre Anzahl Betroffener
-- Voraussichtliche Auswirkungen
-- Eindaemmungsmassnahmen
-- UODO benachrichtigt am
-- Betroffene benachrichtigt am
-- Status
-
-Das Playbook verlinkt auf [uodo.gov.pl](https://uodo.gov.pl) als offiziellen Meldekanal.
-
-## Branding
-
-Der Dokumentkopf wird aus `polski_general` befuellt:
-
-```
-Przykladowa Firma sp. z o.o. - NIP: 1234567890
-[Dokumenttitel]
+```html
+<div class="header">Sklep Polski Sp. z o.o. - NIP: 123-45-67-890</div>
+<h1>Training logbook</h1>
 ```
 
-Aktualisieren Sie die Angaben unter **Polski > Setup-Assistent > Unternehmensdaten**.
+Die Felder stammen aus `polski_general.company_name` und `polski_general.company_nip`.
 
-## Berechtigungen
+## Training logbook
 
-- UI und Downloads: `manage_woocommerce`
-- Download-Nonce: `polski_rodo_training_download`
+Tabelle zur Führung eines Schulungsverzeichnisses. Eine Person = eine Zeile. Spalten:
 
-## Grenzen
+1. Date
+2. Employee
+3. Role
+4. Topics covered
+5. Trainer
+6. Signature
 
-- Eine Sprache (Polnisch + Englisch ueber WordPress-Uebersetzungen, keine Override pro Mitarbeiter)
-- Keine digitalen Signaturen - Teilnehmer unterschreiben auf Papier oder ueber Ihren E-Signatur-Anbieter
-- Kein Audit-Trail darueber, wer das Dokument heruntergeladen hat (fuer PRO geplant)
-- Kein Ersatz fuer eine ordentliche DSFA oder ein Verzeichnis der Verarbeitungstaetigkeiten
+Das Dokument enthält 10 leere Zeilen zum manuellen Ausfüllen. Die Unterschrift des Mitarbeiters bestätigt Teilnahme und Verständnis des Inhalts.
+
+## RODO principles summary
+
+Ein einseitiger Leitfaden mit:
+
+**Sieben Verarbeitungsprinzipien (Art. 5):**
+Lawfulness / fairness / transparency, purpose limitation, data minimisation, accuracy, storage limitation, integrity and confidentiality, accountability.
+
+**Acht Betroffenenrechte (Kapitel III):**
+Art. 15 Auskunft, Art. 16 Berichtigung, Art. 17 Löschung, Art. 18 Einschränkung, Art. 19 Mitteilung, Art. 20 Übertragbarkeit, Art. 21 Widerspruch, Art. 22 keine automatisierte Entscheidung.
+
+**Operative Erinnerungen:**
+- Versenden Sie niemals Tabellen mit personenbezogenen Daten per E-Mail, nur über verschlüsselte Kanäle
+- Verifizieren Sie die Identität des Anfragestellers vor Auskunft / Löschung
+- Protokollieren Sie jede Offenlegung an Auftragsverarbeiter oder Behörden
+- Melden Sie den Verdacht einer Verletzung intern innerhalb von 24h
+
+## Breach response playbook
+
+8-stufige Checkliste aus Art. 33-34 RODO:
+
+1. **Discovery** - Zeitstempel, entdeckende Person, betroffene Systeme erfassen
+2. **Containment** - Konten/Systeme innerhalb von 1h isolieren
+3. **Internal notification** - IOD und Management innerhalb von 24h
+4. **Assessment** - Datenkategorien, Anzahl der Betroffenen, voraussichtliche Auswirkung
+5. **UODO notification** - innerhalb von 72h erforderlich, wenn das Risiko nicht "weniger als wahrscheinlich" ist
+6. **Subject notification** - "ohne unnötige Verzögerung", wenn das Risiko hoch ist
+7. **Remediation** - Patches, Rotation der Authentifizierungsdaten, Prüfung der Logs
+8. **Post-mortem** - Schlussfolgerungen und Aktualisierung der Schulungen
+
+:::caution
+72 Stunden sind das Maximum, eine Meldung nach Ablauf dieser Frist erfordert eine Begründung der Verzögerung. UODO-Kanal: [uodo.gov.pl](https://uodo.gov.pl).
+:::
+
+### Vorfallslog-Tabelle
+
+Das Playbook enthält eine auszufüllende Tabelle mit 11 Feldern:
+
+| Feld                           | Auszufüllen                               |
+| ------------------------------ | ----------------------------------------- |
+| Incident ID                    | Interne Kennung                           |
+| Detected at (UTC)              | Zeitstempel der Erkennung                 |
+| Detected by                    | Person / System                           |
+| Affected systems               | Liste der Systeme                         |
+| Affected data categories       | E-Mail, Adresse, Bankdaten, Gesundheit... |
+| Approximate number of subjects | Schätzung                                 |
+| Likely impact                  | Identitätsdiebstahl, Fraud, Offenlegung   |
+| Containment actions            | Passwort-Reset, IP-Sperre, Backup         |
+| UODO notified at               | Zeitstempel des Versands der Meldung      |
+| Subjects notified at           | Zeitstempel der Benachrichtigung der Betroffenen |
+| Status                         | Open / Under investigation / Resolved     |
+
+## Aktivierung
+
+Das Modul wird über das Flag `rodo_training_docs` in **Polski > Module** aktiviert. Die Deaktivierung blendet die Admin-Seite aus und annulliert den Download-Handler.
+
+## Druckstil
+
+Eingebettetes CSS:
+
+```css
+body { max-width: 820px; margin: 40px auto; line-height: 1.55 }
+h1 { font-size: 24px } h2 { font-size: 18px } h3 { font-size: 14px }
+table { width: 100%; border-collapse: collapse }
+th, td { border: 1px solid #999; padding: 8px; vertical-align: top }
+@media print { body { margin: 0 } }
+```
+
+## Einschränkungen
+
+- Keine Versionierung der Dokumente, das erzeugte HTML hat keinen audit trail
+- Kein PDF (nur HTML - für PRO geplant)
+- Keine Integration mit einem HR-System, das Verzeichnis führen Sie manuell
+- Texte in englischer Sprache (die polnische Übersetzung kommt über .po, falls aktiviert)

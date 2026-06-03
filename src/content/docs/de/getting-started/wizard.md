@@ -1,54 +1,54 @@
 ---
 title: Konfigurationsassistent
-description: Anleitung zum Konfigurationsassistenten des Plugins Polski for WooCommerce. Firmendaten, Rechtsseiten, Checkboxen und automatische Shop-Konfiguration Schritt fuer Schritt.
+description: Anleitung zum Konfigurationsassistenten des Plugins Polski for WooCommerce. Firmendaten, rechtliche Seiten, Checkboxen und automatische Shop-Konfiguration Schritt fuer Schritt.
 ---
 
 ## Was ist der Konfigurationsassistent?
 
-Der Assistent fuehrt Sie in wenigen Schritten durch die wichtigsten Einstellungen. Statt jedes Modul manuell zu konfigurieren, beantworten Sie Fragen - der Assistent stellt alles ein.
+Der Assistent fuehrt dich in wenigen Schritten durch die wichtigsten Einstellungen des Plugins. Statt jedes Modul manuell zu konfigurieren, beantwortest du Fragen - der Assistent richtet alles fuer dich ein.
 
-Der Assistent erscheint nach der ersten Aktivierung. Zum erneuten Starten gehen Sie zu **WooCommerce > Polski > Einstellungen** und klicken Sie auf **Assistenten erneut starten**.
+Der Assistent erscheint nach der ersten Aktivierung des Plugins. Um ihn erneut zu starten, gehe zu **WooCommerce > Polski > Einstellungen** und klicke auf **Assistenten erneut starten**.
 
 :::note[Der Assistent ueberschreibt keine vorhandenen Daten]
-Wenn Sie den Assistenten erneut starten, sind die Felder mit zuvor gespeicherten Daten gefuellt. Der Assistent loescht oder ueberschreibt keine Daten, die Sie nicht aendern.
+Wenn du den Assistenten erneut startest, sind die Felder mit den zuvor gespeicherten Daten ausgefuellt. Der Assistent loescht oder ueberschreibt keine Daten, die du nicht aenderst.
 :::
 
 ---
 
 ## Schritt 1: Firmendaten
 
-Geben Sie Ihre Firmendaten ein. Das Plugin nutzt sie auf Rechtsseiten, in der Fusszeile, in GPSR-Daten und auf Rechnungen.
+Gib die Daten deines Unternehmens ein. Das Plugin verwendet sie auf den rechtlichen Seiten, in der Fusszeile, in den GPSR-Daten und auf Rechnungen.
 
 ### Pflichtfelder
 
 | Feld | Beschreibung | Beispiel |
 |------|------|---------|
-| Firmenname | Vollstaendiger Name oder Firma | "Jan Kowalski Online-Shop" |
-| Rechtsform | Art der Taetigkeit | Einzelunternehmen, GmbH, KG, AG |
+| Firmenname | Vollstaendiger Name oder Firma | "Jan Kowalski Sklep Online" |
+| Rechtsform | Art der Taetigkeit | JDG, sp. z o.o., sp.j., S.A. |
 | NIP | Steueridentifikationsnummer | 1234567890 |
 | REGON | REGON-Nummer | 123456789 |
 | KRS | KRS-Nummer (falls zutreffend) | 0000123456 |
 | Adresse | Strasse, Nummer, PLZ, Stadt | ul. Przykladowa 10, 00-001 Warszawa |
-| Kontakt-E-Mail | Korrespondenzadresse | kontakt@meinshop.pl |
+| Kontakt-E-Mail | Adresse fuer Korrespondenz | kontakt@mojsklep.pl |
 | Telefon | Telefonnummer | +48 123 456 789 |
 
 ### Optionale Felder
 
 - **Bankkontonummer** - zur Anzeige auf Rechnungen und in den AGB
-- **Registergericht** - z.B. "Amtsgericht Warszawa"
-- **Stammkapital** - erforderlich fuer Kapitalgesellschaften (z.B. "5.000,00 PLN")
-- **Name des Vertreters** - zur Vertretung berechtigte Person
+- **Registergericht** - z. B. "Sad Rejonowy dla m.st. Warszawy"
+- **Stammkapital** - erforderlich fuer Gesellschaften (z. B. "5 000,00 zl")
+- **Vor- und Nachname des Vertreters** - zur Vertretung befugte Person
 
 ### NIP-Validierung
 
-Der Assistent ueberpreuft automatisch die Richtigkeit der Steuernummer (NIP):
+Der Assistent prueft automatisch die Korrektheit der NIP:
 
-- Prueft die Pruefsumme (Gewichtungsalgorithmus)
-- Ruft optional Daten von der GUS-API (CEIDG/KRS) zum Vergleich ab
+- Er prueft die Pruefsumme (Gewichtungsalgorithmus)
+- Optional ruft er Daten aus der GUS-API (CEIDG/KRS) zum Abgleich ab
 
-Wenn die Steuernummer ungueltig ist, sehen Sie eine Warnmeldung. Sie koennen fortfahren, es wird jedoch empfohlen, die Nummer zu korrigieren.
+Wenn die NIP ungueltig ist, siehst du eine Warnmeldung. Du kannst fortfahren, wir empfehlen jedoch, die Nummer zu korrigieren.
 
-### Konfigurationsbeispiel
+### Beispielkonfiguration
 
 Fuer ein Einzelunternehmen:
 
@@ -57,7 +57,7 @@ Firmenname: Jan Kowalski E-Commerce
 Rechtsform: Einzelunternehmen
 NIP: 1234567890
 REGON: 123456789
-KRS: (leer - nicht zutreffend fuer Einzelunternehmen)
+KRS: (leer - nicht zutreffend fuer JDG)
 Adresse: ul. Handlowa 5/10, 31-001 Krakow
 E-Mail: sklep@kowalski-ecommerce.pl
 Telefon: +48 500 600 700
@@ -74,61 +74,61 @@ KRS: 0000654321
 Adresse: ul. Biznesowa 22, 00-100 Warszawa
 E-Mail: biuro@supersklep.pl
 Telefon: +48 22 123 45 67
-Stammkapital: 50.000,00 PLN
-Registergericht: Amtsgericht Warszawa, XII. Handelsabteilung KRS
+Stammkapital: 50 000,00 zl
+Registergericht: Sad Rejonowy dla m.st. Warszawy, XII Wydzial Gospodarczy KRS
 ```
 
-Klicken Sie auf **Weiter**, um zum naechsten Schritt zu gelangen.
+Klicke auf **Weiter**, um zum naechsten Schritt zu gelangen.
 
 ---
 
-## Schritt 2: Rechtsseiten
+## Schritt 2: Rechtliche Seiten
 
-Der Assistent hilft beim Erstellen der Rechtsseiten. Jeder polnische Onlineshop braucht mindestens:
+Der Assistent hilft dir, die erforderlichen rechtlichen Seiten zu erstellen. Jeder polnische Shop sollte mindestens haben:
 
-- **AGB** - Regeln fuer die Nutzung des Shops und den Vertragsabschluss
+- **AGB des Shops** - Regeln zur Nutzung des Shops und zum Abschluss von Vertraegen
 - **Datenschutzerklaerung** - Informationen zur Verarbeitung personenbezogener Daten (DSGVO)
-- **Widerrufsbelehrung** - Verfahren und Formular zum Widerruf
+- **Ruecksendungsrichtlinie** - Verfahren und Formular zum Widerruf des Vertrags
 
-### Seiten generieren
+### Generierung der Seiten
 
 Der Assistent bietet zwei Ansaetze:
 
 **Option A - neue Seiten generieren (empfohlen fuer neue Shops)**
 
-1. Markieren Sie die Seiten, die Sie generieren moechten
-2. Der Assistent erstellt WordPress-Seiten mit Inhalt basierend auf den Firmendaten
-3. Der Inhalt basiert auf Vorlagen, die dem polnischen Recht entsprechen
+1. Markiere die Seiten, die du generieren moechtest
+2. Der Assistent erstellt WordPress-Seiten mit ausgefuelltem Inhalt auf Basis der Firmendaten
+3. Der Inhalt basiert auf Vorlagen, die sich an den polnischen Vorschriften orientieren
 
 **Option B - vorhandene Seiten zuweisen**
 
-1. Wenn Sie bereits Rechtsseiten erstellt haben, waehlen Sie sie aus der Dropdown-Liste
+1. Wenn du bereits rechtliche Seiten erstellt hast, waehle sie aus der Dropdown-Liste
 2. Der Assistent weist sie den entsprechenden WooCommerce-Einstellungen zu
 
-### Vorlagen fuer Rechtsseiten
+### Vorlagen der rechtlichen Seiten
 
-Die generierten Seiten enthalten vom polnischen Recht geforderte Abschnitte. Beispielstruktur der AGB:
+Die generierten Seiten enthalten die vom polnischen Recht geforderten Abschnitte. Beispielhafte Struktur der AGB:
 
 ```
 1. Allgemeine Bestimmungen
 2. Definitionen
-3. Nutzungsregeln des Shops
-4. Bestellverfahren
+3. Regeln zur Nutzung des Shops
+4. Verfahren zur Aufgabe von Bestellungen
 5. Preise und Zahlungsmethoden
 6. Lieferung
-7. Widerrufsrecht
+7. Recht auf Widerruf des Vertrags
 8. Reklamationen und Garantie
 9. Personenbezogene Daten
 10. Schlussbestimmungen
 ```
 
 :::caution[Vorlagen erfordern Anpassung]
-Die generierten Seiten sind ein Ausgangspunkt, kein fertiges Rechtsdokument. Ueberpruefen Sie den Inhalt und passen Sie ihn an die Besonderheiten Ihres Shops an. Konsultieren Sie bei Zweifeln den Inhalt mit einem auf E-Commerce spezialisierten Anwalt.
+Die generierten Seiten sind ein Ausgangspunkt, kein fertiges Rechtsdokument. Pruefe den Inhalt und passe ihn an deinen Shop an. Konsultiere im Zweifel einen auf E-Commerce spezialisierten Anwalt.
 :::
 
-### Shortcodes auf Rechtsseiten
+### Shortcodes auf den rechtlichen Seiten
 
-Auf den generierten Seiten werden Shortcodes verwendet, die automatisch Firmendaten einfuegen:
+Die rechtlichen Seiten verwenden Shortcodes, die automatisch die Firmendaten einfuegen:
 
 ```
 [polski_company_name]        - Firmenname
@@ -138,12 +138,12 @@ Auf den generierten Seiten werden Shortcodes verwendet, die automatisch Firmenda
 [polski_company_address]     - Firmenadresse
 [polski_company_email]       - Kontakt-E-Mail
 [polski_company_phone]       - Telefon
-[polski_withdrawal_period]   - Widerrufsfrist (Standard 14 Tage)
+[polski_withdrawal_period]   - Widerrufsfrist (standardmaessig 14 Tage)
 ```
 
-Dank der Shortcodes aktualisieren sich die Rechtsseiten automatisch, wenn Sie die Firmendaten in den Plugin-Einstellungen aendern.
+Wenn du die Firmendaten in den Einstellungen aenderst, aktualisieren sich die rechtlichen Seiten automatisch.
 
-Verwendungsbeispiel im AGB-Text:
+Beispiel zur Verwendung im AGB-Text:
 
 ```
 Eigentuemer des Onlineshops ist [polski_company_name],
@@ -163,43 +163,43 @@ mit Sitz unter der Adresse: ul. Handlowa 5/10, 31-001 Krakow.
 Kontakt: sklep@kowalski-ecommerce.pl, Tel. +48 500 600 700.
 ```
 
-Klicken Sie auf **Weiter**, um zur Checkbox-Konfiguration zu gelangen.
+Klicke auf **Weiter**, um zur Konfiguration der Checkboxen zu gelangen.
 
 ---
 
 ## Schritt 3: Checkboxen auf der Kassenseite
 
-Konfigurieren Sie die Checkboxen auf der Kassenseite (Checkout). Das polnische Recht verlangt, dass der Kunde die AGB vor der Bestellung akzeptiert.
+Konfiguriere die Checkboxen auf der Kassenseite (Checkout). Das polnische Recht verlangt, dass der Kunde die AGB akzeptiert, bevor er eine Bestellung aufgibt.
 
 ### Standard-Checkboxen
 
-Der Assistent schlaegt einen Satz von Checkboxen vor, der den typischen Anforderungen entspricht:
+Der Assistent schlaegt ein Set von Checkboxen vor, das den typischen Anforderungen entspricht:
 
-**Checkbox 1 - AGB (obligatorisch)**
+**Checkbox 1 - AGB (verpflichtend)**
 
 ```
-Inhalt: Ich habe die [AGB] gelesen und akzeptiere deren Bestimmungen.
+Inhalt: Ich habe die [AGB des Shops] gelesen und akzeptiere sie.
 Erforderlich: Ja
 Link: /agb/
 Position: Vor dem Bestellbutton
 ```
 
-**Checkbox 2 - Datenschutzerklaerung (obligatorisch)**
+**Checkbox 2 - Datenschutzerklaerung (verpflichtend)**
 
 ```
-Inhalt: Ich habe die [Datenschutzerklaerung] zur Kenntnis genommen.
+Inhalt: Ich habe die [Datenschutzerklaerung] gelesen.
 Erforderlich: Ja
 Link: /datenschutz/
 Position: Vor dem Bestellbutton
 ```
 
-**Checkbox 3 - Widerrufsrecht (obligatorisch)**
+**Checkbox 3 - Widerrufsrecht (verpflichtend)**
 
 ```
-Inhalt: Ich habe die [Widerrufsbelehrung] und das [Muster-Widerrufsformular]
-         zur Kenntnis genommen.
+Inhalt: Ich habe die [Belehrung ueber das Recht auf Widerruf des Vertrags]
+         und das [Muster-Widerrufsformular] gelesen.
 Erforderlich: Ja
-Link: /widerruf/
+Link: /ruecksendungsrichtlinie/
 Position: Vor dem Bestellbutton
 ```
 
@@ -207,30 +207,30 @@ Position: Vor dem Bestellbutton
 
 ```
 Inhalt: Ich moechte Informationen ueber Neuheiten und Aktionen
-       per E-Mail erhalten.
+       an die angegebene E-Mail-Adresse erhalten.
 Erforderlich: Nein
-Position: Nach den Pflicht-Checkboxen
+Position: Nach den verpflichtenden Checkboxen
 ```
 
-### Checkboxen bearbeiten
+### Bearbeitung der Checkboxen
 
-Jede Checkbox koennen Sie anpassen:
+Jede Checkbox kannst du anpassen:
 
-- **Inhalt** - Text neben der Checkbox (unterstuetzt HTML fuer Links)
-- **Erforderlich** - ob das Ankreuzen fuer die Bestellung erforderlich ist
+- **Inhalt** - der neben der Checkbox angezeigte Text (unterstuetzt HTML fuer Links)
+- **Erforderlich** - ob die Markierung zur Aufgabe der Bestellung notwendig ist
 - **Position** - wo auf der Kassenseite die Checkbox angezeigt wird
-- **Fehlermeldung** - Text, der erscheint, wenn der Kunde eine Pflicht-Checkbox nicht ankreuzt
+- **Fehlermeldung** - der Text, der angezeigt wird, wenn der Kunde eine erforderliche Checkbox nicht markiert
 
-### Eigene Checkboxen hinzufuegen
+### Hinzufuegen eigener Checkboxen
 
-Klicken Sie auf **Checkbox hinzufuegen**, um eine weitere zu erstellen. Nuetzliche Szenarien:
+Klicke auf **Checkbox hinzufuegen**, um eine zusaetzliche zu erstellen. Nuetzliche Szenarien:
 
-- Einwilligung in die Datenverarbeitung zu Marketingzwecken
-- Altersbestaetigung (Shops mit Alkohol)
-- Einwilligung in telefonischen Kontakt
-- Bestaetigung der Kenntnisnahme des Produktdatenblatts (Lebensmittel)
+- Einwilligung in die Verarbeitung von Daten zu Marketingzwecken
+- Erklaerung der Volljaehrigkeit (Shops mit Alkohol)
+- Einwilligung in telefonische Kontaktaufnahme
+- Bestaetigung, die Produktseite gelesen zu haben (Lebensmittelprodukte)
 
-### Checkbox-Positionen
+### Positionen der Checkboxen
 
 Verfuegbare Positionen auf der Kassenseite:
 
@@ -238,44 +238,44 @@ Verfuegbare Positionen auf der Kassenseite:
 |---------|------|
 | `before_order_button` | Vor dem Button "Zahlungspflichtig bestellen" |
 | `after_order_button` | Nach dem Bestellbutton |
-| `after_billing_form` | Nach dem Rechnungsadressformular |
-| `after_shipping_form` | Nach dem Lieferadressformular |
-| `before_payment_methods` | Vor der Zahlungsmethodenwahl |
+| `after_billing_form` | Nach dem Formular der Zahlungsdaten |
+| `after_shipping_form` | Nach dem Formular der Lieferdaten |
+| `before_payment_methods` | Vor der Auswahl der Zahlungsmethode |
 
-Klicken Sie auf **Weiter**, um zur Zusammenfassung zu gelangen.
+Klicke auf **Weiter**, um zur Zusammenfassung zu gelangen.
 
 ---
 
-## Schritt 4: Modulaktivierung
+## Schritt 4: Aktivierung der Module
 
-Basierend auf Ihren Antworten schlaegt der Assistent eine Liste von Modulen zur Aktivierung vor:
+Der Assistent schlaegt auf Basis deiner Antworten Module zur Aktivierung vor:
 
-### Empfohlene Module (automatisch ausgewaehlt)
+### Empfohlene Module (automatisch markiert)
 
-- Omnibus - Preisverlaufsverfolgung
-- Bestellbutton - gesetzeskonformer Text
+- Omnibus - Verfolgung der Preishistorie
+- Bestellbutton - rechtskonformer Text
 - Rechtliche Checkboxen - im vorherigen Schritt konfiguriert
-- Rechtsseiten - in Schritt 2 generiert
+- Rechtliche Seiten - in Schritt 2 generiert
 - Widerrufsrecht - Formular und Belehrung
 - Lieferzeit - Information auf der Produktseite
 - GPSR - Produktsicherheitsdaten
 
-### Optionale Module (manuell auszuwaehlen)
+### Optionale Module (manuell zu markieren)
 
-- NIP-Suche - wenn Sie an Firmen verkaufen (B2B)
-- Naehrwerte - wenn Sie Lebensmittel verkaufen
-- Allergene - wenn Sie Lebensmittel verkaufen
-- Wunschliste - wenn Sie diese Funktion im Shop wuenschen
-- Produktvergleich - wenn Sie Produkte zum Vergleichen haben
-- DSA - wenn Sie einen Marktplatz betreiben
+- NIP-Suche - wenn du an Unternehmen verkaufst (B2B)
+- Naehrwerte - wenn du Lebensmittel verkaufst
+- Allergene - wenn du Lebensmittel verkaufst
+- Wunschliste - wenn du diese Funktion im Shop willst
+- Vergleich - wenn du Produkte zum Vergleichen hast
+- DSA - wenn du einen Marketplace betreibst
 
-Markieren Sie die Module, die Sie aktivieren moechten, und klicken Sie auf **Weiter**.
+Markiere die Module, die du aktivieren moechtest, und klicke auf **Weiter**.
 
 ---
 
 ## Schritt 5: Zusammenfassung und Anwendung
 
-Der letzte Schritt zeigt eine Zusammenfassung aller Einstellungen:
+Der letzte Schritt zeigt eine Zusammenfassung der Einstellungen:
 
 ```
 Firmendaten:
@@ -283,100 +283,100 @@ Firmendaten:
   NIP: 1234567890
   Adresse: ul. Handlowa 5/10, 31-001 Krakow
 
-Rechtsseiten:
+Rechtliche Seiten:
   AGB: Wird erstellt (neue Seite)
   Datenschutzerklaerung: Wird erstellt (neue Seite)
-  Widerrufsbelehrung: Wird erstellt (neue Seite)
+  Ruecksendungsrichtlinie: Wird erstellt (neue Seite)
 
-Checkboxen: 4 (3 obligatorisch, 1 optional)
+Checkboxen: 4 (3 verpflichtend, 1 optional)
 
 Zu aktivierende Module: 7
   - Omnibus
   - Bestellbutton
   - Rechtliche Checkboxen
-  - Rechtsseiten
+  - Rechtliche Seiten
   - Widerrufsrecht
   - Lieferzeit
   - GPSR
 ```
 
-Ueberpruefen Sie die Zusammenfassung und klicken Sie auf **Konfiguration anwenden**. Der Assistent:
+Pruefe die Zusammenfassung und klicke auf **Konfiguration anwenden**. Der Assistent:
 
 1. Speichert die Firmendaten in den Plugin-Einstellungen
-2. Erstellt die Rechtsseiten (falls Generierung gewaehlt)
+2. Erstellt die rechtlichen Seiten (falls die Generierung gewaehlt wurde)
 3. Weist die Seiten den WooCommerce-Einstellungen zu
 4. Konfiguriert die Checkboxen auf der Kassenseite
 5. Aktiviert die ausgewaehlten Module
 
-Nach Abschluss sehen Sie eine Bestaetigungsmeldung und einen Link zum Compliance-Dashboard.
+Nach Abschluss siehst du eine Bestaetigungsmeldung und einen Link zum Compliance-Dashboard.
 
 ---
 
 ## Nach Abschluss des Assistenten
 
-### Produktseite pruefen
+### Pruefe die Produktseite
 
-Oeffnen Sie ein beliebiges Produkt in Ihrem Shop und pruefen Sie, ob neue Elemente erschienen sind:
+Oeffne ein beliebiges Produkt in deinem Shop und pruefe, ob die neuen Elemente erschienen sind:
 
-- Information zum niedrigsten Preis (Omnibus) - sichtbar bei Produkten mit Reduzierung
+- Information ueber den niedrigsten Preis (Omnibus) - sichtbar bei reduzierten Produkten
 - Geschaetzte Lieferzeit
 - GPSR-Daten (Hersteller, verantwortliche Person)
 
-### Kassenseite pruefen
+### Pruefe die Kassenseite
 
-Fuegen Sie ein Produkt zum Warenkorb hinzu und gehen Sie zur Kasse:
+Lege ein Produkt in den Warenkorb und gehe zur Kasse:
 
-- Pruefen Sie, ob die Checkboxen korrekt angezeigt werden
-- Pruefen Sie, ob der Button den Text "Zamawiam z obowiazkiem zaplaty" traegt
-- Versuchen Sie, eine Bestellung ohne Ankreuzen der Checkboxen aufzugeben - es sollte eine Fehlermeldung erscheinen
+- Pruefe, ob die Checkboxen korrekt angezeigt werden
+- Pruefe, ob der Button den Text "Zahlungspflichtig bestellen" hat
+- Versuche, eine Bestellung ohne Markierung der Checkboxen aufzugeben - es sollte eine Fehlermeldung erscheinen
 
-### Rechtsseiten pruefen
+### Pruefe die rechtlichen Seiten
 
-Oeffnen Sie die generierten Seiten und pruefen Sie deren Inhalt:
+Oeffne die generierten Seiten und pruefe ihren Inhalt:
 
-- Ob die Firmendaten korrekt sind (Shortcodes sollten aktuelle Daten anzeigen)
-- Ob die Dokumentstruktur vollstaendig ist
-- Ob interne Links funktionieren
+- Ob die Firmendaten korrekt sind (die Shortcodes sollten die aktuellen Daten anzeigen)
+- Ob die Struktur des Dokuments vollstaendig ist
+- Ob die internen Links funktionieren
 
 ### Compliance-Dashboard
 
-Gehen Sie zu **WooCommerce > Polski > Konformitaet** - nach korrekter Konfiguration sollten die meisten Indikatoren gruen sein. Elemente, die zusaetzliche Aufmerksamkeit erfordern, werden mit gelbem Status und einer Anweisung markiert, was zu ergaenzen ist.
+Gehe zu **WooCommerce > Polski > Compliance** - nach korrekter Konfiguration sollten die meisten Indikatoren gruen sein. Elemente, die zusaetzliche Aufmerksamkeit erfordern, sind mit gelbem Status und einer Anweisung gekennzeichnet, was zu ergaenzen ist.
 
 ---
 
-## Assistenten erneut starten
+## Erneutes Starten des Assistenten
 
 Der Assistent kann jederzeit erneut gestartet werden:
 
-1. Gehen Sie zu **WooCommerce > Polski > Einstellungen**
-2. Klicken Sie auf **Assistenten erneut starten**
-3. Die Felder sind mit zuvor gespeicherten Daten gefuellt
-4. Aendern Sie, was Sie brauchen, und klicken Sie auf **Konfiguration anwenden**
+1. Gehe zu **WooCommerce > Polski > Einstellungen**
+2. Klicke auf **Assistenten erneut starten**
+3. Die Felder sind mit den zuvor gespeicherten Daten ausgefuellt
+4. Aendere, was du brauchst, und klicke auf **Konfiguration anwenden**
 
-Der Assistent loescht keine Rechtsseiten und setzt keine Module zurueck, die Sie bereits manuell konfiguriert haben.
+Der Assistent loescht keine rechtlichen Seiten und setzt keine manuell konfigurierten Module zurueck.
 
 ---
 
 ## Fehlerbehebung
 
-### Rechtsseiten wurden nicht erstellt
+### Die rechtlichen Seiten wurden nicht erstellt
 
-- Pruefen Sie, ob Ihr WordPress-Konto Administratorrechte hat
-- Pruefen Sie, ob unter **Einstellungen > Permalinks** ein anderes Format als "Einfach" eingestellt ist
-- Versuchen Sie, die Seiten manuell zu erstellen und unter **WooCommerce > Einstellungen > Erweitert > Seiteneinstellungen** zuzuweisen
+- Pruefe, ob dein WordPress-Konto Administratorrechte hat
+- Pruefe, ob in **Einstellungen > Permalinks** ein anderes Format als "Einfach" eingestellt ist
+- Versuche, die Seiten manuell zu erstellen und sie in **WooCommerce > Einstellungen > Erweitert > Seiteneinstellungen** zuzuweisen
 
-### Checkboxen werden auf der Kasse nicht angezeigt
+### Die Checkboxen werden an der Kasse nicht angezeigt
 
-- Stellen Sie sicher, dass das Modul "Rechtliche Checkboxen" unter **WooCommerce > Polski > Module** aktiv ist
-- Wenn Sie ein benutzerdefiniertes Kassen-Template verwenden, pruefen Sie, ob es WooCommerce-Hooks unterstuetzt
-- Leeren Sie den Cache von Caching-Plugins (WP Super Cache, W3 Total Cache, LiteSpeed Cache)
+- Stelle sicher, dass das Modul "Rechtliche Checkboxen" in **WooCommerce > Polski > Module** aktiv ist
+- Wenn du ein benutzerdefiniertes Kassen-Template verwendest, pruefe, ob es die WooCommerce-Hooks unterstuetzt
+- Leere den Cache von Caching-Plugins (WP Super Cache, W3 Total Cache, LiteSpeed Cache)
 
-### Assistent startet nicht
+### Der Assistent startet nicht
 
-- Leeren Sie den Browser-Cache und versuchen Sie es erneut
-- Pruefen Sie die Browser-Konsole (F12) auf JavaScript-Fehler
-- Deaktivieren Sie voruebergehend andere Plugins, die Konflikte verursachen koennten
+- Leere den Browser-Cache und versuche es erneut
+- Pruefe die Browser-Konsole (F12) auf JavaScript-Fehler
+- Deaktiviere voruebergehend andere Plugins, die einen Konflikt verursachen koennten
 
-Wenn das Problem bestehen bleibt, melden Sie es auf [GitHub Issues](https://github.com/wppoland/polski/issues) mit einer Problembeschreibung und einem Screenshot. Die Community hilft gerne auf [GitHub Discussions](https://github.com/wppoland/polski/discussions).
+Bleibt das Problem bestehen? Melde es auf [GitHub Issues](https://github.com/wppoland/polski/issues) mit Beschreibung und Screenshot. Du kannst auch auf [GitHub Discussions](https://github.com/wppoland/polski/discussions) fragen.
 
-<div class="disclaimer">Diese Seite dient ausschließlich zu Informationszwecken und stellt keine Rechtsberatung dar. Konsultieren Sie vor der Umsetzung einen Anwalt. Polski for WooCommerce ist Open-Source-Software (GPLv2) ohne Garantie.</div>
+<div class="disclaimer">Diese Seite dient ausschliesslich Informationszwecken und stellt keine Rechtsberatung dar. Konsultiere vor der Umsetzung einen Anwalt. Polski for WooCommerce ist eine Open-Source-Software (GPLv2), die ohne Gewaehrleistung bereitgestellt wird.</div>

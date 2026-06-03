@@ -1,11 +1,11 @@
 ---
 title: Plugin-Installation
-description: Schritt-fuer-Schritt-Anleitung zur Installation des Plugins Polski for WooCommerce - ueber das WordPress-Dashboard und manuell per ZIP-Datei. Systemanforderungen und Fehlerbehebung.
+description: Schritt-fuer-Schritt-Anleitung zur Installation des Plugins Polski for WooCommerce - ueber das WordPress-Panel sowie manuell aus der ZIP-Datei. Systemanforderungen und Fehlerbehebung.
 ---
 
 ## Voraussetzungen
 
-Pruefen Sie, ob Ihr Server die Anforderungen erfuellt. **Polski for WooCommerce** 1.3.2 erfordert:
+Pruefe, ob dein Server die Anforderungen erfuellt. Das Plugin **Polski for WooCommerce** 1.3.2 erfordert:
 
 | Komponente | Mindestversion | Empfohlene Version |
 |-----------|-----------------|-----------------|
@@ -15,40 +15,40 @@ Pruefen Sie, ob Ihr Server die Anforderungen erfuellt. **Polski for WooCommerce*
 | MySQL | 5.7+ | 8.0+ |
 | MariaDB | 10.3+ | 10.11+ |
 
-### PHP-Version pruefen
+### Pruefen der PHP-Version
 
-Wenn Sie nicht wissen, welche PHP-Version Ihr Server hat, pruefen Sie dies im WordPress-Dashboard:
+Du weisst nicht, welche PHP-Version du hast? Pruefe es im WordPress-Panel:
 
-1. Gehen Sie zu **Werkzeuge > Website-Zustand**
-2. Klicken Sie auf den Tab **Informationen**
-3. Erweitern Sie den Abschnitt **Server**
-4. Suchen Sie das Feld **PHP-Version**
+1. Gehe zu **Werkzeuge > Website-Zustand**
+2. Klicke auf den Reiter **Informationen**
+3. Klappe den Bereich **Server** auf
+4. Finde das Feld **PHP-Version**
 
-Alternativ ist die PHP-Version in vielen Hosting-Panels (cPanel, DirectAdmin) in den Domain-Einstellungen verfuegbar.
+Die PHP-Version findest du auch im Hosting-Panel (cPanel, DirectAdmin) in den Domain-Einstellungen.
 
-### WooCommerce-Version pruefen
+### Pruefen der WooCommerce-Version
 
-1. Gehen Sie zu **Plugins > Installierte Plugins**
-2. Suchen Sie **WooCommerce** in der Liste
+1. Gehe zu **Plugins > Installierte Plugins**
+2. Finde **WooCommerce** in der Liste
 3. Die Version wird unter dem Plugin-Namen angezeigt
 
 :::caution[PHP 8.0 und aelter]
-Das Plugin funktioniert nicht mit PHP 7.x oder PHP 8.0. Wenn Ihr Hosting PHP 8.1+ nicht unterstuetzt, kontaktieren Sie Ihren Hosting-Anbieter bezueglich eines Updates. Die meisten Hoster erlauben das Aendern der PHP-Version im Administrationspanel.
+Das Plugin funktioniert nicht mit PHP 7.x oder PHP 8.0. Wenn dein Hosting kein PHP 8.1+ hat, aendere die PHP-Version im Hosting-Panel oder kontaktiere den Anbieter.
 :::
 
 ---
 
-## Methode 1: Installation ueber das WordPress-Dashboard (empfohlen)
+## Methode 1: Installation ueber das WordPress-Panel (empfohlen)
 
-Dies ist die einfachste und empfohlene Installationsmethode.
+Das ist die einfachste und empfohlene Installationsmethode.
 
-### Schritt 1 - Plugin-Panel oeffnen
+### Schritt 1 - oeffne das Plugin-Panel
 
-Melden Sie sich im WordPress-Administrationspanel an und gehen Sie zu **Plugins > Neues Plugin hinzufuegen**.
+Melde dich im WordPress-Administrationsbereich an und gehe zu **Plugins > Neues Plugin hinzufuegen**.
 
-### Schritt 2 - Plugin suchen
+### Schritt 2 - suche das Plugin
 
-Geben Sie im Suchfeld ein:
+Gib im Suchfeld ein:
 
 ```
 Polski for WooCommerce
@@ -56,55 +56,55 @@ Polski for WooCommerce
 
 Das Plugin sollte als erstes Ergebnis erscheinen. Der Autor ist **wppoland.com**.
 
-### Schritt 3 - Plugin installieren
+### Schritt 3 - installiere das Plugin
 
-Klicken Sie auf den Button **Jetzt installieren** beim Plugin "Polski for WooCommerce". Warten Sie, bis WordPress die Dateien heruntergeladen und entpackt hat.
+Klicke beim Plugin "Polski for WooCommerce" auf den Button **Jetzt installieren**. Warte, bis WordPress die Dateien heruntergeladen und entpackt hat.
 
-### Schritt 4 - Plugin aktivieren
+### Schritt 4 - aktiviere das Plugin
 
-Nach Abschluss der Installation aendert sich der Button zu **Aktivieren**. Klicken Sie darauf, um das Plugin zu aktivieren.
+Nach Abschluss der Installation aendert sich der Button zu **Aktivieren**. Klicke darauf, um das Plugin zu aktivieren.
 
-### Schritt 5 - Zur Konfiguration gehen
+### Schritt 5 - gehe zur Konfiguration
 
-Nach der Aktivierung erscheint eine Benachrichtigung mit einem Link zum Konfigurationsassistenten. Klicken Sie auf **Plugin konfigurieren** oder gehen Sie manuell zu **WooCommerce > Polski**.
+Nach der Aktivierung erscheint ein Hinweis mit einem Link zum Konfigurationsassistenten. Klicke auf **Plugin konfigurieren** oder gehe manuell zu **WooCommerce > Polski**.
 
 ---
 
-## Methode 2: Manuelle Installation per ZIP-Datei
+## Methode 2: Manuelle Installation aus der ZIP-Datei
 
-Verwenden Sie diese Methode, wenn Sie eine bestimmte Plugin-Version installieren moechten oder keinen Zugriff auf das WordPress.org-Repository vom Server aus haben.
+Nutze diese Methode, wenn du eine bestimmte Version installieren willst oder der Server keine Verbindung zu WordPress.org herstellt.
 
-### Schritt 1 - ZIP-Paket herunterladen
+### Schritt 1 - lade das ZIP-Paket herunter
 
-Laden Sie die neueste Version des Plugins von einer der folgenden Quellen herunter:
+Lade die neueste Version des Plugins aus einer der folgenden Quellen herunter:
 
 - **WordPress.org**: [https://wordpress.org/plugins/polski/](https://wordpress.org/plugins/polski/)
 - **GitHub Releases**: [https://github.com/wppoland/polski/releases](https://github.com/wppoland/polski/releases)
 
-### Schritt 2 - ZIP-Datei hochladen
+### Schritt 2 - lade die ZIP-Datei hoch
 
-1. Gehen Sie zu **Plugins > Neues Plugin hinzufuegen**
-2. Klicken Sie auf den Button **Plugin hochladen** oben auf der Seite
-3. Klicken Sie auf **Datei auswaehlen** und waehlen Sie die heruntergeladene ZIP-Datei
-4. Klicken Sie auf **Jetzt installieren**
+1. Gehe zu **Plugins > Neues Plugin hinzufuegen**
+2. Klicke oben auf der Seite auf den Button **Plugin hochladen**
+3. Klicke auf **Datei auswaehlen** und waehle die heruntergeladene ZIP-Datei
+4. Klicke auf **Jetzt installieren**
 
-### Schritt 3 - Plugin aktivieren
+### Schritt 3 - aktiviere das Plugin
 
-Klicken Sie nach dem Hochladen und Entpacken der Dateien auf **Plugin aktivieren**.
+Nach dem Hochladen und Entpacken der Dateien klicke auf **Plugin aktivieren**.
 
 ---
 
-## Methode 3: Installation ueber FTP/SFTP
+## Methode 3: Installation per FTP/SFTP
 
-Diese Methode ist nuetzlich, wenn das WordPress-Dashboard keine Dateiuploads erlaubt (z.B. wegen Groessenlimits).
+Nutze diese Methode, wenn das WordPress-Panel das Hochladen von Dateien nicht erlaubt (z. B. wegen einer Groessenbegrenzung).
 
-### Schritt 1 - Archiv entpacken
+### Schritt 1 - entpacke das Archiv
 
-Entpacken Sie die heruntergeladene ZIP-Datei auf Ihrem Computer. Sie erhalten den Ordner `polski`.
+Entpacke die heruntergeladene ZIP-Datei auf deinem Computer. Du erhaeltst einen Ordner `polski`.
 
-### Schritt 2 - Auf den Server hochladen
+### Schritt 2 - lade auf den Server hoch
 
-Verbinden Sie sich per FTP/SFTP mit dem Server und laden Sie den gesamten Ordner `polski` in das Verzeichnis hoch:
+Verbinde dich per FTP/SFTP mit dem Server und lade den gesamten Ordner `polski` in das Verzeichnis hoch:
 
 ```
 /wp-content/plugins/
@@ -122,15 +122,15 @@ wp-content/
       ...
 ```
 
-### Schritt 3 - Im Dashboard aktivieren
+### Schritt 3 - aktiviere im Panel
 
-Gehen Sie zu **Plugins > Installierte Plugins** im WordPress-Dashboard und klicken Sie auf **Aktivieren** bei "Polski for WooCommerce".
+Gehe zu **Plugins > Installierte Plugins** im WordPress-Panel und klicke bei "Polski for WooCommerce" auf **Aktivieren**.
 
 ---
 
-## Installation ueber WP-CLI
+## Installation per WP-CLI
 
-Wenn Sie Terminalzugang zum Server haben, koennen Sie das Plugin mit einem einzigen Befehl installieren:
+Wenn du Zugriff auf das Server-Terminal hast, kannst du das Plugin mit einem einzigen Befehl installieren:
 
 ```bash
 wp plugin install polski --activate
@@ -142,7 +142,7 @@ Um das Plugin auf die neueste Version zu aktualisieren:
 wp plugin update polski
 ```
 
-Aktuelle Version pruefen:
+Pruefen der aktuellen Version:
 
 ```bash
 wp plugin get polski --fields=name,version,status
@@ -150,57 +150,57 @@ wp plugin get polski --fields=name,version,status
 
 ---
 
-## Installationsverifizierung
+## Ueberpruefung der Installation
 
-Pruefen Sie nach der Aktivierung des Plugins, ob alles korrekt funktioniert:
+Pruefe nach der Aktivierung des Plugins, ob alles korrekt funktioniert:
 
-1. **Neuer Menuepunkt** - im WooCommerce-Menue sollte der Eintrag **Polski** erscheinen
-2. **Compliance-Dashboard** - gehen Sie zu **WooCommerce > Polski**, um das Hauptpanel zu sehen
-3. **Keine Fehler** - pruefen Sie, ob auf der Seite keine PHP-Fehlermeldungen erscheinen
+1. **Neuer Menuepunkt** - im WooCommerce-Menue sollte das Element **Polski** erscheinen
+2. **Compliance-Dashboard** - gehe zu **WooCommerce > Polski**, um das Hauptpanel zu sehen
+3. **Keine Fehler** - pruefe, ob auf der Seite keine PHP-Fehlermeldungen erscheinen
 
-### Verifizierung per Shortcode
+### Pruefung mit einem Shortcode
 
-Um schnell zu ueberpruefen, ob das Plugin aktiv ist, koennen Sie den Diagnose-Shortcode auf einer beliebigen Seite verwenden:
+Um zu pruefen, ob das Plugin aktiv ist, fuege auf einer beliebigen Seite einen Shortcode ein:
 
 ```
 [polski_version]
 ```
 
-Der Shortcode zeigt die aktuelle Plugin-Version an (z.B. "1.3.2"), was eine korrekte Installation bestaetigt.
+Der Shortcode zeigt die Plugin-Version (z. B. "1.3.2") - das bedeutet, dass die Installation funktioniert.
 
 ---
 
 ## Fehlerbehebung
 
-### Plugin erscheint nicht in der Suche
+### Das Plugin erscheint nicht in der Suche
 
-- Pruefen Sie, ob Ihr WordPress eine Verbindung zum WordPress.org-Repository hat
-- Stellen Sie sicher, dass Sie genau nach "Polski for WooCommerce" suchen
-- Versuchen Sie die manuelle Installation per ZIP-Datei
+- Pruefe, ob dein WordPress eine Verbindung zum WordPress.org-Repository hat
+- Stelle sicher, dass du genau "Polski for WooCommerce" suchst
+- Versuche die manuelle Installation aus der ZIP-Datei
 
-### Fehler "Plugin erfordert eine neuere PHP-Version"
+### Fehler "Das Plugin erfordert eine neuere PHP-Version"
 
-Ihr Server verwendet eine nicht unterstuetzte PHP-Version. Loesung:
+Dein Server verwendet eine nicht unterstuetzte PHP-Version. Loesung:
 
-1. Melden Sie sich im Hosting-Panel an
-2. Suchen Sie die PHP-Einstellungen (ueblicherweise im Abschnitt "Domains" oder "Hosting")
-3. Aendern Sie die PHP-Version auf 8.1 oder neuer
-4. Warten Sie einige Minuten auf die Anwendung der Aenderungen
-5. Versuchen Sie erneut, das Plugin zu aktivieren
+1. Melde dich im Hosting-Panel an
+2. Finde die PHP-Einstellungen (in der Regel im Bereich "Domains" oder "Hosting")
+3. Aendere die PHP-Version auf 8.1 oder neuer
+4. Warte einige Minuten, bis die Aenderungen uebernommen werden
+5. Versuche, das Plugin erneut zu aktivieren
 
 ### Fehler "WooCommerce ist erforderlich"
 
 Das Plugin erfordert ein aktives WooCommerce in Version 8.0 oder neuer:
 
-1. Stellen Sie sicher, dass WooCommerce installiert und aktiv ist
-2. Aktualisieren Sie WooCommerce auf die neueste Version
-3. Aktivieren Sie das Plugin Polski for WooCommerce erneut
+1. Stelle sicher, dass WooCommerce installiert und aktiv ist
+2. Aktualisiere WooCommerce auf die neueste Version
+3. Aktiviere das Plugin Polski for WooCommerce erneut
 
 ### Weisser Bildschirm nach der Aktivierung
 
-Wenn nach der Aktivierung ein weisser Bildschirm erscheint:
+Wenn du nach der Aktivierung einen weissen Bildschirm siehst:
 
-1. Aktivieren Sie den WordPress-Debug-Modus - fuegen Sie zu `wp-config.php` hinzu:
+1. Aktiviere den WordPress-Debug-Modus - fuege Folgendes zu `wp-config.php` hinzu:
 
 ```php
 define('WP_DEBUG', true);
@@ -208,12 +208,12 @@ define('WP_DEBUG_LOG', true);
 define('WP_DEBUG_DISPLAY', false);
 ```
 
-2. Pruefen Sie die Logdatei: `wp-content/debug.log`
-3. Wenn das Problem ein Konflikt mit einem anderen Plugin ist, deaktivieren Sie die uebrigen Plugins und aktivieren Sie sie einzeln
+2. Pruefe die Logdatei: `wp-content/debug.log`
+3. Wenn das Problem einen Konflikt mit einem anderen Plugin betrifft, deaktiviere die uebrigen Plugins und aktiviere sie einzeln
 
 ### Probleme mit Dateiberechtigungen
 
-Wenn die manuelle Installation nicht funktioniert, pruefen Sie die Berechtigungen:
+Wenn die manuelle Installation nicht funktioniert, pruefe die Berechtigungen:
 
 ```bash
 # Empfohlene Berechtigungen fuer Verzeichnisse
@@ -225,24 +225,24 @@ chmod 644 wp-content/plugins/polski/*.php
 
 ---
 
-## Plugin-Update
+## Aktualisierung des Plugins
 
-Das Plugin aktualisiert sich automatisch ueber den WordPress-Update-Mechanismus. Wenn eine neue Version verfuegbar ist:
+Das Plugin aktualisiert sich ueber den standardmaessigen WordPress-Mechanismus. Wenn eine neue Version erscheint:
 
-1. Sie sehen eine Benachrichtigung unter **Plugins > Installierte Plugins**
-2. Klicken Sie auf **Jetzt aktualisieren** oder nutzen Sie die Massenaktualisierung
-3. Pruefen Sie nach dem Update, ob der Shop korrekt funktioniert
+1. Du siehst einen Hinweis in **Plugins > Installierte Plugins**
+2. Klicke auf **Jetzt aktualisieren** oder nutze die Massenaktualisierung
+3. Pruefe nach der Aktualisierung, ob der Shop korrekt funktioniert
 
-:::tip[Sicherungskopie]
-Erstellen Sie vor jedem Update eine Sicherungskopie der Datenbank und der Dateien. Die meisten Hoster bieten automatische Backups an, aber eine manuelle Kopie gibt Ihnen die Sicherheit, Aenderungen rueckgaengig machen zu koennen.
+:::tip[Backup]
+Erstelle vor der Aktualisierung ein Backup der Datenbank und der Dateien. Hosting macht das oft automatisch, aber ein manuelles Backup gibt Sicherheit.
 :::
 
 ---
 
 ## Naechste Schritte
 
-Gehen Sie nach erfolgreicher Installation zur [Plugin-Konfiguration](/de/getting-started/configuration/), um die benoetigten Module zu aktivieren und die Einstellungen an Ihren Shop anzupassen.
+Gehe nach der Installation zur [Plugin-Konfiguration](getting-started/configuration/), um Module zu aktivieren und die Einstellungen anzupassen.
 
-Wenn Sie ein Problem haben, das nicht in dieser Liste steht, melden Sie es auf [GitHub Issues](https://github.com/wppoland/polski/issues) oder fragen Sie die Community auf [GitHub Discussions](https://github.com/wppoland/polski/discussions).
+Hast du ein Problem, das hier nicht aufgefuehrt ist? Melde es auf [GitHub Issues](https://github.com/wppoland/polski/issues) oder frage auf [GitHub Discussions](https://github.com/wppoland/polski/discussions).
 
-<div class="disclaimer">Diese Seite dient ausschließlich zu Informationszwecken und stellt keine Rechtsberatung dar. Konsultieren Sie vor der Umsetzung einen Anwalt. Polski for WooCommerce ist Open-Source-Software (GPLv2) ohne Garantie.</div>
+<div class="disclaimer">Diese Seite dient ausschliesslich Informationszwecken und stellt keine Rechtsberatung dar. Konsultiere vor der Umsetzung einen Anwalt. Polski for WooCommerce ist eine Open-Source-Software (GPLv2), die ohne Gewaehrleistung bereitgestellt wird.</div>

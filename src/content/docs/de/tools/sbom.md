@@ -1,55 +1,48 @@
 ---
-title: SBOM - Software Bill of Materials
-description: Erzeugt ein CycloneDX 1.4 JSON-Dokument, das die PHP- (Composer) und JavaScript- (npm) Abhaengigkeiten des Plugins auflistet. Nuetzlich fuer Sicherheitsaudits, CRA-Konformitaetspakete und Schwachstellenscanner wie Trivy oder Dependency-Track.
+title: SBOM-Generator (Software Bill of Materials)
+description: Export eines CycloneDX-1.4-Dokuments, das die Abhängigkeiten des Plugins beschreibt - PHP (composer.lock), JS (package-lock.json) und Plugin-Header. Nützlich für CRA-Audits und den Import in Dependency-Track.
 ---
 
-Das Modul **SBOM** erzeugt ein **CycloneDX 1.4** JSON-Dokument, das das Plugin-Verzeichnis und seine Abhaengigkeiten beschreibt. Dies ist ein strukturelles Artefakt, das von Art. 13 des EU Cyber Resilience Act gefordert und von den meisten SBOM-Consumern (Trivy, Dependency-Track, Grype) akzeptiert wird.
+Das Modul **SBOM** erzeugt ein **CycloneDX-1.4-JSON**-Dokument, das die Abhängigkeiten des Plugins Polski for WooCommerce (sowie Polski Pro, falls installiert) beschreibt. Eine SBOM wird immer häufiger als verpflichtende Anlage zu Sicherheitsaudits und CRA-Dokumentationspaketen verlangt, und ihre CycloneDX-Struktur wird von Schwachstellen-Scannern (Trivy, Dependency-Track, OWASP DT) akzeptiert.
 
-## Warum CycloneDX statt SPDX
+:::note
+Die mit diesem Modul erzeugte SBOM beschreibt die Bibliotheken, die **vom Plugin** abhängen. Für eine vollständige SBOM des gesamten Shops bräuchtest du zusätzlich einen Scan von WordPress Core, weiteren Plugins, dem Theme und den Systemabhängigkeiten.
+:::
 
-Beide Formate sind weit verbreitet. CycloneDX 1.4 JSON wurde gewaehlt, weil die Struktur einfacher ist, direkt von Trivy und Dependency-Track konsumiert wird und Package URLs (`purl`) verwendet, die fuer Composer und npm sofort funktionieren.
+## Was gescannt wird
 
-## Konfiguration
-
-Gehen Sie zu **Polski > SBOM**. Das Modul ist standardmaessig aktiviert. Deaktivierung: **Polski > Module** und Haken bei "SBOM" entfernen.
-
-## Quellen
-
-Fuer jedes Zielverzeichnis liest der Generator:
-
-| Datei               | Inhalt                                                                    |
+| Quelle              | Umfang                                                                    |
 | ------------------- | ------------------------------------------------------------------------- |
-| `composer.lock`     | PHP-Pakete (Abschnitte `packages` und `packages-dev`)                     |
-| `package-lock.json` | JavaScript-Pakete (Map `packages` unter `node_modules/...`)               |
-| Plugin-Header       | Name und Version (aus Konstante `VERSION`)                                |
+| `composer.lock`     | PHP-Pakete aus dem Abschnitt `packages` (Scope `required`) und `packages-dev` (Scope `optional`) |
+| `package-lock.json` | npm-Pakete aus der Map `packages` (npm v7+); Flag `dev` -> Scope `optional`  |
+| Plugin-Header       | Metadaten der Anwendungskomponente: `name`, `version`, `publisher: WPPoland`   |
 
-Der Generator laeuft nur auf Abruf. Das JSON wird nicht gecached - die Erzeugung fuer ein FREE-Plugin mit rund 100 Abhaengigkeiten dauert unter 200 ms.
+Für jedes Paket wird eine `purl` (Package URL) im folgenden Format aufgebaut:
 
-## Ziele
+- PHP: `pkg:composer/<vendor>/<name>@<version>`
+- JS: `pkg:npm/<name>@<version>`
 
-- `polski` - das FREE-Plugin (`WP_PLUGIN_DIR/polski` oder `Polski\PLUGIN_DIR`)
-- `polski-pro` - nur sichtbar, wenn PRO installiert ist und die Konstanten `Polski\Pro\PLUGIN_DIR` / `Polski\Pro\VERSION` definiert sind
+Lizenzen werden zum Array `{license: {id: "<SPDX>"}}` normalisiert.
 
-## Ausgabe
+## Herunterladen
 
-Die Datei wird ausgeliefert mit:
+Gehe zu **Polski > SBOM** und klicke beim gewünschten Ziel (FREE oder PRO) auf **Download SBOM (JSON)**. Datei:
 
-```
-Content-Type: application/vnd.cyclonedx+json; charset=utf-8
-Content-Disposition: attachment; filename="polski-sbom-<version>-<UTC-Zeitstempel>.cdx.json"
-```
+- Name: `<slug>-sbom-<version>-<timestamp>.cdx.json`
+- Content-Type: `application/vnd.cyclonedx+json; charset=utf-8`
+- Content-Disposition: `attachment`
 
-Beispiel (gekuerzt):
+## Beispielausschnitt
 
 ```json
 {
   "bomFormat": "CycloneDX",
   "specVersion": "1.4",
-  "serialNumber": "urn:uuid:5a3b....",
+  "serialNumber": "urn:uuid:8f3a...",
   "version": 1,
   "metadata": {
-    "timestamp": "2026-04-19T08:30:00+00:00",
-    "tools": [{ "vendor": "WPPoland", "name": "Polski SBOM generator", "version": "1.0" }],
+    "timestamp": "2026-04-19T09:00:00+00:00",
+    "tools": [{"vendor": "WPPoland", "name": "Polski SBOM generator", "version": "1.0"}],
     "component": {
       "type": "application",
       "bom-ref": "wppoland/polski",
@@ -61,43 +54,33 @@ Beispiel (gekuerzt):
   "components": [
     {
       "type": "library",
-      "bom-ref": "composer:woocommerce/woocommerce-blocks",
-      "name": "woocommerce/woocommerce-blocks",
-      "version": "10.8.4",
+      "bom-ref": "composer:symfony/console",
+      "name": "symfony/console",
+      "version": "6.4.0",
       "scope": "required",
-      "purl": "pkg:composer/woocommerce/woocommerce-blocks@10.8.4",
-      "licenses": [{ "license": { "id": "GPL-3.0-or-later" } }]
+      "purl": "pkg:composer/symfony/console@6.4.0",
+      "licenses": [{"license": {"id": "MIT"}}]
     }
   ]
 }
 ```
 
-## Verwendung
-
-### Trivy
-
-```bash
-trivy sbom polski-sbom-2.1.0-20260419-083000.cdx.json
-```
-
-### Dependency-Track
-
-1. Legen Sie in Dependency-Track ein Projekt an (eines pro Plugin).
-2. Laden Sie das JSON ueber die UI oder den Endpunkt `/api/v1/bom` hoch.
-3. Binden Sie das Projekt in eine CI-Pipeline ein, damit jedes Release das BOM aktualisiert.
-
-## CRA-Kontext
-
-Art. 13 des Cyber Resilience Act verpflichtet Hersteller, SBOMs fuer ihre Produkte zu pflegen. Das CycloneDX-JSON neben dem getaggten Release abzulegen, ist eine uebliche Methode, die Pflicht zu erfuellen. Der Dateiname enthaelt Version und UTC-Zeitstempel, damit Artefakte ueber Releases hinweg eindeutig bleiben.
-
 ## Berechtigungen
 
-- UI und Download: `manage_woocommerce`
-- Nonce: `polski_sbom_download` (fuer die POST-Aktion erforderlich)
+Zugriff auf die Seite und Download: `manage_woocommerce`. Die Funktion basiert auf `admin_post` + Nonce `polski_sbom_download`.
 
-## Grenzen
+## Importe
 
-- Transitive Abhaengigkeitsbeziehungen (`dependencies` Baum) werden noch nicht ausgegeben (nur flache Liste)
-- WordPress selbst ist keine Komponente im BOM (es ist die Laufzeit, keine gebuendelte Abhaengigkeit)
-- Version wird nur aus den Plugin-Konstanten ermittelt - nicht aus dem `composer.json` Feld
-- Keine HMAC-Signatur am BOM (fuer PRO geplant)
+Die erzeugte Datei kannst du direkt importieren in:
+
+- **Dependency-Track** (File Upload oder REST `/api/v1/bom`)
+- **Trivy** (`trivy sbom <file>.cdx.json`)
+- **Grype** (`grype sbom:<file>.cdx.json`)
+- **OWASP CycloneDX CLI** (`cyclonedx validate`)
+
+## Einschränkungen
+
+- Die SBOM beschreibt nur ein Plugin-Verzeichnis; sie aggregiert nicht das gesamte WordPress
+- Kein Abschnitt mit Datei-Hashes (`hashes`) - wird in PRO ergänzt
+- Nicht normalisierte Lizenzen (z. B. `MIT OR Apache-2.0`) landen unverändert als `id`
+- Abhängigkeiten, die außerhalb von `composer.lock` / `package-lock.json` heruntergeladen werden, werden nicht erkannt

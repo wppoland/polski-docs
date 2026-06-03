@@ -1,83 +1,103 @@
 ---
-title: Copyright-Helfer - Hinweis, Bildnachweis, Gutenberg-Block
-description: Wiederverwendbare Shortcodes und ein Gutenberg-Block fuer Copyright-Hinweise (c YYYY Inhaber - Lizenz) und Bildnachweise pro Bild (Autor, Quelle, Lizenz).
+title: Copyright- und Bildnachweis-Helfer
+description: Shortcode [polski_copyright], Block polski/copyright sowie [polski_image_credit] - Standard-Copyright-Zeile, Lizenz und Bildnachweis unter Wahrung des Urheberrechts.
 ---
 
-Das Modul **Copyright-Helfer** stellt drei wiederverwendbare Ausgaben fuer Copyright- und Urhebernachweise bereit:
+Das Modul **Copyright helpers** stellt drei Komponenten bereit: den Copyright-Shortcode, den Gutenberg-Block `polski/copyright` und den Shortcode für Bildnachweise. Ziel ist es, verstreute Fußzeilen vom Typ `© 2020 MeineFirma` (veraltetes Jahr), fehlende Lizenzangaben sowie fehlende Nachweise bei Bildern, die unter einer Creative-Commons-Lizenz verwendet werden, zu vermeiden.
 
-- Shortcode `[polski_copyright]` - Standard-Copyright-Zeile
-- Shortcode `[polski_image_credit]` - Bildnachweis-Fusszeile pro Bild
-- Gutenberg-Block `polski/copyright` - dynamischer Block, der dasselbe Rendering nutzt
-
-Dies sind kleine Bausteine, kein vollstaendiges DAM. Sie dienen dazu, Stockfotos, Nutzerbeitraege und eigene Inhalte konsistent im Shop zuzuordnen.
+:::note
+Hilft, die Anforderungen aus Art. 34 des Urheberrechtsgesetzes (Zitieren mit Nennung des Urhebers) sowie die Anforderungen der CC-Lizenzen zu wahren (BY - Name des Autors, SA - dieselben Bedingungen).
+:::
 
 ## Copyright-Zeile
 
+### Shortcode
+
 ```
 [polski_copyright]
-[polski_copyright year="2020 - 2026" owner="Przykladowa Firma sp. z o.o." license="CC BY 4.0"]
+[polski_copyright year="2026" owner="WPPoland" license="GPLv2"]
+[polski_copyright license="CC BY-SA 4.0" separator=" - "]
 ```
 
-| Attribut    | Standard                                                       | Beschreibung                                    |
-| ----------- | -------------------------------------------------------------- | ----------------------------------------------- |
-| `year`      | aktuelles UTC-Jahr                                             | Einzeljahr oder Bereich                         |
-| `owner`     | `polski_general.company_name` oder WordPress-Seitentitel       | Rechteinhaber                                   |
-| `license`   | leer                                                           | Lizenzkennung (SPDX, Creative Commons)          |
-| `separator` | ` - `                                                          | Trennzeichen zwischen Inhaber und Lizenz        |
+### Gutenberg-Block
 
-Ausgabe:
+Name: `polski/copyright`. Kategorie Widgets, Symbol `shield`.
+Unterstützt `align: wide | full`, `html: false`.
+
+### Attribute
+
+| Attribut   | Standard                                    | Beschreibung                                               |
+| ---------- | ------------------------------------------- | ---------------------------------------------------------- |
+| year       | Aktuelles UTC-Jahr                          | Jahr oder Bereich (`2019-2026`)                            |
+| owner      | `polski_general.company_name` oder site name | Name des Rechteinhabers                                    |
+| license    | (leer)                                      | SPDX-Kennung / Lizenzname (nach dem Trennzeichen angehängt) |
+| separator  | ` - `                                       | Trennzeichen zwischen Copyright-Zeile und Lizenz           |
+
+Gerendertes HTML:
 
 ```html
-<span class="polski-copyright">&copy; 2026 Przykladowa Firma - License: CC BY 4.0</span>
+<span class="polski-copyright">&copy; 2026 WPPoland - License: GPLv2</span>
 ```
 
-## Gutenberg-Block
-
-Blockname: `polski/copyright`. Kategorie: Widgets. Unterstuetzt Breit-/Vollbreitausrichtung. Attribute: `owner`, `year`, `license`. Das Rendering ist dynamisch, sodass das "aktuelle Jahr" ohne erneutes Speichern der Seite automatisch aktualisiert wird.
+Das Standardjahr ist immer aktuell (`gmdate('Y')`), keine statischen Fußzeilen, die jedes Jahr am 1. Januar aktualisiert werden müssen.
 
 ## Bildnachweis
 
+Der Shortcode `[polski_image_credit]` rendert ein Bild mit einer Nachweis-Bildunterschrift, die mit CC- / Stock-Lizenzen konform ist.
+
 ```
-[polski_image_credit image_id="42" credit="Photo: Jan Kowalski" source="https://example.com" license="CC BY-SA 4.0"]
-[polski_image_credit credit="Photo by Jan Kowalski"]
+[polski_image_credit image_id="42" credit="Photo: Jan Kowalski" source="https://unsplash.com/photos/xyz" license="CC BY 4.0"]
+[polski_image_credit credit="Photo by Ewa Nowak" license="CC BY-SA 4.0"]
 ```
 
-| Attribut   | Standard  | Beschreibung                                                                        |
-| ---------- | --------- | ----------------------------------------------------------------------------------- |
-| `image_id` | leer      | WordPress-Anhang-ID. Wenn gesetzt, wird das Bild vor der Bildunterschrift gerendert |
-| `credit`   | leer      | Autor oder Nachweis-String (erforderlich, sofern `image_id` nicht allein gesetzt)   |
-| `source`   | leer      | URL zur Quelle. Wird als "source"-Link mit `rel="nofollow noopener"` gerendert     |
-| `license`  | leer      | Lizenzkennung                                                                       |
-| `size`     | `medium`  | WordPress-Bildgroessen-Slug                                                         |
+### Attribute
 
-Die Ausgabe ist eine `<figure>` mit `<figcaption>`:
+| Attribut | Typ    | Standard  | Beschreibung                                                       |
+| -------- | ------ | --------- | ------------------------------------------------------------------ |
+| image_id | int    | (leer)    | ID des WordPress-Anhangs. Wenn angegeben, wird Bild + caption gerendert |
+| credit   | string | (leer)    | Name des Urhebers (erforderlich, wenn `image_id` fehlt, Pflicht bei CC) |
+| source   | url    | (leer)    | Link zum Original (gerendert als "source", `rel="nofollow noopener"`) |
+| license  | string | (leer)    | Lizenzkennung (z. B. `CC BY 4.0`, `CC0`)                           |
+| size     | string | `medium`  | WordPress-Größe (thumbnail/medium/large/full)                      |
+
+### Gerendertes HTML
 
 ```html
 <figure class="polski-image-credit">
-  <img src="..." alt="..." />
-  <figcaption class="polski-image-credit__caption">Photo: Jan Kowalski - <a href="..." rel="nofollow noopener" target="_blank">source</a> - License: CC BY-SA 4.0</figcaption>
+    <img src="..." alt="..." />
+    <figcaption class="polski-image-credit__caption">
+        Photo: Jan Kowalski - <a href="..." rel="nofollow noopener" target="_blank">source</a> - License: CC BY 4.0
+    </figcaption>
 </figure>
 ```
 
-## Typische Einsatzgebiete
+Wenn `image_id` nicht angegeben ist, wird nur eine `<figure>` mit reiner `<figcaption>` gerendert (nützlich für den Nachweis inline eingebetteter Vektor-Icons oder vom Theme gerenderter Bilder).
 
-- Shop-Footer-Copyright-Zeile (mit automatisch befuelltem Jahr und Firmennamen)
-- Produktgalerie-Nachweise fuer Stockfotos
-- Blog-Beitragsheldenbild-Nachweis
-- Team-Portraet-Nachweis
+### Praxis für CC-Lizenzen
 
-## Integration mit Themes
+| Lizenz      | Mindest-Nachweis                                     |
+| ----------- | ---------------------------------------------------- |
+| CC BY 4.0   | `credit` + `source` + `license`                      |
+| CC BY-SA 4.0| `credit` + `source` + `license` (Hinweis auf SA)     |
+| CC0         | `credit` optional, `license="CC0"` empfohlen         |
+| Unsplash    | `credit` + `source` (Anforderung der Unsplash License) |
 
-Die meisten Block-Themes stellen ein Seitenfooter-Template bereit. Den **Copyright notice**-Block dort einfuegen und fest codierte Copyright-Texte entfernen - das Jahr aktualisiert sich nach dem Jahreswechsel automatisch, ohne Theme-Aenderung.
+## Aktivierung
 
-## Berechtigungen
+Das Modul wird über das Flag `copyright_notice` in **Polski > Module** aktiviert. Die Deaktivierung entfernt beide Shortcodes und den Block.
 
-- Oeffentlich (frontend-sicher)
-- Keine Admin-UI
+## Integration mit dem Modul Firmenidentifikation
 
-## Grenzen
+Der Shortcode `[polski_copyright]` ohne das Attribut `owner` liest `polski_general.company_name`. Dadurch zeigt die Shop-Fußzeile auch nach einem Rebranding den aktuellen Firmennamen, es genügt eine Aktualisierung im Assistenten, ohne das Theme zu bearbeiten.
 
-- Kein DAM - das Plugin verfolgt keine Lizenzen, die an Medien gebunden sind (fuer 2.3.0 geplant)
-- Lizenzfeld akzeptiert jeden String - keine SPDX-Validierung
-- Der Bildnachweis-Shortcode erzeugt noch keine schema.org `Photograph`-Strukturdaten
-- Styling ist minimal - `.polski-copyright` und `.polski-image-credit` im Theme-CSS ueberschreiben
+```html
+<footer>
+    [polski_copyright] - [polski_business_info format="inline" show_label="0"]
+</footer>
+```
+
+## Einschränkungen
+
+- Keine Galerie mit Nachweisen für mehrere Bilder gleichzeitig (der Shortcode muss pro Bild eingebettet werden)
+- Keine Validierung der SPDX-Kennung, jeder String landet in `License:`
+- Der Shortcode image_credit unterstützt kein `srcset` für custom URL (nur für `image_id`)

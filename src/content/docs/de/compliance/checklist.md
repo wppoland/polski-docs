@@ -1,100 +1,120 @@
 ---
-title: Checkliste - Datenschutzerklaerung und Regulamin
-description: Automatischer strukturaler Audit der rechtlichen Seiten des Shops. Prueft Elemente, die gemaess DSGVO Art. 13, dem polnischen Gesetz ueber die Erbringung elektronischer Dienstleistungen (UŚUDE), dem Verbraucherrechtegesetz und den Cookie-Einwilligungsregeln erforderlich sind.
+title: Compliance-Checkliste für Datenschutzerklärung und AGB
+description: Automatisches strukturelles Audit der rechtlichen Shop-Seiten - Prüfung der von DSGVO Art. 13 und dem Gesetz über die Erbringung elektronischer Dienstleistungen geforderten Elemente.
 ---
 
-Das Modul **Compliance-Checkliste** scannt zwei wichtige rechtliche Seiten des Shops (Datenschutzerklaerung und Regulamin, die polnische Entsprechung der AGB) sowie das Cookie-Banner und meldet, ob die gesetzlich geforderten Elemente vorhanden sind. Es handelt sich um eine strukturale Heuristik, nicht um eine Rechtsberatung. Sie hilft jedoch, fehlende Abschnitte schnell zu lokalisieren.
+Das Modul **Compliance-Checkliste** scannt zwei zentrale rechtliche Shop-Seiten (Datenschutzerklärung und AGB) und meldet, ob sie die gesetzlich geforderten Elemente enthalten. Das ist eine strukturelle Heuristik, keine Rechtsberatung - aber sie hilft, fehlende Absätze schnell zu lokalisieren.
 
 :::caution
-Die Pruefung basiert auf Schluesselwort-Erkennung. Ein Ergebnis "OK" garantiert keine rechtliche Konformitaet. Eine Rechtsberatung bleibt erforderlich.
+Die Prüfung basiert auf der Erkennung von Schlüsselwörtern. Ein Ergebnis "OK" garantiert keine rechtliche Konformität - die Konsultation eines Anwalts bleibt notwendig.
 :::
 
-## Funktionsweise
+## So funktioniert es
 
-1. Das Plugin liest den Inhalt der Seite, die als Datenschutzerklaerung oder Regulamin konfiguriert ist (Optionen `polski_privacy_page_id`, `polski_terms_page_id`).
-2. Der Inhalt wird normalisiert: HTML entfernt, Gross-/Kleinschreibung vereinheitlicht, polnische diakritische Zeichen in ASCII umgewandelt (a/c/e/l/n/o/s/z).
-3. Die Engine durchlaeuft ein Regelwerk (17 Regeln fuer die Datenschutzerklaerung, 15 fuer den Regulamin) und sucht nach Schluesselwortmustern. Eine Regel besteht, wenn mindestens ein Muster im Inhalt vorkommt.
-4. Das Ergebnis wird als Liste mit **OK / Missing** Markierungen, Schweregrad (Required / Recommended / Optional) und einem Hinweis praesentiert.
+1. Das Plugin liest den Inhalt der als Datenschutzerklärung oder AGB festgelegten Seite (Optionen `polski_privacy_page_id`, `polski_terms_page_id`).
+2. Der Inhalt wird normalisiert: HTML entfernt, Groß-/Kleinschreibung vereinheitlicht, polnische diakritische Zeichen in ASCII umgewandelt (a/c/e/l/n/o/s/z).
+3. Die Engine durchläuft einen Satz von Regeln (17 für die Datenschutzerklärung, 15 für die AGB) und sucht nach Schlüsselwortmustern. Eine Regel gilt als erfüllt, wenn im Inhalt eines der Muster gefunden wird.
+4. Das Ergebnis wird als Liste mit der Markierung **OK / Missing**, dem Wichtigkeitsgrad (Required / Recommended / Optional) sowie einem Hinweis, was hinzuzufügen ist, dargestellt.
 
 ## Konfiguration
 
-Gehen Sie zu **Polski > Compliance-Checkliste**. Wenn Ihre rechtlichen Seiten noch nicht zugewiesen sind, konfigurieren Sie diese zuerst unter **Polski > Rechtliche Seiten**.
+Gehe zu **Polski > Compliance-Checkliste**. Wenn du noch keine rechtlichen Seiten festgelegt hast, lege sie zuvor unter **Polski > Rechtliche Seiten** fest.
 
-Das Modul ist standardmaessig aktiviert. Deaktivierung: **Polski > Module** und Haken bei "Compliance checklist" entfernen.
+Das Modul ist standardmäßig aktiviert. Deaktivierung: **Polski > Module** -> "Compliance checklist" abwählen.
 
-## Umfang der Pruefungen
+## Umfang der Prüfungen
 
-### Datenschutzerklaerung (DSGVO Art. 13) - 17 Regeln
+### Datenschutzerklärung (DSGVO Art. 13) - 17 Regeln
 
 Erforderlich:
-- Identitaet des Verantwortlichen
+- Identifikation des Verantwortlichen für die Datenverarbeitung
 - Kontaktkanal (E-Mail oder Formular)
-- Zwecke der Verarbeitung
+- Verarbeitungszwecke
 - Rechtsgrundlage (Art. 6 Abs. 1 DSGVO)
 - Speicherdauer
-- Empfaenger der Daten / Auftragsverarbeiter
-- Betroffenenrechte: Auskunft, Berichtigung, Loeschung, Einschraenkung, Uebertragbarkeit, Widerspruch
+- Empfänger der Daten / Auftragsverarbeiter
+- Rechte der Person: Auskunft, Berichtigung, Löschung, Einschränkung, Übertragbarkeit, Widerspruch
 - Recht auf Widerruf der Einwilligung
-- Beschwerde beim Praesidenten der UODO (polnische Datenschutzbehoerde)
+- Beschwerde bei der Aufsichtsbehörde (UODO)
 
 Empfohlen:
 - Automatisierte Entscheidungsfindung / Profiling
-- Uebermittlung ausserhalb des EWR
+- Übermittlung außerhalb des EWR
 
 Optional:
 - Kontakt zum Datenschutzbeauftragten (falls bestellt)
 
-### Cookie-Banner (aktive Einwilligung) - 9 Regeln
+### Cookie-Banner (active consent) - 10 Regeln
 
 Erforderlich:
 - Vorhandensein des Banners (cookies / ciasteczka im HTML)
-- Schaltflaeche "Akzeptieren"
-- Schaltflaeche "Ablehnen" mit gleichwertiger Sichtbarkeit
-- Kategorie-Einstellungen / Praeferenzen
-- Link zur Datenschutzerklaerung
+- Akzeptieren-Button
+- Ablehnen-Button mit gleichwertiger Sichtbarkeit
+- Einstellungen / Präferenzen der Kategorien
+- Link zur Datenschutzerklärung
 
 Empfohlen:
-- Benannte Kategorie "Analytik"
-- Benannte Kategorie "Marketing / Werbung"
-- Hinweis auf das Recht zum Widerruf der Einwilligung
+- Benannte Kategorie Analytik
+- Benannte Kategorie Marketing / Werbung
+- Hinweis auf die Möglichkeit, die Einwilligung zu widerrufen
 
-Invertierte Regel (Vorkommen = FAIL):
-- "Durch Klick auf einen beliebigen Link akzeptieren Sie" / "Durch weitere Nutzung stimmen Sie zu" - Formulierungen, die eine **konkludente Einwilligung** nahelegen und mit der aktiven Einwilligung nach DSGVO und ePrivacy nicht vereinbar sind.
+Invertierte Regeln (Vorhandensein = FAIL):
+- "Klikajac dowolny link akceptujesz" / "By continuing to use the site you agree" - Formulierungen, die **implied consent** suggerieren und mit aktiver Einwilligung unvereinbar sind.
+- Erkennung von Auto-Push-Prompts: `Notification.requestPermission`, `PushManager.subscribe`, `ServiceWorker.register` sowie Signaturen der am häufigsten genutzten Drittanbieter-Push-SDKs. Das Auslösen dieser Aufrufe ohne vorherige Nutzerinteraktion ist ein Deceptive Pattern (EDPB 03/2022) - Browser und Aufsichtsbehörden behandeln dies als Verstoß.
 
-Gescannt wird `home_url('/')`, das Ergebnis wird fuer 1 Stunde in einem Transient zwischengespeichert. Banner, die nur per JavaScript gerendert werden, koennen fuer den Scan unsichtbar sein. Dieser Abschnitt ist eine Heuristik, kein Urteil. Der Scanner markiert zusaetzlich Push-Benachrichtigungs-Prompts, die ohne vorgeschaltetes Einwilligungs-Banner ausgeloest werden.
+Gescannt wird `home_url('/')`, das Ergebnis wird 1 h lang im Transient gecacht. Ein Banner, das nur per JS gerendert wird, ist im Scan möglicherweise nicht sichtbar - dieser Bereich ist eine Heuristik, kein Urteil.
 
-### Regulamin (Gesetz ueber die Erbringung elektronischer Dienstleistungen + Verbraucherrechtegesetz) - 15 Regeln
+### Accessibility (WCAG-Heuristiken) - 9 Regeln
+
+Scan des statischen HTML der Startseite auf typische WCAG-2.1-AA-Regressionen:
 
 Erforderlich:
-- Identifikation des Diensteanbieters (Name, NIP / polnische Steuer-ID, REGON / Statistiknummer)
+- `<html lang="...">` vorhanden (WCAG 3.1.1)
+- Link "zum Inhalt springen" / Skip-Link (WCAG 2.4.1)
+- Einzelnes `<h1>` (WCAG 1.3.1, 2.4.6)
+- `<meta name="viewport">` (WCAG 1.4.10 Reflow)
+- `<main>` oder `role="main"` (WCAG 1.3.1)
+- Bilder mit `alt`-Attribut (WCAG 1.1.1)
+
+Empfohlen:
+- `role="search"` auf dem Suchformular
+- Kein globales `outline:none` (WCAG 2.4.7) - invertierte Regel
+- Kein `autoplay` mit Ton (WCAG 1.4.2) - invertierte Regel
+
+Das ist eine statische Heuristik. Für ein vollständiges Audit nutze axe-core oder Lighthouse im Browser.
+
+### AGB (Gesetz über die Erbringung elektronischer Dienstleistungen + Verbraucherrechtegesetz) - 15 Regeln
+
+Erforderlich:
+- Identifikation des Diensteanbieters (Name, NIP, REGON)
 - Adresse + Kontakt-E-Mail
-- Art und Umfang der Leistungen
+- Art und Umfang der Dienstleistungen
 - Technische Anforderungen
-- Bestellablauf
+- Art der Bestellaufgabe
 - Zahlungsmethoden
-- Versandarten und -zeiten
+- Liefermethoden und -zeiten
 - Widerrufsrecht (14 Tage)
 - Widerrufsformular
 - Reklamationsverfahren
-- Verweis auf die Datenschutzerklaerung / DSGVO
-- Verfahren zur Aenderung des Regulamins
+- Verweis auf die Datenschutzerklärung / DSGVO
+- Verfahren zur Änderung der AGB
 - Anwendbares Recht
 
 Empfohlen:
 - ODR-Plattform (ec.europa.eu)
-- Inkrafttreten
+- Datum des Inkrafttretens
 
-## Ergebnis und Bewertung
+## Ergebnis und Punktzahl
 
-Punktzahl 0-100%:
-- Required: Gewichtung 3
-- Recommended: Gewichtung 2
-- Optional: Gewichtung 1
+Score 0-100%:
+- Required: Gewicht 3
+- Recommended: Gewicht 2
+- Optional: Gewicht 1
 
-Erreichte Punkte / Maximum * 100. Alle Required-Regeln muessen OK sein, bevor der Shop eine solide Ausgangsposition hat.
+Erreichte Punkte / Maximum * 100. Alle Required-Regeln müssen auf OK sein, damit der Shop eine solide Ausgangsposition hat.
 
 Farbe der Punktzahl:
-- gruen >= 90%
+- grün >= 90%
 - gelb 70-89%
 - rot < 70%
 
@@ -105,9 +125,11 @@ GET /wp-json/polski/v1/compliance/page/privacy
 GET /wp-json/polski/v1/compliance/page/terms
 GET /wp-json/polski/v1/compliance/cookie-banner
 GET /wp-json/polski/v1/compliance/cookie-banner?url=https://example.com/
+GET /wp-json/polski/v1/compliance/accessibility
+GET /wp-json/polski/v1/compliance/accessibility?url=https://example.com/
 ```
 
-Gibt den Report als JSON zurueck:
+Gibt den Bericht als JSON zurück:
 
 ```json
 {
@@ -128,31 +150,21 @@ Gibt den Report als JSON zurueck:
 }
 ```
 
-Zugriff: `manage_woocommerce` Capability.
+Zugriff: Berechtigung `manage_woocommerce`.
 
-## Matching-Regeln
+## Regeln für den Abgleich
 
-Jede Regel hat eine Liste von Mustern (polnisch + englisch). Muster sind vornormalisiert (Kleinschreibung, keine Diakritika). Beispiele:
+Jede Regel hat eine Liste von Mustern (Polish + English). Die Muster sind bereits normalisiert (Kleinschreibung, ohne Diakritika). Beispiele:
 
-- `"administratorem danych osobowych"` - formelle polnische Formulierung
-- `"administrator danych"` - Kurzform
-- `"data controller"` - englische Variante
+- `"administratorem danych osobowych"` - formale Schreibweise
+- `"administrator danych"` - verkürzt
+- `"data controller"` - englische Version
 
-Eine Regel besteht, wenn **irgendein** Muster im Inhalt vorkommt. Ein neues Muster hinzuzufuegen ist eine einzeilige Aenderung in `PrivacyPolicyRules::all()` / `RegulaminRules::all()` - Pull Requests willkommen.
+Eine Regel gilt als erfüllt, wenn **irgendein** Muster im Inhalt vorkommt. Das Hinzufügen eines neuen Musters ist eine Änderung von `PrivacyPolicyRules::all()` / `RegulaminRules::all()` - ein PR ist willkommen.
 
-## Barrierefreiheit (WCAG-Heuristiken)
+## Einschränkungen
 
-Der Cookie-Banner-Scan markiert zusaetzlich haeufige WCAG 2.1 Regressionen:
-
-- Ablehnen-Schaltflaeche ausgeblendet, als reiner Text gestaltet oder ausserhalb des sichtbaren Viewports
-- Banner blockiert den Tastatur-Fokus ohne Fluchtweg
-- Kontrast unter 4.5:1 bei Akzeptieren-/Ablehnen-Schaltflaechen (Heuristik basierend auf Inline-Styles)
-
-Dies sind Ausgangspunkte fuer einen manuellen WCAG-Audit. Ein vollstaendiger Barrierefreiheits-Audit erfordert Tests mit assistiver Technologie.
-
-## Grenzen
-
-- Schluesselwort-Heuristik - eine Regel kann auch dann bestehen, wenn der Absatz lapidar ist
-- Keine semantische Analyse (prueft nicht, ob tatsaechlich eine Speicherfrist beschrieben ist, sondern nur, ob das Wort vorkommt)
-- Prueft nicht die Cookie-Richtlinie, Ruecksendungs- oder Gewaehrleistungsseiten (separate Module geplant)
-- Bewertet nicht, ob tatsaechlich ein Datenschutzbeauftragter bestellt wurde, sondern nur, ob die Erwaehnung vorhanden ist
+- Schlüsselwort-Heuristik; eine Regel kann auch dann erfüllt sein, wenn der Absatz knapp gehalten ist
+- Keine semantische Analyse (z. B. ob die Speicherdauer tatsächlich beschrieben wird und nicht nur das Wort "przechowywania" vorkommt)
+- Prüft nicht die Cookie-Richtlinie, die Seiten Rückgabe/Reklamation (separate Module geplant)
+- Bewertet nicht, ob ein Datenschutzbeauftragter bestellt wurde - nur das Vorhandensein einer Erwähnung

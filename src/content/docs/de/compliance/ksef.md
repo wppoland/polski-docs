@@ -1,69 +1,69 @@
 ---
 title: KSeF - Nationales E-Rechnungssystem
-description: KSeF-Bereitschaft in Polski for WooCommerce - automatische Erkennung von Bestellungen mit Steuernummer, Statusspalte, Entwickler-Hooks und Integration mit Fakturierungssystemen.
+description: KSeF-Bereitschaft in Polski for WooCommerce - automatische Erkennung von Bestellungen mit NIP, Statusspalte, Entwickler-Hooks und Integration mit Rechnungssystemen.
 ---
 
-KSeF ist die Plattform des Finanzministeriums fuer strukturierte Rechnungen. Das Plugin bereitet den Shop auf die KSeF-Integration vor - erkennt Bestellungen mit Rechnungspflicht, fuegt eine Statusspalte hinzu und bietet Hooks fuer externe Fakturierungssysteme.
+KSeF ist die Plattform des polnischen Finanzministeriums für strukturierte Rechnungen. Das Plugin bereitet den Shop auf die Integration mit KSeF vor, es erkennt Bestellungen, die eine MwSt-Rechnung erfordern, fügt eine Statusspalte hinzu und bietet Hooks zur Anbindung an Rechnungssysteme.
 
-## Rechtlicher Status von KSeF
+## Rechtlicher Stand von KSeF
 
-KSeF befindet sich derzeit in der Einfuehrungsphase. Das Plugin Polski for WooCommerce stellt keine Rechnungen direkt in KSeF aus, sondern liefert die Infrastruktur, die die Integration mit Systemen erleichtert, die dies tun (z.B. Fakturownia, iFirma, wFirma, InFakt).
+KSeF befindet sich in der Einführungsphase. Das Plugin stellt keine Rechnungen in KSeF aus, erleichtert aber die Integration mit Systemen, die dies tun (z. B. Fakturownia, iFirma, wFirma, InFakt).
 
 Hauptfunktionen des KSeF-Moduls:
 
-1. Automatische Erkennung von Bestellungen mit Steuernummer (NIP)
+1. Automatische Erkennung von Bestellungen mit einer NIP-Nummer
 2. KSeF-Statusspalte in der Bestellliste
-3. Hooks zur Integration mit externen Fakturierungssystemen
-4. Bestellmetadaten bereit zur Uebergabe an das KSeF-System
+3. Hooks zur Integration mit externen Rechnungssystemen
+4. Bestell-Metadaten bereit zur Übergabe an das KSeF-System
 
 ## Erkennung von Bestellungen mit NIP
 
-Wenn ein Kunde bei der Bestellung eine Steuernummer (NIP) angibt (das NIP-Feld ist Teil des Checkout-Moduls), fuehrt das System automatisch folgendes aus:
+Wenn ein Kunde bei der Bestellung eine NIP angibt (das NIP-Feld ist Teil des Checkout-Moduls), führt das Plugin automatisch Folgendes aus:
 
-1. Validierung des NIP-Formats (10 Ziffern, Pruefsummencheck)
-2. Markierung der Bestellung als rechnungspflichtig
-3. Speicherung der Steuernummer in den Bestellmetadaten
-4. Optional Abruf der Firmendaten von der GUS/CEIDG-API
+1. Validiert das NIP-Format (10 Ziffern, Prüfsummenkontrolle)
+2. Markiert die Bestellung als MwSt-Rechnung erfordernd
+3. Speichert die NIP in den Bestell-Metadaten
+4. Ruft optional die Firmendaten über die API von GUS/CEIDG ab
 
 ### NIP-Validierung
 
-Das Plugin prueft die NIP-Korrektheit auf zwei Ebenen:
+Das Plugin prüft die Korrektheit der NIP auf zwei Ebenen:
 
-- **Format** - 10 Ziffern, korrekte Pruefsumme (Gewichte: 6, 5, 7, 2, 3, 4, 5, 6, 7)
-- **Online-Verifizierung** - optionale Pruefung in der VIES-Datenbank (fuer EU-NIPs) oder GUS-API
+- **Format** - 10 Ziffern, korrekte Prüfsumme (Gewichte: 6, 5, 7, 2, 3, 4, 5, 6, 7)
+- **Online-Verifizierung** - optionale Prüfung in der VIES-Datenbank (für EU-NIPs) oder über die GUS-API
 
 ## KSeF-Statusspalte
 
-In der Bestellliste (**WooCommerce > Bestellungen**) fuegt das Plugin eine Spalte **KSeF** mit Statussymbolen hinzu:
+In der Bestellliste (**WooCommerce > Bestellungen**) erscheint eine Spalte **KSeF** mit Status-Symbolen:
 
 | Symbol | Status | Beschreibung |
 |-------|--------|------|
-| Grau | Nicht zutreffend | Bestellung ohne NIP, Rechnung nicht erforderlich |
+| Grau | Nicht zutreffend | Bestellung ohne NIP, keine Rechnung erforderlich |
 | Blau | Ausstehend | Bestellung mit NIP, Rechnung auszustellen |
-| Gruen | Ausgestellt | Rechnung wurde ausgestellt (Status durch Hook gesetzt) |
-| Rot | Fehler | Problem bei der Rechnungsausstellung |
+| Grün | Ausgestellt | Rechnung wurde ausgestellt (Status per Hook gesetzt) |
+| Rot | Fehler | Bei der Rechnungsausstellung ist ein Problem aufgetreten |
 
-Der Status kann gefiltert werden - verwenden Sie den Filter in der Bestellliste, um z.B. nur Bestellungen anzuzeigen, die auf eine Rechnung warten.
+Sie können Bestellungen nach KSeF-Status filtern, z. B. nur die anzeigen, die auf eine Rechnung warten.
 
 ### Massenaktionen
 
-In der Bestellliste ist die Massenaktion "Als in KSeF ausgestellt markieren" verfuegbar, mit der der Status mehrerer Bestellungen gleichzeitig aktualisiert werden kann.
+In der Bestellliste können Sie mehrere Bestellungen massenweise als "in KSeF ausgestellt" markieren.
 
 ## Hooks
 
 ### polski/ksef/invoice_ready
 
-Wird aufgerufen, wenn eine Bestellung mit NIP bezahlt und bereit zur Rechnungsausstellung ist. Dies ist der Haupt-Hook fuer die Integration mit externen Fakturierungssystemen.
+Wird aufgerufen, wenn eine Bestellung mit NIP bezahlt und bereit zur Rechnungsausstellung ist. Der Haupt-Hook zur Integration mit Rechnungssystemen.
 
 ```php
 /**
- * @param int      $order_id   WooCommerce-Bestell-ID.
- * @param WC_Order $order      Bestellungsobjekt.
- * @param string   $nip        Steuernummer des Kunden.
+ * @param int      $order_id   ID der WooCommerce-Bestellung.
+ * @param WC_Order $order      Bestellobjekt.
+ * @param string   $nip        NIP-Nummer des Kunden.
  * @param array    $invoice_data Rechnungsdaten (Firmenname, Adresse, NIP).
  */
 add_action('polski/ksef/invoice_ready', function (int $order_id, WC_Order $order, string $nip, array $invoice_data): void {
-    // Beispiel: Daten an die Fakturownia-API senden
+    // Beispiel: Daten an die API von Fakturownia senden
     $api_token = get_option('fakturownia_api_token');
     $account = get_option('fakturownia_account');
     
@@ -113,16 +113,16 @@ add_action('polski/ksef/invoice_ready', function (int $order_id, WC_Order $order
 
 ### polski/ksef/is_required
 
-Filter zum programmatischen Festlegen, ob eine Bestellung eine KSeF-Rechnung erfordert.
+Filter, mit dem sich programmatisch festlegen lässt, ob eine Bestellung eine KSeF-Rechnung erfordert.
 
 ```php
 /**
  * @param bool     $is_required Ob eine KSeF-Rechnung erforderlich ist.
- * @param WC_Order $order       Bestellungsobjekt.
+ * @param WC_Order $order       Bestellobjekt.
  * @return bool
  */
 add_filter('polski/ksef/is_required', function (bool $is_required, WC_Order $order): bool {
-    // Beispiel: KSeF-Rechnung fuer Bestellungen ueber 450 PLN verlangen
+    // Beispiel: KSeF-Rechnung für Bestellungen über 450 PLN verlangen
     if ($order->get_total() > 450) {
         return true;
     }
@@ -131,11 +131,11 @@ add_filter('polski/ksef/is_required', function (bool $is_required, WC_Order $ord
 }, 10, 2);
 ```
 
-### Beispiel - automatische Statusaktualisierung nach Integration
+### Beispiel - automatisches Setzen des Status nach der Integration
 
 ```php
 /**
- * KSeF-Status nach Antwort vom Fakturierungssystem aktualisieren.
+ * KSeF-Status nach Erhalt der Antwort vom Rechnungssystem aktualisieren.
  */
 add_action('my_invoicing/invoice_created', function (int $order_id, string $ksef_number): void {
     $order = wc_get_order($order_id);
@@ -152,44 +152,44 @@ add_action('my_invoicing/invoice_created', function (int $order_id, string $ksef
 }, 10, 2);
 ```
 
-## Bestellmetadaten
+## Bestell-Metadaten
 
 Das KSeF-Modul speichert folgende Metadaten in der Bestellung:
 
-| Meta-Schluessel | Beschreibung |
+| Meta-Schlüssel | Beschreibung |
 |------------|------|
-| `_billing_nip` | Steuernummer des Kunden |
+| `_billing_nip` | NIP-Nummer des Kunden |
 | `_billing_company` | Firmenname |
 | `_ksef_required` | Ob die Bestellung eine Rechnung erfordert (`yes`/`no`) |
 | `_ksef_status` | Rechnungsstatus (`pending`, `issued`, `error`) |
-| `_ksef_number` | KSeF-Rechnungsnummer (nach Ausstellung) |
-| `_ksef_invoice_id` | Rechnungs-ID im externen System |
+| `_ksef_number` | KSeF-Nummer der Rechnung (nach Ausstellung) |
+| `_ksef_invoice_id` | ID der Rechnung im externen System |
 
 ## Konfiguration
 
-KSeF-Moduleinstellungen: **WooCommerce > Einstellungen > Polski > KSeF**.
+Einstellungen des KSeF-Moduls: **WooCommerce > Einstellungen > Polski > KSeF**.
 
 | Option | Beschreibung | Standardwert |
 |-------|------|------------------|
-| KSeF-Modul aktivieren | Aktiviert Erkennung und Tracking | Ja |
-| Online-NIP-Validierung | NIP in der GUS/VIES-API pruefen | Nein |
-| Auto-Firmendatenabruf | Daten von GUS nach NIP-Eingabe abrufen | Nein |
-| Hook-ausloesender Status | Bestellstatus, bei dem `invoice_ready` aufgerufen wird | `processing` |
+| KSeF-Modul aktivieren | Aktiviert Erkennung und Verfolgung | Ja |
+| NIP-Online-Validierung | NIP über GUS/VIES-API prüfen | Nein |
+| Automatischer Abruf der Firmendaten | Daten von GUS nach NIP-Eingabe abrufen | Nein |
+| Status, der den Hook auslöst | Bestellstatus, bei dem `invoice_ready` aufgerufen wird | `processing` |
 
 ## Fehlerbehebung
 
-**KSeF-Spalte wird nicht in der Bestellliste angezeigt**
-Klicken Sie auf "Ansicht anpassen" und aktivieren Sie die KSeF-Spalte. Stellen Sie sicher, dass das Modul in den Einstellungen aktiviert ist.
+**Die KSeF-Spalte wird nicht in der Bestellliste angezeigt**
+Klicken Sie auf "Optionen anzeigen" und markieren Sie die Spalte KSeF. Stellen Sie sicher, dass das Modul in den Einstellungen aktiviert ist.
 
-**NIP wird nicht in der Bestellung gespeichert**
-Pruefen Sie, ob das NIP-Feld im Checkout-Modul aktiviert ist (**WooCommerce > Einstellungen > Polski > Kasse**). Das NIP-Feld muss aktiv sein, damit der Kunde es ausfuellen kann.
+**Die NIP wird nicht in der Bestellung gespeichert**
+Prüfen Sie, ob das NIP-Feld unter **WooCommerce > Einstellungen > Polski > Kasse** aktiviert ist. Das Feld muss aktiv sein, damit der Kunde es ausfüllen kann.
 
-**Hook invoice_ready wird nicht aufgerufen**
-Pruefen Sie die Einstellung "Hook-ausloesender Status". Standardmaessig wird der Hook bei Aenderung des Bestellstatus auf "In Bearbeitung" aufgerufen. Wenn Sie benutzerdefinierte Status verwenden, aendern Sie diese Option.
+**Der Hook invoice_ready wird nicht aufgerufen**
+Prüfen Sie den "Status, der den Hook auslöst". Standardmäßig funktioniert der Hook beim Status "In Bearbeitung". Bei benutzerdefinierten Status ändern Sie diese Option.
 
-## Weitere Schritte
+## Nächste Schritte
 
 - Probleme melden: [GitHub Issues](https://github.com/wppoland/polski/issues)
 - Diskussionen und Fragen: [GitHub Discussions](https://github.com/wppoland/polski/discussions)
 
-<div class="disclaimer">Diese Seite dient ausschließlich zu Informationszwecken und stellt keine Rechtsberatung dar. Konsultieren Sie vor der Umsetzung einen Anwalt. Polski for WooCommerce ist Open-Source-Software (GPLv2) ohne Garantie.</div>
+<div class="disclaimer">Diese Seite dient ausschließlich Informationszwecken und stellt keine Rechtsberatung dar. Konsultieren Sie vor der Umsetzung einen Anwalt. Polski for WooCommerce ist Open-Source-Software (GPLv2), die ohne Gewährleistung bereitgestellt wird.</div>

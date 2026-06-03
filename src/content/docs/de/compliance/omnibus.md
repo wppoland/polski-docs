@@ -1,112 +1,112 @@
 ---
 title: Omnibus-Richtlinie - Preisverfolgung
-description: Implementierung der Omnibus-Richtlinie in Polski for WooCommerce - automatische Verfolgung des niedrigsten Preises der letzten 30 Tage, Anzeigekonfiguration und Shortcode.
+description: Umsetzung der Omnibus-Richtlinie in Polski for WooCommerce - automatische Verfolgung des niedrigsten Preises der letzten 30 Tage, Anzeigekonfiguration und Shortcode.
 ---
 
-Die Omnibus-Richtlinie (EU 2019/2161) gilt in Polen seit dem 1. Januar 2023. Bei jeder Preissenkung muss der niedrigste Preis der letzten 30 Tage angezeigt werden. Das Plugin verfolgt automatisch die Preishistorie und zeigt die Information bei Aktionen an.
+Die Omnibus-Richtlinie (EU 2019/2161) gilt in Polen seit dem 1. Januar 2023. Bei jeder Preissenkung müssen Sie den niedrigsten Preis der letzten 30 Tage anzeigen. Das Plugin verfolgt die Preishistorie automatisch und zeigt diese Information bei Aktionen an.
 
 ## Wie die Preisverfolgung funktioniert
 
-Das Plugin registriert jede Preisaenderung eines WooCommerce-Produkts (einschliesslich variabler Produkte) und speichert die Historie in der Datenbank. Wenn ein Produkt als "im Angebot" markiert ist, berechnet das System automatisch den niedrigsten Preis der letzten 30 Tage und zeigt ihn den Kunden an.
+Das Plugin speichert jede Preisänderung eines Produkts (einschließlich Varianten) in der Datenbank. Wenn ein Produkt "im Angebot" ist, berechnet das Plugin den niedrigsten Preis der letzten 30 Tage und zeigt ihn den Kunden an.
 
-Die Verfolgung beginnt nach Modulaktivierung. Ohne Preishistorie zeigt das Plugin eine Ersatzmeldung an.
+Die Verfolgung beginnt nach der Aktivierung des Moduls. Wenn ein Produkt noch keine Preishistorie hat, wird eine Ersatzmeldung angezeigt.
 
 ![Produktseite mit angezeigtem niedrigstem Omnibus-Preis](../../../../assets/screenshots/screenshot-4-omnibus-lowest-price.png)
 
 ## Konfiguration
 
-Gehen Sie zu **WooCommerce > Einstellungen > Polski > Omnibus** und konfigurieren Sie die verfuegbaren Optionen.
+Gehen Sie zu **WooCommerce > Einstellungen > Polski > Omnibus** und konfigurieren Sie die verfügbaren Optionen.
 
 ### Verfolgungszeitraum
 
 | Option | Beschreibung | Standardwert |
 |-------|------|------------------|
-| `days` | Anzahl der Tage zurueck zur Berechnung des niedrigsten Preises | `30` |
-| `prune_after_days` | Nach wie vielen Tagen alte Eintraege aus der Historie loeschen | `90` |
+| `days` | Anzahl der Tage rückwärts zur Berechnung des niedrigsten Preises | `30` |
+| `prune_after_days` | Nach wie vielen Tagen alte Einträge aus der Historie gelöscht werden | `90` |
 
-Die Einstellung `prune_after_days` ermoeglicht die Kontrolle der Groesse der Preishistorietabelle in der Datenbank. Der Wert `90` bedeutet, dass Daten aelter als 90 Tage automatisch durch WP-Cron geloescht werden.
+`prune_after_days` steuert die Größe der Datenbanktabelle. Der Wert `90` bedeutet, dass Daten, die älter als 90 Tage sind, automatisch gelöscht werden.
 
 ### Steuern
 
 | Option | Beschreibung | Standardwert |
 |-------|------|------------------|
-| `include_tax` | Ob der angezeigte Omnibus-Preis die MwSt. enthalten soll | `true` |
+| `include_tax` | Ob der angezeigte Omnibus-Preis die MwSt enthalten soll | `true` |
 
-Diese Option sollte mit den Preisanzeigeeinstellungen in WooCommerce uebereinstimmen. Wenn die Preise im Shop brutto angezeigt werden, setzen Sie auf `true`.
+Stellen Sie dies entsprechend den Preiseinstellungen in WooCommerce ein. Wenn die Preise im Shop Bruttopreise sind, lassen Sie `true`.
 
 ### Anzeigeorte
 
 | Option | Beschreibung | Standardwert |
 |-------|------|------------------|
 | `display_on_sale_only` | Nur bei Produkten im Angebot anzeigen | `true` |
-| `show_on_single` | Einzelproduktseite | `true` |
+| `show_on_single` | Einzelne Produktseite | `true` |
 | `show_on_loop` | Produktliste (Kategorie, Shop) | `false` |
 | `show_on_related` | Verwandte Produkte | `false` |
 | `show_on_cart` | Warenkorb | `false` |
 
-Empfehlung: Aktivieren Sie die Anzeige mindestens auf der Produktseite (`show_on_single`). Die Anzeige in der Produktliste (`show_on_loop`) kann viel Platz einnehmen, wird aber von einigen Gesetzesauslegungen verlangt.
+Aktivieren Sie es mindestens auf der Produktseite (`show_on_single`). In der Produktliste (`show_on_loop`) nimmt es mehr Platz ein, aber manche Auslegungen der Vorschriften verlangen dies.
 
-### Regulaerer Preis
+### Regulärer Preis
 
 | Option | Beschreibung | Standardwert |
 |-------|------|------------------|
-| `show_regular_price` | Auch den regulaeren Preis neben dem Omnibus-Preis anzeigen | `false` |
+| `show_regular_price` | Auch den regulären Preis neben dem Omnibus-Preis anzeigen | `false` |
 
 ### Textvorlage
 
 | Option | Beschreibung | Standardwert |
 |-------|------|------------------|
-| `display_text` | Vorlage der angezeigten Meldung | `Niedrigster Preis der letzten {days} Tage vor der Senkung: {price}` |
-| `no_history_text` | Text bei fehlender Preishistorie | `Keine frueheren Preisdaten verfuegbar` |
+| `display_text` | Vorlage der angezeigten Meldung | `Niedrigster Preis der {days} Tage vor der Senkung: {price}` |
+| `no_history_text` | Text, wenn keine Preishistorie vorliegt | `Keine Daten über den früheren Preis` |
 
-Verfuegbare Variablen in der Vorlage `display_text`:
+Verfügbare Variablen in der Vorlage `display_text`:
 
-- `{price}` - niedrigster Preis des Zeitraums
+- `{price}` - niedrigster Preis im jeweiligen Zeitraum
 - `{days}` - Anzahl der Tage (Standard 30)
 - `{date}` - Datum des niedrigsten Preises
-- `{regular_price}` - regulaerer Preis des Produkts (vor der Aktion)
+- `{regular_price}` - regulärer Preis des Produkts (vor der Aktion)
 
 #### Vorlagenbeispiele
 
 ```
-Niedrigster Preis der letzten {days} Tage vor der Senkung: {price}
+Niedrigster Preis der {days} Tage vor der Senkung: {price}
 ```
 
 ```
-Niedrigster Preis der letzten {days} Tage: {price} (regulaerer Preis: {regular_price})
+Niedrigster Preis der letzten {days} Tage: {price} (regulärer Preis: {regular_price})
 ```
 
 ```
 Omnibus: {price} (vom {date})
 ```
 
-### Art der Preisberechnung
+### Methode der Preisberechnung
 
 | Option | Beschreibung | Standardwert |
 |-------|------|------------------|
-| `price_count_from` | Ab wann die 30 Tage zaehlen | `sale_start` |
+| `price_count_from` | Ab wann die 30 Tage gezählt werden | `sale_start` |
 
-Verfuegbare Werte:
+Verfügbare Werte:
 
-- `sale_start` - ab dem Startdatum der Aktion (empfohlen von UOKiK)
+- `sale_start` - ab dem Startdatum der Aktion (von UOKiK empfohlen)
 - `current_date` - ab dem aktuellen Datum
 
 ### Variable Produkte
 
 | Option | Beschreibung | Standardwert |
 |-------|------|------------------|
-| `variable_tracking` | Art der Variantenverfolgung | `per_variation` |
+| `variable_tracking` | Methode der Variantenverfolgung | `per_variation` |
 
-Verfuegbare Werte:
+Verfügbare Werte:
 
 - `per_variation` - separate Verfolgung jeder Variante (empfohlen)
-- `parent_only` - Verfolgung nur des uebergeordneten Produktpreises
+- `parent_only` - Verfolgung nur des Preises des übergeordneten Produkts
 
-Die Einstellung `per_variation` liefert genauere Daten, da jede Variante einen anderen Preis und eine andere Rabatthistorie haben kann.
+`per_variation` liefert genauere Daten, da jede Variante einen anderen Preis und eine andere Senkungshistorie haben kann.
 
 ## Shortcode
 
-Verwenden Sie den Shortcode `[polski_omnibus_price]`, um die Information zum niedrigsten Preis an einer beliebigen Stelle der Website anzuzeigen.
+Verwenden Sie den Shortcode `[polski_omnibus_price]`, um die Information über den niedrigsten Preis an einer beliebigen Stelle der Website anzuzeigen.
 
 ### Grundlegende Verwendung
 
@@ -114,7 +114,7 @@ Verwenden Sie den Shortcode `[polski_omnibus_price]`, um die Information zum nie
 [polski_omnibus_price]
 ```
 
-Zeigt den Omnibus-Preis fuer das aktuelle Produkt an.
+Zeigt den Omnibus-Preis für das aktuelle Produkt an.
 
 ### Mit Parametern
 
@@ -127,49 +127,49 @@ Zeigt den Omnibus-Preis fuer das aktuelle Produkt an.
 | Parameter | Beschreibung | Standardwert |
 |----------|------|------------------|
 | `product_id` | Produkt-ID | Aktuelles Produkt |
-| `days` | Anzahl der Tage | Wert aus Einstellungen |
+| `days` | Anzahl der Tage | Wert aus den Einstellungen |
 
-### Verwendungsbeispiel im PHP-Template
+### Beispiel für die Verwendung in einer PHP-Vorlage
 
 ```php
 echo do_shortcode('[polski_omnibus_price product_id="' . $product_id . '"]');
 ```
 
-## Automatische Historienbereinigung
+## Automatische Bereinigung der Historie
 
-Das Plugin registriert einen WP-Cron-Job, der taeglich Preishistorieeintraege loescht, die aelter als der Wert `prune_after_days` sind. Dadurch waechst die Datenbanktabelle nicht unbegrenzt.
+WP-Cron löscht täglich Preishistorie-Einträge, die älter als `prune_after_days` sind. Die Datenbanktabelle wächst nicht unbegrenzt.
 
-Zur manuellen Erzwingung der Bereinigung koennen Sie WP-CLI verwenden:
+Um die Bereinigung manuell zu erzwingen, können Sie WP-CLI verwenden:
 
 ```bash
 wp cron event run polski_omnibus_prune
 ```
 
-## Konformitaet mit UOKiK-Vorschriften
+## Konformität mit den UOKiK-Vorschriften
 
-Das Amt fuer Wettbewerb und Verbraucherschutz (UOKiK) weist darauf hin, dass:
+UOKiK-Richtlinien:
 
-1. Die Information zum niedrigsten Preis **bei jeder Preissenkungsankuendigung** angezeigt werden muss
-2. Der Referenzzeitraum **30 Tage vor Anwendung der Senkung** betraegt
-3. Fuer Produkte, die kuerzer als 30 Tage im Verkauf sind - den niedrigsten Preis seit Verkaufsbeginn angeben
-4. Fuer leicht verderbliche Produkte - eine Verkuerzung des Zeitraums moeglich ist
+1. Die Information über den niedrigsten Preis muss **bei jeder Ankündigung einer Preissenkung** angezeigt werden
+2. Der Referenzzeitraum sind **30 Tage vor Anwendung der Senkung**
+3. Für Produkte, die weniger als 30 Tage verkauft werden, geben Sie den niedrigsten Preis seit dem Tag der Markteinführung an
+4. Für schnell verderbliche Produkte ist eine Verkürzung des Zeitraums möglich
 
-Das Plugin haelt sich standardmaessig an diese Richtlinien. Die Option `price_count_from` auf `sale_start` gesetzt stellt die Zaehlung ab dem Aktionsstartdatum sicher, gemaess den UOKiK-Empfehlungen.
+Das Plugin wendet diese Richtlinien standardmäßig an. Die Option `price_count_from` auf `sale_start` zählt ab dem Startdatum der Aktion, gemäß den Empfehlungen von UOKiK.
 
 ## Fehlerbehebung
 
-**Omnibus-Preis wird nicht angezeigt**
-Pruefen Sie, ob das Produkt in WooCommerce als "im Angebot" markiert ist (ein Aktionspreis muss gesetzt sein). Wenn die Option `display_on_sale_only` aktiviert ist, erscheint die Meldung nur bei aktiver Aktion.
+**Der Omnibus-Preis wird nicht angezeigt**
+Prüfen Sie, ob das Produkt in WooCommerce einen Aktionspreis eingestellt hat. Bei aktivierter Option `display_on_sale_only` erscheint die Meldung nur bei einer aktiven Aktion.
 
-**Meldung ueber fehlende Historie wird angezeigt**
-Die Preisverfolgung beginnt ab der Modulaktivierung. Warten Sie auf die erste Preisaenderung oder speichern Sie das Produkt manuell, um einen Eintrag in der Historie zu initiieren.
+**Es wird eine Meldung über fehlende Historie angezeigt**
+Die Preisverfolgung beginnt nach der Aktivierung des Moduls. Warten Sie auf eine Preisänderung oder speichern Sie das Produkt erneut, um den ersten Eintrag zur Historie hinzuzufügen.
 
-**Omnibus-Preis ist gleich dem Aktionspreis**
-Dies ist korrektes Verhalten, wenn das Produkt in den letzten 30 Tagen keinen niedrigeren Preis hatte.
+**Der Omnibus-Preis ist derselbe wie der Aktionspreis**
+Das ist korrektes Verhalten, wenn das Produkt in den letzten 30 Tagen keinen niedrigeren Preis hatte.
 
-## Weitere Schritte
+## Nächste Schritte
 
 - Probleme melden: [GitHub Issues](https://github.com/wppoland/polski/issues)
 - Diskussionen und Fragen: [GitHub Discussions](https://github.com/wppoland/polski/discussions)
 
-<div class="disclaimer">Diese Seite dient ausschließlich zu Informationszwecken und stellt keine Rechtsberatung dar. Konsultieren Sie vor der Umsetzung einen Anwalt. Polski for WooCommerce ist Open-Source-Software (GPLv2) ohne Garantie.</div>
+<div class="disclaimer">Diese Seite dient ausschließlich Informationszwecken und stellt keine Rechtsberatung dar. Konsultieren Sie vor der Umsetzung einen Anwalt. Polski for WooCommerce ist Open-Source-Software (GPLv2), die ohne Gewährleistung bereitgestellt wird.</div>

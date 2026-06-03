@@ -1,83 +1,94 @@
 ---
-title: Reklamationsformular (formularz reklamacyjny)
-description: Druckfertiges Reklamationsformular kompatibel mit dem polnischen Verbraucherrechtegesetz. Verkaeuferabschnitt automatisch aus dem Setup-Assistenten befuellt, Kunden-, Produkt-, Mangel- und Abhilfeabschnitte bleiben fuer den Kunden leer.
+title: Reklamationsformular zum Ausdrucken
+description: Druckfertiges Reklamationsformular - der Verkäuferabschnitt wird automatisch aus den Daten des Assistenten ausgefüllt, die Abschnitte für Käufer und Mangel bleiben zum Ausfüllen leer.
 ---
 
-Das Modul **Reklamationsformular** rendert ein druckfertiges Reklamationsformular (polnisch: formularz reklamacyjny). Die Struktur folgt den Erwartungen des polnischen Verbraucherrechtegesetzes und der weit verbreiteten Vorlage der UOKiK (Amt fuer Wettbewerb und Verbraucherschutz). Der Verkaeuferabschnitt wird automatisch aus den Daten des Setup-Assistenten befuellt; Kunden-, Produkt-, Mangel- und Abhilfeabschnitte bleiben fuer den Kunden leer.
+Das Modul **Reklamationsformular** erzeugt ein druckfertiges Reklamationsdokument (Reklamationsformular), das der vom Verbraucherrechtegesetz geforderten Struktur entspricht und dem allgemein verwendeten UOKiK-Muster folgt. Der Verkäuferabschnitt wird vorab mit den Daten aus dem Konfigurationsassistenten ausgefüllt, die Abschnitte für Käufer, Produkt, Mangelbeschreibung und gewünschte Lösung bleiben leer.
 
 :::caution
-Dies ist eine allgemeine Startvorlage, keine Rechtsberatung. Fuer shopspezifische Klauseln (digitale Dienste, Abonnements, branchenspezifische Regeln) konsultieren Sie einen Anwalt.
+Dies ist eine generische Startvorlage. Sie hilft, die Informationspflichten zu erfüllen, ersetzt aber keine rechtliche Beratung für Shops mit untypischer Branche (z. B. digitale Dienste, Lebensmittel, B2B).
 :::
 
-## Abschnitte
+## Entry points
 
-1. **Verkaeufer** - Name, Adresse, NIP, E-Mail (aus `polski_general`)
-2. **Kunde** - Name, Adresse, E-Mail, Telefon (leere Felder)
-3. **Bestellung und Produkt** - Bestellnummer, Kaufdatum, Produktname
-4. **Mangel / Nichtkonformitaet** - Beschreibung, Erkennungsdatum
-5. **Gewuenschte Abhilfe** - Checkbox-Liste: Reparatur / Ersatz / Preisminderung / Ruecktritt
-6. **Bankkonto fuer Rueckerstattung** - IBAN
-7. **Datum und Unterschrift**
+| Verwendungsweise | Wo                                                     |
+| ---------------- | ------------------------------------------------------ |
+| Shortcode        | `[polski_complaint_template]` - bettet in den Seiteninhalt ein |
+| Admin preview    | **Polski > Complaint template** - Vorschau und Download |
+| HTML-Download    | Schaltfläche **Download as HTML** - `text/html` mit Header `Content-Disposition: attachment` |
 
-## Drei Zugriffswege
+## Abschnitte des Formulars
 
-| Kanal       | Nutzung                                                                           |
-| ----------- | --------------------------------------------------------------------------------- |
-| Shortcode   | `[polski_complaint_template]` auf beliebiger Seite oder in einem Beitrag          |
-| Admin-Seite | **Polski > Reklamationsformular** - Vorschau + Ein-Klick-HTML-Download            |
-| Frontend    | Einbindung per Shortcode auf einer "Reklamationen"-Seite, die vom Regulamin aus verlinkt ist |
+Das gerenderte Dokument besteht aus den folgenden Abschnitten:
 
-## Admin-Download
+| Abschnitt             | Quelle                                             | Bearbeitbar |
+| --------------------- | -------------------------------------------------- | ---------- |
+| Seller                | `polski_general.company_name/address/nip/email`    | Auto       |
+| Customer              | Vor- und Nachname, Adresse, E-Mail, Telefon        | Leere Felder |
+| Order and product     | Bestellnummer, Kaufdatum, Produktname              | Leere Felder |
+| Defect                | Mangelbeschreibung, Entdeckungsdatum               | Leere Felder |
+| Requested remedy      | Checkboxen: Reparatur, Austausch, Minderung, Rücktritt | Anzukreuzen |
+| Bank account          | IBAN für die Rückerstattung                        | Leeres Feld |
+| Signature             | Datum und Unterschrift                             | Leeres Feld |
 
-**Polski > Reklamationsformular > Download as HTML** liefert:
+## Automatisch ausgefüllter Verkäuferabschnitt
+
+Aus der Option `polski_general` werden vier Felder bezogen:
+
+| Optionsschlüssel  | Dokumentfeld          |
+| ----------------- | --------------------- |
+| `company_name`    | Name des Verkäufers   |
+| `company_address` | Adresse               |
+| `company_nip`     | NIP (mit Präfix)      |
+| `company_email`   | Kontakt-E-Mail        |
+
+Wenn keiner dieser Schlüssel ausgefüllt ist, enthält der Abschnitt Seller eine leere Zeile zum manuellen Ausfüllen, das Dokument bleibt strukturell trotzdem korrekt.
+
+## Gewünschte Lösung
+
+Der Käufer kreuzt eines von vier Rechten an, die sich aus Art. 43a-43g des Verbraucherrechtegesetzes ergeben:
+
+- Reparatur (repair)
+- Austausch (replacement)
+- Preisminderung (price reduction) mit dem gewünschten Betrag
+- Rücktritt vom Vertrag (withdrawal) mit Erstattung des vollen Preises
+
+Alle vier Checkboxen werden als Zeichen `&#9744;` (leeres Unicode-Quadrat) gerendert, der Käufer füllt sie auf dem Ausdruck aus.
+
+## Shortcode
 
 ```
-Content-Type: text/html; charset=utf-8
-Content-Disposition: attachment; filename="polski-complaint-template-YYYYMMDD.html"
+[polski_complaint_template]
 ```
 
-Die heruntergeladene Datei ist ein eigenstaendiges HTML-Dokument mit eingebettetem druckfreundlichem Stylesheet. Im Browser oeffnen und per **Drucken > Als PDF speichern** entsteht ein PDF, das der Kunde digital oder auf Papier ausfuellen kann.
+Eingebettet auf der Seite **Reklamationen** im Shop, der Kunde kann direkt über CSS `@media print` drucken. Der Shortcode nimmt keine Attribute an (alle Daten stammen aus `polski_general`).
 
-## Layout
+## Download als eigenständiges HTML
 
-Druckfreundliches CSS:
-- Max. Breite 780 px
-- 14 px Grundschriftgroesse
-- `@media print` entfernt Seitenraender, damit das Formular auf A4 passt
-- Checkboxen gerendert per Unicode `&#9744;` - keine Bilder, keine externen Assets
+Der Administrator kann das Formular als vollständige `.html`-Datei herunterladen (inklusive `<!doctype>`, druckfreundlichem Stil und meta charset). Nützlich, um es per E-Mail zu versenden oder als statische Datei auf einem Server abzulegen.
 
-## Rechtlicher Rahmen
+- Name: `polski-complaint-template-<YYYYMMDD>.html`
+- Content-Type: `text/html; charset=utf-8`
+- Schutz: Nonce `polski_complaint_download`, Capability `manage_woocommerce`
 
-Das Template enthaelt einen Kopftext:
+## Druckstil
 
-> Reichen Sie dieses Formular innerhalb der gesetzlichen Gewaehrleistungsfrist ein. Der Verkaeufer ist verpflichtet, innerhalb von 14 Tagen zu antworten.
+Eingebettetes CSS im eigenständigen HTML:
 
-Die 14-Tage-Frist ist die uebliche Antwortfrist nach dem polnischen Verbraucherrechtegesetz - nach deren Ablauf gilt die Reklamation ohne Antwort als akzeptiert.
-
-## Anpassung
-
-Die gesamte Vorlage ueberschreiben, indem der Shortcode im Theme ueberladen wird:
-
-```php
-remove_shortcode('polski_complaint_template');
-add_shortcode('polski_complaint_template', function (): string {
-    ob_start();
-    include get_stylesheet_directory() . '/complaint-template.php';
-    return (string) ob_get_clean();
-});
+```css
+body { max-width: 780px; margin: 40px auto; line-height: 1.5; }
+.field { border-bottom: 1px solid #999; padding: 6px 0; }
+.row { display: flex; gap: 24px; }
+@media print { body { margin: 0 } .no-print { display: none } }
 ```
 
-Die mitgelieferte Variante ist bewusst minimal, damit Sie sie erweitern koennen (Logo, digitale Unterschrift, QR-Code-Link zum Online-Reklamationsformular).
+## Aktivierung
 
-## Berechtigungen
+Das Modul wird über das Flag `complaint_template` in **Polski > Module** aktiviert. Ist es deaktiviert, werden Shortcode und Admin-Seite nicht registriert.
 
-- Shortcode-Rendering: oeffentlich
-- Admin-Download: `manage_woocommerce`
-- Download-Nonce: `polski_complaint_download`
+## Einschränkungen
 
-## Grenzen
-
-- Einzige Sprache (standardmaessig Polnisch, Englisch ueber WordPress-Uebersetzungen)
-- Kein Link zur ODR-Plattform - falls relevant, manuell hinzufuegen
-- Keine CRM-/HelpDesk-Integration - der Kunde sendet das Formular per E-Mail oder Post zurueck
-- Kein Ersatz fuer eine massgeschneiderte Reklamationsrichtlinie in Ihrem Regulamin
+- Keine Auswahl der Formularsprache (immer pl)
+- Keine automatische Integration mit WooCommerce-Bestellungen (der Käufer trägt die Nummer manuell ein)
+- Kein PDF, nur HTML (PDF in PRO geplant)
+- Die Vorlage unterstützt kein Ersetzen des Shop-Logos
