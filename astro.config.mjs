@@ -65,6 +65,7 @@ export default defineConfig({
 							},
 							items: [
 								{ slug: 'compliance/gpsr' },
+								{ slug: 'compliance/bdo-number' },
 								{ slug: 'compliance/omnibus' },
 								{ slug: 'compliance/withdrawal' },
 								{ slug: 'compliance/gdpr' },
