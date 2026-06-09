@@ -1,15 +1,15 @@
 ---
-title: Хуки (дiї та фiльтри)
-description: Повна документацiя хукiв Polski for WooCommerce - 25 дiй та фiльтрiв з сигнатурами, параметрами та прикладами коду.
+title: Хуки (дії та фільтри)
+description: Повна документація хуків Polski for WooCommerce - 25 дій і фільтрів із сигнатурами, параметрами та прикладами коду.
 ---
 
-Хуки (дiї та фiльтри) для розширення та модифiкацiї поведiнки плагiна. Всi використовують namespace `polski/`.
+Хуки (дії та фільтри) для розширення та зміни поведінки плагіна. Усі використовують простір імен `polski/`.
 
-## Хуки вiдмови вiд договору (withdrawal)
+## Хуки відмови від договору (withdrawal)
 
 ### `polski/withdrawal/days`
 
-Фiльтрує кiлькiсть днiв на вiдмову вiд договору.
+Фільтрує кількість днів на відмову від договору.
 
 ```php
 /**
@@ -22,13 +22,13 @@ apply_filters('polski/withdrawal/days', int $days): int;
 
 ```php
 add_filter('polski/withdrawal/days', function (int $days): int {
-    return 30; // Подовження до 30 днів
+    return 30; // Продовження до 30 днів
 });
 ```
 
 ### `polski/withdrawal/excluded_categories`
 
-Фiльтрує категорii продуктiв, виключених з права на вiдмову.
+Фільтрує категорії товарів, виключені з права на відмову.
 
 ```php
 /**
@@ -41,15 +41,15 @@ apply_filters('polski/withdrawal/excluded_categories', array $categories): array
 
 ```php
 add_filter('polski/withdrawal/excluded_categories', function (array $categories): array {
-    $categories[] = 15; // ID категорії "Цифрові продукти"
-    $categories[] = 22; // ID категорії "Гігієнічні продукти"
+    $categories[] = 15; // ID категорії "Цифрові товари"
+    $categories[] = 22; // ID категорії "Гігієнічні товари"
     return $categories;
 });
 ```
 
 ### `polski/withdrawal/form_fields`
 
-Фiльтрує поля форми вiдмови вiд договору.
+Фільтрує поля форми відмови від договору.
 
 ```php
 /**
@@ -64,7 +64,7 @@ apply_filters('polski/withdrawal/form_fields', array $fields): array;
 add_filter('polski/withdrawal/form_fields', function (array $fields): array {
     $fields['reason'] = [
         'type'     => 'textarea',
-        'label'    => 'Powód odstąpienia',
+        'label'    => 'Причина відмови',
         'required' => false,
     ];
     return $fields;
@@ -73,7 +73,7 @@ add_filter('polski/withdrawal/form_fields', function (array $fields): array {
 
 ### `polski/withdrawal/email_sent`
 
-Дiя, що викликається пiсля надсилання пiдтвердження e-mail вiдмови.
+Дія, що викликається після надсилання підтвердження відмови електронною поштою.
 
 ```php
 /**
@@ -97,18 +97,18 @@ add_action('polski/withdrawal/email_sent', function (int $order_id, array $form_
 }, 10, 2);
 ```
 
-## Цiновi хуки (price)
+## Цінові хуки (price)
 
 ### `polski/price/unit_format`
 
-Фiльтрує формат вiдображення одиничної цiни.
+Фільтрує формат відображення ціни за одиницю.
 
 ```php
 /**
- * @param string $format     Формат одиничної ціни
- * @param float  $unit_price Одинична ціна
- * @param string $unit       Одиниця виміру (kg, l, m, szt.)
- * @param int    $product_id ID продукту
+ * @param string $format     Формат ціни за одиницю
+ * @param float  $unit_price Ціна за одиницю
+ * @param string $unit       Одиниця виміру (kg, l, m, шт.)
+ * @param int    $product_id ID товару
  */
 apply_filters('polski/price/unit_format', string $format, float $unit_price, string $unit, int $product_id): string;
 ```
@@ -123,12 +123,12 @@ add_filter('polski/price/unit_format', function (string $format, float $unit_pri
 
 ### `polski/price/vat_label`
 
-Фiльтрує мiтку ПДВ, що вiдображається бiля цiни.
+Фільтрує мітку ПДВ, що відображається біля ціни.
 
 ```php
 /**
  * @param string $label      Текст мітки
- * @param string $tax_status Податковий статус продукту
+ * @param string $tax_status Податковий статус товару
  */
 apply_filters('polski/price/vat_label', string $label, string $tax_status): string;
 ```
@@ -138,9 +138,9 @@ apply_filters('polski/price/vat_label', string $label, string $tax_status): stri
 ```php
 add_filter('polski/price/vat_label', function (string $label, string $tax_status): string {
     if ($tax_status === 'taxable') {
-        return 'brutto (z VAT)';
+        return 'брутто (з ПДВ)';
     }
-    return 'zwolniony z VAT';
+    return 'звільнено від ПДВ';
 }, 10, 2);
 ```
 
@@ -148,12 +148,12 @@ add_filter('polski/price/vat_label', function (string $label, string $tax_status
 
 ### `polski/omnibus/lowest_price`
 
-Фiльтрує найнижчу цiну за останнi 30 днiв (директива Omnibus).
+Фільтрує найнижчу ціну за останні 30 днів (директива Omnibus).
 
 ```php
 /**
  * @param float $price      Найнижча ціна
- * @param int   $product_id ID продукту
+ * @param int   $product_id ID товару
  * @param int   $days       Кількість днів назад
  */
 apply_filters('polski/omnibus/lowest_price', float $price, int $product_id, int $days): float;
@@ -163,7 +163,7 @@ apply_filters('polski/omnibus/lowest_price', float $price, int $product_id, int 
 
 ```php
 add_filter('polski/omnibus/lowest_price', function (float $price, int $product_id, int $days): float {
-    // Пропуск продуктів з категорії "Outlet"
+    // Пропуск товарів із категорії "Аутлет"
     if (has_term('outlet', 'product_cat', $product_id)) {
         return 0.0; // Не відображати ціну Omnibus
     }
@@ -173,13 +173,13 @@ add_filter('polski/omnibus/lowest_price', function (float $price, int $product_i
 
 ### `polski/omnibus/display_format`
 
-Фiльтрує формат вiдображення цiни Omnibus.
+Фільтрує формат відображення ціни Omnibus.
 
 ```php
 /**
- * @param string $html       HTML з ціною
+ * @param string $html       HTML із ціною
  * @param float  $price      Найнижча ціна
- * @param int    $product_id ID продукту
+ * @param int    $product_id ID товару
  */
 apply_filters('polski/omnibus/display_format', string $html, float $price, int $product_id): string;
 ```
@@ -189,7 +189,7 @@ apply_filters('polski/omnibus/display_format', string $html, float $price, int $
 ```php
 add_filter('polski/omnibus/display_format', function (string $html, float $price, int $product_id): string {
     return sprintf(
-        '<small class="omnibus-price">Najniższa cena z 30 dni: %s</small>',
+        '<small class="omnibus-price">Найнижча ціна за 30 днів: %s</small>',
         wc_price($price)
     );
 }, 10, 3);
@@ -197,11 +197,11 @@ add_filter('polski/omnibus/display_format', function (string $html, float $price
 
 ### `polski/omnibus/price_recorded`
 
-Дiя, що викликається пiсля збереження цiни в iсторiю Omnibus.
+Дія, що викликається після збереження ціни в історію Omnibus.
 
 ```php
 /**
- * @param int   $product_id ID продукту
+ * @param int   $product_id ID товару
  * @param float $price      Збережена ціна
  */
 do_action('polski/omnibus/price_recorded', int $product_id, float $price): void;
@@ -211,11 +211,11 @@ do_action('polski/omnibus/price_recorded', int $product_id, float $price): void;
 
 ### `polski/ksef/invoice_data`
 
-Фiльтрує данi рахунку-фактури перед надсиланням до KSeF.
+Фільтрує дані рахунка-фактури перед надсиланням до KSeF.
 
 ```php
 /**
- * @param array    $data  Дані рахунку-фактури
+ * @param array    $data  Дані рахунка-фактури
  * @param WC_Order $order Об'єкт замовлення
  */
 apply_filters('polski/ksef/invoice_data', array $data, WC_Order $order): array;
@@ -225,19 +225,19 @@ apply_filters('polski/ksef/invoice_data', array $data, WC_Order $order): array;
 
 ```php
 add_filter('polski/ksef/invoice_data', function (array $data, WC_Order $order): array {
-    $data['additional_info'] = 'Faktura wygenerowana automatycznie';
+    $data['additional_info'] = 'Рахунок-фактуру згенеровано автоматично';
     return $data;
 }, 10, 2);
 ```
 
 ### `polski/ksef/invoice_sent`
 
-Дiя, що викликається пiсля успiшного надсилання рахунку-фактури до KSeF.
+Дія, що викликається після успішного надсилання рахунка-фактури до KSeF.
 
 ```php
 /**
  * @param int    $order_id   ID замовлення
- * @param string $ksef_id    Референційний номер KSeF
+ * @param string $ksef_id    Референтний номер KSeF
  * @param array  $response   Відповідь від API KSeF
  */
 do_action('polski/ksef/invoice_sent', int $order_id, string $ksef_id, array $response): void;
@@ -249,7 +249,7 @@ do_action('polski/ksef/invoice_sent', int $order_id, string $ksef_id, array $res
 add_action('polski/ksef/invoice_sent', function (int $order_id, string $ksef_id, array $response): void {
     update_post_meta($order_id, '_ksef_reference', $ksef_id);
     $order = wc_get_order($order_id);
-    $order->add_order_note(sprintf('Faktura wysłana do KSeF: %s', $ksef_id));
+    $order->add_order_note(sprintf('Рахунок-фактуру надіслано до KSeF: %s', $ksef_id));
 }, 10, 3);
 ```
 
@@ -257,7 +257,7 @@ add_action('polski/ksef/invoice_sent', function (int $order_id, string $ksef_id,
 
 ### `polski/dsa/report_fields`
 
-Фiльтрує поля форми звiту DSA.
+Фільтрує поля форми звернення DSA.
 
 ```php
 /**
@@ -272,7 +272,7 @@ apply_filters('polski/dsa/report_fields', array $fields): array;
 add_filter('polski/dsa/report_fields', function (array $fields): array {
     $fields['screenshot'] = [
         'type'     => 'file',
-        'label'    => 'Zrzut ekranu',
+        'label'    => 'Знімок екрана',
         'required' => false,
         'accept'   => '.jpg,.png,.pdf',
     ];
@@ -282,12 +282,12 @@ add_filter('polski/dsa/report_fields', function (array $fields): array {
 
 ### `polski/dsa/report_submitted`
 
-Дiя, що викликається пiсля подання звiту DSA.
+Дія, що викликається після подання звернення DSA.
 
 ```php
 /**
- * @param int   $report_id ID звіту
- * @param array $data      Дані звіту
+ * @param int   $report_id ID звернення
+ * @param array $data      Дані звернення
  */
 do_action('polski/dsa/report_submitted', int $report_id, array $data): void;
 ```
@@ -296,12 +296,12 @@ do_action('polski/dsa/report_submitted', int $report_id, array $data): void;
 
 ### `polski/doi/verification_email`
 
-Фiльтрує змiст верифiкацiйного e-mail DOI.
+Фільтрує вміст верифікаційного листа DOI.
 
 ```php
 /**
- * @param string $message Зміст e-mail
- * @param string $email   Адреса e-mail для верифікації
+ * @param string $message Вміст листа
+ * @param string $email   Адреса електронної пошти для верифікації
  * @param string $url     Верифікаційний URL
  */
 apply_filters('polski/doi/verification_email', string $message, string $email, string $url): string;
@@ -312,7 +312,7 @@ apply_filters('polski/doi/verification_email', string $message, string $email, s
 ```php
 add_filter('polski/doi/verification_email', function (string $message, string $email, string $url): string {
     return sprintf(
-        'Cześć! Potwierdź rejestrację klikając: <a href="%s">Potwierdź konto</a>',
+        'Привіт! Підтвердіть реєстрацію, натиснувши: <a href="%s">Підтвердити обліковий запис</a>',
         esc_url($url)
     );
 }, 10, 3);
@@ -320,12 +320,12 @@ add_filter('polski/doi/verification_email', function (string $message, string $e
 
 ### `polski/doi/verified`
 
-Дiя, що викликається пiсля успiшної верифiкацii DOI.
+Дія, що викликається після успішної верифікації DOI.
 
 ```php
 /**
  * @param int    $user_id ID користувача
- * @param string $email   Адреса e-mail
+ * @param string $email   Адреса електронної пошти
  */
 do_action('polski/doi/verified', int $user_id, string $email): void;
 ```
@@ -334,7 +334,7 @@ do_action('polski/doi/verified', int $user_id, string $email): void;
 
 ### `polski/cache/should_flush`
 
-Фiльтрує рiшення про очищення кешу плагiна.
+Фільтрує рішення про очищення кешу плагіна.
 
 ```php
 /**
@@ -348,7 +348,7 @@ apply_filters('polski/cache/should_flush', bool $should_flush, string $group): b
 
 ```php
 add_filter('polski/cache/should_flush', function (bool $should_flush, string $group): bool {
-    // Не очищати кеш пошуку при імпорті
+    // Не очищати кеш пошуку під час імпорту
     if ($group === 'search' && defined('WP_IMPORTING') && WP_IMPORTING) {
         return false;
     }
@@ -358,7 +358,7 @@ add_filter('polski/cache/should_flush', function (bool $should_flush, string $gr
 
 ### `polski/cache/ttl`
 
-Фiльтрує час життя кешу (TTL) у секундах.
+Фільтрує час життя кешу (TTL) у секундах.
 
 ```php
 /**
@@ -368,11 +368,11 @@ add_filter('polski/cache/should_flush', function (bool $should_flush, string $gr
 apply_filters('polski/cache/ttl', int $ttl, string $group): int;
 ```
 
-## Хуки чекбоксiв (checkboxes)
+## Хуки чекбоксів (checkboxes)
 
 ### `polski/checkboxes/render`
 
-Фiльтрує HTML вiдрендереного чекбокса.
+Фільтрує HTML відрендереного чекбокса.
 
 ```php
 /**
@@ -385,26 +385,26 @@ apply_filters('polski/checkboxes/render', string $html, array $checkbox, string 
 
 ### `polski/checkboxes/validated`
 
-Дiя, що викликається пiсля валiдацii чекбоксiв.
+Дія, що викликається після валідації чекбоксів.
 
 ```php
 /**
- * @param array $checkboxes Валідовані чекбокси
+ * @param array $checkboxes Перевірені чекбокси
  * @param bool  $valid      Результат валідації
  */
 do_action('polski/checkboxes/validated', array $checkboxes, bool $valid): void;
 ```
 
-## Хуки e-mail (email)
+## Хуки електронної пошти (email)
 
 ### `polski/email/template`
 
-Фiльтрує шлях до шаблону e-mail.
+Фільтрує шлях до шаблону листа.
 
 ```php
 /**
  * @param string $template Шлях до шаблону
- * @param string $type     Тип e-mail (withdrawal, doi, waitlist)
+ * @param string $type     Тип листа (withdrawal, doi, waitlist)
  */
 apply_filters('polski/email/template', string $template, string $type): string;
 ```
@@ -422,21 +422,21 @@ add_filter('polski/email/template', function (string $template, string $type): s
 
 ### `polski/email/headers`
 
-Фiльтрує заголовки e-mail.
+Фільтрує заголовки листа.
 
 ```php
 /**
- * @param array  $headers Заголовки e-mail
- * @param string $type    Тип e-mail
+ * @param array  $headers Заголовки листа
+ * @param string $type    Тип листа
  */
 apply_filters('polski/email/headers', array $headers, string $type): array;
 ```
 
-## Хуки юридичних сторiнок (legal_page)
+## Хуки юридичних сторінок (legal_page)
 
 ### `polski/legal_page/template_data`
 
-Фiльтрує данi, що вставляються в шаблон юридичної сторiнки.
+Фільтрує дані, що вставляються в шаблон юридичної сторінки.
 
 ```php
 /**
@@ -451,7 +451,7 @@ apply_filters('polski/legal_page/template_data', array $data, string $type): arr
 ```php
 add_filter('polski/legal_page/template_data', function (array $data, string $type): array {
     if ($type === 'terms') {
-        $data['delivery_info'] = 'Dostawa w ciągu 2-5 dni roboczych.';
+        $data['delivery_info'] = 'Доставка протягом 2-5 робочих днів.';
     }
     return $data;
 }, 10, 2);
@@ -459,7 +459,7 @@ add_filter('polski/legal_page/template_data', function (array $data, string $typ
 
 ### `polski/legal_page/generated`
 
-Дiя, що викликається пiсля генерацii юридичної сторiнки.
+Дія, що викликається після генерації юридичної сторінки.
 
 ```php
 /**
@@ -469,14 +469,14 @@ add_filter('polski/legal_page/template_data', function (array $data, string $typ
 do_action('polski/legal_page/generated', int $page_id, string $type): void;
 ```
 
-## Найкращi практики
+## Найкращі практики
 
-1. **Використовуйте типи** - оголошуйте типи параметрiв та значень, що повертаються, у callback-функцiях
-2. **Прiоритет** - прiоритет за замовчуванням - 10, використовуйте вищий (наприклад, 20), якщо хочете перевизначити стандартну поведiнку
-3. **Namespace** - не створюйте хуки в namespace `polski/` у своiх плагiнах, щоб уникнути конфлiктiв
-4. **Сумiснiсть** - перевiряйте iснування хукiв перед використанням: `has_filter('polski/omnibus/lowest_price')`
-5. **Документацiя** - документуйте власнi callback-функцii коментарями PHPDoc
+1. **Використовуйте типи** - оголошуйте типи параметрів і повертаних значень у колбеках
+2. **Пріоритет** - типовий пріоритет дорівнює 10, використовуйте вищий (наприклад, 20), якщо хочете перевизначити стандартну поведінку
+3. **Простір імен** - не створюйте хуки в просторі імен `polski/` у власних плагінах, щоб уникнути конфліктів
+4. **Сумісність** - перевіряйте існування хуків перед використанням: `has_filter('polski/omnibus/lowest_price')`
+5. **Документація** - документуйте власні колбеки коментарями PHPDoc
 
-Повiдомлення про проблеми: [github.com/wppoland/polski/issues](https://github.com/wppoland/polski/issues)
+Повідомлення про проблеми: [github.com/wppoland/polski/issues](https://github.com/wppoland/polski/issues)
 
-<div class="disclaimer">Ця сторінка має виключно інформаційний характер і не є юридичною консультацією. Перед впровадженням зверніться до юриста. Polski for WooCommerce - це програмне забезпечення з відкритим кодом (GPLv2), що надається без гарантій.</div>
+<div class="disclaimer">Ця сторінка має виключно інформаційний характер і не є юридичною консультацією. Перед впровадженням проконсультуйтеся з юристом. Polski for WooCommerce є програмним забезпеченням з відкритим кодом (GPLv2), що надається без гарантій.</div>

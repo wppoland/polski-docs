@@ -1,29 +1,29 @@
 ---
-title: Структурованi данi Schema.org
-description: Автоматичнi структурованi данi JSON-LD у Polski for WooCommerce - Product, Offer, AggregateRating та iншi типи Schema.org.
+title: Структуровані дані Schema.org
+description: Автоматичні структуровані дані JSON-LD у Polski for WooCommerce - Product, Offer, AggregateRating та інші типи Schema.org.
 ---
 
-Автоматичнi структурованi данi JSON-LD (Schema.org) на сторiнках продуктiв. Допомагають пошуковим системам вiдображати rich snippets у результатах.
+Автоматичні структуровані дані JSON-LD (Schema.org) на сторінках товарів. Допомагають пошуковим системам відображати rich snippets у результатах.
 
-## Автоматична генерацiя
+## Автоматична генерація
 
-Структурованi данi генеруються автоматично на сторiнках продуктiв. Не потрiбно встановлювати додатковi SEO-плагiни для обробки структурованих даних продуктiв - Polski for WooCommerce обробляє це самостiйно.
+Дані генеруються автоматично на сторінках товарів. Вам не потрібен додатковий SEO-плагін.
 
-Якщо ви використовуєте SEO-плагiн (Yoast, Rank Math, SEOPress), Polski for WooCommerce iнтегрується з ним та доповнює данi замiсть iх дублювання.
+Якщо ви використовуєте Yoast, Rank Math або SEOPress, плагін доповнює їхні дані замість дублювати.
 
 ## Тип Product
 
-На кожнiй сторiнцi продукту генерується об'єкт `Product`, що мiстить:
+На сторінці товару генерується об'єкт `Product`:
 
 ```json
 {
   "@context": "https://schema.org",
   "@type": "Product",
-  "name": "Koszulka bawełniana Premium",
-  "description": "Koszulka z certyfikowanej bawełny organicznej, rozmiary S-XXL.",
+  "name": "Бавовняна футболка Premium",
+  "description": "Футболка із сертифікованої органічної бавовни, розміри S-XXL.",
   "image": [
-    "https://twojsklep.pl/wp-content/uploads/koszulka-1.jpg",
-    "https://twojsklep.pl/wp-content/uploads/koszulka-2.jpg"
+    "https://tvijmagazyn.pl/wp-content/uploads/koszulka-1.jpg",
+    "https://tvijmagazyn.pl/wp-content/uploads/koszulka-2.jpg"
   ],
   "sku": "KSZ-001",
   "gtin13": "5901234123457",
@@ -55,29 +55,29 @@ description: Автоматичнi структурованi данi JSON-LD у 
 
 ### Поля Product
 
-| Поле Schema.org          | Джерело даних                        | Обов'язкове |
-| ------------------------ | ------------------------------------ | ----------- |
-| `name`                   | Назва продукту WooCommerce           | Так         |
-| `description`            | Короткий опис продукту               | Так         |
-| `image`                  | Головне зображення + галерея         | Так         |
-| `sku`                    | SKU продукту                         | Нi          |
-| `gtin13` / `gtin8`       | Поле GTIN/EAN з Polski               | Нi          |
-| `brand`                  | Виробник/бренд з Polski              | Нi          |
-| `manufacturer`           | Данi GPSR виробника                  | Нi          |
-| `countryOfOrigin`        | Краiна походження з GPSR             | Нi          |
-| `category`               | Категорiя продукту                   | Нi          |
-| `material`               | Атрибут "матерiал" (якщо iснує)      | Нi          |
-| `color`                  | Атрибут "колiр" (якщо iснує)         | Нi          |
-| `weight`                 | Вага продукту WooCommerce            | Нi          |
+| Поле Schema.org        | Джерело даних                        | Обов'язкове |
+| ---------------------- | ------------------------------------ | -------- |
+| `name`                 | Назва товару WooCommerce             | Так      |
+| `description`          | Короткий опис товару                 | Так      |
+| `image`                | Головне зображення + галерея         | Так      |
+| `sku`                  | SKU товару                           | Ні       |
+| `gtin13` / `gtin8`     | Поле GTIN/EAN з Polski               | Ні       |
+| `brand`                | Виробник/марка з Polski              | Ні       |
+| `manufacturer`         | Дані GPSR виробника                  | Ні       |
+| `countryOfOrigin`      | Країна походження з GPSR             | Ні       |
+| `category`             | Категорія товару                     | Ні       |
+| `material`             | Атрибут "матеріал" (якщо існує)      | Ні       |
+| `color`                | Атрибут "колір" (якщо існує)         | Ні       |
+| `weight`               | Вага товару WooCommerce              | Ні       |
 
 ## Тип Offer
 
-Кожний продукт мiстить вкладений об'єкт `Offer` з iнформацiєю про цiну та наявнiсть:
+Вкладений об'єкт `Offer` з ціною та наявністю:
 
 ```json
 {
   "@type": "Offer",
-  "url": "https://twojsklep.pl/produkt/koszulka-bawelniana/",
+  "url": "https://tvijmagazyn.pl/produkt/koszulka-bawelniana/",
   "price": "89.00",
   "priceCurrency": "PLN",
   "priceValidUntil": "2026-12-31",
@@ -122,26 +122,26 @@ description: Автоматичнi структурованi данi JSON-LD у 
 
 | Поле Schema.org              | Джерело даних                    |
 | ---------------------------- | -------------------------------- |
-| `price`                      | Цiна продукту                    |
+| `price`                      | Ціна товару                      |
 | `priceCurrency`              | Валюта WooCommerce               |
-| `priceValidUntil`            | Дата закiнчення акцii            |
-| `availability`               | Статус наявностi                 |
+| `priceValidUntil`            | Дата завершення акції            |
+| `availability`               | Складський статус                |
 | `itemCondition`              | Завжди NewCondition              |
 | `seller`                     | Назва магазину з налаштувань     |
 | `deliveryTime`               | Час доставки з модуля Polski     |
-| `hasMerchantReturnPolicy`    | Право на вiдмову з модуля Polski |
+| `hasMerchantReturnPolicy`    | Право на відмову з модуля Polski |
 
-### Зiставлення наявностi
+### Зіставлення наявності
 
-| Статус WooCommerce  | Schema.org                        |
-| -------------------- | --------------------------------- |
-| `instock`            | `https://schema.org/InStock`      |
-| `outofstock`         | `https://schema.org/OutOfStock`   |
-| `onbackorder`        | `https://schema.org/BackOrder`    |
+| Статус WooCommerce | Schema.org                        |
+| ------------------- | --------------------------------- |
+| `instock`           | `https://schema.org/InStock`      |
+| `outofstock`        | `https://schema.org/OutOfStock`   |
+| `onbackorder`       | `https://schema.org/BackOrder`    |
 
-## Тип Offer для варiативних продуктiв
+## Тип Offer для змінних товарів
 
-Варiативнi продукти генерують `AggregateOffer` з цiновим дiапазоном:
+Змінні товари генерують `AggregateOffer`:
 
 ```json
 {
@@ -164,7 +164,7 @@ description: Автоматичнi структурованi данi JSON-LD у 
 
 ## Тип AggregateRating
 
-Якщо продукт має вiдгуки, генерується об'єкт `AggregateRating`:
+Для товарів з відгуками генерується `AggregateRating`:
 
 ```json
 {
@@ -177,11 +177,11 @@ description: Автоматичнi структурованi данi JSON-LD у 
 }
 ```
 
-Данi збираються з системи вiдгукiв WooCommerce. Якщо модуль **Верифiкованi вiдгуки** активний, враховуються лише вiдгуки з пiдтвердженої покупки.
+Дані із системи відгуків WooCommerce. З активним модулем **Перевірені відгуки** враховуються лише відгуки з підтвердженої покупки.
 
 ## Тип Review
 
-Окремi вiдгуки генеруються як об'єкти `Review`:
+Окремі відгуки генеруються як об'єкти `Review`:
 
 ```json
 {
@@ -196,13 +196,13 @@ description: Автоматичнi структурованi данi JSON-LD у 
     "ratingValue": "5",
     "bestRating": "5"
   },
-  "reviewBody": "Świetna jakość materiału, polecam."
+  "reviewBody": "Чудова якість матеріалу, рекомендую."
 }
 ```
 
-## Харчовi продукти - NutritionInformation
+## Харчові продукти - NutritionInformation
 
-Для продуктiв з харчового модуля генерується об'єкт `NutritionInformation`:
+Харчові продукти генерують об'єкт `NutritionInformation`:
 
 ```json
 {
@@ -219,19 +219,19 @@ description: Автоматичнi структурованi данi JSON-LD у 
 }
 ```
 
-## Фiльтрацiя структурованих даних
+## Фільтрування структурованих даних
 
-### Модифiкацiя всього об'єкта
+### Зміна всього об'єкта
 
 ```php
 add_filter('polski/schema/product', function (array $schema, WC_Product $product): array {
     // Додавання власного поля
-    $schema['award'] = 'Produkt Roku 2025';
+    $schema['award'] = 'Товар Року 2025';
     return $schema;
 }, 10, 2);
 ```
 
-### Модифiкацiя Offer
+### Зміна Offer
 
 ```php
 add_filter('polski/schema/offer', function (array $offer, WC_Product $product): array {
@@ -248,11 +248,11 @@ add_filter('polski/schema/offer', function (array $offer, WC_Product $product): 
 }, 10, 2);
 ```
 
-### Вимкнення Schema.org для обраних продуктiв
+### Вимкнення Schema.org для обраних товарів
 
 ```php
 add_filter('polski/schema/enabled', function (bool $enabled, int $product_id): bool {
-    // Вимкнути для продуктів з категорії "tymczasowe"
+    // Вимкнути для товарів з категорії "тимчасові"
     if (has_term('tymczasowe', 'product_cat', $product_id)) {
         return false;
     }
@@ -260,40 +260,40 @@ add_filter('polski/schema/enabled', function (bool $enabled, int $product_id): b
 }, 10, 2);
 ```
 
-## Валiдацiя структурованих даних
+## Валідація структурованих даних
 
-Протестуйте структурованi данi вашого магазину за допомогою:
+Перевірте структуровані дані:
 
-- [Google Rich Results Test](https://search.google.com/test/rich-results) - офiцiйний iнструмент Google
-- [Schema.org Validator](https://validator.schema.org/) - валiдатор Schema.org
+- [Google Rich Results Test](https://search.google.com/test/rich-results) - офіційний інструмент Google
+- [Schema.org Validator](https://validator.schema.org/) - валідатор Schema.org
 
-У режимi debug WordPress (`WP_DEBUG = true`) плагiн логує попередження про вiдсутнi обов'язковi поля Schema.org до `debug.log`.
+З `WP_DEBUG = true` плагін логує відсутні поля Schema.org до `debug.log`.
 
-## Iнтеграцiя з SEO-плагiнами
+## Інтеграція з SEO-плагінами
 
-Polski for WooCommerce виявляє популярнi SEO-плагiни та адаптує свою поведiнку:
+Плагін виявляє SEO-плагіни та адаптує поведінку:
 
-| Плагiн     | Поведiнка                                           |
+| Плагін     | Поведінка                                           |
 | ---------- | --------------------------------------------------- |
-| Yoast SEO  | Доповнює iснуючу схему Yoast полями Polski           |
+| Yoast SEO  | Доповнює наявну схему Yoast полями Polski            |
 | Rank Math  | Доповнює схему Rank Math полями Polski               |
 | SEOPress   | Доповнює схему SEOPress полями Polski                |
-| Немає      | Генерує повну схему самостiйно                       |
+| Немає      | Генерує повну схему самостійно                       |
 
-У разi конфлiкту (дублювання структурованих даних) використовуйте фiльтр:
+У разі дублювання даних використайте фільтр:
 
 ```php
 add_filter('polski/schema/standalone', '__return_false'); // Вимкнути самостійну генерацію
 ```
 
-## Вирiшення проблем
+## Усунення несправностей
 
-**Google не вiдображає rich snippets** - rich snippets можуть з'явитися через кiлька тижнiв пiсля iндексацii. Переконайтеся, що данi проходять валiдацiю в Rich Results Test.
+**Google не відображає rich snippets** - rich snippets можуть з'явитися через кілька тижнів після індексації. Переконайтеся, що дані проходять валідацію в Rich Results Test.
 
-**Дублювання структурованих даних** - якщо iнший плагiн генерує схему Product, використовуйте фiльтр `polski/schema/standalone` для вимкнення самостiйної генерацii.
+**Дублювання структурованих даних** - якщо інший плагін генерує схему Product, використайте фільтр `polski/schema/standalone`, щоб вимкнути самостійну генерацію.
 
-**Вiдсутнi оцiнки в Schema.org** - продукт повинен мати щонайменше 1 вiдгук з зiрковою оцiнкою.
+**Немає оцінок у Schema.org** - товар повинен мати щонайменше 1 відгук із зірковою оцінкою.
 
-Повiдомлення про проблеми: [github.com/wppoland/polski/issues](https://github.com/wppoland/polski/issues)
+Повідомлення про проблеми: [github.com/wppoland/polski/issues](https://github.com/wppoland/polski/issues)
 
-<div class="disclaimer">Ця сторінка має виключно інформаційний характер і не є юридичною консультацією. Перед впровадженням зверніться до юриста. Polski for WooCommerce - це програмне забезпечення з відкритим кодом (GPLv2), що надається без гарантій.</div>
+<div class="disclaimer">Ця сторінка має виключно інформаційний характер і не є юридичною консультацією. Перед впровадженням проконсультуйтеся з юристом. Polski for WooCommerce є програмним забезпеченням з відкритим кодом (GPLv2), що надається без гарантій.</div>

@@ -1,20 +1,20 @@
 ---
-title: Перевизначення шаблонiв
-description: Перевизначення шаблонiв Polski for WooCommerce у темi - список файлiв, структура каталогiв та приклади.
+title: Перевизначення шаблонів
+description: Перевизначення шаблонів Polski for WooCommerce в темі - список файлів, структура каталогів і приклади.
 ---
 
-Система шаблонiв за зразком WooCommerce. Перевизначте будь-який шаблон, скопiювавши його до `yourtheme/polski/` у темi.
+Система шаблонів за зразком WooCommerce. Перевизначте будь-який шаблон, скопіювавши його до `yourtheme/polski/` у темі.
 
 ## Як перевизначити шаблон
 
-1. Знайдiть оригiнальний шаблон у каталозi плагiна: `wp-content/plugins/polski/templates/`
-2. Скопiюйте файл до каталогу теми: `wp-content/themes/twoj-motyw/polski/`
-3. Збережiть структуру пiдкаталогiв
-4. Модифiкуйте скопiйований файл
+1. Знайдіть оригінальний шаблон у каталозі плагіна: `wp-content/plugins/polski/templates/`
+2. Скопіюйте файл до каталогу теми: `wp-content/themes/tvoja-tema/polski/`
+3. Збережіть структуру підкаталогів
+4. Змініть скопійований файл
 
-Плагiн автоматично виявить шаблон у темi та використає його замiсть стандартного.
+Плагін автоматично використає шаблон із теми замість стандартного.
 
-**Приклад:** щоб перевизначити шаблон цiни Omnibus, скопiюйте:
+**Приклад:** щоб перевизначити шаблон ціни Omnibus, скопіюйте:
 
 ```
 wp-content/plugins/polski/templates/omnibus/price-display.php
@@ -23,105 +23,105 @@ wp-content/plugins/polski/templates/omnibus/price-display.php
 до:
 
 ```
-wp-content/themes/twoj-motyw/polski/omnibus/price-display.php
+wp-content/themes/tvoja-tema/polski/omnibus/price-display.php
 ```
 
-## Дочiрня тема (child theme)
+## Дочірня тема (child theme)
 
-Якщо ви використовуєте дочiрню тему, розмiщуйте шаблони в каталозi дочiрньої теми. Плагiн шукає шаблони у такому порядку:
+З дочірньою темою розміщуйте шаблони в каталозі дочірньої теми. Порядок пошуку:
 
-1. `wp-content/themes/motyw-potomny/polski/`
-2. `wp-content/themes/motyw-rodzic/polski/`
+1. `wp-content/themes/docherinia-tema/polski/`
+2. `wp-content/themes/batkivska-tema/polski/`
 3. `wp-content/plugins/polski/templates/`
 
-## Список шаблонiв
+## Список шаблонів
 
-### Правовi вимоги
+### Юридичні вимоги
 
-| Файл шаблону                            | Опис                                    |
+| Файл шаблону                             | Опис                                    |
 | ---------------------------------------- | --------------------------------------- |
-| `omnibus/price-display.php`              | Вiдображення цiни Omnibus               |
-| `omnibus/price-history.php`              | Iсторiя цiн (таблиця)                  |
-| `gpsr/product-info.php`                  | Iнформацiя GPSR на сторiнцi продукту    |
-| `gpsr/safety-sheet.php`                  | Картка безпеки продукту                 |
-| `withdrawal/form.php`                    | Форма вiдмови вiд договору              |
-| `withdrawal/confirmation.php`            | Пiдтвердження подання вiдмови           |
-| `withdrawal/email.php`                   | Шаблон e-mail пiдтвердження             |
-| `dsa/report-form.php`                    | Форма повiдомлення DSA                  |
-| `dsa/report-confirmation.php`            | Пiдтвердження повiдомлення DSA          |
+| `omnibus/price-display.php`              | Відображення ціни Omnibus               |
+| `omnibus/price-history.php`              | Історія цін (таблиця)                   |
+| `gpsr/product-info.php`                  | Інформація GPSR на сторінці товару      |
+| `gpsr/safety-sheet.php`                  | Картка безпеки товару                   |
+| `withdrawal/form.php`                    | Форма відмови від договору              |
+| `withdrawal/confirmation.php`            | Підтвердження подання відмови           |
+| `withdrawal/email.php`                   | Шаблон листа підтвердження              |
+| `dsa/report-form.php`                    | Форма звернення DSA                     |
+| `dsa/report-confirmation.php`            | Підтвердження звернення DSA             |
 | `gdpr/consent-checkboxes.php`            | Чекбокси згод GDPR                      |
-| `ksef/invoice-template.php`              | Шаблон рахунку-фактури KSeF             |
-| `greenwashing/product-claims.php`        | Екологiчнi заяви продукту               |
-| `legal-pages/terms-template.php`         | Шаблон регламенту магазину              |
-| `legal-pages/privacy-template.php`       | Шаблон полiтики конфiденцiйностi        |
-| `legal-pages/withdrawal-template.php`    | Шаблон iнформацii про вiдмову           |
+| `ksef/invoice-template.php`              | Шаблон рахунка-фактури KSeF             |
+| `greenwashing/product-claims.php`        | Екологічні заяви про товар              |
+| `legal-pages/terms-template.php`         | Шаблон правил магазину                  |
+| `legal-pages/privacy-template.php`       | Шаблон політики конфіденційності        |
+| `legal-pages/withdrawal-template.php`    | Шаблон інформації про відмову           |
 
-### Цiни та iнформацiя про продукт
+### Ціни та інформація про товар
 
-| Файл шаблону                            | Опис                                    |
+| Файл шаблону                             | Опис                                    |
 | ---------------------------------------- | --------------------------------------- |
-| `prices/unit-price.php`                  | Одинична цiна                           |
-| `prices/vat-notice.php`                  | Iнформацiя про ПДВ та доставку          |
-| `prices/delivery-time.php`               | Орiєнтовний час доставки                |
-| `manufacturer/info.php`                  | Iнформацiя про виробника                |
+| `prices/unit-price.php`                  | Ціна за одиницю                         |
+| `prices/vat-notice.php`                  | Інформація про ПДВ і доставку           |
+| `prices/delivery-time.php`               | Орієнтовний час доставки                |
+| `manufacturer/info.php`                  | Інформація про виробника                |
 | `manufacturer/logo.php`                  | Логотип виробника                       |
 
-### Харчовi продукти
+### Харчові продукти
 
-| Файл шаблону                            | Опис                                    |
+| Файл шаблону                             | Опис                                    |
 | ---------------------------------------- | --------------------------------------- |
-| `food/nutrients-table.php`               | Таблиця харчової цiнностi               |
-| `food/allergens-list.php`                | Список алергенiв                        |
-| `food/nutri-score.php`                   | Позначення Nutri-Score                  |
+| `food/nutrients-table.php`               | Таблиця харчової цінності               |
+| `food/allergens-list.php`                | Список алергенів                        |
+| `food/nutri-score.php`                   | Позначка Nutri-Score                    |
 
 ### Каса та замовлення
 
-| Файл шаблону                            | Опис                                    |
+| Файл шаблону                             | Опис                                    |
 | ---------------------------------------- | --------------------------------------- |
-| `checkout/button-label.php`              | Мiтка кнопки замовлення                 |
-| `checkout/legal-checkboxes.php`          | Юридичнi чекбокси на касi               |
+| `checkout/button-label.php`              | Мітка кнопки замовлення                 |
+| `checkout/legal-checkboxes.php`          | Юридичні чекбокси на касі               |
 | `checkout/nip-field.php`                 | Поле NIP з автозаповненням              |
-| `checkout/doi-notice.php`                | Повiдомлення double opt-in              |
+| `checkout/doi-notice.php`                | Повідомлення double opt-in              |
 
-### Модулi магазину
+### Модулі магазину
 
-| Файл шаблону                            | Опис                                    |
+| Файл шаблону                             | Опис                                    |
 | ---------------------------------------- | --------------------------------------- |
 | `wishlist/table.php`                     | Таблиця списку бажань                   |
 | `wishlist/button.php`                    | Кнопка додавання до списку              |
-| `wishlist/header-icon.php`               | Iконка в заголовку                      |
-| `compare/table.php`                      | Таблиця порiвняння                      |
-| `compare/button.php`                     | Кнопка порiвняння                       |
-| `compare/floating-bar.php`               | Панель порiвняння (низ екрану)           |
-| `quick-view/modal.php`                   | Вiкно lightbox швидкого перегляду       |
+| `wishlist/header-icon.php`               | Іконка в шапці                          |
+| `compare/table.php`                      | Таблиця порівняння                      |
+| `compare/button.php`                     | Кнопка порівняння                       |
+| `compare/floating-bar.php`               | Панель порівняння (внизу екрана)        |
+| `quick-view/modal.php`                   | Вікно lightbox швидкого перегляду       |
 | `quick-view/button.php`                  | Кнопка швидкого перегляду               |
 | `ajax-search/form.php`                   | Поле AJAX-пошуку                        |
-| `ajax-search/results.php`               | Dropdown з результатами пошуку          |
+| `ajax-search/results.php`               | Випадний список з результатами пошуку   |
 | `ajax-search/result-item.php`           | Окремий результат пошуку                |
-| `ajax-filters/container.php`            | Контейнер AJAX-фiльтрiв                |
-| `ajax-filters/filter-category.php`      | Фiльтр категорiй                       |
-| `ajax-filters/filter-price.php`         | Фiльтр цiни (повзунок)                 |
-| `ajax-filters/filter-attribute.php`     | Фiльтр атрибуту                         |
-| `ajax-filters/active-filters.php`       | Панель активних фiльтрiв                |
+| `ajax-filters/container.php`            | Контейнер AJAX-фільтрів                 |
+| `ajax-filters/filter-category.php`      | Фільтр категорій                        |
+| `ajax-filters/filter-price.php`         | Фільтр ціни (повзунок)                  |
+| `ajax-filters/filter-attribute.php`     | Фільтр атрибута                         |
+| `ajax-filters/active-filters.php`       | Панель активних фільтрів                |
 | `product-slider/slider.php`             | Контейнер слайдера                      |
-| `product-slider/item.php`               | Картка продукту в слайдерi              |
-| `badges/badge.php`                       | Окрема мiтка                            |
-| `badges/container.php`                   | Контейнер мiток на продуктi             |
-| `waitlist/form.php`                      | Форма списку очiкування                 |
-| `waitlist/email.php`                     | E-mail повiдомлення про наявнiсть       |
+| `product-slider/item.php`               | Картка товару в слайдері                |
+| `badges/badge.php`                       | Окремий значок                          |
+| `badges/container.php`                   | Контейнер значків на товарі             |
+| `waitlist/form.php`                      | Форма списку очікування                 |
+| `waitlist/email.php`                     | Лист сповіщення про наявність           |
 
-### Iнструменти
+### Інструменти
 
-| Файл шаблону                            | Опис                                    |
+| Файл шаблону                             | Опис                                    |
 | ---------------------------------------- | --------------------------------------- |
-| `tools/compliance-checklist.php`         | Контрольний список вiдповiдностi        |
-| `tools/audit-report.php`                | Звiт з аудиту                           |
-| `tools/security-incident-form.php`      | Форма iнциденту безпеки                 |
-| `tools/verified-review-badge.php`       | Значок верифiкованого вiдгуку           |
+| `tools/compliance-checklist.php`         | Контрольний список відповідності        |
+| `tools/audit-report.php`                | Звіт аудиту                             |
+| `tools/security-incident-form.php`      | Форма інциденту безпеки                 |
+| `tools/verified-review-badge.php`       | Значок перевіреного відгуку             |
 
-## Доступнi змiннi в шаблонах
+## Доступні змінні в шаблонах
 
-Кожний шаблон отримує набiр змiнних. Приклад для `omnibus/price-display.php`:
+Кожен шаблон отримує набір змінних. Приклад для `omnibus/price-display.php`:
 
 ```php
 <?php
@@ -131,8 +131,8 @@ wp-content/themes/twoj-motyw/polski/omnibus/price-display.php
  * Доступні змінні:
  * @var float  $lowest_price  Найнижча ціна за період
  * @var int    $days          Кількість днів
- * @var int    $product_id    ID продукту
- * @var string $price_html    Форматована ціна HTML
+ * @var int    $product_id    ID товару
+ * @var string $price_html    Відформатована ціна HTML
  * @var string $date          Дата найнижчої ціни
  *
  * @package Polski
@@ -144,7 +144,7 @@ defined('ABSPATH') || exit;
 <div class="polski-omnibus-price">
     <span class="polski-omnibus-label">
         <?php printf(
-            esc_html__('Najniższa cena z %d dni przed obniżką:', 'polski'),
+            esc_html__('Найнижча ціна за %d днів перед зниженням:', 'polski'),
             $days
         ); ?>
     </span>
@@ -154,11 +154,11 @@ defined('ABSPATH') || exit;
 </div>
 ```
 
-## Перевiрка версii шаблону
+## Перевірка версії шаблону
 
-Кожний шаблон мiстить коментар `@version` у заголовку. Пiсля оновлення плагiна перевiрте, чи вашi перевизначенi шаблони потребують оновлення.
+Кожен шаблон має коментар `@version`. Після оновлення плагіна перевірте, чи перевизначені шаблони потребують оновлення.
 
-Плагiн вiдображає попередження в панелi адмiнiстратора (**WooCommerce > Status > Polski**), якщо виявить застарiлi шаблони в темi.
+Попередження про застарілі шаблони з'являється в **WooCommerce > Статус > Polski**.
 
 ```php
 /**
@@ -166,9 +166,9 @@ defined('ABSPATH') || exit;
  */
 ```
 
-## Хук для змiни шляху шаблонiв
+## Хук для зміни шляху до шаблонів
 
-Якщо ви хочете змiнити стандартне розташування шаблонiв у темi:
+Якщо хочете змінити стандартне розташування шаблонів у темі:
 
 ```php
 add_filter('polski/template/path', function (string $path): string {
@@ -176,25 +176,25 @@ add_filter('polski/template/path', function (string $path): string {
 });
 ```
 
-Тодi шаблони будуть шукатися в: `wp-content/themes/twoj-motyw/custom-polski-templates/`
+Тоді шаблони шукатимуться в: `wp-content/themes/tvoja-tema/custom-polski-templates/`
 
-## Налагодження шаблонiв
+## Налагодження шаблонів
 
-Щоб перевiрити, який шаблон завантажується зараз, увiмкнiть режим debug:
+Перевірте, який шаблон завантажується, увімкнувши режим налагодження:
 
 ```php
 // У wp-config.php
 define('POLSKI_TEMPLATE_DEBUG', true);
 ```
 
-У режимi debug кожний шаблон оточений HTML-коментарями, що вказують шлях:
+У режимі налагодження кожен шаблон обгортається HTML-коментарями зі шляхом:
 
 ```html
-<!-- polski template: /themes/twoj-motyw/polski/omnibus/price-display.php -->
+<!-- polski template: /themes/tvoja-tema/polski/omnibus/price-display.php -->
 ...
 <!-- /polski template -->
 ```
 
-Повiдомлення про проблеми: [github.com/wppoland/polski/issues](https://github.com/wppoland/polski/issues)
+Повідомлення про проблеми: [github.com/wppoland/polski/issues](https://github.com/wppoland/polski/issues)
 
-<div class="disclaimer">Ця сторінка має виключно інформаційний характер і не є юридичною консультацією. Перед впровадженням зверніться до юриста. Polski for WooCommerce - це програмне забезпечення з відкритим кодом (GPLv2), що надається без гарантій.</div>
+<div class="disclaimer">Ця сторінка має виключно інформаційний характер і не є юридичною консультацією. Перед впровадженням проконсультуйтеся з юристом. Polski for WooCommerce є програмним забезпеченням з відкритим кодом (GPLv2), що надається без гарантій.</div>

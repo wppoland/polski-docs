@@ -1,19 +1,19 @@
 ---
 title: Команди WP-CLI
-description: Команди WP-CLI, доступнi в Polski for WooCommerce - мiграцiя даних та тестування правильностi конфiгурацii.
+description: Команди WP-CLI, доступні в Polski for WooCommerce - міграція даних і перевірка коректності конфігурації.
 ---
 
-Команди WP-CLI для управлiння плагiном з командного рядка. Автоматизуйте мiграцiї даних та перевiряйте конфiгурацiю.
+Команди WP-CLI для керування плагіном з командного рядка. Автоматизуйте міграції даних і перевіряйте конфігурацію.
 
 ## Вимоги
 
-- WordPress з активним плагiном Polski for WooCommerce
-- [WP-CLI](https://wp-cli.org/) версii 2.5 або новiшої
-- Доступ SSH до сервера або локальне середовище розробки
+- WordPress з активним плагіном Polski for WooCommerce
+- [WP-CLI](https://wp-cli.org/) версії 2.5 або новішої
+- SSH-доступ до сервера або локальне середовище розробки
 
 ## wp polski migrate
 
-Команда мiграцii даних при оновленнi плагiна або перенесеннi магазину.
+Міграція даних при оновленні плагіна або перенесенні магазину.
 
 ### Синтаксис
 
@@ -23,33 +23,33 @@ wp polski migrate [<migration>] [--dry-run] [--force] [--batch-size=<number>]
 
 ### Аргументи
 
-| Аргумент       | Тип    | Обов'язковий | Опис                                         |
-| -------------- | ------ | ------------ | -------------------------------------------- |
-| `<migration>`  | string | Нi           | Назва мiграцii (пропустити = всi очiкуванi)   |
+| Аргумент       | Тип    | Обов'язковий | Опис                              |
+| -------------- | ------ | -------- | --------------------------------- |
+| `<migration>`  | string | Ні       | Назва міграції (пропустіть = усі очікувані) |
 
-### Опцii
+### Опції
 
-| Опцiя            | Опис                                          |
+| Опція            | Опис                                          |
 | ---------------- | --------------------------------------------- |
-| `--dry-run`      | Показати план мiграцii без виконання змiн      |
-| `--force`        | Примусово повторити мiграцiю                   |
-| `--batch-size=N` | Кiлькiсть записiв, що обробляються в однiй партii (за замовчуванням 100) |
+| `--dry-run`      | Показати план міграції без внесення змін      |
+| `--force`        | Примусово повторити виконання міграції        |
+| `--batch-size=N` | Кількість записів, що обробляються в одній партії (за замовчуванням 100) |
 
-### Доступнi мiграцii
+### Доступні міграції
 
-| Назва мiграцii            | Опис                                         |
+| Назва міграції            | Опис                                         |
 | ------------------------- | -------------------------------------------- |
-| `omnibus_price_history`   | Мiграцiя iсторii цiн Omnibus до новоi таблицi |
-| `checkboxes_v2`           | Оновлення структури чекбоксiв до v2           |
-| `gpsr_meta`               | Мiграцiя даних GPSR до нового формату meta    |
-| `wishlist_to_db`          | Перенесення спискiв бажань з usermeta до видiленоi таблицi |
-| `delivery_time_format`    | Оновлення формату часу доставки               |
-| `badges_cache_rebuild`    | Перебудова кешу мiток продуктiв               |
-| `search_index`            | Перебудова iндексу AJAX-пошуку                |
+| `omnibus_price_history`   | Міграція історії цін Omnibus до нової таблиці |
+| `checkboxes_v2`           | Оновлення структури чекбоксів до v2          |
+| `gpsr_meta`               | Міграція даних GPSR до нового формату meta   |
+| `wishlist_to_db`          | Перенесення списків бажань з usermeta до виділеної таблиці |
+| `delivery_time_format`    | Оновлення формату часу доставки              |
+| `badges_cache_rebuild`    | Перебудова кешу значків товарів              |
+| `search_index`            | Перебудова індексу AJAX-пошуку               |
 
 ### Приклади
 
-Показати очiкуванi мiграцii:
+Показати очікувані міграції:
 
 ```bash
 wp polski migrate --dry-run
@@ -58,14 +58,14 @@ wp polski migrate --dry-run
 Результат:
 
 ```
-Oczekujące migracje:
-  1. omnibus_price_history - Migracja historii cen (ok. 5200 rekordów)
-  2. checkboxes_v2 - Aktualizacja checkboxów (3 rekordy)
-Razem: 2 migracje
-Tryb dry-run - żadne zmiany nie zostały wykonane.
+Очікувані міграції:
+  1. omnibus_price_history - Міграція історії цін (бл. 5200 записів)
+  2. checkboxes_v2 - Оновлення чекбоксів (3 записи)
+Разом: 2 міграції
+Режим dry-run - жодних змін не внесено.
 ```
 
-Виконати всi очiкуванi мiграцii:
+Виконати всі очікувані міграції:
 
 ```bash
 wp polski migrate
@@ -74,25 +74,25 @@ wp polski migrate
 Результат:
 
 ```
-Wykonywanie migracji: omnibus_price_history...
-  Przetwarzanie partii 1/52 (100 rekordów)...
-  Przetwarzanie partii 2/52 (100 rekordów)...
+Виконання міграції: omnibus_price_history...
+  Обробка партії 1/52 (100 записів)...
+  Обробка партії 2/52 (100 записів)...
   ...
-  Migracja omnibus_price_history zakończona. Zmigrowano 5200 rekordów.
+  Міграцію omnibus_price_history завершено. Перенесено 5200 записів.
 
-Wykonywanie migracji: checkboxes_v2...
-  Migracja checkboxes_v2 zakończona. Zmigrowano 3 rekordy.
+Виконання міграції: checkboxes_v2...
+  Міграцію checkboxes_v2 завершено. Перенесено 3 записи.
 
-Wszystkie migracje zakończone pomyślnie.
+Усі міграції завершено успішно.
 ```
 
-Виконати конкретну мiграцiю з бiльшою партiєю:
+Виконати конкретну міграцію з більшою партією:
 
 ```bash
 wp polski migrate omnibus_price_history --batch-size=500
 ```
 
-Примусово повторити мiграцiю:
+Примусово повторити виконання міграції:
 
 ```bash
 wp polski migrate search_index --force
@@ -100,30 +100,30 @@ wp polski migrate search_index --force
 
 ### Обробка помилок
 
-Якщо мiграцiя завершиться помилкою, плагiн:
+Якщо міграція завершиться помилкою, плагін:
 
-1. Покаже детальне повiдомлення про помилку
-2. Скасує змiни з поточної партii (rollback)
-3. Запише лог до `wp-content/debug.log` (якщо `WP_DEBUG_LOG` увiмкнено)
-4. Запам'ятає точку зупинки - наступний запуск продовжить з мiсця помилки
+1. Покаже детальне повідомлення про помилку
+2. Відкотить зміни поточної партії (rollback)
+3. Запише лог до `wp-content/debug.log` (якщо `WP_DEBUG_LOG` увімкнено)
+4. Запам'ятає точку переривання - наступний запуск продовжить з місця помилки
 
 ```bash
 wp polski migrate omnibus_price_history
 ```
 
-Результат при помилцi:
+Результат при помилці:
 
 ```
-Wykonywanie migracji: omnibus_price_history...
-  Przetwarzanie partii 23/52 (100 rekordów)...
-  BŁĄD: Nie można zapisać rekordu #2345 - naruszenie integralności danych.
-  Rollback partii 23 wykonany.
-  Migracja przerwana. Wykonaj ponownie, aby kontynuować od partii 23.
+Виконання міграції: omnibus_price_history...
+  Обробка партії 23/52 (100 записів)...
+  ПОМИЛКА: Не вдалося зберегти запис #2345 - порушення цілісності даних.
+  Rollback партії 23 виконано.
+  Міграцію перервано. Виконайте повторно, щоб продовжити з партії 23.
 ```
 
 ## wp polski smoke-test
 
-Команда тестування правильностi конфiгурацii магазину. Перевiряє всi модулi плагiна, юридичнi сторiнки, чекбокси та iнтеграцii.
+Тестує конфігурацію магазину: модулі, юридичні сторінки, чекбокси та інтеграції.
 
 ### Синтаксис
 
@@ -131,24 +131,24 @@ Wykonywanie migracji: omnibus_price_history...
 wp polski smoke-test [--module=<module>] [--format=<format>] [--verbose]
 ```
 
-### Опцii
+### Опції
 
-| Опцiя               | Опис                                      |
-| -------------------- | ----------------------------------------- |
-| `--module=<module>`  | Тестувати лише обраний модуль              |
-| `--format=<format>`  | Формат виводу: table (за замовчуванням), json, csv |
-| `--verbose`          | Детальна iнформацiя про кожний тест        |
+| Опція              | Опис                                      |
+| ------------------- | ----------------------------------------- |
+| `--module=<module>` | Тестувати лише обраний модуль             |
+| `--format=<format>` | Формат виводу: table (за замовчуванням), json, csv |
+| `--verbose`         | Детальна інформація про кожен тест         |
 
-### Елементи, що тестуються
+### Тестовані елементи
 
-| Модуль              | Тести                                              |
-| -------------------- | -------------------------------------------------- |
-| `compliance`         | Юридичнi сторiнки, чекбокси, GPSR, Omnibus, DSA    |
-| `checkout`           | Кнопка замовлення, поля NIP, DOI                   |
-| `prices`             | Одиничнi цiни, ПДВ, час доставки                   |
-| `food`               | Харчова цiннiсть, алергени, Nutri-Score             |
-| `storefront`         | Wishlist, порiвняння, пошук, фiльтри, слайдер       |
-| `integrations`       | REST API, шаблони, кеш, cron                        |
+| Модуль             | Тести                                              |
+| ------------------- | -------------------------------------------------- |
+| `compliance`        | Юридичні сторінки, чекбокси, GPSR, Omnibus, DSA    |
+| `checkout`          | Кнопка замовлення, поля NIP, DOI                   |
+| `prices`            | Ціни за одиницю, ПДВ, час доставки                 |
+| `food`              | Харчова цінність, алергени, Nutri-Score            |
+| `storefront`        | Список бажань, порівняння, пошук, фільтри, слайдер |
+| `integrations`      | REST API, шаблони, кеш, cron                        |
 
 ### Приклади
 
@@ -165,34 +165,34 @@ Polski for WooCommerce - Smoke Test
 ====================================
 
 +---------------------+---------------------------+--------+
-| Moduł               | Test                      | Status |
+| Модуль              | Тест                      | Статус |
 +---------------------+---------------------------+--------+
-| compliance          | Regulamin sklepu          | OK     |
-| compliance          | Polityka prywatności      | OK     |
-| compliance          | Checkboxy kasy            | OK     |
-| compliance          | Dane GPSR                 | WARN   |
-| compliance          | Cena Omnibus              | OK     |
-| compliance          | Formularz DSA             | OK     |
-| checkout            | Etykieta przycisku        | OK     |
-| checkout            | Pole NIP                  | OK     |
+| compliance          | Правила магазину          | OK     |
+| compliance          | Політика конфіденційності | OK     |
+| compliance          | Чекбокси каси             | OK     |
+| compliance          | Дані GPSR                 | WARN   |
+| compliance          | Ціна Omnibus              | OK     |
+| compliance          | Форма DSA                 | OK     |
+| checkout            | Мітка кнопки              | OK     |
+| checkout            | Поле NIP                  | OK     |
 | checkout            | Double opt-in             | OFF    |
-| prices              | Cena jednostkowa          | OK     |
-| prices              | Informacja VAT            | OK     |
-| prices              | Czas dostawy              | WARN   |
-| storefront          | Wyszukiwarka AJAX         | OK     |
-| storefront          | Filtry AJAX               | OK     |
+| prices              | Ціна за одиницю           | OK     |
+| prices              | Інформація ПДВ            | OK     |
+| prices              | Час доставки              | WARN   |
+| storefront          | AJAX-пошук                | OK     |
+| storefront          | AJAX-фільтри              | OK     |
 | integrations        | REST API                  | OK     |
-| integrations        | Szablony motywu           | OK     |
-| integrations        | Cache transient           | OK     |
+| integrations        | Шаблони теми              | OK     |
+| integrations        | Transient-кеш             | OK     |
 | integrations        | WP-Cron                   | OK     |
 +---------------------+---------------------------+--------+
 
-Wynik: 15 OK, 2 WARN, 1 OFF
+Результат: 15 OK, 2 WARN, 1 OFF
 ```
 
 Статуси:
-- **OK** - тест пройшов успiшно
-- **WARN** - попередження, потребує перевiрки
+- **OK** - тест пройшов успішно
+- **WARN** - попередження, потребує перевірки
 - **FAIL** - критична помилка
 - **OFF** - модуль вимкнено
 
@@ -205,20 +205,20 @@ wp polski smoke-test --module=compliance --verbose
 Результат:
 
 ```
-Test: compliance/regulamin
-  Strona ID: 45
-  Status: publish
-  Ostatnia aktualizacja: 2025-06-01
-  Liczba słów: 3200
-  Wynik: OK
+Тест: compliance/regulamin
+  ID сторінки: 45
+  Статус: publish
+  Останнє оновлення: 2025-06-01
+  Кількість слів: 3200
+  Результат: OK
 
-Test: compliance/gpsr
-  Produkty z GPSR: 142/350 (40.6%)
-  Brak danych GPSR: 208 produktów
-  Wynik: WARN - Nie wszystkie produkty mają uzupełnione dane GPSR
+Тест: compliance/gpsr
+  Товари з GPSR: 142/350 (40.6%)
+  Немає даних GPSR: 208 товарів
+  Результат: WARN - Не всі товари мають заповнені дані GPSR
 ```
 
-Експорт у JSON (наприклад, для CI/CD):
+Експорт до JSON (наприклад, для CI/CD):
 
 ```bash
 wp polski smoke-test --format=json
@@ -237,21 +237,21 @@ wp polski smoke-test --format=json
       "module": "compliance",
       "test": "terms_page",
       "status": "ok",
-      "message": "Regulamin sklepu opublikowany (ID: 45)"
+      "message": "Правила магазину опубліковано (ID: 45)"
     }
   ]
 }
 ```
 
-## Iнтеграцiя з CI/CD
+## Інтеграція з CI/CD
 
-Команда `smoke-test` повертає вiдповiдний код завершення:
+Команда `smoke-test` повертає відповідний код виходу:
 
 | Код | Опис                    |
 | --- | ----------------------- |
-| 0   | Всi тести OK            |
+| 0   | Усі тести OK            |
 | 1   | Попередження (WARN)     |
-| 2   | Критичнi помилки (FAIL) |
+| 2   | Критичні помилки (FAIL) |
 
 Приклад використання в GitHub Actions:
 
@@ -261,7 +261,7 @@ wp polski smoke-test --format=json
   continue-on-error: false
 ```
 
-Приклад у скриптi bash:
+Приклад у bash-скрипті:
 
 ```bash
 #!/bin/bash
@@ -269,22 +269,22 @@ wp polski smoke-test --format=json > /tmp/smoke-test.json
 
 EXIT_CODE=$?
 if [ $EXIT_CODE -eq 2 ]; then
-    echo "Testy Polski FAILED - sprawdź konfigurację"
+    echo "Тести Polski FAILED - перевірте конфігурацію"
     exit 1
 elif [ $EXIT_CODE -eq 1 ]; then
-    echo "Testy Polski WARN - sprawdź ostrzeżenia"
+    echo "Тести Polski WARN - перевірте попередження"
 fi
 ```
 
 ## Multisite
 
-Команди WP-CLI пiдтримують iнсталяцii WordPress Multisite. Використовуйте прапорець `--url` для вказання конкретного сайту:
+Команди підтримують WordPress Multisite. Вкажіть сайт прапорцем `--url`:
 
 ```bash
-wp polski smoke-test --url=sklep1.twojadomena.pl
-wp polski migrate --url=sklep2.twojadomena.pl
+wp polski smoke-test --url=sklep1.tvojdomen.pl
+wp polski migrate --url=sklep2.tvojdomen.pl
 ```
 
-Повiдомлення про проблеми: [github.com/wppoland/polski/issues](https://github.com/wppoland/polski/issues)
+Повідомлення про проблеми: [github.com/wppoland/polski/issues](https://github.com/wppoland/polski/issues)
 
-<div class="disclaimer">Ця сторінка має виключно інформаційний характер і не є юридичною консультацією. Перед впровадженням зверніться до юриста. Polski for WooCommerce - це програмне забезпечення з відкритим кодом (GPLv2), що надається без гарантій.</div>
+<div class="disclaimer">Ця сторінка має виключно інформаційний характер і не є юридичною консультацією. Перед впровадженням проконсультуйтеся з юристом. Polski for WooCommerce є програмним забезпеченням з відкритим кодом (GPLv2), що надається без гарантій.</div>
