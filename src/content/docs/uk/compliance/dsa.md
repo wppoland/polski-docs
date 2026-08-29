@@ -40,7 +40,7 @@ description: Інструменти DSA (Digital Services Act) у Polski for Woo
 | `product_id` | ID продукту, якого стосується повідомлення | Немає (користувач обирає) |
 | `category` | Попередньо вибрана категорія повідомлення | Немає |
 
-![Форма повідомлень DSA на сторінці магазину](../../../assets/screenshots/screenshot-6-dsa-report-form.png)
+![Форма повідомлень DSA на сторінці магазину](../../../../assets/screenshots/screenshot-6-dsa-report-form.png)
 
 ### Поля форми
 

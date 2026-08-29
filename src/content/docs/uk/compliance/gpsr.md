@@ -22,7 +22,7 @@ description: Налаштування полів GPSR (General Product Safety Re
 
 Поля GPSR знайдете в редагуванні продукту, у вкладці **Polski - GPSR**. Кожне поле необов'язкове, але заповніть усі, що стосуються конкретного продукту.
 
-![Поля GPSR у редакторі продукту WooCommerce](../../../assets/screenshots/screenshot-2-gpsr-product-editor.png)
+![Поля GPSR у редакторі продукту WooCommerce](../../../../assets/screenshots/screenshot-2-gpsr-product-editor.png)
 
 ### Виробник
 
