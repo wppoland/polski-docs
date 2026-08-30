@@ -13,8 +13,8 @@
     "scan:generate": "node scripts/scan-repos.mjs && node scripts/generate-docs.mjs"
   },
   "dependencies": {
-    "@astrojs/starlight": "^0.38.2",
-    "astro": "^6.0.1",
-    "sharp": "^0.34.2"
+    "@astrojs/starlight": "^0.41.10",
+    "astro": "^7.2.9",
+    "sharp": "^0.35.4"
   }
 }
